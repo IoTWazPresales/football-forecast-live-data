@@ -74,8 +74,14 @@ def injury_rows(raw: Any) -> list[dict[str, Any]]:
 
 def fetch_injuries(event: dict[str, Any], team_id: str) -> tuple[list[dict[str, Any]], str, str]:
     url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{event['espnLeague']}/teams/{team_id}/injuries"
-    try: return injury_rows(p.http_json(url,15,2)), "loaded", url
-    except Exception as e: return [], f"failed: {e}", url
+    try:
+        raw = p.http_json(url,15,2)
+        rows = injury_rows(raw)
+        # Empty soccer injury responses are not interpreted as "everyone healthy".
+        # They are kept as unknown/empty-source state until corroborating data exists.
+        return rows, ("loaded" if rows else "loaded-empty-unknown"), url
+    except Exception as e:
+        return [], f"failed: {e}", url
 
 
 def coach_name(raw: Any) -> str:
@@ -97,11 +103,32 @@ def coach_name(raw: Any) -> str:
     return ""
 
 
-def fetch_coach(event: dict[str, Any], team_id: str) -> tuple[str,str,str]:
-    url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{event['espnLeague']}/teams/{team_id}/roster"
-    try:
-        name = coach_name(p.http_json(url,15,2)); return name, ("loaded" if name else "loaded-no-coach"), url
-    except Exception as e: return "", f"failed: {e}", url
+def fetch_coach(event: dict[str, Any], team_id: str, year: int) -> tuple[str,str,str]:
+    # Soccer site rosters often omit coach metadata. Prefer the season/team coaches
+    # core endpoint, then fall back to the site roster if necessary.
+    urls = [
+        f"https://sports.core.api.espn.com/v2/sports/soccer/leagues/{event['espnLeague']}/seasons/{year}/teams/{team_id}/coaches",
+        f"https://site.api.espn.com/apis/site/v2/sports/soccer/{event['espnLeague']}/teams/{team_id}/roster",
+    ]
+    errors=[]
+    for url in urls:
+        try:
+            raw=p.http_json(url,15,2)
+            name=coach_name(raw)
+            if not name and isinstance(raw,dict):
+                for item in raw.get("items") or []:
+                    if isinstance(item,dict) and item.get("$ref"):
+                        try:
+                            prof=p.http_json(str(item["$ref"]).replace("http://","https://"),10,1)
+                            name=coach_name(prof)
+                            if not name and isinstance(prof,dict):
+                                for k in ("displayName","fullName","name","shortName"):
+                                    if prof.get(k): name=str(prof[k]).strip(); break
+                        except Exception as exc: errors.append(str(exc))
+                    if name: break
+            if name: return name,"loaded",url
+        except Exception as e: errors.append(str(e))
+    return "",("loaded-no-coach" if not errors else "unresolved: "+errors[-1][:180]),urls[0]
 
 
 def track_coach(cache: dict[str,Any], event: dict[str,Any], team_id: str, team: str, coach: str, now: dt.datetime) -> dict[str,Any]:
@@ -119,8 +146,38 @@ def track_coach(cache: dict[str,Any], event: dict[str,Any], team_id: str, team: 
     return row
 
 
-def p1_snapshot(event: dict[str,Any], side: str, year: int, pcache: dict[str,Any], injuries: list[dict[str,Any]]) -> dict[str,Any] | None:
-    hist = p.prior_lineups_for_team(event,side,pcache,year)
+def prior_lineups_extended(event: dict[str,Any], side: str, pcache: dict[str,Any], year: int) -> tuple[list[list[dict[str,Any]]], list[int]]:
+    """Use only completed matches before kickoff, spanning current and previous season.
+
+    This is research-only and fixes the early-season cold start without inventing current
+    availability. Previous-season lineups naturally decay because only the most recent
+    six confirmed lineups are retained.
+    """
+    team_id = event["homeId"] if side == "home" else event["awayId"]
+    kickoff = p.parse_dt(event.get("date")) or dt.datetime.now(dt.timezone.utc)
+    prev=[]
+    for sy in (year,year-1):
+        for raw in p.get_team_schedule(event["espnLeague"],team_id,sy,pcache):
+            er=p.event_record(raw,event["league"],event["espnLeague"])
+            if not er or er["id"]==event["id"] or not er.get("completed"): continue
+            edt=p.parse_dt(er.get("date"))
+            if not edt or edt>=kickoff: continue
+            er["historySeason"]=sy; prev.append(er)
+    dedup={x["id"]:x for x in prev}; prev=sorted(dedup.values(),key=lambda x:x.get("date") or "")[-8:]
+    rows=[]; used=[]
+    for e in prev:
+        lu=p.get_summary(e,pcache,force=False)
+        if not lu: continue
+        eside="home" if str(e.get("homeId"))==str(team_id) else "away"
+        pl=lu.get(eside) or []
+        if sum(x.get("status")=="starting" for x in pl)>=10:
+            rows.append(pl); used.append(int(e.get("historySeason") or year))
+        time.sleep(.03)
+    return rows[-6:],used[-6:]
+
+
+def p1_snapshot(event: dict[str,Any], side: str, year: int, pcache: dict[str,Any], injuries: list[dict[str,Any]], injury_known: bool) -> dict[str,Any] | None:
+    hist, history_seasons = prior_lineups_extended(event,side,pcache,year)
     if len(hist) < p.MIN_PRIOR_MATCHDAYS: return None
     universe = {}
     for m in hist:
@@ -147,7 +204,7 @@ def p1_snapshot(event: dict[str,Any], side: str, year: int, pcache: dict[str,Any
     missing = [x for x in ideal if x["id"] in hard]; doubtful = [x for x in ideal if x["id"] in doubt]
     prev = [x for x in hist[-1] if x.get("status") == "starting"]; prev_ids = {str(x.get("id")) for x in prev}; exp_ids = {x["id"] for x in expected}
     overlap = len(prev_ids & exp_ids)/11.0; pg = next((x for x in prev if x.get("pos")=="GK"),None); eg = next((x for x in expected if x.get("pos")=="GK"),None); same_gk = 1.0 if pg and eg and str(pg.get("id"))==eg["id"] else 0.0
-    return {"priorMatches":len(hist),"availabilityLoss":p.clip(sum(float(x.get("importance") or 0) for x in missing)/ideal_strength,0,1),"replacementQuality":p.replacement_quality(ideal,expected),"expectedXIRatio":p.clip(exp_strength/ideal_strength,0,1.25),"expectedContinuity":.85*p.clip(overlap,0,1)+.15*same_gk,"hardUnavailableIdealN":len(missing),"hardUnavailableIdeal":[x["name"] for x in missing],"doubtfulIdealN":len(doubtful),"doubtfulIdealWeight":p.clip(sum(float(x.get("importance") or 0) for x in doubtful)/ideal_strength,0,1),"doubtfulIdeal":[x["name"] for x in doubtful],"idealXI":[x["name"] for x in ideal],"expectedXI":[x["name"] for x in expected]}
+    return {"priorMatches":len(hist),"historySeasonsUsed":history_seasons,"injuryAvailabilityKnown":bool(injury_known),"availabilityLoss":(p.clip(sum(float(x.get("importance") or 0) for x in missing)/ideal_strength,0,1) if injury_known else None),"replacementQuality":(p.replacement_quality(ideal,expected) if injury_known else None),"expectedXIRatio":(p.clip(exp_strength/ideal_strength,0,1.25) if injury_known else None),"expectedContinuity":.85*p.clip(overlap,0,1)+.15*same_gk,"hardUnavailableIdealN":(len(missing) if injury_known else None),"hardUnavailableIdeal":([x["name"] for x in missing] if injury_known else []),"doubtfulIdealN":(len(doubtful) if injury_known else None),"doubtfulIdealWeight":(p.clip(sum(float(x.get("importance") or 0) for x in doubtful)/ideal_strength,0,1) if injury_known else None),"doubtfulIdeal":([x["name"] for x in doubtful] if injury_known else []),"idealXI":[x["name"] for x in ideal],"expectedXI":[x["name"] for x in expected]}
 
 
 def main() -> int:
@@ -164,21 +221,24 @@ def main() -> int:
         key = f"{kick.date().isoformat()}|{p.team_key(e['home'])}|{p.team_key(e['away'])}"; sides={}
         for side in ("home","away"):
             tid = e["homeId"] if side=="home" else e["awayId"]; name = e["home"] if side=="home" else e["away"]
-            ik=f"{e['espnLeague']}|{tid}"; injuries,istatus,iurl = injcache.setdefault(ik,fetch_injuries(e,tid)); coach,cstatus,curl = coachcache.setdefault(ik,fetch_coach(e,tid)); manager = track_coach(ccache,e,tid,name,coach,now)
-            snap = None if istatus.startswith("failed") else p1_snapshot(e,side,year,pcache,injuries)
+            ik=f"{e['espnLeague']}|{tid}"; injuries,istatus,iurl = injcache.setdefault(ik,fetch_injuries(e,tid)); coach,cstatus,curl = coachcache.setdefault(ik,fetch_coach(e,tid,year)); manager = track_coach(ccache,e,tid,name,coach,now)
+            injury_known=(istatus=="loaded"); snap = p1_snapshot(e,side,year,pcache,injuries,injury_known)
             sides[side] = {"teamId":tid,"team":name,"injurySourceStatus":istatus,"injurySource":iurl,"injuryReport":injuries,"snapshot":snap,"manager":manager,"coachSourceStatus":cstatus,"coachSource":curl}
             time.sleep(.03)
         H,A = sides["home"]["snapshot"],sides["away"]["snapshot"]; features = None
-        if H and A: features = {"availabilityAdv":A["availabilityLoss"]-H["availabilityLoss"],"replacementQualityAdv":H["replacementQuality"]-A["replacementQuality"],"expectedXIStrengthDiff":H["expectedXIRatio"]-A["expectedXIRatio"],"expectedContinuityDiff":H["expectedContinuity"]-A["expectedContinuity"],"doubtfulWeightDiff":H["doubtfulIdealWeight"]-A["doubtfulIdealWeight"]}
+        if H and A:
+            availability_known=bool(H.get("injuryAvailabilityKnown") and A.get("injuryAvailabilityKnown"))
+            features={"availabilityKnown":availability_known,"availabilityAdv":((A["availabilityLoss"]-H["availabilityLoss"]) if availability_known else None),"replacementQualityAdv":((H["replacementQuality"]-A["replacementQuality"]) if availability_known else None),"expectedXIStrengthDiff":((H["expectedXIRatio"]-A["expectedXIRatio"]) if availability_known else None),"expectedContinuityDiff":H["expectedContinuity"]-A["expectedContinuity"],"doubtfulWeightDiff":((H["doubtfulIdealWeight"]-A["doubtfulIdealWeight"]) if availability_known else None)}
         reasons=[]
         for side in ("home","away"):
             if sides[side]["injurySourceStatus"].startswith("failed"): reasons.append(f"{side} injury source failed")
-            if sides[side]["snapshot"] is None: reasons.append(f"{side} insufficient prior lineup history or unresolved injury state")
-        fixtures[key] = {"ok":bool(features),"eventId":e["id"],"league":e["league"],"home":e["home"],"away":e["away"],"kickoff":e["date"],"fetchedAt":p.iso_now(),"source":"ESPN prospective P1 shadow collector","researchOnly":True,"reason":"; ".join(reasons),"features":features,"homeDetail":sides["home"],"awayDetail":sides["away"],"managerFeatures":{"homeCoach":sides["home"]["manager"].get("coach"),"awayCoach":sides["away"]["manager"].get("coach"),"homeManagerChangedDetected":bool(sides["home"]["manager"].get("changedThisRun")),"awayManagerChangedDetected":bool(sides["away"]["manager"].get("changedThisRun")),"homeTenureLowerBoundDays":sides["home"]["manager"].get("tenureLowerBoundDays"),"awayTenureLowerBoundDays":sides["away"]["manager"].get("tenureLowerBoundDays"),"validatedForPrediction":False},"predictionPolicy":"SHADOW ONLY — never changes HBT-1.1.2 deployed probabilities or tier"}
-    generated = p.iso_now(); payload = {"schemaVersion":SCHEMA,"generatedAt":generated,"seasonStartYear":year,"researchVersion":"HBT-1.2R-P1-MGR-Shadow","policy":{"researchOnly":True,"feedsBackIntoPrediction":False,"oddsUsed":False,"missingInjuryDataIsZero":False,"managerTenure":"prospective lower bound from first observation; not historical tenure","promotionGate":"requires separate causal validation before any coefficient or tier change"},"fixtures":fixtures,"sourceAudit":audit}
+            elif sides[side]["injurySourceStatus"]=="loaded-empty-unknown": reasons.append(f"{side} injury feed empty; availability not assumed healthy")
+            if sides[side]["snapshot"] is None: reasons.append(f"{side} insufficient prior confirmed-lineup history")
+        fixtures[key] = {"ok":bool(features),"availabilityKnown":bool(features and features.get("availabilityKnown")),"eventId":e["id"],"league":e["league"],"home":e["home"],"away":e["away"],"kickoff":e["date"],"fetchedAt":p.iso_now(),"source":"ESPN prospective P1 shadow collector","researchOnly":True,"reason":"; ".join(reasons),"features":features,"homeDetail":sides["home"],"awayDetail":sides["away"],"manager":manager,"managerFeatures":{"homeCoach":sides["home"]["manager"].get("coach"),"awayCoach":sides["away"]["manager"].get("coach"),"homeManagerChangedDetected":bool(sides["home"]["manager"].get("changedThisRun")),"awayManagerChangedDetected":bool(sides["away"]["manager"].get("changedThisRun")),"homeTenureLowerBoundDays":sides["home"]["manager"].get("tenureLowerBoundDays"),"awayTenureLowerBoundDays":sides["away"]["manager"].get("tenureLowerBoundDays"),"validatedForPrediction":False},"predictionPolicy":"SHADOW ONLY — never changes HBT-1.1.2 deployed probabilities or tier"}
+    generated = p.iso_now(); payload = {"schemaVersion":SCHEMA,"generatedAt":generated,"seasonStartYear":year,"researchVersion":"HBT-1.2R-P1-MGR-Shadow","policy":{"researchOnly":True,"feedsBackIntoPrediction":False,"oddsUsed":False,"missingInjuryDataIsZero":False,"earlySeasonHistory":"current + previous season confirmed lineups; most recent six only","managerTenure":"prospective lower bound from first observation; not historical tenure","promotionGate":"requires separate causal validation before any coefficient or tier change"},"fixtures":fixtures,"sourceAudit":audit}
     p.write_json(OUTPUT,payload); p.write_json(p.CACHE_PATH,pcache); p.write_json(CTX_CACHE,ccache)
     m = read_json(MANIFEST,{"schemaVersion":SCHEMA,"files":{},"freshness":{},"sourceAudit":{},"policy":{}}); m.setdefault("files",{})["preXiContext"] = OUTPUT.name; m.setdefault("freshness",{})["preXiContextMaxAgeMinutes"] = 60; m.setdefault("sourceAudit",{})["preXiContext"] = audit; m.setdefault("policy",{})["preXiShadow"] = "ESPN injuries + prior confirmed lineups + prospective coach tracking; research only"; m["generatedAt"] = generated; m["seasonStartYear"] = year; p.write_json(MANIFEST,m)
-    print("P1 shadow feed:",len(fixtures),"fixtures;",sum(1 for x in fixtures.values() if x.get("ok")),"feature-complete;",sum(len(x["homeDetail"]["injuryReport"])+len(x["awayDetail"]["injuryReport"]) for x in fixtures.values()),"injury rows")
+    print("P1 shadow feed:",len(fixtures),"fixtures;",sum(1 for x in fixtures.values() if x.get("ok")),"lineup-feature-complete;",sum(1 for x in fixtures.values() if x.get("availabilityKnown")),"availability-known;",sum(len(x["homeDetail"]["injuryReport"])+len(x["awayDetail"]["injuryReport"]) for x in fixtures.values()),"injury rows;",sum(1 for x in fixtures.values() if x.get("managerFeatures",{}).get("homeCoach"))+sum(1 for x in fixtures.values() if x.get("managerFeatures",{}).get("awayCoach")),"coach sides")
     return 0
 
 if __name__ == "__main__": raise SystemExit(main())
