@@ -9,6 +9,7 @@ on:
   push:
     paths:
       - 'scripts/hbt_collect_live_data.py'
+      - 'scripts/hbt_collect_players_espn.py'
       - '.github/workflows/hbt-live-data.yml'
 
 concurrency:
@@ -32,8 +33,11 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Collect normalized HBT live intelligence
+      - name: Collect normalized HBT performance intelligence
         run: python scripts/hbt_collect_live_data.py
+
+      - name: Replace blocked SofaScore player feed with ESPN fallback
+        run: python scripts/hbt_collect_players_espn.py
 
       - name: Validate generated feed
         run: |
