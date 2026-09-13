@@ -11,6 +11,7 @@ on:
       - 'scripts/hbt_collect_live_data.py'
       - 'scripts/hbt_collect_players_espn.py'
       - 'scripts/hbt_collect_prexi_context.py'
+      - 'scripts/hbt_collect_prexi_context_v2.py'
       - '.github/workflows/hbt-live-data.yml'
 
 concurrency:
@@ -40,8 +41,8 @@ jobs:
       - name: Replace blocked SofaScore player feed with ESPN fallback
         run: python scripts/hbt_collect_players_espn.py
 
-      - name: Collect prospective P1 and manager shadow intelligence
-        run: python scripts/hbt_collect_prexi_context.py
+      - name: Collect hardened P1 and manager shadow intelligence
+        run: python scripts/hbt_collect_prexi_context_v2.py
 
       - name: Validate generated feed
         run: |
@@ -62,6 +63,11 @@ jobs:
           assert len(need & have) >= 4, (need,have)
           for code,pack in p.get('leagues',{}).items():
               assert isinstance(pack.get('teams'),list)
+          for row in (s.get('fixtures') or {}).values():
+              assert row.get('predictionPolicy','').startswith('SHADOW ONLY')
+              assert 'availabilitySourceKnown' in row
+              assert 'lineupHistoryReady' in row
+              assert 'weightedAvailabilityReady' in row
           print('Feed validation passed:',m['generatedAt'],len(x.get('features',{})),'player fixture rows;',len(s.get('fixtures',{})),'P1 shadow rows')
           PY
 
