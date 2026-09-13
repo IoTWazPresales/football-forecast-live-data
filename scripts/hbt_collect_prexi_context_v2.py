@@ -41,7 +41,6 @@ def read_cache() -> dict[str, Any]:
 
 
 def write_cache(d: dict[str, Any]) -> None:
-    base.write_json = getattr(base, "write_json", p.write_json)
     p.write_json(ARCHIVE_CACHE_PATH, d)
 
 
@@ -109,7 +108,6 @@ def archive_team_json(event: dict[str, Any], team_name: str, season: int) -> dic
     scored.sort(key=lambda x: x[0], reverse=True)
     if not scored or scored[0][0] < 0.50:
         return None
-    # Refuse ambiguous weak matches.
     if len(scored) > 1 and scored[0][0] < 0.90 and scored[0][0] - scored[1][0] < 0.15:
         return None
     url = scored[0][1].get("download_url")
@@ -119,7 +117,6 @@ def archive_team_json(event: dict[str, Any], team_name: str, season: int) -> dic
         raw = p.http_json(str(url), 25, 2)
         if not isinstance(raw, dict):
             return None
-        # Sanity check the club identity before caching.
         if _score_name(team_name, str(raw.get("club") or raw.get("tmSlug") or "")) < 0.45:
             return None
         _archive_cache[ckey] = raw
@@ -177,8 +174,6 @@ def archive_history(event: dict[str, Any], side: str, year: int) -> tuple[list[l
             if not mm:
                 continue
             status = str(mm.get("status") or "not_in_squad")
-            # Player-importance scoring treats unknown absences like not-in-squad;
-            # keep start/sub/bench exactly and collapse other absence reasons.
             if status not in {"starting", "sub_in", "bench", "not_in_squad"}:
                 status = "not_in_squad"
             name = str(q.get("name") or "").strip()
@@ -198,11 +193,10 @@ def archive_history(event: dict[str, Any], side: str, year: int) -> tuple[list[l
 
 
 _original_prior = base.prior_lineups_extended
+_original_fpl = base.fpl_injury_rows
 
 
 def prior_lineups_extended(event: dict[str, Any], side: str, pcache: dict[str, Any], year: int):
-    # ESPN current/previous season remains first choice; archived prior-season
-    # Transfermarkt rows seed cold-start when ESPN summaries are sparse.
     espn_rows, espn_seasons = _original_prior(event, side, pcache, year)
     ar_rows, ar_seasons = archive_history(event, side, year)
     if len(espn_rows) >= 6:
@@ -214,7 +208,7 @@ def prior_lineups_extended(event: dict[str, Any], side: str, pcache: dict[str, A
 
 
 def fpl_injury_rows(team_name: str) -> list[dict[str, Any]]:
-    rows = base.fpl_injury_rows(team_name)
+    rows = _original_fpl(team_name)
     out = []
     for r in rows:
         rr = dict(r)
@@ -265,7 +259,6 @@ def fetch_coach(event: dict[str, Any], team_id: str, year: int):
     return "", status, urls[0]
 
 
-# Monkey-patch only the research collector hooks.
 base.prior_lineups_extended = prior_lineups_extended
 base.fpl_injury_rows = fpl_injury_rows
 base.fetch_coach = fetch_coach
