@@ -22,6 +22,8 @@ CTX_CACHE = OUT / "_espn_prexi_context_cache.json"
 MANIFEST = OUT / "manifest.json"
 OUTPUT = OUT / "pre_xi_context.json"
 SCHEMA = "HBT-LIVE-DATA-1"
+FPL_URL = "https://fantasy.premierleague.com/api/bootstrap-static/"
+_FPL_CACHE: dict[str, Any] | None = None
 
 
 def read_json(path: Path, default: Any) -> Any:
@@ -46,7 +48,6 @@ def player_key(s: str) -> str:
 
 
 def injury_rows(raw: Any) -> list[dict[str, Any]]:
-    """Normalize the flexible ESPN injury-report shapes without treating missing as healthy."""
     out, seen = [], set()
     for d in flatten(raw):
         ath = d.get("athlete") if isinstance(d.get("athlete"), dict) else None
@@ -72,15 +73,49 @@ def injury_rows(raw: Any) -> list[dict[str, Any]]:
     return out
 
 
-def fetch_injuries(event: dict[str, Any], team_id: str) -> tuple[list[dict[str, Any]], str, str]:
+def fpl_injury_rows(team_name: str) -> list[dict[str, Any]]:
+    global _FPL_CACHE
+    if _FPL_CACHE is None:
+        try: _FPL_CACHE = p.http_json(FPL_URL,20,2)
+        except Exception: _FPL_CACHE = {}
+    raw=_FPL_CACHE or {}; teams=raw.get("teams") or []; elements=raw.get("elements") or []
+    target=player_key(team_name); team=None
+    for t in teams:
+        names=[t.get("name") or "",t.get("short_name") or ""]
+        if any(player_key(x)==target for x in names): team=t; break
+    if not team:
+        tt=set(target.split()); scored=[]
+        for t in teams:
+            k=player_key(t.get("name") or ""); st=set(k.split()); score=len(tt&st)/max(1,len(tt|st)); scored.append((score,t))
+        scored.sort(key=lambda x:x[0],reverse=True)
+        if scored and scored[0][0]>=0.5 and (len(scored)==1 or scored[0][0]>scored[1][0]): team=scored[0][1]
+    if not team: return []
+    out=[]
+    for e in elements:
+        if e.get("team")!=team.get("id"): continue
+        status=str(e.get("status") or "a").lower(); chance=e.get("chance_of_playing_next_round"); news=str(e.get("news") or "").strip()
+        if status=="a" and (chance is None or chance>=100) and not news: continue
+        name=(str(e.get("first_name") or "")+" "+str(e.get("second_name") or "")).strip() or str(e.get("web_name") or "")
+        if status in {"i","s","u"} or chance==0: cls="suspended" if status=="s" else "injured"; hard=True
+        else: cls="doubtful"; hard=False
+        detail=f"FPL status={status}; chance_next={chance}; {news}".strip()
+        out.append({"id":"","name":name,"class":cls,"hardUnavailable":hard,"detail":detail[:600],"source":"FPL"})
+    return out
+
+
+def fetch_injuries(event: dict[str, Any], team_id: str, team_name: str) -> tuple[list[dict[str, Any]], str, str]:
     url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{event['espnLeague']}/teams/{team_id}/injuries"
     try:
-        raw = p.http_json(url,15,2)
-        rows = injury_rows(raw)
-        # Empty soccer injury responses are not interpreted as "everyone healthy".
-        # They are kept as unknown/empty-source state until corroborating data exists.
-        return rows, ("loaded" if rows else "loaded-empty-unknown"), url
+        raw = p.http_json(url,15,2); rows = injury_rows(raw)
+        if rows: return rows,"loaded-espn",url
+        if event.get("league")=="en.1":
+            fpl=fpl_injury_rows(team_name)
+            if fpl: return fpl,"loaded-fpl",FPL_URL
+        return [],"loaded-empty-unknown",url
     except Exception as e:
+        if event.get("league")=="en.1":
+            fpl=fpl_injury_rows(team_name)
+            if fpl: return fpl,"loaded-fpl",FPL_URL
         return [], f"failed: {e}", url
 
 
@@ -104,8 +139,6 @@ def coach_name(raw: Any) -> str:
 
 
 def fetch_coach(event: dict[str, Any], team_id: str, year: int) -> tuple[str,str,str]:
-    # Soccer site rosters often omit coach metadata. Prefer the season/team coaches
-    # core endpoint, then fall back to the site roster if necessary.
     urls = [
         f"https://sports.core.api.espn.com/v2/sports/soccer/leagues/{event['espnLeague']}/seasons/{year}/teams/{team_id}/coaches",
         f"https://site.api.espn.com/apis/site/v2/sports/soccer/{event['espnLeague']}/teams/{team_id}/roster",
@@ -113,14 +146,12 @@ def fetch_coach(event: dict[str, Any], team_id: str, year: int) -> tuple[str,str
     errors=[]
     for url in urls:
         try:
-            raw=p.http_json(url,15,2)
-            name=coach_name(raw)
+            raw=p.http_json(url,15,2); name=coach_name(raw)
             if not name and isinstance(raw,dict):
                 for item in raw.get("items") or []:
                     if isinstance(item,dict) and item.get("$ref"):
                         try:
-                            prof=p.http_json(str(item["$ref"]).replace("http://","https://"),10,1)
-                            name=coach_name(prof)
+                            prof=p.http_json(str(item["$ref"]).replace("http://","https://"),10,1); name=coach_name(prof)
                             if not name and isinstance(prof,dict):
                                 for k in ("displayName","fullName","name","shortName"):
                                     if prof.get(k): name=str(prof[k]).strip(); break
@@ -147,12 +178,6 @@ def track_coach(cache: dict[str,Any], event: dict[str,Any], team_id: str, team: 
 
 
 def prior_lineups_extended(event: dict[str,Any], side: str, pcache: dict[str,Any], year: int) -> tuple[list[list[dict[str,Any]]], list[int]]:
-    """Use only completed matches before kickoff, spanning current and previous season.
-
-    This is research-only and fixes the early-season cold start without inventing current
-    availability. Previous-season lineups naturally decay because only the most recent
-    six confirmed lineups are retained.
-    """
     team_id = event["homeId"] if side == "home" else event["awayId"]
     kickoff = p.parse_dt(event.get("date")) or dt.datetime.now(dt.timezone.utc)
     prev=[]
@@ -168,8 +193,7 @@ def prior_lineups_extended(event: dict[str,Any], side: str, pcache: dict[str,Any
     for e in prev:
         lu=p.get_summary(e,pcache,force=False)
         if not lu: continue
-        eside="home" if str(e.get("homeId"))==str(team_id) else "away"
-        pl=lu.get(eside) or []
+        eside="home" if str(e.get("homeId"))==str(team_id) else "away"; pl=lu.get(eside) or []
         if sum(x.get("status")=="starting" for x in pl)>=10:
             rows.append(pl); used.append(int(e.get("historySeason") or year))
         time.sleep(.03)
@@ -221,8 +245,8 @@ def main() -> int:
         key = f"{kick.date().isoformat()}|{p.team_key(e['home'])}|{p.team_key(e['away'])}"; sides={}
         for side in ("home","away"):
             tid = e["homeId"] if side=="home" else e["awayId"]; name = e["home"] if side=="home" else e["away"]
-            ik=f"{e['espnLeague']}|{tid}"; injuries,istatus,iurl = injcache.setdefault(ik,fetch_injuries(e,tid)); coach,cstatus,curl = coachcache.setdefault(ik,fetch_coach(e,tid,year)); manager = track_coach(ccache,e,tid,name,coach,now)
-            injury_known=(istatus=="loaded"); snap = p1_snapshot(e,side,year,pcache,injuries,injury_known)
+            ik=f"{e['espnLeague']}|{tid}"; injuries,istatus,iurl = injcache.setdefault(ik,fetch_injuries(e,tid,name)); coach,cstatus,curl = coachcache.setdefault(ik,fetch_coach(e,tid,year)); manager = track_coach(ccache,e,tid,name,coach,now)
+            injury_known=(istatus in {"loaded-espn","loaded-fpl"}); snap = p1_snapshot(e,side,year,pcache,injuries,injury_known)
             sides[side] = {"teamId":tid,"team":name,"injurySourceStatus":istatus,"injurySource":iurl,"injuryReport":injuries,"snapshot":snap,"manager":manager,"coachSourceStatus":cstatus,"coachSource":curl}
             time.sleep(.03)
         H,A = sides["home"]["snapshot"],sides["away"]["snapshot"]; features = None
@@ -234,10 +258,10 @@ def main() -> int:
             if sides[side]["injurySourceStatus"].startswith("failed"): reasons.append(f"{side} injury source failed")
             elif sides[side]["injurySourceStatus"]=="loaded-empty-unknown": reasons.append(f"{side} injury feed empty; availability not assumed healthy")
             if sides[side]["snapshot"] is None: reasons.append(f"{side} insufficient prior confirmed-lineup history")
-        fixtures[key] = {"ok":bool(features),"availabilityKnown":bool(features and features.get("availabilityKnown")),"eventId":e["id"],"league":e["league"],"home":e["home"],"away":e["away"],"kickoff":e["date"],"fetchedAt":p.iso_now(),"source":"ESPN prospective P1 shadow collector","researchOnly":True,"reason":"; ".join(reasons),"features":features,"homeDetail":sides["home"],"awayDetail":sides["away"],"manager":manager,"managerFeatures":{"homeCoach":sides["home"]["manager"].get("coach"),"awayCoach":sides["away"]["manager"].get("coach"),"homeManagerChangedDetected":bool(sides["home"]["manager"].get("changedThisRun")),"awayManagerChangedDetected":bool(sides["away"]["manager"].get("changedThisRun")),"homeTenureLowerBoundDays":sides["home"]["manager"].get("tenureLowerBoundDays"),"awayTenureLowerBoundDays":sides["away"]["manager"].get("tenureLowerBoundDays"),"validatedForPrediction":False},"predictionPolicy":"SHADOW ONLY — never changes HBT-1.1.2 deployed probabilities or tier"}
-    generated = p.iso_now(); payload = {"schemaVersion":SCHEMA,"generatedAt":generated,"seasonStartYear":year,"researchVersion":"HBT-1.2R-P1-MGR-Shadow","policy":{"researchOnly":True,"feedsBackIntoPrediction":False,"oddsUsed":False,"missingInjuryDataIsZero":False,"earlySeasonHistory":"current + previous season confirmed lineups; most recent six only","managerTenure":"prospective lower bound from first observation; not historical tenure","promotionGate":"requires separate causal validation before any coefficient or tier change"},"fixtures":fixtures,"sourceAudit":audit}
+        fixtures[key] = {"ok":bool(features),"availabilityKnown":bool(features and features.get("availabilityKnown")),"eventId":e["id"],"league":e["league"],"home":e["home"],"away":e["away"],"kickoff":e["date"],"fetchedAt":p.iso_now(),"source":"ESPN prospective P1 shadow collector","researchOnly":True,"reason":"; ".join(reasons),"features":features,"homeDetail":sides["home"],"awayDetail":sides["away"],"managerFeatures":{"homeCoach":sides["home"]["manager"].get("coach"),"awayCoach":sides["away"]["manager"].get("coach"),"homeManagerChangedDetected":bool(sides["home"]["manager"].get("changedThisRun")),"awayManagerChangedDetected":bool(sides["away"]["manager"].get("changedThisRun")),"homeTenureLowerBoundDays":sides["home"]["manager"].get("tenureLowerBoundDays"),"awayTenureLowerBoundDays":sides["away"]["manager"].get("tenureLowerBoundDays"),"validatedForPrediction":False},"predictionPolicy":"SHADOW ONLY — never changes HBT-1.1.2 deployed probabilities or tier"}
+    generated = p.iso_now(); payload = {"schemaVersion":SCHEMA,"generatedAt":generated,"seasonStartYear":year,"researchVersion":"HBT-1.2R-P1-MGR-Shadow","policy":{"researchOnly":True,"feedsBackIntoPrediction":False,"oddsUsed":False,"missingInjuryDataIsZero":False,"earlySeasonHistory":"current + previous season confirmed lineups; most recent six only","injurySources":"ESPN; EPL falls back to anonymous FPL status/news when ESPN is empty","managerTenure":"prospective lower bound from first observation; not historical tenure","promotionGate":"requires separate causal validation before any coefficient or tier change"},"fixtures":fixtures,"sourceAudit":audit}
     p.write_json(OUTPUT,payload); p.write_json(p.CACHE_PATH,pcache); p.write_json(CTX_CACHE,ccache)
-    m = read_json(MANIFEST,{"schemaVersion":SCHEMA,"files":{},"freshness":{},"sourceAudit":{},"policy":{}}); m.setdefault("files",{})["preXiContext"] = OUTPUT.name; m.setdefault("freshness",{})["preXiContextMaxAgeMinutes"] = 60; m.setdefault("sourceAudit",{})["preXiContext"] = audit; m.setdefault("policy",{})["preXiShadow"] = "ESPN injuries + prior confirmed lineups + prospective coach tracking; research only"; m["generatedAt"] = generated; m["seasonStartYear"] = year; p.write_json(MANIFEST,m)
+    m = read_json(MANIFEST,{"schemaVersion":SCHEMA,"files":{},"freshness":{},"sourceAudit":{},"policy":{}}); m.setdefault("files",{})["preXiContext"] = OUTPUT.name; m.setdefault("freshness",{})["preXiContextMaxAgeMinutes"] = 60; m.setdefault("sourceAudit",{})["preXiContext"] = audit; m.setdefault("policy",{})["preXiShadow"] = "ESPN injuries (EPL FPL fallback) + prior confirmed lineups + prospective coach tracking; research only"; m["generatedAt"] = generated; m["seasonStartYear"] = year; p.write_json(MANIFEST,m)
     print("P1 shadow feed:",len(fixtures),"fixtures;",sum(1 for x in fixtures.values() if x.get("ok")),"lineup-feature-complete;",sum(1 for x in fixtures.values() if x.get("availabilityKnown")),"availability-known;",sum(len(x["homeDetail"]["injuryReport"])+len(x["awayDetail"]["injuryReport"]) for x in fixtures.values()),"injury rows;",sum(1 for x in fixtures.values() if x.get("managerFeatures",{}).get("homeCoach"))+sum(1 for x in fixtures.values() if x.get("managerFeatures",{}).get("awayCoach")),"coach sides")
     return 0
 
