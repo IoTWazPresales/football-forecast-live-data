@@ -10,6 +10,7 @@ on:
     paths:
       - 'scripts/hbt_collect_live_data.py'
       - 'scripts/hbt_collect_players_espn.py'
+      - 'scripts/hbt_collect_prexi_context.py'
       - '.github/workflows/hbt-live-data.yml'
 
 concurrency:
@@ -39,6 +40,9 @@ jobs:
       - name: Replace blocked SofaScore player feed with ESPN fallback
         run: python scripts/hbt_collect_players_espn.py
 
+      - name: Collect prospective P1 and manager shadow intelligence
+        run: python scripts/hbt_collect_prexi_context.py
+
       - name: Validate generated feed
         run: |
           python - <<'PY'
@@ -47,14 +51,18 @@ jobs:
           m=json.load(open(root/'manifest.json',encoding='utf-8'))
           p=json.load(open(root/'performance.json',encoding='utf-8'))
           x=json.load(open(root/'player_features.json',encoding='utf-8'))
+          s=json.load(open(root/'pre_xi_context.json',encoding='utf-8'))
           assert m['schemaVersion']=='HBT-LIVE-DATA-1'
-          assert p['schemaVersion']==m['schemaVersion']==x['schemaVersion']
+          assert p['schemaVersion']==m['schemaVersion']==x['schemaVersion']==s['schemaVersion']
+          assert s.get('policy',{}).get('feedsBackIntoPrediction') is False
+          assert s.get('policy',{}).get('oddsUsed') is False
+          assert m.get('files',{}).get('preXiContext') == 'pre_xi_context.json'
           need={'en.1','es.1','de.1','it.1','fr.1'}
           have=set(p.get('leagues',{}))
-          assert len(need & have) >= 4, (need, have)
+          assert len(need & have) >= 4, (need,have)
           for code,pack in p.get('leagues',{}).items():
               assert isinstance(pack.get('teams'),list)
-          print('Feed validation passed:',m['generatedAt'],len(x.get('features',{})),'player fixture rows')
+          print('Feed validation passed:',m['generatedAt'],len(x.get('features',{})),'player fixture rows;',len(s.get('fixtures',{})),'P1 shadow rows')
           PY
 
       - name: Commit feed if changed
