@@ -1,0 +1,68 @@
+name: HBT Live Intelligence Feed
+
+on:
+  schedule:
+    # Frequent enough to capture confirmed lineups before kickoff. GitHub may
+    # delay scheduled runs under load, so the Forecast Desk also audits freshness.
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/hbt_collect_live_data.py'
+      - '.github/workflows/hbt-live-data.yml'
+
+concurrency:
+  group: hbt-live-intelligence-feed
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Collect normalized HBT live intelligence
+        run: python scripts/hbt_collect_live_data.py
+
+      - name: Validate generated feed
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path('hbt_live_data')
+          m=json.load(open(root/'manifest.json',encoding='utf-8'))
+          p=json.load(open(root/'performance.json',encoding='utf-8'))
+          x=json.load(open(root/'player_features.json',encoding='utf-8'))
+          assert m['schemaVersion']=='HBT-LIVE-DATA-1'
+          assert p['schemaVersion']==m['schemaVersion']==x['schemaVersion']
+          need={'en.1','es.1','de.1','it.1','fr.1'}
+          have=set(p.get('leagues',{}))
+          assert len(need & have) >= 4, (need, have)
+          for code,pack in p.get('leagues',{}).items():
+              assert isinstance(pack.get('teams'),list)
+          print('Feed validation passed:',m['generatedAt'],len(x.get('features',{})),'player fixture rows')
+          PY
+
+      - name: Commit feed if changed
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data
+          git diff --staged --quiet && exit 0
+          git commit -m 'data: refresh HBT live intelligence [skip ci]'
+          for attempt in 1 2 3; do
+            git push && exit 0
+            git pull --rebase origin "${{ github.event.repository.default_branch }}"
+          done
+          echo 'Could not push refreshed feed after retries' >&2
+          exit 1
