@@ -1,0 +1,56 @@
+name: HBT Tactical Travel Historical Extract
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/hbt_extract_tactical_travel_2018.py'
+      - '.github/workflows/hbt-tactical-travel-extract.yml'
+
+concurrency:
+  group: hbt-tactical-travel-extract
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile
+        run: python -m py_compile scripts/hbt_extract_tactical_travel_2018.py
+      - name: Extract historical actual formation and travel
+        run: python scripts/hbt_extract_tactical_travel_2018.py
+      - name: Validate extraction
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('hbt_live_data/tactical_travel_2018.json',encoding='utf-8'))
+          assert p['version']=='HBT-1.3R-TACTICAL-TRAVEL-2018'
+          assert p['season']==2018
+          assert p['policy']['bookmakerOddsUsed'] is False
+          assert p['policy']['outcomesUsedToBuildFeatures'] is False
+          assert p['coverage']['rows'] > 1500
+          assert p['coverage']['formationBoth'] > 500
+          print(p['coverage'])
+          PY
+      - name: Commit extract
+        run: |
+          set -euo pipefail
+          BRANCH="${{ github.event.repository.default_branch }}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/tactical_travel_2018.json
+          git diff --staged --quiet && exit 0
+          git commit -m 'research: add HBT 2018 tactical/travel extract [skip ci]'
+          git pull --rebase origin "$BRANCH"
+          git push origin "HEAD:$BRANCH"
