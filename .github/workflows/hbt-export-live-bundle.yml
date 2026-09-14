@@ -1,0 +1,43 @@
+name: HBT Export Live Bundle
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/hbt-export-live-bundle.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Verify HBT-1.3 bundle
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path('hbt_live_data')
+          need=['market_intelligence.json','event_model_params.json','player_prop_model_params.json','pre_xi_context.json','performance.json','player_features.json']
+          for n in need:
+              p=root/n
+              assert p.exists(), n
+              json.load(open(p,encoding='utf-8'))
+          q=json.load(open(root/'market_intelligence.json',encoding='utf-8'))
+          print(q.get('researchVersion'), q.get('generatedAt'), q.get('health'))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hbt-1-3-live-bundle
+          path: |
+            hbt_live_data/market_intelligence.json
+            hbt_live_data/event_model_params.json
+            hbt_live_data/player_prop_model_params.json
+            hbt_live_data/pre_xi_context.json
+            hbt_live_data/performance.json
+            hbt_live_data/player_features.json
+          if-no-files-found: error
+          retention-days: 1
