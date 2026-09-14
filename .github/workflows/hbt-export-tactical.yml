@@ -1,0 +1,32 @@
+name: HBT Export Tactical Travel
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/hbt-export-tactical.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Verify tactical extract
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('hbt_live_data/tactical_travel_2018.json',encoding='utf-8'))
+          assert p['coverage']['rows'] > 1500
+          print(p['coverage'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hbt-tactical-travel-2018
+          path: hbt_live_data/tactical_travel_2018.json
+          if-no-files-found: error
+          retention-days: 1
