@@ -10,6 +10,9 @@ import hbt_build_p1_causal_history as builder
 builder.ALIASES.update({
     "lille osc": "losc lille",
     "olympique lyonnais": "olympique lyon",
+    "cd alaves": "deportivo alaves",
+    "bor monchengladbach": "borussia gladbach",
+    "lazio roma": "lazio rom",
 })
 
 if __name__ == "__main__":
