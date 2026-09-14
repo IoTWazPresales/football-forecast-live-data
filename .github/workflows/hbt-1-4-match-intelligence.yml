@@ -1,0 +1,61 @@
+name: HBT-1.4 Match Intelligence Research
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - 'scripts/hbt_extract_match_intelligence_v5.py'
+      - 'hbt_live_data/hbt_1_4_feature_registry.json'
+      - 'docs/HBT-1.4-MATCH-INTELLIGENCE-SPEC.md'
+      - '.github/workflows/hbt-1-4-match-intelligence.yml'
+  workflow_dispatch:
+
+concurrency:
+  group: hbt-1-4-match-intelligence-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  historical-intelligence:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile HBT-1.4 extractor
+        run: python -m py_compile scripts/hbt_extract_match_intelligence_v5.py
+      - name: Extract causal historical intelligence
+        run: python scripts/hbt_extract_match_intelligence_v5.py
+      - name: Validate causal contract and coverage
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('hbt_live_data/hbt_1_4_historical_features_2018_19.json',encoding='utf-8'))
+          assert p['version']=='HBT-1.4R-HISTORICAL-MATCH-INTEL-2018'
+          q=p['policy']
+          assert q['bookmakerOddsUsed'] is False
+          assert q['targetOutcomeStatsUsedAsFeatures'] is False
+          assert q['weatherActualOrReanalysisUsed'] is False
+          assert q['managerHindsightUsed'] is False
+          assert q['failedStandaloneFamiliesRetainedForInteraction'] is True
+          assert p['coverage']['rows'] > 1700, p['coverage']
+          rows=p['rows']
+          assert rows and all('features' in x for x in rows)
+          families={'tactical','shotStoppingGoalkeeper','setPieces','referee','workload','competitionState','confirmedXI','substitutionBehaviour','eventExpectations','weatherVenue','manager'}
+          assert all(families <= set(x['features']) for x in rows[:50])
+          print('HBT-1.4 causal historical extraction passed:',p['coverage'])
+          PY
+      - name: Upload HBT-1.4 historical feature artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hbt-1-4-historical-intelligence-2018-19
+          path: hbt_live_data/hbt_1_4_historical_features_2018_19.json
+          retention-days: 3
