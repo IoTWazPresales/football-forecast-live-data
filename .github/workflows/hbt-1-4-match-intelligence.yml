@@ -48,7 +48,10 @@ jobs:
           assert q['managerHindsightUsed'] is False
           assert q['failedStandaloneFamiliesRetainedForInteraction'] is True
           assert p['coverage']['rows'] > 1700, p['coverage']
-          assert p['coverage']['refereeKnown'] > 1400, p['coverage']
+          # Football-Data's 2018-19 files expose Referee consistently for EPL but
+          # not for every Big-Five league. Missing referee is preserved as unknown.
+          assert p['coverage']['refereeKnown'] > 300, p['coverage']
+          assert p['coverage']['setPieceHomeN3'] > 1500, p['coverage']
           rows=p['rows']
           assert rows and all('features' in x for x in rows)
           families={'tactical','shotStoppingGoalkeeper','setPieces','referee','workload','competitionState','confirmedXI','substitutionBehaviour','eventExpectations','weatherVenue','manager'}
