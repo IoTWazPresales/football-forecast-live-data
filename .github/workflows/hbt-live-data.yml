@@ -82,6 +82,10 @@ jobs:
               assert e['models']['yellowCards']['promotionEvidence']['holdoutNLLDelta'] < 0
               assert e['models']['shots']['promotionEvidence']['holdoutNLLDelta'] < 0
               assert e['models']['shotsOnTarget']['promotionEvidence']['holdoutNLLDelta'] < 0
+          if (root/'player_prop_model_params.json').exists():
+              pp=json.load(open(root/'player_prop_model_params.json',encoding='utf-8'))
+              assert pp['version']=='HBT-1.3R-PLAYER-PROP-CAL'
+              assert all(v['deltaLogloss'] < 0 for v in pp['promotionEvidence']['allHoldoutMarkets'].values())
           print('Feed validation passed',m['generatedAt'],'R3',len(s.get('fixtures',{})),'HBT13',len(q.get('fixtures',{})),'health',q.get('health'))
           PY
       - name: Commit feed if changed
@@ -95,7 +99,8 @@ jobs:
           git fetch origin "$BRANCH"
           git reset --hard "origin/$BRANCH"
           mkdir -p hbt_live_data
-          rm -rf hbt_live_data/*
+          # Overlay this run's generated files on the latest branch tip. Do not
+          # delete files that were added by concurrent model-training workflows.
           cp -a "$TMP/." hbt_live_data/
           git add hbt_live_data
           git diff --staged --quiet && exit 0
