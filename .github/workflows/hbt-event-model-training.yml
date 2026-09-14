@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'scripts/hbt_train_event_models_v4.py'
+      - 'scripts/hbt_append_event_live_priors.py'
       - '.github/workflows/hbt-event-model-training.yml'
 
 concurrency:
@@ -27,23 +28,25 @@ jobs:
         with:
           python-version: '3.12'
       - name: Compile
-        run: python -m py_compile scripts/hbt_train_event_models_v4.py
+        run: python -m py_compile scripts/hbt_train_event_models_v4.py scripts/hbt_append_event_live_priors.py
       - name: Train causal event-market models
         run: python scripts/hbt_train_event_models_v4.py
+      - name: Append last-season live priors
+        run: python scripts/hbt_append_event_live_priors.py
       - name: Validate frozen holdout report
         run: |
           python - <<'PY'
           import json
           p=json.load(open('hbt_live_data/event_model_params.json',encoding='utf-8'))
           assert p['version']=='HBT-1.3R-EVENT-CAL'
-          assert p['holdoutSeason']==2025
+          assert p['holdoutSeason']==2025 and p['livePriorsSeason']==2025
           assert p['sourcePolicy'].endswith('bookmaker odds ignored')
           need={'corners','yellowCards','shots','shotsOnTarget','redCards'}
           assert need <= set(p['models'])
+          assert set(p['livePriors']) >= {'en.1','es.1','de.1','it.1','fr.1'}
           for k in need:
               m=p['models'][k]
-              assert m['selection']['n'] > 0
-              assert m['holdout']['n'] > 0
+              assert m['selection']['n'] > 0 and m['holdout']['n'] > 0
               assert all(x in m['parameters'] for x in ('decay','priorN','attackBlend'))
           print({k:p['models'][k]['promotionEvidence'] for k in sorted(need)})
           PY
