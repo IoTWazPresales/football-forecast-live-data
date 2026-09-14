@@ -7,6 +7,7 @@ causal, pre-kickoff context that is useful for live decision support:
 - rotation-risk proxy from expected-XI continuity,
 - expected-XI role-shape profile (not a tactical formation claim),
 - manager source/readiness already collected by R2,
+- additive confirmed-XI richness (GK continuity, rotation, XI strength, bench depth),
 - explicit promotion/readiness metadata per intelligence family.
 
 IMPORTANT: this script does NOT change HBT-1.1.2 probabilities, tiers, picks,
@@ -27,6 +28,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "hbt_live_data"
 OUTPUT = OUT / "pre_xi_context.json"
 MANIFEST = OUT / "manifest.json"
+PLAYER_FEATURES = OUT / "player_features.json"
 
 
 def _event_from_row(row: dict[str, Any]) -> dict[str, Any] | None:
@@ -143,6 +145,104 @@ def _role_shape(event: dict[str, Any], side: str, year: int, cache: dict[str, An
     }
 
 
+def _confirmed_richness(event: dict[str, Any], side: str, year: int, cache: dict[str, Any]) -> dict[str, Any] | None:
+    """Additive confirmed-XI richness. Never consumed by frozen HBT-1.1.2."""
+    try:
+        current = p.get_summary(event, cache, force=False)
+        hist = p.prior_lineups_for_team(event, side, cache, year)
+    except Exception:
+        return None
+    if not current or not current.get("confirmed") or len(hist) < p.MIN_PRIOR_MATCHDAYS:
+        return None
+    rows = current.get(side) or []
+    xi = [x for x in rows if x.get("status") == "starting"]
+    bench = [x for x in rows if x.get("status") != "starting"]
+    if len(xi) < 10:
+        return None
+    universe: dict[str, dict[str, Any]] = {}
+    for match in hist:
+        for q in match:
+            universe[str(q.get("id"))] = {"id": str(q.get("id")), "name": q.get("name") or "", "pos": q.get("pos") or ""}
+    for q in rows:
+        universe[str(q.get("id"))] = {"id": str(q.get("id")), "name": q.get("name") or "", "pos": q.get("pos") or ""}
+    info = []
+    for q in universe.values():
+        statuses = []
+        for match in hist:
+            found = next((x for x in match if str(x.get("id")) == q["id"]), None)
+            statuses.append(found.get("status") if found else "not_in_squad")
+        imp, n = p.player_importance(statuses)
+        info.append({**q, "importance": imp, "priorN": n})
+    by_id = {str(x["id"]): x for x in info}
+    ideal = p.select_xi(info)
+    if len(ideal) < 10:
+        return None
+    ideal_strength = sum(float(x.get("importance") or 0) for x in ideal) or 1.0
+    xi_info = [{**x, "importance": float((by_id.get(str(x.get("id"))) or {}).get("importance") or 0)} for x in xi]
+    bench_info = [{**x, "importance": float((by_id.get(str(x.get("id"))) or {}).get("importance") or 0)} for x in bench]
+    prev_xi = [x for x in hist[-1] if x.get("status") == "starting"]
+    prev_ids = {str(x.get("id")) for x in prev_xi}
+    cur_ids = {str(x.get("id")) for x in xi}
+    overlap_n = len(prev_ids & cur_ids)
+    prev_gk = next((x for x in prev_xi if x.get("pos") == "GK"), None)
+    cur_gk = next((x for x in xi if x.get("pos") == "GK"), None)
+    same_gk = bool(prev_gk and cur_gk and str(prev_gk.get("id")) == str(cur_gk.get("id")))
+    counts = {"GK": 0, "DEF": 0, "MID": 0, "ATT": 0, "OUT": 0}
+    for x in xi:
+        pos = str(x.get("pos") or "OUT").upper()
+        if pos not in counts:
+            pos = "OUT"
+        counts[pos] += 1
+    known = sum(counts[k] for k in ("GK", "DEF", "MID", "ATT"))
+    role_profile = f"{counts['DEF']}D-{counts['MID']}M-{counts['ATT']}A" if known >= 9 else None
+    xi_strength = sum(float(x.get("importance") or 0) for x in xi_info) / ideal_strength
+    top_bench = sorted((float(x.get("importance") or 0) for x in bench_info), reverse=True)[:5]
+    ideal_avg = ideal_strength / max(1, len(ideal))
+    bench_depth = (sum(top_bench) / (ideal_avg * max(1, len(top_bench)))) if top_bench and ideal_avg > 0 else None
+    return {
+        "rotationCount": max(0, 11 - min(11, overlap_n)),
+        "starterOverlapN": overlap_n,
+        "sameGoalkeeper": same_gk,
+        "goalkeeper": (cur_gk or {}).get("name") or None,
+        "xiStrengthRatio": round(p.clip(xi_strength, 0, 1.35), 4),
+        "benchPlayersN": len(bench_info),
+        "benchDepthRatio": (round(p.clip(bench_depth, 0, 1.5), 4) if bench_depth is not None else None),
+        "roleCounts": counts,
+        "roleProfile": role_profile,
+        "priorMatches": len(hist),
+        "validatedForPrediction": False,
+        "semantics": "confirmed-XI richness shadow; additive fields only",
+    }
+
+
+def _enrich_confirmed_player_feed(data: dict[str, Any], year: int, cache: dict[str, Any]) -> None:
+    try:
+        pf = json.loads(PLAYER_FEATURES.read_text(encoding="utf-8"))
+    except Exception:
+        return
+    by_event = {str(r.get("eventId") or ""): r for r in (data.get("fixtures") or {}).values() if r.get("eventId")}
+    for row in (pf.get("features") or {}).values():
+        if not row.get("ok"):
+            continue
+        ctx = by_event.get(str(row.get("eventId") or ""))
+        if not ctx:
+            continue
+        event = _event_from_row(ctx)
+        if not event:
+            continue
+        h = _confirmed_richness(event, "home", year, cache)
+        a = _confirmed_richness(event, "away", year, cache)
+        if h:
+            row.setdefault("homeSnapshot", {})["richness"] = h
+        if a:
+            row.setdefault("awaySnapshot", {})["richness"] = a
+        if h or a:
+            row["richnessResearchOnly"] = True
+    pf["contextResearchVersion"] = "HBT-1.2R-R3-CONTEXT"
+    pf.setdefault("policy", {})["confirmedXIRichness"] = "GK continuity + rotation count + XI strength + bench depth + role profile; shadow only"
+    p.write_json(PLAYER_FEATURES, pf)
+
+
 def _augment_row(row: dict[str, Any], year: int, cache: dict[str, Any]) -> None:
     event = _event_from_row(row)
     if not event:
@@ -199,6 +299,7 @@ def _augment_row(row: dict[str, Any], year: int, cache: dict[str, Any]) -> None:
             "awayTravelProxy": "historically rejected as predictive; diagnostic only",
             "managerChange": "unvalidated prospective shadow",
             "roleShape": "new descriptive shadow; not a tactical model",
+            "confirmedXIRichness": "new additive shadow; does not alter frozen model",
             "odds": "never predictive input",
         },
     }
@@ -221,9 +322,10 @@ def postprocess() -> None:
     cache = p.read_cache()
     for row in (data.get("fixtures") or {}).values():
         _augment_row(row, year, cache)
+    _enrich_confirmed_player_feed(data, year, cache)
     policy = data.setdefault("policy", {})
     policy["researchVersion"] = "HBT-1.2R-R3-CONTEXT"
-    policy["extendedContext"] = "workload/rest/short-turnaround + rotation proxy + expected-XI role shape + manager tracking; shadow only"
+    policy["extendedContext"] = "workload/rest/short-turnaround + rotation proxy + expected-XI role shape + manager tracking + confirmed-XI richness; shadow only"
     policy["feedsBackIntoPrediction"] = False
     policy["oddsUsed"] = False
     policy["tacticalSemantics"] = "role-shape is descriptive player-position composition; it is not formation/tactical intent"
@@ -231,7 +333,7 @@ def postprocess() -> None:
     p.write_json(OUTPUT, data)
     try:
         m = json.loads(MANIFEST.read_text(encoding="utf-8"))
-        m.setdefault("policy", {})["preXiShadow"] = "R3: availability + expected-XI continuity + manager + workload/rest/short-turnaround + rotation + role-shape; research only"
+        m.setdefault("policy", {})["preXiShadow"] = "R3: availability + expected-XI continuity + manager + workload/rest/short-turnaround + rotation + role-shape + confirmed-XI richness; research only"
         m.setdefault("policy", {})["feedsBackIntoPrediction"] = False
         m["contextResearchVersion"] = "HBT-1.2R-R3-CONTEXT"
         p.write_json(MANIFEST, m)
