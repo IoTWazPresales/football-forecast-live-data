@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'scripts/hbt_train_player_props_v4.py'
+      - 'scripts/hbt_train_player_props_v4_runtime.py'
       - '.github/workflows/hbt-player-prop-training.yml'
 
 concurrency:
@@ -27,9 +28,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Compile
-        run: python -m py_compile scripts/hbt_train_player_props_v4.py
+        run: python -m py_compile scripts/hbt_train_player_props_v4.py scripts/hbt_train_player_props_v4_runtime.py
       - name: Run causal player-prop replay
-        run: python scripts/hbt_train_player_props_v4.py
+        run: python scripts/hbt_train_player_props_v4_runtime.py
       - name: Validate frozen holdout
         run: |
           python - <<'PY'
