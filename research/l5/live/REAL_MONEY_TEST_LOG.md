@@ -12,7 +12,7 @@ Betway slip observed from user screenshot, placed 2026-09-13 19:28:
 |---|---:|---|---|
 | Napoli win vs Bologna | 1.15 | C tier · PRE-XI/Fusion · P(win)=0.5704017524 | WON 1-0 |
 | Getafe win vs Deportivo La Coruna | 2.95 | Avoid tier · P(win)=0.4668553805 | LOST 1-1 |
-| PSG win at Brest | 1.22 | C tier · PRE-XI/Fusion · P(win)=0.5000946612 | WON 1-0 |
+| PSG win at Brest | 1.22 | C tier · PRE-XI/Fusion · P(win)=0.5000946612 | WON 0-1 |
 | Como win vs Parma | 1.21 | A tier · PRE-XI/Fusion · P(win)=0.7716480675 | pending at observation time |
 
 Ticket odds: 5.00. Stake: R1.00. Potential return displayed: R5.01 (Betway return display R5.04). The accumulator is already lost because Getafe drew, but Como remains useful prospective model evidence and must still be settled in the research log.
@@ -41,3 +41,17 @@ Rules:
 Current price audit at registration time: public Betway comparison feeds show approximately Como 1.22, Roma 1.50, Inter 1.25. All three directions agree with HBT, but the prices are shorter than the contemporaneous de-vig market fair estimates (approximately Como 1.32, Roma 1.67, Inter 1.35). Therefore the **primary value protocol is NO BET at current prices**. This is a valid live-money test decision, not a failed attempt to find a bet.
 
 If a real-money wager is placed despite the value gate, it must be logged separately as a **forecast-only/action test**, not relabelled as a validated value bet.
+
+### Optional R1 action-test candidate — pre-registered, not yet confirmed placed
+
+If the user wants one actual R1 wager today despite the value protocol returning NO BET, the cleanest prospective hypothesis test is:
+
+- **Inter to beat Udinese — R1 single**.
+- Frozen HBT: A tier, PRE-XI FUSION, P(Inter)=0.8425259182.
+- Contemporary Betway comparison price observed: approximately 1.25.
+- Contemporary de-vig market estimate: approximately 0.73–0.74 Inter probability.
+- Reason for test: this is the strongest clean A-tier HBT-vs-market probability disagreement among today's primary candidates. It tests whether HBT's extra confidence contains prospective signal.
+- Classification: **forecast-only/action test, NOT a validated value bet**.
+- No accumulator and no additional leg may be added after seeing later information unless separately logged as a new test.
+
+Placement must only be marked confirmed after user supplies the actual Betway price/slip.
