@@ -13,6 +13,9 @@ on:
       - 'scripts/hbt_collect_context_v3.py'
       - 'scripts/hbt_collect_context_v3_runtime.py'
       - 'scripts/hbt_collect_market_intelligence_v4.py'
+      - 'scripts/hbt_collect_market_intelligence_v4_runtime.py'
+      - 'hbt_live_data/event_model_params.json'
+      - 'hbt_live_data/player_prop_model_params.json'
       - '.github/workflows/hbt-live-data.yml'
 
 concurrency:
@@ -31,23 +34,17 @@ jobs:
         with:
           ref: ${{ github.event.repository.default_branch }}
           fetch-depth: 1
-
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-
       - name: Collect normalized HBT performance intelligence
         run: python scripts/hbt_collect_live_data.py
-
       - name: Replace blocked SofaScore player feed with ESPN fallback
         run: python scripts/hbt_collect_players_espn.py
-
       - name: Collect hardened R3 context shadow intelligence
         run: python scripts/hbt_collect_context_v3_runtime.py
-
-      - name: Collect HBT-1.3 market/tactical intelligence
-        run: python scripts/hbt_collect_market_intelligence_v4.py
-
+      - name: Collect hardened HBT-1.3 market/tactical intelligence
+        run: python scripts/hbt_collect_market_intelligence_v4_runtime.py
       - name: Validate generated feed
         run: |
           python - <<'PY'
@@ -69,25 +66,20 @@ jobs:
           assert q.get('policy',{}).get('oddsUsed') is False
           assert m.get('files',{}).get('preXiContext') == 'pre_xi_context.json'
           assert m.get('files',{}).get('marketIntelligence') == 'market_intelligence.json'
+          assert isinstance(q.get('health'),dict)
           need={'en.1','es.1','de.1','it.1','fr.1'}
-          have=set(p.get('leagues',{}))
-          assert len(need & have) >= 4, (need,have)
-          for code,pack in p.get('leagues',{}).items():
-              assert isinstance(pack.get('teams'),list)
+          have=set(p.get('leagues',{})); assert len(need & have) >= 4,(need,have)
+          for code,pack in p.get('leagues',{}).items(): assert isinstance(pack.get('teams'),list)
           for row in (s.get('fixtures') or {}).values():
               assert row.get('predictionPolicy','').startswith('SHADOW ONLY')
-              assert 'availabilitySourceKnown' in row
-              assert 'lineupHistoryReady' in row
-              assert 'weightedAvailabilityReady' in row
-              assert 'extendedContext' in row
-              assert 'intelligenceReadiness' in row
+              assert 'availabilitySourceKnown' in row and 'lineupHistoryReady' in row and 'weightedAvailabilityReady' in row
+              assert 'extendedContext' in row and 'intelligenceReadiness' in row
           for row in (q.get('fixtures') or {}).values():
-              assert 'readiness' in row
+              assert set((row.get('readiness') or {})) >= {'playerProps','corners','cards','formation','travel'}
               assert 'eventMarkets' in row
               assert row.get('policy',{}).get('bookmakerOddsUsed') is False
-          print('Feed validation passed:',m['generatedAt'],len(x.get('features',{})),'player fixture rows;',len(s.get('fixtures',{})),'R3 rows;',len(q.get('fixtures',{})),'HBT-1.3 market rows')
+          print('Feed validation passed',m['generatedAt'],'R3',len(s.get('fixtures',{})),'HBT13',len(q.get('fixtures',{})),'health',q.get('health'))
           PY
-
       - name: Commit feed if changed
         run: |
           set -euo pipefail
