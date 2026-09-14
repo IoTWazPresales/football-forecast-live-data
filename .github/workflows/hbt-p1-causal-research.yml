@@ -1,0 +1,80 @@
+name: HBT P1 Causal Research
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/hbt-1.2r-p1-causal
+    paths:
+      - scripts/hbt_build_p1_causal_history.py
+      - .github/workflows/hbt-p1-causal-research.yml
+
+permissions:
+  contents: read
+
+jobs:
+  causal-p1:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Syntax check
+        run: python -m py_compile scripts/hbt_build_p1_causal_history.py scripts/hbt_collect_players_espn.py
+
+      - name: Build causal P1 dataset
+        run: |
+          python scripts/hbt_build_p1_causal_history.py \
+            --season-start 2023 \
+            --season-end 2025 \
+            --leagues en.1,es.1,de.1,it.1,fr.1
+
+      - name: Enforce causal and frozen-model invariants
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path('hbt_research_data/p1_causal_dataset.json')
+          d = json.loads(path.read_text(encoding='utf-8'))
+          assert d['sourcePredictiveModel'] == 'HBT-1.1.2L-R1'
+          assert d['researchOnly'] is True
+          assert d['newLearnedModelParameters'] == []
+          assert d['policy']['targetRoundLineupUsedAsFeature'] is False
+          assert d['policy']['targetRoundAvailabilityUsedAsFeature'] is False
+          assert d['policy']['oddsUsed'] is False
+          assert d['policy']['feedsBackIntoPrediction'] is False
+          assert d['summary']['causalP1Ready'] > 0, d['summary']
+
+          for row in d['fixtures']:
+              tp = row['trainingPolicy']
+              assert tp['feedsBackIntoPrediction'] is False
+              assert tp['oddsUsed'] is False
+              assert row['frozenPredictiveVersion'] == 'HBT-1.1.2L-R1'
+              for side in ('homeDetail', 'awayDetail'):
+                  snap = row.get(side)
+                  if not snap:
+                      continue
+                  cut = snap['featureCutoff']
+                  assert cut['strictlyBeforeKickoff'] is True
+                  assert cut['latestSourceDate'] < cut['targetDate'], (row['fixtureKey'], side, cut)
+              for label in row['auditLabels'].values():
+                  assert label.get('eligibleForTraining') is False
+
+          print('CAUSAL INVARIANTS PASS')
+          print(json.dumps(d['summary'], indent=2))
+          PY
+
+      - name: Upload research artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hbt-p1-causal-dataset
+          path: hbt_research_data/p1_causal_dataset.json
+          if-no-files-found: error
+          retention-days: 14
