@@ -13,6 +13,7 @@ on:
       - 'scripts/hbt_collect_prexi_context.py'
       - 'scripts/hbt_collect_prexi_context_v2.py'
       - 'scripts/hbt_collect_context_v3.py'
+      - 'scripts/hbt_collect_context_v3_runtime.py'
       - '.github/workflows/hbt-live-data.yml'
 
 concurrency:
@@ -43,7 +44,7 @@ jobs:
         run: python scripts/hbt_collect_players_espn.py
 
       - name: Collect hardened R3 context shadow intelligence
-        run: python scripts/hbt_collect_context_v3.py
+        run: python scripts/hbt_collect_context_v3_runtime.py
 
       - name: Validate generated feed
         run: |
