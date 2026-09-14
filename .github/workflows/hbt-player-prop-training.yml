@@ -1,0 +1,56 @@
+name: HBT Player Prop Model Training
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/hbt_train_player_props_v4.py'
+      - '.github/workflows/hbt-player-prop-training.yml'
+
+concurrency:
+  group: hbt-player-prop-training
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile
+        run: python -m py_compile scripts/hbt_train_player_props_v4.py
+      - name: Run causal player-prop replay
+        run: python scripts/hbt_train_player_props_v4.py
+      - name: Validate frozen holdout
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('hbt_live_data/player_prop_model_params.json',encoding='utf-8'))
+          assert p['version']=='HBT-1.3R-PLAYER-PROP-CAL'
+          assert p['selectionSeason']==2024 and p['holdoutSeason']==2025
+          assert 'bookmaker odds excluded' in p['sourcePolicy']
+          need={'shots1Plus','shots2Plus','shots3Plus','sot1Plus','sot2Plus','anytimeGoal'}
+          assert need <= set(p['holdout']['markets'])
+          for k in need: assert p['holdout']['markets'][k]['n'] > 500
+          print(json.dumps(p['promotionEvidence'],indent=2))
+          PY
+      - name: Commit player-prop parameters
+        run: |
+          set -euo pipefail
+          BRANCH="${{ github.event.repository.default_branch }}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/player_prop_model_params.json
+          git diff --staged --quiet && exit 0
+          git commit -m 'research: refresh HBT player-prop calibration [skip ci]'
+          git pull --rebase origin "$BRANCH"
+          git push origin "HEAD:$BRANCH"
