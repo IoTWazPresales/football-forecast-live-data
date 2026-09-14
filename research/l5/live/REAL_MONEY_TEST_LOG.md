@@ -56,3 +56,26 @@ If the user wants one actual R1 wager today despite the value protocol returning
 - No accumulator and no additional leg may be added after seeing later information unless separately logged as a new test.
 
 Placement must only be marked confirmed after user supplies the actual Betway price/slip.
+
+### Exploratory R1 chain protocol — registered before kickoff after user requested a chain experiment
+
+Purpose: allow a small-payout experiment without pretending that an accumulator creates more independent data.
+
+Evidence accounting:
+- The **ticket** is one bankroll/ROI observation.
+- Every **leg** is also settled separately against its frozen HBT probability and captured bookmaker price.
+- Three legs in one accumulator therefore do **not** become three independent betting-strategy observations; the football outcomes would be observable whether or not the accumulator was placed.
+- Chain survival and leg calibration are reported separately.
+
+Frozen 1X2 diagnostic chain gates using the already-registered HBT probabilities:
+
+| Chain | Raw joint HBT P* | Raw fair combined odds* | Earlier observed combined price | Action-test rule |
+|---|---:|---:|---:|---|
+| Como + Inter | 0.65013 | 1.54 | ~1.525 from 1.22 × 1.25 | Only consider if actual ticket is **1.54+** |
+| Roma + Inter | 0.52437 | 1.91 | ~1.875 from 1.50 × 1.25 | Only consider if actual ticket is **1.91+** |
+| Como + Roma | 0.48026 | 2.08 | ~1.83 from 1.22 × 1.50 | **PASS** at that price |
+| Como + Roma + Inter | 0.40463 | 2.47 | ~2.2875 from 1.22 × 1.50 × 1.25 | Only consider if actual ticket is **2.47+**; otherwise PASS |
+
+\*Raw HBT joint probabilities use a simple cross-match independence approximation. Because the historical EPL value audit showed raw HBT probability-to-price calibration is imperfect, these are **diagnostic action-test gates, not validated value thresholds**.
+
+Preferred exploratory chain if the user wants a chain rather than the single: **Como + Inter**, because both are clean A-tier PRE-XI Fusion selections. It is still not a validated value bet and should be placed only if the actual combined Betway price is at least 1.54. A three-leg chain is not preferred unless the actual combined price reaches at least 2.47.
