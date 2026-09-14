@@ -16,6 +16,7 @@ on:
       - 'scripts/hbt_collect_market_intelligence_v4_runtime.py'
       - 'scripts/hbt_collect_market_intelligence_v4_runtime_xhr.py'
       - 'scripts/hbt_collect_market_intelligence_v4_calibrated.py'
+      - 'scripts/hbt_collect_market_intelligence_v4_footballdata.py'
       - 'hbt_live_data/event_model_params.json'
       - 'hbt_live_data/player_prop_model_params.json'
       - '.github/workflows/hbt-live-data.yml'
@@ -45,8 +46,8 @@ jobs:
         run: python scripts/hbt_collect_players_espn.py
       - name: Collect hardened R3 context shadow intelligence
         run: python scripts/hbt_collect_context_v3_runtime.py
-      - name: Collect calibrated HBT-1.3 market/tactical intelligence
-        run: python scripts/hbt_collect_market_intelligence_v4_calibrated.py
+      - name: Collect validated HBT-1.3 market/tactical intelligence
+        run: python scripts/hbt_collect_market_intelligence_v4_footballdata.py
       - name: Validate generated feed
         run: |
           python - <<'PY'
@@ -64,9 +65,9 @@ jobs:
           assert m.get('contextResearchVersion') == 'HBT-1.2R-R3-CONTEXT'
           assert q.get('researchVersion') == 'HBT-1.3R-MARKET-INTEL'
           assert q.get('policy',{}).get('feedsFrozenPrediction') is False and q.get('policy',{}).get('oddsUsed') is False
+          assert 'Football-Data causal replay' in q.get('policy',{}).get('eventRuntime','')
           assert m.get('files',{}).get('preXiContext') == 'pre_xi_context.json'
           assert m.get('files',{}).get('marketIntelligence') == 'market_intelligence.json'
-          assert isinstance(q.get('health'),dict)
           need={'en.1','es.1','de.1','it.1','fr.1'};have=set(p.get('leagues',{}));assert len(need & have)>=4,(need,have)
           for code,pack in p.get('leagues',{}).items(): assert isinstance(pack.get('teams'),list)
           for row in (s.get('fixtures') or {}).values():
@@ -74,19 +75,21 @@ jobs:
               assert 'availabilitySourceKnown' in row and 'lineupHistoryReady' in row and 'weightedAvailabilityReady' in row
               assert 'extendedContext' in row and 'intelligenceReadiness' in row
           for row in (q.get('fixtures') or {}).values():
-              assert set((row.get('readiness') or {})) >= {'playerProps','corners','cards','formation','travel'}
+              assert set((row.get('readiness') or {})) >= {'playerProps','corners','cards','formation','travel','teamShots','teamSOT'}
               assert 'eventMarkets' in row and row.get('policy',{}).get('bookmakerOddsUsed') is False
-          if (root/'event_model_params.json').exists():
-              e=json.load(open(root/'event_model_params.json',encoding='utf-8'))
-              assert e['models']['corners']['promotionEvidence']['holdoutNLLDelta'] < 0
-              assert e['models']['yellowCards']['promotionEvidence']['holdoutNLLDelta'] < 0
-              assert e['models']['shots']['promotionEvidence']['holdoutNLLDelta'] < 0
-              assert e['models']['shotsOnTarget']['promotionEvidence']['holdoutNLLDelta'] < 0
-          if (root/'player_prop_model_params.json').exists():
-              pp=json.load(open(root/'player_prop_model_params.json',encoding='utf-8'))
-              assert pp['version']=='HBT-1.3R-PLAYER-PROP-CAL'
-              assert all(v['deltaLogloss'] < 0 for v in pp['promotionEvidence']['allHoldoutMarkets'].values())
-          print('Feed validation passed',m['generatedAt'],'R3',len(s.get('fixtures',{})),'HBT13',len(q.get('fixtures',{})),'health',q.get('health'))
+          e=json.load(open(root/'event_model_params.json',encoding='utf-8'))
+          assert e['models']['corners']['promotionEvidence']['holdoutNLLDelta'] < 0
+          assert e['models']['yellowCards']['promotionEvidence']['holdoutNLLDelta'] < 0
+          assert e['models']['shots']['promotionEvidence']['holdoutNLLDelta'] < 0
+          assert e['models']['shotsOnTarget']['promotionEvidence']['holdoutNLLDelta'] < 0
+          assert e['models']['redCards']['promotionEvidence']['holdoutNLLDelta'] >= 0
+          pp=json.load(open(root/'player_prop_model_params.json',encoding='utf-8'))
+          assert pp['version']=='HBT-1.3R-PLAYER-PROP-CAL'
+          assert all(v['deltaLogloss'] < 0 for v in pp['promotionEvidence']['allHoldoutMarkets'].values())
+          h=q.get('health') or {}
+          for k in ('cornersReady','cardsReady','teamShotsReady','teamSOTReady'):
+              assert int(h.get(k) or 0) >= 10,(k,h)
+          print('Feed validation passed',m['generatedAt'],'R3',len(s.get('fixtures',{})),'HBT13',len(q.get('fixtures',{})),'health',h)
           PY
       - name: Commit feed if changed
         run: |
@@ -99,8 +102,6 @@ jobs:
           git fetch origin "$BRANCH"
           git reset --hard "origin/$BRANCH"
           mkdir -p hbt_live_data
-          # Overlay this run's generated files on the latest branch tip. Do not
-          # delete files that were added by concurrent model-training workflows.
           cp -a "$TMP/." hbt_live_data/
           git add hbt_live_data
           git diff --staged --quiet && exit 0
