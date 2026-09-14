@@ -2,8 +2,6 @@ name: HBT Live Intelligence Feed
 
 on:
   schedule:
-    # Frequent enough to capture confirmed lineups before kickoff. GitHub may
-    # delay scheduled runs under load, so the Forecast Desk also audits freshness.
     - cron: '*/10 * * * *'
   workflow_dispatch:
   push:
@@ -14,6 +12,7 @@ on:
       - 'scripts/hbt_collect_prexi_context_v2.py'
       - 'scripts/hbt_collect_context_v3.py'
       - 'scripts/hbt_collect_context_v3_runtime.py'
+      - 'scripts/hbt_collect_market_intelligence_v4.py'
       - '.github/workflows/hbt-live-data.yml'
 
 concurrency:
@@ -46,6 +45,9 @@ jobs:
       - name: Collect hardened R3 context shadow intelligence
         run: python scripts/hbt_collect_context_v3_runtime.py
 
+      - name: Collect HBT-1.3 market/tactical intelligence
+        run: python scripts/hbt_collect_market_intelligence_v4.py
+
       - name: Validate generated feed
         run: |
           python - <<'PY'
@@ -55,13 +57,18 @@ jobs:
           p=json.load(open(root/'performance.json',encoding='utf-8'))
           x=json.load(open(root/'player_features.json',encoding='utf-8'))
           s=json.load(open(root/'pre_xi_context.json',encoding='utf-8'))
+          q=json.load(open(root/'market_intelligence.json',encoding='utf-8'))
           assert m['schemaVersion']=='HBT-LIVE-DATA-1'
-          assert p['schemaVersion']==m['schemaVersion']==x['schemaVersion']==s['schemaVersion']
+          assert p['schemaVersion']==m['schemaVersion']==x['schemaVersion']==s['schemaVersion']==q['schemaVersion']
           assert s.get('policy',{}).get('feedsBackIntoPrediction') is False
           assert s.get('policy',{}).get('oddsUsed') is False
           assert s.get('researchVersion') == 'HBT-1.2R-R3-CONTEXT'
           assert m.get('contextResearchVersion') == 'HBT-1.2R-R3-CONTEXT'
+          assert q.get('researchVersion') == 'HBT-1.3R-MARKET-INTEL'
+          assert q.get('policy',{}).get('feedsFrozenPrediction') is False
+          assert q.get('policy',{}).get('oddsUsed') is False
           assert m.get('files',{}).get('preXiContext') == 'pre_xi_context.json'
+          assert m.get('files',{}).get('marketIntelligence') == 'market_intelligence.json'
           need={'en.1','es.1','de.1','it.1','fr.1'}
           have=set(p.get('leagues',{}))
           assert len(need & have) >= 4, (need,have)
@@ -74,7 +81,11 @@ jobs:
               assert 'weightedAvailabilityReady' in row
               assert 'extendedContext' in row
               assert 'intelligenceReadiness' in row
-          print('Feed validation passed:',m['generatedAt'],len(x.get('features',{})),'player fixture rows;',len(s.get('fixtures',{})),'R3 context rows')
+          for row in (q.get('fixtures') or {}).values():
+              assert 'readiness' in row
+              assert 'eventMarkets' in row
+              assert row.get('policy',{}).get('bookmakerOddsUsed') is False
+          print('Feed validation passed:',m['generatedAt'],len(x.get('features',{})),'player fixture rows;',len(s.get('fixtures',{})),'R3 rows;',len(q.get('fixtures',{})),'HBT-1.3 market rows')
           PY
 
       - name: Commit feed if changed
@@ -83,10 +94,6 @@ jobs:
           BRANCH="${{ github.event.repository.default_branch }}"
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-
-          # Preserve the generated feed, refresh the branch tip, then restore the
-          # generated files. This avoids add/add/rebase conflicts if another commit
-          # lands while the collector is running.
           TMP="$(mktemp -d)"
           cp -a hbt_live_data/. "$TMP/"
           git fetch origin "$BRANCH"
@@ -94,7 +101,6 @@ jobs:
           mkdir -p hbt_live_data
           rm -rf hbt_live_data/*
           cp -a "$TMP/." hbt_live_data/
-
           git add hbt_live_data
           git diff --staged --quiet && exit 0
           git commit -m 'data: refresh HBT live intelligence [skip ci]'
