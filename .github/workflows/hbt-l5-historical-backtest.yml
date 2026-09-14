@@ -30,7 +30,9 @@ jobs:
         run: python -m py_compile scripts/hbt_l5_historical_value_backtest.py
 
       - name: Run isolated L5 value backtest
-        run: python scripts/hbt_l5_historical_value_backtest.py | tee research/l5/output/run-summary.txt
+        run: |
+          mkdir -p research/l5/output
+          python scripts/hbt_l5_historical_value_backtest.py | tee research/l5/output/run-summary.txt
 
       - name: Assert research boundary
         run: |
