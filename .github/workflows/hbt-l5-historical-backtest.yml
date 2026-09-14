@@ -7,7 +7,7 @@ on:
       - research/hbt-l5-bet-backtest
     paths:
       - 'research/l5/**'
-      - 'scripts/hbt_l5_historical_value_backtest.py'
+      - 'scripts/hbt_l5_*.py'
       - '.github/workflows/hbt-l5-historical-backtest.yml'
 
 permissions:
@@ -27,12 +27,15 @@ jobs:
           python-version: '3.12'
 
       - name: Syntax check
-        run: python -m py_compile scripts/hbt_l5_historical_value_backtest.py
+        run: python -m py_compile scripts/hbt_l5_historical_value_backtest.py scripts/hbt_l5_market_signal_audit.py
 
       - name: Run isolated L5 value backtest
         run: |
           mkdir -p research/l5/output
           python scripts/hbt_l5_historical_value_backtest.py | tee research/l5/output/run-summary.txt
+
+      - name: Run chronological market-signal audit
+        run: python scripts/hbt_l5_market_signal_audit.py | tee research/l5/output/market-signal-summary.txt
 
       - name: Assert research boundary
         run: |
@@ -48,7 +51,13 @@ jobs:
           assert d['cohort']['joinedRows'] == d['cohort']['frozenRows']
           assert not d['joinAudit']['missing']
           assert not d['joinAudit']['outcomeMismatches']
-          print('L5 boundary and join invariants passed.')
+          q=json.loads(Path('research/l5/output/hbt_l5_epl_market_signal_audit.json').read_text())
+          assert q['researchOnly'] is True
+          assert q['footballModelModified'] is False
+          assert q['oddsFeedBackIntoProbability'] is False
+          assert q['cohort']['joined'] == 206
+          assert q['cohort']['final'] == 56
+          print('L5 boundary, join, and chronology invariants passed.')
           PY
 
       - name: Upload L5 research result
@@ -57,5 +66,7 @@ jobs:
           name: hbt-l5-epl-2018-19-final-backtest
           path: |
             research/l5/output/hbt_l5_epl_2018_19_final_backtest.json
+            research/l5/output/hbt_l5_epl_market_signal_audit.json
             research/l5/output/run-summary.txt
+            research/l5/output/market-signal-summary.txt
           if-no-files-found: error
