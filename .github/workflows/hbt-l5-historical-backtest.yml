@@ -16,7 +16,7 @@ permissions:
 jobs:
   historical-value-backtest:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Checkout research branch
         uses: actions/checkout@v4
@@ -27,15 +27,18 @@ jobs:
           python-version: '3.12'
 
       - name: Syntax check
-        run: python -m py_compile scripts/hbt_l5_historical_value_backtest.py scripts/hbt_l5_market_signal_audit.py
+        run: python -m py_compile scripts/hbt_l5_historical_value_backtest.py scripts/hbt_l5_market_signal_audit.py scripts/hbt_l5_big5_value_audit.py
 
-      - name: Run isolated L5 value backtest
+      - name: Run isolated EPL L5 value backtest
         run: |
           mkdir -p research/l5/output
           python scripts/hbt_l5_historical_value_backtest.py | tee research/l5/output/run-summary.txt
 
-      - name: Run chronological market-signal audit
+      - name: Run EPL chronological market-signal audit
         run: python scripts/hbt_l5_market_signal_audit.py | tee research/l5/output/market-signal-summary.txt
+
+      - name: Run Big-Five value audit
+        run: python scripts/hbt_l5_big5_value_audit.py | tee research/l5/output/big5-summary.txt
 
       - name: Assert research boundary
         run: |
@@ -57,16 +60,24 @@ jobs:
           assert q['oddsFeedBackIntoProbability'] is False
           assert q['cohort']['joined'] == 206
           assert q['cohort']['final'] == 56
-          print('L5 boundary, join, and chronology invariants passed.')
+          b=json.loads(Path('research/l5/output/hbt_l5_big5_2018_19_value_audit.json').read_text())
+          assert b['researchOnly'] is True
+          assert b['footballModelModified'] is False
+          assert b['oddsFeedBackIntoProbability'] is False
+          assert b['coverage']['joined'] == b['coverage']['baseline'] == 1232
+          assert b['protocol']['accumulators'] is False
+          print('L5 EPL + Big-Five boundary, join, and chronology invariants passed.')
           PY
 
       - name: Upload L5 research result
         uses: actions/upload-artifact@v4
         with:
-          name: hbt-l5-epl-2018-19-final-backtest
+          name: hbt-l5-2018-19-value-backtests
           path: |
             research/l5/output/hbt_l5_epl_2018_19_final_backtest.json
             research/l5/output/hbt_l5_epl_market_signal_audit.json
+            research/l5/output/hbt_l5_big5_2018_19_value_audit.json
             research/l5/output/run-summary.txt
             research/l5/output/market-signal-summary.txt
+            research/l5/output/big5-summary.txt
           if-no-files-found: error
