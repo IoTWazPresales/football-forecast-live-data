@@ -6,6 +6,7 @@ on:
       - research/hbt-1.4-match-intelligence
     paths:
       - 'scripts/hbt_extract_match_intelligence_v5.py'
+      - 'scripts/hbt_extract_match_intelligence_v5_identity.py'
       - 'hbt_live_data/hbt_1_4_feature_registry.json'
       - 'docs/HBT-1.4-MATCH-INTELLIGENCE-SPEC.md'
       - '.github/workflows/hbt-1-4-match-intelligence.yml'
@@ -31,9 +32,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Compile HBT-1.4 extractor
-        run: python -m py_compile scripts/hbt_extract_match_intelligence_v5.py
+        run: python -m py_compile scripts/hbt_extract_match_intelligence_v5.py scripts/hbt_extract_match_intelligence_v5_identity.py
       - name: Extract causal historical intelligence
-        run: python scripts/hbt_extract_match_intelligence_v5.py
+        run: python scripts/hbt_extract_match_intelligence_v5_identity.py
       - name: Validate causal contract and coverage
         run: |
           python - <<'PY'
@@ -47,6 +48,7 @@ jobs:
           assert q['managerHindsightUsed'] is False
           assert q['failedStandaloneFamiliesRetainedForInteraction'] is True
           assert p['coverage']['rows'] > 1700, p['coverage']
+          assert p['coverage']['refereeKnown'] > 1400, p['coverage']
           rows=p['rows']
           assert rows and all('features' in x for x in rows)
           families={'tactical','shotStoppingGoalkeeper','setPieces','referee','workload','competitionState','confirmedXI','substitutionBehaviour','eventExpectations','weatherVenue','manager'}
