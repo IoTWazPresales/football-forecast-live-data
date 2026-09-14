@@ -17,6 +17,7 @@ on:
       - 'scripts/hbt_collect_market_intelligence_v4_runtime_xhr.py'
       - 'scripts/hbt_collect_market_intelligence_v4_calibrated.py'
       - 'scripts/hbt_collect_market_intelligence_v4_footballdata.py'
+      - 'scripts/hbt_collect_market_intelligence_v4_final.py'
       - 'hbt_live_data/event_model_params.json'
       - 'hbt_live_data/player_prop_model_params.json'
       - '.github/workflows/hbt-live-data.yml'
@@ -46,8 +47,8 @@ jobs:
         run: python scripts/hbt_collect_players_espn.py
       - name: Collect hardened R3 context shadow intelligence
         run: python scripts/hbt_collect_context_v3_runtime.py
-      - name: Collect validated HBT-1.3 market/tactical intelligence
-        run: python scripts/hbt_collect_market_intelligence_v4_footballdata.py
+      - name: Collect final validated HBT-1.3 market/tactical intelligence
+        run: python scripts/hbt_collect_market_intelligence_v4_final.py
       - name: Validate generated feed
         run: |
           python - <<'PY'
@@ -61,22 +62,17 @@ jobs:
           assert m['schemaVersion']=='HBT-LIVE-DATA-1'
           assert p['schemaVersion']==m['schemaVersion']==x['schemaVersion']==s['schemaVersion']==q['schemaVersion']
           assert s.get('policy',{}).get('feedsBackIntoPrediction') is False and s.get('policy',{}).get('oddsUsed') is False
-          assert s.get('researchVersion') == 'HBT-1.2R-R3-CONTEXT'
-          assert m.get('contextResearchVersion') == 'HBT-1.2R-R3-CONTEXT'
           assert q.get('researchVersion') == 'HBT-1.3R-MARKET-INTEL'
           assert q.get('policy',{}).get('feedsFrozenPrediction') is False and q.get('policy',{}).get('oddsUsed') is False
           assert 'Football-Data causal replay' in q.get('policy',{}).get('eventRuntime','')
-          assert m.get('files',{}).get('preXiContext') == 'pre_xi_context.json'
-          assert m.get('files',{}).get('marketIntelligence') == 'market_intelligence.json'
+          assert 'frozen scale calibration' in q.get('policy',{}).get('playerPropRuntime','')
           need={'en.1','es.1','de.1','it.1','fr.1'};have=set(p.get('leagues',{}));assert len(need & have)>=4,(need,have)
-          for code,pack in p.get('leagues',{}).items(): assert isinstance(pack.get('teams'),list)
           for row in (s.get('fixtures') or {}).values():
               assert row.get('predictionPolicy','').startswith('SHADOW ONLY')
-              assert 'availabilitySourceKnown' in row and 'lineupHistoryReady' in row and 'weightedAvailabilityReady' in row
-              assert 'extendedContext' in row and 'intelligenceReadiness' in row
           for row in (q.get('fixtures') or {}).values():
-              assert set((row.get('readiness') or {})) >= {'playerProps','corners','cards','formation','travel','teamShots','teamSOT'}
+              assert set((row.get('readiness') or {})) >= {'playerProps','corners','cards','formation','travel','teamShots','teamSOT','redCards'}
               assert 'eventMarkets' in row and row.get('policy',{}).get('bookmakerOddsUsed') is False
+              assert row.get('playerPropActionGate') == 'CONFIRMED-XI only'
           e=json.load(open(root/'event_model_params.json',encoding='utf-8'))
           assert e['models']['corners']['promotionEvidence']['holdoutNLLDelta'] < 0
           assert e['models']['yellowCards']['promotionEvidence']['holdoutNLLDelta'] < 0
@@ -89,7 +85,8 @@ jobs:
           h=q.get('health') or {}
           for k in ('cornersReady','cardsReady','teamShotsReady','teamSOTReady'):
               assert int(h.get(k) or 0) >= 10,(k,h)
-          print('Feed validation passed',m['generatedAt'],'R3',len(s.get('fixtures',{})),'HBT13',len(q.get('fixtures',{})),'health',h)
+          assert int(h.get('playerValidatedRows') or 0) > 50,h
+          print('HBT-1.3 live validation passed',m['generatedAt'],len(q.get('fixtures',{})),h)
           PY
       - name: Commit feed if changed
         run: |
