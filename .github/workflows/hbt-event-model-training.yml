@@ -1,0 +1,60 @@
+name: HBT Event Market Model Training
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'scripts/hbt_train_event_models_v4.py'
+      - '.github/workflows/hbt-event-model-training.yml'
+
+concurrency:
+  group: hbt-event-model-training
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  train:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile
+        run: python -m py_compile scripts/hbt_train_event_models_v4.py
+      - name: Train causal event-market models
+        run: python scripts/hbt_train_event_models_v4.py
+      - name: Validate frozen holdout report
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('hbt_live_data/event_model_params.json',encoding='utf-8'))
+          assert p['version']=='HBT-1.3R-EVENT-CAL'
+          assert p['holdoutSeason']==2025
+          assert p['sourcePolicy'].endswith('bookmaker odds ignored')
+          need={'corners','yellowCards','shots','shotsOnTarget','redCards'}
+          assert need <= set(p['models'])
+          for k in need:
+              m=p['models'][k]
+              assert m['selection']['n'] > 0
+              assert m['holdout']['n'] > 0
+              assert all(x in m['parameters'] for x in ('decay','priorN','attackBlend'))
+          print({k:p['models'][k]['promotionEvidence'] for k in sorted(need)})
+          PY
+      - name: Commit trained parameters
+        run: |
+          set -euo pipefail
+          BRANCH="${{ github.event.repository.default_branch }}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/event_model_params.json
+          git diff --staged --quiet && exit 0
+          git commit -m 'research: refresh HBT event-market calibration [skip ci]'
+          git pull --rebase origin "$BRANCH"
+          git push origin "HEAD:$BRANCH"
