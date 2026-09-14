@@ -121,7 +121,8 @@ def labels(snap:dict[str,Any]|None,target:list[dict[str,Any]])->dict[str,Any]:
             'expectedXIStarterHitRate':len(actual&exp)/11 if len(actual)>=10 else None,'targetRoundUnavailableExpectedN':len(un),'targetRoundUnavailableExpected':[x.get('name') for x in un]}
 
 class Archive:
-    def __init__(self):self.dirs={};self.files={};self.audit=[]
+    def __init__(self):
+        self.dirs={};self.files={};self.raw_by_file={};self.identity=[];self.audit=[]
     def directory(self,code:str,season:int):
         k=(code,season)
         if k not in self.dirs:
@@ -130,20 +131,41 @@ class Archive:
                 self.audit.append({'source':'availability-directory','league':code,'season':season,'status':'loaded','count':len(self.dirs[k])})
             except Exception as e:self.dirs[k]=[];self.audit.append({'source':'availability-directory','league':code,'season':season,'status':'failed','error':str(e)[:250]})
         return self.dirs[k]
+    def raw_file(self,code:str,season:int,fn:str):
+        k=(code,season,fn)
+        if k not in self.raw_by_file:
+            try:
+                z=p.http_json(f'{AVRAW}/{code}/{season}/{urllib.parse.quote(fn)}',25,2)
+                self.raw_by_file[k]=z if isinstance(z,dict) else None
+            except Exception:self.raw_by_file[k]=None
+        return self.raw_by_file[k]
     def team(self,code:str,season:int,name:str):
         k=(code,season,norm(name))
         if k in self.files:return self.files[k]
-        cand=[]
-        for r in self.directory(code,season):
-            fn=str(r.get('name') or '') if isinstance(r,dict) else ''
-            if r.get('type')=='file' and fn.endswith('.json'):cand.append((score_name(name,re.sub(r'\.json$','',fn)),fn))
-        cand.sort(reverse=True)
-        if not cand or cand[0][0]<.5 or (len(cand)>1 and cand[0][0]<.9 and cand[0][0]-cand[1][0]<.15):self.files[k]=None;return None
-        try:
-            raw=p.http_json(f'{AVRAW}/{code}/{season}/{urllib.parse.quote(cand[0][1])}',25,2)
-            self.files[k]=raw if isinstance(raw,dict) and score_name(name,str(raw.get('club') or raw.get('tmSlug') or ''))>=.45 else None
-        except Exception:self.files[k]=None
-        return self.files[k]
+        rows=[r for r in self.directory(code,season) if isinstance(r,dict) and r.get('type')=='file' and str(r.get('name') or '').endswith('.json')]
+        by_filename=[]
+        for r in rows:
+            fn=str(r.get('name') or ''); by_filename.append((score_name(name,re.sub(r'\.json$','',fn)),fn))
+        by_filename.sort(reverse=True)
+        chosen=None;method='filename';score=0.0
+        if by_filename and by_filename[0][0]>=.5 and (by_filename[0][0]>=.9 or len(by_filename)==1 or by_filename[0][0]-by_filename[1][0]>=.15):
+            raw=self.raw_file(code,season,by_filename[0][1])
+            canonical=max(score_name(name,str((raw or {}).get('club') or '')),score_name(name,str((raw or {}).get('tmSlug') or '')))
+            if raw and canonical>=.45:chosen=raw;score=max(by_filename[0][0],canonical)
+        if chosen is None:
+            method='canonical-json-fallback'; candidates=[]
+            for r in rows:
+                fn=str(r.get('name') or ''); raw=self.raw_file(code,season,fn)
+                if not raw:continue
+                sc=max(score_name(name,str(raw.get('club') or '')),score_name(name,str(raw.get('tmSlug') or '')),score_name(name,re.sub(r'\.json$','',fn)))
+                candidates.append((sc,fn,raw))
+            candidates.sort(key=lambda x:x[0],reverse=True)
+            if candidates:
+                best=candidates[0]; second=candidates[1][0] if len(candidates)>1 else -1
+                if best[0]>=.55 and (best[0]>=.9 or best[0]-second>=.15):chosen=best[2];score=best[0]
+        self.files[k]=chosen
+        self.identity.append({'source':'availability-identity','league':code,'season':season,'target':name,'resolvedClub':(chosen or {}).get('club') if chosen else None,'tmSlug':(chosen or {}).get('tmSlug') if chosen else None,'method':method if chosen else 'unresolved','score':score if chosen else None})
+        return chosen
 
 def main(argv:list[str]|None=None)->int:
     ap=argparse.ArgumentParser();ap.add_argument('--season-start',type=int,default=2021);ap.add_argument('--season-end',type=int,default=2025);ap.add_argument('--leagues',default=','.join(LEAGUES));ap.add_argument('--out',type=Path,default=OUT)
@@ -168,7 +190,7 @@ def main(argv:list[str]|None=None)->int:
     ready=sum(x.get('features') is not None for x in fixtures)
     payload={'schemaVersion':'HBT-P1-CAUSAL-1','researchVersion':'HBT-1.2R-R3-P1-Causal','generatedAt':dt.datetime.now(dt.timezone.utc).isoformat(),'sourcePredictiveModel':'HBT-1.1.2L-R1','researchOnly':True,'newLearnedModelParameters':[],
              'policy':{'historicalReplayInvariant':'information known before match -> feature snapshot -> freeze -> reveal result','targetRoundLineupUsedAsFeature':False,'targetRoundAvailabilityUsedAsFeature':False,'strictFeatureCutoff':'fixture date strictly earlier than target date','retrospectiveTargetRoundAvailability':'audit-only; not timestamped pre-kickoff','promotionGate':'separate challenger backtest, freeze, then OOS validation before any HBT-1.1.2 change','oddsUsed':False,'feedsBackIntoPrediction':False},
-             'featureFamilies':{'continuity':['expectedContinuityDiff','priorLineupStabilityDiff'],'laggedAvailability':['laggedAvailabilityAdv','persistentAvailabilityAdv']},'summary':{'fixtures':len(fixtures),'causalP1Ready':ready,'notReady':len(fixtures)-ready,'readyPct':ready/len(fixtures) if fixtures else 0},'sourceAudit':audit+ar.audit,'fixtures':fixtures}
+             'featureFamilies':{'continuity':['expectedContinuityDiff','priorLineupStabilityDiff'],'laggedAvailability':['laggedAvailabilityAdv','persistentAvailabilityAdv']},'summary':{'fixtures':len(fixtures),'causalP1Ready':ready,'notReady':len(fixtures)-ready,'readyPct':ready/len(fixtures) if fixtures else 0},'sourceAudit':audit+ar.audit,'identityAudit':ar.identity,'fixtures':fixtures}
     a.out.parent.mkdir(parents=True,exist_ok=True);p.write_json(a.out,payload);print(json.dumps(payload['summary'],indent=2));return 0
 
 if __name__=='__main__':raise SystemExit(main())
