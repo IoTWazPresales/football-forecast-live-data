@@ -5,6 +5,7 @@ on:
   push:
     paths:
       - 'scripts/hbt_extract_tactical_travel_2018.py'
+      - 'scripts/hbt_extract_tactical_travel_2018_runtime.py'
       - '.github/workflows/hbt-tactical-travel-extract.yml'
 
 concurrency:
@@ -27,9 +28,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Compile
-        run: python -m py_compile scripts/hbt_extract_tactical_travel_2018.py
+        run: python -m py_compile scripts/hbt_extract_tactical_travel_2018.py scripts/hbt_extract_tactical_travel_2018_runtime.py
       - name: Extract historical actual formation and travel
-        run: python scripts/hbt_extract_tactical_travel_2018.py
+        run: python scripts/hbt_extract_tactical_travel_2018_runtime.py
       - name: Validate extraction
         run: |
           python - <<'PY'
@@ -37,8 +38,7 @@ jobs:
           p=json.load(open('hbt_live_data/tactical_travel_2018.json',encoding='utf-8'))
           assert p['version']=='HBT-1.3R-TACTICAL-TRAVEL-2018'
           assert p['season']==2018
-          assert p['policy']['bookmakerOddsUsed'] is False
-          assert p['policy']['outcomesUsedToBuildFeatures'] is False
+          assert p['policy']['bookmakerOddsUsed'] is False and p['policy']['outcomesUsedToBuildFeatures'] is False
           assert p['coverage']['rows'] > 1500
           assert p['coverage']['formationBoth'] > 500
           print(p['coverage'])
