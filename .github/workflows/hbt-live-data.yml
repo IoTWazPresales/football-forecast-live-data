@@ -12,6 +12,7 @@ on:
       - 'scripts/hbt_collect_players_espn.py'
       - 'scripts/hbt_collect_prexi_context.py'
       - 'scripts/hbt_collect_prexi_context_v2.py'
+      - 'scripts/hbt_collect_context_v3.py'
       - '.github/workflows/hbt-live-data.yml'
 
 concurrency:
@@ -41,8 +42,8 @@ jobs:
       - name: Replace blocked SofaScore player feed with ESPN fallback
         run: python scripts/hbt_collect_players_espn.py
 
-      - name: Collect hardened P1 and manager shadow intelligence
-        run: python scripts/hbt_collect_prexi_context_v2.py
+      - name: Collect hardened R3 context shadow intelligence
+        run: python scripts/hbt_collect_context_v3.py
 
       - name: Validate generated feed
         run: |
@@ -57,6 +58,8 @@ jobs:
           assert p['schemaVersion']==m['schemaVersion']==x['schemaVersion']==s['schemaVersion']
           assert s.get('policy',{}).get('feedsBackIntoPrediction') is False
           assert s.get('policy',{}).get('oddsUsed') is False
+          assert s.get('researchVersion') == 'HBT-1.2R-R3-CONTEXT'
+          assert m.get('contextResearchVersion') == 'HBT-1.2R-R3-CONTEXT'
           assert m.get('files',{}).get('preXiContext') == 'pre_xi_context.json'
           need={'en.1','es.1','de.1','it.1','fr.1'}
           have=set(p.get('leagues',{}))
@@ -68,7 +71,9 @@ jobs:
               assert 'availabilitySourceKnown' in row
               assert 'lineupHistoryReady' in row
               assert 'weightedAvailabilityReady' in row
-          print('Feed validation passed:',m['generatedAt'],len(x.get('features',{})),'player fixture rows;',len(s.get('fixtures',{})),'P1 shadow rows')
+              assert 'extendedContext' in row
+              assert 'intelligenceReadiness' in row
+          print('Feed validation passed:',m['generatedAt'],len(x.get('features',{})),'player fixture rows;',len(s.get('fixtures',{})),'R3 context rows')
           PY
 
       - name: Commit feed if changed
