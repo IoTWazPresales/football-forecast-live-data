@@ -38,7 +38,7 @@ Rules:
 - Torino vs Roma: B · PRE-XI FUSION · Roma 0.6223830854.
 - Inter vs Udinese: A · PRE-XI FUSION · Inter 0.8425259182.
 
-Current price audit at registration time: public Betway comparison feeds show approximately Como 1.22, Roma 1.50, Inter 1.25. All three directions agree with HBT, but the prices are shorter than the contemporaneous de-vig market fair estimates (approximately Como 1.32, Roma 1.67, Inter 1.35). Therefore the **primary value protocol is NO BET at current prices**. This is a valid live-money test decision, not a failed attempt to find a bet.
+Current price audit at registration time: public Betway comparison feeds show approximately Como 1.22, Roma 1.50, Inter 1.25. All three directions agree with HBT, but the prices are shorter than the contemporaneous de-vig market fair estimates (approximately Como 1.32, Roma 1.65–1.67, Inter 1.35–1.36). Therefore the **primary value protocol is NO BET at current prices**. This is a valid live-money test decision, not a failed attempt to find a bet.
 
 If a real-money wager is placed despite the value gate, it must be logged separately as a **forecast-only/action test**, not relabelled as a validated value bet.
 
@@ -49,6 +49,7 @@ If the user wants one actual R1 wager today despite the value protocol returning
 - **Inter to beat Udinese — R1 single**.
 - Frozen HBT: A tier, PRE-XI FUSION, P(Inter)=0.8425259182.
 - Contemporary Betway comparison price observed: approximately 1.25.
+- **Placement gate: take only at decimal odds 1.25 or better; below 1.25 = PASS.**
 - Contemporary de-vig market estimate: approximately 0.73–0.74 Inter probability.
 - Reason for test: this is the strongest clean A-tier HBT-vs-market probability disagreement among today's primary candidates. It tests whether HBT's extra confidence contains prospective signal.
 - Classification: **forecast-only/action test, NOT a validated value bet**.
