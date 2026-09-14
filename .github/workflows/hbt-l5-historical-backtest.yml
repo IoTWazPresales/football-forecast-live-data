@@ -1,0 +1,59 @@
+name: HBT L5 Historical Value Backtest
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/hbt-l5-bet-backtest
+    paths:
+      - 'research/l5/**'
+      - 'scripts/hbt_l5_historical_value_backtest.py'
+      - '.github/workflows/hbt-l5-historical-backtest.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  historical-value-backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Syntax check
+        run: python -m py_compile scripts/hbt_l5_historical_value_backtest.py
+
+      - name: Run isolated L5 value backtest
+        run: python scripts/hbt_l5_historical_value_backtest.py | tee research/l5/output/run-summary.txt
+
+      - name: Assert research boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('research/l5/output/hbt_l5_epl_2018_19_final_backtest.json')
+          d=json.loads(p.read_text())
+          assert d['researchOnly'] is True
+          assert d['footballModelModified'] is False
+          assert d['protocol']['oddsFeedBackIntoProbability'] is False
+          assert d['protocol']['accumulators'] is False
+          assert d['cohort']['joinedRows'] == d['cohort']['frozenRows']
+          assert not d['joinAudit']['missing']
+          assert not d['joinAudit']['outcomeMismatches']
+          print('L5 boundary and join invariants passed.')
+          PY
+
+      - name: Upload L5 research result
+        uses: actions/upload-artifact@v4
+        with:
+          name: hbt-l5-epl-2018-19-final-backtest
+          path: |
+            research/l5/output/hbt_l5_epl_2018_19_final_backtest.json
+            research/l5/output/run-summary.txt
+          if-no-files-found: error
