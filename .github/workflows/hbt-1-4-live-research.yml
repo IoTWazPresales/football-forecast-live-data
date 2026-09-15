@@ -29,8 +29,8 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Compile HBT-1.4 live collector and slate scanner
-        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py
+      - name: Compile HBT-1.4 live collector, slate scanner and ranker
+        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_rank_slate.py
       - name: Collect HBT-1.4 live match intelligence
         run: python scripts/hbt_collect_match_intelligence_v5.py
       - name: Resolve SAST slate date
@@ -75,10 +75,33 @@ jobs:
           if adapter.get('available'):
               assert adapter.get('generalFutureLiveFeed') is False
               assert int(adapter.get('predictions') or 0) >= 1
+              c=s.get('coverage') or {}; g=s.get('rankingGate') or {}
+              assert int(c.get('knownForecastsMissedByDiscovery') or 0)==0, c
+              assert int(c.get('forecastRowsMatched') or 0)==int(c.get('forecastRowsAvailable') or 0), c
+              assert g.get('knownForecastCoverageComplete') is True, g
+              assert g.get('discoveryComplete') is True, g
           print('HBT-1.4 live readiness validation passed',p.get('generatedAt'),len(rows))
           print('HBT slate validation passed',s.get('targetDate'),s.get('coverage'),s.get('rankingGate'))
           PY
-      - name: Commit HBT-1.4 research feed and slate coverage if changed
+      - name: Rank HBT-supported candidates after discovery gate
+        run: python scripts/hbt_rank_slate.py
+      - name: Validate ranking and experiment separation
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('hbt_live_data/ranked_candidates.json',encoding='utf-8'))
+          assert r.get('status')=='RANKING_READY', r.get('status')
+          assert r['policy']['fullModelAndFallbackSeparated'] is True
+          assert r['policy']['rawProbabilityIsNotBettingValue'] is True
+          assert r['policy']['universalBestBetsClaimAllowed'] is False
+          assert r['policy']['testAImmutable'] is True
+          z=r['rankings']
+          assert all(x['support']=='FULL_MODEL' for x in z['strongestFullModelConfidence'])
+          assert all(x['support']=='FALLBACK' for x in z['fallbackOnly'])
+          assert z['experimentalValueVsPrice']['status']=='UNAVAILABLE_NO_BOOKMAKER_PRICE'
+          print('HBT ranking validation passed',len(z['strongestFullModelConfidence']),len(z['fallbackOnly']))
+          PY
+      - name: Commit HBT-1.4 research feed, slate coverage and rankings if changed
         run: |
           set -euo pipefail
           BRANCH='research/hbt-1.4-match-intelligence'
@@ -87,14 +110,16 @@ jobs:
           TMP="$(mktemp -d)"
           cp hbt_live_data/hbt_1_4_match_intelligence.json "$TMP/"
           cp hbt_live_data/slate_scanner.json "$TMP/"
+          cp hbt_live_data/ranked_candidates.json "$TMP/"
           if [ -f hbt_live_data/_hbt_1_4_live_cache.json ]; then cp hbt_live_data/_hbt_1_4_live_cache.json "$TMP/"; fi
           git fetch origin "$BRANCH"
           git reset --hard "origin/$BRANCH"
           cp "$TMP/hbt_1_4_match_intelligence.json" hbt_live_data/
           cp "$TMP/slate_scanner.json" hbt_live_data/
+          cp "$TMP/ranked_candidates.json" hbt_live_data/
           if [ -f "$TMP/_hbt_1_4_live_cache.json" ]; then cp "$TMP/_hbt_1_4_live_cache.json" hbt_live_data/; fi
-          git add hbt_live_data/hbt_1_4_match_intelligence.json hbt_live_data/slate_scanner.json
+          git add hbt_live_data/hbt_1_4_match_intelligence.json hbt_live_data/slate_scanner.json hbt_live_data/ranked_candidates.json
           if [ -f hbt_live_data/_hbt_1_4_live_cache.json ]; then git add hbt_live_data/_hbt_1_4_live_cache.json; fi
           git diff --staged --quiet && exit 0
-          git commit -m 'data: refresh HBT-1.4 research intelligence and slate [skip ci]'
+          git commit -m 'data: refresh HBT-1.4 research intelligence, slate and rankings [skip ci]'
           git push origin "HEAD:$BRANCH"
