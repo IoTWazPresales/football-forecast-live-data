@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "HBT-1.4-VALIDATION-1",
+  "version": "HBT-1.4R-CORRECTED-NONTRAVEL-2026-09-15",
+  "generatedAt": "2026-09-15T15:22:00Z",
+  "policy": {
+    "bookmakerOddsUsedAsFeatures": false,
+    "frozenControl": "HBT-0.5P L1 probability layer (l1P)",
+    "travelIncluded": false,
+    "travelExclusionReason": "tactical_travel_2018.json could not be materialized into the current validation runtime; no value was zero-filled or fabricated.",
+    "promotionAllowedFromThisRun": false
+  },
+  "cohort": {
+    "oosRows": 1232,
+    "identityJoinMatched": 1232,
+    "identityJoinUnmatched": 0,
+    "train": {"from": "2018-08-01", "to": "2018-12-31", "n": 586},
+    "selection": {"from": "2019-01-01", "to": "2019-02-28", "n": 246},
+    "finalHoldout": {"from": "2019-03-01", "to": "2019-05-31", "n": 400}
+  },
+  "controlReproduction": {
+    "logloss": 0.9976198469646838,
+    "brier": 0.19850334260332905,
+    "accuracy": 0.5
+  },
+  "linearFullStack": {
+    "method": "multinomial stacked challenger using frozen l1P log-odds plus point-in-time HBT-1.4 numeric intelligence; train-median imputation with missing indicators; L2 regularisation; output blended with frozen control",
+    "selectedOn": "2019-01-01..2019-02-28 only",
+    "C": 0.003,
+    "blendAlpha": 0.2,
+    "finalHoldout": {
+      "logloss": 0.9888292048117548,
+      "brier": 0.19685939272771832,
+      "accuracy": 0.505,
+      "deltaLoglossVsControl": -0.008790642152929,
+      "deltaBrierVsControl": -0.00164394987561073
+    },
+    "dateBlockBootstrap": {
+      "deltaLoglossMean": -0.008818160081431202,
+      "deltaLoglossCI": [-0.014561208394421876, -0.0028062538692551044],
+      "favoursChallengerLL": 0.997,
+      "deltaBrierMean": -0.001645424966507235,
+      "deltaBrierCI": [-0.0027473991507764584, -0.0004234483208216472],
+      "favoursChallengerBrier": 0.9944,
+      "deltaAccMean": 0.004966271808178729,
+      "deltaAccCI": [-0.004556329915608071, 0.015306122448979609]
+    },
+    "calibration": {"controlMacroECE": 0.048493449463396794, "challengerMacroECE": 0.04638848591209158}
+  },
+  "leaveOneFamilyOut": {
+    "tactical": {"ablated_logloss": 0.990060300894003, "delta_vs_full": 0.0012310960822481398, "ablated_brier": 0.1971510181291815, "delta_brier_vs_full": 0.00029162540146318583, "accuracy": 0.51},
+    "goalkeeper": {"ablated_logloss": 0.9888072960064452, "delta_vs_full": -0.0000219088053096117, "ablated_brier": 0.1968353437491201, "delta_brier_vs_full": -0.000024048978596225965, "accuracy": 0.5075},
+    "setPieces": {"ablated_logloss": 0.9885203078631202, "delta_vs_full": -0.00030889694863467376, "ablated_brier": 0.19679457318615826, "delta_brier_vs_full": -0.0000648195415600683, "accuracy": 0.51},
+    "referee": {"ablated_logloss": 0.9892427361240848, "delta_vs_full": 0.0004135313123299067, "ablated_brier": 0.19695272369802694, "delta_brier_vs_full": 0.00009333097030861381, "accuracy": 0.5075},
+    "workload": {"ablated_logloss": 0.9871949807685495, "delta_vs_full": -0.0016342240432053456, "ablated_brier": 0.1965044328225346, "delta_brier_vs_full": -0.00035495990518372156, "accuracy": 0.505},
+    "competitionState": {"ablated_logloss": 0.9886649488253316, "delta_vs_full": -0.00016425598642322292, "ablated_brier": 0.19680233398305447, "delta_brier_vs_full": -0.000057058744663857055, "accuracy": 0.51},
+    "confirmedXI": {"ablated_logloss": 0.9923051631519536, "delta_vs_full": 0.0034759583401987593, "ablated_brier": 0.19771260624432918, "delta_brier_vs_full": 0.0008532135166108568, "accuracy": 0.5025},
+    "substitutionBehaviour": {"ablated_logloss": 0.9888662468515244, "delta_vs_full": 0.00003704203976950815, "ablated_brier": 0.1968468321674211, "delta_brier_vs_full": -0.00001256056029722008, "accuracy": 0.51},
+    "eventExpectations": {"ablated_logloss": 0.9885452642183986, "delta_vs_full": -0.00028394059335623556, "ablated_brier": 0.19676385624666554, "delta_brier_vs_full": -0.00009553648108777511, "accuracy": 0.505}
+  },
+  "interactionCapableChallenger": {
+    "method": "HistGradientBoosting classifier over the same pre-kickoff feature stack with frozen-control blend; hyperparameters selected only on Jan-Feb 2019",
+    "learningRate": 0.07,
+    "maxLeafNodes": 31,
+    "l2Regularization": 10.0,
+    "blendAlpha": 0.2,
+    "finalHoldout": {"logloss": 0.9989990610131204, "brier": 0.19856091324759148, "accuracy": 0.5075},
+    "deltaLoglossVsControl": 0.001379214048436632,
+    "result": "FAIL_GENERALISATION"
+  },
+  "missingSourceDegradation": {
+    "tactical": {"logloss": 0.9886290910477905, "delta_vs_full": -0.000200113763964338, "brier": 0.19699478830129782, "accuracy": 0.51},
+    "goalkeeper": {"logloss": 0.9873206153118559, "delta_vs_full": -0.0015085894998989602, "brier": 0.196606168604612, "accuracy": 0.5075},
+    "setPieces": {"logloss": 0.9884841786214069, "delta_vs_full": -0.00034502619034793014, "brier": 0.1968784726860178, "accuracy": 0.5075},
+    "referee": {"logloss": 0.9888215747645422, "delta_vs_full": -0.000007630047212603408, "brier": 0.1968634513237868, "accuracy": 0.505},
+    "workload": {"logloss": 0.9877135469988181, "delta_vs_full": -0.0011156578129367656, "brier": 0.19657325875911746, "accuracy": 0.5},
+    "competitionState": {"logloss": 0.9885107371095256, "delta_vs_full": -0.00031846770222920817, "brier": 0.19675324636835181, "accuracy": 0.51},
+    "confirmedXI": {"logloss": 0.9918850693132276, "delta_vs_full": 0.0030558645014727714, "brier": 0.1976119561842655, "accuracy": 0.5025},
+    "substitutionBehaviour": {"logloss": 0.989731606374083, "delta_vs_full": 0.0009024015623281256, "brier": 0.19701450253678915, "accuracy": 0.5025},
+    "eventExpectations": {"logloss": 0.9878082162415223, "delta_vs_full": -0.0010209885702325838, "brier": 0.19660548942161177, "accuracy": 0.5025}
+  },
+  "decision": {
+    "status": "KEEP_RESEARCH",
+    "reason": "Corrected non-travel linear stack improves untouched log loss/Brier with strong date-block bootstrap support, but interaction-capable challenger fails final-holdout generalisation and travel has not been included. HBT-1.4 is not promoted for live betting."
+  }
+}
