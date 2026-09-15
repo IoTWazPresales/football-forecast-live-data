@@ -58,5 +58,11 @@ jobs:
           a=s.get('frozenForecastAdapter') or {}
           if a.get('available'):
               assert a.get('generalFutureLiveFeed') is False
+              c=s.get('coverage') or {}; g=s.get('rankingGate') or {}
+              assert int(c.get('forecastRowsAvailable') or 0) > 0
+              assert int(c.get('knownForecastsMissedByDiscovery') or 0) == 0, c
+              assert int(c.get('forecastRowsMatched') or 0) == int(c.get('forecastRowsAvailable') or 0), c
+              assert g.get('knownForecastCoverageComplete') is True, g
+              assert g.get('discoveryComplete') is True, g
           print(json.dumps({'version':s['version'],'coverage':s['coverage'],'rankingGate':s['rankingGate']},indent=2))
           PY
