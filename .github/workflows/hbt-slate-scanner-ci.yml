@@ -1,0 +1,61 @@
+name: HBT Slate Scanner Validation
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - 'scripts/hbt_scan_slate_v2.py'
+      - 'hbt_live_data/frozen_control_forecast_*.json'
+      - '.github/workflows/hbt-slate-scanner-ci.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate-slate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile scanner
+        run: python -m py_compile scripts/hbt_scan_slate_v2.py
+      - name: Run SAST slate scanner
+        run: |
+          TARGET_DATE="$(TZ=Africa/Johannesburg date +%F)"
+          python scripts/hbt_scan_slate_v2.py --date "$TARGET_DATE"
+      - name: Validate scanner contract
+        run: |
+          python - <<'PY'
+          import json
+          s=json.load(open('hbt_live_data/slate_scanner.json',encoding='utf-8'))
+          assert s['schemaVersion']=='HBT-SLATE-2'
+          p=s['policy']
+          assert p['discoveryBeforeRanking'] is True
+          assert p['bookmakerOddsUsed'] is False
+          assert p['frozenPredictiveModelMutated'] is False
+          assert p['retrainingPerformed'] is False
+          assert p['fallbackFabricated'] is False
+          assert p['testAImmutable'] is True
+          allowed={'FULL_MODEL','FALLBACK','INSUFFICIENT_DATA','UNSUPPORTED_COMPETITION','SOURCE_FAILURE','NOT_YET_READY'}
+          for r in s['fixtures']:
+              assert r['hbtSupportLevel'] in allowed
+              if r.get('probabilityOutput') is not None:
+                  assert r['hbtSupportLevel'] in {'FULL_MODEL','FALLBACK'}
+                  assert len(r['probabilityOutput'])==3
+              if r.get('rankEligibleFullModel'):
+                  assert r['hbtSupportLevel']=='FULL_MODEL' and 'FUSION' in r['predictionMode']
+              if r.get('rankEligibleFallback'):
+                  assert r['hbtSupportLevel']=='FALLBACK' and r['predictionMode'].startswith('L0')
+          a=s.get('frozenForecastAdapter') or {}
+          if a.get('available'):
+              assert a.get('generalFutureLiveFeed') is False
+          print(json.dumps({'coverage':s['coverage'],'rankingGate':s['rankingGate']},indent=2))
+          PY
