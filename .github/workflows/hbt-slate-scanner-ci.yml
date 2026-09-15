@@ -8,7 +8,9 @@ on:
     paths:
       - 'scripts/hbt_scan_slate_v2.py'
       - 'scripts/hbt_scan_slate_v2_1.py'
+      - 'scripts/hbt_rank_slate.py'
       - 'hbt_live_data/frozen_control_forecast_*.json'
+      - 'hbt_live_data/live_experiments.json'
       - '.github/workflows/hbt-slate-scanner-ci.yml'
 
 permissions:
@@ -26,8 +28,8 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Compile scanner
-        run: python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py
+      - name: Compile scanner and ranker
+        run: python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_rank_slate.py
       - name: Run SAST slate scanner
         run: |
           TARGET_DATE="$(TZ=Africa/Johannesburg date +%F)"
@@ -65,4 +67,30 @@ jobs:
               assert g.get('knownForecastCoverageComplete') is True, g
               assert g.get('discoveryComplete') is True, g
           print(json.dumps({'version':s['version'],'coverage':s['coverage'],'rankingGate':s['rankingGate']},indent=2))
+          PY
+      - name: Rank only after discovery gate
+        run: python scripts/hbt_rank_slate.py
+      - name: Validate ranking separation and frozen Test A
+        run: |
+          python - <<'PY'
+          import json
+          r=json.load(open('hbt_live_data/ranked_candidates.json',encoding='utf-8'))
+          assert r['status']=='RANKING_READY', r.get('status')
+          assert r['policy']['fullModelAndFallbackSeparated'] is True
+          assert r['policy']['rawProbabilityIsNotBettingValue'] is True
+          assert r['policy']['universalBestBetsClaimAllowed'] is False
+          assert r['policy']['testAImmutable'] is True
+          z=r['rankings']
+          assert all(x['support']=='FULL_MODEL' for x in z['strongestFullModelConfidence'])
+          assert all(x['support']=='FALLBACK' for x in z['fallbackOnly'])
+          assert z['experimentalValueVsPrice']['status']=='UNAVAILABLE_NO_BOOKMAKER_PRICE'
+          t=r['testAReference']
+          assert t['id']=='PRE_XI_TEST_A_2026-09-15' and t['state']=='FROZEN_PROSPECTIVE'
+          assert len(t['legs'])==3 and float(t['stakeZAR'])==1.0
+          print(json.dumps({
+            'rawTop':[(x['pick'],x['pickProbability'],x['support']) for x in z['highestRawDeployedPickProbability'][:5]],
+            'fullModel':[(x['pick'],x['pickProbability'],x['tier']) for x in z['strongestFullModelConfidence']],
+            'fallback':[(x['pick'],x['pickProbability'],x['tier']) for x in z['fallbackOnly']],
+            'ignored':z['unsupportedOrIgnored']
+          },indent=2,ensure_ascii=False))
           PY
