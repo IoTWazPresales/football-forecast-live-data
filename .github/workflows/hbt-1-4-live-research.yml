@@ -30,13 +30,13 @@ jobs:
         with:
           python-version: '3.12'
       - name: Compile HBT-1.4 live collector and slate scanner
-        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_scan_slate_v2.py
+        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py
       - name: Collect HBT-1.4 live match intelligence
         run: python scripts/hbt_collect_match_intelligence_v5.py
       - name: Resolve SAST slate date
         run: echo "TARGET_DATE=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_ENV"
       - name: Discover and classify full public slate
-        run: python scripts/hbt_scan_slate_v2.py --date "$TARGET_DATE"
+        run: python scripts/hbt_scan_slate_v2_1.py --date "$TARGET_DATE"
       - name: Validate readiness and slate contracts
         run: |
           python - <<'PY'
