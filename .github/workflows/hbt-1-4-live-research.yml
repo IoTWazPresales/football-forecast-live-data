@@ -29,14 +29,18 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Compile HBT-1.4 live collector
-        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py
+      - name: Compile HBT-1.4 live collector and slate scanner
+        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_scan_slate_v2.py
       - name: Collect HBT-1.4 live match intelligence
         run: python scripts/hbt_collect_match_intelligence_v5.py
-      - name: Validate readiness contract
+      - name: Resolve SAST slate date
+        run: echo "TARGET_DATE=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_ENV"
+      - name: Discover and classify full public slate
+        run: python scripts/hbt_scan_slate_v2.py --date "$TARGET_DATE"
+      - name: Validate readiness and slate contracts
         run: |
           python - <<'PY'
-          import json
+          import json, os
           p=json.load(open('hbt_live_data/hbt_1_4_match_intelligence.json',encoding='utf-8'))
           assert p.get('version')=='HBT-1.4R-MATCH-INTELLIGENCE-LIVE', p.get('version')
           rows=p.get('fixtures') or {}
@@ -45,9 +49,36 @@ jobs:
               state=row.get('readinessState') or row.get('readiness') or row.get('state')
               if state is not None:
                   assert state in {'PRE_XI_PROVISIONAL','CONFIRMED_XI_READY'}, state
+
+          s=json.load(open('hbt_live_data/slate_scanner.json',encoding='utf-8'))
+          assert s.get('schemaVersion')=='HBT-SLATE-2', s.get('schemaVersion')
+          assert s.get('targetDate')==os.environ['TARGET_DATE'], (s.get('targetDate'),os.environ['TARGET_DATE'])
+          policy=s.get('policy') or {}
+          assert policy.get('discoveryBeforeRanking') is True
+          assert policy.get('bookmakerOddsUsed') is False
+          assert policy.get('frozenPredictiveModelMutated') is False
+          assert policy.get('retrainingPerformed') is False
+          assert policy.get('fallbackFabricated') is False
+          assert policy.get('testAImmutable') is True
+          allowed={'FULL_MODEL','FALLBACK','INSUFFICIENT_DATA','UNSUPPORTED_COMPETITION','SOURCE_FAILURE','NOT_YET_READY'}
+          for row in s.get('fixtures') or []:
+              state=row.get('hbtSupportLevel'); assert state in allowed, state
+              probs=row.get('probabilityOutput')
+              if probs is not None:
+                  assert state in {'FULL_MODEL','FALLBACK'}, (state,row.get('home'),row.get('away'))
+                  assert isinstance(probs,list) and len(probs)==3
+                  if state=='FULL_MODEL': assert 'FUSION' in str(row.get('predictionMode') or '')
+                  if state=='FALLBACK': assert str(row.get('predictionMode') or '').startswith('L0')
+              if row.get('rankEligibleFullModel'): assert state=='FULL_MODEL'
+              if row.get('rankEligibleFallback'): assert state=='FALLBACK'
+          adapter=s.get('frozenForecastAdapter') or {}
+          if adapter.get('available'):
+              assert adapter.get('generalFutureLiveFeed') is False
+              assert int(adapter.get('predictions') or 0) >= 1
           print('HBT-1.4 live readiness validation passed',p.get('generatedAt'),len(rows))
+          print('HBT slate validation passed',s.get('targetDate'),s.get('coverage'),s.get('rankingGate'))
           PY
-      - name: Commit HBT-1.4 research feed if changed
+      - name: Commit HBT-1.4 research feed and slate coverage if changed
         run: |
           set -euo pipefail
           BRANCH='research/hbt-1.4-match-intelligence'
@@ -55,13 +86,15 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           TMP="$(mktemp -d)"
           cp hbt_live_data/hbt_1_4_match_intelligence.json "$TMP/"
+          cp hbt_live_data/slate_scanner.json "$TMP/"
           if [ -f hbt_live_data/_hbt_1_4_live_cache.json ]; then cp hbt_live_data/_hbt_1_4_live_cache.json "$TMP/"; fi
           git fetch origin "$BRANCH"
           git reset --hard "origin/$BRANCH"
           cp "$TMP/hbt_1_4_match_intelligence.json" hbt_live_data/
+          cp "$TMP/slate_scanner.json" hbt_live_data/
           if [ -f "$TMP/_hbt_1_4_live_cache.json" ]; then cp "$TMP/_hbt_1_4_live_cache.json" hbt_live_data/; fi
-          git add hbt_live_data/hbt_1_4_match_intelligence.json
+          git add hbt_live_data/hbt_1_4_match_intelligence.json hbt_live_data/slate_scanner.json
           if [ -f hbt_live_data/_hbt_1_4_live_cache.json ]; then git add hbt_live_data/_hbt_1_4_live_cache.json; fi
           git diff --staged --quiet && exit 0
-          git commit -m 'data: refresh HBT-1.4 research live intelligence [skip ci]'
+          git commit -m 'data: refresh HBT-1.4 research intelligence and slate [skip ci]'
           git push origin "HEAD:$BRANCH"
