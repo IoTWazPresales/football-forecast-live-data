@@ -7,6 +7,7 @@ on:
     paths:
       - 'scripts/hbt_extract_match_intelligence_v5.py'
       - 'scripts/hbt_extract_match_intelligence_v5_identity.py'
+      - 'scripts/hbt_scan_slate.py'
       - 'hbt_live_data/hbt_1_4_feature_registry.json'
       - 'docs/HBT-1.4-MATCH-INTELLIGENCE-SPEC.md'
       - '.github/workflows/hbt-1-4-match-intelligence.yml'
@@ -20,6 +21,52 @@ permissions:
   contents: read
 
 jobs:
+  slate-scanner-smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile slate scanner
+        run: python -m py_compile scripts/hbt_scan_slate.py
+      - name: Discover and classify today's football slate
+        run: python scripts/hbt_scan_slate.py --date "$(date -u +%F)"
+      - name: Validate slate contract
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('hbt_live_data/slate_scanner.json',encoding='utf-8'))
+          assert p['schemaVersion']=='HBT-SLATE-1'
+          assert p['policy']['discoveryBeforeRanking'] is True
+          assert p['policy']['bookmakerOddsUsed'] is False
+          assert p['policy']['frozenPredictiveModelMutated'] is False
+          assert p['policy']['testAImmutable'] is True
+          allowed={'FULL_MODEL','FALLBACK','INSUFFICIENT_DATA','UNSUPPORTED_COMPETITION','SOURCE_FAILURE','NOT_YET_READY'}
+          rows=p.get('fixtures') or []
+          assert rows, 'scanner emitted no classified rows'
+          assert all(x.get('hbtSupportLevel') in allowed for x in rows)
+          for x in rows:
+              need={'competition','kickoff','home','away','sourceFreshness','hbtSupportLevel','predictionMode','probabilityOutput','intelligenceCompleteness','xiState','scoreMarketsExist','validatedEventMarketsExist','exclusionReason'}
+              assert need <= set(x), (need-set(x),x)
+              if x.get('hbtSupportLevel')!='FULL_MODEL':
+                  assert x.get('exclusionReason'), x
+          c=p['coverage']
+          assert c['classifiedRows']==len(rows)
+          assert sum(c[s] for s in allowed)==len(rows)
+          print('HBT slate scanner passed:',c,p['rankingGate'])
+          PY
+      - name: Upload slate coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hbt-slate-scanner-smoke
+          path: hbt_live_data/slate_scanner.json
+          retention-days: 3
+
   historical-intelligence:
     runs-on: ubuntu-latest
     timeout-minutes: 55
@@ -48,8 +95,6 @@ jobs:
           assert q['managerHindsightUsed'] is False
           assert q['failedStandaloneFamiliesRetainedForInteraction'] is True
           assert p['coverage']['rows'] > 1700, p['coverage']
-          # Football-Data's 2018-19 files expose Referee consistently for EPL but
-          # not for every Big-Five league. Missing referee is preserved as unknown.
           assert p['coverage']['refereeKnown'] > 300, p['coverage']
           assert p['coverage']['setPieceHomeN3'] > 1500, p['coverage']
           rows=p['rows']
