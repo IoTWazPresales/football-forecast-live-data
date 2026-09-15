@@ -7,6 +7,7 @@ on:
       - research/hbt-1.4-match-intelligence
     paths:
       - 'scripts/hbt_scan_slate_v2.py'
+      - 'scripts/hbt_scan_slate_v2_1.py'
       - 'hbt_live_data/frozen_control_forecast_*.json'
       - '.github/workflows/hbt-slate-scanner-ci.yml'
 
@@ -26,11 +27,11 @@ jobs:
         with:
           python-version: '3.12'
       - name: Compile scanner
-        run: python -m py_compile scripts/hbt_scan_slate_v2.py
+        run: python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py
       - name: Run SAST slate scanner
         run: |
           TARGET_DATE="$(TZ=Africa/Johannesburg date +%F)"
-          python scripts/hbt_scan_slate_v2.py --date "$TARGET_DATE"
+          python scripts/hbt_scan_slate_v2_1.py --date "$TARGET_DATE"
       - name: Validate scanner contract
         run: |
           python - <<'PY'
@@ -57,5 +58,5 @@ jobs:
           a=s.get('frozenForecastAdapter') or {}
           if a.get('available'):
               assert a.get('generalFutureLiveFeed') is False
-          print(json.dumps({'coverage':s['coverage'],'rankingGate':s['rankingGate']},indent=2))
+          print(json.dumps({'version':s['version'],'coverage':s['coverage'],'rankingGate':s['rankingGate']},indent=2))
           PY
