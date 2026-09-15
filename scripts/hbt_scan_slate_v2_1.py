@@ -12,7 +12,7 @@ from typing import Any
 
 import hbt_scan_slate_v2 as base
 
-base.VERSION = "HBT-SLATE-SCANNER-2.1"
+base.VERSION = "HBT-SLATE-SCANNER-2.2"
 _ORIG_ESPN = base.parse_espn
 
 ESPN_LEAGUES = {
@@ -30,6 +30,12 @@ ESPN_LEAGUES = {
 SPORTSDB_LEAGUES = {
     "pl.1": (4422, "Ekstraklasa"),
     "ie.1": (4643, "League of Ireland Premier Division"),
+}
+# The original Forecast Desk sourced the Sep-15 Ajax/Willem II fixture from
+# OpenFootball rather than ESPN. Keep this source explicit and redundant instead
+# of hard-coding a fixture or weakening the coverage gate.
+OPENFOOTBALL_LEAGUES = {
+    "nl.1": "Eredivisie",
 }
 
 
@@ -70,11 +76,34 @@ def sportsdb_league(date: dt.date, code: str, league_id: int, label: str) -> tup
     return rows, {"source": f"THESPORTSDB:{code}", "url": url, "fetchedAt": fetched, "status": "loaded", "events": len(rows)}
 
 
+def season_code(date: dt.date) -> str:
+    start = date.year if date.month >= 7 else date.year - 1
+    return f"{start}-{str((start + 1) % 100).zfill(2)}"
+
+
+def openfootball_league(date: dt.date, code: str, label: str) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    season = season_code(date)
+    url = f"https://raw.githubusercontent.com/openfootball/football.json/master/{season}/{code}.json"
+    fetched = base.now(); raw = base.http_json(url); rows = []
+    for i, m in enumerate(raw.get("matches") or []):
+        if str(m.get("date") or "")[:10] != date.isoformat(): continue
+        hn, an = str(m.get("team1") or "").strip(), str(m.get("team2") or "").strip()
+        if not hn or not an: continue
+        time = str(m.get("time") or "00:00")[:5]
+        rows.append({
+            "source": f"OPENFOOTBALL:{code}", "sourceFixtureId": f"{season}:{code}:{i}", "sourceFreshness": fetched,
+            "competition": label, "competitionSlug": code, "leagueHint": code,
+            "kickoff": f"{date.isoformat()}T{time}:00", "home": hn, "away": an,
+        })
+    return rows, {"source": f"OPENFOOTBALL:{code}", "url": url, "fetchedAt": fetched, "status": "loaded", "events": len(rows)}
+
+
 def parse_discovery_bundle(date: dt.date) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     rows: list[dict[str, Any]] = []; components: list[dict[str, Any]] = []; successes = 0
     providers: list[tuple[str, Any]] = [("ESPN_ALL", lambda: _ORIG_ESPN(date))]
     providers += [(f"ESPN:{c}", lambda c=c,s=s,l=l: espn_league(date,c,s,l)) for c,(s,l) in ESPN_LEAGUES.items()]
     providers += [(f"THESPORTSDB:{c}", lambda c=c,i=i,l=l: sportsdb_league(date,c,i,l)) for c,(i,l) in SPORTSDB_LEAGUES.items()]
+    providers += [(f"OPENFOOTBALL:{c}", lambda c=c,l=l: openfootball_league(date,c,l)) for c,l in OPENFOOTBALL_LEAGUES.items()]
     for name, fn in providers:
         try:
             got, audit = fn(); rows.extend(got); components.append(audit); successes += 1
