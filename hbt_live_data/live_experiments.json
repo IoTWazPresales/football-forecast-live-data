@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "HBT-LIVE-EXPERIMENTS-1",
+  "policy": {
+    "prospectiveOnly": true,
+    "noRetrospectiveLegChanges": true,
+    "testAImmutable": true,
+    "testBSeparateExperiment": true,
+    "stakeEscalationRecommended": false
+  },
+  "experiments": [
+    {
+      "id": "PRE_XI_TEST_A_2026-09-15",
+      "name": "Live Experiment — PRE-XI Test A",
+      "targetDate": "2026-09-15",
+      "state": "FROZEN_PROSPECTIVE",
+      "placed": true,
+      "placedBeforeConfirmedXI": true,
+      "stakeZAR": 1.0,
+      "selectionContext": "Placed before the slate-coverage defect was identified. Preserve as evidence of the system/assistant selection at that point; do not reinterpret it as proof these were the best bets across the full slate.",
+      "legs": [
+        {
+          "fixture": "Rayo Vallecano vs Espanyol",
+          "selection": "Rayo Vallecano — WIN",
+          "market": "1X2_HOME",
+          "recordedAtPlacementProbabilityApprox": 0.5397,
+          "exactProspectiveAuditProbability": 0.5398550753047744
+        },
+        {
+          "fixture": "Deportivo Alavés vs Valencia",
+          "selection": "Deportivo Alavés — WIN",
+          "market": "1X2_HOME",
+          "recordedAtPlacementProbabilityApprox": 0.6085,
+          "exactProspectiveAuditProbability": 0.6086948868675904
+        },
+        {
+          "fixture": "Elche vs Real Madrid",
+          "selection": "UNDER 3.5 goals",
+          "market": "TOTAL_GOALS_UNDER_3_5",
+          "recordedAtPlacementProbabilityApprox": 0.5801,
+          "exactProspectiveAuditProbability": 0.5802448326403797
+        }
+      ],
+      "result": null,
+      "settledAt": null,
+      "sourceForecastArtifact": "frozen_control_forecast_2026-09-15.json"
+    }
+  ]
+}
