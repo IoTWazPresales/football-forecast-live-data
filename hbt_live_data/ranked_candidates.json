@@ -1,0 +1,1009 @@
+{
+  "schemaVersion": "HBT-SLATE-RANKING-1",
+  "version": "HBT-SLATE-RANKER-1",
+  "targetDate": "2026-09-15",
+  "status": "RANKING_READY",
+  "policy": {
+    "discoveryGateRequired": true,
+    "bookmakerOddsUsed": false,
+    "footballProbabilitiesRecomputed": false,
+    "fullModelAndFallbackSeparated": true,
+    "rawProbabilityIsNotBettingValue": true,
+    "universalBestBetsClaimAllowed": false,
+    "configuredSourceRankingLabel": "Best HBT-supported candidates from the configured-source discovered slate",
+    "testAImmutable": true
+  },
+  "coverage": {
+    "fixturesDiscovered": 105,
+    "classifiedRows": 105,
+    "FALLBACK": 8,
+    "FULL_MODEL": 3,
+    "INSUFFICIENT_DATA": 0,
+    "NOT_YET_READY": 0,
+    "SOURCE_FAILURE": 0,
+    "UNSUPPORTED_COMPETITION": 94,
+    "forecastRowsAvailable": 11,
+    "forecastRowsMatched": 11,
+    "knownForecastsMissedByDiscovery": 0,
+    "knownForecastDiscoveryMisses": [],
+    "unsupportedCompetitions": [
+      "2026-27-scottish-championship",
+      "2026-bolivian-liga-profesional",
+      "2026-brasileiro-serie-b",
+      "2026-ncaa-division-i-men",
+      "2026-ncaa-division-i-women",
+      "apertura-2026",
+      "clausura",
+      "first-round-qualifying",
+      "group-stage",
+      "league-phase",
+      "league-stage",
+      "quarterfinals",
+      "regular-season",
+      "second-round",
+      "third-round",
+      "torneo-apertura"
+    ]
+  },
+  "rankingGate": {
+    "sourceDiscoverySucceeded": true,
+    "knownForecastCoverageComplete": true,
+    "discoveryComplete": true,
+    "rankEligibleFixtures": 11,
+    "fullModelRankEligible": 3,
+    "fallbackRankEligible": 8,
+    "note": "Discovery completeness means configured public sources reconciled all known date-scoped HBT forecasts; it is not a claim of universal world-football coverage."
+  },
+  "testAReference": {
+    "id": "PRE_XI_TEST_A_2026-09-15",
+    "name": "Live Experiment — PRE-XI Test A",
+    "state": "FROZEN_PROSPECTIVE",
+    "stakeZAR": 1.0,
+    "legs": [
+      {
+        "fixture": "Rayo Vallecano vs Espanyol",
+        "selection": "Rayo Vallecano — WIN",
+        "market": "1X2_HOME",
+        "recordedAtPlacementProbabilityApprox": 0.5397,
+        "exactProspectiveAuditProbability": 0.5398550753047744
+      },
+      {
+        "fixture": "Deportivo Alavés vs Valencia",
+        "selection": "Deportivo Alavés — WIN",
+        "market": "1X2_HOME",
+        "recordedAtPlacementProbabilityApprox": 0.6085,
+        "exactProspectiveAuditProbability": 0.6086948868675904
+      },
+      {
+        "fixture": "Elche vs Real Madrid",
+        "selection": "UNDER 3.5 goals",
+        "market": "TOTAL_GOALS_UNDER_3_5",
+        "recordedAtPlacementProbabilityApprox": 0.5801,
+        "exactProspectiveAuditProbability": 0.5802448326403797
+      }
+    ],
+    "note": "Reference only. Ranking does not alter, remove, replace, or retrospectively optimise Test A."
+  },
+  "rankings": {
+    "highestRawDeployedPickProbability": [
+      {
+        "competition": "Eredivisie",
+        "kickoff": "2026-09-15T20:00:00",
+        "home": "AFC Ajax",
+        "away": "Willem II Tilburg",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "AFC Ajax",
+        "pickProbability": 0.7578845773223023,
+        "probabilityOutput": [
+          0.7578845773223023,
+          0.17406444284326916,
+          0.06805097983442843
+        ],
+        "tier": "B",
+        "rawTier": "A",
+        "quality": 0.9577093228207817,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "2026-27-laliga",
+        "kickoff": "2026-09-15T19:30:00Z",
+        "home": "Elche",
+        "away": "Real Madrid",
+        "support": "FULL_MODEL",
+        "predictionMode": "PRE-XI FUSION",
+        "pick": "Real Madrid CF",
+        "pickProbability": 0.6981680822072946,
+        "probabilityOutput": [
+          0.11268984528721412,
+          0.18914207250549123,
+          0.6981680822072946
+        ],
+        "tier": "A",
+        "rawTier": "A",
+        "quality": 0.8754087368770354,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": true,
+        "xiState": "PRE_XI_PROVISIONAL",
+        "scoreMarketsExist": true,
+        "scoreMarkets": {
+          "hda": [
+            0.1558260168902556,
+            0.19802722078399032,
+            0.6461467623257542
+          ],
+          "oneX": 0.3538532376742459,
+          "x2": 0.8441739831097446,
+          "twelve": 0.8019727792160098,
+          "over15": 0.8457813575908405,
+          "under15": 0.1542186424091595,
+          "over25": 0.6406627278692815,
+          "under25": 0.35933727213071853,
+          "over35": 0.4197551673596202,
+          "under35": 0.5802448326403797,
+          "bttsYes": 0.582320842267395,
+          "bttsNo": 0.417679157732605,
+          "homeOver05": 0.6449708846489867,
+          "awayOver05": 0.8961605161470615,
+          "homeOver15": 0.27731853439794385,
+          "awayOver15": 0.6609708660561551,
+          "mostLikelyScore": {
+            "h": 1,
+            "a": 2,
+            "p": 0.09792221803894466
+          }
+        },
+        "validatedEventMarketsExist": true,
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
+        ],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "2026-27-scottish-premiership",
+        "kickoff": "2026-09-15T18:45:00Z",
+        "home": "Hibernian",
+        "away": "Kilmarnock",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Hibernian",
+        "pickProbability": 0.64418177325026,
+        "probabilityOutput": [
+          0.64418177325026,
+          0.21900644829445817,
+          0.13681177845528175
+        ],
+        "tier": "B",
+        "rawTier": "B",
+        "quality": 0.7020406327951795,
+        "forecastCoverage": "stale-ish 318d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "2026-27-laliga",
+        "kickoff": "2026-09-15T18:00:00Z",
+        "home": "Alavés",
+        "away": "Valencia",
+        "support": "FULL_MODEL",
+        "predictionMode": "PRE-XI FUSION",
+        "pick": "Deportivo Alavés",
+        "pickProbability": 0.6086948868675904,
+        "probabilityOutput": [
+          0.6086948868675904,
+          0.22500951476778627,
+          0.1662955983646232
+        ],
+        "tier": "B",
+        "rawTier": "B",
+        "quality": 0.8404121844653921,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": true,
+        "xiState": "PRE_XI_PROVISIONAL",
+        "scoreMarketsExist": true,
+        "scoreMarkets": {
+          "hda": [
+            0.6152629959968756,
+            0.22347134415960612,
+            0.161265659843518
+          ],
+          "oneX": 0.8387343401564817,
+          "x2": 0.38473700400312416,
+          "twelve": 0.7765286558403937,
+          "over15": 0.782232579538148,
+          "under15": 0.21776742046185205,
+          "over25": 0.5421838864354489,
+          "under25": 0.4578161135645511,
+          "over35": 0.31901780397089635,
+          "under35": 0.6809821960291036,
+          "bttsYes": 0.5132773344769541,
+          "bttsNo": 0.4867226655230459,
+          "homeOver05": 0.8579967167451621,
+          "awayOver05": 0.5923189921602522,
+          "homeOver15": 0.5808188411445664,
+          "awayOver15": 0.2265189493776477,
+          "mostLikelyScore": {
+            "h": 2,
+            "a": 0,
+            "p": 0.11028316520163525
+          }
+        },
+        "validatedEventMarketsExist": true,
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
+        ],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "2026-27-laliga",
+        "kickoff": "2026-09-15T17:00:00Z",
+        "home": "Rayo Vallecano",
+        "away": "Espanyol",
+        "support": "FULL_MODEL",
+        "predictionMode": "PRE-XI FUSION",
+        "pick": "Rayo Vallecano de Madrid",
+        "pickProbability": 0.5398550753047744,
+        "probabilityOutput": [
+          0.5398550753047744,
+          0.2457104074317339,
+          0.21443451726349166
+        ],
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.8864377110054005,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": true,
+        "xiState": "PRE_XI_PROVISIONAL",
+        "scoreMarketsExist": true,
+        "scoreMarkets": {
+          "hda": [
+            0.5168816943537277,
+            0.2434670515679416,
+            0.2396512540783303
+          ],
+          "oneX": 0.7603487459216692,
+          "x2": 0.4831183056462719,
+          "twelve": 0.756532948432058,
+          "over15": 0.7969689755670898,
+          "under15": 0.2030310244329102,
+          "over25": 0.5629575853487202,
+          "under25": 0.4370424146512798,
+          "over35": 0.33905687546458413,
+          "under35": 0.6609431245354158,
+          "bttsYes": 0.5748966446154707,
+          "bttsNo": 0.42510335538452926,
+          "homeOver05": 0.8324811424418359,
+          "awayOver05": 0.6840382426013515,
+          "homeOver15": 0.5331815209440054,
+          "awayOver15": 0.320007916500111,
+          "mostLikelyScore": {
+            "h": 1,
+            "a": 1,
+            "p": 0.11440184575662468
+          }
+        },
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "2026-27-scottish-premiership",
+        "kickoff": "2026-09-15T18:45:00Z",
+        "home": "Motherwell",
+        "away": "Aberdeen",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Motherwell",
+        "pickProbability": 0.48635520310013747,
+        "probabilityOutput": [
+          0.48635520310013747,
+          0.2660657604468178,
+          0.24757903645304472
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.7150019248493976,
+        "forecastCoverage": "stale-ish 321d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "regular-season",
+        "kickoff": "2026-09-15T18:45:00Z",
+        "home": "Middlesbrough",
+        "away": "Millwall",
+        "support": "FALLBACK",
+        "predictionMode": "L0 C1 TRANSFER",
+        "pick": "Middlesbrough FC",
+        "pickProbability": 0.4786320919232084,
+        "probabilityOutput": [
+          0.4786320919232084,
+          0.2658441046276773,
+          0.25552380344911424
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.9786657330942998,
+        "forecastCoverage": "C1 transfer · state 1194 matches",
+        "coveragePack": "C1",
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "2026-27-scottish-premiership",
+        "kickoff": "2026-09-15T18:45:00Z",
+        "home": "Falkirk",
+        "away": "Heart of Midlothian",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Heart of Midlothian",
+        "pickProbability": 0.4784603596708235,
+        "probabilityOutput": [
+          0.25120428972903747,
+          0.270335350600139,
+          0.4784603596708235
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.5352005586310532,
+        "forecastCoverage": "stale-ish 318d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "Ekstraklasa",
+        "kickoff": "2026-09-15T16:00:00Z",
+        "home": "Raków Częstochowa",
+        "away": "Zagłębie Lubin",
+        "support": "FALLBACK",
+        "predictionMode": "L0 C1 TRANSFER",
+        "pick": "Raków Częstochowa",
+        "pickProbability": 0.438293776135108,
+        "probabilityOutput": [
+          0.438293776135108,
+          0.26475043617676114,
+          0.2969557876881308
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.5323209506881666,
+        "forecastCoverage": "C1 transfer · state 4097 matches",
+        "coveragePack": "C1",
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "regular-season",
+        "kickoff": "2026-09-15T18:45:00Z",
+        "home": "Bristol City",
+        "away": "Lincoln City",
+        "support": "FALLBACK",
+        "predictionMode": "L0 C1 TRANSFER",
+        "pick": "Bristol City FC",
+        "pickProbability": 0.4353211214351821,
+        "probabilityOutput": [
+          0.4353211214351821,
+          0.2763403730136006,
+          0.28833850555121726
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.7344570025960394,
+        "forecastCoverage": "C1 transfer · state 1194 matches",
+        "coveragePack": "C1",
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "Ekstraklasa",
+        "kickoff": "2026-09-15T18:30:00Z",
+        "home": "Korona Kielce",
+        "away": "Górnik Zabrze",
+        "support": "FALLBACK",
+        "predictionMode": "L0 C1 TRANSFER",
+        "pick": "Górnik Zabrze",
+        "pickProbability": 0.3973763562116818,
+        "probabilityOutput": [
+          0.32503292206020773,
+          0.27759072172811045,
+          0.3973763562116818
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.8740113273551656,
+        "forecastCoverage": "C1 transfer · state 4097 matches",
+        "coveragePack": "C1",
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      }
+    ],
+    "strongestFullModelConfidence": [
+      {
+        "competition": "2026-27-laliga",
+        "kickoff": "2026-09-15T19:30:00Z",
+        "home": "Elche",
+        "away": "Real Madrid",
+        "support": "FULL_MODEL",
+        "predictionMode": "PRE-XI FUSION",
+        "pick": "Real Madrid CF",
+        "pickProbability": 0.6981680822072946,
+        "probabilityOutput": [
+          0.11268984528721412,
+          0.18914207250549123,
+          0.6981680822072946
+        ],
+        "tier": "A",
+        "rawTier": "A",
+        "quality": 0.8754087368770354,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": true,
+        "xiState": "PRE_XI_PROVISIONAL",
+        "scoreMarketsExist": true,
+        "scoreMarkets": {
+          "hda": [
+            0.1558260168902556,
+            0.19802722078399032,
+            0.6461467623257542
+          ],
+          "oneX": 0.3538532376742459,
+          "x2": 0.8441739831097446,
+          "twelve": 0.8019727792160098,
+          "over15": 0.8457813575908405,
+          "under15": 0.1542186424091595,
+          "over25": 0.6406627278692815,
+          "under25": 0.35933727213071853,
+          "over35": 0.4197551673596202,
+          "under35": 0.5802448326403797,
+          "bttsYes": 0.582320842267395,
+          "bttsNo": 0.417679157732605,
+          "homeOver05": 0.6449708846489867,
+          "awayOver05": 0.8961605161470615,
+          "homeOver15": 0.27731853439794385,
+          "awayOver15": 0.6609708660561551,
+          "mostLikelyScore": {
+            "h": 1,
+            "a": 2,
+            "p": 0.09792221803894466
+          }
+        },
+        "validatedEventMarketsExist": true,
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
+        ],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "2026-27-laliga",
+        "kickoff": "2026-09-15T18:00:00Z",
+        "home": "Alavés",
+        "away": "Valencia",
+        "support": "FULL_MODEL",
+        "predictionMode": "PRE-XI FUSION",
+        "pick": "Deportivo Alavés",
+        "pickProbability": 0.6086948868675904,
+        "probabilityOutput": [
+          0.6086948868675904,
+          0.22500951476778627,
+          0.1662955983646232
+        ],
+        "tier": "B",
+        "rawTier": "B",
+        "quality": 0.8404121844653921,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": true,
+        "xiState": "PRE_XI_PROVISIONAL",
+        "scoreMarketsExist": true,
+        "scoreMarkets": {
+          "hda": [
+            0.6152629959968756,
+            0.22347134415960612,
+            0.161265659843518
+          ],
+          "oneX": 0.8387343401564817,
+          "x2": 0.38473700400312416,
+          "twelve": 0.7765286558403937,
+          "over15": 0.782232579538148,
+          "under15": 0.21776742046185205,
+          "over25": 0.5421838864354489,
+          "under25": 0.4578161135645511,
+          "over35": 0.31901780397089635,
+          "under35": 0.6809821960291036,
+          "bttsYes": 0.5132773344769541,
+          "bttsNo": 0.4867226655230459,
+          "homeOver05": 0.8579967167451621,
+          "awayOver05": 0.5923189921602522,
+          "homeOver15": 0.5808188411445664,
+          "awayOver15": 0.2265189493776477,
+          "mostLikelyScore": {
+            "h": 2,
+            "a": 0,
+            "p": 0.11028316520163525
+          }
+        },
+        "validatedEventMarketsExist": true,
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
+        ],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "2026-27-laliga",
+        "kickoff": "2026-09-15T17:00:00Z",
+        "home": "Rayo Vallecano",
+        "away": "Espanyol",
+        "support": "FULL_MODEL",
+        "predictionMode": "PRE-XI FUSION",
+        "pick": "Rayo Vallecano de Madrid",
+        "pickProbability": 0.5398550753047744,
+        "probabilityOutput": [
+          0.5398550753047744,
+          0.2457104074317339,
+          0.21443451726349166
+        ],
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.8864377110054005,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": true,
+        "xiState": "PRE_XI_PROVISIONAL",
+        "scoreMarketsExist": true,
+        "scoreMarkets": {
+          "hda": [
+            0.5168816943537277,
+            0.2434670515679416,
+            0.2396512540783303
+          ],
+          "oneX": 0.7603487459216692,
+          "x2": 0.4831183056462719,
+          "twelve": 0.756532948432058,
+          "over15": 0.7969689755670898,
+          "under15": 0.2030310244329102,
+          "over25": 0.5629575853487202,
+          "under25": 0.4370424146512798,
+          "over35": 0.33905687546458413,
+          "under35": 0.6609431245354158,
+          "bttsYes": 0.5748966446154707,
+          "bttsNo": 0.42510335538452926,
+          "homeOver05": 0.8324811424418359,
+          "awayOver05": 0.6840382426013515,
+          "homeOver15": 0.5331815209440054,
+          "awayOver15": 0.320007916500111,
+          "mostLikelyScore": {
+            "h": 1,
+            "a": 1,
+            "p": 0.11440184575662468
+          }
+        },
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      }
+    ],
+    "fallbackOnly": [
+      {
+        "competition": "Eredivisie",
+        "kickoff": "2026-09-15T20:00:00",
+        "home": "AFC Ajax",
+        "away": "Willem II Tilburg",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "AFC Ajax",
+        "pickProbability": 0.7578845773223023,
+        "probabilityOutput": [
+          0.7578845773223023,
+          0.17406444284326916,
+          0.06805097983442843
+        ],
+        "tier": "B",
+        "rawTier": "A",
+        "quality": 0.9577093228207817,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "2026-27-scottish-premiership",
+        "kickoff": "2026-09-15T18:45:00Z",
+        "home": "Hibernian",
+        "away": "Kilmarnock",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Hibernian",
+        "pickProbability": 0.64418177325026,
+        "probabilityOutput": [
+          0.64418177325026,
+          0.21900644829445817,
+          0.13681177845528175
+        ],
+        "tier": "B",
+        "rawTier": "B",
+        "quality": 0.7020406327951795,
+        "forecastCoverage": "stale-ish 318d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "2026-27-scottish-premiership",
+        "kickoff": "2026-09-15T18:45:00Z",
+        "home": "Motherwell",
+        "away": "Aberdeen",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Motherwell",
+        "pickProbability": 0.48635520310013747,
+        "probabilityOutput": [
+          0.48635520310013747,
+          0.2660657604468178,
+          0.24757903645304472
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.7150019248493976,
+        "forecastCoverage": "stale-ish 321d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "regular-season",
+        "kickoff": "2026-09-15T18:45:00Z",
+        "home": "Middlesbrough",
+        "away": "Millwall",
+        "support": "FALLBACK",
+        "predictionMode": "L0 C1 TRANSFER",
+        "pick": "Middlesbrough FC",
+        "pickProbability": 0.4786320919232084,
+        "probabilityOutput": [
+          0.4786320919232084,
+          0.2658441046276773,
+          0.25552380344911424
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.9786657330942998,
+        "forecastCoverage": "C1 transfer · state 1194 matches",
+        "coveragePack": "C1",
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "2026-27-scottish-premiership",
+        "kickoff": "2026-09-15T18:45:00Z",
+        "home": "Falkirk",
+        "away": "Heart of Midlothian",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Heart of Midlothian",
+        "pickProbability": 0.4784603596708235,
+        "probabilityOutput": [
+          0.25120428972903747,
+          0.270335350600139,
+          0.4784603596708235
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.5352005586310532,
+        "forecastCoverage": "stale-ish 318d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "Ekstraklasa",
+        "kickoff": "2026-09-15T16:00:00Z",
+        "home": "Raków Częstochowa",
+        "away": "Zagłębie Lubin",
+        "support": "FALLBACK",
+        "predictionMode": "L0 C1 TRANSFER",
+        "pick": "Raków Częstochowa",
+        "pickProbability": 0.438293776135108,
+        "probabilityOutput": [
+          0.438293776135108,
+          0.26475043617676114,
+          0.2969557876881308
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.5323209506881666,
+        "forecastCoverage": "C1 transfer · state 4097 matches",
+        "coveragePack": "C1",
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "regular-season",
+        "kickoff": "2026-09-15T18:45:00Z",
+        "home": "Bristol City",
+        "away": "Lincoln City",
+        "support": "FALLBACK",
+        "predictionMode": "L0 C1 TRANSFER",
+        "pick": "Bristol City FC",
+        "pickProbability": 0.4353211214351821,
+        "probabilityOutput": [
+          0.4353211214351821,
+          0.2763403730136006,
+          0.28833850555121726
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.7344570025960394,
+        "forecastCoverage": "C1 transfer · state 1194 matches",
+        "coveragePack": "C1",
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      },
+      {
+        "competition": "Ekstraklasa",
+        "kickoff": "2026-09-15T18:30:00Z",
+        "home": "Korona Kielce",
+        "away": "Górnik Zabrze",
+        "support": "FALLBACK",
+        "predictionMode": "L0 C1 TRANSFER",
+        "pick": "Górnik Zabrze",
+        "pickProbability": 0.3973763562116818,
+        "probabilityOutput": [
+          0.32503292206020773,
+          0.27759072172811045,
+          0.3973763562116818
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.8740113273551656,
+        "forecastCoverage": "C1 transfer · state 4097 matches",
+        "coveragePack": "C1",
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-09-13T14:13:03.038Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        }
+      }
+    ],
+    "experimentalValueVsPrice": {
+      "status": "UNAVAILABLE_NO_BOOKMAKER_PRICE",
+      "reason": "The football model and slate scanner deliberately exclude bookmaker odds. Probability alone is not betting value."
+    },
+    "unsupportedOrIgnored": {
+      "count": 94,
+      "bySupportState": {
+        "UNSUPPORTED_COMPETITION": 94
+      },
+      "detailSource": "slate_scanner.json",
+      "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
+    }
+  }
+}
