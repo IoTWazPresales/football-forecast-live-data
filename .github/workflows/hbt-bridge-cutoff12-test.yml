@@ -1,0 +1,52 @@
+name: HBT Frozen Bridge Cutoff12 Test
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/hbt-bridge-cutoff12-test.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  parity-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Patch reconstruction cutoff for exact snapshot-day test
+        run: |
+          cp scripts/hbt_frozen_forecast_bridge.mjs /tmp/original_bridge.mjs
+          sed -i "s/const asOfExclusive='2026-09-11';/const asOfExclusive='2026-09-12';/" scripts/hbt_frozen_forecast_bridge.mjs
+          grep "const asOfExclusive" scripts/hbt_frozen_forecast_bridge.mjs
+      - name: Run frozen bridge parity test
+        id: bridge
+        continue-on-error: true
+        run: node scripts/hbt_frozen_forecast_bridge.mjs --date 2026-09-16
+      - name: Preserve test outputs separately
+        run: |
+          cp hbt_live_data/forecast_bridge_status.json hbt_live_data/forecast_bridge_status_cutoff12_test.json
+          if [ -f hbt_live_data/frozen_control_forecast_2026-09-16.json ]; then
+            cp hbt_live_data/frozen_control_forecast_2026-09-16.json hbt_live_data/frozen_control_forecast_2026-09-16_cutoff12_test.json
+          fi
+          cat hbt_live_data/forecast_bridge_status_cutoff12_test.json
+      - name: Commit isolated test evidence
+        run: |
+          set -euo pipefail
+          BRANCH='research/hbt-1.4-match-intelligence'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git checkout -- scripts/hbt_frozen_forecast_bridge.mjs
+          git add hbt_live_data/forecast_bridge_status_cutoff12_test.json
+          if [ -f hbt_live_data/frozen_control_forecast_2026-09-16_cutoff12_test.json ]; then git add hbt_live_data/frozen_control_forecast_2026-09-16_cutoff12_test.json; fi
+          git diff --staged --quiet && exit 0
+          git commit -m 'test: record cutoff12 frozen bridge parity evidence [skip ci]'
+          git push origin "HEAD:$BRANCH"
