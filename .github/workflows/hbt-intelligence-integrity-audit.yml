@@ -1,0 +1,44 @@
+name: HBT Intelligence Integrity Audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/hbt-intelligence-integrity-audit.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 1
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile integrity guard
+        run: python -m py_compile scripts/hbt_intelligence_integrity_guard_v1.py scripts/hbt_rank_slate.py scripts/hbt_expand_markets.py
+      - name: Snapshot guarded intelligence and emit quality audit
+        run: python scripts/hbt_intelligence_integrity_guard_v1.py snapshot
+      - name: Exercise downstream betting desk transforms
+        run: |
+          python scripts/hbt_rank_slate.py
+          python scripts/hbt_expand_markets.py
+      - name: Verify downstream transforms did not mutate intelligence
+        run: python scripts/hbt_intelligence_integrity_guard_v1.py verify
+      - name: Commit observability-only intelligence audit
+        run: |
+          set -euo pipefail
+          BRANCH='research/hbt-1.4-match-intelligence'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/hbt_intelligence_quality_audit.json
+          git diff --staged --quiet && exit 0
+          git commit -m 'audit: record HBT intelligence integrity and coverage [skip ci]'
+          git push origin "HEAD:$BRANCH"
