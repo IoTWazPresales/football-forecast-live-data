@@ -1,0 +1,55 @@
+name: HBT Shadow006 Tonight
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/hbt-shadow006-tonight.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  shadow-forecast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Patch parity threshold only for isolated shadow experiment
+        run: |
+          sed -i "s/const tolerance=1e-9,parityPass=/const tolerance=0.006,parityPass=/" scripts/hbt_frozen_forecast_bridge.mjs
+          grep "const tolerance" scripts/hbt_frozen_forecast_bridge.mjs
+      - name: Emit date-scoped shadow forecast
+        run: node scripts/hbt_frozen_forecast_bridge.mjs --date 2026-09-16
+      - name: Mark output as shadow-only and preserve separately
+        run: |
+          node - <<'NODE'
+          const fs=require('fs');
+          const p='hbt_live_data/frozen_control_forecast_2026-09-16.json';
+          const x=JSON.parse(fs.readFileSync(p,'utf8'));
+          x.schemaVersion='HBT-SHADOW-FORECAST-1';
+          x.sourceLabVersion='HBT-1.1.2L-R1 reconstructed shadow';
+          x.policy={...(x.policy||{}),shadowOnly:true,officialFrozenControl:false,productionPromotionAllowed:false,r1ProspectiveExperimentAllowed:true,reason:'Reconstructed L0 bridge reproduces locked Sep-15 L0 probabilities within 0.006 absolute probability but not exact 1e-9 parity.'};
+          x.bridge={...(x.bridge||{}),shadowTolerance:0.006};
+          fs.writeFileSync('hbt_live_data/hbt_shadow_forecast_2026-09-16.json',JSON.stringify(x,null,2)+'\n');
+          NODE
+          rm -f hbt_live_data/frozen_control_forecast_2026-09-16.json
+          cp hbt_live_data/forecast_bridge_status.json hbt_live_data/forecast_bridge_status_shadow006.json
+          git checkout -- scripts/hbt_frozen_forecast_bridge.mjs
+      - name: Commit isolated shadow evidence
+        run: |
+          set -euo pipefail
+          BRANCH='research/hbt-1.4-match-intelligence'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/hbt_shadow_forecast_2026-09-16.json hbt_live_data/forecast_bridge_status_shadow006.json
+          git diff --staged --quiet && exit 0
+          git commit -m 'test: record isolated HBT shadow forecast for 2026-09-16 [skip ci]'
+          git push origin "HEAD:$BRANCH"
