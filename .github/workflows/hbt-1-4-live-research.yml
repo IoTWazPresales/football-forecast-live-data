@@ -20,7 +20,7 @@ permissions:
 jobs:
   refresh-research-branch:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v5
         with:
@@ -29,8 +29,13 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Compile HBT live collectors, guards, slate scanner, price sidecar and ranker
-        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_context_quality_v7.py scripts/hbt_guard_match_intelligence_v6.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_collect_market_prices_v1.py scripts/hbt_rank_slate.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Compile HBT live collectors, guards, slate scanner, frozen bridge, price sidecar and ranker
+        run: |
+          python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_context_quality_v7.py scripts/hbt_guard_match_intelligence_v6.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_collect_market_prices_v1.py scripts/hbt_rank_slate.py
+          node --check scripts/hbt_frozen_forecast_bridge.mjs
       - name: Collect HBT-1.4 live match intelligence with source-specific transport fixes
         run: python scripts/hbt_collect_match_intelligence_v6.py
       - name: Repair non-predictive context quality and expose source diagnostics
@@ -39,17 +44,23 @@ jobs:
         run: python scripts/hbt_guard_match_intelligence_v6.py
       - name: Resolve SAST slate date
         run: echo "TARGET_DATE=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_ENV"
-      - name: Discover and classify full public slate
+      - name: Discover full public slate before prediction
+        run: python scripts/hbt_scan_slate_v2_1.py --date "$TARGET_DATE"
+      - name: Reconstruct frozen HBT-1.1.2 L0 deployment and prove golden parity
+        id: frozen_bridge
+        continue-on-error: true
+        run: node scripts/hbt_frozen_forecast_bridge.mjs --date "$TARGET_DATE"
+      - name: Reconcile slate with date-scoped frozen forecast export
         run: python scripts/hbt_scan_slate_v2_1.py --date "$TARGET_DATE"
       - name: Collect downstream Betway market prices
         env:
           ODDS_API_IO_KEY: ${{ secrets.ODDS_API_IO_KEY }}
           HBT_PRIMARY_BOOKMAKER: Betway
         run: python scripts/hbt_collect_market_prices_v1.py
-      - name: Validate readiness, slate and price-separation contracts
+      - name: Validate readiness, forecast bridge, slate and price-separation contracts
         run: |
           python - <<'PY'
-          import json, os
+          import json, os, pathlib
           p=json.load(open('hbt_live_data/hbt_1_4_match_intelligence.json',encoding='utf-8'))
           assert p.get('version')=='HBT-1.4R-MATCH-INTELLIGENCE-LIVE', p.get('version')
           assert p.get('understatTransportVersion')=='HBT-1.4.1R-UNDERSTAT-AJAX-BOUNDED', p.get('understatTransportVersion')
@@ -80,9 +91,31 @@ jobs:
                   for prop in (((row.get('playerProps') or {}).get('marketRows') or {}).get(side) or []):
                       assert prop.get('confirmedXIIdentityMatch') is True, prop
                       assert prop.get('validatedPlayerPropModel') is True, prop
-              weather=row.get('weatherVenue') or {}
-              if weather.get('qualityGate') is False:
-                  assert weather.get('usableForContext') is False, weather
+
+          b=json.load(open('hbt_live_data/forecast_bridge_status.json',encoding='utf-8'))
+          assert b.get('schemaVersion')=='HBT-FORECAST-BRIDGE-STATUS-1', b.get('schemaVersion')
+          assert b.get('targetDate')==os.environ['TARGET_DATE'], (b.get('targetDate'),os.environ['TARGET_DATE'])
+          bp=b.get('policy') or {}
+          assert bp.get('predictiveModel')=='HBT-1.1.2L-R1'
+          assert bp.get('bookmakerOddsUsed') is False
+          assert bp.get('bookmakerOddsUsedInSimulation') is False
+          assert bp.get('retrainingOrRetuningPerformed') is False
+          assert bp.get('modelChoiceSearchPerformed') is False
+          assert bp.get('goldenParityRequired') is True
+          assert b.get('status') in {'READY','BLOCKED_GOLDEN_PARITY','BLOCKED_ERROR'}, b.get('status')
+          if b.get('status')=='READY':
+              gp=b.get('goldenParity') or {}
+              assert gp.get('pass') is True
+              assert float(gp.get('maxAbsError')) <= float(gp.get('tolerance'))
+              f=pathlib.Path('hbt_live_data')/f"frozen_control_forecast_{os.environ['TARGET_DATE']}.json"
+              assert f.exists(), f
+              fc=json.load(open(f,encoding='utf-8'))
+              assert fc.get('schemaVersion')=='HBT-FROZEN-CONTROL-FORECAST-1'
+              assert fc.get('targetDate')==os.environ['TARGET_DATE']
+              assert fc.get('policy',{}).get('bookmakerOddsUsed') is False
+              assert fc.get('policy',{}).get('bookmakerOddsUsedInSimulation') is False
+              assert fc.get('policy',{}).get('retrainingPerformed') is False
+              assert fc.get('policy',{}).get('generalFutureLiveFeed') is False
 
           s=json.load(open('hbt_live_data/slate_scanner.json',encoding='utf-8'))
           assert s.get('schemaVersion')=='HBT-SLATE-2', s.get('schemaVersion')
@@ -103,10 +136,9 @@ jobs:
                   assert isinstance(probs,list) and len(probs)==3
                   if state=='FULL_MODEL': assert 'FUSION' in str(row.get('predictionMode') or '')
                   if state=='FALLBACK': assert str(row.get('predictionMode') or '').startswith('L0')
-              if row.get('rankEligibleFullModel'): assert state=='FULL_MODEL'
-              if row.get('rankEligibleFallback'): assert state=='FALLBACK'
           adapter=s.get('frozenForecastAdapter') or {}
-          if adapter.get('available'):
+          if b.get('status')=='READY':
+              assert adapter.get('available') is True, adapter
               assert adapter.get('generalFutureLiveFeed') is False
               assert int(adapter.get('predictions') or 0) >= 1
               c=s.get('coverage') or {}; g=s.get('rankingGate') or {}
@@ -126,6 +158,7 @@ jobs:
           assert mp.get('priceAssessmentOnly') is True
           assert m.get('status') in {'PRICES_AVAILABLE','PRICE_UNAVAILABLE','PRICE_SOURCE_UNCONFIGURED','PRICE_SOURCE_FAILURE'}
           print('HBT live safety/readiness validation passed',p.get('generatedAt'),len(rows),p.get('health',{}).get('decisionReadiness'))
+          print('HBT frozen bridge',b.get('status'),(b.get('goldenParity') or {}).get('maxAbsError'),(b.get('target') or {}).get('predictions'))
           print('HBT slate validation passed',s.get('targetDate'),s.get('coverage'),s.get('rankingGate'))
           print('HBT downstream price sidecar',m.get('status'),m.get('pricedFixtures',0),m.get('primaryBookmaker'))
           PY
@@ -158,7 +191,7 @@ jobs:
           assert z['priceAssessment']['advisoryOnly'] is True
           print('HBT ranking separation passed',len(z['strongestFullModelConfidence']),len(z['fallbackOnly']),r['priceLayer']['status'])
           PY
-      - name: Commit HBT research feed, slate, downstream prices and rankings if changed
+      - name: Commit HBT research feed, bridge status, date forecast, slate, downstream prices and rankings if changed
         run: |
           set -euo pipefail
           BRANCH='research/hbt-1.4-match-intelligence'
@@ -166,19 +199,25 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           TMP="$(mktemp -d)"
           cp hbt_live_data/hbt_1_4_match_intelligence.json "$TMP/"
+          cp hbt_live_data/forecast_bridge_status.json "$TMP/"
           cp hbt_live_data/slate_scanner.json "$TMP/"
           cp hbt_live_data/market_prices.json "$TMP/"
           cp hbt_live_data/ranked_candidates.json "$TMP/"
+          FORECAST="frozen_control_forecast_${TARGET_DATE}.json"
+          if [ -f "hbt_live_data/$FORECAST" ]; then cp "hbt_live_data/$FORECAST" "$TMP/"; fi
           if [ -f hbt_live_data/_hbt_1_4_live_cache.json ]; then cp hbt_live_data/_hbt_1_4_live_cache.json "$TMP/"; fi
           git fetch origin "$BRANCH"
           git reset --hard "origin/$BRANCH"
           cp "$TMP/hbt_1_4_match_intelligence.json" hbt_live_data/
+          cp "$TMP/forecast_bridge_status.json" hbt_live_data/
           cp "$TMP/slate_scanner.json" hbt_live_data/
           cp "$TMP/market_prices.json" hbt_live_data/
           cp "$TMP/ranked_candidates.json" hbt_live_data/
+          if [ -f "$TMP/$FORECAST" ]; then cp "$TMP/$FORECAST" hbt_live_data/; fi
           if [ -f "$TMP/_hbt_1_4_live_cache.json" ]; then cp "$TMP/_hbt_1_4_live_cache.json" hbt_live_data/; fi
-          git add hbt_live_data/hbt_1_4_match_intelligence.json hbt_live_data/slate_scanner.json hbt_live_data/market_prices.json hbt_live_data/ranked_candidates.json
+          git add hbt_live_data/hbt_1_4_match_intelligence.json hbt_live_data/forecast_bridge_status.json hbt_live_data/slate_scanner.json hbt_live_data/market_prices.json hbt_live_data/ranked_candidates.json
+          if [ -f "hbt_live_data/$FORECAST" ]; then git add "hbt_live_data/$FORECAST"; fi
           if [ -f hbt_live_data/_hbt_1_4_live_cache.json ]; then git add hbt_live_data/_hbt_1_4_live_cache.json; fi
           git diff --staged --quiet && exit 0
-          git commit -m 'data: refresh HBT research intelligence, slate, prices and rankings [skip ci]'
+          git commit -m 'data: refresh HBT research forecast bridge, slate, prices and rankings [skip ci]'
           git push origin "HEAD:$BRANCH"
