@@ -1,0 +1,49 @@
+name: HBT Market Expansion Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/hbt-market-expansion-test.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  expand:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Expand tonight shadow forecast into market alternatives
+        run: python scripts/hbt_expand_markets.py --forecast hbt_shadow_forecast_2026-09-16_alias.json --output hbt_market_candidates_2026-09-16_shadow.json
+      - name: Contract checks
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('hbt_live_data/hbt_market_candidates_2026-09-16_shadow.json',encoding='utf-8'))
+          assert p['schemaVersion']=='HBT-MARKET-EXPANSION-1'
+          assert p['policy']['bookmakerOddsUsedAsPredictiveFeature'] is False
+          assert p['policy']['footballProbabilitiesMutated'] is False
+          rows=p['candidates']
+          assert rows
+          fam={x['family'] for x in rows}
+          assert {'1X2','DOUBLE_CHANCE','DRAW_NO_BET'}.issubset(fam),fam
+          bar=[x for x in rows if (x.get('fixture') or {}).get('home')=='Barcelona']
+          assert any(x['selection']=='1X — Home or Draw' for x in bar)
+          assert any(x['selection']=='HOME DNB' for x in bar)
+          assert not any(x['family'] in {'TOTAL_GOALS','BTTS','TEAM_GOALS'} for x in rows), 'shadow has no scoreMarkets; must not fabricate them'
+          print('market expansion passed',len(rows),sorted(fam))
+          PY
+      - name: Commit evidence to research branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/hbt_market_candidates_2026-09-16_shadow.json
+          git diff --staged --quiet && exit 0
+          git commit -m 'data: add shadow market alternatives [skip ci]'
+          git push origin HEAD:research/hbt-1.4-match-intelligence
