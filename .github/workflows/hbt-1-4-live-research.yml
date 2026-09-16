@@ -34,13 +34,13 @@ jobs:
           node-version: '22'
       - name: Compile HBT live collectors, guards, slate scanner, frozen bridge, price sidecar and ranker
         run: |
-          python -m py_compile scripts/hbt_collect_players_espn.py scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_context_quality_v7.py scripts/hbt_guard_match_intelligence_v6.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_collect_market_prices_v1.py scripts/hbt_rank_slate.py
+          python -m py_compile scripts/hbt_collect_players_espn.py scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_context_quality_v7.py scripts/hbt_guard_match_intelligence_v6.py scripts/hbt_intelligence_integrity_guard_v1.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_collect_market_prices_v1.py scripts/hbt_rank_slate.py
           node --check scripts/hbt_frozen_forecast_bridge.mjs
       - name: Collect HBT-1.4 live match intelligence with source-specific transport and confirmed-XI refresh
         run: python scripts/hbt_collect_match_intelligence_v6.py
       - name: Repair non-predictive context quality and expose source diagnostics
         run: python scripts/hbt_context_quality_v7.py
-      - name: Apply fail-closed decision-readiness and market-scope guard
+      - name: Apply fail-closed decision-readiness and latch intelligence integrity
         run: python scripts/hbt_guard_match_intelligence_v6.py
       - name: Resolve SAST slate date
         run: echo "TARGET_DATE=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_ENV"
@@ -57,7 +57,7 @@ jobs:
           ODDS_API_IO_KEY: ${{ secrets.ODDS_API_IO_KEY }}
           HBT_PRIMARY_BOOKMAKER: Betway
         run: python scripts/hbt_collect_market_prices_v1.py
-      - name: Validate readiness, forecast bridge, slate and price-separation contracts
+      - name: Validate readiness, intelligence diagnostics, forecast bridge, slate and price-separation contracts
         run: |
           python - <<'PY'
           import json, os, pathlib
@@ -67,10 +67,12 @@ jobs:
           assert p.get('understatCompressionVersion')=='HBT-UNDERSTAT-GZIP-DECODE-1', p.get('understatCompressionVersion')
           assert p.get('confirmedXIFeatureRefreshVersion')=='HBT-ESPN-CONFIRMED-XI-REFRESH-1', p.get('confirmedXIFeatureRefreshVersion')
           assert p.get('contextQualityVersion')=='HBT-1.4.1R-CONTEXT-QUALITY', p.get('contextQualityVersion')
+          assert p.get('contextDiagnosticTransportPatch')=='HBT-CONTEXT-UNDERSTAT-GZIP-DECODE-1', p.get('contextDiagnosticTransportPatch')
           assert p.get('guardVersion')=='HBT-1.4.2R-SAFETY-GUARD', p.get('guardVersion')
           assert p.get('policy',{}).get('frozenPredictiveModelMutated') is False
           assert p.get('policy',{}).get('bookmakerOddsUsed') is False
           assert p.get('policy',{}).get('testAImmutable') is True
+          assert p.get('policy',{}).get('downstreamIntelligenceMutationAllowed') is False
           u=(p.get('sourceDiagnostics') or {}).get('understat') or {}
           assert set(u).issuperset({'en.1','es.1','de.1','it.1','fr.1'}), u.keys()
           for league in ('en.1','es.1','de.1','it.1','fr.1'):
@@ -173,19 +175,21 @@ jobs:
           assert m.get('status') in {'PRICES_AVAILABLE','PRICE_UNAVAILABLE','PRICE_SOURCE_UNCONFIGURED','PRICE_SOURCE_FAILURE'}
           print('HBT live safety/readiness validation passed',p.get('generatedAt'),len(rows),p.get('health',{}).get('decisionReadiness'))
           print('HBT confirmed-XI recomputation',p.get('health',{}).get('confirmedXIRecomputedFixtures'),p.get('health',{}).get('testBComputable'))
+          print('HBT Understat diagnostics',{k:{z:(v.get(z) or {}).get('status') for z in ('current','previous')} for k,v in u.items()})
           print('HBT frozen bridge',b.get('status'),(b.get('goldenParity') or {}).get('maxAbsError'),(b.get('target') or {}).get('predictions'))
           print('HBT slate validation passed',s.get('targetDate'),s.get('coverage'),s.get('rankingGate'))
           print('HBT downstream price sidecar',m.get('status'),m.get('pricedFixtures',0),m.get('primaryBookmaker'))
           PY
       - name: Rank HBT-supported candidates after discovery gate
         run: python scripts/hbt_rank_slate.py
-      - name: Validate ranking and experiment separation
+      - name: Validate ranking, byte-integrity and experiment separation
         run: |
           python - <<'PY'
           import json
           r=json.load(open('hbt_live_data/ranked_candidates.json',encoding='utf-8'))
           assert r.get('status')=='RANKING_READY', r.get('status')
           assert r.get('schemaVersion')=='HBT-SLATE-RANKING-2'
+          assert r.get('version')=='HBT-SLATE-RANKER-2.2', r.get('version')
           policy=r['policy']
           assert policy['fullModelAndFallbackSeparated'] is True
           assert policy['bookmakerOddsUsedAsFootballModelFeature'] is False
@@ -194,6 +198,8 @@ jobs:
           assert policy['bookmakerOddsMayChangeR1ExperimentEligibility'] is False
           assert policy['priceAssessmentOnly'] is True
           assert policy['testAImmutable'] is True
+          assert policy['intelligenceByteIntegrityRequired'] is True
+          assert policy['intelligenceIntegrityMode']=='UPSTREAM_GUARD_LATCH_VERIFIED', policy['intelligenceIntegrityMode']
           z=r['rankings']
           assert all(x['support']=='FULL_MODEL' for x in z['strongestFullModelConfidence'])
           assert all(x['support']=='FALLBACK' for x in z['fallbackOnly'])
@@ -204,7 +210,9 @@ jobs:
                   assert x['priceAssessment']['gatesFootballForecast'] is False
                   assert x['priceAssessment']['gatesR1Experiment'] is False
           assert z['priceAssessment']['advisoryOnly'] is True
-          print('HBT ranking separation passed',len(z['strongestFullModelConfidence']),len(z['fallbackOnly']),r['priceLayer']['status'])
+          assert z['experimentalValueVsPrice']['advisoryOnly'] is True
+          assert z['experimentalValueVsPrice']['gatesFootballForecast'] is False
+          print('HBT ranking separation passed',len(z['strongestFullModelConfidence']),len(z['fallbackOnly']),r['priceLayer']['status'],policy['intelligenceIntegrityMode'])
           PY
       - name: Commit HBT research feed, confirmed-XI features, bridge status, date forecast, slate, downstream prices and rankings if changed
         run: |
