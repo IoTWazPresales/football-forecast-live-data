@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
-"""HBT-1.4.1 transport wrapper for the existing v5 collector.
+"""HBT-1.4.1 bounded transport wrapper for the existing v5 collector.
 
-Understat's internal getLeagueData/getMatchData endpoints require the
-X-Requested-With: XMLHttpRequest header. The v5 collector delegated these URLs
-to the generic ESPN JSON helper, which does not set that header and currently
-receives HTTP 404. This wrapper patches only Understat requests and delegates all
-other traffic to the original helper.
+Understat's getLeagueData endpoint requires the X-Requested-With AJAX header.
+Restoring it is enough to recover the league/team/player packs used by tactical
+profiles and player-to-team impact. The existing v5 collector also attempts up
+to eight getMatchData requests per team/fixture for set-piece/substitution/GK
+context. Turning that fan-out on for every live fixture made the scheduled job
+unbounded and is therefore deliberately deferred until it has its own cached,
+rate-bounded collector.
+
+Existing cached getMatchData records are still consumed by v5.us_match before
+this transport function is called. New per-match requests fail closed quickly,
+so missing remains missing rather than delaying or fabricating intelligence.
 
 No forecasting formulas, parameters, tiers, event-model coefficients, odds policy,
 or Test A state are changed.
@@ -16,12 +22,10 @@ import time
 import urllib.request
 import hbt_collect_match_intelligence_v5 as v5
 
-VERSION='HBT-1.4.1R-UNDERSTAT-AJAX-TRANSPORT'
+VERSION='HBT-1.4.1R-UNDERSTAT-AJAX-BOUNDED'
 ORIG_HTTP_JSON=v5.espn.http_json
 
-def http_json_with_understat_ajax(url:str,timeout:int=25,retries:int=3):
-    if not str(url).startswith('https://understat.com/'):
-        return ORIG_HTTP_JSON(url,timeout,retries)
+def ajax(url:str,timeout:int=18,retries:int=2):
     last=None
     for attempt in range(retries):
         try:
@@ -35,14 +39,23 @@ def http_json_with_understat_ajax(url:str,timeout:int=25,retries:int=3):
                 return json.loads(r.read().decode('utf-8-sig','replace'))
         except Exception as exc:
             last=exc
-            if attempt+1<retries:time.sleep(0.8+attempt*1.2)
+            if attempt+1<retries:time.sleep(0.6)
     raise RuntimeError(f'Understat AJAX fetch failed {url}: {last}')
 
+def http_json_bounded(url:str,timeout:int=25,retries:int=3):
+    u=str(url)
+    if not u.startswith('https://understat.com/'):
+        return ORIG_HTTP_JSON(url,timeout,retries)
+    if '/getLeagueData/' in u:
+        return ajax(u,min(timeout,18),min(retries,2))
+    if '/getMatchData/' in u:
+        # v5.us_match catches this and returns None. Cached records are used before
+        # the call reaches here. This avoids hundreds of live network requests.
+        raise RuntimeError('getMatchData live fanout deferred to bounded cache collector')
+    return ajax(u,min(timeout,18),min(retries,2))
+
 def main()->int:
-    v5.espn.http_json=http_json_with_understat_ajax
-    rc=v5.main()
-    # v5 writes the canonical output. Transport version is added later by the
-    # non-predictive quality stage so v5 remains byte-compatible with its schema.
-    return rc
+    v5.espn.http_json=http_json_bounded
+    return v5.main()
 
 if __name__=='__main__':raise SystemExit(main())
