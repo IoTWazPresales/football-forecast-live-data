@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""HBT-1.4.2 bounded Understat transport wrapper for the existing v5 collector.
+"""HBT bounded Understat transport wrapper for the existing v5 collector.
 
 The live Understat getLeagueData endpoint currently returns a gzip-compressed JSON
 body with content-type text/javascript. urllib does not transparently decompress
@@ -21,7 +21,9 @@ import urllib.request
 import zlib
 import hbt_collect_match_intelligence_v5 as v5
 
-VERSION='HBT-1.4.2R-UNDERSTAT-GZIP-AJAX-BOUNDED'
+# Keep the existing workflow contract stable; expose compression repair separately.
+VERSION='HBT-1.4.1R-UNDERSTAT-AJAX-BOUNDED'
+COMPRESSION_VERSION='HBT-UNDERSTAT-GZIP-DECODE-1'
 ORIG_HTTP_JSON=v5.espn.http_json
 
 def _decode_body(body:bytes, content_encoding:str='')->bytes:
@@ -43,8 +45,7 @@ def ajax(url:str,timeout:int=18,retries:int=2):
                 'Referer':'https://understat.com/'
             })
             with urllib.request.urlopen(req,timeout=timeout) as r:
-                raw=r.read()
-                body=_decode_body(raw,r.headers.get('content-encoding',''))
+                body=_decode_body(r.read(),r.headers.get('content-encoding',''))
                 obj=json.loads(body.decode('utf-8-sig','strict'))
                 if not isinstance(obj,dict):
                     raise RuntimeError(f'Understat payload is not an object: {type(obj).__name__}')
@@ -69,16 +70,15 @@ def http_json_bounded(url:str,timeout:int=25,retries:int=3):
 def main()->int:
     v5.espn.http_json=http_json_bounded
     rc=v5.main()
-    # The v5 payload is produced after the monkeypatch is active. Stamp only the
-    # transport version so diagnostics can distinguish the repaired source path.
     try:
         from pathlib import Path
         p=Path(__file__).resolve().parents[1]/'hbt_live_data'/'hbt_1_4_match_intelligence.json'
         data=json.loads(p.read_text(encoding='utf-8'))
         data['understatTransportVersion']=VERSION
+        data['understatCompressionVersion']=COMPRESSION_VERSION
         p.write_text(json.dumps(data,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
     except Exception as exc:
-        raise RuntimeError(f'collector succeeded but transport version stamp failed: {exc}')
+        raise RuntimeError(f'collector succeeded but transport diagnostics stamp failed: {exc}')
     return rc
 
 if __name__=='__main__':raise SystemExit(main())
