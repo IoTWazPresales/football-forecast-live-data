@@ -25,7 +25,7 @@ OUT=ROOT/'hbt_live_data'
 MATCH=OUT/'hbt_1_4_match_intelligence.json'
 CACHE=OUT/'_hbt_1_4_live_cache.json'
 VERSION='HBT-1.4.1R-CONTEXT-QUALITY'
-TRANSPORT_VERSION='HBT-1.4.1R-UNDERSTAT-AJAX-TRANSPORT'
+TRANSPORT_VERSION='HBT-1.4.1R-UNDERSTAT-AJAX-BOUNDED'
 UA='Mozilla/5.0 (compatible; HBT-1.4.1-ContextQuality/1.0)'
 LEAGUES={'en.1':'EPL','es.1':'La_liga','de.1':'Bundesliga','it.1':'Serie_A','fr.1':'Ligue_1'}
 COUNTRY_CODE={
@@ -60,7 +60,6 @@ def understat_json(url:str,timeout:int=30)->dict[str,Any]:
     return http_json(url,timeout,{'X-Requested-With':'XMLHttpRequest','Referer':'https://understat.com/'})
 
 def expected_iso(city:str,country:str)->str|None:
-    # Monaco is a sovereign city-state even if a venue source labels it France.
     if norm(city.split(',')[0])=='monaco':return 'MC'
     return COUNTRY_CODE.get(norm(country))
 
@@ -151,7 +150,7 @@ def main()->int:
     if not isinstance(d,dict):raise SystemExit(f'missing or invalid {MATCH}')
     cache=read(CACHE,{}); year=dt.datetime.now().year; wx=repair_weather(d,cache); diag=understat_diag(year)
     d['contextQualityVersion']=VERSION;d['understatTransportVersion']=TRANSPORT_VERSION;d.setdefault('sourceDiagnostics',{})['understat']=diag;d.setdefault('health',{})['contextQualityWeatherRepair']=wx
-    d.setdefault('policy',{}).update({'frozenPredictiveModelMutated':False,'bookmakerOddsUsed':False,'testAImmutable':True,'contextQualityRepair':'geocoding/weather context only; no probability/tier/parameter changes','understatDiagnostics':'observability only; missing remains missing'})
+    d.setdefault('policy',{}).update({'frozenPredictiveModelMutated':False,'bookmakerOddsUsed':False,'testAImmutable':True,'contextQualityRepair':'geocoding/weather context only; no probability/tier/parameter changes','understatDiagnostics':'observability only; missing remains missing','understatMatchDetailLivePolicy':'new getMatchData fanout deferred; cached match detail only until bounded collector is validated'})
     write(CACHE,cache);write(MATCH,d)
     loaded=sum(int(v.get(k,{}).get('status')=='loaded') for v in diag.values() for k in ('current','previous'))
     print('HBT-1.4.1 context quality',wx,'Understat AJAX packs loaded',loaded,'of',len(diag)*2);return 0
