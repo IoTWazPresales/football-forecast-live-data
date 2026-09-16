@@ -1,42 +1,54 @@
 #!/usr/bin/env python3
-"""HBT-1.4.1 bounded transport wrapper for the existing v5 collector.
+"""HBT-1.4.2 bounded Understat transport wrapper for the existing v5 collector.
 
-Understat's getLeagueData endpoint requires the X-Requested-With AJAX header.
-Restoring it is enough to recover the league/team/player packs used by tactical
-profiles and player-to-team impact. The existing v5 collector also attempts up
-to eight getMatchData requests per team/fixture for set-piece/substitution/GK
-context. Turning that fan-out on for every live fixture made the scheduled job
-unbounded and is therefore deliberately deferred until it has its own cached,
-rate-bounded collector.
+The live Understat getLeagueData endpoint currently returns a gzip-compressed JSON
+body with content-type text/javascript. urllib does not transparently decompress
+that response, which made the previous wrapper try to JSON-decode compressed bytes
+and caused every Big-Five tactical pack to fail.
 
-Existing cached getMatchData records are still consumed by v5.us_match before
-this transport function is called. New per-match requests fail closed quickly,
-so missing remains missing rather than delaying or fabricating intelligence.
-
-No forecasting formulas, parameters, tiers, event-model coefficients, odds policy,
-or Test A state are changed.
+This wrapper changes transport only:
+- AJAX headers are retained;
+- gzip/deflate response bodies are decoded before JSON parsing;
+- getMatchData live fan-out remains blocked and cached-only;
+- no forecast formula, coefficient, feature weight, tier, odds policy, or Test A
+  state is changed.
 """
 from __future__ import annotations
+import gzip
 import json
 import time
 import urllib.request
+import zlib
 import hbt_collect_match_intelligence_v5 as v5
 
-VERSION='HBT-1.4.1R-UNDERSTAT-AJAX-BOUNDED'
+VERSION='HBT-1.4.2R-UNDERSTAT-GZIP-AJAX-BOUNDED'
 ORIG_HTTP_JSON=v5.espn.http_json
+
+def _decode_body(body:bytes, content_encoding:str='')->bytes:
+    enc=(content_encoding or '').lower()
+    if body.startswith(b'\x1f\x8b') or 'gzip' in enc:
+        return gzip.decompress(body)
+    if 'deflate' in enc:
+        return zlib.decompress(body)
+    return body
 
 def ajax(url:str,timeout:int=18,retries:int=2):
     last=None
     for attempt in range(retries):
         try:
             req=urllib.request.Request(url,headers={
-                'User-Agent':'Mozilla/5.0 (compatible; HBT-1.4.1-Live/1.0)',
-                'Accept':'application/json,*/*',
+                'User-Agent':'Mozilla/5.0 (compatible; HBT-1.4.2-Live/1.0)',
+                'Accept':'application/json,text/javascript,*/*;q=0.01',
                 'X-Requested-With':'XMLHttpRequest',
                 'Referer':'https://understat.com/'
             })
             with urllib.request.urlopen(req,timeout=timeout) as r:
-                return json.loads(r.read().decode('utf-8-sig','replace'))
+                raw=r.read()
+                body=_decode_body(raw,r.headers.get('content-encoding',''))
+                obj=json.loads(body.decode('utf-8-sig','strict'))
+                if not isinstance(obj,dict):
+                    raise RuntimeError(f'Understat payload is not an object: {type(obj).__name__}')
+                return obj
         except Exception as exc:
             last=exc
             if attempt+1<retries:time.sleep(0.6)
@@ -56,6 +68,17 @@ def http_json_bounded(url:str,timeout:int=25,retries:int=3):
 
 def main()->int:
     v5.espn.http_json=http_json_bounded
-    return v5.main()
+    rc=v5.main()
+    # The v5 payload is produced after the monkeypatch is active. Stamp only the
+    # transport version so diagnostics can distinguish the repaired source path.
+    try:
+        from pathlib import Path
+        p=Path(__file__).resolve().parents[1]/'hbt_live_data'/'hbt_1_4_match_intelligence.json'
+        data=json.loads(p.read_text(encoding='utf-8'))
+        data['understatTransportVersion']=VERSION
+        p.write_text(json.dumps(data,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
+    except Exception as exc:
+        raise RuntimeError(f'collector succeeded but transport version stamp failed: {exc}')
+    return rc
 
 if __name__=='__main__':raise SystemExit(main())
