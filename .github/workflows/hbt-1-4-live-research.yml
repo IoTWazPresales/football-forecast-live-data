@@ -30,9 +30,9 @@ jobs:
         with:
           python-version: '3.12'
       - name: Compile HBT-1.4 live collector, context quality, safety guard, slate scanner and ranker
-        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_context_quality_v7.py scripts/hbt_guard_match_intelligence_v6.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_rank_slate.py
-      - name: Collect HBT-1.4 live match intelligence
-        run: python scripts/hbt_collect_match_intelligence_v5.py
+        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_context_quality_v7.py scripts/hbt_guard_match_intelligence_v6.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_rank_slate.py
+      - name: Collect HBT-1.4 live match intelligence with source-specific transport fixes
+        run: python scripts/hbt_collect_match_intelligence_v6.py
       - name: Repair non-predictive context quality and expose source diagnostics
         run: python scripts/hbt_context_quality_v7.py
       - name: Apply HBT-1.4.1 fail-closed decision-readiness guard
@@ -47,6 +47,7 @@ jobs:
           import json, os
           p=json.load(open('hbt_live_data/hbt_1_4_match_intelligence.json',encoding='utf-8'))
           assert p.get('version')=='HBT-1.4R-MATCH-INTELLIGENCE-LIVE', p.get('version')
+          assert p.get('understatTransportVersion')=='HBT-1.4.1R-UNDERSTAT-AJAX-TRANSPORT', p.get('understatTransportVersion')
           assert p.get('contextQualityVersion')=='HBT-1.4.1R-CONTEXT-QUALITY', p.get('contextQualityVersion')
           assert p.get('guardVersion')=='HBT-1.4.1R-SAFETY-GUARD', p.get('guardVersion')
           assert p.get('policy',{}).get('frozenPredictiveModelMutated') is False
