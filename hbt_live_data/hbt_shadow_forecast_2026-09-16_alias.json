@@ -1,0 +1,373 @@
+{
+  "schemaVersion": "HBT-SHADOW-FORECAST-1",
+  "sourceFile": "automatic frozen deployment reconstruction",
+  "sourceExportedAt": "2026-09-16T14:58:30.090Z",
+  "sourceLabVersion": "HBT-1.1.2L-R1 reconstructed shadow",
+  "sourceEngineVersion": "HBT-0.4a frozen L0 deployment bridge",
+  "targetDate": "2026-09-16",
+  "policy": {
+    "prospectiveExport": true,
+    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "predictiveModelMutated": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "generalFutureLiveFeed": false,
+    "scope": "Date-scoped forecasts emitted only after exact frozen-runtime golden parity.",
+    "missingFixtureSemantics": "unknown/not forecast in this export; never infer a probability",
+    "goldenParityRequired": true,
+    "goldenParityTolerance": 0.006,
+    "shadowOnly": true,
+    "officialFrozenControl": false,
+    "productionPromotionAllowed": false,
+    "r1ProspectiveExperimentAllowed": true,
+    "identityReconciliationOnly": true,
+    "reason": "Identity-only alias repair plus reconstructed L0 bridge; golden max absolute drift remains <=0.006."
+  },
+  "bridge": {
+    "version": "HBT-FROZEN-FORECAST-BRIDGE-1.1",
+    "reconstructionAsOfExclusive": "2026-09-11",
+    "goldenForecastDate": "2026-09-15",
+    "goldenMaxAbsError": 0.005071812049585289,
+    "sourceMatches": 27934,
+    "modelRows": 27934,
+    "sourceFailures": [
+      {
+        "source": "2015-16/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2020-21/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2025-26/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      }
+    ],
+    "identityAudit": {
+      "linked": 37,
+      "unresolved": 47,
+      "ambiguous": 4,
+      "continentalNames": 88
+    },
+    "crossLeagueLinks": 212,
+    "excluded": [
+      {
+        "fixture": "Rodina Moscow vs Rubin Kazan",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Spartak Moscow vs Fakel Voronezh",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "FC Baltika Kaliningrad vs Zenit St Petersburg",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Lokomotiv Moscow vs Krylia Sovetov",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Botafogo vs Grêmio",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      }
+    ],
+    "shadowTolerance": 0.006,
+    "identityAliasPatch": [
+      "Atlético Madrid→Club Atlético de Madrid",
+      "Osasuna→CA Osasuna",
+      "Deportivo→RC Deportivo La Coruña",
+      "Racing Santander→Real Racing Club de Santander",
+      "Levante→Levante UD"
+    ]
+  },
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-09-16",
+        "time": "17:00",
+        "league": "es.1",
+        "home": "Atlético Madrid",
+        "away": "Osasuna",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 2250d",
+      "coveragePack": null,
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.706059054150774,
+      "probs": [
+        0.6423812692321978,
+        0.2241655836389546,
+        0.1334531471288475
+      ],
+      "pick": "Atlético Madrid",
+      "pickProb": 0.6423812692321978,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.6423812692321978,
+          0.2241655836389546,
+          0.1334531471288475
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-09-16",
+        "time": "17:00",
+        "league": "es.1",
+        "home": "Deportivo",
+        "away": "Sevilla",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.6730373644299505,
+      "probs": [
+        0.42776490100680253,
+        0.27223992255708823,
+        0.29999517643610935
+      ],
+      "pick": "Deportivo",
+      "pickProb": 0.42776490100680253,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.42776490100680253,
+          0.27223992255708823,
+          0.29999517643610935
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-09-16",
+        "time": "19:30",
+        "league": "es.1",
+        "home": "Barcelona",
+        "away": "Racing Santander",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.6652230596826605,
+      "probs": [
+        0.8545274835299845,
+        0.11674792628774815,
+        0.02872459018226744
+      ],
+      "pick": "Barcelona",
+      "pickProb": 0.8545274835299845,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.8545274835299845,
+          0.11674792628774815,
+          0.02872459018226744
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-09-16",
+        "time": "19:30",
+        "league": "es.1",
+        "home": "Levante",
+        "away": "Athletic Club",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9677838990118032,
+      "probs": [
+        0.39255184273470417,
+        0.27133686270710555,
+        0.33611129455819044
+      ],
+      "pick": "Levante",
+      "pickProb": 0.39255184273470417,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.39255184273470417,
+          0.27133686270710555,
+          0.33611129455819044
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    }
+  ]
+}
