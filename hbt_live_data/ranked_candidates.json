@@ -1,6 +1,6 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
-  "version": "HBT-SLATE-RANKER-2.1",
+  "version": "HBT-SLATE-RANKER-2.2",
   "targetDate": "2026-09-16",
   "status": "RANKING_READY",
   "policy": {
@@ -17,7 +17,9 @@
     "rawProbabilityIsNotBettingValue": true,
     "universalBestBetsClaimAllowed": false,
     "configuredSourceRankingLabel": "Best HBT-supported candidates from the configured-source discovered slate",
-    "testAImmutable": true
+    "testAImmutable": true,
+    "intelligenceByteIntegrityRequired": true,
+    "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
     "fixturesDiscovered": 88,
@@ -68,7 +70,7 @@
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-09-16T18:22:36Z",
+    "generatedAt": "2026-09-16T18:37:01Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -406,6 +408,14 @@
         ]
       }
     ],
+    "experimentalValueVsPrice": {
+      "status": "UNAVAILABLE_NO_BOOKMAKER_PRICE",
+      "advisoryOnly": true,
+      "legacyCompatibilityOnly": true,
+      "gatesFootballForecast": false,
+      "gatesR1Experiment": false,
+      "reason": "Compatibility status only. Price remains a downstream sidecar and cannot create, remove or reorder HBT football calls."
+    },
     "priceAssessment": {
       "status": "PRICE_SOURCE_UNCONFIGURED",
       "advisoryOnly": true,
