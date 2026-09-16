@@ -1,6 +1,6 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
-  "version": "HBT-SLATE-RANKER-2",
+  "version": "HBT-SLATE-RANKER-2.1",
   "targetDate": "2026-09-16",
   "status": "RANKING_READY",
   "policy": {
@@ -12,6 +12,8 @@
     "priceAssessmentOnly": true,
     "footballProbabilitiesRecomputed": false,
     "fullModelAndFallbackSeparated": true,
+    "eventModelsSeparatedFrom1X2": true,
+    "eventMinimumHistoryPerSideForAndAgainst": 3,
     "rawProbabilityIsNotBettingValue": true,
     "universalBestBetsClaimAllowed": false,
     "configuredSourceRankingLabel": "Best HBT-supported candidates from the configured-source discovered slate",
@@ -49,7 +51,9 @@
       "semifinals",
       "third-round",
       "torneo-apertura-2026"
-    ]
+    ],
+    "validatedEventForecastRows": 0,
+    "eventFamiliesExcluded": 16
   },
   "rankingGate": {
     "sourceDiscoverySucceeded": true,
@@ -64,7 +68,7 @@
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-09-16T14:08:56Z",
+    "generatedAt": "2026-09-16T14:14:55Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -103,6 +107,305 @@
     "highestRawDeployedPickProbability": [],
     "strongestFullModelConfidence": [],
     "fallbackOnly": [],
+    "validatedEventForecasts": [],
+    "eventMarketExcluded": [
+      {
+        "fixtureKey": "2026-09-16|atletico madrid|osasuna",
+        "kickoff": "2026-09-16T17:00Z",
+        "home": "Atlético Madrid",
+        "away": "Osasuna",
+        "family": "corners",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|atletico madrid|osasuna",
+        "kickoff": "2026-09-16T17:00Z",
+        "home": "Atlético Madrid",
+        "away": "Osasuna",
+        "family": "yellowCards",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|atletico madrid|osasuna",
+        "kickoff": "2026-09-16T17:00Z",
+        "home": "Atlético Madrid",
+        "away": "Osasuna",
+        "family": "shots",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|atletico madrid|osasuna",
+        "kickoff": "2026-09-16T17:00Z",
+        "home": "Atlético Madrid",
+        "away": "Osasuna",
+        "family": "shotsOnTarget",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|deportivo|sevilla",
+        "kickoff": "2026-09-16T17:00Z",
+        "home": "Deportivo",
+        "away": "Sevilla",
+        "family": "corners",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|deportivo|sevilla",
+        "kickoff": "2026-09-16T17:00Z",
+        "home": "Deportivo",
+        "away": "Sevilla",
+        "family": "yellowCards",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|deportivo|sevilla",
+        "kickoff": "2026-09-16T17:00Z",
+        "home": "Deportivo",
+        "away": "Sevilla",
+        "family": "shots",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|deportivo|sevilla",
+        "kickoff": "2026-09-16T17:00Z",
+        "home": "Deportivo",
+        "away": "Sevilla",
+        "family": "shotsOnTarget",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|barcelona|racing santander",
+        "kickoff": "2026-09-16T19:30Z",
+        "home": "Barcelona",
+        "away": "Racing Santander",
+        "family": "corners",
+        "totalLambda": 11.587851013907883,
+        "history": {
+          "homeForN": 21,
+          "homeAgainstN": 21,
+          "awayForN": 2,
+          "awayAgainstN": 2
+        },
+        "reasons": [
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|barcelona|racing santander",
+        "kickoff": "2026-09-16T19:30Z",
+        "home": "Barcelona",
+        "away": "Racing Santander",
+        "family": "yellowCards",
+        "totalLambda": 3.9414877756360176,
+        "history": {
+          "homeForN": 21,
+          "homeAgainstN": 21,
+          "awayForN": 2,
+          "awayAgainstN": 2
+        },
+        "reasons": [
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|barcelona|racing santander",
+        "kickoff": "2026-09-16T19:30Z",
+        "home": "Barcelona",
+        "away": "Racing Santander",
+        "family": "shots",
+        "totalLambda": 24.17781154213486,
+        "history": {
+          "homeForN": 21,
+          "homeAgainstN": 21,
+          "awayForN": 2,
+          "awayAgainstN": 2
+        },
+        "reasons": [
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|barcelona|racing santander",
+        "kickoff": "2026-09-16T19:30Z",
+        "home": "Barcelona",
+        "away": "Racing Santander",
+        "family": "shotsOnTarget",
+        "totalLambda": 9.55394523693926,
+        "history": {
+          "homeForN": 21,
+          "homeAgainstN": 21,
+          "awayForN": 2,
+          "awayAgainstN": 2
+        },
+        "reasons": [
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|levante|athletic",
+        "kickoff": "2026-09-16T19:30Z",
+        "home": "Levante",
+        "away": "Athletic Club",
+        "family": "corners",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|levante|athletic",
+        "kickoff": "2026-09-16T19:30Z",
+        "home": "Levante",
+        "away": "Athletic Club",
+        "family": "yellowCards",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|levante|athletic",
+        "kickoff": "2026-09-16T19:30Z",
+        "home": "Levante",
+        "away": "Athletic Club",
+        "family": "shots",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      },
+      {
+        "fixtureKey": "2026-09-16|levante|athletic",
+        "kickoff": "2026-09-16T19:30Z",
+        "home": "Levante",
+        "away": "Athletic Club",
+        "family": "shotsOnTarget",
+        "totalLambda": null,
+        "history": {
+          "homeForN": 0,
+          "homeAgainstN": 0,
+          "awayForN": 0,
+          "awayAgainstN": 0
+        },
+        "reasons": [
+          "validated_event_model_not_ready",
+          "total_lambda_missing_or_invalid",
+          "history_coverage_below_3"
+        ]
+      }
+    ],
     "priceAssessment": {
       "status": "PRICE_SOURCE_UNCONFIGURED",
       "advisoryOnly": true,
