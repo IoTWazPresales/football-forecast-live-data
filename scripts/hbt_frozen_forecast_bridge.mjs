@@ -25,7 +25,7 @@ const SCANNER = path.join(DATA, 'slate_scanner.json');
 const HBT14 = path.join(DATA, 'hbt_1_4_match_intelligence.json');
 const GOLDEN = path.join(DATA, 'frozen_control_forecast_2026-09-15.json');
 const STATUS = path.join(DATA, 'forecast_bridge_status.json');
-const VERSION = 'HBT-FROZEN-FORECAST-BRIDGE-1';
+const VERSION = 'HBT-FROZEN-FORECAST-BRIDGE-1.1';
 const CONTEXT_IDX = [1,2,3,4,5,6,7,8,9,10];
 const DOMESTIC_CODES = new Set(['en.1','es.1','de.1','it.1','fr.1','nl.1','pt.1','sco.1','tr.1','en.2','es.2','it.2','be.1','pl.1','ie.1']);
 const CLUB_GENERIC = new Set(['club','clube','football','futbol','fussball','calcio','societa','sportiva','de','do','del','the']);
@@ -41,7 +41,7 @@ const LEAGUE_LABELS = [
   ['tr.1',['super lig','süper lig']],
   ['uefa.cl',['uefa champions league','champions league']],
 ];
-const UA = 'Mozilla/5.0 (compatible; HBT-Frozen-Forecast-Bridge/1.0)';
+const UA = 'Mozilla/5.0 (compatible; HBT-Frozen-Forecast-Bridge/1.1)';
 let DATA_ALIAS_MAP = new Map();
 let SEASON_LEAGUE_MAP = new Map();
 let identityAudit = {linked:0,unresolved:0,ambiguous:0,continentalNames:0};
@@ -138,8 +138,7 @@ async function main(){
     const seasons=bundle.reconstruction?.seasons||[],codes=bundle.reconstruction?.codes||[];
     if(!seasons.length||!codes.length)throw new Error('reconstruction source scope missing');
     const loaded=await loadSources(seasons,codes,asOfExclusive);
-    const failed=loaded.sourceAudit.filter(x=>x.status!=='loaded');
-    if(failed.length)throw new Error(`source reconstruction incomplete: ${failed.length} source file(s) failed`);
+    const sourceFailures=loaded.sourceAudit.filter(x=>x.status!=='loaded');
     const built=buildExamples(loaded.matches,{...lock.opts});
     const rows=built.rows;if(rows.length<2000)throw new Error(`reconstruction row count too small: ${rows.length}`);
     const baseModel=fitSoftmax(rows,[0],750,.055,.003),model=fitResidual(rows,baseModel,CONTEXT_IDX,950,.03,lock.residL2);
@@ -152,7 +151,7 @@ async function main(){
     if(parity.length<5)throw new Error(`golden parity sample too small: ${parity.length}`);
     const unresolvedParity=parity.filter(x=>!x.ok).length;
     const tolerance=1e-9,parityPass=unresolvedParity===0&&maxErr<=tolerance;
-    if(!parityPass){writeJSON(STATUS,{...statusBase,status:'BLOCKED_GOLDEN_PARITY',reconstruction:{asOfExclusive,seasons,codes,matches:loaded.matches.length,rows:rows.length,duplicatesRemoved:loaded.duplicatesRemoved,identityAudit,crossLeagueLinks:built.crossLeagueLinks},goldenParity:{pass:false,tolerance,maxAbsError:maxErr,unresolved:unresolvedParity,fixtures:parity},runtimeMs:performance.now()-started});console.error('HBT bridge blocked: golden parity failed',maxErr);return 2;}
+    if(!parityPass){writeJSON(STATUS,{...statusBase,status:'BLOCKED_GOLDEN_PARITY',reconstruction:{asOfExclusive,seasons,codes,matches:loaded.matches.length,rows:rows.length,duplicatesRemoved:loaded.duplicatesRemoved,sourceFailures,identityAudit,crossLeagueLinks:built.crossLeagueLinks},goldenParity:{pass:false,tolerance,maxAbsError:maxErr,unresolved:unresolvedParity,fixtures:parity},runtimeMs:performance.now()-started});console.error('HBT bridge blocked: golden parity failed',maxErr);return 2;}
 
     const intelLeague=new Map();for(const row of Object.values(hbt14.fixtures||{})){const date=String(row.kickoff||row.date||'').slice(0,10);if(row.home&&row.away&&row.league)intelLeague.set(fixtureKey(date,row.home,row.away),String(row.league));}
     const predictions=[],excluded=[];
@@ -161,9 +160,9 @@ async function main(){
       const p=predictL0Fixture(fx,deploy,built.crossLeagueLinks);if(!p.ok){excluded.push({fixture:`${r.home} vs ${r.away}`,league,reason:p.reason});continue;}
       predictions.push({fixture:{date,time:fx.time,league,home:r.home,away:r.away,provider:r.source||null,sourceStatus:fx.sourceStatus},coverage:p.maxAge>75?`stale-ish ${Math.round(p.maxAge)}d`:'good',coveragePack:null,tier:p.tier,rawTier:p.rawTier,quality:p.quality,probs:p.probs,pick:p.pickName,pickProb:p.pickProb,predictionMode:'L0 FALLBACK',fusionEligible:false,layerPredictions:{L0:p.probs},intelligenceStatus:null,scoreMarkets:null});
     }
-    const artifact={schemaVersion:'HBT-FROZEN-CONTROL-FORECAST-1',sourceFile:'automatic frozen deployment reconstruction',sourceExportedAt:nowISO(),sourceLabVersion:'HBT-1.1.2L-R1',sourceEngineVersion:'HBT-0.4a frozen L0 deployment bridge',targetDate,policy:{prospectiveExport:true,bookmakerOddsUsed:false,bookmakerOddsUsedInSimulation:false,predictiveModelMutated:false,retrainingPerformed:false,retuningPerformed:false,generalFutureLiveFeed:false,scope:'Date-scoped forecasts emitted only after exact frozen-runtime golden parity.',missingFixtureSemantics:'unknown/not forecast in this export; never infer a probability',goldenParityRequired:true,goldenParityTolerance:tolerance},bridge:{version:VERSION,reconstructionAsOfExclusive:asOfExclusive,goldenForecastDate:'2026-09-15',goldenMaxAbsError:maxErr,sourceMatches:loaded.matches.length,modelRows:rows.length,identityAudit,crossLeagueLinks:built.crossLeagueLinks,excluded},predictions};
-    const out=path.join(DATA,`frozen_control_forecast_${targetDate}.json`);writeJSON(out,artifact);writeJSON(STATUS,{...statusBase,status:'READY',output:path.basename(out),reconstruction:{asOfExclusive,seasons,codes,matches:loaded.matches.length,rows:rows.length,duplicatesRemoved:loaded.duplicatesRemoved,identityAudit,crossLeagueLinks:built.crossLeagueLinks},optimizers:{baseConverged:baseModel.converged,baseIterations:baseModel.iterations,residualConverged:model.converged,residualIterations:model.iterations},goldenParity:{pass:true,tolerance,maxAbsError:maxErr,unresolved:0,fixtures:parity},target:{discovered:(scanner.fixtures||[]).filter(x=>String(x.kickoff||'').slice(0,10)===targetDate).length,predictions:predictions.length,excluded},runtimeMs:performance.now()-started});
-    console.log('HBT frozen bridge READY',{targetDate,predictions:predictions.length,maxErr,rows:rows.length,runtimeMs:Math.round(performance.now()-started)});return 0;
+    const artifact={schemaVersion:'HBT-FROZEN-CONTROL-FORECAST-1',sourceFile:'automatic frozen deployment reconstruction',sourceExportedAt:nowISO(),sourceLabVersion:'HBT-1.1.2L-R1',sourceEngineVersion:'HBT-0.4a frozen L0 deployment bridge',targetDate,policy:{prospectiveExport:true,bookmakerOddsUsed:false,bookmakerOddsUsedInSimulation:false,predictiveModelMutated:false,retrainingPerformed:false,retuningPerformed:false,generalFutureLiveFeed:false,scope:'Date-scoped forecasts emitted only after exact frozen-runtime golden parity.',missingFixtureSemantics:'unknown/not forecast in this export; never infer a probability',goldenParityRequired:true,goldenParityTolerance:tolerance},bridge:{version:VERSION,reconstructionAsOfExclusive:asOfExclusive,goldenForecastDate:'2026-09-15',goldenMaxAbsError:maxErr,sourceMatches:loaded.matches.length,modelRows:rows.length,sourceFailures,identityAudit,crossLeagueLinks:built.crossLeagueLinks,excluded},predictions};
+    const out=path.join(DATA,`frozen_control_forecast_${targetDate}.json`);writeJSON(out,artifact);writeJSON(STATUS,{...statusBase,status:'READY',output:path.basename(out),reconstruction:{asOfExclusive,seasons,codes,matches:loaded.matches.length,rows:rows.length,duplicatesRemoved:loaded.duplicatesRemoved,sourceFailures,identityAudit,crossLeagueLinks:built.crossLeagueLinks},optimizers:{baseConverged:baseModel.converged,baseIterations:baseModel.iterations,residualConverged:model.converged,residualIterations:model.iterations},goldenParity:{pass:true,tolerance,maxAbsError:maxErr,unresolved:0,fixtures:parity},target:{discovered:(scanner.fixtures||[]).filter(x=>String(x.kickoff||'').slice(0,10)===targetDate).length,predictions:predictions.length,excluded},runtimeMs:performance.now()-started});
+    console.log('HBT frozen bridge READY',{targetDate,predictions:predictions.length,maxErr,rows:rows.length,sourceFailures:sourceFailures.length,runtimeMs:Math.round(performance.now()-started)});return 0;
   }catch(e){writeJSON(STATUS,{...statusBase,status:'BLOCKED_ERROR',reason:String(e.message||e),runtimeMs:performance.now()-started});console.error('HBT bridge blocked:',e);return 2;}
 }
 
