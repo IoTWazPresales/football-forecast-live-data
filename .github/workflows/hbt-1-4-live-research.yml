@@ -29,8 +29,8 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Compile HBT-1.4 live collector, context quality, safety guard, slate scanner and ranker
-        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_context_quality_v7.py scripts/hbt_guard_match_intelligence_v6.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_rank_slate.py
+      - name: Compile HBT live collectors, guards, slate scanner, price sidecar and ranker
+        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_context_quality_v7.py scripts/hbt_guard_match_intelligence_v6.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_collect_market_prices_v1.py scripts/hbt_rank_slate.py
       - name: Collect HBT-1.4 live match intelligence with source-specific transport fixes
         run: python scripts/hbt_collect_match_intelligence_v6.py
       - name: Repair non-predictive context quality and expose source diagnostics
@@ -41,7 +41,12 @@ jobs:
         run: echo "TARGET_DATE=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_ENV"
       - name: Discover and classify full public slate
         run: python scripts/hbt_scan_slate_v2_1.py --date "$TARGET_DATE"
-      - name: Validate readiness and slate contracts
+      - name: Collect downstream Betway market prices
+        env:
+          ODDS_API_IO_KEY: ${{ secrets.ODDS_API_IO_KEY }}
+          HBT_PRIMARY_BOOKMAKER: Betway
+        run: python scripts/hbt_collect_market_prices_v1.py
+      - name: Validate readiness, slate and price-separation contracts
         run: |
           python - <<'PY'
           import json, os
@@ -109,9 +114,20 @@ jobs:
               assert int(c.get('forecastRowsMatched') or 0)==int(c.get('forecastRowsAvailable') or 0), c
               assert g.get('knownForecastCoverageComplete') is True, g
               assert g.get('discoveryComplete') is True, g
-          print('HBT-1.4.1 live safety/readiness validation passed',p.get('generatedAt'),len(rows),p.get('health',{}).get('decisionReadiness'))
-          print('HBT context quality',p.get('health',{}).get('contextQualityWeatherRepair'))
+
+          m=json.load(open('hbt_live_data/market_prices.json',encoding='utf-8'))
+          assert m.get('schemaVersion')=='HBT-MARKET-PRICES-1', m.get('schemaVersion')
+          assert m.get('targetDate')==os.environ['TARGET_DATE'], (m.get('targetDate'),os.environ['TARGET_DATE'])
+          mp=m.get('policy') or {}
+          assert mp.get('bookmakerOddsUsedAsFootballModelFeature') is False
+          assert mp.get('bookmakerOddsUsedInSimulation') is False
+          assert mp.get('bookmakerOddsMayChangeFootballForecast') is False
+          assert mp.get('bookmakerOddsMayChangeR1ExperimentEligibility') is False
+          assert mp.get('priceAssessmentOnly') is True
+          assert m.get('status') in {'PRICES_AVAILABLE','PRICE_UNAVAILABLE','PRICE_SOURCE_UNCONFIGURED','PRICE_SOURCE_FAILURE'}
+          print('HBT live safety/readiness validation passed',p.get('generatedAt'),len(rows),p.get('health',{}).get('decisionReadiness'))
           print('HBT slate validation passed',s.get('targetDate'),s.get('coverage'),s.get('rankingGate'))
+          print('HBT downstream price sidecar',m.get('status'),m.get('pricedFixtures',0),m.get('primaryBookmaker'))
           PY
       - name: Rank HBT-supported candidates after discovery gate
         run: python scripts/hbt_rank_slate.py
@@ -121,17 +137,28 @@ jobs:
           import json
           r=json.load(open('hbt_live_data/ranked_candidates.json',encoding='utf-8'))
           assert r.get('status')=='RANKING_READY', r.get('status')
-          assert r['policy']['fullModelAndFallbackSeparated'] is True
-          assert r['policy']['rawProbabilityIsNotBettingValue'] is True
-          assert r['policy']['universalBestBetsClaimAllowed'] is False
-          assert r['policy']['testAImmutable'] is True
+          assert r.get('schemaVersion')=='HBT-SLATE-RANKING-2'
+          policy=r['policy']
+          assert policy['fullModelAndFallbackSeparated'] is True
+          assert policy['bookmakerOddsUsedAsFootballModelFeature'] is False
+          assert policy['bookmakerOddsUsedInSimulation'] is False
+          assert policy['bookmakerOddsMayChangeFootballForecast'] is False
+          assert policy['bookmakerOddsMayChangeR1ExperimentEligibility'] is False
+          assert policy['priceAssessmentOnly'] is True
+          assert policy['testAImmutable'] is True
           z=r['rankings']
           assert all(x['support']=='FULL_MODEL' for x in z['strongestFullModelConfidence'])
           assert all(x['support']=='FALLBACK' for x in z['fallbackOnly'])
-          assert z['experimentalValueVsPrice']['status']=='UNAVAILABLE_NO_BOOKMAKER_PRICE'
-          print('HBT ranking validation passed',len(z['strongestFullModelConfidence']),len(z['fallbackOnly']))
+          for bucket in ('highestRawDeployedPickProbability','strongestFullModelConfidence','fallbackOnly'):
+              for x in z[bucket]:
+                  assert x['forecastDecision']=='MODEL_SUPPORTED'
+                  assert x['r1ExperimentDecision']=='ELIGIBLE_MODEL_ONLY'
+                  assert x['priceAssessment']['gatesFootballForecast'] is False
+                  assert x['priceAssessment']['gatesR1Experiment'] is False
+          assert z['priceAssessment']['advisoryOnly'] is True
+          print('HBT ranking separation passed',len(z['strongestFullModelConfidence']),len(z['fallbackOnly']),r['priceLayer']['status'])
           PY
-      - name: Commit HBT-1.4 research feed, slate coverage and rankings if changed
+      - name: Commit HBT research feed, slate, downstream prices and rankings if changed
         run: |
           set -euo pipefail
           BRANCH='research/hbt-1.4-match-intelligence'
@@ -140,16 +167,18 @@ jobs:
           TMP="$(mktemp -d)"
           cp hbt_live_data/hbt_1_4_match_intelligence.json "$TMP/"
           cp hbt_live_data/slate_scanner.json "$TMP/"
+          cp hbt_live_data/market_prices.json "$TMP/"
           cp hbt_live_data/ranked_candidates.json "$TMP/"
           if [ -f hbt_live_data/_hbt_1_4_live_cache.json ]; then cp hbt_live_data/_hbt_1_4_live_cache.json "$TMP/"; fi
           git fetch origin "$BRANCH"
           git reset --hard "origin/$BRANCH"
           cp "$TMP/hbt_1_4_match_intelligence.json" hbt_live_data/
           cp "$TMP/slate_scanner.json" hbt_live_data/
+          cp "$TMP/market_prices.json" hbt_live_data/
           cp "$TMP/ranked_candidates.json" hbt_live_data/
           if [ -f "$TMP/_hbt_1_4_live_cache.json" ]; then cp "$TMP/_hbt_1_4_live_cache.json" hbt_live_data/; fi
-          git add hbt_live_data/hbt_1_4_match_intelligence.json hbt_live_data/slate_scanner.json hbt_live_data/ranked_candidates.json
+          git add hbt_live_data/hbt_1_4_match_intelligence.json hbt_live_data/slate_scanner.json hbt_live_data/market_prices.json hbt_live_data/ranked_candidates.json
           if [ -f hbt_live_data/_hbt_1_4_live_cache.json ]; then git add hbt_live_data/_hbt_1_4_live_cache.json; fi
           git diff --staged --quiet && exit 0
-          git commit -m 'data: refresh HBT-1.4 research intelligence, slate and rankings [skip ci]'
+          git commit -m 'data: refresh HBT research intelligence, slate, prices and rankings [skip ci]'
           git push origin "HEAD:$BRANCH"
