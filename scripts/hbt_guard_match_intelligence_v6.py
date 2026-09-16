@@ -5,6 +5,7 @@ import json, unicodedata
 from collections import Counter
 from pathlib import Path
 from typing import Any
+import hbt_intelligence_integrity_guard_v1 as integrity
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'hbt_live_data'
 MATCH=OUT/'hbt_1_4_match_intelligence.json'; PREXI=OUT/'pre_xi_context.json'; CACHE=OUT/'_hbt_1_4_live_cache.json'
 PLAYER_FEATURES=OUT/'player_features.json'; PROP_PARAMS=OUT/'player_prop_model_params.json'
@@ -164,7 +165,10 @@ def main():
         cr+=int(recompute_confirmed_features(row,pf));row['legacyReadinessState']=row.get('readinessState'); state,block=decision(row);row['decisionReadinessState']=state;row['testBComputable']=state=='CONFIRMED_XI_FEATURES_READY';row['testBBlockingReasons']=block;counts[state]+=1;tb+=int(row['testBComputable'])
         row['confirmedVsExpectedXI']=xi_agreement(prexi(pre,row),row.get('officialXI') or {});market_counts.update(guard_props(row,allowed_markets,prop_version));row['playerPropIdentityReady']=bool((row.get('playerProps') or {}).get('actionable'));pa+=int(row['playerPropIdentityReady'])
         guard_weather(row,cache);wr+=int((row.get('weatherVenue') or {}).get('qualityGate') is False)
-    d['guardVersion']=VERSION;d.setdefault('policy',{}).update({'frozenPredictiveModelMutated':False,'bookmakerOddsUsed':False,'testAImmutable':True,'decisionReadinessContract':'PRE_XI_PROVISIONAL -> CONFIRMED_XI_OBSERVED -> CONFIRMED_XI_FEATURES_READY; Test B only from FEATURES_READY','confirmedXIRecomputation':'exact ESPN confirmed-XI team_snapshot semantics with event/team/11-player identity verification; fail closed; no frozen model mutation','playerPropIdentityGate':'fail closed; confirmed starters + holdout-validated prop markets only','playerPropMarketValidation':'actionability derived from player_prop_model_params holdout markets; pCardRaw explicitly non-actionable','weatherQualityGate':'context only; predictive weight remains zero'})
+    d['guardVersion']=VERSION;d.setdefault('policy',{}).update({'frozenPredictiveModelMutated':False,'bookmakerOddsUsed':False,'testAImmutable':True,'decisionReadinessContract':'PRE_XI_PROVISIONAL -> CONFIRMED_XI_OBSERVED -> CONFIRMED_XI_FEATURES_READY; Test B only from FEATURES_READY','confirmedXIRecomputation':'exact ESPN confirmed-XI team_snapshot semantics with event/team/11-player identity verification; fail closed; no frozen model mutation','playerPropIdentityGate':'fail closed; confirmed starters + holdout-validated prop markets only','playerPropMarketValidation':'actionability derived from player_prop_model_params holdout markets; pCardRaw explicitly non-actionable','weatherQualityGate':'context only; predictive weight remains zero','downstreamIntelligenceMutationAllowed':False})
     d.setdefault('health',{}).update({'decisionReadiness':dict(counts),'testBComputable':tb,'confirmedXIRecomputedFixtures':cr,'playerPropActionableFixtures':pa,'playerPropActionableMarketRows':dict(market_counts),'validatedPlayerPropMarkets':sorted(allowed_markets),'weatherContextRejected':wr});write(MATCH,d)
-    print('HBT-1.4.2 safety guard',dict(counts),'testB',tb,'confirmedRecomputed',cr,'props',pa,'markets',dict(market_counts),'weatherRejected',wr);return 0
+    # The integrity snapshot is byte-level and lives outside the intelligence file.
+    # Every downstream transform must see the same digest or fail closed.
+    integrity.snapshot()
+    print('HBT-1.4.2 safety guard',dict(counts),'testB',tb,'confirmedRecomputed',cr,'props',pa,'markets',dict(market_counts),'weatherRejected',wr,'integrityLatched',True);return 0
 if __name__=='__main__':raise SystemExit(main())
