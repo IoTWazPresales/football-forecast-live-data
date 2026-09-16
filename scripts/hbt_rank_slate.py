@@ -288,6 +288,7 @@ def main() -> int:
         ignored_counts[k] = ignored_counts.get(k, 0) + 1
 
     price_status = str(prices.get("status") or "PRICE_UNAVAILABLE")
+    legacy_value_status = "AVAILABLE_DOWNSTREAM_ONLY" if price_status == "PRICES_AVAILABLE" else "UNAVAILABLE_NO_BOOKMAKER_PRICE"
     payload = {
         "schemaVersion": "HBT-SLATE-RANKING-2",
         "version": VERSION,
@@ -319,6 +320,14 @@ def main() -> int:
             "fallbackOnly": [compact(x, prices) for x in fallback_conf],
             "validatedEventForecasts": event_rows,
             "eventMarketExcluded": event_excluded,
+            "experimentalValueVsPrice": {
+                "status": legacy_value_status,
+                "advisoryOnly": True,
+                "legacyCompatibilityOnly": True,
+                "gatesFootballForecast": False,
+                "gatesR1Experiment": False,
+                "reason": "Compatibility status only. Price remains a downstream sidecar and cannot create, remove or reorder HBT football calls."
+            },
             "priceAssessment": {
                 "status": price_status,
                 "advisoryOnly": True,
