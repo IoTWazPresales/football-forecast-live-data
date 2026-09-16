@@ -5,18 +5,21 @@ Scope is deliberately narrow:
 - repair ambiguous Open-Meteo geocodes with ISO countryCode filtering;
 - replace geocoder elevation sentinels with Open-Meteo terrain elevation;
 - refresh weather context only when the existing geocode/weather is demonstrably bad;
-- expose Understat source/shape diagnostics using the AJAX header its internal API requires.
+- expose Understat source/shape diagnostics using the AJAX header its internal API requires;
+- decode gzip/deflate transport before JSON parsing so diagnostics match the live collector.
 
 This script never changes HBT football probabilities, tiers, frozen parameters, Test A,
 or bookmaker-odds policy. Weather remains context-only with predictive weight zero.
 """
 from __future__ import annotations
 import datetime as dt
+import gzip
 import json
 import time
 import unicodedata
 import urllib.parse
 import urllib.request
+import zlib
 from pathlib import Path
 from typing import Any
 
@@ -26,6 +29,7 @@ MATCH=OUT/'hbt_1_4_match_intelligence.json'
 CACHE=OUT/'_hbt_1_4_live_cache.json'
 VERSION='HBT-1.4.1R-CONTEXT-QUALITY'
 TRANSPORT_VERSION='HBT-1.4.1R-UNDERSTAT-AJAX-BOUNDED'
+DIAGNOSTIC_TRANSPORT_PATCH='HBT-CONTEXT-UNDERSTAT-GZIP-DECODE-1'
 UA='Mozilla/5.0 (compatible; HBT-1.4.1-ContextQuality/1.0)'
 LEAGUES={'en.1':'EPL','es.1':'La_liga','de.1':'Bundesliga','it.1':'Serie_A','fr.1':'Ligue_1'}
 COUNTRY_CODE={
@@ -54,7 +58,12 @@ def http_json(url:str,timeout:int=25,headers:dict[str,str]|None=None)->dict[str,
     if headers:h.update(headers)
     req=urllib.request.Request(url,headers=h)
     with urllib.request.urlopen(req,timeout=timeout) as r:
-        return json.loads(r.read().decode('utf-8','replace'))
+        body=r.read(); enc=str(r.headers.get('content-encoding') or '').lower()
+        if body.startswith(b'\x1f\x8b') or 'gzip' in enc:
+            body=gzip.decompress(body)
+        elif 'deflate' in enc:
+            body=zlib.decompress(body)
+        return json.loads(body.decode('utf-8-sig','strict'))
 
 def understat_json(url:str,timeout:int=30)->dict[str,Any]:
     return http_json(url,timeout,{'X-Requested-With':'XMLHttpRequest','Referer':'https://understat.com/'})
@@ -140,18 +149,18 @@ def understat_diag(year:int)->dict[str,Any]:
             url=f'https://understat.com/getLeagueData/{name}/{y}'
             try:
                 p=understat_json(url,30); teams=p.get('teams'); players=p.get('players'); tvals=list(teams.values()) if isinstance(teams,dict) else teams if isinstance(teams,list) else []
-                out[league][label]={'status':'loaded','transport':'AJAX','url':url,'topLevelKeys':sorted(p.keys()),'teamN':len(tvals or []),'playerN':len(players or []) if isinstance(players,list) else len(players or {}) if isinstance(players,dict) else 0,'datesN':len(p.get('dates') or []),'hasTeams':bool(tvals),'sampleTeamKeys':sorted((tvals[0] or {}).keys())[:20] if tvals else []}
+                out[league][label]={'status':'loaded','transport':'AJAX+content-encoding','url':url,'topLevelKeys':sorted(p.keys()),'teamN':len(tvals or []),'playerN':len(players or []) if isinstance(players,list) else len(players or {}) if isinstance(players,dict) else 0,'datesN':len(p.get('dates') or []),'hasTeams':bool(tvals),'sampleTeamKeys':sorted((tvals[0] or {}).keys())[:20] if tvals else []}
             except Exception as exc:
-                out[league][label]={'status':'failed','transport':'AJAX','url':url,'error':f'{type(exc).__name__}: {exc}'[:240]}
+                out[league][label]={'status':'failed','transport':'AJAX+content-encoding','url':url,'error':f'{type(exc).__name__}: {exc}'[:240]}
     return out
 
 def main()->int:
     d=read(MATCH,None)
     if not isinstance(d,dict):raise SystemExit(f'missing or invalid {MATCH}')
     cache=read(CACHE,{}); year=dt.datetime.now().year; wx=repair_weather(d,cache); diag=understat_diag(year)
-    d['contextQualityVersion']=VERSION;d['understatTransportVersion']=TRANSPORT_VERSION;d.setdefault('sourceDiagnostics',{})['understat']=diag;d.setdefault('health',{})['contextQualityWeatherRepair']=wx
-    d.setdefault('policy',{}).update({'frozenPredictiveModelMutated':False,'bookmakerOddsUsed':False,'testAImmutable':True,'contextQualityRepair':'geocoding/weather context only; no probability/tier/parameter changes','understatDiagnostics':'observability only; missing remains missing','understatMatchDetailLivePolicy':'new getMatchData fanout deferred; cached match detail only until bounded collector is validated'})
+    d['contextQualityVersion']=VERSION;d['understatTransportVersion']=TRANSPORT_VERSION;d['contextDiagnosticTransportPatch']=DIAGNOSTIC_TRANSPORT_PATCH;d.setdefault('sourceDiagnostics',{})['understat']=diag;d.setdefault('health',{})['contextQualityWeatherRepair']=wx
+    d.setdefault('policy',{}).update({'frozenPredictiveModelMutated':False,'bookmakerOddsUsed':False,'testAImmutable':True,'contextQualityRepair':'geocoding/weather context only; no probability/tier/parameter changes','understatDiagnostics':'observability only; missing remains missing','understatMatchDetailLivePolicy':'new getMatchData fanout deferred; cached match detail only until bounded collector is validated','contextDiagnosticTransportOnly':True})
     write(CACHE,cache);write(MATCH,d)
     loaded=sum(int(v.get(k,{}).get('status')=='loaded') for v in diag.values() for k in ('current','previous'))
-    print('HBT-1.4.1 context quality',wx,'Understat AJAX packs loaded',loaded,'of',len(diag)*2);return 0
+    print('HBT-1.4.1 context quality',wx,'Understat AJAX packs loaded',loaded,'of',len(diag)*2,'diagPatch',DIAGNOSTIC_TRANSPORT_PATCH);return 0
 if __name__=='__main__':raise SystemExit(main())
