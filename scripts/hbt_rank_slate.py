@@ -9,6 +9,10 @@ it cannot veto a R1 prospective experiment.
 Validated HBT-1.3 event-market families are surfaced separately from 1X2. They
 must pass the existing causal-model validation flag AND a minimum live-history
 coverage gate. No bookmaker price is used to choose their probability or line.
+
+The live safety guard latches a byte-level hash of match intelligence before any
+downstream transforms. This ranker verifies that latch before and after ranking;
+any mutation of the intelligence payload therefore fails closed.
 """
 from __future__ import annotations
 
@@ -18,6 +22,7 @@ import re
 import unicodedata
 from pathlib import Path
 from typing import Any
+import hbt_intelligence_integrity_guard_v1 as integrity
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "hbt_live_data"
@@ -26,7 +31,7 @@ INTEL = OUT / "hbt_1_4_match_intelligence.json"
 EXPERIMENTS = OUT / "live_experiments.json"
 PRICES = OUT / "market_prices.json"
 OUTPUT = OUT / "ranked_candidates.json"
-VERSION = "HBT-SLATE-RANKER-2.1"
+VERSION = "HBT-SLATE-RANKER-2.2"
 TIER_ORDER = {"A": 0, "B": 1, "C": 2, "Avoid": 3, None: 4, "": 4}
 EVENT_MIN_HISTORY = 3
 EVENT_LINES = {
@@ -214,6 +219,9 @@ def event_forecasts(intel: dict[str, Any], target_date: str, prices: dict[str, A
 
 
 def main() -> int:
+    # Guard was the last component allowed to write the intelligence payload.
+    # Scanner, bridge, price sidecar and ranking must preserve its exact bytes.
+    integrity.verify()
     s = read(SLATE, {})
     intel = read(INTEL, {})
     gate = s.get("rankingGate") or {}
@@ -237,6 +245,7 @@ def main() -> int:
         "universalBestBetsClaimAllowed": False,
         "configuredSourceRankingLabel": "Best HBT-supported candidates from the configured-source discovered slate",
         "testAImmutable": bool((ex.get("policy") or {}).get("testAImmutable") and test_a and test_a.get("state") == "FROZEN_PROSPECTIVE"),
+        "intelligenceByteIntegrityRequired": True,
     }
 
     if gate.get("discoveryComplete") is not True:
@@ -254,6 +263,7 @@ def main() -> int:
             "rankings": None,
         }
         write(OUTPUT, payload)
+        integrity.verify()
         return 2
 
     rows = [x for x in s.get("fixtures") or [] if x.get("rankEligible") and x.get("pickProbability") is not None]
@@ -316,7 +326,8 @@ def main() -> int:
         }
     }
     write(OUTPUT, payload)
-    print("HBT slate ranking ready", {"supported1X2": len(rows), "eventForecastRows": len(event_rows), "eventExcluded": len(event_excluded), "priceStatus": price_status})
+    integrity.verify()
+    print("HBT slate ranking ready", {"supported1X2": len(rows), "eventForecastRows": len(event_rows), "eventExcluded": len(event_excluded), "priceStatus": price_status, "intelligenceIntegrityVerified": True})
     return 0
 
 
