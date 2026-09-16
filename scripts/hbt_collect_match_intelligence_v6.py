@@ -6,8 +6,9 @@ body with content-type text/javascript. urllib does not transparently decompress
 that response, which made the previous wrapper try to JSON-decode compressed bytes
 and caused every Big-Five tactical pack to fail.
 
-This wrapper changes transport only:
-- AJAX headers are retained;
+This wrapper changes data transport/freshness only:
+- refreshes the existing ESPN confirmed-XI feature feed before match intelligence;
+- AJAX headers are retained for Understat;
 - gzip/deflate response bodies are decoded before JSON parsing;
 - getMatchData live fan-out remains blocked and cached-only;
 - no forecast formula, coefficient, feature weight, tier, odds policy, or Test A
@@ -21,9 +22,10 @@ import urllib.request
 import zlib
 import hbt_collect_match_intelligence_v5 as v5
 
-# Keep the existing workflow contract stable; expose compression repair separately.
+# Keep the existing workflow transport contract stable; expose repairs separately.
 VERSION='HBT-1.4.1R-UNDERSTAT-AJAX-BOUNDED'
 COMPRESSION_VERSION='HBT-UNDERSTAT-GZIP-DECODE-1'
+PLAYER_REFRESH_VERSION='HBT-ESPN-CONFIRMED-XI-REFRESH-1'
 ORIG_HTTP_JSON=v5.espn.http_json
 
 def _decode_body(body:bytes, content_encoding:str='')->bytes:
@@ -68,6 +70,14 @@ def http_json_bounded(url:str,timeout:int=25,retries:int=3):
     return ajax(u,min(timeout,18),min(retries,2))
 
 def main()->int:
+    # Refresh the already-defined confirmed-XI feature semantics first. The later
+    # safety guard will only consume rows whose event/team/11-player identity is
+    # an exact match to the official XI; otherwise Test B remains fail-closed.
+    try:
+        player_rc=v5.espn.main()
+    except Exception as exc:
+        print('confirmed-XI feature refresh failed closed:',exc)
+        player_rc=99
     v5.espn.http_json=http_json_bounded
     rc=v5.main()
     try:
@@ -76,9 +86,11 @@ def main()->int:
         data=json.loads(p.read_text(encoding='utf-8'))
         data['understatTransportVersion']=VERSION
         data['understatCompressionVersion']=COMPRESSION_VERSION
+        data['confirmedXIFeatureRefreshVersion']=PLAYER_REFRESH_VERSION
+        data['confirmedXIFeatureRefreshRc']=player_rc
         p.write_text(json.dumps(data,ensure_ascii=False,separators=(',',':'))+'\n',encoding='utf-8')
     except Exception as exc:
-        raise RuntimeError(f'collector succeeded but transport diagnostics stamp failed: {exc}')
+        raise RuntimeError(f'collector succeeded but transport/freshness diagnostics stamp failed: {exc}')
     return rc
 
 if __name__=='__main__':raise SystemExit(main())
