@@ -1,11 +1,15 @@
 {
-  "schemaVersion": "HBT-SLATE-RANKING-1",
-  "version": "HBT-SLATE-RANKER-1",
+  "schemaVersion": "HBT-SLATE-RANKING-2",
+  "version": "HBT-SLATE-RANKER-2",
   "targetDate": "2026-09-16",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
-    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedAsFootballModelFeature": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "bookmakerOddsMayChangeFootballForecast": false,
+    "bookmakerOddsMayChangeR1ExperimentEligibility": false,
+    "priceAssessmentOnly": true,
     "footballProbabilitiesRecomputed": false,
     "fullModelAndFallbackSeparated": true,
     "rawProbabilityIsNotBettingValue": true,
@@ -56,6 +60,15 @@
     "fallbackRankEligible": 0,
     "note": "Discovery completeness means configured public sources reconciled all known date-scoped HBT forecasts; it is not a claim of universal world-football coverage."
   },
+  "priceLayer": {
+    "status": "PRICE_SOURCE_UNCONFIGURED",
+    "provider": "Odds-API.io",
+    "primaryBookmaker": "Betway",
+    "generatedAt": "2026-09-16T14:08:56Z",
+    "pricedFixtures": 0,
+    "advisoryOnly": true,
+    "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
+  },
   "testAReference": {
     "id": "PRE_XI_TEST_A_2026-09-15",
     "name": "Live Experiment — PRE-XI Test A",
@@ -90,9 +103,10 @@
     "highestRawDeployedPickProbability": [],
     "strongestFullModelConfidence": [],
     "fallbackOnly": [],
-    "experimentalValueVsPrice": {
-      "status": "UNAVAILABLE_NO_BOOKMAKER_PRICE",
-      "reason": "The football model and slate scanner deliberately exclude bookmaker odds. Probability alone is not betting value."
+    "priceAssessment": {
+      "status": "PRICE_SOURCE_UNCONFIGURED",
+      "advisoryOnly": true,
+      "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
       "count": 88,
