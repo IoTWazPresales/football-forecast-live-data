@@ -1,0 +1,386 @@
+{
+  "schemaVersion": "HBT-FORECAST-BRIDGE-STATUS-1",
+  "version": "HBT-FROZEN-FORECAST-BRIDGE-1.1",
+  "generatedAt": "2026-09-16T14:55:54.556Z",
+  "targetDate": "2026-09-16",
+  "policy": {
+    "predictiveModel": "HBT-1.1.2L-R1",
+    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "retrainingOrRetuningPerformed": false,
+    "modelChoiceSearchPerformed": false,
+    "goldenParityRequired": true,
+    "failClosed": true,
+    "testAImmutable": true
+  },
+  "status": "READY",
+  "output": "frozen_control_forecast_2026-09-16.json",
+  "reconstruction": {
+    "asOfExclusive": "2026-09-11",
+    "seasons": [
+      "2015-16",
+      "2016-17",
+      "2017-18",
+      "2018-19",
+      "2019-20",
+      "2020-21",
+      "2021-22",
+      "2022-23",
+      "2023-24",
+      "2024-25",
+      "2025-26",
+      "2026-27"
+    ],
+    "codes": [
+      "en.1",
+      "es.1",
+      "de.1",
+      "it.1",
+      "fr.1",
+      "nl.1",
+      "pt.1",
+      "sco.1",
+      "tr.1",
+      "uefa.cl"
+    ],
+    "matches": 27934,
+    "rows": 27934,
+    "duplicatesRemoved": 0,
+    "sourceFailures": [
+      {
+        "source": "2015-16/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2020-21/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2025-26/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      }
+    ],
+    "identityAudit": {
+      "linked": 37,
+      "unresolved": 47,
+      "ambiguous": 4,
+      "continentalNames": 88
+    },
+    "crossLeagueLinks": 212
+  },
+  "optimizers": {
+    "baseConverged": true,
+    "baseIterations": 581,
+    "residualConverged": true,
+    "residualIterations": 711
+  },
+  "goldenParity": {
+    "pass": true,
+    "tolerance": 0.006,
+    "maxAbsError": 0.005071812049585289,
+    "unresolved": 0,
+    "fixtures": [
+      {
+        "fixture": "Rayo Vallecano de Madrid vs RCD Espanyol de Barcelona",
+        "ok": true,
+        "expected": [
+          0.5249966469772112,
+          0.26020835196534464,
+          0.2147950010574442
+        ],
+        "actual": [
+          0.5233822761510829,
+          0.26088796760072647,
+          0.2157297562481906
+        ],
+        "maxAbsError": 0.001614370826128253
+      },
+      {
+        "fixture": "Falkirk vs Heart of Midlothian",
+        "ok": true,
+        "expected": [
+          0.25120428972903747,
+          0.270335350600139,
+          0.4784603596708235
+        ],
+        "actual": [
+          0.25146335294883254,
+          0.2700238780978944,
+          0.478512768953273
+        ],
+        "maxAbsError": 0.0003114725022446141
+      },
+      {
+        "fixture": "Hibernian vs Kilmarnock",
+        "ok": true,
+        "expected": [
+          0.64418177325026,
+          0.21900644829445817,
+          0.13681177845528175
+        ],
+        "actual": [
+          0.6440799052783771,
+          0.21921288281250562,
+          0.13670721190911725
+        ],
+        "maxAbsError": 0.00020643451804744362
+      },
+      {
+        "fixture": "Motherwell vs Aberdeen",
+        "ok": true,
+        "expected": [
+          0.48635520310013747,
+          0.2660657604468178,
+          0.24757903645304472
+        ],
+        "actual": [
+          0.48675290543716926,
+          0.2660233857194505,
+          0.24722370884338027
+        ],
+        "maxAbsError": 0.00039770233703179114
+      },
+      {
+        "fixture": "Deportivo Alavés vs Valencia CF",
+        "ok": true,
+        "expected": [
+          0.5020046275724759,
+          0.2524565947415272,
+          0.2455387776859969
+        ],
+        "actual": [
+          0.50053183631834,
+          0.2536577265483157,
+          0.24581043713334436
+        ],
+        "maxAbsError": 0.0014727912541359078
+      },
+      {
+        "fixture": "AFC Ajax vs Willem II Tilburg",
+        "ok": true,
+        "expected": [
+          0.7578845773223023,
+          0.17406444284326916,
+          0.06805097983442843
+        ],
+        "actual": [
+          0.752812765272717,
+          0.17627715679740558,
+          0.07091007792987748
+        ],
+        "maxAbsError": 0.005071812049585289
+      },
+      {
+        "fixture": "Elche CF vs Real Madrid CF",
+        "ok": true,
+        "expected": [
+          0.09617135084309297,
+          0.2077803873570952,
+          0.6960482617998119
+        ],
+        "actual": [
+          0.09717039587022586,
+          0.20865492835790844,
+          0.6941746757718656
+        ],
+        "maxAbsError": 0.0018735860279462946
+      }
+    ]
+  },
+  "target": {
+    "discovered": 65,
+    "predictions": 0,
+    "excluded": [
+      {
+        "fixture": "Rodina Moscow vs Rubin Kazan",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Spartak Moscow vs Fakel Voronezh",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Atlético Madrid vs Osasuna",
+        "league": "es.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Deportivo vs Sevilla",
+        "league": "es.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "FC Baltika Kaliningrad vs Zenit St Petersburg",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Lokomotiv Moscow vs Krylia Sovetov",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Barcelona vs Racing Santander",
+        "league": "es.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Levante vs Athletic Club",
+        "league": "es.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Botafogo vs Grêmio",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      }
+    ]
+  },
+  "runtimeMs": 49759.085514
+}
