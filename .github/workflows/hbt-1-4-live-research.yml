@@ -29,10 +29,12 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - name: Compile HBT-1.4 live collector, safety guard, slate scanner and ranker
-        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_guard_match_intelligence_v6.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_rank_slate.py
+      - name: Compile HBT-1.4 live collector, context quality, safety guard, slate scanner and ranker
+        run: python -m py_compile scripts/hbt_collect_match_intelligence_v5.py scripts/hbt_context_quality_v7.py scripts/hbt_guard_match_intelligence_v6.py scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_rank_slate.py
       - name: Collect HBT-1.4 live match intelligence
         run: python scripts/hbt_collect_match_intelligence_v5.py
+      - name: Repair non-predictive context quality and expose source diagnostics
+        run: python scripts/hbt_context_quality_v7.py
       - name: Apply HBT-1.4.1 fail-closed decision-readiness guard
         run: python scripts/hbt_guard_match_intelligence_v6.py
       - name: Resolve SAST slate date
@@ -45,10 +47,16 @@ jobs:
           import json, os
           p=json.load(open('hbt_live_data/hbt_1_4_match_intelligence.json',encoding='utf-8'))
           assert p.get('version')=='HBT-1.4R-MATCH-INTELLIGENCE-LIVE', p.get('version')
+          assert p.get('contextQualityVersion')=='HBT-1.4.1R-CONTEXT-QUALITY', p.get('contextQualityVersion')
           assert p.get('guardVersion')=='HBT-1.4.1R-SAFETY-GUARD', p.get('guardVersion')
           assert p.get('policy',{}).get('frozenPredictiveModelMutated') is False
           assert p.get('policy',{}).get('bookmakerOddsUsed') is False
           assert p.get('policy',{}).get('testAImmutable') is True
+          u=(p.get('sourceDiagnostics') or {}).get('understat') or {}
+          assert set(u).issuperset({'en.1','es.1','de.1','it.1','fr.1'}), u.keys()
+          for league in ('en.1','es.1','de.1','it.1','fr.1'):
+              for period in ('current','previous'):
+                  assert (u.get(league) or {}).get(period,{}).get('status') in {'loaded','failed'}, (league,period,u.get(league))
           rows=p.get('fixtures') or {}
           assert isinstance(rows,dict)
           decision_states={'PRE_XI_PROVISIONAL','CONFIRMED_XI_OBSERVED','CONFIRMED_XI_FEATURES_READY'}
@@ -101,6 +109,7 @@ jobs:
               assert g.get('knownForecastCoverageComplete') is True, g
               assert g.get('discoveryComplete') is True, g
           print('HBT-1.4.1 live safety/readiness validation passed',p.get('generatedAt'),len(rows),p.get('health',{}).get('decisionReadiness'))
+          print('HBT context quality',p.get('health',{}).get('contextQualityWeatherRepair'))
           print('HBT slate validation passed',s.get('targetDate'),s.get('coverage'),s.get('rankingGate'))
           PY
       - name: Rank HBT-supported candidates after discovery gate
