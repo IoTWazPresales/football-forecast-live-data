@@ -47,7 +47,7 @@ jobs:
           import json, os
           p=json.load(open('hbt_live_data/hbt_1_4_match_intelligence.json',encoding='utf-8'))
           assert p.get('version')=='HBT-1.4R-MATCH-INTELLIGENCE-LIVE', p.get('version')
-          assert p.get('understatTransportVersion')=='HBT-1.4.1R-UNDERSTAT-AJAX-TRANSPORT', p.get('understatTransportVersion')
+          assert p.get('understatTransportVersion')=='HBT-1.4.1R-UNDERSTAT-AJAX-BOUNDED', p.get('understatTransportVersion')
           assert p.get('contextQualityVersion')=='HBT-1.4.1R-CONTEXT-QUALITY', p.get('contextQualityVersion')
           assert p.get('guardVersion')=='HBT-1.4.1R-SAFETY-GUARD', p.get('guardVersion')
           assert p.get('policy',{}).get('frozenPredictiveModelMutated') is False
