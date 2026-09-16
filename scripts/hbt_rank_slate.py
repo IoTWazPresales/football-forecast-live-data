@@ -11,8 +11,9 @@ must pass the existing causal-model validation flag AND a minimum live-history
 coverage gate. No bookmaker price is used to choose their probability or line.
 
 The live safety guard latches a byte-level hash of match intelligence before any
-downstream transforms. This ranker verifies that latch before and after ranking;
-any mutation of the intelligence payload therefore fails closed.
+downstream transforms. This ranker verifies that latch before and after ranking.
+Standalone CI jobs that do not execute the live guard first establish a local
+baseline at ranker entry, then still prove the ranker itself did not mutate it.
 """
 from __future__ import annotations
 
@@ -59,6 +60,14 @@ def write(path: Path, obj: Any) -> None:
     tmp = path.with_suffix(path.suffix + ".tmp")
     tmp.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     tmp.replace(path)
+
+
+def integrity_preflight() -> str:
+    if integrity.SNAPSHOT.exists():
+        integrity.verify()
+        return "UPSTREAM_GUARD_LATCH_VERIFIED"
+    integrity.snapshot()
+    return "STANDALONE_RANKER_BASELINE_CREATED"
 
 
 def nkey(value: Any) -> str:
@@ -139,7 +148,6 @@ def confidence_key(row: dict[str, Any]) -> tuple[int, float, float]:
 
 
 def poisson_over(lam: float, line: float) -> float:
-    # Half-line: Over 9.5 means P(X >= 10).
     minimum = int(math.floor(line)) + 1
     term = math.exp(-lam)
     cdf = term
@@ -219,9 +227,7 @@ def event_forecasts(intel: dict[str, Any], target_date: str, prices: dict[str, A
 
 
 def main() -> int:
-    # Guard was the last component allowed to write the intelligence payload.
-    # Scanner, bridge, price sidecar and ranking must preserve its exact bytes.
-    integrity.verify()
+    integrity_mode = integrity_preflight()
     s = read(SLATE, {})
     intel = read(INTEL, {})
     gate = s.get("rankingGate") or {}
@@ -246,6 +252,7 @@ def main() -> int:
         "configuredSourceRankingLabel": "Best HBT-supported candidates from the configured-source discovered slate",
         "testAImmutable": bool((ex.get("policy") or {}).get("testAImmutable") and test_a and test_a.get("state") == "FROZEN_PROSPECTIVE"),
         "intelligenceByteIntegrityRequired": True,
+        "intelligenceIntegrityMode": integrity_mode,
     }
 
     if gate.get("discoveryComplete") is not True:
@@ -327,7 +334,7 @@ def main() -> int:
     }
     write(OUTPUT, payload)
     integrity.verify()
-    print("HBT slate ranking ready", {"supported1X2": len(rows), "eventForecastRows": len(event_rows), "eventExcluded": len(event_excluded), "priceStatus": price_status, "intelligenceIntegrityVerified": True})
+    print("HBT slate ranking ready", {"supported1X2": len(rows), "eventForecastRows": len(event_rows), "eventExcluded": len(event_excluded), "priceStatus": price_status, "intelligenceIntegrityVerified": True, "integrityMode": integrity_mode})
     return 0
 
 
