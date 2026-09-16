@@ -28,8 +28,12 @@ jobs:
         run: python scripts/hbt_intelligence_integrity_guard_v1.py snapshot
       - name: Exercise downstream betting desk transforms
         run: |
+          set -euo pipefail
           python scripts/hbt_rank_slate.py
-          python scripts/hbt_expand_markets.py
+          FORECAST="$(ls hbt_live_data/hbt_shadow_forecast_*_alias.json 2>/dev/null | sort | tail -1 || true)"
+          if [ -n "$FORECAST" ]; then
+            python scripts/hbt_expand_markets.py --forecast "$FORECAST" --output /tmp/hbt_market_expansion_integrity.json
+          fi
       - name: Verify downstream transforms did not mutate intelligence
         run: python scripts/hbt_intelligence_integrity_guard_v1.py verify
       - name: Commit observability-only intelligence audit
