@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "HBT-SHADOW-RECONSTRUCTED-BETS-1",
+  "capturedAt": "2026-09-17T17:19:02.145090Z",
+  "targetDate": "2026-09-17",
+  "origin": "HBT_SHADOW_RECONSTRUCTED",
+  "state": "FROZEN_PROSPECTIVE_CAPTURE",
+  "policy": {
+    "frozenControlClaim": false,
+    "knownParityFailurePreserved": true,
+    "bookmakerOddsUsedAsModelFeature": false,
+    "priceRequiredForBET": true,
+    "unpricedAction": "TEST_UNPRICED",
+    "postKickoffBackfillAllowed": false
+  },
+  "parityDiagnostic": 0.0341854647637686,
+  "fixtures": [
+    {
+      "fixture": {
+        "date": "2026-09-17",
+        "time": "17:00",
+        "league": "es.1",
+        "home": "Real Betis",
+        "away": "Getafe",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "capturedBeforeKickoff": false,
+      "prediction": {
+        "H": 0.45386214369142386,
+        "D": 0.27318662836359947,
+        "A": 0.27295122794497667,
+        "tier": "Avoid",
+        "quality": 0.7106710355190614
+      },
+      "action": "PASS_POST_KICKOFF",
+      "markets": [],
+      "origin": "HBT_SHADOW_RECONSTRUCTED",
+      "warning": "Known frozen-control parity failure; test-only challenger. Never score as HBT frozen control."
+    },
+    {
+      "fixture": {
+        "date": "2026-09-17",
+        "time": "19:30",
+        "league": "es.1",
+        "home": "M\u00e1laga",
+        "away": "Villarreal",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "capturedBeforeKickoff": true,
+      "prediction": {
+        "H": 0.19749021875991452,
+        "D": 0.25707271486688454,
+        "A": 0.545437066373201,
+        "tier": "C",
+        "quality": 0.9447972133840999
+      },
+      "action": "TEST_UNPRICED",
+      "markets": [
+        {
+          "family": "1X2",
+          "selection": "Villarreal",
+          "modelProbability": 0.545437066373201,
+          "fairOdds": 1.8333920843505276
+        },
+        {
+          "family": "DOUBLE_CHANCE",
+          "selection": "X2",
+          "modelProbability": 0.8025097812400855,
+          "fairOdds": 1.2460907310746305
+        },
+        {
+          "family": "DNB",
+          "selection": "Villarreal DNB",
+          "modelProbability": 0.7341728824449775,
+          "fairOdds": 1.3620770038110812
+        }
+      ],
+      "origin": "HBT_SHADOW_RECONSTRUCTED",
+      "warning": "Known frozen-control parity failure; test-only challenger. Never score as HBT frozen control."
+    }
+  ]
+}
