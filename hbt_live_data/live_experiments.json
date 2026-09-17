@@ -5,14 +5,15 @@
     "noRetrospectiveLegChanges": true,
     "testAImmutable": true,
     "testBSeparateExperiment": true,
-    "stakeEscalationRecommended": false
+    "stakeEscalationRecommended": false,
+    "settlementDoesNotRetrospectivelyRelabelModelOrigin": true
   },
   "experiments": [
     {
       "id": "PRE_XI_TEST_A_2026-09-15",
       "name": "Live Experiment — PRE-XI Test A",
       "targetDate": "2026-09-15",
-      "state": "FROZEN_PROSPECTIVE",
+      "state": "SETTLED",
       "placed": true,
       "placedBeforeConfirmedXI": true,
       "stakeZAR": 1.0,
@@ -23,37 +24,50 @@
           "selection": "Rayo Vallecano — WIN",
           "market": "1X2_HOME",
           "recordedAtPlacementProbabilityApprox": 0.5397,
-          "exactProspectiveAuditProbability": 0.5398550753047744
+          "exactProspectiveAuditProbability": 0.5398550753047744,
+          "finalScore": "2-1",
+          "hit": true
         },
         {
           "fixture": "Deportivo Alavés vs Valencia",
           "selection": "Deportivo Alavés — WIN",
           "market": "1X2_HOME",
           "recordedAtPlacementProbabilityApprox": 0.6085,
-          "exactProspectiveAuditProbability": 0.6086948868675904
+          "exactProspectiveAuditProbability": 0.6086948868675904,
+          "finalScore": "0-1",
+          "hit": false
         },
         {
           "fixture": "Elche vs Real Madrid",
           "selection": "UNDER 3.5 goals",
           "market": "TOTAL_GOALS_UNDER_3_5",
           "recordedAtPlacementProbabilityApprox": 0.5801,
-          "exactProspectiveAuditProbability": 0.5802448326403797
+          "exactProspectiveAuditProbability": 0.5802448326403797,
+          "finalScore": "2-3",
+          "hit": false
         }
       ],
-      "result": null,
-      "settledAt": null,
+      "result": {
+        "legsHit": 1,
+        "legsTotal": 3,
+        "hitRate": 0.3333333333333333,
+        "allLegsHit": false,
+        "settlementScope": "prediction outcomes only; no aggregate ROI inferred here without a canonical ticket ledger"
+      },
+      "settledAt": "2026-09-17T08:36:00Z",
       "sourceForecastArtifact": "frozen_control_forecast_2026-09-15.json"
     },
     {
       "id": "SHADOW_L0_R1_2026-09-16",
       "name": "Live Experiment — Shadow L0 R1",
       "targetDate": "2026-09-16",
-      "state": "LOCKED_PENDING_PLACEMENT",
-      "placed": false,
+      "state": "SETTLED",
+      "placed": true,
       "placedBeforeConfirmedXI": true,
       "stakeZAR": 1.0,
       "lockedAt": "2026-09-16T14:59:00Z",
-      "selectionContext": "Prospective R1 development test. Selection comes from the isolated reconstructed HBT-1.1.2 L0 shadow. Bookmaker odds were not used in the forecast or simulation. The shadow is not the official frozen control because exact 1e-9 golden parity is still blocked; maximum Sep-15 L0 reproduction drift is 0.0050718120 absolute probability.",
+      "placedAtLocal": "2026-09-16T19:13:00+02:00",
+      "selectionContext": "Prospective R1 development test. Selection comes from the isolated reconstructed HBT-1.1.2 L0 shadow. Bookmaker odds were not used in the forecast or simulation. Preserve this historical origin even if the exact frozen bridge is repaired later; do not retrospectively relabel it as official control.",
       "legs": [
         {
           "fixture": "Barcelona vs Racing Santander",
@@ -63,11 +77,24 @@
           "modelTier": "B",
           "modelQuality": 0.6652230596826605,
           "predictionMode": "L0 FALLBACK",
-          "sourceType": "HBT-1.1.2L-R1 reconstructed shadow"
+          "sourceType": "HBT-1.1.2L-R1 reconstructed shadow",
+          "bookmaker": "Betway",
+          "decimalOdds": 1.07,
+          "betslipId": "1065624528",
+          "finalScore": "7-2",
+          "hit": true
         }
       ],
-      "result": null,
-      "settledAt": null,
+      "result": {
+        "legsHit": 1,
+        "legsTotal": 1,
+        "hitRate": 1.0,
+        "stakeZAR": 1.0,
+        "returnZAR": 1.07,
+        "profitZAR": 0.07,
+        "won": true
+      },
+      "settledAt": "2026-09-17T08:36:00Z",
       "sourceForecastArtifact": "hbt_shadow_forecast_2026-09-16_alias.json"
     }
   ]
