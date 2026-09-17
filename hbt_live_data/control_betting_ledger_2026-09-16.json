@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "HBT-CONTROL-BETTING-LEDGER-1",
+  "targetDate": "2026-09-16",
+  "recordedFrom": "user-provided settled Betway screenshots",
+  "policy": {
+    "notHBTTrainingLabelsByDefault": true,
+    "doNotAttributeExternalControlsToHBT": true,
+    "multibetDoesNotDuplicateLegsAsIndependentModelObservations": true,
+    "resultsMayInformChallengerResearchOnlyAfterOriginAndMarketFamilyAudit": true
+  },
+  "singles": [
+    {"fixture":"Barcelona vs Racing Santander","market":"1X2_HOME","selection":"Barcelona WIN","odds":1.07,"stakeZAR":1.0,"returnZAR":1.07,"finalScore":"7-2","hit":true,"origin":"HBT_SHADOW","betslipId":"1065624528"},
+    {"fixture":"Bayer Leverkusen vs NK Celje","market":"1X2_HOME","selection":"Bayer Leverkusen WIN","odds":1.04,"stakeZAR":1.0,"returnZAR":1.04,"finalScore":"2-0","hit":true,"origin":"CONTROL_EXTERNAL"},
+    {"fixture":"Olympiacos Piraeus vs Jagiellonia Bialystok","market":"1X2_HOME","selection":"Olympiacos WIN","odds":1.26,"stakeZAR":1.0,"returnZAR":1.26,"finalScore":"2-1","hit":true,"origin":"CONTROL_EXTERNAL"},
+    {"fixture":"Hapoel Be'er Sheva vs GNK Dinamo Zagreb","market":"TOTAL_GOALS_OVER_1_5","selection":"Over 1.5 goals","odds":1.14,"stakeZAR":1.0,"returnZAR":0.0,"finalScore":"0-0","hit":false,"origin":"CONTROL_EXTERNAL","betslipId":"1065570357"},
+    {"fixture":"AC Milan vs SL Benfica","market":"DOUBLE_CHANCE_X2","selection":"Draw or Benfica","odds":1.54,"stakeZAR":1.0,"returnZAR":1.54,"finalScore":"0-2","hit":true,"origin":"CONTROL_EXTERNAL","betslipId":"1065594688"},
+    {"fixture":"Sunderland AFC vs AZ Alkmaar","market":"DOUBLE_CHANCE_X2","selection":"Draw or AZ Alkmaar","odds":2.29,"stakeZAR":1.0,"returnZAR":0.0,"finalScore":"1-0","hit":false,"origin":"CONTROL_EXTERNAL","betslipId":"1065602504"},
+    {"fixture":"Everton FC vs Wolverhampton Wanderers","market":"TOTAL_GOALS_UNDER_3_5","selection":"Under 3.5 goals","odds":1.56,"stakeZAR":1.0,"returnZAR":1.56,"finalScore":"1-0","hit":true,"origin":"CONTROL_EXTERNAL","betslipId":"1065560355"},
+    {"fixture":"Fleetwood Town vs Sheffield United","market":"TOTAL_GOALS_UNDER_3_5","selection":"Under 3.5 goals","odds":1.55,"stakeZAR":1.0,"returnZAR":1.55,"finalScore":"1-0","hit":true,"origin":"CONTROL_EXTERNAL","betslipId":"1065564454"},
+    {"fixture":"Manchester United vs Brighton","market":"BTTS_YES","selection":"Both Teams To Score — Yes","odds":1.33,"stakeZAR":1.0,"returnZAR":1.33,"finalScore":"2-3","hit":true,"origin":"CONTROL_EXTERNAL","betslipId":"1065614364"},
+    {"fixture":"Coventry City vs Aston Villa","market":"TOTAL_GOALS_OVER_1_5","selection":"Over 1.5 goals","odds":1.12,"stakeZAR":1.0,"returnZAR":1.12,"finalScore":"1-3","hit":true,"origin":"CONTROL_EXTERNAL","betslipId":"1065609190"},
+    {"fixture":"Atletico Madrid vs Osasuna","market":"1X2_HOME","selection":"Atletico Madrid WIN","odds":1.29,"stakeZAR":1.0,"returnZAR":1.29,"finalScore":"4-0","hit":true,"origin":"CONTROL_EXTERNAL_WITH_SHADOW_SIGNAL","betslipId":"1065544659"},
+    {"fixture":"RC Deportivo La Coruna vs Sevilla FC","market":"TOTAL_GOALS_UNDER_3_5","selection":"Under 3.5 goals","odds":1.29,"stakeZAR":1.0,"returnZAR":1.29,"finalScore":"0-1","hit":true,"origin":"CONTROL_EXTERNAL","betslipId":"1065549679"},
+    {"fixture":"AC Omonia Nicosia vs RC Celta de Vigo","market":"TOTAL_GOALS_UNDER_3_5","selection":"Under 3.5 goals","odds":1.22,"stakeZAR":1.0,"returnZAR":1.22,"finalScore":"1-0","hit":true,"origin":"CONTROL_EXTERNAL","betslipId":"1065541699"},
+    {"fixture":"FC Ararat-Armenia vs Sparta Prague","market":"DOUBLE_CHANCE_X2","selection":"Draw or Sparta Prague","odds":1.14,"stakeZAR":1.0,"returnZAR":1.14,"finalScore":"1-4","hit":true,"origin":"CONTROL_EXTERNAL","betslipId":"1065536300"}
+  ],
+  "multibets": [
+    {
+      "betslipId": "1065664408",
+      "stakeZAR": 1.0,
+      "totalOdds": 5.66,
+      "returnZAR": 0.0,
+      "result": "LOSS",
+      "origin": "CONTROL_EXTERNAL_MIXED_WITH_HBT_SHADOW_LEG",
+      "legs": [
+        {"fixture":"Atletico Madrid vs Osasuna","selection":"Atletico Madrid WIN","odds":1.30,"finalScore":"4-0","hit":true},
+        {"fixture":"Fleetwood Town vs Sheffield United","selection":"Under 3.5 goals","odds":1.56,"finalScore":"1-0","hit":true},
+        {"fixture":"Hapoel Be'er Sheva vs GNK Dinamo Zagreb","selection":"Over 1.5 goals","odds":1.14,"finalScore":"0-0","hit":false},
+        {"fixture":"Sunderland AFC vs AZ Alkmaar","selection":"Draw or AZ Alkmaar","odds":2.29,"finalScore":"1-0","hit":false},
+        {"fixture":"Barcelona vs Racing Santander","selection":"Barcelona WIN","odds":1.07,"finalScore":"7-2","hit":true,"origin":"HBT_SHADOW"}
+      ]
+    }
+  ],
+  "summary": {
+    "singleBets": 14,
+    "singleWins": 12,
+    "singleLosses": 2,
+    "singleHitRate": 0.8571428571428571,
+    "singleStakeZAR": 14.0,
+    "singleReturnZAR": 15.41,
+    "singleProfitZAR": 1.41,
+    "singleROI": 0.10071428571428571,
+    "multibetStakeZAR": 1.0,
+    "multibetReturnZAR": 0.0,
+    "visibleTotalStakeZAR": 15.0,
+    "visibleTotalReturnZAR": 15.41,
+    "visibleTotalProfitZAR": 0.41,
+    "visibleTotalROI": 0.027333333333333334,
+    "genuineHBTShadowSingles": 1,
+    "controlOrExternalSingles": 13
+  }
+}
