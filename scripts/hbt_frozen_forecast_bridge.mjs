@@ -1,12 +1,10 @@
 #!/usr/bin/env node
 /**
- * HBT frozen forecast bridge — exact frozen-weight runtime.
+ * HBT frozen forecast bridge — exact frozen runtime guard.
  *
- * The predictive coefficients are NEVER re-fit here. We hydrate the persisted
- * HBT-1.1.2L-R1 structural L0 model from runtime/hbt_frozen_runtime_bundle.json,
- * reconstruct pre-match state chronologically, prove parity against the immutable
- * 2026-09-15 golden export, then rebuild state up to the requested target date and
- * emit date-scoped forecasts.
+ * The predictive coefficients are NEVER re-fit here. The bridge requires the
+ * exact persisted HBT-0.4a deployment snapshot that produced the frozen live L0
+ * runtime. A later Fusion/L1 nested base model is not a valid substitute.
  *
  * Bookmaker prices are never read and cannot affect football probabilities.
  */
@@ -21,7 +19,7 @@ const SCANNER = path.join(DATA, 'slate_scanner.json');
 const HBT14 = path.join(DATA, 'hbt_1_4_match_intelligence.json');
 const GOLDEN = path.join(DATA, 'frozen_control_forecast_2026-09-15.json');
 const STATUS = path.join(DATA, 'forecast_bridge_status.json');
-const VERSION = 'HBT-FROZEN-FORECAST-BRIDGE-1.2-EXACT-WEIGHTS';
+const VERSION = 'HBT-FROZEN-FORECAST-BRIDGE-1.3-FROZEN-SNAPSHOT-GUARD';
 const PARITY_AS_OF_EXCLUSIVE = '2026-09-11';
 const PARITY_TOLERANCE = 1e-9;
 const DOMESTIC_CODES = new Set(['en.1','es.1','de.1','it.1','fr.1','nl.1','pt.1','sco.1','tr.1','en.2','es.2','it.2','be.1','pl.1','ie.1']);
@@ -38,7 +36,7 @@ const LEAGUE_LABELS = [
   ['tr.1',['super lig','süper lig']],
   ['uefa.cl',['uefa champions league','champions league']],
 ];
-const UA = 'Mozilla/5.0 (compatible; HBT-Frozen-Forecast-Bridge/1.2)';
+const UA = 'Mozilla/5.0 (compatible; HBT-Frozen-Forecast-Bridge/1.3)';
 let DATA_ALIAS_MAP = new Map();
 let SEASON_LEAGUE_MAP = new Map();
 let identityAudit = {linked:0,unresolved:0,ambiguous:0,continentalNames:0};
@@ -142,30 +140,31 @@ function vecMaxAbs(a,b){return Math.max(...a.map((x,i)=>Math.abs(x-b[i])));}
 
 async function main(){
   const started=performance.now(),bundle=readJSON(RUNTIME),scanner=readJSON(SCANNER),golden=readJSON(GOLDEN),hbt14=readJSON(HBT14),targetDate=process.argv.includes('--date')?process.argv[process.argv.indexOf('--date')+1]:scanner.targetDate;
-  const statusBase={schemaVersion:'HBT-FORECAST-BRIDGE-STATUS-1',version:VERSION,generatedAt:nowISO(),targetDate,policy:{predictiveModel:'HBT-1.1.2L-R1',bookmakerOddsUsed:false,bookmakerOddsUsedInSimulation:false,retrainingOrRetuningPerformed:false,modelChoiceSearchPerformed:false,goldenParityRequired:true,failClosed:true,testAImmutable:true,frozenWeightsHydrated:true,targetStateUpdatedThroughPreviousCompletedDay:true}};
+  const statusBase={schemaVersion:'HBT-FORECAST-BRIDGE-STATUS-1',version:VERSION,generatedAt:nowISO(),targetDate,policy:{predictiveModel:'HBT-1.1.2L-R1',bookmakerOddsUsed:false,bookmakerOddsUsedInSimulation:false,retrainingOrRetuningPerformed:false,modelChoiceSearchPerformed:false,goldenParityRequired:true,failClosed:true,testAImmutable:true,frozenWeightsHydrated:false,targetStateUpdatedThroughPreviousCompletedDay:false}};
   try{
     if(!targetDate||!/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(targetDate))throw new Error('target date missing/invalid');
     if(bundle.schemaVersion!=='HBT-FROZEN-RUNTIME-BUNDLE-1')throw new Error('runtime bundle schema invalid');
-    const lock=bundle.liveL0Reference?.modelChoiceLock,l1=bundle.deploymentSnapshot?.models?.l1,l0Spec=l1?.baseModel;if(!lock?.opts||!l0Spec?.baseModel)throw new Error('persisted frozen L0 model missing');
-    const model=hydrateFrozenModel(l0Spec),baseModel=model.baseModel,T=Number(lock.T);
-    if(!Number.isFinite(T))throw new Error('frozen L0 temperature missing');
-    const seasons=bundle.reconstruction?.seasons||[],codes=bundle.reconstruction?.codes||[];if(!seasons.length||!codes.length)throw new Error('reconstruction source scope missing');
+    const lock=bundle.liveL0Reference?.modelChoiceLock;
+    if(!lock?.opts)throw new Error('frozen L0 model-choice lock missing');
+    const frozenSnapshot=bundle.frozenL0Snapshot||bundle.liveL0Snapshot||null;
+    const requiredCreated=String(bundle.liveL0Reference?.snapshotCreated||'');
+    const snapshotComplete=!!(frozenSnapshot&&frozenSnapshot.engine==='HBT-0.4a'&&Array.isArray(frozenSnapshot.states)&&Array.isArray(frozenSnapshot.leagues)&&Array.isArray(frozenSnapshot.aliases)&&frozenSnapshot.baseModel&&frozenSnapshot.model&&frozenSnapshot.opts&&Number.isFinite(Number(frozenSnapshot.T)));
+    if(!snapshotComplete){
+      writeJSON(STATUS,{...statusBase,status:'BLOCKED_FROZEN_L0_SNAPSHOT_MISSING',requiredSnapshot:{engine:'HBT-0.4a',schema:2,created:requiredCreated||null,requiredFields:['baseModel','model','states','leagues','aliases','opts','T','modelChoiceLock']},invalidSubstituteRejected:'deploymentSnapshot.models.l1.baseModel',reason:'The runtime bundle does not contain the exact persisted HBT-0.4a deployment snapshot. A later Fusion/L1 nested baseModel is not the frozen live L0 runtime and must not be used as a substitute.',parityTolerance:PARITY_TOLERANCE,runtimeMs:performance.now()-started});
+      console.error('HBT frozen bridge blocked: exact HBT-0.4a deployment snapshot missing',requiredCreated||'(timestamp unavailable)');
+      return 2;
+    }
+    if(requiredCreated&&String(frozenSnapshot.created||'')!==requiredCreated)throw new Error(`frozen L0 snapshot timestamp mismatch: expected ${requiredCreated}, got ${String(frozenSnapshot.created||'missing')}`);
 
-    const parityLoad=await loadSources(seasons,codes,PARITY_AS_OF_EXCLUSIVE),parityState=buildState(parityLoad.matches,{...lock.opts}),parityDeploy={...parityState,opts:{...lock.opts},model,baseModel,T};
-    const goldenRows=(golden.predictions||[]).filter(r=>!r.coveragePack&&r.fixture?.league&&codes.includes(r.fixture.league)),parity=[];let maxErr=0;
-    for(const g of goldenRows){const expected=(g.layerPredictions||{}).L0||((String(g.predictionMode||'').startsWith('L0'))?g.probs:null);if(!Array.isArray(expected)||expected.length!==3)continue;const p=predictFixture({date:g.fixture.date,time:g.fixture.time||'',home:g.fixture.home,away:g.fixture.away,league:g.fixture.league,sourceStatus:g.fixture.sourceStatus||'loaded'},parityDeploy,parityState.crossLeagueLinks);if(!p.ok){parity.push({fixture:`${g.fixture.home} vs ${g.fixture.away}`,ok:false,reason:p.reason});continue;}const err=vecMaxAbs(expected,p.probs);maxErr=Math.max(maxErr,err);parity.push({fixture:`${g.fixture.home} vs ${g.fixture.away}`,ok:true,expected,actual:p.probs,maxAbsError:err});}
-    if(parity.length<5)throw new Error(`golden parity sample too small: ${parity.length}`);
-    const unresolved=parity.filter(x=>!x.ok).length,pass=unresolved===0&&maxErr<=PARITY_TOLERANCE;
-    if(!pass){writeJSON(STATUS,{...statusBase,status:'BLOCKED_GOLDEN_PARITY',reconstruction:{parityAsOfExclusive:PARITY_AS_OF_EXCLUSIVE,seasons,codes,matches:parityLoad.matches.length,duplicatesRemoved:parityLoad.duplicatesRemoved,sourceFailures:parityLoad.sourceAudit.filter(x=>x.status!=='loaded'),identityAudit:parityLoad.identityAudit,crossLeagueLinks:parityState.crossLeagueLinks},goldenParity:{pass:false,tolerance:PARITY_TOLERANCE,maxAbsError:maxErr,unresolved,fixtures:parity},runtimeMs:performance.now()-started});console.error('HBT exact bridge blocked: golden parity failed',maxErr);return 2;}
-
-    const targetLoad=targetDate===PARITY_AS_OF_EXCLUSIVE?parityLoad:await loadSources(seasons,codes,targetDate),targetState=buildState(targetLoad.matches,{...lock.opts}),deploy={...targetState,opts:{...lock.opts},model,baseModel,T};
-    const intelLeague=new Map();for(const row of Object.values(hbt14.fixtures||{})){const date=String(row.kickoff||row.date||'').slice(0,10);if(row.home&&row.away&&row.league)intelLeague.set(fixtureKey(date,row.home,row.away),String(row.league));}
-    const predictions=[],excluded=[];
-    for(const r of scanner.fixtures||[]){const date=String(r.kickoff||'').slice(0,10);if(date!==targetDate)continue;const league=fixtureLeague(r,intelLeague);if(!league||!codes.includes(league))continue;const fx={date,time:String(r.kickoff||'').slice(11,16),league,home:r.home,away:r.away,sourceStatus:(r.sourceFreshness?'loaded':'unknown')},p=predictFixture(fx,deploy,targetState.crossLeagueLinks);if(!p.ok){excluded.push({fixture:`${r.home} vs ${r.away}`,league,reason:p.reason});continue;}predictions.push({fixture:{date,time:fx.time,league,home:r.home,away:r.away,provider:r.source||null,sourceStatus:fx.sourceStatus},coverage:p.maxAge>75?`stale-ish ${Math.round(p.maxAge)}d`:'good',coveragePack:null,tier:p.tier,rawTier:p.rawTier,quality:p.quality,probs:p.probs,pick:p.pickName,pickProb:p.pickProb,predictionMode:'L0 FALLBACK',fusionEligible:false,layerPredictions:{L0:p.probs},intelligenceStatus:null,scoreMarkets:null});}
-    const artifact={schemaVersion:'HBT-FROZEN-CONTROL-FORECAST-1',sourceFile:'persisted HBT-1.1.2 exact frozen-weight runtime',sourceExportedAt:nowISO(),sourceLabVersion:'HBT-1.1.2L-R1',sourceEngineVersion:'HBT-0.4a frozen L0 exact-weight deployment bridge',targetDate,policy:{prospectiveExport:true,bookmakerOddsUsed:false,bookmakerOddsUsedInSimulation:false,predictiveModelMutated:false,retrainingPerformed:false,retuningPerformed:false,generalFutureLiveFeed:false,scope:'Date-scoped forecasts emitted only after exact persisted-weight golden parity.',missingFixtureSemantics:'unknown/not forecast in this export; never infer a probability',goldenParityRequired:true,goldenParityTolerance:PARITY_TOLERANCE,targetStateAsOfExclusive:targetDate},bridge:{version:VERSION,weightsSource:'runtime/hbt_frozen_runtime_bundle.json deploymentSnapshot.models.l1.baseModel',parityAsOfExclusive:PARITY_AS_OF_EXCLUSIVE,goldenForecastDate:'2026-09-15',goldenMaxAbsError:maxErr,targetStateAsOfExclusive:targetDate,sourceMatches:targetLoad.matches.length,sourceFailures:targetLoad.sourceAudit.filter(x=>x.status!=='loaded'),identityAudit:targetLoad.identityAudit,crossLeagueLinks:targetState.crossLeagueLinks,excluded},predictions};
-    const out=path.join(DATA,`frozen_control_forecast_${targetDate}.json`);writeJSON(out,artifact);writeJSON(STATUS,{...statusBase,status:'READY',output:path.basename(out),reconstruction:{parityAsOfExclusive:PARITY_AS_OF_EXCLUSIVE,targetStateAsOfExclusive:targetDate,seasons,codes,parityMatches:parityLoad.matches.length,targetMatches:targetLoad.matches.length,sourceFailures:targetLoad.sourceAudit.filter(x=>x.status!=='loaded'),identityAudit:targetLoad.identityAudit,crossLeagueLinks:targetState.crossLeagueLinks},runtimeModel:{hydratedPersistedWeights:true,source:'deploymentSnapshot.models.l1.baseModel',temperature:T},goldenParity:{pass:true,tolerance:PARITY_TOLERANCE,maxAbsError:maxErr,unresolved:0,fixtures:parity},target:{discovered:(scanner.fixtures||[]).filter(x=>String(x.kickoff||'').slice(0,10)===targetDate).length,predictions:predictions.length,excluded},runtimeMs:performance.now()-started});
-    console.log('HBT exact frozen bridge READY',{targetDate,predictions:predictions.length,maxErr,targetMatches:targetLoad.matches.length,sourceFailures:targetLoad.sourceAudit.filter(x=>x.status!=='loaded').length,runtimeMs:Math.round(performance.now()-started)});return 0;
-  }catch(e){writeJSON(STATUS,{...statusBase,status:'BLOCKED_ERROR',reason:String(e.message||e),runtimeMs:performance.now()-started});console.error('HBT exact bridge blocked:',e);return 2;}
+    /*
+     * The exact snapshot carries the deployment model and state. We intentionally
+     * stop here until state hydration is wired directly from that snapshot. This
+     * prevents accidental fallback to historical reconstruction or any re-fit.
+     */
+    writeJSON(STATUS,{...statusBase,status:'BLOCKED_FROZEN_L0_SNAPSHOT_HYDRATION_PENDING',requiredSnapshot:{engine:'HBT-0.4a',schema:2,created:requiredCreated||null},reason:'Exact frozen snapshot is present, but direct state hydration must be implemented before scoring. Historical reconstruction/refit fallback is prohibited.',parityTolerance:PARITY_TOLERANCE,runtimeMs:performance.now()-started});
+    console.error('HBT frozen bridge blocked: exact snapshot hydration not yet implemented');
+    return 2;
+  }catch(e){writeJSON(STATUS,{...statusBase,status:'BLOCKED_ERROR',reason:String(e.message||e),runtimeMs:performance.now()-started});console.error('HBT frozen bridge blocked:',e);return 2;}
 }
 
 process.exitCode=await main();
