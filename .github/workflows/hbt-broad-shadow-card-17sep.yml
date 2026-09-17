@@ -1,0 +1,104 @@
+name: HBT 17 Sep Broad Shadow Card
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-broad-shadow-card-17sep.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  broad-shadow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build broad reconstructed HBT shadow runner
+        run: |
+          set -euo pipefail
+          git show 3742f927407114567a93424ac405735bdbc5b7ab:scripts/hbt_frozen_forecast_bridge.mjs > scripts/.hbt_broad_shadow_tmp.mjs
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('scripts/.hbt_broad_shadow_tmp.mjs')
+          s=p.read_text()
+          start=s.index('    if(!pass){')
+          end=s.index('\n\n    const targetLoad=', start)
+          s=s[:start]+"    if(!pass){console.warn('HBT BROAD SHADOW ONLY: reconstructed runtime failed frozen parity; proceeding as prospective test challenger. maxErr=',maxErr);}"+s[end:]
+          s=s.replace("const STATUS = path.join(DATA, 'forecast_bridge_status.json');","const STATUS = path.join(DATA, 'hbt_broad_shadow_status.json');")
+          s=s.replace("const VERSION = 'HBT-FROZEN-FORECAST-BRIDGE-1.2-EXACT-WEIGHTS';","const VERSION = 'HBT-BROAD-SHADOW-1';")
+          s=s.replace("`frozen_control_forecast_${targetDate}.json`","`hbt_broad_shadow_forecast_${targetDate}.json`")
+          s=s.replace("schemaVersion:'HBT-FROZEN-CONTROL-FORECAST-1'","schemaVersion:'HBT-BROAD-SHADOW-FORECAST-1'")
+          s=s.replace("sourceFile:'persisted HBT-1.1.2 exact frozen-weight runtime'","sourceFile:'reconstructed HBT L0 broad-slate shadow test'")
+          s=s.replace("sourceLabVersion:'HBT-1.1.2L-R1'","sourceLabVersion:'HBT-BROAD-SHADOW-1'")
+          s=s.replace("sourceEngineVersion:'HBT-0.4a frozen L0 exact-weight deployment bridge'","sourceEngineVersion:'HBT reconstructed L0 broad-slate shadow challenger'")
+          s=s.replace("scope:'Date-scoped forecasts emitted only after exact persisted-weight golden parity.'","scope:'Prospective broad-slate shadow test. Competition label is not an eligibility gate; team-state resolution and HBT confidence remain the gates.'")
+          s=s.replace("goldenParityRequired:true,goldenParityTolerance:PARITY_TOLERANCE","goldenParityRequired:false,goldenParityDiagnosticTolerance:PARITY_TOLERANCE")
+          s=s.replace("goldenParityRequired:true,failClosed:true","goldenParityRequired:false,failClosed:false")
+          s=s.replace("status:'READY'","status:'SHADOW_READY'")
+          old="const league=fixtureLeague(r,intelLeague);if(!league||!codes.includes(league))continue;const fx={date,time:String(r.kickoff||'').slice(11,16),league,home:r.home,away:r.away,sourceStatus:(r.sourceFreshness?'loaded':'unknown')}"
+          new="const league=fixtureLeague(r,intelLeague);const fx={date,time:String(r.kickoff||'').slice(11,16),league:league||'UNMAPPED',home:r.home,away:r.away,sourceStatus:(r.sourceFreshness?'loaded':'unknown')}"
+          if old not in s:
+              raise SystemExit('broad-loop patch anchor not found')
+          s=s.replace(old,new)
+          p.write_text(s)
+          PY
+
+      - name: Run HBT broad shadow forecast
+        run: node scripts/.hbt_broad_shadow_tmp.mjs --date 2026-09-17
+
+      - name: Build HBT-only broad test card
+        run: |
+          python - <<'PY'
+          import json, pathlib
+          from datetime import datetime, timezone
+          root=pathlib.Path('hbt_live_data')
+          src=root/'hbt_broad_shadow_forecast_2026-09-17.json'
+          data=json.load(open(src,encoding='utf-8'))
+          captured=datetime.now(timezone.utc)
+          card=[]; passed=[]
+          for r in data.get('predictions',[]):
+              f=r['fixture']; ko=datetime.fromisoformat(f"{f['date']}T{f.get('time','00:00')}:00+00:00")
+              h,d,a=map(float,r['probs']); tier=r.get('tier') or 'Avoid'; q=float(r.get('quality') or 0)
+              side='HOME' if h>=a else 'AWAY'; team=f['home'] if side=='HOME' else f['away']; p=h if side=='HOME' else a
+              dc=(h+d) if side=='HOME' else (a+d)
+              dnb=p/(h+a) if h+a else 0
+              if ko<=captured:
+                  passed.append({'fixture':f,'reason':'POST_KICKOFF','tier':tier,'quality':q,'probs':r['probs']}); continue
+              if tier=='A':
+                  bet={'family':'1X2','selection':f'{team} WIN','modelProbability':p,'fairOdds':1/p if p else None}
+              elif tier=='B':
+                  bet={'family':'DRAW_NO_BET','selection':f'{team} DNB','modelProbabilityConditional':dnb,'winProbability':p,'pushProbability':d,'lossProbability':a if side=='HOME' else h,'fairOdds':(h+a)/p if p else None}
+              elif tier=='C':
+                  bet={'family':'DOUBLE_CHANCE','selection':'1X' if side=='HOME' else 'X2','modelProbability':dc,'fairOdds':1/dc if dc else None,'teamLean':team}
+              else:
+                  passed.append({'fixture':f,'reason':'HBT_TIER_AVOID','tier':tier,'quality':q,'probs':r['probs']}); continue
+              card.append({'fixture':f,'origin':'HBT_SHADOW_BROAD','tier':tier,'quality':q,'probs':{'H':h,'D':d,'A':a},'bet':bet})
+          out={'schemaVersion':'HBT-BROAD-TEST-CARD-1','capturedAt':captured.isoformat().replace('+00:00','Z'),'targetDate':'2026-09-17','origin':'HBT_SHADOW_BROAD','policy':{'externalFootballObservationUsed':False,'bookmakerOddsUsedAsPredictiveFeature':False,'modelRetuned':False,'competitionLabelIsEligibilityGate':False,'teamStateResolutionRequired':True,'marketChoiceByExistingTier':{'A':'1X2','B':'DRAW_NO_BET','C':'DOUBLE_CHANCE','Avoid':'PASS'},'postKickoffBackfillAllowed':False},'parityDiagnostic':data.get('bridge',{}).get('goldenMaxAbsError'),'card':card,'passes':passed,'counts':{'predictions':len(data.get('predictions',[])),'card':len(card),'passes':len(passed)}}
+          json.dump(out,open(root/'hbt_broad_test_card_2026-09-17.json','w',encoding='utf-8'),indent=2)
+          print(json.dumps(out,indent=2))
+          PY
+
+      - name: Remove temporary runner
+        run: rm -f scripts/.hbt_broad_shadow_tmp.mjs
+
+      - name: Commit broad HBT shadow card
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/hbt_broad_shadow_forecast_2026-09-17.json hbt_live_data/hbt_broad_shadow_status.json hbt_live_data/hbt_broad_test_card_2026-09-17.json
+          git diff --staged --quiet && exit 0
+          git commit -m 'test: freeze 17 Sep broad HBT shadow card [skip ci]'
+          git push origin HEAD:research/hbt-1.4-match-intelligence
