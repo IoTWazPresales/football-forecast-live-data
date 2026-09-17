@@ -1,0 +1,105 @@
+name: HBT Frozen Parity Diagnostic
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - .github/workflows/hbt-frozen-parity-diagnostic.yml
+
+permissions:
+  contents: read
+
+jobs:
+  frozen-parity-diagnostic:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout research branch
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build isolated exact-weight cutoff variants
+        shell: python
+        run: |
+          from pathlib import Path
+
+          src = Path('scripts/hbt_frozen_forecast_bridge.mjs').read_text(encoding='utf-8')
+          needle_cutoff = "const PARITY_AS_OF_EXCLUSIVE = '2026-09-11';"
+          needle_status = "const STATUS = path.join(DATA, 'forecast_bridge_status.json');"
+          if needle_cutoff not in src:
+              raise SystemExit('Expected frozen parity cutoff constant not found')
+          if needle_status not in src:
+              raise SystemExit('Expected bridge status constant not found')
+
+          for label, cutoff in [('cutoff11', '2026-09-11'), ('cutoff12', '2026-09-12')]:
+              text = src.replace(needle_cutoff, f"const PARITY_AS_OF_EXCLUSIVE = '{cutoff}';", 1)
+              text = text.replace(
+                  needle_status,
+                  f"const STATUS = path.join(DATA, 'forecast_bridge_status_{label}_exact_weights.json');",
+                  1,
+              )
+              Path(f'scripts/_hbt_frozen_forecast_bridge_{label}.mjs').write_text(text, encoding='utf-8')
+
+      - name: Run exact locked weights with Sep-11-exclusive state
+        shell: bash
+        run: |
+          set +e
+          node scripts/_hbt_frozen_forecast_bridge_cutoff11.mjs --date 2026-09-17
+          echo "bridge_exit=$?" >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+
+      - name: Run exact locked weights with Sep-12-exclusive state
+        shell: bash
+        run: |
+          set +e
+          node scripts/_hbt_frozen_forecast_bridge_cutoff12.mjs --date 2026-09-17
+          echo "bridge_exit=$?" >> "$GITHUB_STEP_SUMMARY"
+          exit 0
+
+      - name: Summarize parity comparison
+        shell: python
+        run: |
+          import json
+          from pathlib import Path
+
+          rows = []
+          for label in ('cutoff11', 'cutoff12'):
+              p = Path(f'hbt_live_data/forecast_bridge_status_{label}_exact_weights.json')
+              if not p.exists():
+                  rows.append((label, 'NO_STATUS', None, None))
+                  continue
+              d = json.loads(p.read_text(encoding='utf-8'))
+              gp = d.get('goldenParity') or {}
+              rows.append((label, d.get('status'), gp.get('maxAbsError'), gp.get('unresolved')))
+
+          out = {
+              'schemaVersion': 'HBT-FROZEN-PARITY-DIAGNOSTIC-1',
+              'predictiveModel': 'HBT-1.1.2L-R1',
+              'modelMutation': False,
+              'intelligenceMutation': False,
+              'parityTolerance': 1e-9,
+              'runs': [
+                  {'label': a, 'status': b, 'maxAbsError': c, 'unresolved': d}
+                  for a, b, c, d in rows
+              ],
+          }
+          Path('hbt_live_data/frozen_parity_cutoff_diagnostic.json').write_text(
+              json.dumps(out, indent=2) + '\n', encoding='utf-8'
+          )
+          print(json.dumps(out, indent=2))
+
+      - name: Upload diagnostic artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: hbt-frozen-parity-diagnostic
+          path: |
+            hbt_live_data/frozen_parity_cutoff_diagnostic.json
+            hbt_live_data/forecast_bridge_status_cutoff11_exact_weights.json
+            hbt_live_data/forecast_bridge_status_cutoff12_exact_weights.json
+          if-no-files-found: error
