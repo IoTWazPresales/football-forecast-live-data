@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-FORECAST-BRIDGE-STATUS-1",
-  "version": "HBT-FROZEN-FORECAST-BRIDGE-1.1",
-  "generatedAt": "2026-09-17T04:48:10.543Z",
+  "version": "HBT-FROZEN-FORECAST-BRIDGE-1.2-EXACT-WEIGHTS",
+  "generatedAt": "2026-09-17T09:00:45.278Z",
   "targetDate": "2026-09-17",
   "policy": {
     "predictiveModel": "HBT-1.1.2L-R1",
@@ -11,11 +11,13 @@
     "modelChoiceSearchPerformed": false,
     "goldenParityRequired": true,
     "failClosed": true,
-    "testAImmutable": true
+    "testAImmutable": true,
+    "frozenWeightsHydrated": true,
+    "targetStateUpdatedThroughPreviousCompletedDay": true
   },
   "status": "BLOCKED_GOLDEN_PARITY",
   "reconstruction": {
-    "asOfExclusive": "2026-09-11",
+    "parityAsOfExclusive": "2026-09-11",
     "seasons": [
       "2015-16",
       "2016-17",
@@ -43,7 +45,6 @@
       "uefa.cl"
     ],
     "matches": 27934,
-    "rows": 27934,
     "duplicatesRemoved": 0,
     "sourceFailures": [
       {
@@ -214,7 +215,7 @@
   "goldenParity": {
     "pass": false,
     "tolerance": 1e-9,
-    "maxAbsError": 0.005071812049585289,
+    "maxAbsError": 0.0341854647637686,
     "unresolved": 0,
     "fixtures": [
       {
@@ -226,11 +227,11 @@
           0.2147950010574442
         ],
         "actual": [
-          0.5233822761510829,
-          0.26088796760072647,
-          0.2157297562481906
+          0.5591821117409798,
+          0.2561515382941671,
+          0.1846663499648532
         ],
-        "maxAbsError": 0.001614370826128253
+        "maxAbsError": 0.0341854647637686
       },
       {
         "fixture": "Falkirk vs Heart of Midlothian",
@@ -241,11 +242,11 @@
           0.4784603596708235
         ],
         "actual": [
-          0.25146335294883254,
-          0.2700238780978944,
-          0.478512768953273
+          0.26236844377206664,
+          0.2778409582652862,
+          0.4597905979626471
         ],
-        "maxAbsError": 0.0003114725022446141
+        "maxAbsError": 0.018669761708176413
       },
       {
         "fixture": "Hibernian vs Kilmarnock",
@@ -256,11 +257,11 @@
           0.13681177845528175
         ],
         "actual": [
-          0.6440799052783771,
-          0.21921288281250562,
-          0.13670721190911725
+          0.6671333784551752,
+          0.21322966327465512,
+          0.1196369582701696
         ],
-        "maxAbsError": 0.00020643451804744362
+        "maxAbsError": 0.022951605204915126
       },
       {
         "fixture": "Motherwell vs Aberdeen",
@@ -271,11 +272,11 @@
           0.24757903645304472
         ],
         "actual": [
-          0.48675290543716926,
-          0.2660233857194505,
-          0.24722370884338027
+          0.501354015470802,
+          0.2662350938279052,
+          0.23241089070129275
         ],
-        "maxAbsError": 0.00039770233703179114
+        "maxAbsError": 0.01516814575175196
       },
       {
         "fixture": "Deportivo Alavés vs Valencia CF",
@@ -286,11 +287,11 @@
           0.2455387776859969
         ],
         "actual": [
-          0.50053183631834,
-          0.2536577265483157,
-          0.24581043713334436
+          0.516663680023454,
+          0.25186415383648947,
+          0.23147216614005653
         ],
-        "maxAbsError": 0.0014727912541359078
+        "maxAbsError": 0.014659052450978094
       },
       {
         "fixture": "AFC Ajax vs Willem II Tilburg",
@@ -301,11 +302,11 @@
           0.06805097983442843
         ],
         "actual": [
-          0.752812765272717,
-          0.17627715679740558,
-          0.07091007792987748
+          0.785252157504472,
+          0.15915593663598154,
+          0.0555919058595464
         ],
-        "maxAbsError": 0.005071812049585289
+        "maxAbsError": 0.02736758018216967
       },
       {
         "fixture": "Elche CF vs Real Madrid CF",
@@ -316,13 +317,13 @@
           0.6960482617998119
         ],
         "actual": [
-          0.09717039587022586,
-          0.20865492835790844,
-          0.6941746757718656
+          0.08751168032952546,
+          0.19986495391148165,
+          0.7126233657589929
         ],
-        "maxAbsError": 0.0018735860279462946
+        "maxAbsError": 0.016575103959180937
       }
     ]
   },
-  "runtimeMs": 97926.40301499999
+  "runtimeMs": 39615.656327
 }
