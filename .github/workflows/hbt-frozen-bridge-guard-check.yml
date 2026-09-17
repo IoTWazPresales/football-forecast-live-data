@@ -1,0 +1,33 @@
+name: HBT Frozen Bridge Guard Check
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - .github/workflows/hbt-frozen-bridge-guard-check.yml
+      - scripts/hbt_frozen_forecast_bridge.mjs
+
+permissions:
+  contents: read
+
+jobs:
+  guard-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Run guarded frozen bridge
+        run: |
+          set +e
+          node scripts/hbt_frozen_forecast_bridge.mjs --date 2026-09-17
+          code=$?
+          set -e
+          echo "bridge_exit=$code"
+          node -e "const fs=require('fs'); const s=JSON.parse(fs.readFileSync('hbt_live_data/forecast_bridge_status.json','utf8')); if(s.status!=='BLOCKED_FROZEN_L0_SNAPSHOT_MISSING') { console.error(s); process.exit(1); } if(s.parityTolerance!==1e-9) { console.error('parity tolerance changed',s.parityTolerance); process.exit(1); } if(s.invalidSubstituteRejected!=='deploymentSnapshot.models.l1.baseModel') { console.error('invalid substitute guard missing'); process.exit(1); } console.log(JSON.stringify({status:s.status,requiredSnapshot:s.requiredSnapshot,parityTolerance:s.parityTolerance,invalidSubstituteRejected:s.invalidSubstituteRejected},null,2));"
