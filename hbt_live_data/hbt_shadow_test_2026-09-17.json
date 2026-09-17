@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "HBT-SHADOW-TEST-1",
+  "version": "HBT-SHADOW-MARKET-RANKER-1",
+  "targetDate": "2026-09-17",
+  "capturedAt": "2026-09-17T17:02:02Z",
+  "state": "FROZEN_PROSPECTIVE_CAPTURE",
+  "policy": {
+    "origin": "HBT_SHADOW",
+    "bookmakerOddsUsedAsPredictiveFeature": false,
+    "predictiveIntelligenceMutated": false,
+    "preXiCaptureOverwrittenByLaterXi": false,
+    "postKickoffBackfillAllowed": false,
+    "betRequiresCurrentPrice": true,
+    "unpricedValidatedCandidateAction": "TEST",
+    "unsupportedOrUnvalidatedMarketAction": "PASS",
+    "frozenParityBlocksIndependentShadowMarkets": false,
+    "frozenParityStillRequiredForFrozenControlClaims": true,
+    "externalAnalysisMayNotBeReclassifiedAsHBT": true
+  },
+  "frozenControl": {
+    "available": false,
+    "bridgeStatus": "BLOCKED_GOLDEN_PARITY",
+    "oneXTwoAndDerivedGoalMarkets": "PASS_CONTROL_PARITY_BLOCKED"
+  },
+  "supportedShadowFamilies": [
+    "PLAYER_SHOTS",
+    "PLAYER_SOT",
+    "ANYTIME_GOAL",
+    "validated explicit event-market probabilities"
+  ],
+  "fixtureStates": [
+    {
+      "fixtureId": "2026-09-17|real betis|getafe",
+      "eventId": "401882874",
+      "league": "es.1",
+      "home": "Real Betis",
+      "away": "Getafe",
+      "kickoff": "2026-09-17T17:00Z",
+      "capturedBeforeKickoff": false,
+      "decisionReadinessState": "CONFIRMED_XI_OBSERVED",
+      "playerPropsActionable": false,
+      "validatedEventFamilies": [],
+      "emittedTestCandidates": 0,
+      "passReasons": [
+        "kickoff_already_started",
+        "confirmed_xi_player_prop_gate_not_ready",
+        "no_validated_event_family_probability"
+      ]
+    },
+    {
+      "fixtureId": "2026-09-17|malaga|villarreal",
+      "eventId": "401882869",
+      "league": "es.1",
+      "home": "Málaga",
+      "away": "Villarreal",
+      "kickoff": "2026-09-17T19:30Z",
+      "capturedBeforeKickoff": true,
+      "decisionReadinessState": "PRE_XI_PROVISIONAL",
+      "playerPropsActionable": false,
+      "validatedEventFamilies": [],
+      "emittedTestCandidates": 0,
+      "passReasons": [
+        "confirmed_xi_player_prop_gate_not_ready",
+        "no_validated_event_family_probability"
+      ]
+    }
+  ],
+  "candidates": [],
+  "coverage": {
+    "fixtures": 2,
+    "testCandidates": 0,
+    "confirmedXiFixturesWithProps": 0
+  }
+}
