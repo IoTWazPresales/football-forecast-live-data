@@ -1,0 +1,114 @@
+name: HBT Tonight Shadow Test
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-tonight-shadow-test.yml'
+      - 'scripts/hbt_rank_shadow_markets_v1.py'
+  workflow_dispatch:
+
+concurrency:
+  group: hbt-tonight-shadow-test-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  prospective-capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Compile current HBT collectors and shadow ranker
+        run: |
+          python -m py_compile \
+            scripts/hbt_collect_match_intelligence_v6.py \
+            scripts/hbt_guard_match_intelligence_v6.py \
+            scripts/hbt_scan_slate_v2_1.py \
+            scripts/hbt_collect_market_prices_v1.py \
+            scripts/hbt_rank_shadow_markets_v1.py
+
+      - name: Discover current SAST slate
+        run: |
+          TARGET_DATE="$(TZ=Africa/Johannesburg date +%F)"
+          python scripts/hbt_scan_slate_v2_1.py --date "$TARGET_DATE"
+
+      - name: Refresh HBT-1.4 live match intelligence and confirmed XI
+        run: python scripts/hbt_collect_match_intelligence_v6.py
+
+      - name: Apply HBT-1.4.2 safety and identity gates
+        run: python scripts/hbt_guard_match_intelligence_v6.py
+
+      - name: Collect downstream Betway prices when configured
+        continue-on-error: true
+        env:
+          ODDS_API_IO_KEY: ${{ secrets.ODDS_API_IO_KEY }}
+          HBT_PRIMARY_BOOKMAKER: Betway
+        run: python scripts/hbt_collect_market_prices_v1.py
+
+      - name: Freeze prospective shadow-market test capture
+        run: |
+          TARGET_DATE="$(TZ=Africa/Johannesburg date +%F)"
+          python scripts/hbt_rank_shadow_markets_v1.py --date "$TARGET_DATE"
+
+      - name: Validate no frozen/intelligence mutation policy breach
+        run: |
+          python - <<'PY'
+          import json, pathlib, os
+          root=pathlib.Path('hbt_live_data')
+          target=os.popen('TZ=Africa/Johannesburg date +%F').read().strip()
+          p=json.load(open(root/f'hbt_shadow_test_{target}.json',encoding='utf-8'))
+          assert p['state']=='FROZEN_PROSPECTIVE_CAPTURE'
+          q=p['policy']
+          assert q['bookmakerOddsUsedAsPredictiveFeature'] is False
+          assert q['predictiveIntelligenceMutated'] is False
+          assert q['postKickoffBackfillAllowed'] is False
+          assert q['frozenParityBlocksIndependentShadowMarkets'] is False
+          assert q['frozenParityStillRequiredForFrozenControlClaims'] is True
+          for x in p['candidates']:
+              assert x['origin']=='HBT_SHADOW'
+              assert x['action']=='TEST'
+              assert x.get('modelProbability') is not None
+              if x['family'] in {'PLAYER_SHOTS','PLAYER_SOT','ANYTIME_GOAL'}:
+                  assert x.get('confirmedXIIdentityMatch') is True
+          print(json.dumps({'targetDate':target,'coverage':p['coverage'],'frozenControl':p['frozenControl']},indent=2))
+          PY
+
+      - name: Commit prospective capture if changed
+        run: |
+          set -euo pipefail
+          TARGET_DATE="$(TZ=Africa/Johannesburg date +%F)"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            hbt_live_data/slate_scanner.json \
+            hbt_live_data/player_features.json \
+            hbt_live_data/pre_xi_context.json \
+            hbt_live_data/market_intelligence.json \
+            hbt_live_data/hbt_1_4_match_intelligence.json \
+            hbt_live_data/market_prices.json \
+            "hbt_live_data/hbt_shadow_test_${TARGET_DATE}.json" || true
+          git diff --staged --quiet && exit 0
+          git commit -m "test: freeze ${TARGET_DATE} HBT shadow market capture [skip ci]"
+          git push origin HEAD:research/hbt-1.4-match-intelligence
+
+      - name: Upload prospective capture
+        uses: actions/upload-artifact@v4
+        with:
+          name: hbt-shadow-test-${{ github.run_id }}
+          path: |
+            hbt_live_data/hbt_shadow_test_*.json
+            hbt_live_data/hbt_1_4_match_intelligence.json
+            hbt_live_data/market_prices.json
+          retention-days: 7
