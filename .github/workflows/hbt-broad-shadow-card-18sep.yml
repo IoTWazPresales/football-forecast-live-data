@@ -25,6 +25,22 @@ jobs:
         with:
           node-version: '22'
 
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Refresh 18 Sep fixture discovery before prediction
+        run: |
+          set -euo pipefail
+          python scripts/hbt_scan_slate_v2_1.py --date 2026-09-18
+          python - <<'PY'
+          import json
+          s=json.load(open('hbt_live_data/slate_scanner.json',encoding='utf-8'))
+          assert s.get('targetDate')=='2026-09-18', s.get('targetDate')
+          assert (s.get('coverage') or {}).get('fixturesDiscovered',0)>0
+          print(json.dumps({'generatedAt':s.get('generatedAt'),'targetDate':s.get('targetDate'),'coverage':s.get('coverage')},indent=2))
+          PY
+
       - name: Build broad reconstructed HBT shadow runner
         run: |
           set -euo pipefail
@@ -37,13 +53,13 @@ jobs:
           end=s.index('\n\n    const targetLoad=', start)
           s=s[:start]+"    if(!pass){console.warn('HBT BROAD SHADOW ONLY: reconstructed runtime failed frozen parity; proceeding as prospective test challenger. maxErr=',maxErr);}"+s[end:]
           s=s.replace("const STATUS = path.join(DATA, 'forecast_bridge_status.json');","const STATUS = path.join(DATA, 'hbt_broad_shadow_status_2026-09-18.json');")
-          s=s.replace("const VERSION = 'HBT-FROZEN-FORECAST-BRIDGE-1.2-EXACT-WEIGHTS';","const VERSION = 'HBT-BROAD-SHADOW-18SEP-1';")
+          s=s.replace("const VERSION = 'HBT-FROZEN-FORECAST-BRIDGE-1.2-EXACT-WEIGHTS';","const VERSION = 'HBT-BROAD-SHADOW-18SEP-2-FRESH-SLATE';")
           s=s.replace("`frozen_control_forecast_${targetDate}.json`","`hbt_broad_shadow_forecast_${targetDate}.json`")
           s=s.replace("schemaVersion:'HBT-FROZEN-CONTROL-FORECAST-1'","schemaVersion:'HBT-BROAD-SHADOW-FORECAST-1'")
           s=s.replace("sourceFile:'persisted HBT-1.1.2 exact frozen-weight runtime'","sourceFile:'reconstructed HBT L0 broad-slate shadow test'")
-          s=s.replace("sourceLabVersion:'HBT-1.1.2L-R1'","sourceLabVersion:'HBT-BROAD-SHADOW-18SEP-1'")
+          s=s.replace("sourceLabVersion:'HBT-1.1.2L-R1'","sourceLabVersion:'HBT-BROAD-SHADOW-18SEP-2'")
           s=s.replace("sourceEngineVersion:'HBT-0.4a frozen L0 exact-weight deployment bridge'","sourceEngineVersion:'HBT reconstructed L0 broad-slate shadow challenger'")
-          s=s.replace("scope:'Date-scoped forecasts emitted only after exact persisted-weight golden parity.'","scope:'Prospective broad-slate shadow test. Competition label is not an eligibility gate; team-state resolution and HBT confidence remain the gates.'")
+          s=s.replace("scope:'Date-scoped forecasts emitted only after exact persisted-weight golden parity.'","scope:'Prospective broad-slate shadow test using same-day refreshed discovery. Competition label is not an eligibility gate; team-state resolution and HBT confidence remain the gates.'")
           s=s.replace("goldenParityRequired:true,goldenParityTolerance:PARITY_TOLERANCE","goldenParityRequired:false,goldenParityDiagnosticTolerance:PARITY_TOLERANCE")
           s=s.replace("goldenParityRequired:true,failClosed:true","goldenParityRequired:false,failClosed:false")
           s=s.replace("status:'READY'","status:'SHADOW_READY'")
@@ -89,7 +105,7 @@ jobs:
                 }
               })
           out={
-            'schemaVersion':'HBT-18SEP-PROSPECTIVE-CANDIDATES-1',
+            'schemaVersion':'HBT-18SEP-PROSPECTIVE-CANDIDATES-2',
             'capturedAt':captured.isoformat().replace('+00:00','Z'),
             'targetDate':'2026-09-18','origin':'HBT_SHADOW_BROAD',
             'policy':{
@@ -100,6 +116,7 @@ jobs:
               'competitionLabelIsEligibilityGate':False,
               'teamStateResolutionRequired':True,
               'derivedMarketsAreExactAlgebraFromHDA':True,
+              'sameDaySlateRefreshedBeforePrediction':True,
               'postKickoffBackfillAllowed':False
             },
             'parityDiagnostic':data.get('bridge',{}).get('goldenMaxAbsError'),
@@ -118,7 +135,7 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add hbt_live_data/hbt_broad_shadow_forecast_2026-09-18.json hbt_live_data/hbt_broad_shadow_status_2026-09-18.json hbt_live_data/hbt_18sep_prospective_candidates.json
+          git add hbt_live_data/slate_scanner.json hbt_live_data/hbt_broad_shadow_forecast_2026-09-18.json hbt_live_data/hbt_broad_shadow_status_2026-09-18.json hbt_live_data/hbt_18sep_prospective_candidates.json
           git diff --staged --quiet && exit 0
-          git commit -m 'test: freeze 18 Sep HBT prospective candidate card [skip ci]'
+          git commit -m 'test: freeze 18 Sep HBT prospective card with fresh slate [skip ci]'
           git push origin HEAD:research/hbt-1.4-match-intelligence
