@@ -7,7 +7,9 @@ on:
     paths:
       - '.github/workflows/hbt-resolver-repair-18sep.yml'
       - 'scripts/hbt_patch_resolver_v3.py'
+      - 'scripts/hbt_harden_resolver_v3.py'
       - 'scripts/hbt_build_resolver_v3_card.py'
+      - 'scripts/hbt_scan_slate_v2_2.py'
   workflow_dispatch:
 
 permissions:
@@ -31,24 +33,24 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Refresh 18 Sep discovery
+      - name: Refresh 18 Sep discovery with league identity precedence
         run: |
           set -euo pipefail
-          python scripts/hbt_scan_slate_v2_1.py --date 2026-09-18
+          python scripts/hbt_scan_slate_v2_2.py --date 2026-09-18
           python - <<'PY'
           import json
           s=json.load(open('hbt_live_data/slate_scanner.json',encoding='utf-8'))
           assert s.get('targetDate')=='2026-09-18'
           assert int((s.get('coverage') or {}).get('fixturesDiscovered') or 0)>0
-          print(json.dumps({'generatedAt':s.get('generatedAt'),'coverage':s.get('coverage')},indent=2))
+          print(json.dumps({'version':s.get('version'),'generatedAt':s.get('generatedAt'),'coverage':s.get('coverage')},indent=2))
           PY
 
-      - name: Build resolver-v3 shadow runner
+      - name: Build and harden resolver-v3 shadow runner
         run: |
           set -euo pipefail
-          python -m py_compile scripts/hbt_patch_resolver_v3.py scripts/hbt_build_resolver_v3_card.py
+          python -m py_compile scripts/hbt_patch_resolver_v3.py scripts/hbt_harden_resolver_v3.py scripts/hbt_build_resolver_v3_card.py scripts/hbt_scan_slate_v2_2.py
           python scripts/hbt_patch_resolver_v3.py
-          sed -i "s/const FD={pl\.1:'POL',ie\.1:'IRL'}/const FD={'pl.1':'POL','ie.1':'IRL'}/" scripts/.hbt_resolver_v3_tmp.mjs
+          python scripts/hbt_harden_resolver_v3.py
           node --check scripts/.hbt_resolver_v3_tmp.mjs
 
       - name: Run resolver-v3 HBT shadow forecast
@@ -67,5 +69,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add hbt_live_data/slate_scanner.json hbt_live_data/hbt_broad_shadow_forecast_2026-09-18_resolver_v3.json hbt_live_data/hbt_broad_shadow_status_2026-09-18_resolver_v3.json hbt_live_data/hbt_18sep_resolver_v3_candidates.json
           git diff --staged --quiet && exit 0
-          git commit -m 'test: freeze 18 Sep gender-safe resolver-v3 HBT card [skip ci]'
+          git commit -m 'test: freeze 18 Sep competition-safe resolver-v3 HBT card [skip ci]'
           git push origin HEAD:research/hbt-1.4-match-intelligence
