@@ -48,6 +48,7 @@ jobs:
           set -euo pipefail
           python -m py_compile scripts/hbt_patch_resolver_v3.py scripts/hbt_build_resolver_v3_card.py
           python scripts/hbt_patch_resolver_v3.py
+          sed -i "s/const FD={pl\.1:'POL',ie\.1:'IRL'}/const FD={'pl.1':'POL','ie.1':'IRL'}/" scripts/.hbt_resolver_v3_tmp.mjs
           node --check scripts/.hbt_resolver_v3_tmp.mjs
 
       - name: Run resolver-v3 HBT shadow forecast
