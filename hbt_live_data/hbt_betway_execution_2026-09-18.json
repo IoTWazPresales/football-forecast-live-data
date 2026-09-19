@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "HBT-BETWAY-EXECUTION-1",
+  "targetDate": "2026-09-18",
+  "bookmaker": "Betway South Africa",
+  "source": "USER_BETWAY_SETTLED_SLIPS",
+  "policy": {
+    "bookmakerUsedAsPredictiveFeature": false,
+    "executionRecordedAfterProspectiveCapture": true,
+    "multisDoNotCreateIndependentForecastObservations": true
+  },
+  "singles": [
+    {"home":"Bayern Munich","away":"1. FC Union Berlin","market":"HOME_WIN","side":"HOME","odds":1.03,"stake":1.0,"verified":true},
+    {"home":"FC Groningen","away":"PEC Zwolle","market":"DNB","side":"HOME","odds":1.18,"stake":1.0,"verified":true},
+    {"home":"Bristol City","away":"Watford","market":"DNB","side":"HOME","odds":1.27,"stake":1.0,"verified":true},
+    {"home":"Espanyol","away":"Elche","market":"DNB","side":"HOME","odds":1.33,"stake":1.0,"verified":true},
+    {"home":"Juve Stabia","away":"Cesena","market":"DNB","side":"HOME","odds":1.58,"stake":2.0,"verified":true},
+    {"home":"AS Monaco","away":"Lens","market":"1X","side":"HOME","odds":1.23,"stake":1.0,"verified":true},
+    {"home":"Monza","away":"Sassuolo","market":"X2","side":"AWAY","odds":1.38,"stake":1.0,"verified":true},
+    {"home":"Albacete","away":"Córdoba","market":"12","side":"EITHER","odds":1.25,"stake":1.0,"verified":true},
+    {"home":"Brentford","away":"Chelsea","market":"1X","side":"HOME","odds":1.47,"stake":2.0,"verified":true}
+  ],
+  "multis": [
+    {
+      "legs":[
+        {"home":"Juve Stabia","away":"Cesena","market":"DNB","side":"HOME"},
+        {"home":"Brentford","away":"Chelsea","market":"1X","side":"HOME"}
+      ],
+      "odds":2.32,
+      "stake":1.0,
+      "actualReturn":1.47,
+      "settlement":"WIN_WITH_VOID_LEG",
+      "verified":true
+    }
+  ]
+}
