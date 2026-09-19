@@ -1,0 +1,85 @@
+name: HBT 19 Sep Base Freeze
+
+on:
+  push:
+    branches:
+      - research/hbt-19sep-base-freeze
+    paths:
+      - '.github/workflows/hbt-19sep-base-freeze.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-19sep-base-freeze
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Discover 19 Sep slate
+        run: |
+          set -euo pipefail
+          python scripts/hbt_scan_slate_v2_2.py --date 2026-09-19
+          python - <<'PY'
+          import json
+          x=json.load(open('hbt_live_data/slate_scanner.json',encoding='utf-8'))
+          assert x.get('targetDate')=='2026-09-19'
+          assert int((x.get('coverage') or {}).get('fixturesDiscovered') or 0)>0
+          print(json.dumps(x.get('coverage'),indent=2))
+          PY
+      - name: Build resolver
+        run: |
+          set -euo pipefail
+          python scripts/hbt_patch_resolver_daily.py --date 2026-09-19
+          python scripts/hbt_harden_resolver_v3.py
+          node --check scripts/.hbt_resolver_v3_tmp.mjs
+      - name: Freeze probabilities
+        run: |
+          set -euo pipefail
+          node scripts/.hbt_resolver_v3_tmp.mjs --date 2026-09-19
+          python - <<'PY'
+          import json,datetime,hashlib
+          p='hbt_live_data/hbt_broad_shadow_forecast_2026-09-19_resolver_v3.json'
+          x=json.load(open(p,encoding='utf-8'))
+          capture={
+            'schemaVersion':'HBT-BASE-PROSPECTIVE-CAPTURE-1',
+            'targetDate':'2026-09-19',
+            'capturedAt':datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z'),
+            'origin':'HBT_SHADOW_RESOLVER_V3',
+            'policy':{
+              'bookmakerOddsObserved':False,
+              'externalFootballObservationUsedAsPredictionInput':False,
+              'modelRetuned':False,
+              'intelligenceOverlayApplied':False,
+              'immutableBaseForLaterOverlay':True,
+              'frozenControlClaim':False
+            },
+            'parityDiagnostic':(x.get('bridge') or {}).get('goldenMaxAbsError'),
+            'predictions':x.get('predictions') or []
+          }
+          raw=json.dumps(capture,sort_keys=True,separators=(',',':')).encode()
+          capture['immutableSha256']=hashlib.sha256(raw).hexdigest()
+          json.dump(capture,open('hbt_live_data/hbt_base_capture_2026-09-19.json','w',encoding='utf-8'),indent=2,ensure_ascii=False)
+          print(json.dumps({'capturedAt':capture['capturedAt'],'predictions':len(capture['predictions']),'sha256':capture['immutableSha256']},indent=2))
+          PY
+      - name: Remove temporary runner
+        run: rm -f scripts/.hbt_resolver_v3_tmp.mjs
+      - name: Commit capture
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/slate_scanner.json hbt_live_data/hbt_broad_shadow_forecast_2026-09-19_resolver_v3.json hbt_live_data/hbt_broad_shadow_status_2026-09-19_resolver_v3.json hbt_live_data/hbt_base_capture_2026-09-19.json
+          git diff --staged --quiet && exit 0
+          git commit -m 'test: freeze 19 Sep base HBT prospective capture [skip ci]'
+          git push origin HEAD:research/hbt-19sep-base-freeze
