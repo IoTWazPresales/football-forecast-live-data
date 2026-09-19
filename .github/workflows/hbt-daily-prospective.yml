@@ -1,0 +1,160 @@
+name: HBT Daily Prospective Shadow
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-daily-prospective.yml'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'YYYY-MM-DD prospective slate date'
+        required: true
+        type: string
+  schedule:
+    - cron: '30 8 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hbt-daily-prospective
+  cancel-in-progress: false
+
+jobs:
+  prospective:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Resolve prospective date
+        id: target
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            TARGET='${{ inputs.date }}'
+          elif [[ "${{ github.event_name }}" == "schedule" ]]; then
+            TARGET="$(date -u +%F)"
+          else
+            TARGET='2026-09-19'
+          fi
+          echo "date=$TARGET" >> "$GITHUB_OUTPUT"
+          echo "Prospective target: $TARGET"
+
+      - name: Compile prospective stack
+        run: |
+          set -euo pipefail
+          python -m py_compile \
+            scripts/hbt_collect_live_data.py \
+            scripts/hbt_collect_players_espn.py \
+            scripts/hbt_collect_context_v3_runtime.py \
+            scripts/hbt_collect_market_intelligence_v4_final.py \
+            scripts/hbt_collect_match_intelligence_v6.py \
+            scripts/hbt_scan_slate_v2_2.py \
+            scripts/hbt_patch_resolver_v3.py \
+            scripts/hbt_patch_resolver_daily.py \
+            scripts/hbt_harden_resolver_v3.py \
+            scripts/hbt_build_prospective_card_v2.py
+
+      - name: Refresh all existing live intelligence families
+        run: |
+          set -euo pipefail
+          python scripts/hbt_collect_live_data.py
+          python scripts/hbt_collect_players_espn.py
+          python scripts/hbt_collect_context_v3_runtime.py
+          python scripts/hbt_collect_market_intelligence_v4_final.py
+          python scripts/hbt_collect_match_intelligence_v6.py
+
+      - name: Discover full slate with competition identity precedence
+        run: |
+          set -euo pipefail
+          python scripts/hbt_scan_slate_v2_2.py --date '${{ steps.target.outputs.date }}'
+          python - <<'PY'
+          import json, os
+          d=os.environ['TARGET_DATE']
+          x=json.load(open('hbt_live_data/slate_scanner.json',encoding='utf-8'))
+          assert x.get('targetDate')==d
+          assert int((x.get('coverage') or {}).get('fixturesDiscovered') or 0)>0
+          print(json.dumps({'version':x.get('version'),'coverage':x.get('coverage')},indent=2))
+          PY
+        env:
+          TARGET_DATE: '${{ steps.target.outputs.date }}'
+
+      - name: Build competition-safe resolver challenger
+        run: |
+          set -euo pipefail
+          python scripts/hbt_patch_resolver_daily.py --date '${{ steps.target.outputs.date }}'
+          python scripts/hbt_harden_resolver_v3.py
+          node --check scripts/.hbt_resolver_v3_tmp.mjs
+
+      - name: Freeze base HBT probabilities before bookmaker pricing
+        run: |
+          set -euo pipefail
+          node scripts/.hbt_resolver_v3_tmp.mjs --date '${{ steps.target.outputs.date }}'
+          python scripts/hbt_build_prospective_card_v2.py --date '${{ steps.target.outputs.date }}'
+
+      - name: Validate prospective and intelligence-overlay contract
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          d=os.environ['TARGET_DATE']
+          p=f'hbt_live_data/hbt_prospective_card_{d}.json'
+          x=json.load(open(p,encoding='utf-8'))
+          q=x['policy']
+          assert q['bookmakerOddsUsedAsPredictiveFeature'] is False
+          assert q['bookmakerPriceObservedBeforeCapture'] is False
+          assert q['modelRetuned'] is False
+          assert q['preMatchCaptureImmutable'] is True
+          assert q['preserveExistingIntelligence'] is True
+          assert q['allValidatedIntelligenceFamiliesRetained'] is True
+          assert q['unvalidatedOverlayDoesNotChangeProbability'] is True
+          assert q['forensicLearningCanCreateHypothesesButNotAutoPromote'] is True
+          assert x['counts']['predictions']>0
+          assert x['counts']['preKickoff']>0
+          for r in x['candidates']:
+              assert 'derivedMarkets' in r and 'intelligenceOverlay' in r
+              assert r['surfacingPolicy']['baseProbabilityChangedByOverlay'] is False
+          print(json.dumps({'capturedAt':x['capturedAt'],'counts':x['counts'],'intelligenceSources':x['intelligenceSources']},indent=2))
+          PY
+        env:
+          TARGET_DATE: '${{ steps.target.outputs.date }}'
+
+      - name: Remove temporary generated runner
+        run: rm -f scripts/.hbt_resolver_v3_tmp.mjs
+
+      - name: Commit prospective evidence
+        run: |
+          set -euo pipefail
+          D='${{ steps.target.outputs.date }}'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            hbt_live_data/slate_scanner.json \
+            "hbt_live_data/hbt_broad_shadow_forecast_${D}_resolver_v3.json" \
+            "hbt_live_data/hbt_broad_shadow_status_${D}_resolver_v3.json" \
+            "hbt_live_data/hbt_prospective_card_${D}.json" \
+            hbt_live_data/manifest.json \
+            hbt_live_data/performance.json \
+            hbt_live_data/player_features.json \
+            hbt_live_data/pre_xi_context.json \
+            hbt_live_data/market_intelligence.json \
+            hbt_live_data/hbt_1_4_match_intelligence.json \
+            hbt_live_data/_hbt_1_4_live_cache.json || true
+          git diff --staged --quiet && exit 0
+          git commit -m "test: freeze HBT prospective intelligence card ${D} [skip ci]"
+          git push origin HEAD:research/hbt-1.4-match-intelligence
