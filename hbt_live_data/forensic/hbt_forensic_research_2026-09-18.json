@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "HBT-FORENSIC-RESEARCH-1",
+  "targetDate": "2026-09-18",
+  "createdAt": "2026-09-19T09:32:00Z",
+  "policy": {
+    "evidenceMayGenerateHypotheses": true,
+    "evidenceMayDirectlyRetuneModel": false,
+    "featurePromotionRequiresHistoricalBacktest": true,
+    "featurePromotionRequiresUnseenHoldoutImprovement": true,
+    "postMatchOnlyFactsCannotBeUsedAsPretendPrematchFeatures": true,
+    "preserveExistingIntelligence": true
+  },
+  "architectureFinding": {
+    "finding": "Resolver-v3 prospective card used L0 fallback/C1 probabilities while richer HBT-1.4 intelligence families exist separately. Forensic evidence indicates availability, confirmed-XI, goalkeeper, set-piece and tactical state should be surfaced alongside L0 rather than discarded or silently converted into unvalidated probability weights.",
+    "action": "Add non-destructive intelligence-overlay surfacing. Keep base HDA frozen; expose risk/support factors and require historical validation before any factor changes probability."
+  },
+  "cases": [
+    {
+      "fixture": "Espanyol vs Elche",
+      "execution": "Espanyol DNB",
+      "settlement": "LOSS",
+      "prematchKnowableEvidence": [
+        {
+          "factor": "DEFENSIVE_CONTINUITY_DISRUPTION",
+          "evidence": "Omar El Hilali was suspended after a direct red in the previous match, forcing a defensive change.",
+          "source": "AS, 18 Sep 2026",
+          "url": "https://as.com/futbol/primera/alineacion-posible-del-espanyol-ante-el-elche-en-laliga-ea-sports-f202609-n/"
+        },
+        {
+          "factor": "RETURNING_PLAYER_FITNESS",
+          "evidence": "Edu Exposito was returning after missing the previous match with physical discomfort; Andoni Gorosabel had also been managing discomfort.",
+          "source": "AS, 18 Sep 2026",
+          "url": "https://as.com/futbol/primera/alineacion-posible-del-espanyol-ante-el-elche-en-laliga-ea-sports-f202609-n/"
+        },
+        {
+          "factor": "SQUAD_AVAILABILITY",
+          "evidence": "Jofre Carreras remained unavailable with pubic discomfort.",
+          "source": "Mundo Deportivo, 18 Sep 2026",
+          "url": "https://www.mundodeportivo.com/futbol/rcd-espanyol/20260918/1004228737/gorosabel-estrena-convocatoria-espanyol.html?facet=amp"
+        }
+      ],
+      "postMatchEvidence": [
+        {
+          "factor": "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT",
+          "evidence": "Elche were reduced to ten men in the 6th minute, yet scored twice before the half-hour. Espanyol later hit the woodwork and created further chances before Elche sealed the game on a counter.",
+          "source": "RCD Espanyol match report, 18 Sep 2026",
+          "url": "https://www.rcdespanyol.com/en/new/match-report-rcd-espanyol-lose-13-to-elche-cf/20781"
+        },
+        {
+          "factor": "GOALKEEPER_RECENT_ERROR_FORM_CANDIDATE",
+          "evidence": "Post-match player review described Dmitrovic as again making costly errors after a poor prior outing. This is post-match commentary, so it is a hypothesis source; only prior-match goalkeeper evidence may be used causally.",
+          "source": "Mundo Deportivo, 18 Sep 2026",
+          "url": "https://www.mundodeportivo.com/futbol/rcd-espanyol/20260918/1004228859/1x1-espanyol-elche.html?facet=amp"
+        }
+      ],
+      "candidateHypotheses": [
+        "DEFENSIVE_CONTINUITY_DISRUPTION",
+        "RETURNING_PLAYER_FITNESS",
+        "SQUAD_AVAILABILITY",
+        "GOALKEEPER_RECENT_ERROR_FORM",
+        "CONFIRMED_XI_DELTA"
+      ],
+      "conclusion": "Do not retune from this case. The result contains both knowable pre-match availability signals and substantial match-level variance/process evidence. Backtest candidate factors before promotion."
+    },
+    {
+      "fixture": "Monza vs Sassuolo",
+      "execution": "Sassuolo X2",
+      "settlement": "LOSS",
+      "prematchKnowableEvidence": [
+        {
+          "factor": "DEFENSIVE_AVAILABILITY_CLUSTER",
+          "evidence": "Sassuolo defender Jay Idzes was unavailable with a moderate left-quadriceps injury. Other reported unavailable/doubtful players included Pieragnolo, Cande, Ismael Kone, Walukiewicz, Volpato and Paz.",
+          "source": "La Gazzetta dello Sport probable formations, updated 17 Sep 2026",
+          "url": "https://www.gazzetta.it/Calcio/prob_form/monza-sassuolo/2638167?match=2638142"
+        },
+        {
+          "factor": "DEFENSIVE_AVAILABILITY_CLUSTER",
+          "evidence": "ANSA's pre-match report independently noted Idzes' moderate quadriceps injury and expected a replacement in central defence.",
+          "source": "ANSA, 18 Sep 2026",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/18/serie-a-monza-sassuolo-2-1-diretta-e-foto_c2badf2a-c1ad-4529-bb87-01950ffdc1f8.html"
+        }
+      ],
+      "postMatchEvidence": [
+        {
+          "factor": "PRESS_RESISTANCE_MATCHUP_CANDIDATE",
+          "evidence": "Monza's report described an aggressive start and sustained pressure, with Sassuolo struggling to play out of it.",
+          "source": "AC Monza match report, 18 Sep 2026",
+          "url": "https://www.acmonza.com/en/news/monza-sassuolo-match-report-18092026/"
+        },
+        {
+          "factor": "SET_PIECE_DEFENDING_CANDIDATE",
+          "evidence": "Monza's first goal came from a corner sequence with Varela unmarked and goalkeeper Muric failing to claim cleanly; the second came from a penalty.",
+          "source": "ANSA, 18 Sep 2026",
+          "url": "https://www.ansa.it/sito/notizie/sport/calcio/2026/09/18/serie-a-monza-sassuolo-2-1-diretta-e-foto_c2badf2a-c1ad-4529-bb87-01950ffdc1f8.html"
+        }
+      ],
+      "candidateHypotheses": [
+        "DEFENSIVE_AVAILABILITY_CLUSTER",
+        "PRESS_RESISTANCE_MATCHUP",
+        "SET_PIECE_DEFENDING",
+        "GOALKEEPER_EXECUTION_RISK",
+        "CONFIRMED_XI_AVAILABILITY"
+      ],
+      "conclusion": "This is a stronger candidate for a missed pre-match state signal than Espanyol. Do not alter probability from one case; first test defensive-absence clusters and tactical press-resistance historically."
+    }
+  ]
+}
