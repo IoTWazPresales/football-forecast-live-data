@@ -1,0 +1,29 @@
+name: HBT 19 Sep Rank Base
+on:
+  push:
+    branches:
+      - research/hbt-19sep-base-freeze
+    paths:
+      - '.github/workflows/hbt-19sep-rank-base.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  rank:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-19sep-base-freeze
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - run: python scripts/hbt_rank_base_capture.py 2026-09-19
+      - run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/hbt_base_ranked_2026-09-19.json
+          git diff --staged --quiet && exit 0
+          git commit -m 'test: rank 19 Sep HBT base capture [skip ci]'
+          git push origin HEAD:research/hbt-19sep-base-freeze
