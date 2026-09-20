@@ -1,0 +1,1710 @@
+{
+  "schemaVersion": "HBT-FORECAST-BRIDGE-STATUS-1",
+  "version": "HBT-BROAD-SHADOW-20SEP-RESOLVER-V3",
+  "generatedAt": "2026-09-20T15:25:11.680Z",
+  "targetDate": "2026-09-20",
+  "policy": {
+    "predictiveModel": "HBT-1.1.2L-R1",
+    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "retrainingOrRetuningPerformed": false,
+    "modelChoiceSearchPerformed": false,
+    "goldenParityRequired": false,
+    "failClosed": false,
+    "testAImmutable": true,
+    "frozenWeightsHydrated": true,
+    "targetStateUpdatedThroughPreviousCompletedDay": true
+  },
+  "status": "SHADOW_READY",
+  "output": "hbt_broad_shadow_forecast_2026-09-20_resolver_v3.json",
+  "reconstruction": {
+    "parityAsOfExclusive": "2026-09-11",
+    "targetStateAsOfExclusive": "2026-09-20",
+    "seasons": [
+      "2015-16",
+      "2016-17",
+      "2017-18",
+      "2018-19",
+      "2019-20",
+      "2020-21",
+      "2021-22",
+      "2022-23",
+      "2023-24",
+      "2024-25",
+      "2025-26",
+      "2026-27"
+    ],
+    "codes": [
+      "en.1",
+      "es.1",
+      "de.1",
+      "it.1",
+      "fr.1",
+      "nl.1",
+      "pt.1",
+      "sco.1",
+      "tr.1",
+      "uefa.cl"
+    ],
+    "parityMatches": 27939,
+    "targetMatches": 28014,
+    "sourceFailures": [
+      {
+        "source": "2015-16/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2020-21/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2025-26/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      }
+    ],
+    "identityAudit": {
+      "linked": 37,
+      "unresolved": 47,
+      "ambiguous": 4,
+      "continentalNames": 88
+    },
+    "crossLeagueLinks": 212
+  },
+  "runtimeModel": {
+    "hydratedPersistedWeights": true,
+    "source": "deploymentSnapshot.models.l1.baseModel",
+    "temperature": 1
+  },
+  "goldenParity": {
+    "pass": true,
+    "tolerance": 1e-9,
+    "maxAbsError": 0.0341854647637686,
+    "unresolved": 0,
+    "fixtures": [
+      {
+        "fixture": "Rayo Vallecano de Madrid vs RCD Espanyol de Barcelona",
+        "ok": true,
+        "expected": [
+          0.5249966469772112,
+          0.26020835196534464,
+          0.2147950010574442
+        ],
+        "actual": [
+          0.5591821117409798,
+          0.2561515382941671,
+          0.1846663499648532
+        ],
+        "maxAbsError": 0.0341854647637686
+      },
+      {
+        "fixture": "Falkirk vs Heart of Midlothian",
+        "ok": true,
+        "expected": [
+          0.25120428972903747,
+          0.270335350600139,
+          0.4784603596708235
+        ],
+        "actual": [
+          0.26236844377206664,
+          0.2778409582652862,
+          0.4597905979626471
+        ],
+        "maxAbsError": 0.018669761708176413
+      },
+      {
+        "fixture": "Hibernian vs Kilmarnock",
+        "ok": true,
+        "expected": [
+          0.64418177325026,
+          0.21900644829445817,
+          0.13681177845528175
+        ],
+        "actual": [
+          0.6671333784551752,
+          0.21322966327465512,
+          0.1196369582701696
+        ],
+        "maxAbsError": 0.022951605204915126
+      },
+      {
+        "fixture": "Motherwell vs Aberdeen",
+        "ok": true,
+        "expected": [
+          0.48635520310013747,
+          0.2660657604468178,
+          0.24757903645304472
+        ],
+        "actual": [
+          0.501354015470802,
+          0.2662350938279052,
+          0.23241089070129275
+        ],
+        "maxAbsError": 0.01516814575175196
+      },
+      {
+        "fixture": "Deportivo Alavés vs Valencia CF",
+        "ok": true,
+        "expected": [
+          0.5020046275724759,
+          0.2524565947415272,
+          0.2455387776859969
+        ],
+        "actual": [
+          0.516663680023454,
+          0.25186415383648947,
+          0.23147216614005653
+        ],
+        "maxAbsError": 0.014659052450978094
+      },
+      {
+        "fixture": "AFC Ajax vs Willem II Tilburg",
+        "ok": true,
+        "expected": [
+          0.7578845773223023,
+          0.17406444284326916,
+          0.06805097983442843
+        ],
+        "actual": [
+          0.785252157504472,
+          0.15915593663598154,
+          0.0555919058595464
+        ],
+        "maxAbsError": 0.02736758018216967
+      },
+      {
+        "fixture": "Elche CF vs Real Madrid CF",
+        "ok": true,
+        "expected": [
+          0.09617135084309297,
+          0.2077803873570952,
+          0.6960482617998119
+        ],
+        "actual": [
+          0.08751168032952546,
+          0.19986495391148165,
+          0.7126233657589929
+        ],
+        "maxAbsError": 0.016575103959180937
+      }
+    ]
+  },
+  "target": {
+    "discovered": 267,
+    "predictions": 39,
+    "excluded": [
+      {
+        "fixture": "New Caledonia vs Papua New Guinea",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-womens-international-friendly"
+      },
+      {
+        "fixture": "Fiji vs Vanuatu",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-womens-international-friendly"
+      },
+      {
+        "fixture": "Gamba Osaka vs Vissel Kobe",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Machida Zelvia vs Kashiwa Reysol",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Fafe vs Juventude Lajense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "CD Tenerife vs Sevilla",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-spanish-liga-f"
+      },
+      {
+        "fixture": "Granada vs Deportivo",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-spanish-liga-f"
+      },
+      {
+        "fixture": "Sacavenense vs SC Farense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Académica Calheta vs Vianense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Arminia Bielefeld vs 1. FC Heidenheim 1846",
+        "league": "de.2",
+        "reason": "no validated HBT transfer state for de.2",
+        "competition": "2026-27-german-2-bundesliga"
+      },
+      {
+        "fixture": "Energie Cottbus vs St. Pauli",
+        "league": "de.2",
+        "reason": "no validated HBT transfer state for de.2",
+        "competition": "2026-27-german-2-bundesliga"
+      },
+      {
+        "fixture": "Hannover 96 vs VfL Bochum",
+        "league": "de.2",
+        "reason": "no validated HBT transfer state for de.2",
+        "competition": "2026-27-german-2-bundesliga"
+      },
+      {
+        "fixture": "Antwerp vs Union St.-Gilloise",
+        "league": "be.1",
+        "reason": "unresolved team identity",
+        "competition": "Belgian Pro League"
+      },
+      {
+        "fixture": "Djurgården vs IF Elfsborg",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-allsvenskan"
+      },
+      {
+        "fixture": "Halmstads BK vs AIK",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-allsvenskan"
+      },
+      {
+        "fixture": "Kalmar FF vs BK Häcken",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-allsvenskan"
+      },
+      {
+        "fixture": "CD Sabadell vs Real Oviedo",
+        "league": "es.2",
+        "reason": "unresolved team identity",
+        "competition": "Segunda División"
+      },
+      {
+        "fixture": "Brøndby IF vs F.C. København",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Sønderjyske Fodbold vs Randers FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Vålerenga vs Fredrikstad",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-eliteserien"
+      },
+      {
+        "fixture": "SV Josko Ried vs Wolfsberger",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "TSV Hartberg vs LASK Linz",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Zagłębie Lubin vs Wisła Płock",
+        "league": "pl.1",
+        "reason": "C1 state pack unavailable",
+        "competition": "Ekstraklasa"
+      },
+      {
+        "fixture": "Brighton & Hove Albion vs Aston Villa",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-english-womens-super-league"
+      },
+      {
+        "fixture": "Crystal Palace vs Tottenham Hotspur",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-english-womens-super-league"
+      },
+      {
+        "fixture": "West Ham United vs Everton",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-english-womens-super-league"
+      },
+      {
+        "fixture": "Golden Arrows vs Kaizer Chiefs",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-27-south-african-premiership"
+      },
+      {
+        "fixture": "Marumo Gallants vs Orlando Pirates",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-27-south-african-premiership"
+      },
+      {
+        "fixture": "Milford FC vs Durban City",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-27-south-african-premiership"
+      },
+      {
+        "fixture": "CD Cinfães vs Leixoes",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Frosinone vs Como",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "Serie A"
+      },
+      {
+        "fixture": "Arezzo vs Sudtirol",
+        "league": "it.2",
+        "reason": "unresolved team identity",
+        "competition": "Serie B"
+      },
+      {
+        "fixture": "Hellas Verona vs Vicenza",
+        "league": "it.2",
+        "reason": "unresolved team identity",
+        "competition": "Serie B"
+      },
+      {
+        "fixture": "Albion FC vs Juventud",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Grêmio vs Palmeiras",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-a"
+      },
+      {
+        "fixture": "Ponte Preta vs CRB",
+        "league": "it.2",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-b"
+      },
+      {
+        "fixture": "AD Fazendense vs Ginásio Figueirense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "AD Ovarense vs Os Marialvas",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Alcains vs Vitoria Setubal",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Alcochetense vs CF Benfica",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Alpendorada vs AD Macao",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Amora vs Uniao da Serra",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Ançã vs Sanjoanense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Bragança vs Celoricense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Fatima vs Vinhais",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Guarda vs GD Chaves",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Limianos vs Aljustrelense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Madalena vs Lusitania",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Mortágua vs Leca",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Olhanense vs Portel",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Oliveira Hospital vs Juventude de Evora",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Ponte Barca vs Amarante",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Serpa vs Louletano",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Sintrense vs AVS",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "União Santarém vs Merelinense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Vila Pouca vs Brito",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Erzurum BB vs Samsunspor",
+        "league": "tr.1",
+        "reason": "unresolved team identity",
+        "competition": "Süper Lig"
+      },
+      {
+        "fixture": "AC Horsens vs AGF",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Levadiakos vs Olympiacos",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Southall vs Dorking Wanderers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Degerfors IF vs Hammarby IF",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-allsvenskan"
+      },
+      {
+        "fixture": "Mjällby AIF vs GAIS",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-allsvenskan"
+      },
+      {
+        "fixture": "De Graafschap vs NAC Breda",
+        "league": "nl.2",
+        "reason": "no validated HBT transfer state for nl.2",
+        "competition": "2026-27-keuken-kampioen-divisie"
+      },
+      {
+        "fixture": "Sandefjord vs IK Start",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-eliteserien"
+      },
+      {
+        "fixture": "Tromso vs Hamarkameratene",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-eliteserien"
+      },
+      {
+        "fixture": "Viking FK vs Lillestrom",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-eliteserien"
+      },
+      {
+        "fixture": "Bombarralense vs Vizela",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Paredes vs SC Maria da Fonte",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "RB Salzburg vs SK Sturm Graz",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Volos NFC vs AEK Athens",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Nice vs Lille",
+        "league": "fr.1",
+        "reason": "unresolved team identity",
+        "competition": "Ligue 1"
+      },
+      {
+        "fixture": "TS Galaxy FC vs Chippa United",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-27-south-african-premiership"
+      },
+      {
+        "fixture": "Jagiellonia Białystok vs Legia Warsaw",
+        "league": "pl.1",
+        "reason": "C1 state pack unavailable",
+        "competition": "Ekstraklasa"
+      },
+      {
+        "fixture": "Eibar vs Athletic Club",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-spanish-liga-f"
+      },
+      {
+        "fixture": "Delaware Fightin' Blue Hens vs Columbia Lions",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Maine Black Bears vs UAlbany Great Danes",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Ohio Bobcats vs Massachusetts MInutewomen",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Southern Indiana Screaming Eagles vs Xavier Muskateers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Syracuse Orange vs Virginia Tech Hokies",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Vermont Catamounts vs UMBC Retrievers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "AD Marco 09 vs FC Maia Lidador",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "OFI CRETE vs Asteras Tripoli",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Viborg FF vs FC Nordsjælland",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Danubio vs Montevideo Wanderers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Club Brugge vs Racing Genk",
+        "league": "be.1",
+        "reason": "unresolved team identity",
+        "competition": "Belgian Pro League"
+      },
+      {
+        "fixture": "Deportivo vs Real Betis",
+        "league": "es.1",
+        "reason": "unresolved team identity",
+        "competition": "LaLiga"
+      },
+      {
+        "fixture": "Almería vs RC Celta Fortuna",
+        "league": "es.2",
+        "reason": "unresolved team identity",
+        "competition": "Segunda División"
+      },
+      {
+        "fixture": "Kalamata vs Panathinaikos",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Central Connecticut Blue Devils vs UAlbany Great Danes",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Akron Zips vs Bowling Green Falcons",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Bellarmine Knights vs Morehead State Eagles",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Belmont Bruins vs UIC Flames",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Binghamton Bearcats vs UMass Lowell River Hawks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Buffalo Bulls vs Toledo Rockets",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Chattanooga Mocs vs The Citadel Bulldogs",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Drexel Dragons vs Northeastern Huskies",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Eastern Michigan Eagles vs Central Michigan Chippewas",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Fordham Rams vs Loyola Chicago Ramblers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "George Washington Revolutionaries vs Richmond Spiders",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Hampton Pirates vs UNC Wilmington Seahawks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Harvard Crimson vs UConn Huskies",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Hofstra Pride vs Towson Tigers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Holy Cross Crusaders vs Loyola Maryland Greyhounds",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Indiana State Sycamores vs Northern Iowa Panthers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Kent State Golden Flashes vs Miami (OH) RedHawks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Louisiana Ragin' Cajuns vs Coastal Carolina Chanticleers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Michigan State Spartans vs Michigan Wolverines",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "NC State Wolfpack vs Miami Hurricanes",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "NJIT Highlanders vs New Hampshire Wildcats",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "New Haven Chargers vs Howard Bison",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "North Carolina Tar Heels vs Alcorn State Braves",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Prairie View A&M Lady Panthers vs Schreiner",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Rutgers Scarlet Knights vs Purdue Boilermakers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Stonehill Skyhawks vs Fairleigh Dickinson Knights",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Stony Brook Seawolves vs Monmouth Hawks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Wagner Seahawks vs Central Connecticut Blue Devils",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Western Carolina Catamounts vs Samford Bulldogs",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Western Michigan Broncos vs Ball State Cardinals",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Yale Bulldogs vs Sacred Heart Pioneers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Estoril vs Casa Pia",
+        "league": "pt.1",
+        "reason": "unresolved team identity",
+        "competition": "Primeira Liga"
+      },
+      {
+        "fixture": "Amed SFK vs Besiktas",
+        "league": "tr.1",
+        "reason": "unresolved team identity",
+        "competition": "Süper Lig"
+      },
+      {
+        "fixture": "SK Brann vs Bodo/Glimt",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-eliteserien"
+      },
+      {
+        "fixture": "KV Kortrijk vs Waasland-Beveren",
+        "league": "be.1",
+        "reason": "unresolved team identity",
+        "competition": "Belgian Pro League"
+      },
+      {
+        "fixture": "SC Paderborn 07 vs TSG Hoffenheim",
+        "league": "de.1",
+        "reason": "unresolved team identity",
+        "competition": "Bundesliga"
+      },
+      {
+        "fixture": "San Lorenzo vs Boca Juniors",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Temple Owls vs Missouri State Bears",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Abilene Christian Wildcats vs Texas Southern Tigers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Air Force Falcons vs Eastern Washington Eagles",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Chicago State Cougars vs Delaware State Hornets",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Dartmouth Big Green vs Bryant Bulldogs",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Jackson State Tigers vs Middle Tennessee Blue Raiders",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Mercyhurst Lakers vs Long Island University Sharks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Minnesota Golden Gophers vs Northwestern Wildcats",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Missouri State Bears vs SIU Edwardsville Cougars",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Murray State Racers vs Illinois State Redbirds",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Southeast Missouri State Redhawks vs Central Arkansas Bears",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Tennessee Tech Golden Eagles vs Furman Paladins",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "VMI Keydets vs UNC Greensboro Spartans",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Valparaiso Beacons vs Drake Bulldogs",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Western Kentucky Hilltoppers vs Lindenwood Lions",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Wisconsin Badgers vs Indiana Hoosiers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Wofford Terriers vs East Tennessee State Buccaneers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Sport Huancayo vs UTC",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Agropecuario vs Gimnasia y Tiro (Salta)",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Boston Legacy FC vs Houston Dash",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Chacarita Juniors vs Quilmes",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Deportivo Morón vs Godoy Cruz Antonio Tomba",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Dock Sud vs Argentino de Quilmes",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Liniers vs Argentino de Merlo",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Panetolikos vs PAOK",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Villa San Carlos vs Talleres de Remedios",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Nebraska Cornhuskers vs Washington Huskies",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Lech Poznań vs Radomiak Radom",
+        "league": "pl.1",
+        "reason": "C1 state pack unavailable",
+        "competition": "Ekstraklasa"
+      },
+      {
+        "fixture": "Técnico Universitario vs Delfín",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "first-stage"
+      },
+      {
+        "fixture": "Corinthians vs Fluminense",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-a"
+      },
+      {
+        "fixture": "Vitória vs Cruzeiro",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-a"
+      },
+      {
+        "fixture": "Goiás vs Avaí",
+        "league": "it.2",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-b"
+      },
+      {
+        "fixture": "Fresno State Bulldogs vs Cal State Bakersfield Roadrunners",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "New Mexico Lobos vs Idaho State Bengals",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "New Mexico State Aggies vs Northern Arizona Lumberjacks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Portland State Vikings vs San Diego Toreros",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "San Diego State Aztecs vs Northern Colorado Bears",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Utah State Aggies vs Saint Mary's Gaels",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Fortaleza CEIF vs Atlético Junior",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Real Oruro vs GV San José",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Deportivo Madryn vs Racing (Córdoba)",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Sportivo San Lorenzo vs Club Olimpia",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura-2026"
+      },
+      {
+        "fixture": "FC Porto vs Benfica",
+        "league": "pt.1",
+        "reason": "unresolved team identity",
+        "competition": "Primeira Liga"
+      },
+      {
+        "fixture": "Colón (Santa Fe) vs Los Andes",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Deportivo Maipú vs Gimnasia y Esgrima (Jujuy)",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Nacional vs Defensor Sporting",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Alabama A&M Bulldogs vs South Carolina State Bulldogs",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "California Golden Bears vs Louisville Cardinals",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "North Dakota Fighting Hawks vs NORTH DAKOTA STATE COLLEGE OF SCIENCE",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Stanford Cardinal vs Wake Forest Demon Deacons",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "UC Davis Aggies vs Idaho Vandals",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Villanova Wildcats vs Princeton Tigers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Anzoátegui FC vs Caracas FC",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Zamora FC vs Metropolitanos",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Central Norte vs Defensores de Belgrano",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Chaco For Ever vs Almirante Brown",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Deportivo Merlo vs Flandria",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Güemes vs Midland",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "San Martín (San Juan) vs Colegiales",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Platense vs Newell's Old Boys",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Rosario Central vs Argentinos Juniors",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Juan Pablo II vs Deportivo Moquegua",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Deportivo San Pedro vs Cobán Imperial",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura"
+      },
+      {
+        "fixture": "Colorado College Tigers vs Colorado State Rams",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Estudiantes de Mérida vs Trujillanos",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Sporting Jax vs Lexington SC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "fall-season"
+      },
+      {
+        "fixture": "Deportivo Cuenca vs Mushuc Runa",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "first-stage"
+      },
+      {
+        "fixture": "Chicago Stars FC vs Washington Spirit",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Indy Eleven vs Oakland Roots",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Alianza FC vs CD Municipal Limeño",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura-2026"
+      },
+      {
+        "fixture": "C.D. Platense vs Águila",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura-2026"
+      },
+      {
+        "fixture": "Atlético Bucaramanga vs Internacional de Bogotá",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "The Strongest vs Bolívar",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Flamengo vs Red Bull Bragantino",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-a"
+      },
+      {
+        "fixture": "Londrina vs Fortaleza",
+        "league": "it.2",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-b"
+      },
+      {
+        "fixture": "Sportivo Luqueño vs Deportivo Recoleta",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura-2026"
+      },
+      {
+        "fixture": "California Baptist Lancers vs Pacific Tigers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "California Golden Bears vs Pittsburgh Panthers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Gonzaga Bulldogs vs Montana Grizzlies",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Belgrano (Córdoba) vs Estudiantes de Río Cuarto",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Athletico-PR vs Bahia",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-a"
+      },
+      {
+        "fixture": "Cal State Fullerton Titans vs San José State Spartans",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Charlotte 49ers vs UAB Blazers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "SIU Edwardsville Cougars vs Webster",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Seattle U Redhawks vs Lindenwood Lions",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "South Florida Bulls vs Tulsa Golden Hurricane",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Elon Phoenix vs Campbell Fighting Camels",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "UT Martin Skyhawks vs Jacksonville State Gamecocks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Alajuelense vs Inter de San Carlos",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "apertura"
+      },
+      {
+        "fixture": "Tapatío vs Tlaxcala FC",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "apertura-2026"
+      },
+      {
+        "fixture": "Bay FC vs Racing Louisville FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Inter Miami CF vs San Diego FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Ottawa Rapid FC vs Calgary Wild FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Sacramento Republic FC vs San Antonio FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Spokane Velocity FC vs Athletic Club Boise",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Utah Royals vs Angel City FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Suchitepequez vs Xelajú MC",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura"
+      },
+      {
+        "fixture": "Liverpool vs Racing (Montevideo)",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Deportes Tolima vs América de Cali",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Club Deportivo Olimpia vs CA Independiente Siguatepeque",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura-2026"
+      },
+      {
+        "fixture": "Liga de Quito vs Universidad Católica (Quito)",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "first-stage"
+      },
+      {
+        "fixture": "Oriente Petrolero vs Blooming",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Luis Ángel Firpo vs Atletico Balboa",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura-2026"
+      }
+    ]
+  },
+  "runtimeMs": 128923.76594299999
+}

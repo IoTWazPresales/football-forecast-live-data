@@ -1,0 +1,3675 @@
+{
+  "schemaVersion": "HBT-BROAD-SHADOW-FORECAST-RESOLVER-V3",
+  "sourceFile": "reconstructed HBT L0 broad-slate resolver-v3 shadow test",
+  "sourceExportedAt": "2026-09-20T15:27:20.597Z",
+  "sourceLabVersion": "HBT-BROAD-SHADOW-20SEP-RESOLVER-V3",
+  "sourceEngineVersion": "HBT reconstructed L0 + historical C1 transfer; gender-safe resolver",
+  "targetDate": "2026-09-20",
+  "policy": {
+    "prospectiveExport": true,
+    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "predictiveModelMutated": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "generalFutureLiveFeed": false,
+    "scope": "Prospective resolver-repair shadow test. Women/youth/reserve namespaces are excluded; C1 transfer reuses frozen L0 structural weights and is capped below A tier.",
+    "missingFixtureSemantics": "unknown/not forecast in this export; never infer a probability",
+    "goldenParityRequired": false,
+    "goldenParityDiagnosticTolerance": 1e-9,
+    "targetStateAsOfExclusive": "2026-09-20"
+  },
+  "bridge": {
+    "version": "HBT-BROAD-SHADOW-20SEP-RESOLVER-V3",
+    "weightsSource": "runtime/hbt_frozen_runtime_bundle.json deploymentSnapshot.models.l1.baseModel",
+    "parityAsOfExclusive": "2026-09-11",
+    "goldenForecastDate": "2026-09-15",
+    "goldenMaxAbsError": 0.0341854647637686,
+    "targetStateAsOfExclusive": "2026-09-20",
+    "sourceMatches": 28014,
+    "sourceFailures": [
+      {
+        "source": "2015-16/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2020-21/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2025-26/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      }
+    ],
+    "identityAudit": {
+      "linked": 37,
+      "unresolved": 47,
+      "ambiguous": 4,
+      "continentalNames": 88
+    },
+    "crossLeagueLinks": 212,
+    "c1StateAudit": [
+      {
+        "code": "en.2",
+        "status": "loaded",
+        "results": 1197,
+        "teams": 34,
+        "newestDate": "2026-09-15",
+        "validatedOnLeague": false,
+        "A_tier_cap": "B",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "loaded",
+            "matches": 557
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "loaded",
+            "matches": 557
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "loaded",
+            "matches": 83
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      },
+      {
+        "code": "es.2",
+        "status": "loaded",
+        "results": 584,
+        "teams": 29,
+        "newestDate": "2025-11-03",
+        "validatedOnLeague": false,
+        "A_tier_cap": "B",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "loaded",
+            "matches": 453
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "loaded",
+            "matches": 131
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      },
+      {
+        "code": "it.2",
+        "status": "loaded",
+        "results": 696,
+        "teams": 27,
+        "newestDate": "2026-03-17",
+        "validatedOnLeague": false,
+        "A_tier_cap": "B",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "loaded",
+            "matches": 387
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "loaded",
+            "matches": 309
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      },
+      {
+        "code": "be.1",
+        "status": "loaded",
+        "results": 417,
+        "teams": 18,
+        "newestDate": "2025-11-02",
+        "validatedOnLeague": false,
+        "A_tier_cap": "B",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "loaded",
+            "matches": 313
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "loaded",
+            "matches": 104
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      },
+      {
+        "code": "pl.1",
+        "status": "failed",
+        "results": 0,
+        "reason": "fewer than 8 completed results",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      },
+      {
+        "code": "ie.1",
+        "status": "failed",
+        "results": 0,
+        "reason": "fewer than 8 completed results",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      }
+    ],
+    "identityPolicy": {
+      "genderNamespaceSeparated": true,
+      "youthReserveNamespaceSeparated": true,
+      "uniqueSignatureResolver": true
+    },
+    "excluded": [
+      {
+        "fixture": "New Caledonia vs Papua New Guinea",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-womens-international-friendly"
+      },
+      {
+        "fixture": "Fiji vs Vanuatu",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-womens-international-friendly"
+      },
+      {
+        "fixture": "Gamba Osaka vs Vissel Kobe",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Machida Zelvia vs Kashiwa Reysol",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Fafe vs Juventude Lajense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "CD Tenerife vs Sevilla",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-spanish-liga-f"
+      },
+      {
+        "fixture": "Granada vs Deportivo",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-spanish-liga-f"
+      },
+      {
+        "fixture": "Sacavenense vs SC Farense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Académica Calheta vs Vianense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Arminia Bielefeld vs 1. FC Heidenheim 1846",
+        "league": "de.2",
+        "reason": "no validated HBT transfer state for de.2",
+        "competition": "2026-27-german-2-bundesliga"
+      },
+      {
+        "fixture": "Energie Cottbus vs St. Pauli",
+        "league": "de.2",
+        "reason": "no validated HBT transfer state for de.2",
+        "competition": "2026-27-german-2-bundesliga"
+      },
+      {
+        "fixture": "Hannover 96 vs VfL Bochum",
+        "league": "de.2",
+        "reason": "no validated HBT transfer state for de.2",
+        "competition": "2026-27-german-2-bundesliga"
+      },
+      {
+        "fixture": "Antwerp vs Union St.-Gilloise",
+        "league": "be.1",
+        "reason": "unresolved team identity",
+        "competition": "Belgian Pro League"
+      },
+      {
+        "fixture": "Djurgården vs IF Elfsborg",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-allsvenskan"
+      },
+      {
+        "fixture": "Halmstads BK vs AIK",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-allsvenskan"
+      },
+      {
+        "fixture": "Kalmar FF vs BK Häcken",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-allsvenskan"
+      },
+      {
+        "fixture": "CD Sabadell vs Real Oviedo",
+        "league": "es.2",
+        "reason": "unresolved team identity",
+        "competition": "Segunda División"
+      },
+      {
+        "fixture": "Brøndby IF vs F.C. København",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Sønderjyske Fodbold vs Randers FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Vålerenga vs Fredrikstad",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-eliteserien"
+      },
+      {
+        "fixture": "SV Josko Ried vs Wolfsberger",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "TSV Hartberg vs LASK Linz",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Zagłębie Lubin vs Wisła Płock",
+        "league": "pl.1",
+        "reason": "C1 state pack unavailable",
+        "competition": "Ekstraklasa"
+      },
+      {
+        "fixture": "Brighton & Hove Albion vs Aston Villa",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-english-womens-super-league"
+      },
+      {
+        "fixture": "Crystal Palace vs Tottenham Hotspur",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-english-womens-super-league"
+      },
+      {
+        "fixture": "West Ham United vs Everton",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-english-womens-super-league"
+      },
+      {
+        "fixture": "Golden Arrows vs Kaizer Chiefs",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-27-south-african-premiership"
+      },
+      {
+        "fixture": "Marumo Gallants vs Orlando Pirates",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-27-south-african-premiership"
+      },
+      {
+        "fixture": "Milford FC vs Durban City",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-27-south-african-premiership"
+      },
+      {
+        "fixture": "CD Cinfães vs Leixoes",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Frosinone vs Como",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "Serie A"
+      },
+      {
+        "fixture": "Arezzo vs Sudtirol",
+        "league": "it.2",
+        "reason": "unresolved team identity",
+        "competition": "Serie B"
+      },
+      {
+        "fixture": "Hellas Verona vs Vicenza",
+        "league": "it.2",
+        "reason": "unresolved team identity",
+        "competition": "Serie B"
+      },
+      {
+        "fixture": "Albion FC vs Juventud",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Grêmio vs Palmeiras",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-a"
+      },
+      {
+        "fixture": "Ponte Preta vs CRB",
+        "league": "it.2",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-b"
+      },
+      {
+        "fixture": "AD Fazendense vs Ginásio Figueirense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "AD Ovarense vs Os Marialvas",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Alcains vs Vitoria Setubal",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Alcochetense vs CF Benfica",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Alpendorada vs AD Macao",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Amora vs Uniao da Serra",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Ançã vs Sanjoanense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Bragança vs Celoricense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Fatima vs Vinhais",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Guarda vs GD Chaves",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Limianos vs Aljustrelense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Madalena vs Lusitania",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Mortágua vs Leca",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Olhanense vs Portel",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Oliveira Hospital vs Juventude de Evora",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Ponte Barca vs Amarante",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Serpa vs Louletano",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Sintrense vs AVS",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "União Santarém vs Merelinense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Vila Pouca vs Brito",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Erzurum BB vs Samsunspor",
+        "league": "tr.1",
+        "reason": "unresolved team identity",
+        "competition": "Süper Lig"
+      },
+      {
+        "fixture": "AC Horsens vs AGF",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Levadiakos vs Olympiacos",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Southall vs Dorking Wanderers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Degerfors IF vs Hammarby IF",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-allsvenskan"
+      },
+      {
+        "fixture": "Mjällby AIF vs GAIS",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-allsvenskan"
+      },
+      {
+        "fixture": "De Graafschap vs NAC Breda",
+        "league": "nl.2",
+        "reason": "no validated HBT transfer state for nl.2",
+        "competition": "2026-27-keuken-kampioen-divisie"
+      },
+      {
+        "fixture": "Sandefjord vs IK Start",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-eliteserien"
+      },
+      {
+        "fixture": "Tromso vs Hamarkameratene",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-eliteserien"
+      },
+      {
+        "fixture": "Viking FK vs Lillestrom",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-eliteserien"
+      },
+      {
+        "fixture": "Bombarralense vs Vizela",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "Paredes vs SC Maria da Fonte",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "RB Salzburg vs SK Sturm Graz",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Volos NFC vs AEK Athens",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Nice vs Lille",
+        "league": "fr.1",
+        "reason": "unresolved team identity",
+        "competition": "Ligue 1"
+      },
+      {
+        "fixture": "TS Galaxy FC vs Chippa United",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-27-south-african-premiership"
+      },
+      {
+        "fixture": "Jagiellonia Białystok vs Legia Warsaw",
+        "league": "pl.1",
+        "reason": "C1 state pack unavailable",
+        "competition": "Ekstraklasa"
+      },
+      {
+        "fixture": "Eibar vs Athletic Club",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-27-spanish-liga-f"
+      },
+      {
+        "fixture": "Delaware Fightin' Blue Hens vs Columbia Lions",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Maine Black Bears vs UAlbany Great Danes",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Ohio Bobcats vs Massachusetts MInutewomen",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Southern Indiana Screaming Eagles vs Xavier Muskateers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Syracuse Orange vs Virginia Tech Hokies",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Vermont Catamounts vs UMBC Retrievers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "AD Marco 09 vs FC Maia Lidador",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2nd-round"
+      },
+      {
+        "fixture": "OFI CRETE vs Asteras Tripoli",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Viborg FF vs FC Nordsjælland",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Danubio vs Montevideo Wanderers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Club Brugge vs Racing Genk",
+        "league": "be.1",
+        "reason": "unresolved team identity",
+        "competition": "Belgian Pro League"
+      },
+      {
+        "fixture": "Deportivo vs Real Betis",
+        "league": "es.1",
+        "reason": "unresolved team identity",
+        "competition": "LaLiga"
+      },
+      {
+        "fixture": "Almería vs RC Celta Fortuna",
+        "league": "es.2",
+        "reason": "unresolved team identity",
+        "competition": "Segunda División"
+      },
+      {
+        "fixture": "Kalamata vs Panathinaikos",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Central Connecticut Blue Devils vs UAlbany Great Danes",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Akron Zips vs Bowling Green Falcons",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Bellarmine Knights vs Morehead State Eagles",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Belmont Bruins vs UIC Flames",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Binghamton Bearcats vs UMass Lowell River Hawks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Buffalo Bulls vs Toledo Rockets",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Chattanooga Mocs vs The Citadel Bulldogs",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Drexel Dragons vs Northeastern Huskies",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Eastern Michigan Eagles vs Central Michigan Chippewas",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Fordham Rams vs Loyola Chicago Ramblers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "George Washington Revolutionaries vs Richmond Spiders",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Hampton Pirates vs UNC Wilmington Seahawks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Harvard Crimson vs UConn Huskies",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Hofstra Pride vs Towson Tigers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Holy Cross Crusaders vs Loyola Maryland Greyhounds",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Indiana State Sycamores vs Northern Iowa Panthers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Kent State Golden Flashes vs Miami (OH) RedHawks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Louisiana Ragin' Cajuns vs Coastal Carolina Chanticleers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Michigan State Spartans vs Michigan Wolverines",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "NC State Wolfpack vs Miami Hurricanes",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "NJIT Highlanders vs New Hampshire Wildcats",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "New Haven Chargers vs Howard Bison",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "North Carolina Tar Heels vs Alcorn State Braves",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Prairie View A&M Lady Panthers vs Schreiner",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Rutgers Scarlet Knights vs Purdue Boilermakers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Stonehill Skyhawks vs Fairleigh Dickinson Knights",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Stony Brook Seawolves vs Monmouth Hawks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Wagner Seahawks vs Central Connecticut Blue Devils",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Western Carolina Catamounts vs Samford Bulldogs",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Western Michigan Broncos vs Ball State Cardinals",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Yale Bulldogs vs Sacred Heart Pioneers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Estoril vs Casa Pia",
+        "league": "pt.1",
+        "reason": "unresolved team identity",
+        "competition": "Primeira Liga"
+      },
+      {
+        "fixture": "Amed SFK vs Besiktas",
+        "league": "tr.1",
+        "reason": "unresolved team identity",
+        "competition": "Süper Lig"
+      },
+      {
+        "fixture": "SK Brann vs Bodo/Glimt",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-eliteserien"
+      },
+      {
+        "fixture": "KV Kortrijk vs Waasland-Beveren",
+        "league": "be.1",
+        "reason": "unresolved team identity",
+        "competition": "Belgian Pro League"
+      },
+      {
+        "fixture": "SC Paderborn 07 vs TSG Hoffenheim",
+        "league": "de.1",
+        "reason": "unresolved team identity",
+        "competition": "Bundesliga"
+      },
+      {
+        "fixture": "San Lorenzo vs Boca Juniors",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Temple Owls vs Missouri State Bears",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Abilene Christian Wildcats vs Texas Southern Tigers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Air Force Falcons vs Eastern Washington Eagles",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Chicago State Cougars vs Delaware State Hornets",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Dartmouth Big Green vs Bryant Bulldogs",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Jackson State Tigers vs Middle Tennessee Blue Raiders",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Mercyhurst Lakers vs Long Island University Sharks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Minnesota Golden Gophers vs Northwestern Wildcats",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Missouri State Bears vs SIU Edwardsville Cougars",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Murray State Racers vs Illinois State Redbirds",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Southeast Missouri State Redhawks vs Central Arkansas Bears",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Tennessee Tech Golden Eagles vs Furman Paladins",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "VMI Keydets vs UNC Greensboro Spartans",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Valparaiso Beacons vs Drake Bulldogs",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Western Kentucky Hilltoppers vs Lindenwood Lions",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Wisconsin Badgers vs Indiana Hoosiers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Wofford Terriers vs East Tennessee State Buccaneers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Sport Huancayo vs UTC",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Agropecuario vs Gimnasia y Tiro (Salta)",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Boston Legacy FC vs Houston Dash",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Chacarita Juniors vs Quilmes",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Deportivo Morón vs Godoy Cruz Antonio Tomba",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Dock Sud vs Argentino de Quilmes",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Liniers vs Argentino de Merlo",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Panetolikos vs PAOK",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Villa San Carlos vs Talleres de Remedios",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Nebraska Cornhuskers vs Washington Huskies",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Lech Poznań vs Radomiak Radom",
+        "league": "pl.1",
+        "reason": "C1 state pack unavailable",
+        "competition": "Ekstraklasa"
+      },
+      {
+        "fixture": "Técnico Universitario vs Delfín",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "first-stage"
+      },
+      {
+        "fixture": "Corinthians vs Fluminense",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-a"
+      },
+      {
+        "fixture": "Vitória vs Cruzeiro",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-a"
+      },
+      {
+        "fixture": "Goiás vs Avaí",
+        "league": "it.2",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-b"
+      },
+      {
+        "fixture": "Fresno State Bulldogs vs Cal State Bakersfield Roadrunners",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "New Mexico Lobos vs Idaho State Bengals",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "New Mexico State Aggies vs Northern Arizona Lumberjacks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Portland State Vikings vs San Diego Toreros",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "San Diego State Aztecs vs Northern Colorado Bears",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Utah State Aggies vs Saint Mary's Gaels",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Fortaleza CEIF vs Atlético Junior",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Real Oruro vs GV San José",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Deportivo Madryn vs Racing (Córdoba)",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Sportivo San Lorenzo vs Club Olimpia",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura-2026"
+      },
+      {
+        "fixture": "FC Porto vs Benfica",
+        "league": "pt.1",
+        "reason": "unresolved team identity",
+        "competition": "Primeira Liga"
+      },
+      {
+        "fixture": "Colón (Santa Fe) vs Los Andes",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Deportivo Maipú vs Gimnasia y Esgrima (Jujuy)",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Nacional vs Defensor Sporting",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Alabama A&M Bulldogs vs South Carolina State Bulldogs",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "California Golden Bears vs Louisville Cardinals",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "North Dakota Fighting Hawks vs NORTH DAKOTA STATE COLLEGE OF SCIENCE",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Stanford Cardinal vs Wake Forest Demon Deacons",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "UC Davis Aggies vs Idaho Vandals",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Villanova Wildcats vs Princeton Tigers",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Anzoátegui FC vs Caracas FC",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Zamora FC vs Metropolitanos",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Central Norte vs Defensores de Belgrano",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Chaco For Ever vs Almirante Brown",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Deportivo Merlo vs Flandria",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Güemes vs Midland",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "San Martín (San Juan) vs Colegiales",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Platense vs Newell's Old Boys",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Rosario Central vs Argentinos Juniors",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Juan Pablo II vs Deportivo Moquegua",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Deportivo San Pedro vs Cobán Imperial",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura"
+      },
+      {
+        "fixture": "Colorado College Tigers vs Colorado State Rams",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Estudiantes de Mérida vs Trujillanos",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Sporting Jax vs Lexington SC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "fall-season"
+      },
+      {
+        "fixture": "Deportivo Cuenca vs Mushuc Runa",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "first-stage"
+      },
+      {
+        "fixture": "Chicago Stars FC vs Washington Spirit",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Indy Eleven vs Oakland Roots",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Alianza FC vs CD Municipal Limeño",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura-2026"
+      },
+      {
+        "fixture": "C.D. Platense vs Águila",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura-2026"
+      },
+      {
+        "fixture": "Atlético Bucaramanga vs Internacional de Bogotá",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "The Strongest vs Bolívar",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Flamengo vs Red Bull Bragantino",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-a"
+      },
+      {
+        "fixture": "Londrina vs Fortaleza",
+        "league": "it.2",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-b"
+      },
+      {
+        "fixture": "Sportivo Luqueño vs Deportivo Recoleta",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura-2026"
+      },
+      {
+        "fixture": "California Baptist Lancers vs Pacific Tigers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "California Golden Bears vs Pittsburgh Panthers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Gonzaga Bulldogs vs Montana Grizzlies",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Belgrano (Córdoba) vs Estudiantes de Río Cuarto",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Athletico-PR vs Bahia",
+        "league": "it.1",
+        "reason": "unresolved team identity",
+        "competition": "2026-brasileiro-serie-a"
+      },
+      {
+        "fixture": "Cal State Fullerton Titans vs San José State Spartans",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Charlotte 49ers vs UAB Blazers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "SIU Edwardsville Cougars vs Webster",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Seattle U Redhawks vs Lindenwood Lions",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "South Florida Bulls vs Tulsa Golden Hurricane",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Elon Phoenix vs Campbell Fighting Camels",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "UT Martin Skyhawks vs Jacksonville State Gamecocks",
+        "league": null,
+        "reason": "identity namespace blocked: WOMEN",
+        "competition": "2026-ncaa-division-i-women"
+      },
+      {
+        "fixture": "Alajuelense vs Inter de San Carlos",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "apertura"
+      },
+      {
+        "fixture": "Tapatío vs Tlaxcala FC",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "apertura-2026"
+      },
+      {
+        "fixture": "Bay FC vs Racing Louisville FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Inter Miami CF vs San Diego FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Ottawa Rapid FC vs Calgary Wild FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Sacramento Republic FC vs San Antonio FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Spokane Velocity FC vs Athletic Club Boise",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Utah Royals vs Angel City FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "regular-season"
+      },
+      {
+        "fixture": "Suchitepequez vs Xelajú MC",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura"
+      },
+      {
+        "fixture": "Liverpool vs Racing (Montevideo)",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-clausura"
+      },
+      {
+        "fixture": "Deportes Tolima vs América de Cali",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Club Deportivo Olimpia vs CA Independiente Siguatepeque",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura-2026"
+      },
+      {
+        "fixture": "Liga de Quito vs Universidad Católica (Quito)",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "first-stage"
+      },
+      {
+        "fixture": "Oriente Petrolero vs Blooming",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Luis Ángel Firpo vs Atletico Balboa",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "torneo-apertura-2026"
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "10:15",
+        "league": "nl.1",
+        "home": "PEC Zwolle",
+        "away": "De Graafschap",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded",
+        "competition": "2026-27-vrouwen-eredivisie",
+        "competitionSlug": "2026-27-vrouwen-eredivisie",
+        "sourceFixtureId": "401882160"
+      },
+      "coverage": "stale-ish 2685d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7072482959085543,
+      "probs": [
+        0.42261345994315164,
+        0.2769954766496496,
+        0.30039106340719895
+      ],
+      "pick": "PEC Zwolle",
+      "pickProb": 0.42261345994315164,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.42261345994315164,
+          0.2769954766496496,
+          0.30039106340719895
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "nl.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2019-05-15",
+          "league": "nl.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "10:15",
+        "league": "nl.1",
+        "home": "Feyenoord Rotterdam",
+        "away": "FC Utrecht",
+        "provider": "ESPN:nl.1",
+        "sourceStatus": "loaded",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "sourceFixtureId": "401875596"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.932035876642262,
+      "probs": [
+        0.6795278090349953,
+        0.20224318291512605,
+        0.11822900804987875
+      ],
+      "pick": "Feyenoord Rotterdam",
+      "pickProb": 0.6795278090349953,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.6795278090349953,
+          0.20224318291512605,
+          0.11822900804987875
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "nl.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "nl.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "10:30",
+        "league": "it.1",
+        "home": "Fiorentina",
+        "away": "Napoli",
+        "provider": "ESPN:it.1",
+        "sourceStatus": "loaded",
+        "competition": "Serie A",
+        "competitionSlug": "it.1",
+        "sourceFixtureId": "401874934"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.9711937576781544,
+      "probs": [
+        0.2224616222104881,
+        0.2669496837293879,
+        0.510588694060124
+      ],
+      "pick": "Napoli",
+      "pickProb": 0.510588694060124,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.2224616222104881,
+          0.2669496837293879,
+          0.510588694060124
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-11",
+          "league": "it.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "it.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "11:00",
+        "league": "en.2",
+        "home": "Wolverhampton Wanderers",
+        "away": "West Bromwich Albion",
+        "provider": "ESPN:en.2",
+        "sourceStatus": "loaded",
+        "competition": "Championship",
+        "competitionSlug": "en.2",
+        "sourceFixtureId": "401880246"
+      },
+      "coverage": "C1 transfer · state 1197 matches",
+      "coveragePack": "C1",
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.7092888608030263,
+      "probs": [
+        0.503254825102907,
+        0.263126417052003,
+        0.23361875784509004
+      ],
+      "pick": "Wolverhampton Wanderers",
+      "pickProb": 0.503254825102907,
+      "predictionMode": "L0 C1 TRANSFER",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.503254825102907,
+          0.263126417052003,
+          0.23361875784509004
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 6,
+          "lastDate": "2026-09-13",
+          "league": "en.2"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "en.2"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "11:00",
+        "league": "sco.1",
+        "home": "Celtic",
+        "away": "Rangers",
+        "provider": "ESPN:sco.1",
+        "sourceStatus": "loaded",
+        "competition": "Scottish Premiership",
+        "competitionSlug": "sco.1",
+        "sourceFixtureId": "401878375"
+      },
+      "coverage": "stale-ish 326d",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.725088996225418,
+      "probs": [
+        0.5433091105521363,
+        0.258722396575659,
+        0.19796849287220478
+      ],
+      "pick": "Celtic",
+      "pickProb": 0.5433091105521363,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5433091105521363,
+          0.258722396575659,
+          0.19796849287220478
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2025-10-29",
+          "league": "sco.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2025-10-29",
+          "league": "sco.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "12:00",
+        "league": "es.1",
+        "home": "Getafe",
+        "away": "Málaga",
+        "provider": "ESPN:es.1",
+        "sourceStatus": "loaded",
+        "competition": "LaLiga",
+        "competitionSlug": "es.1",
+        "sourceFixtureId": "401882861"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.9761044815776301,
+      "probs": [
+        0.5508980041397854,
+        0.2486864659933593,
+        0.20041552986685526
+      ],
+      "pick": "Getafe",
+      "pickProb": 0.5508980041397854,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5508980041397854,
+          0.2486864659933593,
+          0.20041552986685526
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-17",
+          "league": "es.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-17",
+          "league": "es.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "12:30",
+        "league": "en.2",
+        "home": "Norwich City",
+        "away": "Bolton Wanderers",
+        "provider": "ESPN:en.2",
+        "sourceStatus": "loaded",
+        "competition": "Championship",
+        "competitionSlug": "en.2",
+        "sourceFixtureId": "401880250"
+      },
+      "coverage": "C1 transfer · state 1197 matches",
+      "coveragePack": "C1",
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.7182449182195977,
+      "probs": [
+        0.5606316813206823,
+        0.24667667270036786,
+        0.19269164597894978
+      ],
+      "pick": "Norwich City",
+      "pickProb": 0.5606316813206823,
+      "predictionMode": "L0 C1 TRANSFER",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5606316813206823,
+          0.24667667270036786,
+          0.19269164597894978
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "en.2"
+        },
+        "awayState": {
+          "games": 7,
+          "lastDate": "2026-09-12",
+          "league": "en.2"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "12:30",
+        "league": "nl.1",
+        "home": "AZ Alkmaar",
+        "away": "Telstar",
+        "provider": "ESPN:nl.1",
+        "sourceStatus": "loaded",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "sourceFixtureId": "401875595"
+      },
+      "coverage": "stale-ish 1211d",
+      "coveragePack": null,
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.6832604311294315,
+      "probs": [
+        0.7210349720522252,
+        0.1900084294131984,
+        0.0889565985345763
+      ],
+      "pick": "AZ Alkmaar",
+      "pickProb": 0.7210349720522252,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.7210349720522252,
+          0.1900084294131984,
+          0.0889565985345763
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2023-05-28",
+          "league": "nl.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "nl.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "12:30",
+        "league": "nl.1",
+        "home": "FC Twente",
+        "away": "PSV Eindhoven",
+        "provider": "ESPN:nl.1",
+        "sourceStatus": "loaded",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "sourceFixtureId": "401875593"
+      },
+      "coverage": "stale-ish 1211d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7030974326983933,
+      "probs": [
+        0.36156452040086107,
+        0.26917981742318386,
+        0.369255662175955
+      ],
+      "pick": "PSV Eindhoven",
+      "pickProb": 0.369255662175955,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.36156452040086107,
+          0.26917981742318386,
+          0.369255662175955
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2023-05-28",
+          "league": "nl.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2023-05-28",
+          "league": "nl.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "13:00",
+        "league": "fr.1",
+        "home": "AJ Auxerre",
+        "away": "Brest",
+        "provider": "ESPN:fr.1",
+        "sourceStatus": "loaded",
+        "competition": "Ligue 1",
+        "competitionSlug": "fr.1",
+        "sourceFixtureId": "401876456"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9711005517916219,
+      "probs": [
+        0.4161653747341418,
+        0.28184952668452673,
+        0.3019850985813315
+      ],
+      "pick": "AJ Auxerre",
+      "pickProb": 0.4161653747341418,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4161653747341418,
+          0.28184952668452673,
+          0.3019850985813315
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "fr.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "fr.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "13:00",
+        "league": "en.1",
+        "home": "AFC Bournemouth",
+        "away": "Liverpool",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded",
+        "competition": "Premier League",
+        "competitionSlug": "en.1",
+        "sourceFixtureId": "401879276"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9731761236008485,
+      "probs": [
+        0.40291038182692124,
+        0.2818356538342338,
+        0.31525396433884495
+      ],
+      "pick": "AFC Bournemouth",
+      "pickProb": 0.40291038182692124,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.40291038182692124,
+          0.2818356538342338,
+          0.31525396433884495
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "en.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "en.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "13:00",
+        "league": "en.1",
+        "home": "Leeds United",
+        "away": "Crystal Palace",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded",
+        "competition": "Premier League",
+        "competitionSlug": "en.1",
+        "sourceFixtureId": "401879273"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.9569950380123621,
+      "probs": [
+        0.5486842380420245,
+        0.24718860655794384,
+        0.20412715540003162
+      ],
+      "pick": "Leeds United",
+      "pickProb": 0.5486842380420245,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5486842380420245,
+          0.24718860655794384,
+          0.20412715540003162
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-14",
+          "league": "en.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "en.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "13:00",
+        "league": "en.1",
+        "home": "Manchester City",
+        "away": "Sunderland",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded",
+        "competition": "Premier League",
+        "competitionSlug": "en.1",
+        "sourceFixtureId": "401879272"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "A",
+      "rawTier": "A",
+      "quality": 0.9652840311080398,
+      "probs": [
+        0.7722662555668619,
+        0.16756609458873928,
+        0.06016764984439874
+      ],
+      "pick": "Manchester City",
+      "pickProb": 0.7722662555668619,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.7722662555668619,
+          0.16756609458873928,
+          0.06016764984439874
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "en.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "en.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "13:00",
+        "league": "it.1",
+        "home": "Parma",
+        "away": "Genoa",
+        "provider": "ESPN:it.1",
+        "sourceStatus": "loaded",
+        "competition": "Serie A",
+        "competitionSlug": "it.1",
+        "sourceFixtureId": "401874801"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9715280454906752,
+      "probs": [
+        0.4616453051744741,
+        0.26823777756884976,
+        0.27011691725667597
+      ],
+      "pick": "Parma",
+      "pickProb": 0.4616453051744741,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4616453051744741,
+          0.26823777756884976,
+          0.27011691725667597
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-14",
+          "league": "it.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "it.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "13:30",
+        "league": "de.1",
+        "home": "Bayer Leverkusen",
+        "away": "RB Leipzig",
+        "provider": "ESPN:de.1",
+        "sourceStatus": "loaded",
+        "competition": "Bundesliga",
+        "competitionSlug": "de.1",
+        "sourceFixtureId": "401884788"
+      },
+      "coverage": "stale-ish 2276d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7173437977900351,
+      "probs": [
+        0.4068314314363408,
+        0.2821013234797444,
+        0.3110672450839147
+      ],
+      "pick": "Bayer Leverkusen",
+      "pickProb": 0.4068314314363408,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4068314314363408,
+          0.2821013234797444,
+          0.3110672450839147
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2020-06-27",
+          "league": "de.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "de.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "14:00",
+        "league": "be.1",
+        "home": "Sint-Truidense",
+        "away": "KVC Westerlo",
+        "provider": "ESPN:be.1",
+        "sourceStatus": "loaded",
+        "competition": "Belgian Pro League",
+        "competitionSlug": "be.1",
+        "sourceFixtureId": "401878981"
+      },
+      "coverage": "C1 transfer · stale-ish 322d",
+      "coveragePack": "C1",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7269555608319458,
+      "probs": [
+        0.4788380113966164,
+        0.2724279342113744,
+        0.2487340543920092
+      ],
+      "pick": "Sint-Truidense",
+      "pickProb": 0.4788380113966164,
+      "predictionMode": "L0 C1 TRANSFER",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4788380113966164,
+          0.2724279342113744,
+          0.2487340543920092
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2025-11-02",
+          "league": "be.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2025-11-02",
+          "league": "be.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "14:00",
+        "league": "tr.1",
+        "home": "Fenerbahce",
+        "away": "Eyupspor",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded",
+        "competition": "Süper Lig",
+        "competitionSlug": "tr.1",
+        "sourceFixtureId": "401888287"
+      },
+      "coverage": "stale-ish 322d",
+      "coveragePack": null,
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.7123689968912013,
+      "probs": [
+        0.7899161177807362,
+        0.15786172082670033,
+        0.052222161392563464
+      ],
+      "pick": "Fenerbahce",
+      "pickProb": 0.7899161177807362,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.7899161177807362,
+          0.15786172082670033,
+          0.052222161392563464
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2025-11-02",
+          "league": "tr.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2025-11-03",
+          "league": "tr.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "14:15",
+        "league": "es.1",
+        "home": "Atlético Madrid",
+        "away": "Real Madrid",
+        "provider": "ESPN:es.1",
+        "sourceStatus": "loaded",
+        "competition": "LaLiga",
+        "competitionSlug": "es.1",
+        "sourceFixtureId": "401882865"
+      },
+      "coverage": "stale-ish 2254d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7160772811369449,
+      "probs": [
+        0.28298745438224693,
+        0.27365993072047357,
+        0.4433526148972795
+      ],
+      "pick": "Real Madrid",
+      "pickProb": 0.4433526148972795,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.28298745438224693,
+          0.27365993072047357,
+          0.4433526148972795
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2020-07-19",
+          "league": "es.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-15",
+          "league": "es.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "14:15",
+        "league": "es.2",
+        "home": "Ceuta",
+        "away": "Real Valladolid",
+        "provider": "ESPN:es.2",
+        "sourceStatus": "loaded",
+        "competition": "Segunda División",
+        "competitionSlug": "es.2",
+        "sourceFixtureId": "401883169"
+      },
+      "coverage": "C1 transfer · stale-ish 322d",
+      "coveragePack": "C1",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.5809434502584895,
+      "probs": [
+        0.4599366380516164,
+        0.27077369765224474,
+        0.2692896642961388
+      ],
+      "pick": "Ceuta",
+      "pickProb": 0.4599366380516164,
+      "predictionMode": "L0 C1 TRANSFER",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4599366380516164,
+          0.27077369765224474,
+          0.2692896642961388
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 12,
+          "lastDate": "2025-11-02",
+          "league": "es.2"
+        },
+        "awayState": {
+          "games": 12,
+          "lastDate": "2025-11-03",
+          "league": "es.2"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "14:30",
+        "league": "nl.1",
+        "home": "AZ",
+        "away": "Telstar 1963",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "sourceFixtureId": "2026-27:nl.1:61"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "A",
+      "rawTier": "A",
+      "quality": 0.9375246387229408,
+      "probs": [
+        0.6912133666831503,
+        0.20210285807895023,
+        0.10668377523789944
+      ],
+      "pick": "AZ",
+      "pickProb": 0.6912133666831503,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.6912133666831503,
+          0.20210285807895023,
+          0.10668377523789944
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-11",
+          "league": "nl.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "nl.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "14:30",
+        "league": "nl.1",
+        "home": "FC Twente '65",
+        "away": "PSV",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "sourceFixtureId": "2026-27:nl.1:60"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.9586951542295196,
+      "probs": [
+        0.19997132405066392,
+        0.25441429975796526,
+        0.5456143761913709
+      ],
+      "pick": "PSV",
+      "pickProb": 0.5456143761913709,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.19997132405066392,
+          0.25441429975796526,
+          0.5456143761913709
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "nl.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "nl.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "14:30",
+        "league": "pt.1",
+        "home": "Estrela",
+        "away": "Académico de Viseu",
+        "provider": "ESPN:pt.1",
+        "sourceStatus": "loaded",
+        "competition": "Primeira Liga",
+        "competitionSlug": "pt.1",
+        "sourceFixtureId": "401885437"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7114797966424904,
+      "probs": [
+        0.39691148773739243,
+        0.27479328510975254,
+        0.328295227152855
+      ],
+      "pick": "Estrela",
+      "pickProb": 0.39691148773739243,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.39691148773739243,
+          0.27479328510975254,
+          0.328295227152855
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-14",
+          "league": "pt.1"
+        },
+        "awayState": {
+          "games": 6,
+          "lastDate": "2026-09-12",
+          "league": "pt.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "14:30",
+        "league": "pt.1",
+        "home": "Vitória de Guimaraes",
+        "away": "Moreirense",
+        "provider": "ESPN:pt.1",
+        "sourceStatus": "loaded",
+        "competition": "Primeira Liga",
+        "competitionSlug": "pt.1",
+        "sourceFixtureId": "401885430"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9617742713386699,
+      "probs": [
+        0.4768219195260407,
+        0.2626286100622304,
+        0.2605494704117288
+      ],
+      "pick": "Vitória de Guimaraes",
+      "pickProb": 0.4768219195260407,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4768219195260407,
+          0.2626286100622304,
+          0.2605494704117288
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "pt.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-14",
+          "league": "pt.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "14:45",
+        "league": "nl.1",
+        "home": "ADO Den Haag",
+        "away": "Heerenveen",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded",
+        "competition": "2026-27-vrouwen-eredivisie",
+        "competitionSlug": "2026-27-vrouwen-eredivisie",
+        "sourceFixtureId": "401882159"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9758973296570861,
+      "probs": [
+        0.2714974155626781,
+        0.2787856040807711,
+        0.44971698035655094
+      ],
+      "pick": "Heerenveen",
+      "pickProb": 0.44971698035655094,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.2714974155626781,
+          0.2787856040807711,
+          0.44971698035655094
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "nl.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "nl.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "14:45",
+        "league": "nl.1",
+        "home": "NEC Nijmegen",
+        "away": "Go Ahead Eagles",
+        "provider": "ESPN:nl.1",
+        "sourceStatus": "loaded",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "sourceFixtureId": "401875594"
+      },
+      "coverage": "stale-ish 1211d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7078964324879473,
+      "probs": [
+        0.4036350972513851,
+        0.28195916705785373,
+        0.3144057356907612
+      ],
+      "pick": "NEC Nijmegen",
+      "pickProb": 0.4036350972513851,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4036350972513851,
+          0.28195916705785373,
+          0.3144057356907612
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2023-05-28",
+          "league": "nl.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "nl.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "15:15",
+        "league": "it.2",
+        "home": "Mantova",
+        "away": "Pisa",
+        "provider": "ESPN:it.2",
+        "sourceStatus": "loaded",
+        "competition": "Serie B",
+        "competitionSlug": "it.2",
+        "sourceFixtureId": "401899613"
+      },
+      "coverage": "C1 transfer · stale-ish 495d",
+      "coveragePack": "C1",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7201973429307177,
+      "probs": [
+        0.2593709572670365,
+        0.265189315807507,
+        0.4754397269254564
+      ],
+      "pick": "Pisa",
+      "pickProb": 0.4754397269254564,
+      "predictionMode": "L0 C1 TRANSFER",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.2593709572670365,
+          0.265189315807507,
+          0.4754397269254564
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-03-17",
+          "league": "it.2"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2025-05-13",
+          "league": "it.2"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "15:30",
+        "league": "de.1",
+        "home": "Schalke 04",
+        "away": "SV Elversberg",
+        "provider": "ESPN:de.1",
+        "sourceStatus": "loaded",
+        "competition": "Bundesliga",
+        "competitionSlug": "de.1",
+        "sourceFixtureId": "401884783"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.6570810023797523,
+      "probs": [
+        0.4363904624712838,
+        0.2760865105538643,
+        0.2875230269748518
+      ],
+      "pick": "Schalke 04",
+      "pickProb": 0.4363904624712838,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4363904624712838,
+          0.2760865105538643,
+          0.2875230269748518
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-11",
+          "league": "de.1"
+        },
+        "awayState": {
+          "games": 3,
+          "lastDate": "2026-09-13",
+          "league": "de.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "15:30",
+        "league": "en.1",
+        "home": "Fulham",
+        "away": "Manchester United",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded",
+        "competition": "Premier League",
+        "competitionSlug": "en.1",
+        "sourceFixtureId": "401878777"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9702906808964653,
+      "probs": [
+        0.28159549495583514,
+        0.2740524775291483,
+        0.44435202751501646
+      ],
+      "pick": "Manchester United",
+      "pickProb": 0.44435202751501646,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.28159549495583514,
+          0.2740524775291483,
+          0.44435202751501646
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "en.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "en.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "16:00",
+        "league": "it.1",
+        "home": "Juventus",
+        "away": "Atalanta",
+        "provider": "ESPN:it.1",
+        "sourceStatus": "loaded",
+        "competition": "Serie A",
+        "competitionSlug": "it.1",
+        "sourceFixtureId": "401874757"
+      },
+      "coverage": "stale-ish 2230d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7192838646839474,
+      "probs": [
+        0.46187599630388043,
+        0.2662196175662972,
+        0.2719043861298224
+      ],
+      "pick": "Juventus",
+      "pickProb": 0.46187599630388043,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.46187599630388043,
+          0.2662196175662972,
+          0.2719043861298224
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "it.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2020-08-12",
+          "league": "it.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "16:30",
+        "league": "es.1",
+        "home": "Villarreal",
+        "away": "Levante",
+        "provider": "ESPN:es.1",
+        "sourceStatus": "loaded",
+        "competition": "LaLiga",
+        "competitionSlug": "es.1",
+        "sourceFixtureId": "401882857"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.9735244895249021,
+      "probs": [
+        0.6229517925156227,
+        0.23101086159300407,
+        0.14603734589137327
+      ],
+      "pick": "Villarreal",
+      "pickProb": 0.6229517925156227,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.6229517925156227,
+          0.23101086159300407,
+          0.14603734589137327
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-17",
+          "league": "es.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "es.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "16:30",
+        "league": "es.2",
+        "home": "Las Palmas",
+        "away": "Burgos",
+        "provider": "ESPN:es.2",
+        "sourceStatus": "loaded",
+        "competition": "Segunda División",
+        "competitionSlug": "es.2",
+        "sourceFixtureId": "401883168"
+      },
+      "coverage": "C1 transfer · stale-ish 323d",
+      "coveragePack": "C1",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.5832835883686919,
+      "probs": [
+        0.4671942580559044,
+        0.2699311850008216,
+        0.262874556943274
+      ],
+      "pick": "Las Palmas",
+      "pickProb": 0.4671942580559044,
+      "predictionMode": "L0 C1 TRANSFER",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4671942580559044,
+          0.2699311850008216,
+          0.262874556943274
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 12,
+          "lastDate": "2025-11-02",
+          "league": "es.2"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2025-11-01",
+          "league": "es.2"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "16:45",
+        "league": "nl.1",
+        "home": "NEC",
+        "away": "Go Ahead Eagles",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "sourceFixtureId": "2026-27:nl.1:62"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.9745213481947893,
+      "probs": [
+        0.5382181814976764,
+        0.2559147110903298,
+        0.2058671074119937
+      ],
+      "pick": "NEC",
+      "pickProb": 0.5382181814976764,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5382181814976764,
+          0.2559147110903298,
+          0.2058671074119937
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "nl.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "nl.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "17:00",
+        "league": "pt.1",
+        "home": "Santa Clara",
+        "away": "Braga",
+        "provider": "ESPN:pt.1",
+        "sourceStatus": "loaded",
+        "competition": "Primeira Liga",
+        "competitionSlug": "pt.1",
+        "sourceFixtureId": "401885432"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9709102206950859,
+      "probs": [
+        0.31293177923454724,
+        0.27124008117905046,
+        0.41582813958640225
+      ],
+      "pick": "Braga",
+      "pickProb": 0.41582813958640225,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.31293177923454724,
+          0.27124008117905046,
+          0.41582813958640225
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "pt.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-14",
+          "league": "pt.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "17:00",
+        "league": "tr.1",
+        "home": "Goztepe",
+        "away": "Caykur Rizespor",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded",
+        "competition": "Süper Lig",
+        "competitionSlug": "tr.1",
+        "sourceFixtureId": "401888288"
+      },
+      "coverage": "stale-ish 323d",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.7161125798579472,
+      "probs": [
+        0.5224945669503721,
+        0.26405704586136974,
+        0.21344838718825818
+      ],
+      "pick": "Goztepe",
+      "pickProb": 0.5224945669503721,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5224945669503721,
+          0.26405704586136974,
+          0.21344838718825818
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2025-11-01",
+          "league": "tr.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2025-11-03",
+          "league": "tr.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "17:30",
+        "league": "it.2",
+        "home": "Modena",
+        "away": "Empoli",
+        "provider": "ESPN:it.2",
+        "sourceStatus": "loaded",
+        "competition": "Serie B",
+        "competitionSlug": "it.2",
+        "sourceFixtureId": "401899612"
+      },
+      "coverage": "C1 transfer · stale-ish 190d",
+      "coveragePack": "C1",
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.746320110071161,
+      "probs": [
+        0.5581242296234971,
+        0.2505232626397601,
+        0.19135250773674278
+      ],
+      "pick": "Modena",
+      "pickProb": 0.5581242296234971,
+      "predictionMode": "L0 C1 TRANSFER",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5581242296234971,
+          0.2505232626397601,
+          0.19135250773674278
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-03-14",
+          "league": "it.2"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-03-17",
+          "league": "it.2"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "18:45",
+        "league": "fr.1",
+        "home": "Marseille",
+        "away": "Paris Saint-Germain",
+        "provider": "ESPN:fr.1",
+        "sourceStatus": "loaded",
+        "competition": "Ligue 1",
+        "competitionSlug": "fr.1",
+        "sourceFixtureId": "401876449"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.9674893600562664,
+      "probs": [
+        0.2192744695224233,
+        0.2552828340830982,
+        0.5254426963944785
+      ],
+      "pick": "Paris Saint-Germain",
+      "pickProb": 0.5254426963944785,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.2192744695224233,
+          0.2552828340830982,
+          0.5254426963944785
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-11",
+          "league": "fr.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "fr.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "18:45",
+        "league": "it.1",
+        "home": "AC Milan",
+        "away": "Lecce",
+        "provider": "ESPN:it.1",
+        "sourceStatus": "loaded",
+        "competition": "Serie A",
+        "competitionSlug": "it.1",
+        "sourceFixtureId": "401874944"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "A",
+      "rawTier": "A",
+      "quality": 0.970837356785592,
+      "probs": [
+        0.728606115723108,
+        0.19144987657886,
+        0.07994400769803213
+      ],
+      "pick": "AC Milan",
+      "pickProb": 0.728606115723108,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.728606115723108,
+          0.19144987657886,
+          0.07994400769803213
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "it.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "it.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "19:00",
+        "league": "es.1",
+        "home": "Valencia",
+        "away": "Real Sociedad",
+        "provider": "ESPN:es.1",
+        "sourceStatus": "loaded",
+        "competition": "LaLiga",
+        "competitionSlug": "es.1",
+        "sourceFixtureId": "401882858"
+      },
+      "coverage": "stale-ish 2254d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.6921382603070751,
+      "probs": [
+        0.39294631912515227,
+        0.28336813507680525,
+        0.32368554579804254
+      ],
+      "pick": "Valencia",
+      "pickProb": 0.39294631912515227,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.39294631912515227,
+          0.28336813507680525,
+          0.32368554579804254
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-15",
+          "league": "es.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2020-07-19",
+          "league": "es.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-20",
+        "time": "19:00",
+        "league": "es.2",
+        "home": "Leganés",
+        "away": "Granada",
+        "provider": "ESPN:es.2",
+        "sourceStatus": "loaded",
+        "competition": "Segunda División",
+        "competitionSlug": "es.2",
+        "sourceFixtureId": "401883204"
+      },
+      "coverage": "C1 transfer · stale-ish 323d",
+      "coveragePack": "C1",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.5834901597663109,
+      "probs": [
+        0.45524400854019564,
+        0.2731700245043535,
+        0.27158596695545095
+      ],
+      "pick": "Leganés",
+      "pickProb": 0.45524400854019564,
+      "predictionMode": "L0 C1 TRANSFER",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.45524400854019564,
+          0.2731700245043535,
+          0.27158596695545095
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 12,
+          "lastDate": "2025-11-01",
+          "league": "es.2"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2025-11-03",
+          "league": "es.2"
+        }
+      }
+    }
+  ]
+}
