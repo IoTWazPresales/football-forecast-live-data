@@ -47,10 +47,8 @@ jobs:
           set -euo pipefail
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             TARGET='${{ inputs.date }}'
-          elif [[ "${{ github.event_name }}" == "schedule" ]]; then
-            TARGET="$(date -u +%F)"
           else
-            TARGET='2026-09-19'
+            TARGET="$(date -u +%F)"
           fi
           echo "date=$TARGET" >> "$GITHUB_OUTPUT"
           echo "Prospective target: $TARGET"
