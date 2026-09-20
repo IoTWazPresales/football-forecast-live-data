@@ -49,10 +49,8 @@ jobs:
           set -euo pipefail
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             TARGET='${{ inputs.date }}'
-          elif [[ "${{ github.event_name }}" == "schedule" ]]; then
-            TARGET="$(date -u -d 'yesterday' +%F)"
           else
-            TARGET='2026-09-18'
+            TARGET="$(date -u -d 'yesterday' +%F)"
           fi
           echo "date=$TARGET" >> "$GITHUB_OUTPUT"
           echo "Forensic target: $TARGET"
