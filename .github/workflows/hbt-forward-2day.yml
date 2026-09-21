@@ -1,0 +1,157 @@
+name: HBT Forward Two-Day Prospective
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-forward-2day.yml'
+  workflow_dispatch:
+    inputs:
+      start_date:
+        description: 'Optional first YYYY-MM-DD target; default tomorrow UTC'
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hbt-forward-two-day
+  cancel-in-progress: false
+
+jobs:
+  forward:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Resolve next two dates
+        id: dates
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" && -n "${{ inputs.start_date }}" ]]; then
+            D1='${{ inputs.start_date }}'
+          else
+            D1="$(date -u -d '+1 day' +%F)"
+          fi
+          D2="$(date -u -d "$D1 +1 day" +%F)"
+          echo "d1=$D1" >> "$GITHUB_OUTPUT"
+          echo "d2=$D2" >> "$GITHUB_OUTPUT"
+          echo "Forward targets: $D1 / $D2"
+
+      - name: Compile execution stack
+        run: |
+          set -euo pipefail
+          python -m py_compile \
+            scripts/hbt_collect_live_data.py \
+            scripts/hbt_collect_players_espn.py \
+            scripts/hbt_collect_context_v3_runtime.py \
+            scripts/hbt_collect_market_intelligence_v4_final.py \
+            scripts/hbt_collect_match_intelligence_v6.py \
+            scripts/hbt_scan_slate_v2_2.py \
+            scripts/hbt_patch_resolver_v3.py \
+            scripts/hbt_patch_resolver_daily.py \
+            scripts/hbt_harden_resolver_v3.py \
+            scripts/hbt_build_prospective_card_v2.py \
+            scripts/hbt_execution_surface_v1.py
+
+      - name: Refresh existing intelligence families once
+        run: |
+          set -euo pipefail
+          python scripts/hbt_collect_live_data.py
+          python scripts/hbt_collect_players_espn.py
+          python scripts/hbt_collect_context_v3_runtime.py
+          python scripts/hbt_collect_market_intelligence_v4_final.py
+          python scripts/hbt_collect_match_intelligence_v6.py
+
+      - name: Freeze first forward date
+        env:
+          D: '${{ steps.dates.outputs.d1 }}'
+        run: |
+          set -euo pipefail
+          python scripts/hbt_scan_slate_v2_2.py --date "$D"
+          python scripts/hbt_patch_resolver_daily.py --date "$D"
+          python scripts/hbt_harden_resolver_v3.py
+          node --check scripts/.hbt_resolver_v3_tmp.mjs
+          node scripts/.hbt_resolver_v3_tmp.mjs --date "$D"
+          python scripts/hbt_build_prospective_card_v2.py --date "$D"
+          python scripts/hbt_execution_surface_v1.py --date "$D"
+          rm -f scripts/.hbt_resolver_v3_tmp.mjs
+
+      - name: Freeze second forward date
+        env:
+          D: '${{ steps.dates.outputs.d2 }}'
+        run: |
+          set -euo pipefail
+          python scripts/hbt_scan_slate_v2_2.py --date "$D"
+          python scripts/hbt_patch_resolver_daily.py --date "$D"
+          python scripts/hbt_harden_resolver_v3.py
+          node --check scripts/.hbt_resolver_v3_tmp.mjs
+          node scripts/.hbt_resolver_v3_tmp.mjs --date "$D"
+          python scripts/hbt_build_prospective_card_v2.py --date "$D"
+          python scripts/hbt_execution_surface_v1.py --date "$D"
+          rm -f scripts/.hbt_resolver_v3_tmp.mjs
+
+      - name: Validate forward execution contracts
+        env:
+          D1: '${{ steps.dates.outputs.d1 }}'
+          D2: '${{ steps.dates.outputs.d2 }}'
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          for d in (os.environ['D1'], os.environ['D2']):
+              c=json.load(open(f'hbt_live_data/hbt_prospective_card_{d}.json',encoding='utf-8'))
+              e=json.load(open(f'hbt_live_data/hbt_execution_surface_{d}.json',encoding='utf-8'))
+              assert c['policy']['bookmakerOddsUsedAsPredictiveFeature'] is False
+              assert c['policy']['bookmakerPriceObservedBeforeCapture'] is False
+              assert c['policy']['modelRetuned'] is False
+              assert e['policy']['footballProbabilitiesImmutable'] is True
+              assert e['policy']['r0Default'] is True
+              assert e['policy']['executionRequiresTimezoneAwareVerifiedKickoff'] is True
+              assert all((r['value']['stakeRand']==0) for r in e['rows']), 'forward unpriced run must remain R0'
+              print(d, c['counts'], e['summary'])
+          PY
+
+      - name: Commit forward evidence
+        env:
+          D1: '${{ steps.dates.outputs.d1 }}'
+          D2: '${{ steps.dates.outputs.d2 }}'
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            "hbt_live_data/hbt_broad_shadow_forecast_${D1}_resolver_v3.json" \
+            "hbt_live_data/hbt_broad_shadow_status_${D1}_resolver_v3.json" \
+            "hbt_live_data/hbt_prospective_card_${D1}.json" \
+            "hbt_live_data/hbt_execution_surface_${D1}.json" \
+            "hbt_live_data/hbt_broad_shadow_forecast_${D2}_resolver_v3.json" \
+            "hbt_live_data/hbt_broad_shadow_status_${D2}_resolver_v3.json" \
+            "hbt_live_data/hbt_prospective_card_${D2}.json" \
+            "hbt_live_data/hbt_execution_surface_${D2}.json" \
+            hbt_live_data/slate_scanner.json \
+            hbt_live_data/manifest.json \
+            hbt_live_data/performance.json \
+            hbt_live_data/player_features.json \
+            hbt_live_data/pre_xi_context.json \
+            hbt_live_data/market_intelligence.json \
+            hbt_live_data/hbt_1_4_match_intelligence.json \
+            hbt_live_data/_hbt_1_4_live_cache.json || true
+          git diff --staged --quiet && exit 0
+          git commit -m "test: freeze HBT forward two-day execution surfaces ${D1} ${D2} [skip ci]"
+          git push origin HEAD:research/hbt-1.4-match-intelligence
