@@ -1,0 +1,82 @@
+name: HBT Forward Two-Day Fast Freeze
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-forward-2day-fast.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hbt-forward-two-day-fast
+  cancel-in-progress: false
+
+jobs:
+  forward_fast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Resolve dates
+        id: dates
+        run: |
+          echo "d1=$(date -u -d '+1 day' +%F)" >> "$GITHUB_OUTPUT"
+          echo "d2=$(date -u -d '+2 day' +%F)" >> "$GITHUB_OUTPUT"
+      - name: Compile
+        run: |
+          python -m py_compile scripts/hbt_scan_slate_v2_2.py scripts/hbt_patch_resolver_daily.py scripts/hbt_harden_resolver_v3.py scripts/hbt_build_prospective_card_v2.py scripts/hbt_execution_surface_v1.py
+      - name: Freeze day one
+        env: { D: '${{ steps.dates.outputs.d1 }}' }
+        run: |
+          set -euo pipefail
+          python scripts/hbt_scan_slate_v2_2.py --date "$D"
+          python scripts/hbt_patch_resolver_daily.py --date "$D"
+          python scripts/hbt_harden_resolver_v3.py
+          node scripts/.hbt_resolver_v3_tmp.mjs --date "$D"
+          python scripts/hbt_build_prospective_card_v2.py --date "$D"
+          python scripts/hbt_execution_surface_v1.py --date "$D"
+          rm -f scripts/.hbt_resolver_v3_tmp.mjs
+      - name: Freeze day two
+        env: { D: '${{ steps.dates.outputs.d2 }}' }
+        run: |
+          set -euo pipefail
+          python scripts/hbt_scan_slate_v2_2.py --date "$D"
+          python scripts/hbt_patch_resolver_daily.py --date "$D"
+          python scripts/hbt_harden_resolver_v3.py
+          node scripts/.hbt_resolver_v3_tmp.mjs --date "$D"
+          python scripts/hbt_build_prospective_card_v2.py --date "$D"
+          python scripts/hbt_execution_surface_v1.py --date "$D"
+          rm -f scripts/.hbt_resolver_v3_tmp.mjs
+      - name: Guard and commit
+        env:
+          D1: '${{ steps.dates.outputs.d1 }}'
+          D2: '${{ steps.dates.outputs.d2 }}'
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os
+          for d in (os.environ['D1'], os.environ['D2']):
+              e=json.load(open(f'hbt_live_data/hbt_execution_surface_{d}.json',encoding='utf-8'))
+              assert e['policy']['footballProbabilitiesImmutable'] is True
+              assert e['policy']['r0Default'] is True
+              assert all(r['value']['stakeRand']==0 for r in e['rows'])
+              print(d, e['summary'])
+          PY
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "hbt_live_data/hbt_broad_shadow_forecast_${D1}_resolver_v3.json" "hbt_live_data/hbt_broad_shadow_status_${D1}_resolver_v3.json" "hbt_live_data/hbt_prospective_card_${D1}.json" "hbt_live_data/hbt_execution_surface_${D1}.json" "hbt_live_data/hbt_broad_shadow_forecast_${D2}_resolver_v3.json" "hbt_live_data/hbt_broad_shadow_status_${D2}_resolver_v3.json" "hbt_live_data/hbt_prospective_card_${D2}.json" "hbt_live_data/hbt_execution_surface_${D2}.json" hbt_live_data/slate_scanner.json || true
+          git diff --staged --quiet && exit 0
+          git commit -m "test: fast-freeze HBT forward surfaces ${D1} ${D2} [skip ci]"
+          git push origin HEAD:research/hbt-1.4-match-intelligence
