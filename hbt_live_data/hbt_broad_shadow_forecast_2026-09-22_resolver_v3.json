@@ -1,0 +1,1209 @@
+{
+  "schemaVersion": "HBT-BROAD-SHADOW-FORECAST-RESOLVER-V3",
+  "sourceFile": "reconstructed HBT L0 broad-slate resolver-v3 shadow test",
+  "sourceExportedAt": "2026-09-21T18:36:14.771Z",
+  "sourceLabVersion": "HBT-BROAD-SHADOW-22SEP-RESOLVER-V3",
+  "sourceEngineVersion": "HBT reconstructed L0 + historical C1 transfer; gender-safe resolver",
+  "targetDate": "2026-09-22",
+  "policy": {
+    "prospectiveExport": true,
+    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "predictiveModelMutated": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "generalFutureLiveFeed": false,
+    "scope": "Prospective resolver-repair shadow test. Women/youth/reserve namespaces are excluded; C1 transfer reuses frozen L0 structural weights and is capped below A tier.",
+    "missingFixtureSemantics": "unknown/not forecast in this export; never infer a probability",
+    "goldenParityRequired": false,
+    "goldenParityDiagnosticTolerance": 1e-9,
+    "targetStateAsOfExclusive": "2026-09-22"
+  },
+  "bridge": {
+    "version": "HBT-BROAD-SHADOW-22SEP-RESOLVER-V3",
+    "weightsSource": "runtime/hbt_frozen_runtime_bundle.json deploymentSnapshot.models.l1.baseModel",
+    "parityAsOfExclusive": "2026-09-11",
+    "goldenForecastDate": "2026-09-15",
+    "goldenMaxAbsError": 0.0341854647637686,
+    "targetStateAsOfExclusive": "2026-09-22",
+    "sourceMatches": 28014,
+    "sourceFailures": [
+      {
+        "source": "2015-16/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2015-16/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2016-17/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/nl.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/pt.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2017-18/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2020-21/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2021-22/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2022-23/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2023-24/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2025-26/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      }
+    ],
+    "identityAudit": {
+      "linked": 37,
+      "unresolved": 47,
+      "ambiguous": 4,
+      "continentalNames": 88
+    },
+    "crossLeagueLinks": 212,
+    "c1StateAudit": [
+      {
+        "code": "en.2",
+        "status": "loaded",
+        "results": 1197,
+        "teams": 34,
+        "newestDate": "2026-09-15",
+        "validatedOnLeague": false,
+        "A_tier_cap": "B",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "loaded",
+            "matches": 557
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "loaded",
+            "matches": 557
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "loaded",
+            "matches": 83
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      },
+      {
+        "code": "es.2",
+        "status": "loaded",
+        "results": 584,
+        "teams": 29,
+        "newestDate": "2025-11-03",
+        "validatedOnLeague": false,
+        "A_tier_cap": "B",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "loaded",
+            "matches": 453
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "loaded",
+            "matches": 131
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      },
+      {
+        "code": "it.2",
+        "status": "loaded",
+        "results": 696,
+        "teams": 27,
+        "newestDate": "2026-03-17",
+        "validatedOnLeague": false,
+        "A_tier_cap": "B",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "loaded",
+            "matches": 387
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "loaded",
+            "matches": 309
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      },
+      {
+        "code": "be.1",
+        "status": "loaded",
+        "results": 417,
+        "teams": 18,
+        "newestDate": "2025-11-02",
+        "validatedOnLeague": false,
+        "A_tier_cap": "B",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "loaded",
+            "matches": 313
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "loaded",
+            "matches": 104
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      },
+      {
+        "code": "pl.1",
+        "status": "failed",
+        "results": 0,
+        "reason": "fewer than 8 completed results",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      },
+      {
+        "code": "ie.1",
+        "status": "failed",
+        "results": 0,
+        "reason": "fewer than 8 completed results",
+        "sources": [
+          {
+            "source": "OpenFootball 2024-25",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "OpenFootball 2025-26",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "OpenFootball 2026-27",
+            "status": "failed",
+            "matches": 0,
+            "error": "404 Not Found"
+          },
+          {
+            "source": "current secondary sources",
+            "status": "loaded",
+            "matches": 0
+          }
+        ]
+      }
+    ],
+    "identityPolicy": {
+      "genderNamespaceSeparated": true,
+      "youthReserveNamespaceSeparated": true,
+      "uniqueSignatureResolver": true
+    },
+    "excluded": [
+      {
+        "fixture": "DC Power FC vs Fort Lauderdale United FC",
+        "league": null,
+        "reason": "ambiguous generic competition identity",
+        "competition": "fall-season"
+      },
+      {
+        "fixture": "Internazionale vs BK Häcken",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Accrington Stanley vs Sunderland U21",
+        "league": null,
+        "reason": "identity namespace blocked: YOUTH_OR_RESERVE",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Barnsley vs Leeds United U21",
+        "league": null,
+        "reason": "identity namespace blocked: YOUTH_OR_RESERVE",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Burton Albion vs Nottingham Forest U21",
+        "league": null,
+        "reason": "identity namespace blocked: YOUTH_OR_RESERVE",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Cheltenham Town vs Exeter City",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Chesterfield vs Port Vale",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Crewe Alexandra vs Aston Villa U21",
+        "league": null,
+        "reason": "identity namespace blocked: YOUTH_OR_RESERVE",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Gillingham vs Cambridge United",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Leicester City vs Fulham U21",
+        "league": null,
+        "reason": "identity namespace blocked: YOUTH_OR_RESERVE",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Luton Town vs Ipswich Town U21",
+        "league": null,
+        "reason": "identity namespace blocked: YOUTH_OR_RESERVE",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Milton Keynes Dons vs Crawley Town",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Notts County vs Grimsby Town",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Oldham Athletic vs Fleetwood Town",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Peterborough United vs Colchester United",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Plymouth Argyle vs Crystal Palace U21",
+        "league": null,
+        "reason": "identity namespace blocked: YOUTH_OR_RESERVE",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Rochdale vs Liverpool U21",
+        "league": null,
+        "reason": "identity namespace blocked: YOUTH_OR_RESERVE",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Salford City vs Sheffield Wednesday",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Swindon Town vs Newport County",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Tranmere Rovers vs Shrewsbury Town",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Walsall vs Stevenage",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Wigan Athletic vs Blackpool",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "York City vs Rotherham United",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "ACV vs Hoogeveen",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "EVV Echt vs RKSV Halsteren",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "Eemdijk vs RBC Roosendaal",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "Excelsior '31 vs AFC '34",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "FC Rijnvogels vs VVSB",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "GVVV vs DVS '33 Ermelo",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "HHC Hardenberg vs BVV Barendrecht",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "Kloetinge vs Achilles Veen",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "Koninklijke HFC vs DOVO",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "Noordwijk vs LAC Frisia 1883",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "RKAV Volendam vs Spakenburg",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "RKSV Groene Ster vs AFC",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "Sportlust '46 vs Excelsior Maassluis",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "VV Staphorst vs SC Genemuiden",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-preliminary-round"
+      },
+      {
+        "fixture": "Bradford City vs Newcastle United U21",
+        "league": null,
+        "reason": "identity namespace blocked: YOUTH_OR_RESERVE",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Bromley vs Brentford U21",
+        "league": null,
+        "reason": "identity namespace blocked: YOUTH_OR_RESERVE",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Banks O'Dee vs Aberdeen B",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Berwick Rangers vs Stranraer",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Bonnyrigg Rose vs Airdrieonians",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Clachnacuddin vs Ross County",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Clyde vs Rangers B",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Clydebank vs St Mirren B",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Dumbarton vs Kilmarnock B",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "East Kilbride vs Celtic B",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Edinburgh City vs Dundee United B",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Elgin City vs Dundee B",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Forfar Athletic vs Peterhead",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Formartine United vs Montrose",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Fraserburgh vs Cove Rangers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Gala Fairydean vs Spartans FC",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Kelty Hearts vs Heart of Midlothian B",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Queen of the South vs Annan Athletic",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Stirling Albion vs Cumbernauld Colts",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Braintree Town vs Needham Market",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Chippenham Town vs Yate Town",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Crowborough Athletic vs Hampton & Richmond",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Dagenham & Redbridge vs Waltham Abbey",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Dorking Wanderers vs Southall",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Farnborough vs Uxbridge",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Farnham Town FC vs Cirencester Town",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Gainsborough Trinity vs Leamington",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Maidstone United vs Cray Wanderers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Truro City vs Merthyr Town",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Wimborne Town vs Weston-super-Mare",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Wingate & Finchley vs Hemel Hempstead Town",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Worksop Town vs AFC Telford United",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "second-round-qualifying"
+      },
+      {
+        "fixture": "Arsenal vs HB Køge",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Juventus vs Benfica",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "league-phase"
+      },
+      {
+        "fixture": "Villanova Wildcats vs Drexel Dragons",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Puerto Montt vs Ñublense",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "round-of-16"
+      },
+      {
+        "fixture": "Campbell Fighting Camels vs Winthrop Eagles",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Delaware Fightin' Blue Hens vs George Washington Revolutionaries",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "East Tennessee State Buccaneers vs Presbyterian Blue Hose",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "IU Indianapolis Jaguars vs Western Illinois Leathernecks",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Loyola Maryland Greyhounds vs Hofstra Pride",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Old Dominion Monarchs vs William & Mary Tribe",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "St. Bonaventure Bonnies vs Cleveland State Vikings",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Stony Brook Seawolves vs Rhode Island Rams",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "UConn Huskies vs Siena Saints",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Virginia Tech Hokies vs Queens University Royals",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Wofford Terriers vs Coastal Carolina Chanticleers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Yale Bulldogs vs New Haven Chargers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Xavier Muskateers vs Wright State Raiders",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Akron Zips vs Robert Morris Colonials",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Boston University Terriers vs Harvard Crimson",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Bucknell Bison vs Saint Joseph's Hawks",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Columbia Lions vs Lehigh Mountain Hawks",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Cornell Big Red vs Binghamton Bearcats",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Davidson Wildcats vs Elon Phoenix",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Dayton Flyers vs Northern Kentucky Norse",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Duke Blue Devils vs Howard Bison",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "James Madison Dukes vs Liberty Flames",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Lipscomb Bisons vs Kentucky Wildcats",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Marquette Golden Eagles vs Milwaukee Panthers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Monmouth Hawks vs Rutgers-Newark",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "North Florida Ospreys vs Trinity Baptist",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Princeton Tigers vs Seton Hall Pirates",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Providence Friars vs Brown Bears",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "South Carolina Gamecocks vs College of Charleston Cougars",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Stetson Hatters vs UCF Knights",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "UMBC Retrievers vs Navy Midshipmen",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "UNC Wilmington Seahawks vs St. John's Red Storm",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "West Virginia Mountaineers vs Duquesne Dukes",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Independiente Medellín vs Jaguares de Córdoba",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "clausura"
+      },
+      {
+        "fixture": "Nacional Potosí vs Real Potosí",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "group-stage"
+      },
+      {
+        "fixture": "Marshall Thundering Herd vs Eastern Illinois Panthers",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "2026-ncaa-division-i-men"
+      },
+      {
+        "fixture": "Audax Italiano vs Colo Colo",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "round-of-16"
+      },
+      {
+        "fixture": "Cobreloa vs Coquimbo Unido",
+        "league": null,
+        "reason": "unresolved team identity",
+        "competition": "round-of-16"
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-09-22",
+        "time": "16:45",
+        "league": null,
+        "home": "Bayern Munich",
+        "away": "Manchester City",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase",
+        "sourceFixtureId": "401917018"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.893358935504663,
+      "probs": [
+        0.5788439195152792,
+        0.24210535264985025,
+        0.17905072783487064
+      ],
+      "pick": "Bayern Munich",
+      "pickProb": 0.5788439195152792,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5788439195152792,
+          0.24210535264985025,
+          0.17905072783487064
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "de.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "en.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-22",
+        "time": "18:45",
+        "league": null,
+        "home": "Alloa Athletic",
+        "away": "Hibernian B",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase",
+        "sourceFixtureId": "401896312"
+      },
+      "coverage": "stale-ish 325d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.6546477164847787,
+      "probs": [
+        0.4255117985749626,
+        0.279854165559168,
+        0.2946340358658694
+      ],
+      "pick": "Alloa Athletic",
+      "pickProb": 0.4255117985749626,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4255117985749626,
+          0.279854165559168,
+          0.2946340358658694
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-12",
+          "league": "es.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2025-11-01",
+          "league": "sco.1"
+        }
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-09-22",
+        "time": "19:00",
+        "league": null,
+        "home": "Real Madrid",
+        "away": "Paris Saint-Germain",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase",
+        "sourceFixtureId": "401917014"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.8871807243709826,
+      "probs": [
+        0.5009577288232329,
+        0.25648971209497284,
+        0.24255255908179427
+      ],
+      "pick": "Real Madrid",
+      "pickProb": 0.5009577288232329,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5009577288232329,
+          0.25648971209497284,
+          0.24255255908179427
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "resolution": {
+        "homeState": {
+          "games": 30,
+          "lastDate": "2026-09-15",
+          "league": "es.1"
+        },
+        "awayState": {
+          "games": 30,
+          "lastDate": "2026-09-13",
+          "league": "fr.1"
+        }
+      }
+    }
+  ]
+}
