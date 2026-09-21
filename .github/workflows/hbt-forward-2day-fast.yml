@@ -6,6 +6,7 @@ on:
       - research/hbt-1.4-match-intelligence
     paths:
       - '.github/workflows/hbt-forward-2day-fast.yml'
+      - 'scripts/hbt_execution_surface_v1.py'
 
 permissions:
   contents: write
@@ -71,6 +72,7 @@ jobs:
               e=json.load(open(f'hbt_live_data/hbt_execution_surface_{d}.json',encoding='utf-8'))
               assert e['policy']['footballProbabilitiesImmutable'] is True
               assert e['policy']['r0Default'] is True
+              assert e['policy']['genericDiscoveryIdentityMayNotAuthorizeExecution'] is True
               assert all(r['value']['stakeRand']==0 for r in e['rows'])
               print(d, e['summary'])
           PY
