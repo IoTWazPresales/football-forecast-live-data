@@ -11,75 +11,23 @@
     "timingContaminatedExecutionsDoNotValidatePrematchExecution": true
   },
   "singles": [
-    {
-      "betslipId": "1079482068",
-      "home": "Valencia",
-      "away": "Real Sociedad",
-      "market": "1X",
-      "side": "HOME",
-      "selection": "Valencia OR Draw",
-      "odds": 1.45,
-      "stake": 1.0,
-      "placedAtLocal": "2026-09-20T18:21:00+02:00",
-      "evidence": "user settled Betway screenshot",
-      "countForProspectiveExecutionAnalysis": true
-    },
-    {
-      "betslipId": "1079480820",
-      "home": "Goztepe",
-      "away": "Caykur Rizespor",
-      "market": "1X",
-      "side": "HOME",
-      "selection": "Goztepe OR Draw",
-      "odds": 1.35,
-      "stake": 1.0,
-      "placedAtLocal": "2026-09-20T18:21:00+02:00",
-      "evidence": "user settled Betway screenshot",
-      "countForProspectiveExecutionAnalysis": true
-    },
-    {
-      "betslipId": "1079476011",
-      "home": "Santa Clara",
-      "away": "Braga",
-      "market": "12",
-      "selection": "Santa Clara OR Braga",
-      "odds": 1.28,
-      "stake": 1.0,
-      "placedAtLocal": "2026-09-20T18:19:00+02:00",
-      "evidence": "user settled Betway screenshot",
-      "countForProspectiveExecutionAnalysis": true
-    },
-    {
-      "betslipId": "1079471782",
-      "home": "Villarreal",
-      "away": "Levante",
-      "market": "1X",
-      "side": "HOME",
-      "selection": "Villarreal OR Draw",
-      "odds": 1.13,
-      "stake": 1.0,
-      "placedAtLocal": "2026-09-20T18:18:00+02:00",
-      "evidence": "user settled Betway screenshot",
-      "countForProspectiveExecutionAnalysis": true
-    },
-    {
-      "home": "NEC Nijmegen",
-      "away": "Go Ahead Eagles",
-      "market": "1X",
-      "side": "HOME",
-      "selection": "NEC Nijmegen OR Draw",
-      "odds": 1.15,
-      "stake": 1.0,
-      "placedAtLocal": null,
-      "evidence": "user settled Betway screenshot; placement time not visible",
-      "executionTimingStatus": "IN_PLAY_OR_TIMING_UNVERIFIED",
-      "countForProspectiveExecutionAnalysis": false,
-      "reason": "Fixture was already deep in-play when surfaced in chat; retain financial result but do not use as clean prematch execution evidence."
-    }
+    {"betslipId":"1079482068","home":"Valencia","away":"Real Sociedad","market":"1X","side":"HOME","selection":"Valencia OR Draw","odds":1.45,"stake":1.0,"placedAtLocal":"2026-09-20T18:21:00+02:00","evidence":"user settled Betway screenshot","countForProspectiveExecutionAnalysis":true},
+    {"betslipId":"1079480820","home":"Goztepe","away":"Caykur Rizespor","market":"1X","side":"HOME","selection":"Goztepe OR Draw","odds":1.35,"stake":1.0,"placedAtLocal":"2026-09-20T18:21:00+02:00","evidence":"user settled Betway screenshot","countForProspectiveExecutionAnalysis":true},
+    {"betslipId":"1079476011","home":"Santa Clara","away":"Braga","market":"12","selection":"Santa Clara OR Braga","odds":1.28,"stake":1.0,"placedAtLocal":"2026-09-20T18:19:00+02:00","evidence":"user settled Betway screenshot","countForProspectiveExecutionAnalysis":true},
+    {"betslipId":"1079471782","home":"Villarreal","away":"Levante","market":"1X","side":"HOME","selection":"Villarreal OR Draw","odds":1.13,"stake":1.0,"placedAtLocal":"2026-09-20T18:18:00+02:00","evidence":"user settled Betway screenshot","countForProspectiveExecutionAnalysis":true},
+    {"home":"NEC Nijmegen","away":"Go Ahead Eagles","market":"1X","side":"HOME","selection":"NEC Nijmegen OR Draw","odds":1.15,"stake":1.0,"placedAtLocal":null,"evidence":"user settled Betway screenshot; placement time not visible","executionTimingStatus":"IN_PLAY_OR_TIMING_UNVERIFIED","countForProspectiveExecutionAnalysis":false,"reason":"Fixture was already deep in-play when surfaced in chat; retain financial result but do not use as clean prematch execution evidence."}
   ],
   "multis": [],
   "r0Tracking": {
     "source": "hbt_prospective_card_2026-09-20.json",
-    "meaning": "Every frozen HBT candidate without a funded execution remains a zero-stake prospective observation and must still be settled and forensically audited."
+    "meaning": "Every frozen HBT candidate without a funded execution remains a zero-stake prospective observation and must still be settled and forensically audited.",
+    "explicitShadowMarkets": [
+      {"home":"Juventus","away":"Atalanta","market":"12","selection":"Juventus OR Atalanta - either team wins","hbtP":0.7337803824337028,"observedBetwayOdds":1.30,"stake":0,"provenance":"reconstructed verbatim from pre-result chat card"},
+      {"home":"Las Palmas","away":"Burgos","market":"12","selection":"Las Palmas OR Burgos - either team wins","hbtP":0.7300688149991784,"observedBetwayOdds":1.36,"stake":0,"provenance":"reconstructed verbatim from pre-result chat card"},
+      {"home":"Modena","away":"Empoli","market":"1X","selection":"Modena OR Draw","hbtP":0.8086474922632572,"observedBetwayOdds":1.17,"stake":0,"provenance":"reconstructed verbatim from pre-result chat card"},
+      {"home":"Marseille","away":"Paris Saint-Germain","market":"X2","selection":"Paris Saint-Germain OR Draw","hbtP":0.7807255304775766,"observedBetwayOdds":1.13,"stake":0,"provenance":"reconstructed verbatim from pre-result chat card"},
+      {"home":"AC Milan","away":"Lecce","market":"1X","selection":"AC Milan OR Draw","hbtP":0.920055992301968,"observedBetwayOdds":1.06,"stake":0,"provenance":"reconstructed verbatim from pre-result chat card"},
+      {"home":"Leganés","away":"Granada","market":"12","selection":"Leganés OR Granada - either team wins","hbtP":0.7268299754956467,"observedBetwayOdds":1.38,"stake":0,"provenance":"reconstructed verbatim from pre-result chat card"}
+    ]
   }
 }
