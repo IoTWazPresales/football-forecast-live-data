@@ -1,8 +1,8 @@
 {
   "schemaVersion": "HBT-EXECUTION-SURFACE-1",
-  "version": "HBT-EXECUTION-SURFACE-1",
+  "version": "HBT-EXECUTION-SURFACE-1.1-IDENTITY-SAFE",
   "targetDate": "2026-09-23",
-  "generatedAt": "2026-09-21T18:36:54.884443Z",
+  "generatedAt": "2026-09-21T18:42:14.820095Z",
   "policy": {
     "footballProbabilitiesImmutable": true,
     "bookmakerPriceObservedOnlyAfterPredictionFreeze": true,
@@ -12,6 +12,7 @@
     "r2RequiresNativeCurrentQualityAtLeast": 0.9,
     "c1MaximumFundedStakeRand": 1,
     "executionRequiresTimezoneAwareVerifiedKickoff": true,
+    "genericDiscoveryIdentityMayNotAuthorizeExecution": true,
     "startedFixtureAction": "R0_BLOCKED_IN_PLAY",
     "chainLegMustIndependentlyPassValueGateForFunding": true,
     "sameMatchCorrelatedLegsAllowed": false
@@ -20,11 +21,12 @@
   "priceSource": null,
   "summary": {
     "surfaces": 3,
-    "executionEligibleNow": 3,
+    "executionEligibleNow": 0,
+    "blockedIdentityOrTiming": 3,
     "fundedSingles": 0,
     "fundedStakeRand": 0,
     "r0Singles": 3,
-    "chains": 1
+    "chains": 0
   },
   "rows": [
     {
@@ -35,8 +37,8 @@
         "league": null
       },
       "origin": "HBT_SHADOW_RESOLVER_V3",
-      "predictionFrozenAt": "2026-09-21T18:36:54.837935Z",
-      "executionSurfaceGeneratedAt": "2026-09-21T18:36:54.884443Z",
+      "predictionFrozenAt": "2026-09-21T18:42:14.767255Z",
+      "executionSurfaceGeneratedAt": "2026-09-21T18:42:14.820095Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-09-23T19:00:00Z",
@@ -45,11 +47,17 @@
           "ESPN_ALL"
         ],
         "sourceFixtureId": "401917010",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase",
+        "leagueHint": null,
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Barcelona",
+        "discoveryAway": "Paris FC",
         "identityScore": 1.0,
         "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "AMBIGUOUS_GENERIC_DISCOVERY_IDENTITY",
       "signal": {
         "tier": "A",
         "rawTier": "A",
@@ -77,7 +85,7 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
+        "executionClass": "R0_EXECUTION_BLOCKED",
         "nativeCleanForR2": false
       },
       "r0Tracking": {
@@ -94,8 +102,8 @@
         "league": null
       },
       "origin": "HBT_SHADOW_RESOLVER_V3",
-      "predictionFrozenAt": "2026-09-21T18:36:54.837935Z",
-      "executionSurfaceGeneratedAt": "2026-09-21T18:36:54.884443Z",
+      "predictionFrozenAt": "2026-09-21T18:42:14.767255Z",
+      "executionSurfaceGeneratedAt": "2026-09-21T18:42:14.820095Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-09-23T18:00:00Z",
@@ -104,11 +112,17 @@
           "ESPN_ALL"
         ],
         "sourceFixtureId": "401916431",
+        "competition": "second-qualifying-round",
+        "competitionSlug": "second-qualifying-round",
+        "leagueHint": null,
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Heart of Midlothian",
+        "discoveryAway": "Real Sociedad",
         "identityScore": 1.0,
         "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "AMBIGUOUS_GENERIC_DISCOVERY_IDENTITY",
       "signal": {
         "tier": "C",
         "rawTier": "C",
@@ -136,7 +150,7 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
+        "executionClass": "R0_EXECUTION_BLOCKED",
         "nativeCleanForR2": false
       },
       "r0Tracking": {
@@ -153,8 +167,8 @@
         "league": null
       },
       "origin": "HBT_SHADOW_RESOLVER_V3",
-      "predictionFrozenAt": "2026-09-21T18:36:54.837935Z",
-      "executionSurfaceGeneratedAt": "2026-09-21T18:36:54.884443Z",
+      "predictionFrozenAt": "2026-09-21T18:42:14.767255Z",
+      "executionSurfaceGeneratedAt": "2026-09-21T18:42:14.820095Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-09-23T17:00:00Z",
@@ -163,11 +177,17 @@
           "ESPN_ALL"
         ],
         "sourceFixtureId": "401916411",
+        "competition": "second-qualifying-round",
+        "competitionSlug": "second-qualifying-round",
+        "leagueHint": null,
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "VfL Wolfsburg",
+        "discoveryAway": "SK Sturm Graz",
         "identityScore": 1.0,
         "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "AMBIGUOUS_GENERIC_DISCOVERY_IDENTITY",
       "signal": {
         "tier": "Avoid",
         "rawTier": "Avoid",
@@ -195,7 +215,7 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
+        "executionClass": "R0_EXECUTION_BLOCKED",
         "nativeCleanForR2": false
       },
       "r0Tracking": {
@@ -205,49 +225,5 @@
       }
     }
   ],
-  "chains": [
-    {
-      "name": "R0_CORE_3",
-      "stakeRand": 0,
-      "executionClass": "R0_SHADOW_CHAIN",
-      "approximateIndependence": true,
-      "jointModelProbabilityApprox": 0.5561364736714318,
-      "fairOddsApprox": 1.7981197913496407,
-      "legs": [
-        {
-          "fixture": {
-            "home": "Barcelona",
-            "away": "Paris FC",
-            "date": "2026-09-23",
-            "league": null
-          },
-          "market": "1X",
-          "selection": "Barcelona OR Draw — Double Chance (1X)",
-          "p": 0.9597102711834997
-        },
-        {
-          "fixture": {
-            "home": "Heart of Midlothian",
-            "away": "Real Sociedad",
-            "date": "2026-09-23",
-            "league": null
-          },
-          "market": "1X",
-          "selection": "Heart of Midlothian OR Draw — Double Chance (1X)",
-          "p": 0.7921734163867797
-        },
-        {
-          "fixture": {
-            "home": "VfL Wolfsburg",
-            "away": "SK Sturm Graz",
-            "date": "2026-09-23",
-            "league": null
-          },
-          "market": "12",
-          "selection": "VfL Wolfsburg OR SK Sturm Graz — Either team wins, draw loses (12)",
-          "p": 0.7315111861016019
-        }
-      ]
-    }
-  ]
+  "chains": []
 }
