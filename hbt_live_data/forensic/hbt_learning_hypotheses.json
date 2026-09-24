@@ -1,6 +1,6 @@
 {
   "schemaVersion": "HBT-LEARNING-HYPOTHESES-1",
-  "version": "HBT-FORENSIC-LEARNING-1",
+  "version": "HBT-FORENSIC-LEARNING-2-GUARD-AWARE",
   "hypotheses": {
     "C1_TRANSFER_CALIBRATION_REVIEW": {
       "status": "OBSERVE",
@@ -647,12 +647,13 @@
       "promotionAllowed": false
     }
   },
-  "updatedAt": "2026-09-21T16:10:48Z",
+  "updatedAt": "2026-09-24T10:39:43Z",
   "policy": {
     "automaticModelMutation": false,
     "automaticFeaturePromotion": false,
     "promotionRequiresHistoricalBacktest": true,
     "promotionRequiresUnseenHoldoutImprovement": true,
-    "preserveExistingIntelligence": true
+    "preserveExistingIntelligence": true,
+    "executionGuardBlockedRowsExcludedFromPredictiveLearning": true
   }
 }

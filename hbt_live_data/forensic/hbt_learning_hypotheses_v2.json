@@ -1,0 +1,1415 @@
+{
+  "schemaVersion": "HBT-LEARNING-HYPOTHESES-2",
+  "version": "HBT-LEARNING-REGISTRY-2-UNIQUE-EVIDENCE",
+  "generatedAt": "2026-09-24T10:39:43Z",
+  "policy": {
+    "idempotentUniqueEvidenceCounting": true,
+    "executionGuardBlockedRowsExcluded": true,
+    "legacyV1EvidencePreservedSeparately": true,
+    "legacyV1EvidenceMayNotAutoPromote": true,
+    "automaticModelMutation": false,
+    "automaticFeaturePromotion": false,
+    "promotionRequiresHistoricalBacktest": true,
+    "promotionRequiresUnseenHoldoutImprovement": true,
+    "preserveExistingIntelligence": true
+  },
+  "coverage": {
+    "forensicFiles": 4,
+    "auditRows": 105,
+    "cleanGuardAwareRows": 0,
+    "legacyV1Rows": 102,
+    "guardBlockedRowsExcluded": 3,
+    "uniqueEvidenceItems": 185
+  },
+  "hypotheses": {
+    "C1_TRANSFER_CALIBRATION_REVIEW": {
+      "status": "OBSERVE",
+      "promotionAllowed": false,
+      "uniqueOccurrences": 28,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 28,
+      "uniqueLossOccurrences": 19,
+      "cleanLossOccurrences": 0,
+      "legacyLossOccurrences": 19,
+      "examples": [
+        {
+          "date": "2026-09-19",
+          "fixture": "Palermo vs Padova",
+          "actual": "H",
+          "sourceHash": "f08324d5ebc33e1b17da4584876ac1627f8b0329b5b2b39b1538e54168b908ce",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Birmingham City vs Middlesbrough",
+          "actual": "D",
+          "sourceHash": "2a9adb1f14151fef2546c9651baf6b185cea74767241f1632963c8419c02446d",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Burnley vs Derby County",
+          "actual": "D",
+          "sourceHash": "1db20276c6a08134c264e3e20ae8df58a5bc8f3ded9a2c492e926abe2609aa78",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Lincoln City vs Swansea City",
+          "actual": "A",
+          "sourceHash": "237bd4b795b6882de205b30bf63e7f737a9cddb669e5bcb016b9745f54e43572",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Portsmouth vs Blackburn Rovers",
+          "actual": "D",
+          "sourceHash": "d633a44d14befcda2a684c4d4291c069d01da2e4772e035376733e70c46d4c01",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Queens Park Rangers vs Preston North End",
+          "actual": "D",
+          "sourceHash": "30b590cac8dfbdedce374ef50238b821e17548ac79e763546361591576f5344c",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Wrexham vs Southampton",
+          "actual": "H",
+          "sourceHash": "3d215320b08d12d89802ea5b9a00f85309ee1d79f23e3865c8073528dfded76b",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "FC Andorra vs Sporting Gijón",
+          "actual": "A",
+          "sourceHash": "eb814c54b4c1bbb2bb76466a20255673c3c9468a31408806caad17cfec009775",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Sampdoria vs Catanzaro",
+          "actual": "H",
+          "sourceHash": "3a3de56e4701ee1d81f64f2e5fe59639ef0367fb3bc8379e4566e2fcfffb38a3",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Castellón vs Tenerife",
+          "actual": "H",
+          "sourceHash": "d33699693342355745d475e7600990885004635f3674a8f74517535c385fe932",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Eldense vs Eibar",
+          "actual": "A",
+          "sourceHash": "baf2d7428b05dafff3f0774ba41978bc34e390e8953fca4fd749192f025e46a3",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Anderlecht vs Zulte-Waregem",
+          "actual": "H",
+          "sourceHash": "c93ec79186e38a55abdc7894768f19061aa34179cdce5eaca2a7309fa5e13a66",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Wolverhampton Wanderers vs West Bromwich Albion",
+          "actual": "H",
+          "sourceHash": "100295579bf4b9c7c46cc65a36a2eba31e178ed21562be91bdd31b15cab4acc9",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Norwich City vs Bolton Wanderers",
+          "actual": "A",
+          "sourceHash": "46be944df039189a01c6b853bc126bd4d71b058b6157da56a3e79155154879f8",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Sint-Truidense vs KVC Westerlo",
+          "actual": "A",
+          "sourceHash": "d1c0f9f8277ee489cc52970d7ce61596a852f2a1e468e3ac67383e4294d7780b",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Ceuta vs Real Valladolid",
+          "actual": "D",
+          "sourceHash": "22a2da9c359c153d133cef2dcfb75adab04d0f229fb483fabc513ca62e1f6a96",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Mantova vs Pisa",
+          "actual": "D",
+          "sourceHash": "348d31049b70e41b28a31de39189b4a338bb5d4b47a0e96d5ec405d5c2018ee7",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Las Palmas vs Burgos",
+          "actual": "A",
+          "sourceHash": "cf4c3d361f846dd509de2dae90d81c62a1c27ea9d25c675dc6682d0b36cf39ad",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Modena vs Empoli",
+          "actual": "H",
+          "sourceHash": "bd1c39dfe69363c0d22fc0eed3dfeb110786a28ee4d93604144b583a7a547cfa",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Leganés vs Granada",
+          "actual": "H",
+          "sourceHash": "524f1ca4b89f0ac791cb0a4fd84b6d406911549ae9fd54e369ce4dd7e46269ba",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        }
+      ],
+      "evidenceIds": [
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-18|Albacete vs Córdoba|6895d1da2789eaf766bcf1363e2bd02871265c8f2f990a4ced9def2a46c905ba",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-18|Juve Stabia vs Cesena|7ae98aa8a89f5c471c512a4b8f383219eef33860ab5b3133278d0387f5a243db",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-18|KAA Gent vs Standard Liege|057ddc1298a9d1b040a3e426d039e0714ec51f1e49a31e64ff5764b2244af4c5",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-18|Bristol City vs Watford|e4a624481e120a7b292d22916d00cfd47a134d37e88041d1ebf7e282d3ec323d",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Cardiff City vs Charlton Athletic|3c10110f48ddffdafe806312a572288c19a53b2f5785dd23d6d97d55c6079a16",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Millwall vs West Ham United|4223ba083e6591709a911a49c1f1cca5e5e662f9cb168ed0523f708d939a2340",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Stoke City vs Sheffield United|a09e11b0640c2b0bddf231b89dec16003538d71b858d425e148e9181e6ad5f9d",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Cremonese vs Virtus Entella|408d73bf5a35dbb19f3e390961f36247de12a66c37709f3bbdf6efe8c58f46d6",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Palermo vs Padova|f08324d5ebc33e1b17da4584876ac1627f8b0329b5b2b39b1538e54168b908ce",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Birmingham City vs Middlesbrough|2a9adb1f14151fef2546c9651baf6b185cea74767241f1632963c8419c02446d",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Burnley vs Derby County|1db20276c6a08134c264e3e20ae8df58a5bc8f3ded9a2c492e926abe2609aa78",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Lincoln City vs Swansea City|237bd4b795b6882de205b30bf63e7f737a9cddb669e5bcb016b9745f54e43572",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Portsmouth vs Blackburn Rovers|d633a44d14befcda2a684c4d4291c069d01da2e4772e035376733e70c46d4c01",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Queens Park Rangers vs Preston North End|30b590cac8dfbdedce374ef50238b821e17548ac79e763546361591576f5344c",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Wrexham vs Southampton|3d215320b08d12d89802ea5b9a00f85309ee1d79f23e3865c8073528dfded76b",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|FC Andorra vs Sporting Gijón|eb814c54b4c1bbb2bb76466a20255673c3c9468a31408806caad17cfec009775",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Sampdoria vs Catanzaro|3a3de56e4701ee1d81f64f2e5fe59639ef0367fb3bc8379e4566e2fcfffb38a3",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Castellón vs Tenerife|d33699693342355745d475e7600990885004635f3674a8f74517535c385fe932",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Eldense vs Eibar|baf2d7428b05dafff3f0774ba41978bc34e390e8953fca4fd749192f025e46a3",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-19|Anderlecht vs Zulte-Waregem|c93ec79186e38a55abdc7894768f19061aa34179cdce5eaca2a7309fa5e13a66",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-20|Wolverhampton Wanderers vs West Bromwich Albion|100295579bf4b9c7c46cc65a36a2eba31e178ed21562be91bdd31b15cab4acc9",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-20|Norwich City vs Bolton Wanderers|46be944df039189a01c6b853bc126bd4d71b058b6157da56a3e79155154879f8",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-20|Sint-Truidense vs KVC Westerlo|d1c0f9f8277ee489cc52970d7ce61596a852f2a1e468e3ac67383e4294d7780b",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-20|Ceuta vs Real Valladolid|22a2da9c359c153d133cef2dcfb75adab04d0f229fb483fabc513ca62e1f6a96",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-20|Mantova vs Pisa|348d31049b70e41b28a31de39189b4a338bb5d4b47a0e96d5ec405d5c2018ee7",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-20|Las Palmas vs Burgos|cf4c3d361f846dd509de2dae90d81c62a1c27ea9d25c675dc6682d0b36cf39ad",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-20|Modena vs Empoli|bd1c39dfe69363c0d22fc0eed3dfeb110786a28ee4d93604144b583a7a547cfa",
+        "C1_TRANSFER_CALIBRATION_REVIEW|2026-09-20|Leganés vs Granada|524f1ca4b89f0ac791cb0a4fd84b6d406911549ae9fd54e369ce4dd7e46269ba"
+      ]
+    },
+    "STALE_STATE_REVIEW": {
+      "status": "OBSERVE",
+      "promotionAllowed": false,
+      "uniqueOccurrences": 43,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 43,
+      "uniqueLossOccurrences": 30,
+      "cleanLossOccurrences": 0,
+      "legacyLossOccurrences": 30,
+      "examples": [
+        {
+          "date": "2026-09-19",
+          "fixture": "Anderlecht vs Zulte-Waregem",
+          "actual": "H",
+          "sourceHash": "c93ec79186e38a55abdc7894768f19061aa34179cdce5eaca2a7309fa5e13a66",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Willem II vs Fortuna Sittard",
+          "actual": "A",
+          "sourceHash": "235ea3bfccffdd6d4df0923aacb0a493c4abe4f9e6773553342c86cfce1e9216",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Sporting CP vs Arouca",
+          "actual": "D",
+          "sourceHash": "7db2b6bf463d7509f857d7bc4dec5bd2cce653fb574b0f38bb610d7b2b377284",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "PEC Zwolle vs De Graafschap",
+          "actual": "A",
+          "sourceHash": "5385d6b84a92a7b951c950b7b7b2c6d27f473d980d32fdd3259d71974f4fe745",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Celtic vs Rangers",
+          "actual": "A",
+          "sourceHash": "a86667dfd3101ca1f248a52d17cedd0d0460c9a80416ccc3766b4ee8fe5de776",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "AZ Alkmaar vs Telstar",
+          "actual": "H",
+          "sourceHash": "4a18e2f4b9dc90c20b9d08761751365137b30adacb1b191f333506b7ae9fb5b4",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "FC Twente vs PSV Eindhoven",
+          "actual": "H",
+          "sourceHash": "298a7715a12d6a952a751ed10402bbb9a28da67b46ed05a418af454cb47eb9ce",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Bayer Leverkusen vs RB Leipzig",
+          "actual": "H",
+          "sourceHash": "cbb3ca2f3b68321f7a2669118898f89d7dbd5c3761e40cc33649755cd7b26d13",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Sint-Truidense vs KVC Westerlo",
+          "actual": "A",
+          "sourceHash": "d1c0f9f8277ee489cc52970d7ce61596a852f2a1e468e3ac67383e4294d7780b",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Fenerbahce vs Eyupspor",
+          "actual": "H",
+          "sourceHash": "d0c1a617ec3ee7d13f354d3a4466894ede39635418c4cdb86d14f75eb7b19945",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Atlético Madrid vs Real Madrid",
+          "actual": "H",
+          "sourceHash": "7adf64547568d82f25c3dfe809a45f74efe431ce5b7bf571369a081861bccfe9",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Ceuta vs Real Valladolid",
+          "actual": "D",
+          "sourceHash": "22a2da9c359c153d133cef2dcfb75adab04d0f229fb483fabc513ca62e1f6a96",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "NEC Nijmegen vs Go Ahead Eagles",
+          "actual": "D",
+          "sourceHash": "65ec754f5e0ebf10fd8b3cd78b32b2ba7b0ba6882b446231c9446971c822ad67",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Mantova vs Pisa",
+          "actual": "D",
+          "sourceHash": "348d31049b70e41b28a31de39189b4a338bb5d4b47a0e96d5ec405d5c2018ee7",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Juventus vs Atalanta",
+          "actual": "H",
+          "sourceHash": "5de3f21a986555006a6fe90e19cc288f035ba7020041f9d38fc52a73621eba0c",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Las Palmas vs Burgos",
+          "actual": "A",
+          "sourceHash": "cf4c3d361f846dd509de2dae90d81c62a1c27ea9d25c675dc6682d0b36cf39ad",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Goztepe vs Caykur Rizespor",
+          "actual": "D",
+          "sourceHash": "2e3121b506d7ae1c484d02349dd42893837e98eebeb2259981c3e3ad9bd64efe",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Modena vs Empoli",
+          "actual": "H",
+          "sourceHash": "bd1c39dfe69363c0d22fc0eed3dfeb110786a28ee4d93604144b583a7a547cfa",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Valencia vs Real Sociedad",
+          "actual": "A",
+          "sourceHash": "0ace0b24036d6eb091b213a0bcb6daec390b5fc945d075e5af2df5639f43e98b",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Leganés vs Granada",
+          "actual": "H",
+          "sourceHash": "524f1ca4b89f0ac791cb0a4fd84b6d406911549ae9fd54e369ce4dd7e46269ba",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        }
+      ],
+      "evidenceIds": [
+        "STALE_STATE_REVIEW|2026-09-18|Albacete vs Córdoba|6895d1da2789eaf766bcf1363e2bd02871265c8f2f990a4ced9def2a46c905ba",
+        "STALE_STATE_REVIEW|2026-09-18|Juve Stabia vs Cesena|7ae98aa8a89f5c471c512a4b8f383219eef33860ab5b3133278d0387f5a243db",
+        "STALE_STATE_REVIEW|2026-09-18|KAA Gent vs Standard Liege|057ddc1298a9d1b040a3e426d039e0714ec51f1e49a31e64ff5764b2244af4c5",
+        "STALE_STATE_REVIEW|2026-09-19|PSV Eindhoven vs FC Twente|6d4380c947db3f7531f669df28fb5b54e2c19d43ca11e0e05b67ca46c30a9a81",
+        "STALE_STATE_REVIEW|2026-09-19|Osasuna vs Rayo Vallecano|673ca05334306d7846d59c79cb7fb9470deaf4ecbf536be5194b7d4a4f69c6a5",
+        "STALE_STATE_REVIEW|2026-09-19|Bologna vs Torino|137514d4b42e822adb3a9c555c227d9e5c0976153c738475d5f4366a2174e191",
+        "STALE_STATE_REVIEW|2026-09-19|Cremonese vs Virtus Entella|408d73bf5a35dbb19f3e390961f36247de12a66c37709f3bbdf6efe8c58f46d6",
+        "STALE_STATE_REVIEW|2026-09-19|Palermo vs Padova|f08324d5ebc33e1b17da4584876ac1627f8b0329b5b2b39b1538e54168b908ce",
+        "STALE_STATE_REVIEW|2026-09-19|Dundee vs Motherwell|04beaa5ee144d751d912f44e47c21540e03270fd4c743a7e6fe983ca96d4cca1",
+        "STALE_STATE_REVIEW|2026-09-19|Hibernian vs Aberdeen|01804e62ace470175f2723a3e660c4e94877dcb6f327a659c9c77748f49ad9f0",
+        "STALE_STATE_REVIEW|2026-09-19|St Johnstone vs Falkirk|81d83dfd28b87f5890ce77476c30a6d3cd595967b6b8ba4035b9c48e552b10f2",
+        "STALE_STATE_REVIEW|2026-09-19|St Mirren vs Dundee United|d4f4dfb13facc7757c8725d916ad5509a0853829e7d8674cc5952d9d2b1a0d62",
+        "STALE_STATE_REVIEW|2026-09-19|Kocaelispor vs Gaziantep FK|edeb206dd36cf888a7960eb0a6a6cb226f9c3d8054fd89b5fb0f455b49e512e0",
+        "STALE_STATE_REVIEW|2026-09-19|Athletic Club vs Alavés|9aa5b85204a36d7de45c90ca1e53850202d0e6419db2a4b8fb876b06b7715121",
+        "STALE_STATE_REVIEW|2026-09-19|FC Andorra vs Sporting Gijón|eb814c54b4c1bbb2bb76466a20255673c3c9468a31408806caad17cfec009775",
+        "STALE_STATE_REVIEW|2026-09-19|ADO Den Haag vs SC Cambuur|03fffebc08a1224ebbdc6e405391570778d348d065622dced3041e3c0692ab52",
+        "STALE_STATE_REVIEW|2026-09-19|Paris FC vs Strasbourg|e187909b11f54904ddfc2aca07a645ff24877cdc8163694addf52c0a844ec01d",
+        "STALE_STATE_REVIEW|2026-09-19|Sampdoria vs Catanzaro|3a3de56e4701ee1d81f64f2e5fe59639ef0367fb3bc8379e4566e2fcfffb38a3",
+        "STALE_STATE_REVIEW|2026-09-19|Castellón vs Tenerife|d33699693342355745d475e7600990885004635f3674a8f74517535c385fe932",
+        "STALE_STATE_REVIEW|2026-09-19|Eldense vs Eibar|baf2d7428b05dafff3f0774ba41978bc34e390e8953fca4fd749192f025e46a3",
+        "STALE_STATE_REVIEW|2026-09-19|Kilmarnock vs Heart of Midlothian|6ddab2142ca94bcc3a1d8ce45e7da2d85add7785ffaf8c7bc51408e977b9558f",
+        "STALE_STATE_REVIEW|2026-09-19|Istanbul Basaksehir vs Genclerbirligi|4caec2c20b5730b6a885f72b25d9c72a546e6fc2ed085725278920c1fc812679",
+        "STALE_STATE_REVIEW|2026-09-19|Trabzonspor vs Galatasaray|62cf5fdd4e34cafdf1b6baac174b7058c85530cc9a7bdc7c932389d008f5debd",
+        "STALE_STATE_REVIEW|2026-09-19|Anderlecht vs Zulte-Waregem|c93ec79186e38a55abdc7894768f19061aa34179cdce5eaca2a7309fa5e13a66",
+        "STALE_STATE_REVIEW|2026-09-19|Willem II vs Fortuna Sittard|235ea3bfccffdd6d4df0923aacb0a493c4abe4f9e6773553342c86cfce1e9216",
+        "STALE_STATE_REVIEW|2026-09-19|Sporting CP vs Arouca|7db2b6bf463d7509f857d7bc4dec5bd2cce653fb574b0f38bb610d7b2b377284",
+        "STALE_STATE_REVIEW|2026-09-20|PEC Zwolle vs De Graafschap|5385d6b84a92a7b951c950b7b7b2c6d27f473d980d32fdd3259d71974f4fe745",
+        "STALE_STATE_REVIEW|2026-09-20|Celtic vs Rangers|a86667dfd3101ca1f248a52d17cedd0d0460c9a80416ccc3766b4ee8fe5de776",
+        "STALE_STATE_REVIEW|2026-09-20|AZ Alkmaar vs Telstar|4a18e2f4b9dc90c20b9d08761751365137b30adacb1b191f333506b7ae9fb5b4",
+        "STALE_STATE_REVIEW|2026-09-20|FC Twente vs PSV Eindhoven|298a7715a12d6a952a751ed10402bbb9a28da67b46ed05a418af454cb47eb9ce",
+        "STALE_STATE_REVIEW|2026-09-20|Bayer Leverkusen vs RB Leipzig|cbb3ca2f3b68321f7a2669118898f89d7dbd5c3761e40cc33649755cd7b26d13",
+        "STALE_STATE_REVIEW|2026-09-20|Sint-Truidense vs KVC Westerlo|d1c0f9f8277ee489cc52970d7ce61596a852f2a1e468e3ac67383e4294d7780b",
+        "STALE_STATE_REVIEW|2026-09-20|Fenerbahce vs Eyupspor|d0c1a617ec3ee7d13f354d3a4466894ede39635418c4cdb86d14f75eb7b19945",
+        "STALE_STATE_REVIEW|2026-09-20|Atlético Madrid vs Real Madrid|7adf64547568d82f25c3dfe809a45f74efe431ce5b7bf571369a081861bccfe9",
+        "STALE_STATE_REVIEW|2026-09-20|Ceuta vs Real Valladolid|22a2da9c359c153d133cef2dcfb75adab04d0f229fb483fabc513ca62e1f6a96",
+        "STALE_STATE_REVIEW|2026-09-20|NEC Nijmegen vs Go Ahead Eagles|65ec754f5e0ebf10fd8b3cd78b32b2ba7b0ba6882b446231c9446971c822ad67",
+        "STALE_STATE_REVIEW|2026-09-20|Mantova vs Pisa|348d31049b70e41b28a31de39189b4a338bb5d4b47a0e96d5ec405d5c2018ee7",
+        "STALE_STATE_REVIEW|2026-09-20|Juventus vs Atalanta|5de3f21a986555006a6fe90e19cc288f035ba7020041f9d38fc52a73621eba0c",
+        "STALE_STATE_REVIEW|2026-09-20|Las Palmas vs Burgos|cf4c3d361f846dd509de2dae90d81c62a1c27ea9d25c675dc6682d0b36cf39ad",
+        "STALE_STATE_REVIEW|2026-09-20|Goztepe vs Caykur Rizespor|2e3121b506d7ae1c484d02349dd42893837e98eebeb2259981c3e3ad9bd64efe",
+        "STALE_STATE_REVIEW|2026-09-20|Modena vs Empoli|bd1c39dfe69363c0d22fc0eed3dfeb110786a28ee4d93604144b583a7a547cfa",
+        "STALE_STATE_REVIEW|2026-09-20|Valencia vs Real Sociedad|0ace0b24036d6eb091b213a0bcb6daec390b5fc945d075e5af2df5639f43e98b",
+        "STALE_STATE_REVIEW|2026-09-20|Leganés vs Granada|524f1ca4b89f0ac791cb0a4fd84b6d406911549ae9fd54e369ce4dd7e46269ba"
+      ]
+    },
+    "LOW_PROBABILITY_ACTUAL_OUTCOME": {
+      "status": "OBSERVE",
+      "promotionAllowed": false,
+      "uniqueOccurrences": 37,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 37,
+      "uniqueLossOccurrences": 37,
+      "cleanLossOccurrences": 0,
+      "legacyLossOccurrences": 37,
+      "examples": [
+        {
+          "date": "2026-09-19",
+          "fixture": "FC Andorra vs Sporting Gijón",
+          "actual": "A",
+          "sourceHash": "eb814c54b4c1bbb2bb76466a20255673c3c9468a31408806caad17cfec009775",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "ADO Den Haag vs SC Cambuur",
+          "actual": "D",
+          "sourceHash": "03fffebc08a1224ebbdc6e405391570778d348d065622dced3041e3c0692ab52",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Gil Vicente vs Maritimo",
+          "actual": "D",
+          "sourceHash": "c80a535ab126a427beb34bbc309d82882801c167c5881c62f43698bf245be78e",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Sampdoria vs Catanzaro",
+          "actual": "H",
+          "sourceHash": "3a3de56e4701ee1d81f64f2e5fe59639ef0367fb3bc8379e4566e2fcfffb38a3",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Kilmarnock vs Heart of Midlothian",
+          "actual": "D",
+          "sourceHash": "6ddab2142ca94bcc3a1d8ce45e7da2d85add7785ffaf8c7bc51408e977b9558f",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Trabzonspor vs Galatasaray",
+          "actual": "H",
+          "sourceHash": "62cf5fdd4e34cafdf1b6baac174b7058c85530cc9a7bdc7c932389d008f5debd",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Fiorentina vs Napoli",
+          "actual": "D",
+          "sourceHash": "af4311d50e9b17e407f3235485917d7459d41fd1772b248d142be9482598f147",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Leeds United vs Crystal Palace",
+          "actual": "D",
+          "sourceHash": "0c2c9415f69a6e1958419c5b36530e57644b36451501d5b7036cc6156cd0ed24",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Sint-Truidense vs KVC Westerlo",
+          "actual": "A",
+          "sourceHash": "d1c0f9f8277ee489cc52970d7ce61596a852f2a1e468e3ac67383e4294d7780b",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Atlético Madrid vs Real Madrid",
+          "actual": "H",
+          "sourceHash": "7adf64547568d82f25c3dfe809a45f74efe431ce5b7bf571369a081861bccfe9",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Ceuta vs Real Valladolid",
+          "actual": "D",
+          "sourceHash": "22a2da9c359c153d133cef2dcfb75adab04d0f229fb483fabc513ca62e1f6a96",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Vitória de Guimaraes vs Moreirense",
+          "actual": "D",
+          "sourceHash": "05f14518c3f457cf6823aa03ee8881d93fbfb922e31a4416f5d3208bc502741e",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "ADO Den Haag vs Heerenveen",
+          "actual": "D",
+          "sourceHash": "5a963a2e85db8cc79c047eacb2e1d48cc100314b1246ad0be81d0813977a870e",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "NEC Nijmegen vs Go Ahead Eagles",
+          "actual": "D",
+          "sourceHash": "65ec754f5e0ebf10fd8b3cd78b32b2ba7b0ba6882b446231c9446971c822ad67",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Mantova vs Pisa",
+          "actual": "D",
+          "sourceHash": "348d31049b70e41b28a31de39189b4a338bb5d4b47a0e96d5ec405d5c2018ee7",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Schalke 04 vs SV Elversberg",
+          "actual": "D",
+          "sourceHash": "e7ce16861e63e4e213655bd0732ddf00ad2fa39efb5ae762ee0a35266ee117fc",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Fulham vs Manchester United",
+          "actual": "D",
+          "sourceHash": "ba4c176aa2db6eaf1a8cd8f4ef6cd2afc005030e42908e38f72d73e14d48f595",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Las Palmas vs Burgos",
+          "actual": "A",
+          "sourceHash": "cf4c3d361f846dd509de2dae90d81c62a1c27ea9d25c675dc6682d0b36cf39ad",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Santa Clara vs Braga",
+          "actual": "D",
+          "sourceHash": "7312fc55664eee54f5c42c8778a50408407d7928b9714403ecc619d9132ed49c",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Goztepe vs Caykur Rizespor",
+          "actual": "D",
+          "sourceHash": "2e3121b506d7ae1c484d02349dd42893837e98eebeb2259981c3e3ad9bd64efe",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        }
+      ],
+      "evidenceIds": [
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-18|Juve Stabia vs Cesena|7ae98aa8a89f5c471c512a4b8f383219eef33860ab5b3133278d0387f5a243db",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-18|Monza vs Sassuolo|91cb1275de0ae369136d2ebbb5447cbddb4a76ddb69ff537f9566c13e0afd1d4",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-18|Espanyol vs Elche|66673161f366c951d91f82beba06c5c149d8efae8be1a9788868d621e7316dd0",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Millwall vs West Ham United|4223ba083e6591709a911a49c1f1cca5e5e662f9cb168ed0523f708d939a2340",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Osasuna vs Rayo Vallecano|673ca05334306d7846d59c79cb7fb9470deaf4ecbf536be5194b7d4a4f69c6a5",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Bologna vs Torino|137514d4b42e822adb3a9c555c227d9e5c0976153c738475d5f4366a2174e191",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Udinese vs Cagliari|9e9dc31e7aa781d95a66fd2fe90986b0c5b84105e99c6d2b808d216441b5b3ff",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Cremonese vs Virtus Entella|408d73bf5a35dbb19f3e390961f36247de12a66c37709f3bbdf6efe8c58f46d6",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Eintracht Frankfurt vs SC Freiburg|ca21033e6d8141127326ed09e711fdc7c716e1142dd16d0f239625d373feda34",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Birmingham City vs Middlesbrough|2a9adb1f14151fef2546c9651baf6b185cea74767241f1632963c8419c02446d",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Burnley vs Derby County|1db20276c6a08134c264e3e20ae8df58a5bc8f3ded9a2c492e926abe2609aa78",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Portsmouth vs Blackburn Rovers|d633a44d14befcda2a684c4d4291c069d01da2e4772e035376733e70c46d4c01",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Queens Park Rangers vs Preston North End|30b590cac8dfbdedce374ef50238b821e17548ac79e763546361591576f5344c",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Hibernian vs Aberdeen|01804e62ace470175f2723a3e660c4e94877dcb6f327a659c9c77748f49ad9f0",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|St Johnstone vs Falkirk|81d83dfd28b87f5890ce77476c30a6d3cd595967b6b8ba4035b9c48e552b10f2",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|St Mirren vs Dundee United|d4f4dfb13facc7757c8725d916ad5509a0853829e7d8674cc5952d9d2b1a0d62",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Athletic Club vs Alavés|9aa5b85204a36d7de45c90ca1e53850202d0e6419db2a4b8fb876b06b7715121",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|FC Andorra vs Sporting Gijón|eb814c54b4c1bbb2bb76466a20255673c3c9468a31408806caad17cfec009775",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|ADO Den Haag vs SC Cambuur|03fffebc08a1224ebbdc6e405391570778d348d065622dced3041e3c0692ab52",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Gil Vicente vs Maritimo|c80a535ab126a427beb34bbc309d82882801c167c5881c62f43698bf245be78e",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Sampdoria vs Catanzaro|3a3de56e4701ee1d81f64f2e5fe59639ef0367fb3bc8379e4566e2fcfffb38a3",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Kilmarnock vs Heart of Midlothian|6ddab2142ca94bcc3a1d8ce45e7da2d85add7785ffaf8c7bc51408e977b9558f",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Trabzonspor vs Galatasaray|62cf5fdd4e34cafdf1b6baac174b7058c85530cc9a7bdc7c932389d008f5debd",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Fiorentina vs Napoli|af4311d50e9b17e407f3235485917d7459d41fd1772b248d142be9482598f147",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Leeds United vs Crystal Palace|0c2c9415f69a6e1958419c5b36530e57644b36451501d5b7036cc6156cd0ed24",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Sint-Truidense vs KVC Westerlo|d1c0f9f8277ee489cc52970d7ce61596a852f2a1e468e3ac67383e4294d7780b",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Atlético Madrid vs Real Madrid|7adf64547568d82f25c3dfe809a45f74efe431ce5b7bf571369a081861bccfe9",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Ceuta vs Real Valladolid|22a2da9c359c153d133cef2dcfb75adab04d0f229fb483fabc513ca62e1f6a96",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Vitória de Guimaraes vs Moreirense|05f14518c3f457cf6823aa03ee8881d93fbfb922e31a4416f5d3208bc502741e",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|ADO Den Haag vs Heerenveen|5a963a2e85db8cc79c047eacb2e1d48cc100314b1246ad0be81d0813977a870e",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|NEC Nijmegen vs Go Ahead Eagles|65ec754f5e0ebf10fd8b3cd78b32b2ba7b0ba6882b446231c9446971c822ad67",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Mantova vs Pisa|348d31049b70e41b28a31de39189b4a338bb5d4b47a0e96d5ec405d5c2018ee7",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Schalke 04 vs SV Elversberg|e7ce16861e63e4e213655bd0732ddf00ad2fa39efb5ae762ee0a35266ee117fc",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Fulham vs Manchester United|ba4c176aa2db6eaf1a8cd8f4ef6cd2afc005030e42908e38f72d73e14d48f595",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Las Palmas vs Burgos|cf4c3d361f846dd509de2dae90d81c62a1c27ea9d25c675dc6682d0b36cf39ad",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Santa Clara vs Braga|7312fc55664eee54f5c42c8778a50408407d7928b9714403ecc619d9132ed49c",
+        "LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Goztepe vs Caykur Rizespor|2e3121b506d7ae1c484d02349dd42893837e98eebeb2259981c3e3ad9bd64efe"
+      ]
+    },
+    "MARKET_OUTCOME_MISS": {
+      "status": "OBSERVE",
+      "promotionAllowed": false,
+      "uniqueOccurrences": 6,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 6,
+      "uniqueLossOccurrences": 6,
+      "cleanLossOccurrences": 0,
+      "legacyLossOccurrences": 6,
+      "examples": [
+        {
+          "date": "2026-09-18",
+          "fixture": "Monza vs Sassuolo",
+          "actual": "H",
+          "sourceHash": "91cb1275de0ae369136d2ebbb5447cbddb4a76ddb69ff537f9566c13e0afd1d4",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-18",
+          "fixture": "Espanyol vs Elche",
+          "actual": "A",
+          "sourceHash": "66673161f366c951d91f82beba06c5c149d8efae8be1a9788868d621e7316dd0",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Brighton & Hove Albion vs Arsenal",
+          "actual": "H",
+          "sourceHash": "f43782b69f851493b25dbf87a4f5d396b19e620c9197ceab0a4fdf7406994b42",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Nottingham Forest vs Coventry City",
+          "actual": "A",
+          "sourceHash": "f8340ec3e956a2cebe97a0078354d55af40b46b2f73f6a55b74b10505aeb3d94",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Santa Clara vs Braga",
+          "actual": "D",
+          "sourceHash": "7312fc55664eee54f5c42c8778a50408407d7928b9714403ecc619d9132ed49c",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Valencia vs Real Sociedad",
+          "actual": "A",
+          "sourceHash": "0ace0b24036d6eb091b213a0bcb6daec390b5fc945d075e5af2df5639f43e98b",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        }
+      ],
+      "evidenceIds": [
+        "MARKET_OUTCOME_MISS|2026-09-18|Monza vs Sassuolo|91cb1275de0ae369136d2ebbb5447cbddb4a76ddb69ff537f9566c13e0afd1d4",
+        "MARKET_OUTCOME_MISS|2026-09-18|Espanyol vs Elche|66673161f366c951d91f82beba06c5c149d8efae8be1a9788868d621e7316dd0",
+        "MARKET_OUTCOME_MISS|2026-09-19|Brighton & Hove Albion vs Arsenal|f43782b69f851493b25dbf87a4f5d396b19e620c9197ceab0a4fdf7406994b42",
+        "MARKET_OUTCOME_MISS|2026-09-19|Nottingham Forest vs Coventry City|f8340ec3e956a2cebe97a0078354d55af40b46b2f73f6a55b74b10505aeb3d94",
+        "MARKET_OUTCOME_MISS|2026-09-20|Santa Clara vs Braga|7312fc55664eee54f5c42c8778a50408407d7928b9714403ecc619d9132ed49c",
+        "MARKET_OUTCOME_MISS|2026-09-20|Valencia vs Real Sociedad|0ace0b24036d6eb091b213a0bcb6daec390b5fc945d075e5af2df5639f43e98b"
+      ]
+    },
+    "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT": {
+      "status": "OBSERVE",
+      "promotionAllowed": false,
+      "uniqueOccurrences": 14,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 14,
+      "uniqueLossOccurrences": 14,
+      "cleanLossOccurrences": 0,
+      "legacyLossOccurrences": 14,
+      "examples": [
+        {
+          "date": "2026-09-18",
+          "fixture": "Monza vs Sassuolo",
+          "actual": "H",
+          "sourceHash": "91cb1275de0ae369136d2ebbb5447cbddb4a76ddb69ff537f9566c13e0afd1d4",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Bologna vs Torino",
+          "actual": "D",
+          "sourceHash": "137514d4b42e822adb3a9c555c227d9e5c0976153c738475d5f4366a2174e191",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Udinese vs Cagliari",
+          "actual": "A",
+          "sourceHash": "9e9dc31e7aa781d95a66fd2fe90986b0c5b84105e99c6d2b808d216441b5b3ff",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Eintracht Frankfurt vs SC Freiburg",
+          "actual": "D",
+          "sourceHash": "ca21033e6d8141127326ed09e711fdc7c716e1142dd16d0f239625d373feda34",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Burnley vs Derby County",
+          "actual": "D",
+          "sourceHash": "1db20276c6a08134c264e3e20ae8df58a5bc8f3ded9a2c492e926abe2609aa78",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Wrexham vs Southampton",
+          "actual": "H",
+          "sourceHash": "3d215320b08d12d89802ea5b9a00f85309ee1d79f23e3865c8073528dfded76b",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Nottingham Forest vs Coventry City",
+          "actual": "A",
+          "sourceHash": "f8340ec3e956a2cebe97a0078354d55af40b46b2f73f6a55b74b10505aeb3d94",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Eldense vs Eibar",
+          "actual": "A",
+          "sourceHash": "baf2d7428b05dafff3f0774ba41978bc34e390e8953fca4fd749192f025e46a3",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Kilmarnock vs Heart of Midlothian",
+          "actual": "D",
+          "sourceHash": "6ddab2142ca94bcc3a1d8ce45e7da2d85add7785ffaf8c7bc51408e977b9558f",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Sporting CP vs Arouca",
+          "actual": "D",
+          "sourceHash": "7db2b6bf463d7509f857d7bc4dec5bd2cce653fb574b0f38bb610d7b2b377284",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Leeds United vs Crystal Palace",
+          "actual": "D",
+          "sourceHash": "0c2c9415f69a6e1958419c5b36530e57644b36451501d5b7036cc6156cd0ed24",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Ceuta vs Real Valladolid",
+          "actual": "D",
+          "sourceHash": "22a2da9c359c153d133cef2dcfb75adab04d0f229fb483fabc513ca62e1f6a96",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Mantova vs Pisa",
+          "actual": "D",
+          "sourceHash": "348d31049b70e41b28a31de39189b4a338bb5d4b47a0e96d5ec405d5c2018ee7",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Fulham vs Manchester United",
+          "actual": "D",
+          "sourceHash": "ba4c176aa2db6eaf1a8cd8f4ef6cd2afc005030e42908e38f72d73e14d48f595",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        }
+      ],
+      "evidenceIds": [
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-18|Monza vs Sassuolo|91cb1275de0ae369136d2ebbb5447cbddb4a76ddb69ff537f9566c13e0afd1d4",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-19|Bologna vs Torino|137514d4b42e822adb3a9c555c227d9e5c0976153c738475d5f4366a2174e191",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-19|Udinese vs Cagliari|9e9dc31e7aa781d95a66fd2fe90986b0c5b84105e99c6d2b808d216441b5b3ff",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-19|Eintracht Frankfurt vs SC Freiburg|ca21033e6d8141127326ed09e711fdc7c716e1142dd16d0f239625d373feda34",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-19|Burnley vs Derby County|1db20276c6a08134c264e3e20ae8df58a5bc8f3ded9a2c492e926abe2609aa78",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-19|Wrexham vs Southampton|3d215320b08d12d89802ea5b9a00f85309ee1d79f23e3865c8073528dfded76b",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-19|Nottingham Forest vs Coventry City|f8340ec3e956a2cebe97a0078354d55af40b46b2f73f6a55b74b10505aeb3d94",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-19|Eldense vs Eibar|baf2d7428b05dafff3f0774ba41978bc34e390e8953fca4fd749192f025e46a3",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-19|Kilmarnock vs Heart of Midlothian|6ddab2142ca94bcc3a1d8ce45e7da2d85add7785ffaf8c7bc51408e977b9558f",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-19|Sporting CP vs Arouca|7db2b6bf463d7509f857d7bc4dec5bd2cce653fb574b0f38bb610d7b2b377284",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-20|Leeds United vs Crystal Palace|0c2c9415f69a6e1958419c5b36530e57644b36451501d5b7036cc6156cd0ed24",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-20|Ceuta vs Real Valladolid|22a2da9c359c153d133cef2dcfb75adab04d0f229fb483fabc513ca62e1f6a96",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-20|Mantova vs Pisa|348d31049b70e41b28a31de39189b4a338bb5d4b47a0e96d5ec405d5c2018ee7",
+        "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT|2026-09-20|Fulham vs Manchester United|ba4c176aa2db6eaf1a8cd8f4ef6cd2afc005030e42908e38f72d73e14d48f595"
+      ]
+    },
+    "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST": {
+      "status": "OBSERVE",
+      "promotionAllowed": false,
+      "uniqueOccurrences": 17,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 17,
+      "uniqueLossOccurrences": 17,
+      "cleanLossOccurrences": 0,
+      "legacyLossOccurrences": 17,
+      "examples": [
+        {
+          "date": "2026-09-19",
+          "fixture": "Stoke City vs Sheffield United",
+          "actual": "H",
+          "sourceHash": "a09e11b0640c2b0bddf231b89dec16003538d71b858d425e148e9181e6ad5f9d",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Werder Bremen vs FC Augsburg",
+          "actual": "H",
+          "sourceHash": "9f0331a0b4330f15dc3b28f80b22965e1a1023fc612158707d6a55f2e52c8bff",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Portsmouth vs Blackburn Rovers",
+          "actual": "D",
+          "sourceHash": "d633a44d14befcda2a684c4d4291c069d01da2e4772e035376733e70c46d4c01",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Queens Park Rangers vs Preston North End",
+          "actual": "D",
+          "sourceHash": "30b590cac8dfbdedce374ef50238b821e17548ac79e763546361591576f5344c",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Brighton & Hove Albion vs Arsenal",
+          "actual": "H",
+          "sourceHash": "f43782b69f851493b25dbf87a4f5d396b19e620c9197ceab0a4fdf7406994b42",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "St Mirren vs Dundee United",
+          "actual": "A",
+          "sourceHash": "d4f4dfb13facc7757c8725d916ad5509a0853829e7d8674cc5952d9d2b1a0d62",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Athletic Club vs Alavés",
+          "actual": "D",
+          "sourceHash": "9aa5b85204a36d7de45c90ca1e53850202d0e6419db2a4b8fb876b06b7715121",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "ADO Den Haag vs SC Cambuur",
+          "actual": "D",
+          "sourceHash": "03fffebc08a1224ebbdc6e405391570778d348d065622dced3041e3c0692ab52",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Gil Vicente vs Maritimo",
+          "actual": "D",
+          "sourceHash": "c80a535ab126a427beb34bbc309d82882801c167c5881c62f43698bf245be78e",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Sampdoria vs Catanzaro",
+          "actual": "H",
+          "sourceHash": "3a3de56e4701ee1d81f64f2e5fe59639ef0367fb3bc8379e4566e2fcfffb38a3",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Le Mans vs Lorient",
+          "actual": "H",
+          "sourceHash": "b0251bfeae4557499c90fe7741e1962f3972c14fb027e5b361e860a53d392d2c",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Celtic vs Rangers",
+          "actual": "A",
+          "sourceHash": "a86667dfd3101ca1f248a52d17cedd0d0460c9a80416ccc3766b4ee8fe5de776",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "FC Twente vs PSV Eindhoven",
+          "actual": "H",
+          "sourceHash": "298a7715a12d6a952a751ed10402bbb9a28da67b46ed05a418af454cb47eb9ce",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Sint-Truidense vs KVC Westerlo",
+          "actual": "A",
+          "sourceHash": "d1c0f9f8277ee489cc52970d7ce61596a852f2a1e468e3ac67383e4294d7780b",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Atlético Madrid vs Real Madrid",
+          "actual": "H",
+          "sourceHash": "7adf64547568d82f25c3dfe809a45f74efe431ce5b7bf571369a081861bccfe9",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Vitória de Guimaraes vs Moreirense",
+          "actual": "D",
+          "sourceHash": "05f14518c3f457cf6823aa03ee8881d93fbfb922e31a4416f5d3208bc502741e",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Goztepe vs Caykur Rizespor",
+          "actual": "D",
+          "sourceHash": "2e3121b506d7ae1c484d02349dd42893837e98eebeb2259981c3e3ad9bd64efe",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        }
+      ],
+      "evidenceIds": [
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-19|Stoke City vs Sheffield United|a09e11b0640c2b0bddf231b89dec16003538d71b858d425e148e9181e6ad5f9d",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-19|Werder Bremen vs FC Augsburg|9f0331a0b4330f15dc3b28f80b22965e1a1023fc612158707d6a55f2e52c8bff",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-19|Portsmouth vs Blackburn Rovers|d633a44d14befcda2a684c4d4291c069d01da2e4772e035376733e70c46d4c01",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-19|Queens Park Rangers vs Preston North End|30b590cac8dfbdedce374ef50238b821e17548ac79e763546361591576f5344c",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-19|Brighton & Hove Albion vs Arsenal|f43782b69f851493b25dbf87a4f5d396b19e620c9197ceab0a4fdf7406994b42",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-19|St Mirren vs Dundee United|d4f4dfb13facc7757c8725d916ad5509a0853829e7d8674cc5952d9d2b1a0d62",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-19|Athletic Club vs Alavés|9aa5b85204a36d7de45c90ca1e53850202d0e6419db2a4b8fb876b06b7715121",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-19|ADO Den Haag vs SC Cambuur|03fffebc08a1224ebbdc6e405391570778d348d065622dced3041e3c0692ab52",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-19|Gil Vicente vs Maritimo|c80a535ab126a427beb34bbc309d82882801c167c5881c62f43698bf245be78e",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-19|Sampdoria vs Catanzaro|3a3de56e4701ee1d81f64f2e5fe59639ef0367fb3bc8379e4566e2fcfffb38a3",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-19|Le Mans vs Lorient|b0251bfeae4557499c90fe7741e1962f3972c14fb027e5b361e860a53d392d2c",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-20|Celtic vs Rangers|a86667dfd3101ca1f248a52d17cedd0d0460c9a80416ccc3766b4ee8fe5de776",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-20|FC Twente vs PSV Eindhoven|298a7715a12d6a952a751ed10402bbb9a28da67b46ed05a418af454cb47eb9ce",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-20|Sint-Truidense vs KVC Westerlo|d1c0f9f8277ee489cc52970d7ce61596a852f2a1e468e3ac67383e4294d7780b",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-20|Atlético Madrid vs Real Madrid|7adf64547568d82f25c3dfe809a45f74efe431ce5b7bf571369a081861bccfe9",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-20|Vitória de Guimaraes vs Moreirense|05f14518c3f457cf6823aa03ee8881d93fbfb922e31a4416f5d3208bc502741e",
+        "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST|2026-09-20|Goztepe vs Caykur Rizespor|2e3121b506d7ae1c484d02349dd42893837e98eebeb2259981c3e3ad9bd64efe"
+      ]
+    },
+    "RESULT_CORRECT_PROCESS_REVIEW": {
+      "status": "OBSERVE",
+      "promotionAllowed": false,
+      "uniqueOccurrences": 5,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 5,
+      "uniqueLossOccurrences": 0,
+      "cleanLossOccurrences": 0,
+      "legacyLossOccurrences": 0,
+      "examples": [
+        {
+          "date": "2026-09-19",
+          "fixture": "Tottenham Hotspur vs Aston Villa",
+          "actual": "A",
+          "sourceHash": "67c8fc5f6e099c63e6226013d5e9738064c5fac4db01591e915c332d856fbef3",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "VfB Stuttgart vs Borussia Dortmund",
+          "actual": "A",
+          "sourceHash": "a660403a36e9f8e14d651bb3edfdccde5f7eb9dc030908c923ab8a536372b6f2",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Toulouse vs Le Havre AC",
+          "actual": "H",
+          "sourceHash": "3ece9f2894770a061c2113e788e54579d6005b07fedd592ccd471db07bcfc788",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Manchester City vs Sunderland",
+          "actual": "H",
+          "sourceHash": "d5add82ee040707abbd05ed3aee9fb3325172cbdae6189484b6437c26fcbcb55",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Parma vs Genoa",
+          "actual": "H",
+          "sourceHash": "e42743f076afcf13ffeefedae0466344ce47d6505feac34df5195092564f23ca",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        }
+      ],
+      "evidenceIds": [
+        "RESULT_CORRECT_PROCESS_REVIEW|2026-09-19|Tottenham Hotspur vs Aston Villa|67c8fc5f6e099c63e6226013d5e9738064c5fac4db01591e915c332d856fbef3",
+        "RESULT_CORRECT_PROCESS_REVIEW|2026-09-19|VfB Stuttgart vs Borussia Dortmund|a660403a36e9f8e14d651bb3edfdccde5f7eb9dc030908c923ab8a536372b6f2",
+        "RESULT_CORRECT_PROCESS_REVIEW|2026-09-19|Toulouse vs Le Havre AC|3ece9f2894770a061c2113e788e54579d6005b07fedd592ccd471db07bcfc788",
+        "RESULT_CORRECT_PROCESS_REVIEW|2026-09-20|Manchester City vs Sunderland|d5add82ee040707abbd05ed3aee9fb3325172cbdae6189484b6437c26fcbcb55",
+        "RESULT_CORRECT_PROCESS_REVIEW|2026-09-20|Parma vs Genoa|e42743f076afcf13ffeefedae0466344ce47d6505feac34df5195092564f23ca"
+      ]
+    },
+    "VERY_LOW_PROBABILITY_ACTUAL_OUTCOME": {
+      "status": "OBSERVE",
+      "promotionAllowed": false,
+      "uniqueOccurrences": 6,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 6,
+      "uniqueLossOccurrences": 6,
+      "cleanLossOccurrences": 0,
+      "legacyLossOccurrences": 6,
+      "examples": [
+        {
+          "date": "2026-09-19",
+          "fixture": "PSV Eindhoven vs FC Twente",
+          "actual": "A",
+          "sourceHash": "6d4380c947db3f7531f669df28fb5b54e2c19d43ca11e0e05b67ca46c30a9a81",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Brighton & Hove Albion vs Arsenal",
+          "actual": "H",
+          "sourceHash": "f43782b69f851493b25dbf87a4f5d396b19e620c9197ceab0a4fdf7406994b42",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Nottingham Forest vs Coventry City",
+          "actual": "A",
+          "sourceHash": "f8340ec3e956a2cebe97a0078354d55af40b46b2f73f6a55b74b10505aeb3d94",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "Sporting CP vs Arouca",
+          "actual": "D",
+          "sourceHash": "7db2b6bf463d7509f857d7bc4dec5bd2cce653fb574b0f38bb610d7b2b377284",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Celtic vs Rangers",
+          "actual": "A",
+          "sourceHash": "a86667dfd3101ca1f248a52d17cedd0d0460c9a80416ccc3766b4ee8fe5de776",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Norwich City vs Bolton Wanderers",
+          "actual": "A",
+          "sourceHash": "46be944df039189a01c6b853bc126bd4d71b058b6157da56a3e79155154879f8",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        }
+      ],
+      "evidenceIds": [
+        "VERY_LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|PSV Eindhoven vs FC Twente|6d4380c947db3f7531f669df28fb5b54e2c19d43ca11e0e05b67ca46c30a9a81",
+        "VERY_LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Brighton & Hove Albion vs Arsenal|f43782b69f851493b25dbf87a4f5d396b19e620c9197ceab0a4fdf7406994b42",
+        "VERY_LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Nottingham Forest vs Coventry City|f8340ec3e956a2cebe97a0078354d55af40b46b2f73f6a55b74b10505aeb3d94",
+        "VERY_LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-19|Sporting CP vs Arouca|7db2b6bf463d7509f857d7bc4dec5bd2cce653fb574b0f38bb610d7b2b377284",
+        "VERY_LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Celtic vs Rangers|a86667dfd3101ca1f248a52d17cedd0d0460c9a80416ccc3766b4ee8fe5de776",
+        "VERY_LOW_PROBABILITY_ACTUAL_OUTCOME|2026-09-20|Norwich City vs Bolton Wanderers|46be944df039189a01c6b853bc126bd4d71b058b6157da56a3e79155154879f8"
+      ]
+    },
+    "UNSETTLED_OR_RESULT_DATA_GAP": {
+      "status": "OBSERVE",
+      "promotionAllowed": false,
+      "uniqueOccurrences": 5,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 5,
+      "uniqueLossOccurrences": 0,
+      "cleanLossOccurrences": 0,
+      "legacyLossOccurrences": 0,
+      "examples": [
+        {
+          "date": "2026-09-19",
+          "fixture": "ADO Den Haag vs SC Cambuur-Leeuwarden",
+          "actual": null,
+          "sourceHash": "34aeefb6c3f04df1452f57d2db93e40075264a8a3a13169007ff3fd16a889a82",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-19",
+          "fixture": "AFC Ajax vs SBV Excelsior",
+          "actual": null,
+          "sourceHash": "492aa03176cbac35296f0ea01030e983a8c8af6b1ea4e4763c3c8b215bc5f0fd",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "AZ vs Telstar 1963",
+          "actual": null,
+          "sourceHash": "a48428be8fef6d7a82c8d5ec756af9a411f17cc1f1ca64d9ddb2f693691c3cf6",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "FC Twente '65 vs PSV",
+          "actual": null,
+          "sourceHash": "5428578a4973089f7d5fd3e92ec2a9dccb26d466fefd622d509dde46dfa4872d",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "NEC vs Go Ahead Eagles",
+          "actual": null,
+          "sourceHash": "8672468f73fa864a7c08a01bb3575da5fb0f495b064a4f8b3de1a4712de402df",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        }
+      ],
+      "evidenceIds": [
+        "UNSETTLED_OR_RESULT_DATA_GAP|2026-09-19|ADO Den Haag vs SC Cambuur-Leeuwarden|34aeefb6c3f04df1452f57d2db93e40075264a8a3a13169007ff3fd16a889a82",
+        "UNSETTLED_OR_RESULT_DATA_GAP|2026-09-19|AFC Ajax vs SBV Excelsior|492aa03176cbac35296f0ea01030e983a8c8af6b1ea4e4763c3c8b215bc5f0fd",
+        "UNSETTLED_OR_RESULT_DATA_GAP|2026-09-20|AZ vs Telstar 1963|a48428be8fef6d7a82c8d5ec756af9a411f17cc1f1ca64d9ddb2f693691c3cf6",
+        "UNSETTLED_OR_RESULT_DATA_GAP|2026-09-20|FC Twente '65 vs PSV|5428578a4973089f7d5fd3e92ec2a9dccb26d466fefd622d509dde46dfa4872d",
+        "UNSETTLED_OR_RESULT_DATA_GAP|2026-09-20|NEC vs Go Ahead Eagles|8672468f73fa864a7c08a01bb3575da5fb0f495b064a4f8b3de1a4712de402df"
+      ]
+    },
+    "CAUSAL_CAPTURE_REVIEW": {
+      "status": "OBSERVE",
+      "promotionAllowed": false,
+      "uniqueOccurrences": 24,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 24,
+      "uniqueLossOccurrences": 15,
+      "cleanLossOccurrences": 0,
+      "legacyLossOccurrences": 15,
+      "examples": [
+        {
+          "date": "2026-09-20",
+          "fixture": "Celtic vs Rangers",
+          "actual": "A",
+          "sourceHash": "a86667dfd3101ca1f248a52d17cedd0d0460c9a80416ccc3766b4ee8fe5de776",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Getafe vs Málaga",
+          "actual": "H",
+          "sourceHash": "8acb9d56930d8fb9a7a3e77af1181c83a809059542f5f9cb0ed2a8f463ebe3ed",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Norwich City vs Bolton Wanderers",
+          "actual": "A",
+          "sourceHash": "46be944df039189a01c6b853bc126bd4d71b058b6157da56a3e79155154879f8",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "AZ Alkmaar vs Telstar",
+          "actual": "H",
+          "sourceHash": "4a18e2f4b9dc90c20b9d08761751365137b30adacb1b191f333506b7ae9fb5b4",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "FC Twente vs PSV Eindhoven",
+          "actual": "H",
+          "sourceHash": "298a7715a12d6a952a751ed10402bbb9a28da67b46ed05a418af454cb47eb9ce",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "AJ Auxerre vs Brest",
+          "actual": "H",
+          "sourceHash": "593c908a21c17fe2e74d3444c99d355c6990a044e94b3900271816e2c1a9b0c3",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "AFC Bournemouth vs Liverpool",
+          "actual": "A",
+          "sourceHash": "2d9431aba8777d459793b4b73d36ff170d46b4981ba2ae8f1187dd601d18aac3",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Leeds United vs Crystal Palace",
+          "actual": "D",
+          "sourceHash": "0c2c9415f69a6e1958419c5b36530e57644b36451501d5b7036cc6156cd0ed24",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Manchester City vs Sunderland",
+          "actual": "H",
+          "sourceHash": "d5add82ee040707abbd05ed3aee9fb3325172cbdae6189484b6437c26fcbcb55",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Parma vs Genoa",
+          "actual": "H",
+          "sourceHash": "e42743f076afcf13ffeefedae0466344ce47d6505feac34df5195092564f23ca",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Bayer Leverkusen vs RB Leipzig",
+          "actual": "H",
+          "sourceHash": "cbb3ca2f3b68321f7a2669118898f89d7dbd5c3761e40cc33649755cd7b26d13",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Sint-Truidense vs KVC Westerlo",
+          "actual": "A",
+          "sourceHash": "d1c0f9f8277ee489cc52970d7ce61596a852f2a1e468e3ac67383e4294d7780b",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Fenerbahce vs Eyupspor",
+          "actual": "H",
+          "sourceHash": "d0c1a617ec3ee7d13f354d3a4466894ede39635418c4cdb86d14f75eb7b19945",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Atlético Madrid vs Real Madrid",
+          "actual": "H",
+          "sourceHash": "7adf64547568d82f25c3dfe809a45f74efe431ce5b7bf571369a081861bccfe9",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Ceuta vs Real Valladolid",
+          "actual": "D",
+          "sourceHash": "22a2da9c359c153d133cef2dcfb75adab04d0f229fb483fabc513ca62e1f6a96",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Estrela vs Académico de Viseu",
+          "actual": "A",
+          "sourceHash": "b266ab4f3a5e9c7f9a55195a2406ac7ebcd829d06b73dac89d43f832d754fea8",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Vitória de Guimaraes vs Moreirense",
+          "actual": "D",
+          "sourceHash": "05f14518c3f457cf6823aa03ee8881d93fbfb922e31a4416f5d3208bc502741e",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "ADO Den Haag vs Heerenveen",
+          "actual": "D",
+          "sourceHash": "5a963a2e85db8cc79c047eacb2e1d48cc100314b1246ad0be81d0813977a870e",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "NEC Nijmegen vs Go Ahead Eagles",
+          "actual": "D",
+          "sourceHash": "65ec754f5e0ebf10fd8b3cd78b32b2ba7b0ba6882b446231c9446971c822ad67",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        },
+        {
+          "date": "2026-09-20",
+          "fixture": "Mantova vs Pisa",
+          "actual": "D",
+          "sourceHash": "348d31049b70e41b28a31de39189b4a338bb5d4b47a0e96d5ec405d5c2018ee7",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": true
+        }
+      ],
+      "evidenceIds": [
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|PEC Zwolle vs De Graafschap|5385d6b84a92a7b951c950b7b7b2c6d27f473d980d32fdd3259d71974f4fe745",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Feyenoord Rotterdam vs FC Utrecht|e905addadfeb03bc86934d86eea2e10c347f26f30aae4faf6080136dc39fbed2",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Fiorentina vs Napoli|af4311d50e9b17e407f3235485917d7459d41fd1772b248d142be9482598f147",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Wolverhampton Wanderers vs West Bromwich Albion|100295579bf4b9c7c46cc65a36a2eba31e178ed21562be91bdd31b15cab4acc9",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Celtic vs Rangers|a86667dfd3101ca1f248a52d17cedd0d0460c9a80416ccc3766b4ee8fe5de776",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Getafe vs Málaga|8acb9d56930d8fb9a7a3e77af1181c83a809059542f5f9cb0ed2a8f463ebe3ed",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Norwich City vs Bolton Wanderers|46be944df039189a01c6b853bc126bd4d71b058b6157da56a3e79155154879f8",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|AZ Alkmaar vs Telstar|4a18e2f4b9dc90c20b9d08761751365137b30adacb1b191f333506b7ae9fb5b4",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|FC Twente vs PSV Eindhoven|298a7715a12d6a952a751ed10402bbb9a28da67b46ed05a418af454cb47eb9ce",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|AJ Auxerre vs Brest|593c908a21c17fe2e74d3444c99d355c6990a044e94b3900271816e2c1a9b0c3",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|AFC Bournemouth vs Liverpool|2d9431aba8777d459793b4b73d36ff170d46b4981ba2ae8f1187dd601d18aac3",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Leeds United vs Crystal Palace|0c2c9415f69a6e1958419c5b36530e57644b36451501d5b7036cc6156cd0ed24",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Manchester City vs Sunderland|d5add82ee040707abbd05ed3aee9fb3325172cbdae6189484b6437c26fcbcb55",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Parma vs Genoa|e42743f076afcf13ffeefedae0466344ce47d6505feac34df5195092564f23ca",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Bayer Leverkusen vs RB Leipzig|cbb3ca2f3b68321f7a2669118898f89d7dbd5c3761e40cc33649755cd7b26d13",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Sint-Truidense vs KVC Westerlo|d1c0f9f8277ee489cc52970d7ce61596a852f2a1e468e3ac67383e4294d7780b",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Fenerbahce vs Eyupspor|d0c1a617ec3ee7d13f354d3a4466894ede39635418c4cdb86d14f75eb7b19945",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Atlético Madrid vs Real Madrid|7adf64547568d82f25c3dfe809a45f74efe431ce5b7bf571369a081861bccfe9",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Ceuta vs Real Valladolid|22a2da9c359c153d133cef2dcfb75adab04d0f229fb483fabc513ca62e1f6a96",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Estrela vs Académico de Viseu|b266ab4f3a5e9c7f9a55195a2406ac7ebcd829d06b73dac89d43f832d754fea8",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Vitória de Guimaraes vs Moreirense|05f14518c3f457cf6823aa03ee8881d93fbfb922e31a4416f5d3208bc502741e",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|ADO Den Haag vs Heerenveen|5a963a2e85db8cc79c047eacb2e1d48cc100314b1246ad0be81d0813977a870e",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|NEC Nijmegen vs Go Ahead Eagles|65ec754f5e0ebf10fd8b3cd78b32b2ba7b0ba6882b446231c9446971c822ad67",
+        "CAUSAL_CAPTURE_REVIEW|2026-09-20|Mantova vs Pisa|348d31049b70e41b28a31de39189b4a338bb5d4b47a0e96d5ec405d5c2018ee7"
+      ]
+    }
+  }
+}

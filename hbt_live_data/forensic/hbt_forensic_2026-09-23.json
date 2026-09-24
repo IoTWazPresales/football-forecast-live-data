@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "HBT-FORENSIC-AUDIT-2",
+  "version": "HBT-FORENSIC-LEARNING-2-GUARD-AWARE",
+  "generatedAt": "2026-09-24T10:39:43Z",
+  "targetDate": "2026-09-23",
+  "policy": {
+    "preMatchForecastImmutable": true,
+    "postMatchEvidenceMayNotRewriteCapture": true,
+    "executionGuardBlockedRowsExcludedFromPredictiveLearning": true,
+    "exactR0MarketSettlementEnabled": true,
+    "automaticModelMutation": false,
+    "automaticFeaturePromotion": false,
+    "preserveExistingIntelligence": true,
+    "hypothesesMustBeBacktested": true,
+    "holdoutValidationRequired": true
+  },
+  "source": {
+    "prospectiveCard": "hbt_prospective_card_2026-09-23.json",
+    "sourceHash": "2eecc36138ff4ba0fad1ca5b875ea2b154d42a42566ae34c61c1353c0f22c3b9",
+    "executionSurface": "hbt_execution_surface_2026-09-23.json"
+  },
+  "summary": {
+    "rawForecastRows": 3,
+    "settledRows": 3,
+    "learningEligibleSettled": 0,
+    "guardBlockedRows": 3,
+    "topPickCorrectEligible": 0,
+    "topPickAccuracyEligible": null,
+    "meanBrierEligible": null,
+    "meanLogLossEligible": null,
+    "shadowR0Settled": 0,
+    "shadowR0Wins": 0,
+    "shadowR0Losses": 0,
+    "shadowR0Voids": 0,
+    "verifiedExecutions": 0,
+    "executionStake": 0,
+    "executionReturn": 0,
+    "executionProfit": 0
+  },
+  "audits": [
+    {
+      "date": "2026-09-23",
+      "fixture": "VfL Wolfsburg vs SK Sturm Graz",
+      "home": "VfL Wolfsburg",
+      "away": "SK Sturm Graz",
+      "preMatch": {
+        "sourceFile": "hbt_prospective_card_2026-09-23.json",
+        "sourceCapturedAt": "2026-09-21T18:42:14.767255Z",
+        "immutableHash": "7268c14b4336e47899b263715ff9b97aa18bcb87a16a76cd8b44b8abbed929eb",
+        "origin": "HBT_SHADOW_RESOLVER_V3",
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.48598027889587014,
+        "coverage": "stale-ish 602d",
+        "coveragePack": null,
+        "predictionMode": "L0 FALLBACK",
+        "probsHDA": [
+          0.38925631552785767,
+          0.26848881389839807,
+          0.3422548705737442
+        ],
+        "bookmakerObservedBeforeCapture": false
+      },
+      "executionGuard": {
+        "surfacePresent": true,
+        "eligibleAtSurface": false,
+        "blockReason": "AMBIGUOUS_GENERIC_DISCOVERY_IDENTITY",
+        "guardOutcome": "BLOCKED_CORRECTLY_NO_MODEL_LEARNING"
+      },
+      "actual": {
+        "settled": true,
+        "homeScore": 6.0,
+        "awayScore": 1.0,
+        "result": "H",
+        "eventId": "401916411",
+        "competition": "second-qualifying-round"
+      },
+      "predictionOutcome": {
+        "topPick": "H",
+        "topPickProbability": 0.38925631552785767,
+        "topPickCorrect": true,
+        "actualOutcomeProbability": 0.38925631552785767,
+        "brier": 0.5622324877426268,
+        "logLoss": 0.9435172435368182
+      },
+      "shadowR0": {
+        "market": "12",
+        "selection": "VfL Wolfsburg OR SK Sturm Graz — Either team wins, draw loses (12)",
+        "stake": 0,
+        "settlement": "WIN",
+        "eligibleForCalibration": false
+      },
+      "execution": {},
+      "processEvidence": {},
+      "learning": {
+        "eligibleForPredictiveLearning": false,
+        "hypothesisTags": [],
+        "researchRequired": false,
+        "modelMutationAllowed": false,
+        "featurePromotionAllowed": false,
+        "nextStep": "Retain as execution-guard evidence only; exclude from calibration and predictive learning"
+      }
+    },
+    {
+      "date": "2026-09-23",
+      "fixture": "Heart of Midlothian vs Real Sociedad",
+      "home": "Heart of Midlothian",
+      "away": "Real Sociedad",
+      "preMatch": {
+        "sourceFile": "hbt_prospective_card_2026-09-23.json",
+        "sourceCapturedAt": "2026-09-21T18:42:14.767255Z",
+        "immutableHash": "7c9362ad6fd669c2fc184817d44a1a506a93089bac460b7dfd670b66a1396c7e",
+        "origin": "HBT_SHADOW_RESOLVER_V3",
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.6292895161386061,
+        "coverage": "stale-ish 2257d",
+        "coveragePack": null,
+        "predictionMode": "L0 FALLBACK",
+        "probsHDA": [
+          0.5435245330158183,
+          0.24864888337096142,
+          0.20782658361322034
+        ],
+        "bookmakerObservedBeforeCapture": false
+      },
+      "executionGuard": {
+        "surfacePresent": true,
+        "eligibleAtSurface": false,
+        "blockReason": "AMBIGUOUS_GENERIC_DISCOVERY_IDENTITY",
+        "guardOutcome": "BLOCKED_CORRECTLY_NO_MODEL_LEARNING"
+      },
+      "actual": {
+        "settled": true,
+        "homeScore": 0.0,
+        "awayScore": 0.0,
+        "result": "D",
+        "eventId": "401916431",
+        "competition": "second-qualifying-round"
+      },
+      "predictionOutcome": {
+        "topPick": "H",
+        "topPickProbability": 0.5435245330158183,
+        "topPickCorrect": false,
+        "actualOutcomeProbability": 0.24864888337096142,
+        "brier": 0.9031393073061093,
+        "logLoss": 1.3917134845977654
+      },
+      "shadowR0": {
+        "market": "1X",
+        "selection": "Heart of Midlothian OR Draw — Double Chance (1X)",
+        "stake": 0,
+        "settlement": "WIN",
+        "eligibleForCalibration": false
+      },
+      "execution": {},
+      "processEvidence": {},
+      "learning": {
+        "eligibleForPredictiveLearning": false,
+        "hypothesisTags": [],
+        "researchRequired": false,
+        "modelMutationAllowed": false,
+        "featurePromotionAllowed": false,
+        "nextStep": "Retain as execution-guard evidence only; exclude from calibration and predictive learning"
+      }
+    },
+    {
+      "date": "2026-09-23",
+      "fixture": "Barcelona vs Paris FC",
+      "home": "Barcelona",
+      "away": "Paris FC",
+      "preMatch": {
+        "sourceFile": "hbt_prospective_card_2026-09-23.json",
+        "sourceCapturedAt": "2026-09-21T18:42:14.767255Z",
+        "immutableHash": "67b1b023d0d0d87466f0426a206569d0c09969c04898fa2b29176d0f6f9c27af",
+        "origin": "HBT_SHADOW_RESOLVER_V3",
+        "tier": "A",
+        "rawTier": "A",
+        "quality": 0.886936271075247,
+        "coverage": "good",
+        "coveragePack": null,
+        "predictionMode": "L0 FALLBACK",
+        "probsHDA": [
+          0.8213769101029725,
+          0.13833336108052718,
+          0.04028972881650032
+        ],
+        "bookmakerObservedBeforeCapture": false
+      },
+      "executionGuard": {
+        "surfacePresent": true,
+        "eligibleAtSurface": false,
+        "blockReason": "AMBIGUOUS_GENERIC_DISCOVERY_IDENTITY",
+        "guardOutcome": "BLOCKED_CORRECTLY_NO_MODEL_LEARNING"
+      },
+      "actual": {
+        "settled": true,
+        "homeScore": 5.0,
+        "awayScore": 2.0,
+        "result": "H",
+        "eventId": "401917010",
+        "competition": "league-phase"
+      },
+      "predictionOutcome": {
+        "topPick": "H",
+        "topPickProbability": 0.8213769101029725,
+        "topPickCorrect": true,
+        "actualOutcomeProbability": 0.8213769101029725,
+        "brier": 0.05266558928030421,
+        "logLoss": 0.19677318827239723
+      },
+      "shadowR0": {
+        "market": "1X",
+        "selection": "Barcelona OR Draw — Double Chance (1X)",
+        "stake": 0,
+        "settlement": "WIN",
+        "eligibleForCalibration": false
+      },
+      "execution": {},
+      "processEvidence": {},
+      "learning": {
+        "eligibleForPredictiveLearning": false,
+        "hypothesisTags": [],
+        "researchRequired": false,
+        "modelMutationAllowed": false,
+        "featurePromotionAllowed": false,
+        "nextStep": "Retain as execution-guard evidence only; exclude from calibration and predictive learning"
+      }
+    }
+  ],
+  "multis": []
+}
