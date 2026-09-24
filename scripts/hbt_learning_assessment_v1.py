@@ -8,7 +8,7 @@ kept separate from clean guard-aware evidence and may generate hypotheses only.
 from __future__ import annotations
 
 import json
-from collections import defaultdict, Counter
+from collections import Counter
 from pathlib import Path
 from typing import Any
 
@@ -74,6 +74,7 @@ def main() -> int:
     process=Counter(); guard=Counter(); exact_r0=Counter()
     execution_days={}; total_stake=0.0; total_return=0.0
     legacy_rows=0; clean_rows=0; blocked_rows=0; settled_eligible=0
+    settlement_counter={'WIN':'wins','LOSS':'losses','VOID':'voids'}
 
     for d in DATES:
         path=FORENSIC/f'hbt_forensic_{d}.json'
@@ -111,9 +112,10 @@ def main() -> int:
             if r0.get('settlement'):
                 exact_r0[str(r0.get('settlement'))] += 1
             ex=a.get('execution') or {}
-            if ex.get('settlement'):
+            settlement=str(ex.get('settlement') or '').upper()
+            if settlement in settlement_counter:
                 day_exec['n'] += 1
-                day_exec[str(ex.get('settlement')).lower()+'s'] += 1
+                day_exec[settlement_counter[settlement]] += 1
                 st=float(ex.get('stake') or 0); ret=float(ex.get('return') or 0)
                 day_exec['stake'] += st; day_exec['return'] += ret
                 total_stake += st; total_return += ret
