@@ -1,0 +1,350 @@
+{
+  "schemaVersion": "HBT-LEARNING-ASSESSMENT-1",
+  "version": "HBT-LEARNING-ASSESSMENT-1",
+  "scope": [
+    "2026-09-18",
+    "2026-09-19",
+    "2026-09-20",
+    "2026-09-22",
+    "2026-09-23"
+  ],
+  "policy": {
+    "predictiveModelMutated": false,
+    "weightsRetuned": false,
+    "existingIntelligenceRemoved": false,
+    "legacyEvidenceExploratoryOnly": true,
+    "cleanEvidenceRequiredForPromotion": true,
+    "automaticFeaturePromotion": false,
+    "holdoutValidationRequired": true
+  },
+  "evidenceQuality": {
+    "legacyEligibleRows": 102,
+    "cleanGuardAwareRows": 0,
+    "guardBlockedRowsExcluded": 6,
+    "settledEligibleRows": 97
+  },
+  "raw1X2Assessment": {
+    "byDay": {
+      "2026-09-18": {
+        "n": 10,
+        "correct": 6,
+        "accuracy": 0.6,
+        "meanBrier": 0.5110381080561635,
+        "meanLogLoss": 0.8709125161157709
+      },
+      "2026-09-19": {
+        "n": 51,
+        "correct": 19,
+        "accuracy": 0.37254901960784315,
+        "meanBrier": 0.6732334916928524,
+        "meanLogLoss": 1.0982640829686716
+      },
+      "2026-09-20": {
+        "n": 36,
+        "correct": 15,
+        "accuracy": 0.4166666666666667,
+        "meanBrier": 0.5966544742137667,
+        "meanLogLoss": 0.9982785120446217
+      }
+    },
+    "byProvenance": {
+      "C1": {
+        "n": 28,
+        "correct": 9,
+        "accuracy": 0.32142857142857145,
+        "meanBrier": 0.675705874791144,
+        "meanLogLoss": 1.100607152720312
+      },
+      "NON_C1": {
+        "n": 69,
+        "correct": 31,
+        "accuracy": 0.4492753623188406,
+        "meanBrier": 0.6087693584701547,
+        "meanLogLoss": 1.0121973847825736
+      }
+    },
+    "byFreshness": {
+      "NOT_STALE": {
+        "n": 54,
+        "correct": 27,
+        "accuracy": 0.5,
+        "meanBrier": 0.5803110316180111,
+        "meanLogLoss": 0.9755343019424139
+      },
+      "STALE": {
+        "n": 43,
+        "correct": 13,
+        "accuracy": 0.3023255813953488,
+        "meanBrier": 0.6880942911911653,
+        "meanLogLoss": 1.115808547006418
+      }
+    },
+    "byQualityBucket": {
+      "0.70-0.85": {
+        "n": 35,
+        "correct": 10,
+        "accuracy": 0.2857142857142857,
+        "meanBrier": 0.6956532382961748,
+        "meanLogLoss": 1.124532536260667
+      },
+      "0.85-0.95": {
+        "n": 13,
+        "correct": 9,
+        "accuracy": 0.6923076923076923,
+        "meanBrier": 0.4204565303063824,
+        "meanLogLoss": 0.7482082403345589
+      },
+      "<0.70": {
+        "n": 17,
+        "correct": 5,
+        "accuracy": 0.29411764705882354,
+        "meanBrier": 0.6934652095489016,
+        "meanLogLoss": 1.1430976391005374
+      },
+      ">=0.95": {
+        "n": 32,
+        "correct": 16,
+        "accuracy": 0.5,
+        "meanBrier": 0.603816982247259,
+        "meanLogLoss": 1.0043941896245183
+      }
+    },
+    "byTopPickProbabilityBucket": {
+      "0.45-0.55": {
+        "n": 39,
+        "correct": 16,
+        "accuracy": 0.41025641025641024,
+        "meanBrier": 0.6722539825465015,
+        "meanLogLoss": 1.0999633782855993
+      },
+      "0.55-0.65": {
+        "n": 16,
+        "correct": 9,
+        "accuracy": 0.5625,
+        "meanBrier": 0.5889801082211776,
+        "meanLogLoss": 0.9789847681469096
+      },
+      "0.65-0.75": {
+        "n": 6,
+        "correct": 4,
+        "accuracy": 0.6666666666666666,
+        "meanBrier": 0.49906671036157496,
+        "meanLogLoss": 0.8583675122366787
+      },
+      "<0.45": {
+        "n": 32,
+        "correct": 7,
+        "accuracy": 0.21875,
+        "meanBrier": 0.6877040551740922,
+        "meanLogLoss": 1.1259353359038673
+      },
+      ">=0.75": {
+        "n": 4,
+        "correct": 4,
+        "accuracy": 1.0,
+        "meanBrier": 0.07058328749997649,
+        "meanLogLoss": 0.22903899008339093
+      }
+    },
+    "warning": "Raw H/D/A top-pick accuracy is not the same metric as protected-market 1X/X2/12/DNB accuracy."
+  },
+  "processHypothesisTagsObserved": {
+    "STALE_STATE_REVIEW": 43,
+    "LOW_PROBABILITY_ACTUAL_OUTCOME": 37,
+    "C1_TRANSFER_CALIBRATION_REVIEW": 28,
+    "CAUSAL_CAPTURE_REVIEW": 24,
+    "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST": 17,
+    "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT": 14,
+    "MARKET_OUTCOME_MISS": 6,
+    "VERY_LOW_PROBABILITY_ACTUAL_OUTCOME": 6,
+    "RESULT_CORRECT_PROCESS_REVIEW": 5
+  },
+  "uniqueHypothesisRegistry": {
+    "C1_TRANSFER_CALIBRATION_REVIEW": {
+      "uniqueOccurrences": 28,
+      "uniqueLossOccurrences": 19,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 28,
+      "promotionAllowed": false
+    },
+    "STALE_STATE_REVIEW": {
+      "uniqueOccurrences": 43,
+      "uniqueLossOccurrences": 30,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 43,
+      "promotionAllowed": false
+    },
+    "LOW_PROBABILITY_ACTUAL_OUTCOME": {
+      "uniqueOccurrences": 37,
+      "uniqueLossOccurrences": 37,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 37,
+      "promotionAllowed": false
+    },
+    "MARKET_OUTCOME_MISS": {
+      "uniqueOccurrences": 6,
+      "uniqueLossOccurrences": 6,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 6,
+      "promotionAllowed": false
+    },
+    "RESULT_WRONG_PROCESS_POSSIBLY_RIGHT": {
+      "uniqueOccurrences": 14,
+      "uniqueLossOccurrences": 14,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 14,
+      "promotionAllowed": false
+    },
+    "SCORELINE_AND_SHOT_PROCESS_AGAINST_FORECAST": {
+      "uniqueOccurrences": 17,
+      "uniqueLossOccurrences": 17,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 17,
+      "promotionAllowed": false
+    },
+    "RESULT_CORRECT_PROCESS_REVIEW": {
+      "uniqueOccurrences": 5,
+      "uniqueLossOccurrences": 0,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 5,
+      "promotionAllowed": false
+    },
+    "VERY_LOW_PROBABILITY_ACTUAL_OUTCOME": {
+      "uniqueOccurrences": 6,
+      "uniqueLossOccurrences": 6,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 6,
+      "promotionAllowed": false
+    },
+    "UNSETTLED_OR_RESULT_DATA_GAP": {
+      "uniqueOccurrences": 5,
+      "uniqueLossOccurrences": 0,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 5,
+      "promotionAllowed": false
+    },
+    "CAUSAL_CAPTURE_REVIEW": {
+      "uniqueOccurrences": 24,
+      "uniqueLossOccurrences": 15,
+      "cleanOccurrences": 0,
+      "legacyOccurrences": 24,
+      "promotionAllowed": false
+    }
+  },
+  "matchedExecutionAssessment": {
+    "byDay": {
+      "2026-09-18": {
+        "stake": 11.0,
+        "return": 10.899999999999999,
+        "wins": 6,
+        "losses": 2,
+        "voids": 1,
+        "n": 9,
+        "profit": -0.10000000000000142,
+        "roi": -0.00909090909090922
+      },
+      "2026-09-19": {
+        "stake": 13.0,
+        "return": 12.559999999999997,
+        "wins": 9,
+        "losses": 2,
+        "voids": 0,
+        "n": 11,
+        "profit": -0.44000000000000306,
+        "roi": -0.03384615384615408
+      },
+      "2026-09-20": {
+        "stake": 5.0,
+        "return": 3.63,
+        "wins": 3,
+        "losses": 2,
+        "voids": 0,
+        "n": 5,
+        "profit": -1.37,
+        "roi": -0.274
+      }
+    },
+    "stake": 29.0,
+    "return": 27.090000000000003,
+    "profit": -1.9099999999999966,
+    "roi": -0.06586206896551712,
+    "warning": "Matched execution rows may be incomplete for older slates and exclude some multis/alias-unmatched user bets."
+  },
+  "exactR0CleanSeries": {},
+  "lessons": [
+    {
+      "code": "VALUE_GATE_REMAINS_REQUIRED",
+      "evidence": {
+        "matchedStake": 29.0,
+        "matchedReturn": 27.090000000000003,
+        "matchedProfit": -1.9099999999999966,
+        "matchedROI": -0.06586206896551712
+      },
+      "interpretation": "Winning selections alone did not guarantee positive bankroll growth; retain price/EV gating downstream of HBT probabilities.",
+      "action": "KEEP_EXECUTION_VALUE_LAYER"
+    },
+    {
+      "code": "C1_REQUIRES_SEPARATE_CALIBRATION",
+      "evidence": {
+        "C1": {
+          "n": 28,
+          "correct": 9,
+          "accuracy": 0.32142857142857145,
+          "meanBrier": 0.675705874791144,
+          "meanLogLoss": 1.100607152720312
+        },
+        "NON_C1": {
+          "n": 69,
+          "correct": 31,
+          "accuracy": 0.4492753623188406,
+          "meanBrier": 0.6087693584701547,
+          "meanLogLoss": 1.0121973847825736
+        }
+      },
+      "interpretation": "C1 transfer behaviour differs enough to remain separately measured; this legacy comparison is exploratory and cannot promote or retune C1.",
+      "action": "KEEP_C1_CAP_AND_COLLECT_CLEAN_PROSPECTIVE_DATA"
+    },
+    {
+      "code": "STATE_FRESHNESS_REMAINS_A_FIRST_CLASS_SIGNAL",
+      "evidence": {
+        "STALE": {
+          "n": 43,
+          "correct": 13,
+          "accuracy": 0.3023255813953488,
+          "meanBrier": 0.6880942911911653,
+          "meanLogLoss": 1.115808547006418
+        },
+        "NOT_STALE": {
+          "n": 54,
+          "correct": 27,
+          "accuracy": 0.5,
+          "meanBrier": 0.5803110316180111,
+          "meanLogLoss": 0.9755343019424139
+        }
+      },
+      "interpretation": "Freshness should remain visible in surfacing/staking and be tested on clean future slates rather than silently folded into weights.",
+      "action": "KEEP_STALE_STATE_RISK_FLAG"
+    },
+    {
+      "code": "IDENTITY_GUARD_PREVENTED_CONTAMINATION",
+      "evidence": {
+        "guardBlockedRows": 6,
+        "blockReasons": {
+          "AMBIGUOUS_GENERIC_DISCOVERY_IDENTITY": 5,
+          "RESERVE_B_TEAM_NAMESPACE": 1
+        }
+      },
+      "interpretation": "Blocked women/reserve/generic-identity rows must not count toward model calibration even when their hypothetical market later wins.",
+      "action": "KEEP_FAIL_CLOSED_IDENTITY_GATE"
+    },
+    {
+      "code": "EXACT_R0_CALIBRATION_RESTARTS_CLEANLY",
+      "evidence": {
+        "cleanExactR0Settlements": {}
+      },
+      "interpretation": "Older protected-market observations remain useful context, but the authoritative exact-R0 calibration series should begin only from guard-aware eligible future slates.",
+      "action": "ACCUMULATE_CLEAN_R0_SERIES"
+    }
+  ],
+  "nextPromotionRule": "No hypothesis changes predictive weights until historical backtest plus unseen holdout improvement and clean prospective confirmation."
+}
