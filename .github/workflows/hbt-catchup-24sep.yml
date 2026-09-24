@@ -1,0 +1,170 @@
+name: HBT Catchup Learning and Current Freeze
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-catchup-24sep.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hbt-catchup-learning-current
+  cancel-in-progress: false
+
+jobs:
+  catchup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Compile and self-test guard-aware learning
+        run: |
+          set -euo pipefail
+          python -m py_compile \
+            scripts/hbt_forensic_learning_v1.py \
+            scripts/hbt_forensic_learning_v2.py \
+            scripts/hbt_scan_slate_v2_2.py \
+            scripts/hbt_patch_resolver_daily.py \
+            scripts/hbt_harden_resolver_v3.py \
+            scripts/hbt_build_prospective_card_v2.py \
+            scripts/hbt_execution_surface_v1.py
+          python scripts/hbt_forensic_learning_v2.py --self-test
+
+      - name: Record prospective continuity gap for 21 Sep
+        run: |
+          python - <<'PY'
+          import json, pathlib, datetime
+          p=pathlib.Path('hbt_live_data/forensic/hbt_continuity_2026-09-21.json')
+          p.parent.mkdir(parents=True,exist_ok=True)
+          x={
+            'schemaVersion':'HBT-CONTINUITY-GAP-1',
+            'targetDate':'2026-09-21',
+            'recordedAt':datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z'),
+            'prospectiveCaptureAvailable':False,
+            'policy':{
+              'retrospectivePredictionFabricationAllowed':False,
+              'mayCountTowardProspectiveCalibration':False,
+              'reason':'No immutable pre-match HBT capture exists for this date.'
+            },
+            'action':'Record gap only; do not recreate predictions after outcomes are knowable.'
+          }
+          p.write_text(json.dumps(x,indent=2)+'\n',encoding='utf-8')
+          PY
+
+      - name: Backfill 22 and 23 Sep with guard-aware forensic audit
+        run: |
+          set -euo pipefail
+          python scripts/hbt_forensic_learning_v2.py --date 2026-09-22
+          python scripts/hbt_forensic_learning_v2.py --date 2026-09-23
+
+      - name: Refresh current HBT intelligence families
+        run: |
+          set -euo pipefail
+          python scripts/hbt_collect_live_data.py
+          python scripts/hbt_collect_players_espn.py
+          python scripts/hbt_collect_context_v3_runtime.py
+          python scripts/hbt_collect_market_intelligence_v4_final.py
+          python scripts/hbt_collect_match_intelligence_v6.py
+
+      - name: Freeze current date without bookmaker leakage
+        id: current
+        run: |
+          set -euo pipefail
+          D="$(date -u +%F)"
+          echo "date=$D" >> "$GITHUB_OUTPUT"
+          python scripts/hbt_scan_slate_v2_2.py --date "$D"
+          python scripts/hbt_patch_resolver_daily.py --date "$D"
+          python scripts/hbt_harden_resolver_v3.py
+          node scripts/.hbt_resolver_v3_tmp.mjs --date "$D"
+          rm -f scripts/.hbt_resolver_v3_tmp.mjs
+          python - <<'PY'
+          import json, os, pathlib, datetime, subprocess
+          d=os.environ['D']
+          root=pathlib.Path('hbt_live_data')
+          f=root/f'hbt_broad_shadow_forecast_{d}_resolver_v3.json'
+          doc=json.load(open(f,encoding='utf-8'))
+          n=len(doc.get('predictions') or [])
+          if n:
+              subprocess.check_call(['python','scripts/hbt_build_prospective_card_v2.py','--date',d])
+              subprocess.check_call(['python','scripts/hbt_execution_surface_v1.py','--date',d])
+          scan=json.load(open(root/'slate_scanner.json',encoding='utf-8'))
+          assessment={
+            'schemaVersion':'HBT-DAILY-ASSESSMENT-1',
+            'targetDate':d,
+            'generatedAt':datetime.datetime.now(datetime.timezone.utc).isoformat().replace('+00:00','Z'),
+            'prospectiveForecastRows':n,
+            'scannerCoverage':scan.get('coverage'),
+            'predictiveModelMutated':False,
+            'bookmakerObservedBeforeFreeze':False,
+            'executionSurfaceCreated':bool(n),
+            'learningMode':'PROSPECTIVE_R0' if n else 'NO_SUPPORTED_PROSPECTIVE_SLATE'
+          }
+          (root/f'hbt_daily_assessment_{d}.json').write_text(json.dumps(assessment,indent=2)+'\n',encoding='utf-8')
+          print(json.dumps(assessment,indent=2))
+          PY
+        env:
+          D: '${{ steps.current.outputs.date }}'
+
+      - name: Validate no contamination
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, pathlib
+          for d in ('2026-09-22','2026-09-23'):
+              x=json.load(open(f'hbt_live_data/forensic/hbt_forensic_{d}.json',encoding='utf-8'))
+              assert x['policy']['executionGuardBlockedRowsExcludedFromPredictiveLearning'] is True
+              assert x['policy']['exactR0MarketSettlementEnabled'] is True
+              print(d, x['summary'])
+          d=os.environ['D']
+          p=pathlib.Path(f'hbt_live_data/hbt_execution_surface_{d}.json')
+          if p.exists():
+              x=json.load(open(p,encoding='utf-8'))
+              assert x['policy']['footballProbabilitiesImmutable'] is True
+              assert x['policy']['r0Default'] is True
+              print('current execution',x['summary'])
+          PY
+        env:
+          D: '${{ steps.current.outputs.date }}'
+
+      - name: Commit learning and current evidence
+        run: |
+          set -euo pipefail
+          D='${{ steps.current.outputs.date }}'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add \
+            hbt_live_data/forensic/hbt_continuity_2026-09-21.json \
+            hbt_live_data/forensic/hbt_forensic_2026-09-22.json \
+            hbt_live_data/forensic/hbt_forensic_2026-09-23.json \
+            hbt_live_data/forensic/hbt_learning_hypotheses.json \
+            hbt_live_data/slate_scanner.json \
+            "hbt_live_data/hbt_broad_shadow_forecast_${D}_resolver_v3.json" \
+            "hbt_live_data/hbt_broad_shadow_status_${D}_resolver_v3.json" \
+            "hbt_live_data/hbt_daily_assessment_${D}.json" \
+            hbt_live_data/manifest.json \
+            hbt_live_data/performance.json \
+            hbt_live_data/player_features.json \
+            hbt_live_data/pre_xi_context.json \
+            hbt_live_data/market_intelligence.json \
+            hbt_live_data/hbt_1_4_match_intelligence.json \
+            hbt_live_data/_hbt_1_4_live_cache.json || true
+          test ! -f "hbt_live_data/hbt_prospective_card_${D}.json" || git add "hbt_live_data/hbt_prospective_card_${D}.json"
+          test ! -f "hbt_live_data/hbt_execution_surface_${D}.json" || git add "hbt_live_data/hbt_execution_surface_${D}.json"
+          git diff --staged --quiet && exit 0
+          git commit -m "test: catch up HBT learning and freeze ${D} [skip ci]"
+          git push origin HEAD:research/hbt-1.4-match-intelligence
