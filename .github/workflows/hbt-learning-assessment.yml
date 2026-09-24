@@ -1,0 +1,52 @@
+name: HBT Exploratory Learning Assessment
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-learning-assessment.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  assess:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Build learning assessment
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/hbt_learning_assessment_v1.py
+          python scripts/hbt_learning_assessment_v1.py
+      - name: Guard assessment policy
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open('hbt_live_data/forensic/hbt_learning_assessment_v1.json',encoding='utf-8'))
+          assert x['policy']['predictiveModelMutated'] is False
+          assert x['policy']['weightsRetuned'] is False
+          assert x['policy']['existingIntelligenceRemoved'] is False
+          assert x['policy']['legacyEvidenceExploratoryOnly'] is True
+          assert x['policy']['cleanEvidenceRequiredForPromotion'] is True
+          print(json.dumps({'quality':x['evidenceQuality'],'execution':x['matchedExecutionAssessment'],'lessons':x['lessons']},indent=2))
+          PY
+      - name: Commit assessment
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/forensic/hbt_learning_assessment_v1.json
+          git diff --staged --quiet && exit 0
+          git commit -m "analysis: freeze HBT exploratory learning assessment [skip ci]"
+          git fetch origin research/hbt-1.4-match-intelligence
+          git rebase origin/research/hbt-1.4-match-intelligence
+          git push origin HEAD:research/hbt-1.4-match-intelligence
