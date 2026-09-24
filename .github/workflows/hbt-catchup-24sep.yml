@@ -38,6 +38,7 @@ jobs:
           python -m py_compile \
             scripts/hbt_forensic_learning_v1.py \
             scripts/hbt_forensic_learning_v2.py \
+            scripts/hbt_rebuild_learning_registry_v2.py \
             scripts/hbt_scan_slate_v2_2.py \
             scripts/hbt_patch_resolver_daily.py \
             scripts/hbt_harden_resolver_v3.py \
@@ -71,6 +72,9 @@ jobs:
           set -euo pipefail
           python scripts/hbt_forensic_learning_v2.py --date 2026-09-22
           python scripts/hbt_forensic_learning_v2.py --date 2026-09-23
+          # v2 may touch the legacy non-idempotent registry transiently. Preserve it as historical evidence only.
+          git checkout -- hbt_live_data/forensic/hbt_learning_hypotheses.json || true
+          python scripts/hbt_rebuild_learning_registry_v2.py
 
       - name: Refresh current HBT intelligence families
         run: |
@@ -92,7 +96,7 @@ jobs:
           python scripts/hbt_harden_resolver_v3.py
           node scripts/.hbt_resolver_v3_tmp.mjs --date "$D"
           rm -f scripts/.hbt_resolver_v3_tmp.mjs
-          python - <<'PY'
+          D="$D" python - <<'PY'
           import json, os, pathlib, datetime, subprocess
           d=os.environ['D']
           root=pathlib.Path('hbt_live_data')
@@ -117,10 +121,10 @@ jobs:
           (root/f'hbt_daily_assessment_{d}.json').write_text(json.dumps(assessment,indent=2)+'\n',encoding='utf-8')
           print(json.dumps(assessment,indent=2))
           PY
-        env:
-          D: '${{ steps.current.outputs.date }}'
 
       - name: Validate no contamination
+        env:
+          D: '${{ steps.current.outputs.date }}'
         run: |
           set -euo pipefail
           python - <<'PY'
@@ -129,17 +133,25 @@ jobs:
               x=json.load(open(f'hbt_live_data/forensic/hbt_forensic_{d}.json',encoding='utf-8'))
               assert x['policy']['executionGuardBlockedRowsExcludedFromPredictiveLearning'] is True
               assert x['policy']['exactR0MarketSettlementEnabled'] is True
+              assert x['summary']['learningEligibleSettled']==0
+              assert x['summary']['guardBlockedRows']==3
               print(d, x['summary'])
+          reg=json.load(open('hbt_live_data/forensic/hbt_learning_hypotheses_v2.json',encoding='utf-8'))
+          assert reg['policy']['idempotentUniqueEvidenceCounting'] is True
+          assert reg['policy']['executionGuardBlockedRowsExcluded'] is True
           d=os.environ['D']
+          assessment=json.load(open(f'hbt_live_data/hbt_daily_assessment_{d}.json',encoding='utf-8'))
+          assert assessment['predictiveModelMutated'] is False
+          assert assessment['bookmakerObservedBeforeFreeze'] is False
           p=pathlib.Path(f'hbt_live_data/hbt_execution_surface_{d}.json')
           if p.exists():
               x=json.load(open(p,encoding='utf-8'))
               assert x['policy']['footballProbabilitiesImmutable'] is True
               assert x['policy']['r0Default'] is True
               print('current execution',x['summary'])
+          print('current assessment',assessment)
+          print('learning registry',reg['coverage'])
           PY
-        env:
-          D: '${{ steps.current.outputs.date }}'
 
       - name: Commit learning and current evidence
         run: |
@@ -151,7 +163,7 @@ jobs:
             hbt_live_data/forensic/hbt_continuity_2026-09-21.json \
             hbt_live_data/forensic/hbt_forensic_2026-09-22.json \
             hbt_live_data/forensic/hbt_forensic_2026-09-23.json \
-            hbt_live_data/forensic/hbt_learning_hypotheses.json \
+            hbt_live_data/forensic/hbt_learning_hypotheses_v2.json \
             hbt_live_data/slate_scanner.json \
             "hbt_live_data/hbt_broad_shadow_forecast_${D}_resolver_v3.json" \
             "hbt_live_data/hbt_broad_shadow_status_${D}_resolver_v3.json" \
@@ -165,6 +177,9 @@ jobs:
             hbt_live_data/_hbt_1_4_live_cache.json || true
           test ! -f "hbt_live_data/hbt_prospective_card_${D}.json" || git add "hbt_live_data/hbt_prospective_card_${D}.json"
           test ! -f "hbt_live_data/hbt_execution_surface_${D}.json" || git add "hbt_live_data/hbt_execution_surface_${D}.json"
-          git diff --staged --quiet && exit 0
-          git commit -m "test: catch up HBT learning and freeze ${D} [skip ci]"
+          if ! git diff --staged --quiet; then
+            git commit -m "test: catch up HBT learning and freeze ${D} [skip ci]"
+          fi
+          git fetch origin research/hbt-1.4-match-intelligence
+          git rebase origin/research/hbt-1.4-match-intelligence
           git push origin HEAD:research/hbt-1.4-match-intelligence
