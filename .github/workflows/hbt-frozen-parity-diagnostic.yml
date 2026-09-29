@@ -5,8 +5,13 @@ on:
   push:
     branches:
       - research/hbt-1.4-match-intelligence
+      - research/hbt-1.4-match-intelligence-snapshot-fix
     paths:
       - .github/workflows/hbt-frozen-parity-diagnostic.yml
+      - scripts/hbt_snapshot_chunk_probe.mjs
+      - scripts/hbt_frozen_forecast_bridge.mjs
+      - runtime/hbt_frozen_l0_snapshot_*
+      - runtime/hbt_frozen_runtime_bundle.json
 
 permissions:
   contents: read
@@ -23,6 +28,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+
+      - name: Probe persisted frozen snapshot chunks
+        shell: bash
+        run: |
+          node scripts/hbt_snapshot_chunk_probe.mjs
 
       - name: Build isolated exact-weight cutoff variants
         shell: python
@@ -99,6 +109,7 @@ jobs:
         with:
           name: hbt-frozen-parity-diagnostic
           path: |
+            hbt_live_data/frozen_snapshot_chunk_probe.json
             hbt_live_data/frozen_parity_cutoff_diagnostic.json
             hbt_live_data/forecast_bridge_status_cutoff11_exact_weights.json
             hbt_live_data/forecast_bridge_status_cutoff12_exact_weights.json
