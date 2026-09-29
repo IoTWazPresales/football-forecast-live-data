@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-LEARNING-HYPOTHESES-2",
   "version": "HBT-LEARNING-REGISTRY-2-UNIQUE-EVIDENCE",
-  "generatedAt": "2026-09-29T08:34:02Z",
+  "generatedAt": "2026-09-29T08:36:29Z",
   "policy": {
     "idempotentUniqueEvidenceCounting": true,
     "executionGuardBlockedRowsExcluded": true,
@@ -16,10 +16,10 @@
   "coverage": {
     "forensicFiles": 6,
     "auditRows": 109,
-    "cleanGuardAwareRows": 1,
+    "cleanGuardAwareRows": 0,
     "legacyV1Rows": 102,
-    "guardBlockedRowsExcluded": 6,
-    "uniqueEvidenceItems": 187
+    "guardBlockedRowsExcluded": 7,
+    "uniqueEvidenceItems": 185
   },
   "hypotheses": {
     "C1_TRANSFER_CALIBRATION_REVIEW": {
@@ -227,13 +227,21 @@
     "STALE_STATE_REVIEW": {
       "status": "OBSERVE",
       "promotionAllowed": false,
-      "uniqueOccurrences": 44,
-      "cleanOccurrences": 1,
+      "uniqueOccurrences": 43,
+      "cleanOccurrences": 0,
       "legacyOccurrences": 43,
       "uniqueLossOccurrences": 30,
       "cleanLossOccurrences": 0,
       "legacyLossOccurrences": 30,
       "examples": [
+        {
+          "date": "2026-09-19",
+          "fixture": "Anderlecht vs Zulte-Waregem",
+          "actual": "H",
+          "sourceHash": "c93ec79186e38a55abdc7894768f19061aa34179cdce5eaca2a7309fa5e13a66",
+          "evidenceClass": "LEGACY_V1_UNFILTERED",
+          "lossEvidence": false
+        },
         {
           "date": "2026-09-19",
           "fixture": "Willem II vs Fortuna Sittard",
@@ -385,14 +393,6 @@
           "sourceHash": "524f1ca4b89f0ac791cb0a4fd84b6d406911549ae9fd54e369ce4dd7e46269ba",
           "evidenceClass": "LEGACY_V1_UNFILTERED",
           "lossEvidence": false
-        },
-        {
-          "date": "2026-09-25",
-          "fixture": "VfB Stuttgart vs 1. FC Heidenheim 1846",
-          "actual": "H",
-          "sourceHash": "1e1591b20749d48c4f0fa15a2bda55ef29287b8289d810e5e0aba804f777e2c0",
-          "evidenceClass": "CLEAN_GUARD_AWARE",
-          "lossEvidence": false
         }
       ],
       "evidenceIds": [
@@ -438,8 +438,7 @@
         "STALE_STATE_REVIEW|2026-09-20|Goztepe vs Caykur Rizespor|2e3121b506d7ae1c484d02349dd42893837e98eebeb2259981c3e3ad9bd64efe",
         "STALE_STATE_REVIEW|2026-09-20|Modena vs Empoli|bd1c39dfe69363c0d22fc0eed3dfeb110786a28ee4d93604144b583a7a547cfa",
         "STALE_STATE_REVIEW|2026-09-20|Valencia vs Real Sociedad|0ace0b24036d6eb091b213a0bcb6daec390b5fc945d075e5af2df5639f43e98b",
-        "STALE_STATE_REVIEW|2026-09-20|Leganés vs Granada|524f1ca4b89f0ac791cb0a4fd84b6d406911549ae9fd54e369ce4dd7e46269ba",
-        "STALE_STATE_REVIEW|2026-09-25|VfB Stuttgart vs 1. FC Heidenheim 1846|1e1591b20749d48c4f0fa15a2bda55ef29287b8289d810e5e0aba804f777e2c0"
+        "STALE_STATE_REVIEW|2026-09-20|Leganés vs Granada|524f1ca4b89f0ac791cb0a4fd84b6d406911549ae9fd54e369ce4dd7e46269ba"
       ]
     },
     "LOW_PROBABILITY_ACTUAL_OUTCOME": {
@@ -1410,29 +1409,6 @@
         "CAUSAL_CAPTURE_REVIEW|2026-09-20|ADO Den Haag vs Heerenveen|5a963a2e85db8cc79c047eacb2e1d48cc100314b1246ad0be81d0813977a870e",
         "CAUSAL_CAPTURE_REVIEW|2026-09-20|NEC Nijmegen vs Go Ahead Eagles|65ec754f5e0ebf10fd8b3cd78b32b2ba7b0ba6882b446231c9446971c822ad67",
         "CAUSAL_CAPTURE_REVIEW|2026-09-20|Mantova vs Pisa|348d31049b70e41b28a31de39189b4a338bb5d4b47a0e96d5ec405d5c2018ee7"
-      ]
-    },
-    "POSTMATCH_PROCESS_DATA_GAP": {
-      "status": "OBSERVE",
-      "promotionAllowed": false,
-      "uniqueOccurrences": 1,
-      "cleanOccurrences": 1,
-      "legacyOccurrences": 0,
-      "uniqueLossOccurrences": 0,
-      "cleanLossOccurrences": 0,
-      "legacyLossOccurrences": 0,
-      "examples": [
-        {
-          "date": "2026-09-25",
-          "fixture": "VfB Stuttgart vs 1. FC Heidenheim 1846",
-          "actual": "H",
-          "sourceHash": "1e1591b20749d48c4f0fa15a2bda55ef29287b8289d810e5e0aba804f777e2c0",
-          "evidenceClass": "CLEAN_GUARD_AWARE",
-          "lossEvidence": false
-        }
-      ],
-      "evidenceIds": [
-        "POSTMATCH_PROCESS_DATA_GAP|2026-09-25|VfB Stuttgart vs 1. FC Heidenheim 1846|1e1591b20749d48c4f0fa15a2bda55ef29287b8289d810e5e0aba804f777e2c0"
       ]
     }
   }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-FORENSIC-AUDIT-2",
-  "version": "HBT-FORENSIC-LEARNING-2-GUARD-AWARE",
-  "generatedAt": "2026-09-29T08:34:02Z",
+  "version": "HBT-FORENSIC-LEARNING-3-COMPETITION-SAFE",
+  "generatedAt": "2026-09-29T08:36:29Z",
   "targetDate": "2026-09-25",
   "policy": {
     "preMatchForecastImmutable": true,
@@ -12,7 +12,9 @@
     "automaticFeaturePromotion": false,
     "preserveExistingIntelligence": true,
     "hypothesesMustBeBacktested": true,
-    "holdoutValidationRequired": true
+    "holdoutValidationRequired": true,
+    "unsupportedCompetitionRowsExcludedFromPredictiveLearning": true,
+    "unsupportedCompetitionsMayNotBeTreatedAsHBT": true
   },
   "source": {
     "prospectiveCard": "hbt_prospective_card_2026-09-25.json",
@@ -22,12 +24,12 @@
   "summary": {
     "rawForecastRows": 1,
     "settledRows": 1,
-    "learningEligibleSettled": 1,
-    "guardBlockedRows": 0,
-    "topPickCorrectEligible": 1,
-    "topPickAccuracyEligible": 1.0,
-    "meanBrierEligible": 0.1257940389248719,
-    "meanLogLossEligible": 0.3314172729541545,
+    "learningEligibleSettled": 0,
+    "guardBlockedRows": 1,
+    "topPickCorrectEligible": 0,
+    "topPickAccuracyEligible": null,
+    "meanBrierEligible": null,
+    "meanLogLossEligible": null,
     "shadowR0Settled": 0,
     "shadowR0Wins": 0,
     "shadowR0Losses": 0,
@@ -63,9 +65,9 @@
       },
       "executionGuard": {
         "surfacePresent": false,
-        "eligibleAtSurface": null,
-        "blockReason": null,
-        "guardOutcome": "NOT_BLOCKED"
+        "eligibleAtSurface": false,
+        "blockReason": "UNSUPPORTED_OR_UNRESOLVED_COMPETITION_CODE",
+        "guardOutcome": "BLOCKED_CORRECTLY_NO_MODEL_LEARNING"
       },
       "actual": {
         "settled": true,
@@ -92,15 +94,12 @@
         "dataAvailable": false
       },
       "learning": {
-        "eligibleForPredictiveLearning": true,
-        "hypothesisTags": [
-          "POSTMATCH_PROCESS_DATA_GAP",
-          "STALE_STATE_REVIEW"
-        ],
-        "researchRequired": true,
+        "eligibleForPredictiveLearning": false,
+        "hypothesisTags": [],
+        "researchRequired": false,
         "modelMutationAllowed": false,
         "featurePromotionAllowed": false,
-        "nextStep": "Historical backtest + unseen holdout validation before any promotion"
+        "nextStep": "Retain as unsupported-competition guard evidence only; never treat as HBT predictive evidence"
       }
     }
   ],
