@@ -9,6 +9,7 @@ on:
       - 'scripts/hbt_forensic_learning_v3.py'
       - 'scripts/hbt_rebuild_learning_registry_v2.py'
       - 'scripts/hbt_learning_assessment_v1.py'
+      - 'scripts/hbt_learning_assessment_v2.py'
       - 'hbt_live_data/hbt_betway_execution_*.json'
   workflow_dispatch:
     inputs:
@@ -43,7 +44,7 @@ jobs:
       - name: Compile and self-test
         run: |
           set -euo pipefail
-          python -m py_compile scripts/hbt_forensic_learning_v1.py scripts/hbt_forensic_learning_v2.py scripts/hbt_forensic_learning_v3.py scripts/hbt_rebuild_learning_registry_v2.py scripts/hbt_learning_assessment_v1.py
+          python -m py_compile scripts/hbt_forensic_learning_v1.py scripts/hbt_forensic_learning_v2.py scripts/hbt_forensic_learning_v3.py scripts/hbt_rebuild_learning_registry_v2.py scripts/hbt_learning_assessment_v1.py scripts/hbt_learning_assessment_v2.py
           python scripts/hbt_forensic_learning_v2.py --self-test
           python scripts/hbt_forensic_learning_v3.py --self-test
 
@@ -69,7 +70,7 @@ jobs:
           set -euo pipefail
           python scripts/hbt_forensic_learning_v3.py --date '${{ steps.target.outputs.date }}'
           python scripts/hbt_rebuild_learning_registry_v2.py
-          python scripts/hbt_learning_assessment_v1.py
+          python scripts/hbt_learning_assessment_v2.py
 
       - name: Guard learning policy and output
         run: |
@@ -95,9 +96,12 @@ jobs:
           assert h['policy']['automaticModelMutation'] is False
           assert h['policy']['automaticFeaturePromotion'] is False
           a=json.load(open('hbt_live_data/forensic/hbt_learning_assessment_v1.json',encoding='utf-8'))
+          assert a['policy']['predictiveModelMutated'] is False
+          assert a['policy']['weightsRetuned'] is False
+          assert a['policy']['cleanEvidenceRequiredForPromotion'] is True
           print(json.dumps(x['summary'],indent=2))
           print(json.dumps(h['coverage'],indent=2))
-          print(json.dumps({'assessmentVersion':a.get('version'),'policy':a.get('policy'),'summary':a.get('summary')},indent=2))
+          print(json.dumps({'assessmentVersion':a.get('version'),'scope':a.get('scope'),'evidenceQuality':a.get('evidenceQuality')},indent=2))
           PY
         env:
           TARGET_DATE: '${{ steps.target.outputs.date }}'
