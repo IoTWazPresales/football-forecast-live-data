@@ -5,9 +5,13 @@ Wraps v1.1 without changing any football probability. Legacy exploratory
 forensics showed materially weaker raw outcome performance in stale/C1 rows, so
 these rows require a larger bookmaker edge before real-money execution. This is
 a bankroll/execution control only, not a model coefficient change.
+
+A legitimate empty supported slate is represented explicitly as an empty R0
+surface rather than treated as a pipeline failure.
 """
 from __future__ import annotations
 
+import argparse
 from typing import Any
 import hbt_execution_surface_v1 as base
 
@@ -21,8 +25,6 @@ def classify_stake(row: dict[str, Any], p: float, odds: float | None, execution_
     quality = float(row.get("quality") or 0)
     elevated_risk = c1 or stale
 
-    # Native/current: +3% EV can fund R1, +7% can fund R2 if q>=0.90.
-    # C1/stale: +7% EV is required just for R1; never R2.
     r1_ev = 0.07 if elevated_risk else 0.03
     r2_ev = 0.07
     min_r1 = (1.0 + r1_ev) / p if p > 0 else None
@@ -65,7 +67,45 @@ def classify_stake(row: dict[str, Any], p: float, odds: float | None, execution_
     }
 
 
+def write_empty_surface(target: str) -> int:
+    card = base.read(base.ROOT / f"hbt_prospective_card_{target}.json", {})
+    if not card or card.get("targetDate") != target or card.get("candidates") not in ([], None):
+        return -1
+    out = {
+        "schemaVersion": "HBT-EXECUTION-SURFACE-1",
+        "version": VERSION,
+        "targetDate": target,
+        "generatedAt": base.iso(base.now_utc()),
+        "policy": {
+            "footballProbabilitiesImmutable": True,
+            "bookmakerPriceObservedOnlyAfterPredictionFreeze": True,
+            "r0Default": True,
+            "r1MinimumModelEVNativeCurrent": 0.03,
+            "r1MinimumModelEVC1OrStale": 0.07,
+            "r2MinimumModelEV": 0.07,
+            "r2RequiresNativeCurrentQualityAtLeast": 0.90,
+            "c1OrStaleMayReachR2": False,
+            "emptySupportedSlateIsValid": True,
+        },
+        "sourceProspectiveCard": f"hbt_prospective_card_{target}.json",
+        "priceSource": None,
+        "summary": {"surfaces": 0, "executionEligibleNow": 0, "blockedIdentityOrTiming": 0, "fundedSingles": 0, "fundedStakeRand": 0, "r0Singles": 0, "chains": 0},
+        "rows": [],
+        "chains": [],
+    }
+    base.write(base.ROOT / f"hbt_execution_surface_{target}.json", out)
+    print("HBT execution surface: legitimate empty supported slate", target)
+    return 0
+
+
 def main() -> int:
+    ap = argparse.ArgumentParser(add_help=False)
+    ap.add_argument("--date")
+    known, _ = ap.parse_known_args()
+    if known.date:
+        empty = write_empty_surface(known.date)
+        if empty == 0:
+            return 0
     base.classify_stake = classify_stake
     base.VERSION = VERSION
     return base.main()
