@@ -1,12 +1,13 @@
 {
   "schemaVersion": "HBT-LEARNING-ASSESSMENT-1",
-  "version": "HBT-LEARNING-ASSESSMENT-1",
+  "version": "HBT-LEARNING-ASSESSMENT-2-DYNAMIC-SCOPE",
   "scope": [
     "2026-09-18",
     "2026-09-19",
     "2026-09-20",
     "2026-09-22",
-    "2026-09-23"
+    "2026-09-23",
+    "2026-09-25"
   ],
   "policy": {
     "predictiveModelMutated": false,
@@ -20,7 +21,7 @@
   "evidenceQuality": {
     "legacyEligibleRows": 102,
     "cleanGuardAwareRows": 0,
-    "guardBlockedRowsExcluded": 6,
+    "guardBlockedRowsExcluded": 7,
     "settledEligibleRows": 97
   },
   "raw1X2Assessment": {
@@ -328,10 +329,11 @@
     {
       "code": "IDENTITY_GUARD_PREVENTED_CONTAMINATION",
       "evidence": {
-        "guardBlockedRows": 6,
+        "guardBlockedRows": 7,
         "blockReasons": {
           "AMBIGUOUS_GENERIC_DISCOVERY_IDENTITY": 5,
-          "RESERVE_B_TEAM_NAMESPACE": 1
+          "RESERVE_B_TEAM_NAMESPACE": 1,
+          "UNSUPPORTED_OR_UNRESOLVED_COMPETITION_CODE": 1
         }
       },
       "interpretation": "Blocked women/reserve/generic-identity rows must not count toward model calibration even when their hypothetical market later wins.",
