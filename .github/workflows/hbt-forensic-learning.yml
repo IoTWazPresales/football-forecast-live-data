@@ -6,6 +6,9 @@ on:
       - research/hbt-1.4-match-intelligence
     paths:
       - '.github/workflows/hbt-forensic-learning.yml'
+      - 'scripts/hbt_forensic_learning_v3.py'
+      - 'scripts/hbt_rebuild_learning_registry_v2.py'
+      - 'scripts/hbt_learning_assessment_v1.py'
       - 'hbt_live_data/hbt_betway_execution_*.json'
   workflow_dispatch:
     inputs:
@@ -40,8 +43,9 @@ jobs:
       - name: Compile and self-test
         run: |
           set -euo pipefail
-          python -m py_compile scripts/hbt_forensic_learning_v1.py scripts/hbt_forensic_learning_v2.py scripts/hbt_rebuild_learning_registry_v2.py scripts/hbt_learning_assessment_v1.py
+          python -m py_compile scripts/hbt_forensic_learning_v1.py scripts/hbt_forensic_learning_v2.py scripts/hbt_forensic_learning_v3.py scripts/hbt_rebuild_learning_registry_v2.py scripts/hbt_learning_assessment_v1.py
           python scripts/hbt_forensic_learning_v2.py --self-test
+          python scripts/hbt_forensic_learning_v3.py --self-test
 
       - name: Resolve target date
         id: target
@@ -60,10 +64,10 @@ jobs:
           echo "date=$TARGET" >> "$GITHUB_OUTPUT"
           echo "Forensic target: $TARGET"
 
-      - name: Run guard-aware forensic audit
+      - name: Run competition-safe guard-aware forensic audit
         run: |
           set -euo pipefail
-          python scripts/hbt_forensic_learning_v2.py --date '${{ steps.target.outputs.date }}'
+          python scripts/hbt_forensic_learning_v3.py --date '${{ steps.target.outputs.date }}'
           python scripts/hbt_rebuild_learning_registry_v2.py
           python scripts/hbt_learning_assessment_v1.py
 
@@ -78,11 +82,13 @@ jobs:
           pol=x['policy']
           assert pol['preMatchForecastImmutable'] is True
           assert pol['postMatchEvidenceMayNotRewriteCapture'] is True
+          assert pol['executionGuardBlockedRowsExcludedFromPredictiveLearning'] is True
+          assert pol['unsupportedCompetitionRowsExcludedFromPredictiveLearning'] is True
+          assert pol['unsupportedCompetitionsMayNotBeTreatedAsHBT'] is True
+          assert pol['exactR0MarketSettlementEnabled'] is True
           assert pol['automaticModelMutation'] is False
           assert pol['automaticFeaturePromotion'] is False
           assert pol['preserveExistingIntelligence'] is True
-          assert pol['executionGuardBlockedRowsExcludedFromPredictiveLearning'] is True
-          assert pol['exactR0MarketSettlementEnabled'] is True
           h=json.load(open('hbt_live_data/forensic/hbt_learning_hypotheses_v2.json',encoding='utf-8'))
           assert h['policy']['idempotentUniqueEvidenceCounting'] is True
           assert h['policy']['executionGuardBlockedRowsExcluded'] is True
@@ -103,5 +109,5 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add hbt_live_data/forensic/
           git diff --staged --quiet && exit 0
-          git commit -m "forensic: guard-aware audit HBT settled slate ${{ steps.target.outputs.date }} [skip ci]"
+          git commit -m "forensic: competition-safe guard-aware audit HBT settled slate ${{ steps.target.outputs.date }} [skip ci]"
           git push origin HEAD:research/hbt-1.4-match-intelligence
