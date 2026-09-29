@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "HBT-FORENSIC-AUDIT-2",
+  "version": "HBT-FORENSIC-LEARNING-2-GUARD-AWARE",
+  "generatedAt": "2026-09-29T08:33:28Z",
+  "targetDate": "2026-09-25",
+  "policy": {
+    "preMatchForecastImmutable": true,
+    "postMatchEvidenceMayNotRewriteCapture": true,
+    "executionGuardBlockedRowsExcludedFromPredictiveLearning": true,
+    "exactR0MarketSettlementEnabled": true,
+    "automaticModelMutation": false,
+    "automaticFeaturePromotion": false,
+    "preserveExistingIntelligence": true,
+    "hypothesesMustBeBacktested": true,
+    "holdoutValidationRequired": true
+  },
+  "source": {
+    "prospectiveCard": "hbt_prospective_card_2026-09-25.json",
+    "sourceHash": "d4fe9de5303cd450b213fb4d4537c01926eb5fc7f6c29373fa372480dfb9b9a7",
+    "executionSurface": null
+  },
+  "summary": {
+    "rawForecastRows": 1,
+    "settledRows": 1,
+    "learningEligibleSettled": 1,
+    "guardBlockedRows": 0,
+    "topPickCorrectEligible": 1,
+    "topPickAccuracyEligible": 1.0,
+    "meanBrierEligible": 0.1257940389248719,
+    "meanLogLossEligible": 0.3314172729541545,
+    "shadowR0Settled": 0,
+    "shadowR0Wins": 0,
+    "shadowR0Losses": 0,
+    "shadowR0Voids": 0,
+    "verifiedExecutions": 0,
+    "executionStake": 0,
+    "executionReturn": 0,
+    "executionProfit": 0
+  },
+  "audits": [
+    {
+      "date": "2026-09-25",
+      "fixture": "VfB Stuttgart vs 1. FC Heidenheim 1846",
+      "home": "VfB Stuttgart",
+      "away": "1. FC Heidenheim 1846",
+      "preMatch": {
+        "sourceFile": "hbt_prospective_card_2026-09-25.json",
+        "sourceCapturedAt": "2026-09-25T06:51:30.203232Z",
+        "immutableHash": "1e1591b20749d48c4f0fa15a2bda55ef29287b8289d810e5e0aba804f777e2c0",
+        "origin": "HBT_SHADOW_RESOLVER_V3",
+        "tier": "A",
+        "rawTier": "A",
+        "quality": 0.7726212524605672,
+        "coverage": "stale-ish 132d",
+        "coveragePack": null,
+        "predictionMode": "L0 FALLBACK",
+        "probsHDA": [
+          0.7179055439650633,
+          0.19773988951964905,
+          0.08435456651528753
+        ],
+        "bookmakerObservedBeforeCapture": false
+      },
+      "executionGuard": {
+        "surfacePresent": false,
+        "eligibleAtSurface": null,
+        "blockReason": null,
+        "guardOutcome": "NOT_BLOCKED"
+      },
+      "actual": {
+        "settled": true,
+        "homeScore": 3.0,
+        "awayScore": 0.0,
+        "result": "H",
+        "eventId": "401920460",
+        "competition": "2026-club-friendly"
+      },
+      "predictionOutcome": {
+        "topPick": "H",
+        "topPickProbability": 0.7179055439650633,
+        "topPickCorrect": true,
+        "actualOutcomeProbability": 0.7179055439650633,
+        "brier": 0.1257940389248719,
+        "logLoss": 0.3314172729541545
+      },
+      "shadowR0": {},
+      "execution": {},
+      "processEvidence": {
+        "teams": {},
+        "keyEvents": [],
+        "lineups": {},
+        "dataAvailable": false
+      },
+      "learning": {
+        "eligibleForPredictiveLearning": true,
+        "hypothesisTags": [
+          "POSTMATCH_PROCESS_DATA_GAP",
+          "STALE_STATE_REVIEW"
+        ],
+        "researchRequired": true,
+        "modelMutationAllowed": false,
+        "featurePromotionAllowed": false,
+        "nextStep": "Historical backtest + unseen holdout validation before any promotion"
+      }
+    }
+  ],
+  "multis": []
+}
