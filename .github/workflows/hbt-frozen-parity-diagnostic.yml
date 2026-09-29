@@ -9,6 +9,7 @@ on:
     paths:
       - .github/workflows/hbt-frozen-parity-diagnostic.yml
       - scripts/hbt_snapshot_chunk_probe.mjs
+      - scripts/hbt_inspect_exact_bridge.mjs
       - scripts/hbt_frozen_forecast_bridge.mjs
       - runtime/hbt_frozen_l0_snapshot_*
       - runtime/hbt_frozen_runtime_bundle.json
@@ -33,6 +34,11 @@ jobs:
         shell: bash
         run: |
           node scripts/hbt_snapshot_chunk_probe.mjs
+
+      - name: Inspect exact bridge snapshot loader
+        shell: bash
+        run: |
+          node scripts/hbt_inspect_exact_bridge.mjs
 
       - name: Run exact frozen bridge loader
         shell: bash
