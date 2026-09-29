@@ -40,7 +40,7 @@ jobs:
       - name: Compile and self-test
         run: |
           set -euo pipefail
-          python -m py_compile scripts/hbt_forensic_learning_v1.py scripts/hbt_forensic_learning_v2.py scripts/hbt_rebuild_learning_registry_v2.py
+          python -m py_compile scripts/hbt_forensic_learning_v1.py scripts/hbt_forensic_learning_v2.py scripts/hbt_rebuild_learning_registry_v2.py scripts/hbt_learning_assessment_v1.py
           python scripts/hbt_forensic_learning_v2.py --self-test
 
       - name: Resolve target date
@@ -51,7 +51,20 @@ jobs:
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
             TARGET='${{ inputs.date }}'
           else
-            TARGET="$(date -u -d 'yesterday' +%F)"
+            TARGET="$(python - <<'PY'
+          import glob, os, re
+          from datetime import datetime, timezone
+          today=datetime.now(timezone.utc).date().isoformat()
+          dates=[]
+          for p in glob.glob('hbt_live_data/hbt_prospective_card_*.json'):
+              m=re.search(r'hbt_prospective_card_(\d{4}-\d{2}-\d{2})\.json$',p)
+              if m and m.group(1) < today:
+                  dates.append(m.group(1))
+          if not dates:
+              raise SystemExit('No immutable prospective HBT slate exists before today')
+          print(max(dates))
+          PY
+          )"
           fi
           echo "date=$TARGET" >> "$GITHUB_OUTPUT"
           echo "Forensic target: $TARGET"
@@ -61,6 +74,7 @@ jobs:
           set -euo pipefail
           python scripts/hbt_forensic_learning_v2.py --date '${{ steps.target.outputs.date }}'
           python scripts/hbt_rebuild_learning_registry_v2.py
+          python scripts/hbt_learning_assessment_v1.py
 
       - name: Guard learning policy and output
         run: |
@@ -83,8 +97,10 @@ jobs:
           assert h['policy']['executionGuardBlockedRowsExcluded'] is True
           assert h['policy']['automaticModelMutation'] is False
           assert h['policy']['automaticFeaturePromotion'] is False
+          a=json.load(open('hbt_live_data/forensic/hbt_learning_assessment_v1.json',encoding='utf-8'))
           print(json.dumps(x['summary'],indent=2))
           print(json.dumps(h['coverage'],indent=2))
+          print(json.dumps({'assessmentVersion':a.get('version'),'policy':a.get('policy'),'summary':a.get('summary')},indent=2))
           PY
         env:
           TARGET_DATE: '${{ steps.target.outputs.date }}'
