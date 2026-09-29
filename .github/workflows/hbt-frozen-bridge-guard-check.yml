@@ -7,6 +7,7 @@ on:
     paths:
       - .github/workflows/hbt-frozen-bridge-guard-check.yml
       - scripts/hbt_frozen_forecast_bridge.mjs
+      - runtime/hbt_frozen_runtime_bundle.json
 
 permissions:
   contents: read
@@ -25,9 +26,5 @@ jobs:
           node-version: '22'
       - name: Run guarded frozen bridge
         run: |
-          set +e
           node scripts/hbt_frozen_forecast_bridge.mjs --date 2026-09-17
-          code=$?
-          set -e
-          echo "bridge_exit=$code"
-          node -e "const fs=require('fs'); const s=JSON.parse(fs.readFileSync('hbt_live_data/forecast_bridge_status.json','utf8')); if(s.status!=='BLOCKED_FROZEN_L0_SNAPSHOT_MISSING') { console.error(s); process.exit(1); } if(s.parityTolerance!==1e-9) { console.error('parity tolerance changed',s.parityTolerance); process.exit(1); } if(s.invalidSubstituteRejected!=='deploymentSnapshot.models.l1.baseModel') { console.error('invalid substitute guard missing'); process.exit(1); } console.log(JSON.stringify({status:s.status,requiredSnapshot:s.requiredSnapshot,parityTolerance:s.parityTolerance,invalidSubstituteRejected:s.invalidSubstituteRejected},null,2));"
+          node -e "const fs=require('fs'); const s=JSON.parse(fs.readFileSync('hbt_live_data/forecast_bridge_status.json','utf8')); if(s.status!=='READY') { console.error(s); process.exit(1); } if(!s.goldenParity?.pass || s.goldenParity?.unresolved!==0 || s.goldenParity?.maxAbsError>1e-9) { console.error('golden parity guard failed',s.goldenParity); process.exit(1); } if(s.goldenParity?.tolerance!==1e-9) { console.error('parity tolerance changed',s.goldenParity?.tolerance); process.exit(1); } if(!s.policy?.frozenWeightsHydrated || s.policy?.retrainingOrRetuningPerformed || s.policy?.modelChoiceSearchPerformed) { console.error('frozen-model guard failed',s.policy); process.exit(1); } if(s.runtimeModel?.source!=='exact HBT-0.4a frozen snapshot') { console.error('unexpected runtime source',s.runtimeModel); process.exit(1); } console.log(JSON.stringify({status:s.status,source:s.runtimeModel?.source,parity:s.goldenParity,policy:s.policy},null,2));"
