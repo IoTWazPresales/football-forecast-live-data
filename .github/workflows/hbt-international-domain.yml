@@ -109,10 +109,14 @@ jobs:
           assert qp['researchOnly'] is True
           assert qp['postKickoffRowsExcludedFromProspectiveEvidence'] is True
           assert qp['venueContextMustBeVerifiedForCleanProspectiveEvidence'] is True
+          assert qp['thirdCountryVenueRemovesNominalHomeAdvantage'] is True
           assert qp['automaticPromotion'] is False and qp['automaticFunding'] is False
           for r in y.get('prospectiveCandidates') or []:
               assert (r.get('capture') or {}).get('statusAtCapture')=='PRE_KICKOFF'
               assert (r.get('execution') or {}).get('fundingAllowed') is False
+              vc=r.get('venueContext') or {}
+              if vc.get('status') in {'VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED','VERIFIED_AWAY_COUNTRY_OR_DISPLACED_HOME','VERIFIED_NEUTRAL'}:
+                  assert vc.get('homeAdvantageApplied') is False
           for r in y.get('postKickoffResearchRows') or []:
               assert r not in (y.get('prospectiveCandidates') or [])
           print(json.dumps({'v1':x['summary'],'domainSummary':x['domainSummary'],'validation':v,'v2':y['summary']},indent=2))
@@ -130,4 +134,6 @@ jobs:
           git add hbt_live_data/international/
           git diff --staged --quiet && exit 0
           git commit -m "research: HBT international domain challenger ${D} [skip ci]"
+          git fetch origin research/hbt-1.4-match-intelligence
+          git rebase origin/research/hbt-1.4-match-intelligence
           git push origin HEAD:research/hbt-1.4-match-intelligence
