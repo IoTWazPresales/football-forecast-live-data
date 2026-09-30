@@ -7,6 +7,7 @@ on:
     paths:
       - '.github/workflows/hbt-international-domain.yml'
       - 'scripts/hbt_international_challenger_v1.py'
+      - 'scripts/hbt_international_context_v2.py'
       - 'scripts/hbt_scan_slate_v2.py'
       - 'scripts/hbt_scan_slate_v2_1.py'
       - 'scripts/hbt_scan_slate_v2_2.py'
@@ -57,7 +58,7 @@ jobs:
       - name: Compile research adapter
         run: |
           set -euo pipefail
-          python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_international_challenger_v1.py
+          python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_international_challenger_v1.py scripts/hbt_international_context_v2.py
 
       - name: Discover public slate without changing frozen model
         run: |
@@ -68,6 +69,11 @@ jobs:
         run: |
           set -euo pipefail
           python scripts/hbt_international_challenger_v1.py --date '${{ steps.target.outputs.date }}'
+
+      - name: Build timing-safe venue-aware prospective card and probe official XI
+        run: |
+          set -euo pipefail
+          python scripts/hbt_international_context_v2.py --date '${{ steps.target.outputs.date }}'
 
       - name: Guard research-only contract
         env:
@@ -96,7 +102,20 @@ jobs:
           for r in x.get('internationalCandidates') or []:
               assert (r.get('execution') or {}).get('fundingAllowed') is False
               assert (r.get('execution') or {}).get('class')=='R0_SHADOW_RESEARCH'
-          print(json.dumps({'summary':x['summary'],'domainSummary':x['domainSummary'],'validation':v},indent=2))
+
+          pp=pathlib.Path(f'hbt_live_data/international/hbt_international_prospective_{d}.json')
+          y=json.load(open(pp,encoding='utf-8'))
+          qp=y['policy']
+          assert qp['researchOnly'] is True
+          assert qp['postKickoffRowsExcludedFromProspectiveEvidence'] is True
+          assert qp['venueContextMustBeVerifiedForCleanProspectiveEvidence'] is True
+          assert qp['automaticPromotion'] is False and qp['automaticFunding'] is False
+          for r in y.get('prospectiveCandidates') or []:
+              assert (r.get('capture') or {}).get('statusAtCapture')=='PRE_KICKOFF'
+              assert (r.get('execution') or {}).get('fundingAllowed') is False
+          for r in y.get('postKickoffResearchRows') or []:
+              assert r not in (y.get('prospectiveCandidates') or [])
+          print(json.dumps({'v1':x['summary'],'domainSummary':x['domainSummary'],'validation':v,'v2':y['summary']},indent=2))
           PY
 
       - name: Keep generic scanner output out of international commit
