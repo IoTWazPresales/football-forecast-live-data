@@ -1,20 +1,34 @@
 {
-  "schemaVersion": "HBT-INTERNATIONAL-PROSPECTIVE-2",
-  "version": "HBT-1.4-INTERNATIONAL-CONTEXT-2.1-VENUE-IDENTITY",
-  "generatedAt": "2026-09-30T14:41:03.816230Z",
+  "schemaVersion": "HBT-INTERNATIONAL-INTELLIGENCE-3",
+  "version": "HBT-1.4-INTERNATIONAL-INTELLIGENCE-3-RECENT-INTERACTION",
+  "generatedAt": "2026-09-30T14:41:19Z",
   "targetDate": "2026-09-30",
-  "source": "hbt_international_challenger_2026-09-30.json",
+  "source": "hbt_international_prospective_2026-09-30.json",
   "policy": {
     "researchOnly": true,
     "frozenHBT112Mutated": false,
     "domesticForecastsMutated": false,
     "bookmakerOddsRead": false,
-    "postKickoffRowsExcludedFromProspectiveEvidence": true,
-    "venueContextMustBeVerifiedForCleanProspectiveEvidence": true,
-    "thirdCountryVenueRemovesNominalHomeAdvantage": true,
-    "officialXIIsContextOnlyUntilValidated": true,
+    "missingIsZero": false,
+    "missingContributionNeutral": true,
     "automaticPromotion": false,
     "automaticFunding": false
+  },
+  "historySource": {
+    "url": "https://raw.githubusercontent.com/martj42/international_results/394fe81893b062fbc2cf6257e988ac7cc4c039a1/results.csv",
+    "commit": "394fe81893b062fbc2cf6257e988ac7cc4c039a1",
+    "sha256": "df35268f8fc341ff7fb93d448b4e40356676ac35300a6b4461fd199a99ac1514",
+    "rows": 49547,
+    "firstDate": "1872-11-30",
+    "lastDate": "2026-08-26"
+  },
+  "recentSupplement": {
+    "attemptedDays": 34,
+    "loadedDays": 34,
+    "failedDays": 0,
+    "addedMatches": 167,
+    "from": "2026-08-27",
+    "through": "2026-09-29"
   },
   "validation": {
     "selectionWindow": [
@@ -25,71 +39,47 @@
       "2025-01-01",
       "2026-09-30"
     ],
-    "selectedParams": {
+    "baseParams": {
       "eloSlope": 1.4,
       "homeLogit": 0.15,
       "drawIntercept": 0.0,
       "drawMismatchPenalty": 0.4
     },
+    "selectedRecentWeights": {
+      "pointsShare": -0.2,
+      "goalDifference": 0.1,
+      "opponentStrength": 0.15,
+      "rest": 0.05
+    },
     "selection": {
       "n": 2285,
-      "logLoss": 0.8842945020773297,
-      "brier": 0.5206899405328139,
-      "accuracy": 0.6026258205689278,
-      "topPickECE": 0.01644032866381879
+      "logLoss": 0.8803430424395654,
+      "brier": 0.5182725494244027,
+      "accuracy": 0.600875273522976,
+      "topPickECE": 0.022516177614832395
     },
     "holdout": {
+      "n": 1619,
+      "logLoss": 0.839990516987624,
+      "brier": 0.4927708639992273,
+      "accuracy": 0.6195182211241507,
+      "topPickECE": 0.028151934654412417
+    },
+    "structuralOnlyHoldout": {
       "n": 1619,
       "logLoss": 0.8476057091321209,
       "brier": 0.4969791866234811,
       "accuracy": 0.6170475602223595,
       "topPickECE": 0.0316675338967015
     },
-    "holdoutBaseline": {
-      "n": 1619,
-      "logLoss": 1.0479605343044118,
-      "brier": 0.6320648351921964,
-      "accuracy": 0.47869054972205066,
-      "topPickECE": 0.0033493615861625026
-    },
-    "competitiveHoldout": {
-      "n": 1156,
-      "logLoss": 0.8293736505250846,
-      "brier": 0.48446228299190564,
-      "accuracy": 0.6314878892733564,
-      "topPickECE": 0.04356481076217917
-    },
-    "friendlyHoldout": {
-      "n": 463,
-      "logLoss": 0.8931267885051914,
-      "brier": 0.528230894178778,
-      "accuracy": 0.5809935205183585,
-      "topPickECE": 0.023498954105536214
-    },
-    "beatsFixedHistoricalBaseRateOnLogLossAndBrier": true,
+    "improvesHoldoutLogLossAndBrier": true,
     "promotionAllowed": false,
-    "promotionBlock": "requires clean prospective confirmation plus broader HBT-1.4 interaction/ablation validation"
-  },
-  "historySource": {
-    "url": "https://raw.githubusercontent.com/martj42/international_results/394fe81893b062fbc2cf6257e988ac7cc4c039a1/results.csv",
-    "commit": "394fe81893b062fbc2cf6257e988ac7cc4c039a1",
-    "sha256": "df35268f8fc341ff7fb93d448b4e40356676ac35300a6b4461fd199a99ac1514",
-    "rows": 49547,
-    "firstDate": "1872-11-30",
-    "lastDate": "2026-08-26"
+    "promotionBlock": "requires clean prospective confirmation and broader HBT-1.4 interaction/ablation validation"
   },
   "summary": {
-    "v1InternationalRows": 11,
-    "preKickoffProspective": 7,
-    "postKickoffExcluded": 4,
-    "timingUnresolved": 0,
-    "cleanProspectiveEligible": 6,
-    "verifiedHomeCountry": 3,
-    "verifiedThirdCountryOrAway": 3,
-    "venueContextUnresolved": 1,
-    "xiProbeAttempted": 7,
-    "xiSummaryAvailable": 7,
-    "confirmedXI": 0
+    "prospectiveRows": 7,
+    "recentInteractionApplied": 7,
+    "fundedRows": 0
   },
   "prospectiveCandidates": [
     {
@@ -101,40 +91,40 @@
         "competitionSlug": "2026-international-friendly"
       },
       "domain": "NATIONAL_FRIENDLY",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
       "probs": {
-        "H": 0.7031641981791632,
-        "D": 0.1938505454184783,
-        "A": 0.10298525640235841
+        "H": 0.7243438365028768,
+        "D": 0.18479973408967942,
+        "A": 0.09085642940744364
       },
       "pick": "H",
-      "pickProbability": 0.7031641981791632,
+      "pickProbability": 0.7243438365028768,
       "derivedMarkets": {
         "1X": {
-          "p": 0.8970147435976414,
-          "fairOdds": 1.1148088781565813
+          "p": 0.9091435705925562,
+          "fairOdds": 1.0999362832739672
         },
         "X2": {
-          "p": 0.2968358018208367,
-          "fairOdds": 3.36886586411021
+          "p": 0.2756561634971231,
+          "fairOdds": 3.6277077476282753
         },
         "12": {
-          "p": 0.8061494545815217,
-          "fairOdds": 1.2404647727748046
+          "p": 0.8152002659103205,
+          "fairOdds": 1.2266924359786815
         },
         "HOME_DNB": {
-          "winP": 0.7031641981791632,
-          "pushP": 0.1938505454184783,
-          "lossP": 0.10298525640235841,
-          "conditionalP": 0.8722504173176934,
-          "fairOdds": 1.1464597553018736
+          "winP": 0.7243438365028768,
+          "pushP": 0.18479973408967942,
+          "lossP": 0.09085642940744364,
+          "conditionalP": 0.8885471052858578,
+          "fairOdds": 1.125432736262515
         },
         "AWAY_DNB": {
-          "winP": 0.10298525640235841,
-          "pushP": 0.1938505454184783,
-          "lossP": 0.7031641981791632,
-          "conditionalP": 0.12774958268230652,
-          "fairOdds": 7.827814220629163
+          "winP": 0.09085642940744364,
+          "pushP": 0.18479973408967942,
+          "lossP": 0.7243438365028768,
+          "conditionalP": 0.11145289471414216,
+          "fairOdds": 8.972400425891413
         }
       },
       "quality": 0.95,
@@ -170,12 +160,13 @@
         "setPieces": false,
         "referee": false,
         "weatherVenue": false,
-        "motivationCompetition": false
+        "motivationCompetition": false,
+        "recentPerformanceInteractionTested": true
       },
       "execution": {
         "class": "R0_SHADOW_RESEARCH",
         "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
       },
       "venueContext": {
         "status": "VERIFIED_HOME_COUNTRY",
@@ -266,7 +257,48 @@
         "slug": "fifa.friendly",
         "abbreviation": "Men's International Friendly"
       },
-      "cleanProspectiveEligible": true
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.16666666666666666,
+          "recentGoalDiffDiff": 0.75,
+          "recentOpponentStrengthDiff": 0.2388256689755815,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.03333333333333333,
+            0.07500000000000001,
+            0.03582385034633722,
+            0.0
+          ],
+          "totalLogitAdjustment": 0.0774905170130039
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.7031641981791632,
+        "D": 0.1938505454184783,
+        "A": 0.10298525640235841
+      }
     },
     {
       "fixture": {
@@ -277,40 +309,40 @@
         "competitionSlug": "group-stage"
       },
       "domain": "NATIONAL_COMPETITIVE",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
       "probs": {
-        "H": 0.049700897736298676,
-        "D": 0.13498302374292903,
-        "A": 0.8153160785207724
+        "H": 0.03672725410914963,
+        "D": 0.11813841355735685,
+        "A": 0.8451343323334936
       },
       "pick": "A",
-      "pickProbability": 0.8153160785207724,
+      "pickProbability": 0.8451343323334936,
       "derivedMarkets": {
         "1X": {
-          "p": 0.18468392147922771,
-          "fairOdds": 5.414656522292195
+          "p": 0.15486566766650647,
+          "fairOdds": 6.4572091094679385
         },
         "X2": {
-          "p": 0.9502991022637014,
-          "fairOdds": 1.0523002680081528
+          "p": 0.9632727458908504,
+          "fairOdds": 1.0381275752540715
         },
         "12": {
-          "p": 0.8650169762570711,
-          "fairOdds": 1.156046675901091
+          "p": 0.8818615864426432,
+          "fairOdds": 1.13396480283705
         },
         "HOME_DNB": {
-          "winP": 0.049700897736298676,
-          "pushP": 0.13498302374292903,
-          "lossP": 0.8153160785207724,
-          "conditionalP": 0.05745655761734814,
-          "fairOdds": 17.404453755476382
+          "winP": 0.03672725410914963,
+          "pushP": 0.11813841355735685,
+          "lossP": 0.8451343323334936,
+          "conditionalP": 0.04164741346462809,
+          "fairOdds": 24.011094971103507
         },
         "AWAY_DNB": {
-          "winP": 0.8153160785207724,
-          "pushP": 0.13498302374292903,
-          "lossP": 0.049700897736298676,
-          "conditionalP": 0.9425434423826519,
-          "fairOdds": 1.0609590550777204
+          "winP": 0.8451343323334936,
+          "pushP": 0.11813841355735685,
+          "lossP": 0.03672725410914963,
+          "conditionalP": 0.9583525865353718,
+          "fairOdds": 1.0434572975017384
         }
       },
       "quality": 1.0,
@@ -346,12 +378,13 @@
         "setPieces": false,
         "referee": false,
         "weatherVenue": false,
-        "motivationCompetition": true
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
       },
       "execution": {
         "class": "R0_SHADOW_RESEARCH",
         "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
       },
       "venueContext": {
         "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
@@ -442,7 +475,48 @@
         "slug": "caf.nations_qual",
         "abbreviation": "AFCON Qualifying"
       },
-      "cleanProspectiveEligible": true
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.41666666666666663,
+          "recentGoalDiffDiff": -1.625,
+          "recentOpponentStrengthDiff": -0.6003009597122372,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.08333333333333333,
+            -0.1625,
+            -0.09004514395683558,
+            0.0
+          ],
+          "totalLogitAdjustment": -0.16921181062350227
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.049700897736298676,
+        "D": 0.13498302374292903,
+        "A": 0.8153160785207724
+      }
     },
     {
       "fixture": {
@@ -453,40 +527,40 @@
         "competitionSlug": "group-stage"
       },
       "domain": "NATIONAL_COMPETITIVE",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
       "probs": {
-        "H": 0.6225242913807779,
-        "D": 0.23798490389922133,
-        "A": 0.1394908047200008
+        "H": 0.5769725500432534,
+        "D": 0.25297162157730685,
+        "A": 0.17005582837943983
       },
       "pick": "H",
-      "pickProbability": 0.6225242913807779,
+      "pickProbability": 0.5769725500432534,
       "derivedMarkets": {
         "1X": {
-          "p": 0.8605091952799993,
-          "fairOdds": 1.1621026311922351
+          "p": 0.8299441716205602,
+          "fairOdds": 1.2049003224486612
         },
         "X2": {
-          "p": 0.37747570861922214,
-          "fairOdds": 2.6491770918396975
+          "p": 0.4230274499567467,
+          "fairOdds": 2.3639127912438003
         },
         "12": {
-          "p": 0.7620150961007788,
-          "fairOdds": 1.3123099596280794
+          "p": 0.7470283784226932,
+          "fairOdds": 1.338637231039926
         },
         "HOME_DNB": {
-          "winP": 0.6225242913807779,
-          "pushP": 0.23798490389922133,
-          "lossP": 0.1394908047200008,
-          "conditionalP": 0.8169448276894073,
-          "fairOdds": 1.2240728701696217
+          "winP": 0.5769725500432534,
+          "pushP": 0.25297162157730685,
+          "lossP": 0.17005582837943983,
+          "conditionalP": 0.7723569367759459,
+          "fairOdds": 1.2947381610558273
         },
         "AWAY_DNB": {
-          "winP": 0.1394908047200008,
-          "pushP": 0.23798490389922133,
-          "lossP": 0.6225242913807779,
-          "conditionalP": 0.18305517231059257,
-          "fairOdds": 5.46283389525473
+          "winP": 0.17005582837943983,
+          "pushP": 0.25297162157730685,
+          "lossP": 0.5769725500432534,
+          "conditionalP": 0.2276430632240542,
+          "fairOdds": 4.392841959852585
         }
       },
       "quality": 1.0,
@@ -522,12 +596,13 @@
         "setPieces": false,
         "referee": false,
         "weatherVenue": false,
-        "motivationCompetition": true
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
       },
       "execution": {
         "class": "R0_SHADOW_RESEARCH",
         "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
       },
       "venueContext": {
         "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
@@ -618,7 +693,48 @@
         "slug": "global.gulf_cup",
         "abbreviation": "Arabian Gulf Cup"
       },
-      "cleanProspectiveEligible": true
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.25,
+          "recentGoalDiffDiff": -2.75,
+          "recentOpponentStrengthDiff": 0.5862797988392168,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.05,
+            -0.275,
+            0.08794196982588251,
+            0.0
+          ],
+          "totalLogitAdjustment": -0.1370580301741175
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.6225242913807779,
+        "D": 0.23798490389922133,
+        "A": 0.1394908047200008
+      }
     },
     {
       "fixture": {
@@ -629,40 +745,40 @@
         "competitionSlug": "group-stage"
       },
       "domain": "NATIONAL_COMPETITIVE",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
       "probs": {
-        "H": 0.4216580058978502,
-        "D": 0.3130420111763955,
-        "A": 0.26529998292575424
+        "H": 0.47272556559984624,
+        "D": 0.30404343717154053,
+        "A": 0.22323099722861325
       },
       "pick": "H",
-      "pickProbability": 0.4216580058978502,
+      "pickProbability": 0.47272556559984624,
       "derivedMarkets": {
         "1X": {
-          "p": 0.7347000170742457,
-          "fairOdds": 1.361099736981419
+          "p": 0.7767690027713867,
+          "fairOdds": 1.2873840181986678
         },
         "X2": {
-          "p": 0.5783419941021497,
-          "fairOdds": 1.7290807345789503
+          "p": 0.5272744344001538,
+          "fairOdds": 1.8965455837767589
         },
         "12": {
-          "p": 0.6869579888236044,
-          "fairOdds": 1.4556930937108266
+          "p": 0.6959565628284595,
+          "fairOdds": 1.436871283943164
         },
         "HOME_DNB": {
-          "winP": 0.4216580058978502,
-          "pushP": 0.3130420111763955,
-          "lossP": 0.26529998292575424,
-          "conditionalP": 0.6138046470933795,
-          "fairOdds": 1.6291828430029267
+          "winP": 0.47272556559984624,
+          "pushP": 0.30404343717154053,
+          "lossP": 0.22323099722861325,
+          "conditionalP": 0.6792457903962095,
+          "fairOdds": 1.4722211225139754
         },
         "AWAY_DNB": {
-          "winP": 0.26529998292575424,
-          "pushP": 0.3130420111763955,
-          "lossP": 0.4216580058978502,
-          "conditionalP": 0.3861953529066206,
-          "fairOdds": 2.5893631098191725
+          "winP": 0.22323099722861325,
+          "pushP": 0.30404343717154053,
+          "lossP": 0.47272556559984624,
+          "conditionalP": 0.3207542096037904,
+          "fairOdds": 3.1176519903986404
         }
       },
       "quality": 1.0,
@@ -698,12 +814,13 @@
         "setPieces": false,
         "referee": false,
         "weatherVenue": false,
-        "motivationCompetition": true
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
       },
       "execution": {
         "class": "R0_SHADOW_RESEARCH",
         "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
       },
       "venueContext": {
         "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
@@ -794,7 +911,48 @@
         "slug": "global.gulf_cup",
         "abbreviation": "Arabian Gulf Cup"
       },
-      "cleanProspectiveEligible": true
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.125,
+          "recentGoalDiffDiff": 1.625,
+          "recentOpponentStrengthDiff": 0.03991515690695621,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.025,
+            0.1625,
+            0.005987273536043431,
+            0.0
+          ],
+          "totalLogitAdjustment": 0.14348727353604343
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.4216580058978502,
+        "D": 0.3130420111763955,
+        "A": 0.26529998292575424
+      }
     },
     {
       "fixture": {
@@ -805,40 +963,40 @@
         "competitionSlug": "2026-international-friendly"
       },
       "domain": "NATIONAL_FRIENDLY",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
       "probs": {
-        "H": 0.6387294550061674,
-        "D": 0.2246395473383286,
-        "A": 0.13663099765550396
+        "H": 0.6902598427697738,
+        "D": 0.20472847118812187,
+        "A": 0.10501168604210435
       },
       "pick": "H",
-      "pickProbability": 0.6387294550061674,
+      "pickProbability": 0.6902598427697738,
       "derivedMarkets": {
         "1X": {
-          "p": 0.863369002344496,
-          "fairOdds": 1.1582533045366232
+          "p": 0.8949883139578957,
+          "fairOdds": 1.1173330248053324
         },
         "X2": {
-          "p": 0.3612705449938326,
-          "fairOdds": 2.768008667900317
+          "p": 0.30974015723022624,
+          "fairOdds": 3.2285125988901453
         },
         "12": {
-          "p": 0.7753604526616713,
-          "fairOdds": 1.2897227303342362
+          "p": 0.7952715288118781,
+          "fairOdds": 1.2574321647022655
         },
         "HOME_DNB": {
-          "winP": 0.6387294550061674,
-          "pushP": 0.2246395473383286,
-          "lossP": 0.13663099765550396,
-          "conditionalP": 0.8237838966554529,
-          "fairOdds": 1.2139105948295192
+          "winP": 0.6902598427697738,
+          "pushP": 0.20472847118812187,
+          "lossP": 0.10501168604210435,
+          "conditionalP": 0.8679549283010422,
+          "fairOdds": 1.1521335583144006
         },
         "AWAY_DNB": {
-          "winP": 0.13663099765550396,
-          "pushP": 0.2246395473383286,
-          "lossP": 0.6387294550061674,
-          "conditionalP": 0.17621610334454718,
-          "fairOdds": 5.6748502606753615
+          "winP": 0.10501168604210435,
+          "pushP": 0.20472847118812187,
+          "lossP": 0.6902598427697738,
+          "conditionalP": 0.13204507169895796,
+          "fairOdds": 7.573171699128939
         }
       },
       "quality": 0.7999999999999999,
@@ -874,12 +1032,13 @@
         "setPieces": false,
         "referee": false,
         "weatherVenue": false,
-        "motivationCompetition": false
+        "motivationCompetition": false,
+        "recentPerformanceInteractionTested": true
       },
       "execution": {
         "class": "R0_SHADOW_RESEARCH",
         "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
       },
       "venueContext": {
         "status": "HOME_CONTEXT_UNVERIFIED",
@@ -970,7 +1129,48 @@
         "slug": "fifa.friendly",
         "abbreviation": "Men's International Friendly"
       },
-      "cleanProspectiveEligible": false
+      "cleanProspectiveEligible": false,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.041666666666666664,
+          "recentGoalDiffDiff": 1.375,
+          "recentOpponentStrengthDiff": -0.058446649789694334,
+          "restDiffScaled": 1.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.008333333333333333,
+            0.1375,
+            -0.008766997468454149,
+            0.05
+          ],
+          "totalLogitAdjustment": 0.17039966919821253
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.6387294550061674,
+        "D": 0.2246395473383286,
+        "A": 0.13663099765550396
+      }
     },
     {
       "fixture": {
@@ -981,40 +1181,40 @@
         "competitionSlug": "2026-international-friendly"
       },
       "domain": "NATIONAL_FRIENDLY",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
       "probs": {
-        "H": 0.9140108787422696,
-        "D": 0.06838536407712285,
-        "A": 0.017603757180607603
+        "H": 0.9323557973101053,
+        "D": 0.056050772771918944,
+        "A": 0.011593429917975814
       },
       "pick": "H",
-      "pickProbability": 0.9140108787422696,
+      "pickProbability": 0.9323557973101053,
       "derivedMarkets": {
         "1X": {
-          "p": 0.9823962428193924,
-          "fairOdds": 1.0179192024697552
+          "p": 0.9884065700820243,
+          "fairOdds": 1.0117294140578341
         },
         "X2": {
-          "p": 0.08598912125773045,
-          "fairOdds": 11.629378058216867
+          "p": 0.06764420268989475,
+          "fairOdds": 14.783232860092358
         },
         "12": {
-          "p": 0.9316146359228772,
-          "fairOdds": 1.0734052058009789
+          "p": 0.9439492272280812,
+          "fairOdds": 1.0593790122976345
         },
         "HOME_DNB": {
-          "winP": 0.9140108787422696,
-          "pushP": 0.06838536407712285,
-          "lossP": 0.017603757180607603,
-          "conditionalP": 0.9811040354006795,
-          "fairOdds": 1.0192598989684143
+          "winP": 0.9323557973101053,
+          "pushP": 0.056050772771918944,
+          "lossP": 0.011593429917975814,
+          "conditionalP": 0.9877181636643529,
+          "fairOdds": 1.0124345555113439
         },
         "AWAY_DNB": {
-          "winP": 0.017603757180607603,
-          "pushP": 0.06838536407712285,
-          "lossP": 0.9140108787422696,
-          "conditionalP": 0.018895964599320563,
-          "fairOdds": 52.921352320693735
+          "winP": 0.011593429917975814,
+          "pushP": 0.056050772771918944,
+          "lossP": 0.9323557973101053,
+          "conditionalP": 0.012281836335647063,
+          "fairOdds": 81.42104915513153
         }
       },
       "quality": 0.95,
@@ -1050,12 +1250,13 @@
         "setPieces": false,
         "referee": false,
         "weatherVenue": false,
-        "motivationCompetition": false
+        "motivationCompetition": false,
+        "recentPerformanceInteractionTested": true
       },
       "execution": {
         "class": "R0_SHADOW_RESEARCH",
         "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
       },
       "venueContext": {
         "status": "VERIFIED_HOME_COUNTRY",
@@ -1146,7 +1347,48 @@
         "slug": "fifa.friendly",
         "abbreviation": "Men's International Friendly"
       },
-      "cleanProspectiveEligible": true
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.5833333333333333,
+          "recentGoalDiffDiff": 2.375,
+          "recentOpponentStrengthDiff": 0.3195972079010687,
+          "restDiffScaled": 1.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.11666666666666665,
+            0.23750000000000002,
+            0.047939581185160306,
+            0.05
+          ],
+          "totalLogitAdjustment": 0.21877291451849368
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.9140108787422696,
+        "D": 0.06838536407712285,
+        "A": 0.017603757180607603
+      }
     },
     {
       "fixture": {
@@ -1157,40 +1399,40 @@
         "competitionSlug": "2026-international-friendly"
       },
       "domain": "NATIONAL_FRIENDLY",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
       "probs": {
-        "H": 0.13714214825099055,
-        "D": 0.21663346663289543,
-        "A": 0.646224385116114
+        "H": 0.10345978214187034,
+        "D": 0.19591871168478694,
+        "A": 0.7006215061733427
       },
       "pick": "A",
-      "pickProbability": 0.646224385116114,
+      "pickProbability": 0.7006215061733427,
       "derivedMarkets": {
         "1X": {
-          "p": 0.353775614883886,
-          "fairOdds": 2.8266504471434915
+          "p": 0.29937849382665727,
+          "fairOdds": 3.3402532934747433
         },
         "X2": {
-          "p": 0.8628578517490094,
-          "fairOdds": 1.1589394452087374
+          "p": 0.8965402178581297,
+          "fairOdds": 1.1153989303335883
         },
         "12": {
-          "p": 0.7833665333671046,
-          "fairOdds": 1.276541640988607
+          "p": 0.8040812883152131,
+          "fairOdds": 1.2436553549147926
         },
         "HOME_DNB": {
-          "winP": 0.13714214825099055,
-          "pushP": 0.21663346663289543,
-          "lossP": 0.646224385116114,
-          "conditionalP": 0.17506766297702228,
-          "fairOdds": 5.712077164880247
+          "winP": 0.10345978214187034,
+          "pushP": 0.19591871168478694,
+          "lossP": 0.7006215061733427,
+          "conditionalP": 0.12866831207905488,
+          "fairOdds": 7.771921336665952
         },
         "AWAY_DNB": {
-          "winP": 0.646224385116114,
-          "pushP": 0.21663346663289543,
-          "lossP": 0.13714214825099055,
-          "conditionalP": 0.8249323370229776,
-          "fairOdds": 1.2122206332810372
+          "winP": 0.7006215061733427,
+          "pushP": 0.19591871168478694,
+          "lossP": 0.10345978214187034,
+          "conditionalP": 0.8713316879209451,
+          "fairOdds": 1.1476685788692775
         }
       },
       "quality": 0.95,
@@ -1226,12 +1468,13 @@
         "setPieces": false,
         "referee": false,
         "weatherVenue": false,
-        "motivationCompetition": false
+        "motivationCompetition": false,
+        "recentPerformanceInteractionTested": true
       },
       "execution": {
         "class": "R0_SHADOW_RESEARCH",
         "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
       },
       "venueContext": {
         "status": "VERIFIED_HOME_COUNTRY",
@@ -1322,590 +1565,48 @@
         "slug": "fifa.friendly",
         "abbreviation": "Men's International Friendly"
       },
-      "cleanProspectiveEligible": true
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.25,
+          "recentGoalDiffDiff": -1.625,
+          "recentOpponentStrengthDiff": -0.4588534192416023,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.05,
+            -0.1625,
+            -0.06882801288624034,
+            0.0
+          ],
+          "totalLogitAdjustment": -0.18132801288624034
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.13714214825099055,
+        "D": 0.21663346663289543,
+        "A": 0.646224385116114
+      }
     }
-  ],
-  "postKickoffResearchRows": [
-    {
-      "fixture": {
-        "home": "Papua New Guinea",
-        "away": "Solomon Islands",
-        "kickoff": "2026-09-30T04:00:00Z",
-        "competition": "2026-international-friendly",
-        "competitionSlug": "2026-international-friendly"
-      },
-      "domain": "NATIONAL_FRIENDLY",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
-      "probs": {
-        "H": 0.3522514323225971,
-        "D": 0.3297989123066071,
-        "A": 0.31794965537079584
-      },
-      "pick": "H",
-      "pickProbability": 0.3522514323225971,
-      "derivedMarkets": {
-        "1X": {
-          "p": 0.6820503446292041,
-          "fairOdds": 1.466167428657556
-        },
-        "X2": {
-          "p": 0.6477485676774029,
-          "fairOdds": 1.5438088942220993
-        },
-        "12": {
-          "p": 0.6702010876933929,
-          "fairOdds": 1.4920894912923286
-        },
-        "HOME_DNB": {
-          "winP": 0.3522514323225971,
-          "pushP": 0.3297989123066071,
-          "lossP": 0.31794965537079584,
-          "conditionalP": 0.525590660461218,
-          "fairOdds": 1.9026213272558472
-        },
-        "AWAY_DNB": {
-          "winP": 0.31794965537079584,
-          "pushP": 0.3297989123066071,
-          "lossP": 0.3522514323225971,
-          "conditionalP": 0.47440933953878195,
-          "fairOdds": 2.107884302978087
-        }
-      },
-      "quality": 0.95,
-      "state": {
-        "home": {
-          "elo": 1490.8365835257405,
-          "recentN": 8,
-          "goalsForMean": 1.625,
-          "goalsAgainstMean": 1.25,
-          "pointsShare": 0.6666666666666666,
-          "recentOpponentEloMean": 1515.9514880365261,
-          "daysSinceMatch": 3
-        },
-        "away": {
-          "elo": 1476.200560214582,
-          "recentN": 8,
-          "goalsForMean": 1.75,
-          "goalsAgainstMean": 3.25,
-          "pointsShare": 0.20833333333333334,
-          "recentOpponentEloMean": 1492.0688252379384,
-          "daysSinceMatch": 6
-        },
-        "eloDiffWithHomeAdvantage": 79.6360233111584
-      },
-      "intelligenceCoverage": {
-        "structuralInternationalState": true,
-        "recentInternationalPerformance": true,
-        "freshInternationalState": true,
-        "clubToCountryPlayerTransfer": false,
-        "confirmedXI": false,
-        "tacticalMatchup": false,
-        "shotStoppingGoalkeeper": false,
-        "setPieces": false,
-        "referee": false,
-        "weatherVenue": false,
-        "motivationCompetition": false
-      },
-      "execution": {
-        "class": "R0_SHADOW_RESEARCH",
-        "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
-      },
-      "venueContext": {
-        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
-        "neutralSite": null,
-        "venue": {
-          "name": "HFC Bank Stadium",
-          "city": "Suva",
-          "country": "Fiji"
-        },
-        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
-        "homeAdvantageApplied": false,
-        "homeContextProbability": {
-          "H": 0.47746864674176986,
-          "D": 0.28718780988725146,
-          "A": 0.2353435433709787
-        },
-        "noHomeAdvantageProbability": {
-          "H": 0.3522514323225971,
-          "D": 0.3297989123066071,
-          "A": 0.31794965537079584
-        },
-        "probabilityContextVerified": true
-      },
-      "sourceFixtureId": "401922308",
-      "capture": {
-        "capturedAt": "2026-09-30T14:41:03.816230Z",
-        "kickoffUtc": "2026-09-30T04:00:00Z",
-        "leadMinutes": -641.0636038333333,
-        "statusAtCapture": "POST_KICKOFF_OR_UNVERIFIED"
-      },
-      "eventIdentity": {
-        "eventId": "401922308",
-        "home": "Papua New Guinea",
-        "away": "Solomon Islands",
-        "kickoff": "2026-09-30T04:00Z",
-        "neutralSite": null,
-        "neutralSiteRawPresent": false,
-        "venue": {
-          "name": "HFC Bank Stadium",
-          "city": "Suva",
-          "country": "Fiji"
-        },
-        "eventSeason": {
-          "year": 2026,
-          "type": 13708,
-          "slug": "2026-international-friendly"
-        },
-        "competitionLeague": null,
-        "competitionType": null,
-        "status": {
-          "state": "post",
-          "completed": true
-        }
-      },
-      "officialXI": {
-        "available": false,
-        "reason": "not probed after kickoff or event id unavailable"
-      },
-      "resolvedCompetition": null,
-      "cleanProspectiveEligible": false
-    },
-    {
-      "fixture": {
-        "home": "Fiji",
-        "away": "New Caledonia",
-        "kickoff": "2026-09-30T07:00:00Z",
-        "competition": "2026-international-friendly",
-        "competitionSlug": "2026-international-friendly"
-      },
-      "domain": "NATIONAL_FRIENDLY",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
-      "probs": {
-        "H": 0.3363852172023448,
-        "D": 0.31073134646624123,
-        "A": 0.35288343633141406
-      },
-      "pick": "A",
-      "pickProbability": 0.35288343633141406,
-      "derivedMarkets": {
-        "1X": {
-          "p": 0.647116563668586,
-          "fairOdds": 1.5453166494933661
-        },
-        "X2": {
-          "p": 0.6636147827976553,
-          "fairOdds": 1.5068983180034325
-        },
-        "12": {
-          "p": 0.6892686535337589,
-          "fairOdds": 1.4508131116556313
-        },
-        "HOME_DNB": {
-          "winP": 0.3363852172023448,
-          "pushP": 0.31073134646624123,
-          "lossP": 0.35288343633141406,
-          "conditionalP": 0.4880320836842893,
-          "fairOdds": 2.049045612843162
-        },
-        "AWAY_DNB": {
-          "winP": 0.35288343633141406,
-          "pushP": 0.31073134646624123,
-          "lossP": 0.3363852172023448,
-          "conditionalP": 0.5119679163157107,
-          "fairOdds": 1.9532473972125606
-        }
-      },
-      "quality": 0.95,
-      "state": {
-        "home": {
-          "elo": 1498.5439253580685,
-          "recentN": 8,
-          "goalsForMean": 0.75,
-          "goalsAgainstMean": 2.625,
-          "pointsShare": 0.16666666666666666,
-          "recentOpponentEloMean": 1470.626693774883,
-          "daysSinceMatch": 3
-        },
-        "away": {
-          "elo": 1591.8126125985657,
-          "recentN": 8,
-          "goalsForMean": 1.125,
-          "goalsAgainstMean": 1.5,
-          "pointsShare": 0.4166666666666667,
-          "recentOpponentEloMean": 1523.2923063849387,
-          "daysSinceMatch": 3
-        },
-        "eloDiffWithHomeAdvantage": -28.26868724049723
-      },
-      "intelligenceCoverage": {
-        "structuralInternationalState": true,
-        "recentInternationalPerformance": true,
-        "freshInternationalState": true,
-        "clubToCountryPlayerTransfer": false,
-        "confirmedXI": false,
-        "tacticalMatchup": false,
-        "shotStoppingGoalkeeper": false,
-        "setPieces": false,
-        "referee": false,
-        "weatherVenue": false,
-        "motivationCompetition": false
-      },
-      "execution": {
-        "class": "R0_SHADOW_RESEARCH",
-        "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
-      },
-      "venueContext": {
-        "status": "VERIFIED_HOME_COUNTRY",
-        "neutralSite": null,
-        "venue": {
-          "name": "HFC Bank Stadium",
-          "city": "Suva",
-          "country": "Fiji"
-        },
-        "venueCountryEvidence": "venue country matches nominal home national team",
-        "homeAdvantageApplied": true,
-        "homeContextProbability": {
-          "H": 0.3363852172023448,
-          "D": 0.31073134646624123,
-          "A": 0.35288343633141406
-        },
-        "noHomeAdvantageProbability": {
-          "H": 0.2390248531310776,
-          "D": 0.3017923664544912,
-          "A": 0.4591827804144312
-        },
-        "probabilityContextVerified": true
-      },
-      "sourceFixtureId": "401922307",
-      "capture": {
-        "capturedAt": "2026-09-30T14:41:03.816230Z",
-        "kickoffUtc": "2026-09-30T07:00:00Z",
-        "leadMinutes": -461.06360383333333,
-        "statusAtCapture": "POST_KICKOFF_OR_UNVERIFIED"
-      },
-      "eventIdentity": {
-        "eventId": "401922307",
-        "home": "Fiji",
-        "away": "New Caledonia",
-        "kickoff": "2026-09-30T07:00Z",
-        "neutralSite": null,
-        "neutralSiteRawPresent": false,
-        "venue": {
-          "name": "HFC Bank Stadium",
-          "city": "Suva",
-          "country": "Fiji"
-        },
-        "eventSeason": {
-          "year": 2026,
-          "type": 13708,
-          "slug": "2026-international-friendly"
-        },
-        "competitionLeague": null,
-        "competitionType": null,
-        "status": {
-          "state": "post",
-          "completed": true
-        }
-      },
-      "officialXI": {
-        "available": false,
-        "reason": "not probed after kickoff or event id unavailable"
-      },
-      "resolvedCompetition": null,
-      "cleanProspectiveEligible": false
-    },
-    {
-      "fixture": {
-        "home": "Seychelles",
-        "away": "Sri Lanka",
-        "kickoff": "2026-09-30T12:00:00Z",
-        "competition": "2026-international-friendly",
-        "competitionSlug": "2026-international-friendly"
-      },
-      "domain": "NATIONAL_FRIENDLY",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
-      "probs": {
-        "H": 0.40511976556653084,
-        "D": 0.3077540087354514,
-        "A": 0.2871262256980178
-      },
-      "pick": "H",
-      "pickProbability": 0.40511976556653084,
-      "derivedMarkets": {
-        "1X": {
-          "p": 0.7128737743019822,
-          "fairOdds": 1.4027728835713735
-        },
-        "X2": {
-          "p": 0.5948802344334692,
-          "fairOdds": 1.6810106339343152
-        },
-        "12": {
-          "p": 0.6922459912645487,
-          "fairOdds": 1.4445731901939467
-        },
-        "HOME_DNB": {
-          "winP": 0.40511976556653084,
-          "pushP": 0.3077540087354514,
-          "lossP": 0.2871262256980178,
-          "conditionalP": 0.5852251521550672,
-          "fairOdds": 1.7087440557152092
-        },
-        "AWAY_DNB": {
-          "winP": 0.2871262256980178,
-          "pushP": 0.3077540087354514,
-          "lossP": 0.40511976556653084,
-          "conditionalP": 0.41477484784493274,
-          "fairOdds": 2.4109465778741215
-        }
-      },
-      "quality": 0.95,
-      "state": {
-        "home": {
-          "elo": 1058.5755063985482,
-          "recentN": 8,
-          "goalsForMean": 0.125,
-          "goalsAgainstMean": 4.625,
-          "pointsShare": 0.0,
-          "recentOpponentEloMean": 1468.5506630350533,
-          "daysSinceMatch": 3
-        },
-        "away": {
-          "elo": 1095.8239619737928,
-          "recentN": 8,
-          "goalsForMean": 1.25,
-          "goalsAgainstMean": 1.375,
-          "pointsShare": 0.5416666666666666,
-          "recentOpponentEloMean": 1238.0705425780452,
-          "daysSinceMatch": 3
-        },
-        "eloDiffWithHomeAdvantage": 27.751544424755366
-      },
-      "intelligenceCoverage": {
-        "structuralInternationalState": true,
-        "recentInternationalPerformance": true,
-        "freshInternationalState": true,
-        "clubToCountryPlayerTransfer": false,
-        "confirmedXI": false,
-        "tacticalMatchup": false,
-        "shotStoppingGoalkeeper": false,
-        "setPieces": false,
-        "referee": false,
-        "weatherVenue": false,
-        "motivationCompetition": false
-      },
-      "execution": {
-        "class": "R0_SHADOW_RESEARCH",
-        "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
-      },
-      "venueContext": {
-        "status": "VERIFIED_HOME_COUNTRY",
-        "neutralSite": null,
-        "venue": {
-          "name": "Stade Linité",
-          "city": "Victoria",
-          "country": "Seychelles"
-        },
-        "venueCountryEvidence": "venue country matches nominal home national team",
-        "homeAdvantageApplied": true,
-        "homeContextProbability": {
-          "H": 0.40511976556653084,
-          "D": 0.3077540087354514,
-          "A": 0.2871262256980178
-        },
-        "noHomeAdvantageProbability": {
-          "H": 0.29450884087983764,
-          "D": 0.3232513395160871,
-          "A": 0.3822398196040752
-        },
-        "probabilityContextVerified": true
-      },
-      "sourceFixtureId": "401917065",
-      "capture": {
-        "capturedAt": "2026-09-30T14:41:03.816230Z",
-        "kickoffUtc": "2026-09-30T12:00:00Z",
-        "leadMinutes": -161.06360383333333,
-        "statusAtCapture": "POST_KICKOFF_OR_UNVERIFIED"
-      },
-      "eventIdentity": {
-        "eventId": "401917065",
-        "home": "Seychelles",
-        "away": "Sri Lanka",
-        "kickoff": "2026-09-30T12:00Z",
-        "neutralSite": null,
-        "neutralSiteRawPresent": false,
-        "venue": {
-          "name": "Stade Linité",
-          "city": "Victoria",
-          "country": "Seychelles"
-        },
-        "eventSeason": {
-          "year": 2026,
-          "type": 13708,
-          "slug": "2026-international-friendly"
-        },
-        "competitionLeague": null,
-        "competitionType": null,
-        "status": {
-          "state": "pre",
-          "completed": false
-        }
-      },
-      "officialXI": {
-        "available": false,
-        "reason": "not probed after kickoff or event id unavailable"
-      },
-      "resolvedCompetition": null,
-      "cleanProspectiveEligible": false
-    },
-    {
-      "fixture": {
-        "home": "Botswana",
-        "away": "Mozambique",
-        "kickoff": "2026-09-30T14:00:00Z",
-        "competition": "2026-international-friendly",
-        "competitionSlug": "2026-international-friendly"
-      },
-      "domain": "NATIONAL_FRIENDLY",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
-      "probs": {
-        "H": 0.34710270051753267,
-        "D": 0.31288155737704143,
-        "A": 0.34001574210542584
-      },
-      "pick": "H",
-      "pickProbability": 0.34710270051753267,
-      "derivedMarkets": {
-        "1X": {
-          "p": 0.659984257894574,
-          "fairOdds": 1.5151876549148542
-        },
-        "X2": {
-          "p": 0.6528972994824673,
-          "fairOdds": 1.5316344558212613
-        },
-        "12": {
-          "p": 0.6871184426229585,
-          "fairOdds": 1.4553531647071922
-        },
-        "HOME_DNB": {
-          "winP": 0.34710270051753267,
-          "pushP": 0.31288155737704143,
-          "lossP": 0.34001574210542584,
-          "conditionalP": 0.5051570136766039,
-          "fairOdds": 1.9795825316209292
-        },
-        "AWAY_DNB": {
-          "winP": 0.34001574210542584,
-          "pushP": 0.31288155737704143,
-          "lossP": 0.34710270051753267,
-          "conditionalP": 0.494842986323396,
-          "fairOdds": 2.0208430302909606
-        }
-      },
-      "quality": 0.95,
-      "state": {
-        "home": {
-          "elo": 1430.3295468314402,
-          "recentN": 8,
-          "goalsForMean": 0.875,
-          "goalsAgainstMean": 2.0,
-          "pointsShare": 0.25,
-          "recentOpponentEloMean": 1587.385453641274,
-          "daysSinceMatch": 2
-        },
-        "away": {
-          "elo": 1513.8111488002755,
-          "recentN": 8,
-          "goalsForMean": 1.375,
-          "goalsAgainstMean": 1.75,
-          "pointsShare": 0.3333333333333333,
-          "recentOpponentEloMean": 1590.7464882197166,
-          "daysSinceMatch": 1
-        },
-        "eloDiffWithHomeAdvantage": -18.48160196883532
-      },
-      "intelligenceCoverage": {
-        "structuralInternationalState": true,
-        "recentInternationalPerformance": true,
-        "freshInternationalState": true,
-        "clubToCountryPlayerTransfer": false,
-        "confirmedXI": false,
-        "tacticalMatchup": false,
-        "shotStoppingGoalkeeper": false,
-        "setPieces": false,
-        "referee": false,
-        "weatherVenue": false,
-        "motivationCompetition": false
-      },
-      "execution": {
-        "class": "R0_SHADOW_RESEARCH",
-        "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
-      },
-      "venueContext": {
-        "status": "VERIFIED_HOME_COUNTRY",
-        "neutralSite": null,
-        "venue": {
-          "name": "Botswana National Stadium",
-          "city": "Gaborone",
-          "country": "Botswana"
-        },
-        "venueCountryEvidence": "venue country matches nominal home national team",
-        "homeAdvantageApplied": true,
-        "homeContextProbability": {
-          "H": 0.34710270051753267,
-          "D": 0.31288155737704143,
-          "A": 0.34001574210542584
-        },
-        "noHomeAdvantageProbability": {
-          "H": 0.24838901531078436,
-          "D": 0.30603520128871486,
-          "A": 0.44557578340050086
-        },
-        "probabilityContextVerified": true
-      },
-      "sourceFixtureId": "401922621",
-      "capture": {
-        "capturedAt": "2026-09-30T14:41:03.816230Z",
-        "kickoffUtc": "2026-09-30T14:00:00Z",
-        "leadMinutes": -41.06360383333333,
-        "statusAtCapture": "POST_KICKOFF_OR_UNVERIFIED"
-      },
-      "eventIdentity": {
-        "eventId": "401922621",
-        "home": "Botswana",
-        "away": "Mozambique",
-        "kickoff": "2026-09-30T14:00Z",
-        "neutralSite": null,
-        "neutralSiteRawPresent": false,
-        "venue": {
-          "name": "Botswana National Stadium",
-          "city": "Gaborone",
-          "country": "Botswana"
-        },
-        "eventSeason": {
-          "year": 2026,
-          "type": 13708,
-          "slug": "2026-international-friendly"
-        },
-        "competitionLeague": null,
-        "competitionType": null,
-        "status": {
-          "state": "pre",
-          "completed": false
-        }
-      },
-      "officialXI": {
-        "available": false,
-        "reason": "not probed after kickoff or event id unavailable"
-      },
-      "resolvedCompetition": null,
-      "cleanProspectiveEligible": false
-    }
-  ],
-  "timingUnresolvedRows": []
+  ]
 }

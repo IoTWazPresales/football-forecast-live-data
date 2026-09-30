@@ -1,0 +1,50 @@
+{
+  "version": "HBT-1.4-INTERNATIONAL-INTELLIGENCE-3-RECENT-INTERACTION",
+  "generatedAt": "2026-09-30T14:41:19Z",
+  "validation": {
+    "selectionWindow": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "holdoutWindow": [
+      "2025-01-01",
+      "2026-09-30"
+    ],
+    "baseParams": {
+      "eloSlope": 1.4,
+      "homeLogit": 0.15,
+      "drawIntercept": 0.0,
+      "drawMismatchPenalty": 0.4
+    },
+    "selectedRecentWeights": {
+      "pointsShare": -0.2,
+      "goalDifference": 0.1,
+      "opponentStrength": 0.15,
+      "rest": 0.05
+    },
+    "selection": {
+      "n": 2285,
+      "logLoss": 0.8803430424395654,
+      "brier": 0.5182725494244027,
+      "accuracy": 0.600875273522976,
+      "topPickECE": 0.022516177614832395
+    },
+    "holdout": {
+      "n": 1619,
+      "logLoss": 0.839990516987624,
+      "brier": 0.4927708639992273,
+      "accuracy": 0.6195182211241507,
+      "topPickECE": 0.028151934654412417
+    },
+    "structuralOnlyHoldout": {
+      "n": 1619,
+      "logLoss": 0.8476057091321209,
+      "brier": 0.4969791866234811,
+      "accuracy": 0.6170475602223595,
+      "topPickECE": 0.0316675338967015
+    },
+    "improvesHoldoutLogLossAndBrier": true,
+    "promotionAllowed": false,
+    "promotionBlock": "requires clean prospective confirmation and broader HBT-1.4 interaction/ablation validation"
+  }
+}
