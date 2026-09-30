@@ -8,6 +8,7 @@ on:
       - '.github/workflows/hbt-international-xi-refresh.yml'
       - 'scripts/hbt_international_xi_refresh_v1.py'
       - 'scripts/hbt_international_context_v2.py'
+      - 'scripts/hbt_international_intelligence_v3.py'
   workflow_dispatch:
     inputs:
       date:
@@ -51,7 +52,7 @@ jobs:
           echo "date=$TARGET" >> "$GITHUB_OUTPUT"
 
       - name: Compile XI context surface
-        run: python -m py_compile scripts/hbt_international_challenger_v1.py scripts/hbt_international_context_v2.py scripts/hbt_international_xi_refresh_v1.py
+        run: python -m py_compile scripts/hbt_international_challenger_v1.py scripts/hbt_international_context_v2.py scripts/hbt_international_intelligence_v3.py scripts/hbt_international_xi_refresh_v1.py
 
       - name: Refresh official international XI context only
         run: python scripts/hbt_international_xi_refresh_v1.py --date '${{ steps.target.outputs.date }}'
@@ -66,16 +67,17 @@ jobs:
           d=os.environ['TARGET_DATE']
           p=pathlib.Path(f'hbt_live_data/international/hbt_international_xi_context_{d}.json')
           if not p.exists():
-              print('No XI artifact because no prospective card exists yet')
+              print('No XI artifact because no prospective challenger exists yet')
               raise SystemExit(0)
           x=json.load(open(p,encoding='utf-8')); q=x['policy']
           assert q['footballProbabilitiesMutated'] is False
-          assert q['sourceProspectiveMutated'] is False
+          assert q['sourceProbabilitySurfaceMutated'] is False
           assert q['bookmakerOddsRead'] is False
           assert q['automaticPromotion'] is False
           assert q['automaticFunding'] is False
           assert all(r.get('probabilityFingerprint') for r in x.get('rows') or [])
-          print(json.dumps(x['summary'],indent=2))
+          assert x.get('sourceProbabilitySurface')
+          print(json.dumps({'source':x.get('sourceProbabilitySurface'),'summary':x['summary']},indent=2))
           PY
 
       - name: Commit material XI state changes only
