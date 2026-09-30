@@ -8,6 +8,7 @@ on:
       - '.github/workflows/hbt-international-domain.yml'
       - 'scripts/hbt_international_challenger_v1.py'
       - 'scripts/hbt_international_context_v2.py'
+      - 'scripts/hbt_international_intelligence_v3.py'
       - 'scripts/hbt_scan_slate_v2.py'
       - 'scripts/hbt_scan_slate_v2_1.py'
       - 'scripts/hbt_scan_slate_v2_2.py'
@@ -58,7 +59,7 @@ jobs:
       - name: Compile research adapter
         run: |
           set -euo pipefail
-          python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_international_challenger_v1.py scripts/hbt_international_context_v2.py
+          python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_international_challenger_v1.py scripts/hbt_international_context_v2.py scripts/hbt_international_intelligence_v3.py
 
       - name: Discover public slate without changing frozen model
         run: |
@@ -74,6 +75,11 @@ jobs:
         run: |
           set -euo pipefail
           python scripts/hbt_international_context_v2.py --date '${{ steps.target.outputs.date }}'
+
+      - name: Test causal recent-performance interaction on untouched holdout
+        run: |
+          set -euo pipefail
+          python scripts/hbt_international_intelligence_v3.py --date '${{ steps.target.outputs.date }}'
 
       - name: Guard research-only contract
         env:
@@ -119,7 +125,19 @@ jobs:
                   assert vc.get('homeAdvantageApplied') is False
           for r in y.get('postKickoffResearchRows') or []:
               assert r not in (y.get('prospectiveCandidates') or [])
-          print(json.dumps({'v1':x['summary'],'domainSummary':x['domainSummary'],'validation':v,'v2':y['summary']},indent=2))
+
+          ip=pathlib.Path(f'hbt_live_data/international/hbt_international_intelligence_{d}.json')
+          z=json.load(open(ip,encoding='utf-8')); qz=z['policy']; vz=z['validation']
+          assert qz['researchOnly'] is True
+          assert qz['frozenHBT112Mutated'] is False and qz['domesticForecastsMutated'] is False
+          assert qz['bookmakerOddsRead'] is False
+          assert qz['missingIsZero'] is False and qz['missingContributionNeutral'] is True
+          assert qz['automaticPromotion'] is False and qz['automaticFunding'] is False
+          assert vz['selection']['n'] > 0 and vz['holdout']['n'] > 0
+          assert vz['promotionAllowed'] is False
+          for r in z.get('prospectiveCandidates') or []:
+              assert (r.get('execution') or {}).get('fundingAllowed') is False
+          print(json.dumps({'v1':x['summary'],'domainSummary':x['domainSummary'],'structuralValidation':v,'v2':y['summary'],'v3':z['summary'],'recentValidation':vz},indent=2))
           PY
 
       - name: Keep generic scanner output out of international commit
