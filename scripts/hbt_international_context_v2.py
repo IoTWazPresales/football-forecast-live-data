@@ -4,9 +4,10 @@
 Consumes the research-only v1 international challenger and the same-day scanner.
 It does not refit the football model. It:
 - excludes already-started fixtures from prospective evidence;
-- verifies home/neutral context where ESPN exposes it and recomputes only that
-  explicit context term using the already-selected v1 calibration;
-- probes ESPN's generic summary endpoint for official international rosters/XIs;
+- verifies home/neutral/displaced context from explicit ESPN neutral flags and
+  venue-country identity, then recomputes only the already-selected home-context term;
+- probes ESPN's generic summary endpoint for actual competition identity and
+  official international rosters/XIs;
 - keeps all outputs R0 research-only.
 """
 from __future__ import annotations
@@ -24,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "hbt_live_data"
 INTL = DATA / "international"
 SCANNER = DATA / "slate_scanner.json"
-VERSION = "HBT-1.4-INTERNATIONAL-CONTEXT-2"
+VERSION = "HBT-1.4-INTERNATIONAL-CONTEXT-2.1-VENUE-IDENTITY"
 
 
 def read(path: Path, default: Any) -> Any:
@@ -159,6 +160,60 @@ def key(home: Any, away: Any, kickoff: Any) -> tuple[str, str, str]:
     return (v1.norm(home), v1.norm(away), str(kickoff or "")[:16])
 
 
+def country_key(value: Any) -> str:
+    x = v1.norm(value)
+    aliases = {
+        "united states of america": "united states",
+        "usa": "united states",
+        "u s a": "united states",
+        "uae": "united arab emirates",
+        "russia": "russia",
+        "republic of korea": "korea republic",
+        "south korea": "korea republic",
+        "democratic republic of congo": "dr congo",
+        "d r congo": "dr congo",
+        "cabo verde": "cape verde",
+    }
+    return aliases.get(x, x)
+
+
+def venue_context(home: str, away: str, meta: dict[str, Any]) -> dict[str, Any]:
+    neutral = meta.get("neutralSite") if meta else None
+    venue = (meta.get("venue") or {}) if meta else {}
+    country = str(venue.get("country") or "").strip()
+    hk, ak, vk = country_key(home), country_key(away), country_key(country)
+
+    # Explicit neutral is strongest evidence.
+    if neutral is True:
+        return {"status": "VERIFIED_NEUTRAL", "useHomeAdvantage": False, "verified": True,
+                "evidence": "ESPN neutralSite=true", "venueCountry": country or None}
+
+    # Venue-country identity is more informative than a missing generic neutral flag.
+    if vk and hk and vk == hk:
+        return {"status": "VERIFIED_HOME_COUNTRY", "useHomeAdvantage": True, "verified": True,
+                "evidence": "venue country matches nominal home national team", "venueCountry": country}
+    if vk and ak and vk == ak:
+        return {"status": "VERIFIED_AWAY_COUNTRY_OR_DISPLACED_HOME", "useHomeAdvantage": False, "verified": True,
+                "evidence": "venue country matches nominal away national team; nominal home boost removed", "venueCountry": country}
+
+    # UK is deliberately unresolved when ESPN returns only the sovereign country;
+    # England/Scotland/Wales/Northern Ireland cannot safely be inferred from it.
+    if vk in {"united kingdom", "uk", "great britain"} and hk in {"england", "scotland", "wales", "northern ireland"}:
+        return {"status": "VENUE_COUNTRY_AMBIGUOUS_UK_HOME_NATION", "useHomeAdvantage": True, "verified": False,
+                "evidence": "venue country too coarse for constituent home nation", "venueCountry": country}
+
+    if vk:
+        return {"status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED", "useHomeAdvantage": False, "verified": True,
+                "evidence": "venue country matches neither national team; nominal home boost removed", "venueCountry": country}
+
+    if neutral is False:
+        return {"status": "VERIFIED_HOME_AWAY_ESPN_FLAG", "useHomeAdvantage": True, "verified": True,
+                "evidence": "ESPN neutralSite=false with no venue-country identity", "venueCountry": None}
+
+    return {"status": "HOME_CONTEXT_UNVERIFIED", "useHomeAdvantage": True, "verified": False,
+            "evidence": "no explicit neutral flag and no usable venue-country identity", "venueCountry": country or None}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(); ap.add_argument("--date", required=True); args = ap.parse_args()
     target = dt.date.fromisoformat(args.date)
@@ -185,8 +240,9 @@ def main() -> int:
     for original in base.get("internationalCandidates") or []:
         row = json.loads(json.dumps(original))
         fx = row.get("fixture") or {}
+        home, away = str(fx.get("home") or ""), str(fx.get("away") or "")
         ko = parse_dt(fx.get("kickoff"))
-        srow = scanner_index.get(key(fx.get("home"), fx.get("away"), fx.get("kickoff"))) or {}
+        srow = scanner_index.get(key(home, away, fx.get("kickoff"))) or {}
         eid = str(srow.get("sourceFixtureId") or ((srow.get("sourceFixtureIds") or {}).get("ESPN_ALL")) or "")
         meta = event_meta.get(eid, {}) if eid else {}
         neutral = meta.get("neutralSite") if meta else None
@@ -195,28 +251,23 @@ def main() -> int:
 
         state = row.get("state") or {}
         diff_with_home = state.get("eloDiffWithHomeAdvantage")
+        vc = venue_context(home, away, meta)
         if isinstance(diff_with_home, (int, float)):
             base_diff = float(diff_with_home) - 65.0
             p_home = v1.probs({"eloDiff": base_diff + 65.0, "homeAdvantage": True}, params)
             p_neutral = v1.probs({"eloDiff": base_diff, "homeAdvantage": False}, params)
-            if neutral is True:
-                p_final = p_neutral
-                context = "VERIFIED_NEUTRAL"
-            elif neutral is False:
-                p_final = p_home
-                context = "VERIFIED_HOME_AWAY"
-            else:
-                p_final = p_home
-                context = "HOME_CONTEXT_UNVERIFIED"
+            p_final = p_home if vc["useHomeAdvantage"] else p_neutral
             row["probs"] = {"H": p_final[0], "D": p_final[1], "A": p_final[2]}
             row["pick"] = ("H", "D", "A")[max(range(3), key=lambda i: p_final[i])]
             row["pickProbability"] = max(p_final)
             row["derivedMarkets"] = v1.derived_markets(p_final)
             row["venueContext"] = {
-                "status": context, "neutralSite": neutral, "venue": meta.get("venue"),
+                "status": vc["status"], "neutralSite": neutral, "venue": meta.get("venue"),
+                "venueCountryEvidence": vc["evidence"],
+                "homeAdvantageApplied": vc["useHomeAdvantage"],
                 "homeContextProbability": {"H": p_home[0], "D": p_home[1], "A": p_home[2]},
-                "neutralContextProbability": {"H": p_neutral[0], "D": p_neutral[1], "A": p_neutral[2]},
-                "probabilityContextVerified": neutral is not None,
+                "noHomeAdvantageProbability": {"H": p_neutral[0], "D": p_neutral[1], "A": p_neutral[2]},
+                "probabilityContextVerified": vc["verified"],
             }
         else:
             row["venueContext"] = {"status": "NO_STRUCTURAL_STATE", "neutralSite": neutral, "venue": meta.get("venue"), "probabilityContextVerified": False}
@@ -232,10 +283,12 @@ def main() -> int:
             xi_attempted += 1
             xi = probe_summary(eid)
             row["officialXI"] = xi
+            row["resolvedCompetition"] = xi.get("leagueIdentity") if xi.get("available") else None
             xi_available += int(bool(xi.get("available")))
             xi_confirmed += int(bool(xi.get("confirmedXI")))
         else:
             row["officialXI"] = {"available": False, "reason": "not probed after kickoff or event id unavailable"}
+            row["resolvedCompetition"] = None
 
         row["cleanProspectiveEligible"] = bool(
             pre and row.get("probs") and (row.get("venueContext") or {}).get("probabilityContextVerified") is True
@@ -258,6 +311,7 @@ def main() -> int:
             "researchOnly": True, "frozenHBT112Mutated": False, "domesticForecastsMutated": False,
             "bookmakerOddsRead": False, "postKickoffRowsExcludedFromProspectiveEvidence": True,
             "venueContextMustBeVerifiedForCleanProspectiveEvidence": True,
+            "thirdCountryVenueRemovesNominalHomeAdvantage": True,
             "officialXIIsContextOnlyUntilValidated": True, "automaticPromotion": False, "automaticFunding": False,
         },
         "validation": base.get("validation"), "historySource": base.get("historySource"),
@@ -266,6 +320,9 @@ def main() -> int:
             "preKickoffProspective": len(prospective), "postKickoffExcluded": len(post),
             "timingUnresolved": len(unresolved_timing),
             "cleanProspectiveEligible": sum(1 for x in prospective if x.get("cleanProspectiveEligible")),
+            "verifiedHomeCountry": sum(1 for x in prospective if (x.get("venueContext") or {}).get("status") == "VERIFIED_HOME_COUNTRY"),
+            "verifiedThirdCountryOrAway": sum(1 for x in prospective if (x.get("venueContext") or {}).get("status") in {"VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED", "VERIFIED_AWAY_COUNTRY_OR_DISPLACED_HOME"}),
+            "venueContextUnresolved": sum(1 for x in prospective if not (x.get("venueContext") or {}).get("probabilityContextVerified")),
             "xiProbeAttempted": xi_attempted, "xiSummaryAvailable": xi_available, "confirmedXI": xi_confirmed,
         },
         "prospectiveCandidates": prospective,
@@ -274,8 +331,9 @@ def main() -> int:
     }
     write(INTL / f"hbt_international_prospective_{target.isoformat()}.json", out)
     print(json.dumps({"targetDate": target.isoformat(), "summary": out["summary"], "prospective": [
-        {"fixture": x.get("fixture"), "domain": x.get("domain"), "pick": x.get("pick"), "p": x.get("pickProbability"),
-         "venue": x.get("venueContext"), "xi": {k:(x.get("officialXI") or {}).get(k) for k in ("available","confirmedXI","starterCounts","leagueIdentity")},
+        {"fixture": x.get("fixture"), "domain": x.get("domain"), "competition": x.get("resolvedCompetition"),
+         "pick": x.get("pick"), "p": x.get("pickProbability"), "venue": x.get("venueContext"),
+         "xi": {k:(x.get("officialXI") or {}).get(k) for k in ("available","confirmedXI","starterCounts","leagueIdentity")},
          "clean": x.get("cleanProspectiveEligible")} for x in prospective
     ]}, indent=2))
     return 0
