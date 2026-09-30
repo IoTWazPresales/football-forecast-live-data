@@ -1,0 +1,92 @@
+name: HBT International XI Refresh
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-international-xi-refresh.yml'
+      - 'scripts/hbt_international_xi_refresh_v1.py'
+      - 'scripts/hbt_international_context_v2.py'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'YYYY-MM-DD international prospective slate date'
+        required: true
+        type: string
+  schedule:
+    - cron: '*/30 * * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hbt-international-xi-refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh-xi:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Resolve target date
+        id: target
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            TARGET='${{ inputs.date }}'
+          else
+            TARGET="$(date -u +%F)"
+          fi
+          echo "date=$TARGET" >> "$GITHUB_OUTPUT"
+
+      - name: Compile XI context surface
+        run: python -m py_compile scripts/hbt_international_challenger_v1.py scripts/hbt_international_context_v2.py scripts/hbt_international_xi_refresh_v1.py
+
+      - name: Refresh official international XI context only
+        run: python scripts/hbt_international_xi_refresh_v1.py --date '${{ steps.target.outputs.date }}'
+
+      - name: Guard probability immutability contract
+        env:
+          TARGET_DATE: '${{ steps.target.outputs.date }}'
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, pathlib
+          d=os.environ['TARGET_DATE']
+          p=pathlib.Path(f'hbt_live_data/international/hbt_international_xi_context_{d}.json')
+          if not p.exists():
+              print('No XI artifact because no prospective card exists yet')
+              raise SystemExit(0)
+          x=json.load(open(p,encoding='utf-8')); q=x['policy']
+          assert q['footballProbabilitiesMutated'] is False
+          assert q['sourceProspectiveMutated'] is False
+          assert q['bookmakerOddsRead'] is False
+          assert q['automaticPromotion'] is False
+          assert q['automaticFunding'] is False
+          assert all(r.get('probabilityFingerprint') for r in x.get('rows') or [])
+          print(json.dumps(x['summary'],indent=2))
+          PY
+
+      - name: Commit material XI state changes only
+        run: |
+          set -euo pipefail
+          D='${{ steps.target.outputs.date }}'
+          P="hbt_live_data/international/hbt_international_xi_context_${D}.json"
+          [[ -f "$P" ]] || exit 0
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add "$P"
+          git diff --staged --quiet && exit 0
+          git commit -m "research: refresh international XI context ${D} [skip ci]"
+          git push origin HEAD:research/hbt-1.4-match-intelligence
