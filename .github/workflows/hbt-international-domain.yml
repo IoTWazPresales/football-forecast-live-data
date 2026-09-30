@@ -1,0 +1,114 @@
+name: HBT International Domain Challenger
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-international-domain.yml'
+      - 'scripts/hbt_international_challenger_v1.py'
+      - 'scripts/hbt_scan_slate_v2.py'
+      - 'scripts/hbt_scan_slate_v2_1.py'
+      - 'scripts/hbt_scan_slate_v2_2.py'
+      - 'docs/HBT-1.4-INTERNATIONAL-DOMAIN-SPEC.md'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'YYYY-MM-DD prospective international slate date'
+        required: true
+        type: string
+  schedule:
+    - cron: '50 8 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hbt-international-domain
+  cancel-in-progress: false
+
+jobs:
+  international-domain:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Resolve target date
+        id: target
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            TARGET='${{ inputs.date }}'
+          else
+            TARGET="$(date -u +%F)"
+          fi
+          echo "date=$TARGET" >> "$GITHUB_OUTPUT"
+          echo "International target: $TARGET"
+
+      - name: Compile research adapter
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_international_challenger_v1.py
+
+      - name: Discover public slate without changing frozen model
+        run: |
+          set -euo pipefail
+          python scripts/hbt_scan_slate_v2_2.py --date '${{ steps.target.outputs.date }}'
+
+      - name: Build causal international challenger and chronological validation
+        run: |
+          set -euo pipefail
+          python scripts/hbt_international_challenger_v1.py --date '${{ steps.target.outputs.date }}'
+
+      - name: Guard research-only contract
+        env:
+          TARGET_DATE: '${{ steps.target.outputs.date }}'
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, os, pathlib
+          d=os.environ['TARGET_DATE']
+          p=pathlib.Path(f'hbt_live_data/international/hbt_international_challenger_{d}.json')
+          x=json.load(open(p,encoding='utf-8'))
+          q=x['policy']; v=x['validation']
+          assert x['targetDate']==d
+          assert q['researchOnly'] is True
+          assert q['frozenHBT112Mutated'] is False
+          assert q['domesticForecastsMutated'] is False
+          assert q['bookmakerOddsRead'] is False
+          assert q['pointInTimeCausality'] is True
+          assert q['missingIsZero'] is False
+          assert q['automaticPromotion'] is False
+          assert q['automaticFunding'] is False
+          assert v['promotionAllowed'] is False
+          assert x['historySource']['commit']=='394fe81893b062fbc2cf6257e988ac7cc4c039a1'
+          assert v['selection']['n'] > 0
+          assert v['holdout']['n'] > 0
+          for r in x.get('internationalCandidates') or []:
+              assert (r.get('execution') or {}).get('fundingAllowed') is False
+              assert (r.get('execution') or {}).get('class')=='R0_SHADOW_RESEARCH'
+          print(json.dumps({'summary':x['summary'],'domainSummary':x['domainSummary'],'validation':v},indent=2))
+          PY
+
+      - name: Keep generic scanner output out of international commit
+        run: git checkout -- hbt_live_data/slate_scanner.json || true
+
+      - name: Commit international research evidence
+        run: |
+          set -euo pipefail
+          D='${{ steps.target.outputs.date }}'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/international/
+          git diff --staged --quiet && exit 0
+          git commit -m "research: HBT international domain challenger ${D} [skip ci]"
+          git push origin HEAD:research/hbt-1.4-match-intelligence
