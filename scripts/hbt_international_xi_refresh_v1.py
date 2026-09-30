@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """Refresh international XI context without mutating frozen research probabilities.
 
-Reads the timing/venue-safe prospective international card and writes a separate
-XI context artifact only when roster/lineup state materially changes. The source
-prospective file is hashed and never rewritten here. No bookmaker data is read.
+Reads the latest timing/venue-safe international challenger surface (preferring
+v3 intelligence when present) and writes a separate XI context artifact only
+when roster/lineup state materially changes. The source probability surface is
+hashed and never rewritten here. No bookmaker data is read.
 """
 from __future__ import annotations
 
@@ -18,7 +19,7 @@ import hbt_international_context_v2 as ctx
 
 ROOT = Path(__file__).resolve().parents[1]
 INTL = ROOT / "hbt_live_data" / "international"
-VERSION = "HBT-1.4-INTERNATIONAL-XI-CONTEXT-1"
+VERSION = "HBT-1.4-INTERNATIONAL-XI-CONTEXT-1.1-LATEST-CHALLENGER"
 
 
 def read(path: Path, default: Any) -> Any:
@@ -48,7 +49,7 @@ def probability_fingerprint(row: dict[str, Any]) -> str:
         "fixture": row.get("fixture"), "domain": row.get("domain"), "predictionMode": row.get("predictionMode"),
         "probs": row.get("probs"), "pick": row.get("pick"), "pickProbability": row.get("pickProbability"),
         "derivedMarkets": row.get("derivedMarkets"), "state": row.get("state"), "venueContext": row.get("venueContext"),
-        "capture": row.get("capture"),
+        "capture": row.get("capture"), "recentPerformanceInteraction": row.get("recentPerformanceInteraction"),
     }
     raw = json.dumps(frozen, sort_keys=True, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
     return hashlib.sha256(raw).hexdigest()
@@ -68,17 +69,23 @@ def stable_rows(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return out
 
 
+def source_for(target: dt.date) -> Path:
+    v3 = INTL / f"hbt_international_intelligence_{target.isoformat()}.json"
+    v2 = INTL / f"hbt_international_prospective_{target.isoformat()}.json"
+    return v3 if v3.exists() else v2
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(); ap.add_argument("--date", required=True); args = ap.parse_args()
     target = dt.date.fromisoformat(args.date)
-    src = INTL / f"hbt_international_prospective_{target.isoformat()}.json"
+    src = source_for(target)
     out_path = INTL / f"hbt_international_xi_context_{target.isoformat()}.json"
     if not src.exists():
-        print(f"No international prospective card for {target}; XI refresh skipped")
+        print(f"No international challenger/prospective card for {target}; XI refresh skipped")
         return 0
     doc = read(src, {})
     if doc.get("targetDate") != target.isoformat():
-        raise SystemExit("international prospective targetDate mismatch")
+        raise SystemExit("international source targetDate mismatch")
 
     source_bytes = src.read_bytes(); source_sha = hashlib.sha256(source_bytes).hexdigest()
     checked = now_utc(); rows = []
@@ -89,6 +96,7 @@ def main() -> int:
         item = {
             "fixture": fx, "sourceFixtureId": eid or None,
             "probabilityFingerprint": probability_fingerprint(row),
+            "predictionMode": row.get("predictionMode"),
             "status": "PRE_KICKOFF" if pre else "POST_KICKOFF_OR_UNVERIFIED",
             "leadMinutes": lead,
         }
@@ -101,9 +109,9 @@ def main() -> int:
     candidate = {
         "schemaVersion": "HBT-INTERNATIONAL-XI-CONTEXT-1", "version": VERSION,
         "generatedAt": iso(checked), "targetDate": target.isoformat(),
-        "sourceProspective": src.name, "sourceProspectiveSha256": source_sha,
+        "sourceProbabilitySurface": src.name, "sourceProbabilitySurfaceSha256": source_sha,
         "policy": {
-            "footballProbabilitiesMutated": False, "sourceProspectiveMutated": False,
+            "footballProbabilitiesMutated": False, "sourceProbabilitySurfaceMutated": False,
             "bookmakerOddsRead": False, "confirmedXIContextOnly": True,
             "automaticPromotion": False, "automaticFunding": False,
         },
@@ -116,12 +124,13 @@ def main() -> int:
     }
 
     old = read(out_path, {})
-    if old and old.get("sourceProspectiveSha256") == source_sha and stable_rows(old.get("rows") or []) == stable_rows(rows):
-        print(json.dumps({"changed": False, "summary": candidate["summary"]}, indent=2))
+    old_sha = old.get("sourceProbabilitySurfaceSha256") or old.get("sourceProspectiveSha256")
+    if old and old_sha == source_sha and stable_rows(old.get("rows") or []) == stable_rows(rows):
+        print(json.dumps({"changed": False, "source": src.name, "summary": candidate["summary"]}, indent=2))
         return 0
     write(out_path, candidate)
-    print(json.dumps({"changed": True, "summary": candidate["summary"], "rows": [
-        {"fixture": r.get("fixture"), "status": r.get("status"), "leadMinutes": r.get("leadMinutes"),
+    print(json.dumps({"changed": True, "source": src.name, "summary": candidate["summary"], "rows": [
+        {"fixture": r.get("fixture"), "predictionMode": r.get("predictionMode"), "status": r.get("status"), "leadMinutes": r.get("leadMinutes"),
          "confirmedXI": (r.get("officialXI") or {}).get("confirmedXI"), "starterCounts": (r.get("officialXI") or {}).get("starterCounts")}
         for r in rows
     ]}, indent=2))
