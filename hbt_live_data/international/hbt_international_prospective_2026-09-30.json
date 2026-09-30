@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-INTERNATIONAL-PROSPECTIVE-2",
-  "version": "HBT-1.4-INTERNATIONAL-CONTEXT-2",
-  "generatedAt": "2026-09-30T14:04:46.838812Z",
+  "version": "HBT-1.4-INTERNATIONAL-CONTEXT-2.1-VENUE-IDENTITY",
+  "generatedAt": "2026-09-30T14:10:29.921119Z",
   "targetDate": "2026-09-30",
   "source": "hbt_international_challenger_2026-09-30.json",
   "policy": {
@@ -11,6 +11,7 @@
     "bookmakerOddsRead": false,
     "postKickoffRowsExcludedFromProspectiveEvidence": true,
     "venueContextMustBeVerifiedForCleanProspectiveEvidence": true,
+    "thirdCountryVenueRemovesNominalHomeAdvantage": true,
     "officialXIIsContextOnlyUntilValidated": true,
     "automaticPromotion": false,
     "automaticFunding": false
@@ -82,7 +83,10 @@
     "preKickoffProspective": 7,
     "postKickoffExcluded": 4,
     "timingUnresolved": 0,
-    "cleanProspectiveEligible": 0,
+    "cleanProspectiveEligible": 6,
+    "verifiedHomeCountry": 3,
+    "verifiedThirdCountryOrAway": 3,
+    "venueContextUnresolved": 1,
     "xiProbeAttempted": 7,
     "xiSummaryAvailable": 7,
     "confirmedXI": 0
@@ -174,30 +178,32 @@
         "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
       },
       "venueContext": {
-        "status": "HOME_CONTEXT_UNVERIFIED",
+        "status": "VERIFIED_HOME_COUNTRY",
         "neutralSite": null,
         "venue": {
           "name": "S. Darius and S. Gireno Stadium",
           "city": "Kaunas",
           "country": "Lithuania"
         },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
         "homeContextProbability": {
           "H": 0.7031641981791632,
           "D": 0.1938505454184783,
           "A": 0.10298525640235841
         },
-        "neutralContextProbability": {
+        "noHomeAdvantageProbability": {
           "H": 0.5891601028713084,
           "D": 0.2528243587869007,
           "A": 0.1580155383417909
         },
-        "probabilityContextVerified": false
+        "probabilityContextVerified": true
       },
       "sourceFixtureId": "401899825",
       "capture": {
-        "capturedAt": "2026-09-30T14:04:46.838812Z",
+        "capturedAt": "2026-09-30T14:10:29.921119Z",
         "kickoffUtc": "2026-09-30T16:00:00Z",
-        "leadMinutes": 115.21935313333333,
+        "leadMinutes": 109.50131468333333,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -254,7 +260,13 @@
           }
         ]
       },
-      "cleanProspectiveEligible": false
+      "resolvedCompetition": {
+        "id": "3922",
+        "name": "International Friendly",
+        "slug": "fifa.friendly",
+        "abbreviation": "Men's International Friendly"
+      },
+      "cleanProspectiveEligible": true
     },
     {
       "fixture": {
@@ -267,38 +279,38 @@
       "domain": "NATIONAL_COMPETITIVE",
       "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
       "probs": {
-        "H": 0.08371666636893205,
-        "D": 0.16634502619967817,
-        "A": 0.7499383074313898
+        "H": 0.049700897736298676,
+        "D": 0.13498302374292903,
+        "A": 0.8153160785207724
       },
       "pick": "A",
-      "pickProbability": 0.7499383074313898,
+      "pickProbability": 0.8153160785207724,
       "derivedMarkets": {
         "1X": {
-          "p": 0.2500616925686102,
-          "fairOdds": 3.999013162424416
+          "p": 0.18468392147922771,
+          "fairOdds": 5.414656522292195
         },
         "X2": {
-          "p": 0.916283333631068,
-          "fairOdds": 1.0913654797552388
+          "p": 0.9502991022637014,
+          "fairOdds": 1.0523002680081528
         },
         "12": {
-          "p": 0.8336549738003218,
-          "fairOdds": 1.1995370164246406
+          "p": 0.8650169762570711,
+          "fairOdds": 1.156046675901091
         },
         "HOME_DNB": {
-          "winP": 0.08371666636893205,
-          "pushP": 0.16634502619967817,
-          "lossP": 0.7499383074313898,
-          "conditionalP": 0.1004212402012058,
-          "fairOdds": 9.958052678859394
+          "winP": 0.049700897736298676,
+          "pushP": 0.13498302374292903,
+          "lossP": 0.8153160785207724,
+          "conditionalP": 0.05745655761734814,
+          "fairOdds": 17.404453755476382
         },
         "AWAY_DNB": {
-          "winP": 0.7499383074313898,
-          "pushP": 0.16634502619967817,
-          "lossP": 0.08371666636893205,
-          "conditionalP": 0.8995787597987942,
-          "fairOdds": 1.1116314042626647
+          "winP": 0.8153160785207724,
+          "pushP": 0.13498302374292903,
+          "lossP": 0.049700897736298676,
+          "conditionalP": 0.9425434423826519,
+          "fairOdds": 1.0609590550777204
         }
       },
       "quality": 1.0,
@@ -342,30 +354,32 @@
         "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
       },
       "venueContext": {
-        "status": "HOME_CONTEXT_UNVERIFIED",
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
         "neutralSite": null,
         "venue": {
           "name": "Al Salam Stadium",
           "city": "Cairo",
           "country": "Egypt"
         },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
         "homeContextProbability": {
           "H": 0.08371666636893205,
           "D": 0.16634502619967817,
           "A": 0.7499383074313898
         },
-        "neutralContextProbability": {
+        "noHomeAdvantageProbability": {
           "H": 0.049700897736298676,
           "D": 0.13498302374292903,
           "A": 0.8153160785207724
         },
-        "probabilityContextVerified": false
+        "probabilityContextVerified": true
       },
       "sourceFixtureId": "401919991",
       "capture": {
-        "capturedAt": "2026-09-30T14:04:46.838812Z",
+        "capturedAt": "2026-09-30T14:10:29.921119Z",
         "kickoffUtc": "2026-09-30T16:00:00Z",
-        "leadMinutes": 115.21935313333333,
+        "leadMinutes": 109.50131468333333,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -422,7 +436,13 @@
           }
         ]
       },
-      "cleanProspectiveEligible": false
+      "resolvedCompetition": {
+        "id": "8315",
+        "name": "Africa Cup of Nations Qualifying",
+        "slug": "caf.nations_qual",
+        "abbreviation": "AFCON Qualifying"
+      },
+      "cleanProspectiveEligible": true
     },
     {
       "fixture": {
@@ -435,38 +455,38 @@
       "domain": "NATIONAL_COMPETITIVE",
       "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
       "probs": {
-        "H": 0.7310184711939514,
-        "D": 0.17953376940260588,
-        "A": 0.08944775940344268
+        "H": 0.6225242913807779,
+        "D": 0.23798490389922133,
+        "A": 0.1394908047200008
       },
       "pick": "H",
-      "pickProbability": 0.7310184711939514,
+      "pickProbability": 0.6225242913807779,
       "derivedMarkets": {
         "1X": {
-          "p": 0.9105522405965573,
-          "fairOdds": 1.0982346266534253
+          "p": 0.8605091952799993,
+          "fairOdds": 1.1621026311922351
         },
         "X2": {
-          "p": 0.26898152880604853,
-          "fairOdds": 3.7177274009809747
+          "p": 0.37747570861922214,
+          "fairOdds": 2.6491770918396975
         },
         "12": {
-          "p": 0.820466230597394,
-          "fairOdds": 1.218819206333312
+          "p": 0.7620150961007788,
+          "fairOdds": 1.3123099596280794
         },
         "HOME_DNB": {
-          "winP": 0.7310184711939514,
-          "pushP": 0.17953376940260588,
-          "lossP": 0.08944775940344268,
-          "conditionalP": 0.890979352875603,
-          "fairOdds": 1.1223604641033902
+          "winP": 0.6225242913807779,
+          "pushP": 0.23798490389922133,
+          "lossP": 0.1394908047200008,
+          "conditionalP": 0.8169448276894073,
+          "fairOdds": 1.2240728701696217
         },
         "AWAY_DNB": {
-          "winP": 0.08944775940344268,
-          "pushP": 0.17953376940260588,
-          "lossP": 0.7310184711939514,
-          "conditionalP": 0.10902064712439707,
-          "fairOdds": 9.17257442857552
+          "winP": 0.1394908047200008,
+          "pushP": 0.23798490389922133,
+          "lossP": 0.6225242913807779,
+          "conditionalP": 0.18305517231059257,
+          "fairOdds": 5.46283389525473
         }
       },
       "quality": 1.0,
@@ -510,30 +530,32 @@
         "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
       },
       "venueContext": {
-        "status": "HOME_CONTEXT_UNVERIFIED",
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
         "neutralSite": null,
         "venue": {
           "name": "Prince Abdullah Al-Faisal Stadium",
           "city": "Jeddah",
           "country": "Saudi Arabia"
         },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
         "homeContextProbability": {
           "H": 0.7310184711939514,
           "D": 0.17953376940260588,
           "A": 0.08944775940344268
         },
-        "neutralContextProbability": {
+        "noHomeAdvantageProbability": {
           "H": 0.6225242913807779,
           "D": 0.23798490389922133,
           "A": 0.1394908047200008
         },
-        "probabilityContextVerified": false
+        "probabilityContextVerified": true
       },
       "sourceFixtureId": "401922499",
       "capture": {
-        "capturedAt": "2026-09-30T14:04:46.838812Z",
+        "capturedAt": "2026-09-30T14:10:29.921119Z",
         "kickoffUtc": "2026-09-30T17:30:00Z",
-        "leadMinutes": 205.21935313333333,
+        "leadMinutes": 199.50131468333333,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -590,7 +612,13 @@
           }
         ]
       },
-      "cleanProspectiveEligible": false
+      "resolvedCompetition": {
+        "id": "23107",
+        "name": "Arabian Gulf Cup",
+        "slug": "global.gulf_cup",
+        "abbreviation": "Arabian Gulf Cup"
+      },
+      "cleanProspectiveEligible": true
     },
     {
       "fixture": {
@@ -603,38 +631,38 @@
       "domain": "NATIONAL_COMPETITIVE",
       "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
       "probs": {
-        "H": 0.549292342619236,
-        "D": 0.26198143163647264,
-        "A": 0.1887262257442914
+        "H": 0.4216580058978502,
+        "D": 0.3130420111763955,
+        "A": 0.26529998292575424
       },
       "pick": "H",
-      "pickProbability": 0.549292342619236,
+      "pickProbability": 0.4216580058978502,
       "derivedMarkets": {
         "1X": {
-          "p": 0.8112737742557086,
-          "fairOdds": 1.2326295163644796
+          "p": 0.7347000170742457,
+          "fairOdds": 1.361099736981419
         },
         "X2": {
-          "p": 0.450707657380764,
-          "fairOdds": 2.2187331047610455
+          "p": 0.5783419941021497,
+          "fairOdds": 1.7290807345789503
         },
         "12": {
-          "p": 0.7380185683635274,
-          "fairOdds": 1.354979458331769
+          "p": 0.6869579888236044,
+          "fairOdds": 1.4556930937108266
         },
         "HOME_DNB": {
-          "winP": 0.549292342619236,
-          "pushP": 0.26198143163647264,
-          "lossP": 0.1887262257442914,
-          "conditionalP": 0.7442798408680008,
-          "fairOdds": 1.3435806602443656
+          "winP": 0.4216580058978502,
+          "pushP": 0.3130420111763955,
+          "lossP": 0.26529998292575424,
+          "conditionalP": 0.6138046470933795,
+          "fairOdds": 1.6291828430029267
         },
         "AWAY_DNB": {
-          "winP": 0.1887262257442914,
-          "pushP": 0.26198143163647264,
-          "lossP": 0.549292342619236,
-          "conditionalP": 0.25572015913199914,
-          "fairOdds": 3.910524705577921
+          "winP": 0.26529998292575424,
+          "pushP": 0.3130420111763955,
+          "lossP": 0.4216580058978502,
+          "conditionalP": 0.3861953529066206,
+          "fairOdds": 2.5893631098191725
         }
       },
       "quality": 1.0,
@@ -678,30 +706,32 @@
         "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
       },
       "venueContext": {
-        "status": "HOME_CONTEXT_UNVERIFIED",
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
         "neutralSite": null,
         "venue": {
           "name": "King Abdullah Sport City Stadium",
           "city": "Buraidah",
           "country": "Saudi Arabia"
         },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
         "homeContextProbability": {
           "H": 0.549292342619236,
           "D": 0.26198143163647264,
           "A": 0.1887262257442914
         },
-        "neutralContextProbability": {
+        "noHomeAdvantageProbability": {
           "H": 0.4216580058978502,
           "D": 0.3130420111763955,
           "A": 0.26529998292575424
         },
-        "probabilityContextVerified": false
+        "probabilityContextVerified": true
       },
       "sourceFixtureId": "401922500",
       "capture": {
-        "capturedAt": "2026-09-30T14:04:46.838812Z",
+        "capturedAt": "2026-09-30T14:10:29.921119Z",
         "kickoffUtc": "2026-09-30T17:30:00Z",
-        "leadMinutes": 205.21935313333333,
+        "leadMinutes": 199.50131468333333,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -758,7 +788,13 @@
           }
         ]
       },
-      "cleanProspectiveEligible": false
+      "resolvedCompetition": {
+        "id": "23107",
+        "name": "Arabian Gulf Cup",
+        "slug": "global.gulf_cup",
+        "abbreviation": "Arabian Gulf Cup"
+      },
+      "cleanProspectiveEligible": true
     },
     {
       "fixture": {
@@ -853,12 +889,14 @@
           "city": null,
           "country": null
         },
+        "venueCountryEvidence": "no explicit neutral flag and no usable venue-country identity",
+        "homeAdvantageApplied": true,
         "homeContextProbability": {
           "H": 0.6387294550061674,
           "D": 0.2246395473383286,
           "A": 0.13663099765550396
         },
-        "neutralContextProbability": {
+        "noHomeAdvantageProbability": {
           "H": 0.5156833754286748,
           "D": 0.2823109414624495,
           "A": 0.2020056831088757
@@ -867,9 +905,9 @@
       },
       "sourceFixtureId": "401912455",
       "capture": {
-        "capturedAt": "2026-09-30T14:04:46.838812Z",
+        "capturedAt": "2026-09-30T14:10:29.921119Z",
         "kickoffUtc": "2026-09-30T18:00:00Z",
-        "leadMinutes": 235.21935313333333,
+        "leadMinutes": 229.50131468333333,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -925,6 +963,12 @@
             "players": []
           }
         ]
+      },
+      "resolvedCompetition": {
+        "id": "3922",
+        "name": "International Friendly",
+        "slug": "fifa.friendly",
+        "abbreviation": "Men's International Friendly"
       },
       "cleanProspectiveEligible": false
     },
@@ -1014,30 +1058,32 @@
         "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
       },
       "venueContext": {
-        "status": "HOME_CONTEXT_UNVERIFIED",
+        "status": "VERIFIED_HOME_COUNTRY",
         "neutralSite": null,
         "venue": {
           "name": "Mario Alberto Kempes",
           "city": "Córdoba",
           "country": "Argentina"
         },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
         "homeContextProbability": {
           "H": 0.9140108787422696,
           "D": 0.06838536407712285,
           "A": 0.017603757180607603
         },
-        "neutralContextProbability": {
+        "noHomeAdvantageProbability": {
           "H": 0.8682571689062102,
           "D": 0.1011196329802327,
           "A": 0.03062319811355715
         },
-        "probabilityContextVerified": false
+        "probabilityContextVerified": true
       },
       "sourceFixtureId": "401921545",
       "capture": {
-        "capturedAt": "2026-09-30T14:04:46.838812Z",
+        "capturedAt": "2026-09-30T14:10:29.921119Z",
         "kickoffUtc": "2026-10-01T00:00:00Z",
-        "leadMinutes": 595.2193531333334,
+        "leadMinutes": 589.5013146833334,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -1094,7 +1140,13 @@
           }
         ]
       },
-      "cleanProspectiveEligible": false
+      "resolvedCompetition": {
+        "id": "3922",
+        "name": "International Friendly",
+        "slug": "fifa.friendly",
+        "abbreviation": "Men's International Friendly"
+      },
+      "cleanProspectiveEligible": true
     },
     {
       "fixture": {
@@ -1182,30 +1234,32 @@
         "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
       },
       "venueContext": {
-        "status": "HOME_CONTEXT_UNVERIFIED",
+        "status": "VERIFIED_HOME_COUNTRY",
         "neutralSite": null,
         "venue": {
           "name": "Cook Islands Football Association Academy",
           "city": "Matavera",
           "country": "Cook Islands"
         },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
         "homeContextProbability": {
           "H": 0.13714214825099055,
           "D": 0.21663346663289543,
           "A": 0.646224385116114
         },
-        "neutralContextProbability": {
+        "noHomeAdvantageProbability": {
           "H": 0.08483134102575196,
           "D": 0.18315887163925,
           "A": 0.732009787334998
         },
-        "probabilityContextVerified": false
+        "probabilityContextVerified": true
       },
       "sourceFixtureId": "401924629",
       "capture": {
-        "capturedAt": "2026-09-30T14:04:46.838812Z",
+        "capturedAt": "2026-09-30T14:10:29.921119Z",
         "kickoffUtc": "2026-10-01T02:00:00Z",
-        "leadMinutes": 715.2193531333334,
+        "leadMinutes": 709.5013146833334,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -1262,7 +1316,13 @@
           }
         ]
       },
-      "cleanProspectiveEligible": false
+      "resolvedCompetition": {
+        "id": "3922",
+        "name": "International Friendly",
+        "slug": "fifa.friendly",
+        "abbreviation": "Men's International Friendly"
+      },
+      "cleanProspectiveEligible": true
     }
   ],
   "postKickoffResearchRows": [
@@ -1277,38 +1337,38 @@
       "domain": "NATIONAL_FRIENDLY",
       "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
       "probs": {
-        "H": 0.47746864674176986,
-        "D": 0.28718780988725146,
-        "A": 0.2353435433709787
+        "H": 0.3522514323225971,
+        "D": 0.3297989123066071,
+        "A": 0.31794965537079584
       },
       "pick": "H",
-      "pickProbability": 0.47746864674176986,
+      "pickProbability": 0.3522514323225971,
       "derivedMarkets": {
         "1X": {
-          "p": 0.7646564566290213,
-          "fairOdds": 1.3077768340680571
+          "p": 0.6820503446292041,
+          "fairOdds": 1.466167428657556
         },
         "X2": {
-          "p": 0.5225313532582302,
-          "fairOdds": 1.9137607605065743
+          "p": 0.6477485676774029,
+          "fairOdds": 1.5438088942220993
         },
         "12": {
-          "p": 0.7128121901127485,
-          "fairOdds": 1.4028940776697796
+          "p": 0.6702010876933929,
+          "fairOdds": 1.4920894912923286
         },
         "HOME_DNB": {
-          "winP": 0.47746864674176986,
-          "pushP": 0.28718780988725146,
-          "lossP": 0.2353435433709787,
-          "conditionalP": 0.6698379367870331,
-          "fairOdds": 1.4928984237540102
+          "winP": 0.3522514323225971,
+          "pushP": 0.3297989123066071,
+          "lossP": 0.31794965537079584,
+          "conditionalP": 0.525590660461218,
+          "fairOdds": 1.9026213272558472
         },
         "AWAY_DNB": {
-          "winP": 0.2353435433709787,
-          "pushP": 0.28718780988725146,
-          "lossP": 0.47746864674176986,
-          "conditionalP": 0.330162063212967,
-          "fairOdds": 3.028815577018497
+          "winP": 0.31794965537079584,
+          "pushP": 0.3297989123066071,
+          "lossP": 0.3522514323225971,
+          "conditionalP": 0.47440933953878195,
+          "fairOdds": 2.107884302978087
         }
       },
       "quality": 0.95,
@@ -1352,30 +1412,32 @@
         "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
       },
       "venueContext": {
-        "status": "HOME_CONTEXT_UNVERIFIED",
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
         "neutralSite": null,
         "venue": {
           "name": "HFC Bank Stadium",
           "city": "Suva",
           "country": "Fiji"
         },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
         "homeContextProbability": {
           "H": 0.47746864674176986,
           "D": 0.28718780988725146,
           "A": 0.2353435433709787
         },
-        "neutralContextProbability": {
+        "noHomeAdvantageProbability": {
           "H": 0.3522514323225971,
           "D": 0.3297989123066071,
           "A": 0.31794965537079584
         },
-        "probabilityContextVerified": false
+        "probabilityContextVerified": true
       },
       "sourceFixtureId": "401922308",
       "capture": {
-        "capturedAt": "2026-09-30T14:04:46.838812Z",
+        "capturedAt": "2026-09-30T14:10:29.921119Z",
         "kickoffUtc": "2026-09-30T04:00:00Z",
-        "leadMinutes": -604.7806468666666,
+        "leadMinutes": -610.4986853166666,
         "statusAtCapture": "POST_KICKOFF_OR_UNVERIFIED"
       },
       "eventIdentity": {
@@ -1406,6 +1468,7 @@
         "available": false,
         "reason": "not probed after kickoff or event id unavailable"
       },
+      "resolvedCompetition": null,
       "cleanProspectiveEligible": false
     },
     {
@@ -1494,30 +1557,32 @@
         "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
       },
       "venueContext": {
-        "status": "HOME_CONTEXT_UNVERIFIED",
+        "status": "VERIFIED_HOME_COUNTRY",
         "neutralSite": null,
         "venue": {
           "name": "HFC Bank Stadium",
           "city": "Suva",
           "country": "Fiji"
         },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
         "homeContextProbability": {
           "H": 0.3363852172023448,
           "D": 0.31073134646624123,
           "A": 0.35288343633141406
         },
-        "neutralContextProbability": {
+        "noHomeAdvantageProbability": {
           "H": 0.2390248531310776,
           "D": 0.3017923664544912,
           "A": 0.4591827804144312
         },
-        "probabilityContextVerified": false
+        "probabilityContextVerified": true
       },
       "sourceFixtureId": "401922307",
       "capture": {
-        "capturedAt": "2026-09-30T14:04:46.838812Z",
+        "capturedAt": "2026-09-30T14:10:29.921119Z",
         "kickoffUtc": "2026-09-30T07:00:00Z",
-        "leadMinutes": -424.7806468666667,
+        "leadMinutes": -430.49868531666664,
         "statusAtCapture": "POST_KICKOFF_OR_UNVERIFIED"
       },
       "eventIdentity": {
@@ -1548,6 +1613,7 @@
         "available": false,
         "reason": "not probed after kickoff or event id unavailable"
       },
+      "resolvedCompetition": null,
       "cleanProspectiveEligible": false
     },
     {
@@ -1636,30 +1702,32 @@
         "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
       },
       "venueContext": {
-        "status": "HOME_CONTEXT_UNVERIFIED",
+        "status": "VERIFIED_HOME_COUNTRY",
         "neutralSite": null,
         "venue": {
           "name": "Stade Linité",
           "city": "Victoria",
           "country": "Seychelles"
         },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
         "homeContextProbability": {
           "H": 0.40511976556653084,
           "D": 0.3077540087354514,
           "A": 0.2871262256980178
         },
-        "neutralContextProbability": {
+        "noHomeAdvantageProbability": {
           "H": 0.29450884087983764,
           "D": 0.3232513395160871,
           "A": 0.3822398196040752
         },
-        "probabilityContextVerified": false
+        "probabilityContextVerified": true
       },
       "sourceFixtureId": "401917065",
       "capture": {
-        "capturedAt": "2026-09-30T14:04:46.838812Z",
+        "capturedAt": "2026-09-30T14:10:29.921119Z",
         "kickoffUtc": "2026-09-30T12:00:00Z",
-        "leadMinutes": -124.78064686666667,
+        "leadMinutes": -130.49868531666667,
         "statusAtCapture": "POST_KICKOFF_OR_UNVERIFIED"
       },
       "eventIdentity": {
@@ -1690,6 +1758,7 @@
         "available": false,
         "reason": "not probed after kickoff or event id unavailable"
       },
+      "resolvedCompetition": null,
       "cleanProspectiveEligible": false
     },
     {
@@ -1778,30 +1847,32 @@
         "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
       },
       "venueContext": {
-        "status": "HOME_CONTEXT_UNVERIFIED",
+        "status": "VERIFIED_HOME_COUNTRY",
         "neutralSite": null,
         "venue": {
           "name": "Botswana National Stadium",
           "city": "Gaborone",
           "country": "Botswana"
         },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
         "homeContextProbability": {
           "H": 0.34710270051753267,
           "D": 0.31288155737704143,
           "A": 0.34001574210542584
         },
-        "neutralContextProbability": {
+        "noHomeAdvantageProbability": {
           "H": 0.24838901531078436,
           "D": 0.30603520128871486,
           "A": 0.44557578340050086
         },
-        "probabilityContextVerified": false
+        "probabilityContextVerified": true
       },
       "sourceFixtureId": "401922621",
       "capture": {
-        "capturedAt": "2026-09-30T14:04:46.838812Z",
+        "capturedAt": "2026-09-30T14:10:29.921119Z",
         "kickoffUtc": "2026-09-30T14:00:00Z",
-        "leadMinutes": -4.780646866666667,
+        "leadMinutes": -10.498685316666666,
         "statusAtCapture": "POST_KICKOFF_OR_UNVERIFIED"
       },
       "eventIdentity": {
@@ -1832,6 +1903,7 @@
         "available": false,
         "reason": "not probed after kickoff or event id unavailable"
       },
+      "resolvedCompetition": null,
       "cleanProspectiveEligible": false
     }
   ],
