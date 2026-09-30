@@ -1,0 +1,66 @@
+{
+  "version": "HBT-1.4-INTERNATIONAL-CHALLENGER-1",
+  "generatedAt": "2026-09-30T13:54:44Z",
+  "historySource": {
+    "url": "https://raw.githubusercontent.com/martj42/international_results/394fe81893b062fbc2cf6257e988ac7cc4c039a1/results.csv",
+    "commit": "394fe81893b062fbc2cf6257e988ac7cc4c039a1",
+    "sha256": "df35268f8fc341ff7fb93d448b4e40356676ac35300a6b4461fd199a99ac1514",
+    "rows": 49547,
+    "firstDate": "1872-11-30",
+    "lastDate": "2026-08-26"
+  },
+  "validation": {
+    "selectionWindow": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "holdoutWindow": [
+      "2025-01-01",
+      "2026-09-30"
+    ],
+    "selectedParams": {
+      "eloSlope": 1.4,
+      "homeLogit": 0.15,
+      "drawIntercept": 0.0,
+      "drawMismatchPenalty": 0.4
+    },
+    "selection": {
+      "n": 2285,
+      "logLoss": 0.8842945020773297,
+      "brier": 0.5206899405328139,
+      "accuracy": 0.6026258205689278,
+      "topPickECE": 0.01644032866381879
+    },
+    "holdout": {
+      "n": 1619,
+      "logLoss": 0.8476057091321209,
+      "brier": 0.4969791866234811,
+      "accuracy": 0.6170475602223595,
+      "topPickECE": 0.0316675338967015
+    },
+    "holdoutBaseline": {
+      "n": 1619,
+      "logLoss": 1.0479605343044118,
+      "brier": 0.6320648351921964,
+      "accuracy": 0.47869054972205066,
+      "topPickECE": 0.0033493615861625026
+    },
+    "competitiveHoldout": {
+      "n": 1156,
+      "logLoss": 0.8293736505250846,
+      "brier": 0.48446228299190564,
+      "accuracy": 0.6314878892733564,
+      "topPickECE": 0.04356481076217917
+    },
+    "friendlyHoldout": {
+      "n": 463,
+      "logLoss": 0.8931267885051914,
+      "brier": 0.528230894178778,
+      "accuracy": 0.5809935205183585,
+      "topPickECE": 0.023498954105536214
+    },
+    "beatsFixedHistoricalBaseRateOnLogLossAndBrier": true,
+    "promotionAllowed": false,
+    "promotionBlock": "requires clean prospective confirmation plus broader HBT-1.4 interaction/ablation validation"
+  }
+}
