@@ -72,6 +72,10 @@ jobs:
           done
           git diff --staged --quiet && exit 0
           git commit -m "prospective: freeze international research ${D1} ${D2} [skip ci]"
+          # The scanner/challenger may refresh tracked caches outside the evidence set.
+          # Evidence is already committed above; discard only those incidental
+          # uncommitted changes before rebasing the immutable evidence commit.
+          git reset --hard HEAD
           git fetch origin research/hbt-1.4-match-intelligence
           git rebase origin/research/hbt-1.4-match-intelligence
           git push origin HEAD:research/hbt-1.4-match-intelligence
