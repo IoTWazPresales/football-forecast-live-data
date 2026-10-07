@@ -1,8 +1,8 @@
 {
   "schemaVersion": "HBT-FORECAST-BRIDGE-STATUS-1",
   "version": "HBT-FROZEN-FORECAST-BRIDGE-1.4-EXACT-SNAPSHOT",
-  "generatedAt": "2026-09-29T08:42:58.549Z",
-  "targetDate": "2026-09-29",
+  "generatedAt": "2026-10-07T18:32:33.890Z",
+  "targetDate": "2026-10-07",
   "policy": {
     "predictiveModel": "HBT-1.1.2L-R1",
     "bookmakerOddsUsed": false,
@@ -16,7 +16,7 @@
     "targetStateUpdatedThroughPreviousCompletedDay": true
   },
   "status": "READY",
-  "output": "frozen_control_forecast_2026-09-29.json",
+  "output": "frozen_control_forecast_2026-10-07.json",
   "frozenSnapshot": {
     "created": "2026-09-11T20:30:57.701Z",
     "dataCutoff": "2026-09-07",
@@ -27,7 +27,7 @@
     "aliases": 37
   },
   "stateAdvance": {
-    "targetStateAsOfExclusive": "2026-09-29",
+    "targetStateAsOfExclusive": "2026-10-07",
     "incrementalMatches": 146,
     "sourceFailures": [
       {
@@ -264,9 +264,35 @@
     ]
   },
   "target": {
-    "discovered": 81,
+    "discovered": 45,
     "predictions": 0,
-    "excluded": []
+    "excluded": [
+      {
+        "fixture": "Internacional vs Corinthians",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Red Bull Bragantino vs Mirassol",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Remo vs Grêmio",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Vitória vs Chapecoense",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Botafogo vs Vasco da Gama",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      }
+    ]
   },
-  "runtimeMs": 4000.836319
+  "runtimeMs": 2181.054781
 }

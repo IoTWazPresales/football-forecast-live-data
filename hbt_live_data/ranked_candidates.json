@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-09-17",
+  "targetDate": "2026-10-07",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,34 +22,30 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 105,
-    "classifiedRows": 105,
+    "fixturesDiscovered": 64,
+    "classifiedRows": 64,
     "FALLBACK": 0,
     "FULL_MODEL": 0,
-    "INSUFFICIENT_DATA": 4,
-    "NOT_YET_READY": 2,
+    "INSUFFICIENT_DATA": 6,
+    "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 99,
+    "UNSUPPORTED_COMPETITION": 58,
     "forecastRowsAvailable": 0,
     "forecastRowsMatched": 0,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
-      "2026-27-south-african-premiership",
-      "2026-bolivian-liga-profesional",
-      "2026-club-friendly",
+      "2026-brasileiro-serie-b",
       "2026-ncaa-division-i-men",
       "2026-ncaa-division-i-women",
-      "apertura-2026",
-      "clausura",
+      "2026-womens-international-friendly",
       "group-stage",
-      "league-phase",
       "quarterfinals",
       "regular-season",
-      "third-round"
+      "round-of-16"
     ],
     "validatedEventForecastRows": 0,
-    "eventFamiliesExcluded": 8
+    "eventFamiliesExcluded": 0
   },
   "rankingGate": {
     "sourceDiscoverySucceeded": true,
@@ -64,7 +60,7 @@
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-09-17T09:01:25Z",
+    "generatedAt": "2026-10-07T18:32:38Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -72,7 +68,7 @@
   "testAReference": {
     "id": "PRE_XI_TEST_A_2026-09-15",
     "name": "Live Experiment — PRE-XI Test A",
-    "state": "FROZEN_PROSPECTIVE",
+    "state": "SETTLED",
     "stakeZAR": 1.0,
     "legs": [
       {
@@ -80,21 +76,27 @@
         "selection": "Rayo Vallecano — WIN",
         "market": "1X2_HOME",
         "recordedAtPlacementProbabilityApprox": 0.5397,
-        "exactProspectiveAuditProbability": 0.5398550753047744
+        "exactProspectiveAuditProbability": 0.5398550753047744,
+        "finalScore": "2-1",
+        "hit": true
       },
       {
         "fixture": "Deportivo Alavés vs Valencia",
         "selection": "Deportivo Alavés — WIN",
         "market": "1X2_HOME",
         "recordedAtPlacementProbabilityApprox": 0.6085,
-        "exactProspectiveAuditProbability": 0.6086948868675904
+        "exactProspectiveAuditProbability": 0.6086948868675904,
+        "finalScore": "0-1",
+        "hit": false
       },
       {
         "fixture": "Elche vs Real Madrid",
         "selection": "UNDER 3.5 goals",
         "market": "TOTAL_GOALS_UNDER_3_5",
         "recordedAtPlacementProbabilityApprox": 0.5801,
-        "exactProspectiveAuditProbability": 0.5802448326403797
+        "exactProspectiveAuditProbability": 0.5802448326403797,
+        "finalScore": "2-3",
+        "hit": false
       }
     ],
     "note": "Reference only. Ranking does not alter, remove, replace, or retrospectively optimise Test A."
@@ -104,160 +106,7 @@
     "strongestFullModelConfidence": [],
     "fallbackOnly": [],
     "validatedEventForecasts": [],
-    "eventMarketExcluded": [
-      {
-        "fixtureKey": "2026-09-17|real betis|getafe",
-        "kickoff": "2026-09-17T17:00Z",
-        "home": "Real Betis",
-        "away": "Getafe",
-        "family": "corners",
-        "totalLambda": null,
-        "history": {
-          "homeForN": 0,
-          "homeAgainstN": 0,
-          "awayForN": 0,
-          "awayAgainstN": 0
-        },
-        "reasons": [
-          "validated_event_model_not_ready",
-          "total_lambda_missing_or_invalid",
-          "history_coverage_below_3"
-        ]
-      },
-      {
-        "fixtureKey": "2026-09-17|real betis|getafe",
-        "kickoff": "2026-09-17T17:00Z",
-        "home": "Real Betis",
-        "away": "Getafe",
-        "family": "yellowCards",
-        "totalLambda": null,
-        "history": {
-          "homeForN": 0,
-          "homeAgainstN": 0,
-          "awayForN": 0,
-          "awayAgainstN": 0
-        },
-        "reasons": [
-          "validated_event_model_not_ready",
-          "total_lambda_missing_or_invalid",
-          "history_coverage_below_3"
-        ]
-      },
-      {
-        "fixtureKey": "2026-09-17|real betis|getafe",
-        "kickoff": "2026-09-17T17:00Z",
-        "home": "Real Betis",
-        "away": "Getafe",
-        "family": "shots",
-        "totalLambda": null,
-        "history": {
-          "homeForN": 0,
-          "homeAgainstN": 0,
-          "awayForN": 0,
-          "awayAgainstN": 0
-        },
-        "reasons": [
-          "validated_event_model_not_ready",
-          "total_lambda_missing_or_invalid",
-          "history_coverage_below_3"
-        ]
-      },
-      {
-        "fixtureKey": "2026-09-17|real betis|getafe",
-        "kickoff": "2026-09-17T17:00Z",
-        "home": "Real Betis",
-        "away": "Getafe",
-        "family": "shotsOnTarget",
-        "totalLambda": null,
-        "history": {
-          "homeForN": 0,
-          "homeAgainstN": 0,
-          "awayForN": 0,
-          "awayAgainstN": 0
-        },
-        "reasons": [
-          "validated_event_model_not_ready",
-          "total_lambda_missing_or_invalid",
-          "history_coverage_below_3"
-        ]
-      },
-      {
-        "fixtureKey": "2026-09-17|malaga|villarreal",
-        "kickoff": "2026-09-17T19:30Z",
-        "home": "Málaga",
-        "away": "Villarreal",
-        "family": "corners",
-        "totalLambda": null,
-        "history": {
-          "homeForN": 0,
-          "homeAgainstN": 0,
-          "awayForN": 0,
-          "awayAgainstN": 0
-        },
-        "reasons": [
-          "validated_event_model_not_ready",
-          "total_lambda_missing_or_invalid",
-          "history_coverage_below_3"
-        ]
-      },
-      {
-        "fixtureKey": "2026-09-17|malaga|villarreal",
-        "kickoff": "2026-09-17T19:30Z",
-        "home": "Málaga",
-        "away": "Villarreal",
-        "family": "yellowCards",
-        "totalLambda": null,
-        "history": {
-          "homeForN": 0,
-          "homeAgainstN": 0,
-          "awayForN": 0,
-          "awayAgainstN": 0
-        },
-        "reasons": [
-          "validated_event_model_not_ready",
-          "total_lambda_missing_or_invalid",
-          "history_coverage_below_3"
-        ]
-      },
-      {
-        "fixtureKey": "2026-09-17|malaga|villarreal",
-        "kickoff": "2026-09-17T19:30Z",
-        "home": "Málaga",
-        "away": "Villarreal",
-        "family": "shots",
-        "totalLambda": null,
-        "history": {
-          "homeForN": 0,
-          "homeAgainstN": 0,
-          "awayForN": 0,
-          "awayAgainstN": 0
-        },
-        "reasons": [
-          "validated_event_model_not_ready",
-          "total_lambda_missing_or_invalid",
-          "history_coverage_below_3"
-        ]
-      },
-      {
-        "fixtureKey": "2026-09-17|malaga|villarreal",
-        "kickoff": "2026-09-17T19:30Z",
-        "home": "Málaga",
-        "away": "Villarreal",
-        "family": "shotsOnTarget",
-        "totalLambda": null,
-        "history": {
-          "homeForN": 0,
-          "homeAgainstN": 0,
-          "awayForN": 0,
-          "awayAgainstN": 0
-        },
-        "reasons": [
-          "validated_event_model_not_ready",
-          "total_lambda_missing_or_invalid",
-          "history_coverage_below_3"
-        ]
-      }
-    ],
+    "eventMarketExcluded": [],
     "experimentalValueVsPrice": {
       "status": "UNAVAILABLE_NO_BOOKMAKER_PRICE",
       "advisoryOnly": true,
@@ -272,11 +121,10 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 105,
+      "count": 64,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 99,
-        "INSUFFICIENT_DATA": 4,
-        "NOT_YET_READY": 2
+        "UNSUPPORTED_COMPETITION": 58,
+        "INSUFFICIENT_DATA": 6
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
