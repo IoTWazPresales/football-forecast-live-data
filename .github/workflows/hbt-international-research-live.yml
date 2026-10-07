@@ -1,0 +1,87 @@
+name: HBT International Research Live
+
+on:
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/hbt-international-research-live.yml'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hbt-international-research-live
+  cancel-in-progress: true
+
+jobs:
+  international-research:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Resolve SAST target date
+        run: echo "TARGET_DATE=$(TZ=Africa/Johannesburg date +%F)" >> "$GITHUB_ENV"
+      - name: Compile international research surfaces
+        run: |
+          python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_international_challenger_v1.py scripts/hbt_international_context_v2.py scripts/hbt_international_intelligence_v3.py scripts/hbt_international_xi_refresh_v1.py scripts/hbt_international_settle_v1.py
+      - name: Discover current public slate
+        run: python scripts/hbt_scan_slate_v2_2.py --date "$TARGET_DATE"
+      - name: Build causal international challenger
+        run: python scripts/hbt_international_challenger_v1.py --date "$TARGET_DATE"
+      - name: Freeze timing-safe venue-aware prospective card
+        run: python scripts/hbt_international_context_v2.py --date "$TARGET_DATE"
+      - name: Apply validated recent-performance research interaction
+        run: python scripts/hbt_international_intelligence_v3.py --date "$TARGET_DATE"
+      - name: Refresh official XI context
+        run: python scripts/hbt_international_xi_refresh_v1.py --date "$TARGET_DATE"
+      - name: Settle all prior clean prospective international evidence
+        run: python scripts/hbt_international_settle_v1.py --all-unsettled
+      - name: Guard international research contract
+        run: |
+          python - <<'PY'
+          import json, os, pathlib
+          d=os.environ['TARGET_DATE']
+          p=pathlib.Path(f'hbt_live_data/international/hbt_international_intelligence_{d}.json')
+          x=json.load(open(p,encoding='utf-8')); q=x['policy']; v=x['validation']
+          assert q['researchOnly'] is True
+          assert q['frozenHBT112Mutated'] is False
+          assert q['domesticForecastsMutated'] is False
+          assert q['bookmakerOddsRead'] is False
+          assert q['missingIsZero'] is False
+          assert q['automaticPromotion'] is False and q['automaticFunding'] is False
+          assert v['promotionAllowed'] is False
+          for r in x.get('prospectiveCandidates') or []:
+              assert (r.get('execution') or {}).get('fundingAllowed') is False
+              assert (r.get('capture') or {}).get('statusAtCapture')=='PRE_KICKOFF'
+          for s in pathlib.Path('hbt_live_data/international').glob('hbt_international_settlement_*.json'):
+              z=json.load(open(s,encoding='utf-8')); qp=z['policy']
+              assert qp['prospectiveOnly'] is True and qp['cleanRowsOnly'] is True
+              assert qp['bookmakerOddsRead'] is False
+              assert qp['retrainingPerformed'] is False and qp['retuningPerformed'] is False
+              assert z['metrics']['promotionEvidenceSufficient'] is False
+          print(json.dumps({'targetDate':d,'summary':x['summary'],'validation':v},indent=2))
+          PY
+      - name: Keep generic scanner output out of international commit
+        run: git checkout -- hbt_live_data/slate_scanner.json || true
+      - name: Commit international research evidence
+        run: |
+          set -euo pipefail
+          BRANCH='research/hbt-1.4-match-intelligence'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/international/
+          git diff --staged --quiet && exit 0
+          git commit -m "research: refresh international HBT evidence ${TARGET_DATE} [skip ci]"
+          git fetch origin "$BRANCH"
+          git rebase "origin/$BRANCH"
+          git push origin "HEAD:$BRANCH"
