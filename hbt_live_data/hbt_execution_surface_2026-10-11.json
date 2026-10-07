@@ -1,0 +1,1180 @@
+{
+  "schemaVersion": "HBT-EXECUTION-SURFACE-1",
+  "version": "HBT-EXECUTION-SURFACE-1.2-RISK-ADJUSTED",
+  "targetDate": "2026-10-11",
+  "generatedAt": "2026-10-07T18:38:55.681876Z",
+  "policy": {
+    "footballProbabilitiesImmutable": true,
+    "bookmakerPriceObservedOnlyAfterPredictionFreeze": true,
+    "r0Default": true,
+    "r1MinimumModelEV": 0.03,
+    "r2MinimumModelEV": 0.07,
+    "r2RequiresNativeCurrentQualityAtLeast": 0.9,
+    "c1MaximumFundedStakeRand": 1,
+    "executionRequiresTimezoneAwareVerifiedKickoff": true,
+    "genericDiscoveryIdentityMayNotAuthorizeExecution": true,
+    "startedFixtureAction": "R0_BLOCKED_IN_PLAY",
+    "chainLegMustIndependentlyPassValueGateForFunding": true,
+    "sameMatchCorrelatedLegsAllowed": false
+  },
+  "sourceProspectiveCard": "hbt_prospective_card_2026-10-11.json",
+  "priceSource": null,
+  "summary": {
+    "surfaces": 14,
+    "executionEligibleNow": 13,
+    "blockedIdentityOrTiming": 1,
+    "fundedSingles": 0,
+    "fundedStakeRand": 0,
+    "r0Singles": 14,
+    "chains": 2
+  },
+  "rows": [
+    {
+      "fixture": {
+        "home": "Stade Rennais",
+        "away": "AJ Auxerre",
+        "date": "2026-10-11",
+        "league": "fr.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T15:15:00Z",
+        "source": "ESPN:fr.1",
+        "fixtureSources": [
+          "ESPN:fr.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401876441",
+        "competition": "Ligue 1",
+        "competitionSlug": "fr.1",
+        "leagueHint": "fr.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Stade Rennais",
+        "discoveryAway": "AJ Auxerre",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "B",
+        "rawTier": "B",
+        "quality": 0.6619986537757976,
+        "coverage": "stale-ish 1226d",
+        "coveragePack": null,
+        "market": "1X",
+        "selection": "Stade Rennais OR Draw — Double Chance (1X)",
+        "probability": 0.8772915798229954,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "Stade Rennais — Draw No Bet (draw = refund)",
+        "fairOdds": 1.182493652827818,
+        "conditionalP": 0.8456705011554165,
+        "winP": 0.6723982904368695,
+        "pushP": 0.20489328938612592,
+        "lossP": 0.12270842017700449
+      },
+      "value": {
+        "fairOdds": 1.1398718772631586,
+        "minimumOddsR1": 1.2196629086715798,
+        "minimumOddsR2": 1.2196629086715798,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": true,
+          "elevatedRisk": true,
+          "minimumEVForR1": 0.07,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "1X",
+        "selectionFrozen": "Stade Rennais OR Draw — Double Chance (1X)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "SC Freiburg",
+        "away": "Schalke 04",
+        "date": "2026-10-11",
+        "league": "de.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T15:30:00Z",
+        "source": "ESPN:de.1",
+        "fixtureSources": [
+          "ESPN:de.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401884778",
+        "competition": "Bundesliga",
+        "competitionSlug": "de.1",
+        "leagueHint": "de.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "SC Freiburg",
+        "discoveryAway": "Schalke 04",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "B",
+        "rawTier": "B",
+        "quality": 0.8672663484621236,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "1X",
+        "selection": "SC Freiburg OR Draw — Double Chance (1X)",
+        "probability": 0.86267947038699,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "SC Freiburg — Draw No Bet (draw = refund)",
+        "fairOdds": 1.2096451385182236,
+        "conditionalP": 0.8266887272617552,
+        "winP": 0.6550141376212887,
+        "pushP": 0.20766533276570126,
+        "lossP": 0.13732052961300995
+      },
+      "value": {
+        "fairOdds": 1.1591790860067752,
+        "minimumOddsR1": 1.1939544585869786,
+        "minimumOddsR2": 1.2403216220272495,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "1X",
+        "selectionFrozen": "SC Freiburg OR Draw — Double Chance (1X)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Besiktas",
+        "away": "Kocaelispor",
+        "date": "2026-10-11",
+        "league": "tr.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T16:00:00Z",
+        "source": "ESPN:tr.1",
+        "fixtureSources": [
+          "ESPN:tr.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401888279",
+        "competition": "Süper Lig",
+        "competitionSlug": "tr.1",
+        "leagueHint": "tr.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Besiktas",
+        "discoveryAway": "Kocaelispor",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.5508421049756664,
+        "coverage": "stale-ish 345d",
+        "coveragePack": null,
+        "market": "1X",
+        "selection": "Besiktas OR Draw — Double Chance (1X)",
+        "probability": 0.8333400025586043,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "Besiktas — Draw No Bet (draw = refund)",
+        "fairOdds": 1.282910840099226,
+        "conditionalP": 0.7794773952667323,
+        "winP": 0.5890901790222769,
+        "pushP": 0.2442498235363274,
+        "lossP": 0.16665999744139576
+      },
+      "value": {
+        "fairOdds": 1.199990396392468,
+        "minimumOddsR1": 1.283989724139941,
+        "minimumOddsR2": 1.283989724139941,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": true,
+          "elevatedRisk": true,
+          "minimumEVForR1": 0.07,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "1X",
+        "selectionFrozen": "Besiktas OR Draw — Double Chance (1X)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "FC Utrecht",
+        "away": "Willem II",
+        "date": "2026-10-11",
+        "league": "nl.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T10:15:00Z",
+        "source": "ESPN:nl.1",
+        "fixtureSources": [
+          "ESPN:nl.1",
+          "OPENFOOTBALL:nl.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401875587",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "leagueHint": "nl.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "FC Utrecht",
+        "discoveryAway": "Willem II",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": false,
+      "executionBlockReason": "RESERVE_B_TEAM_NAMESPACE",
+      "signal": {
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.6868210577210766,
+        "coverage": "stale-ish 1610d",
+        "coveragePack": null,
+        "market": "1X",
+        "selection": "FC Utrecht OR Draw — Double Chance (1X)",
+        "probability": 0.8134814380258574,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "FC Utrecht — Draw No Bet (draw = refund)",
+        "fairOdds": 1.3351452147701788,
+        "conditionalP": 0.7489821997917523,
+        "winP": 0.5565305836219236,
+        "pushP": 0.2569508544039337,
+        "lossP": 0.1865185619741425
+      },
+      "value": {
+        "fairOdds": 1.2292843490403207,
+        "minimumOddsR1": 1.3153342534731431,
+        "minimumOddsR2": 1.3153342534731431,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_EXECUTION_BLOCKED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": true,
+          "elevatedRisk": true,
+          "minimumEVForR1": 0.07,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "1X",
+        "selectionFrozen": "FC Utrecht OR Draw — Double Chance (1X)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Motherwell",
+        "away": "Celtic",
+        "date": "2026-10-11",
+        "league": "sco.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T11:00:00Z",
+        "source": "ESPN:sco.1",
+        "fixtureSources": [
+          "ESPN:sco.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401878370",
+        "competition": "Scottish Premiership",
+        "competitionSlug": "sco.1",
+        "leagueHint": "sco.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Motherwell",
+        "discoveryAway": "Celtic",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.7175988775674764,
+        "coverage": "stale-ish 347d",
+        "coveragePack": null,
+        "market": "X2",
+        "selection": "Celtic OR Draw — Double Chance (X2)",
+        "probability": 0.8027662847079047,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "AWAY_DNB",
+        "selection": "Celtic — Draw No Bet (draw = refund)",
+        "fairOdds": 1.357776173600563,
+        "conditionalP": 0.7364984151608664,
+        "winP": 0.5512768312858525,
+        "pushP": 0.25148945342205214,
+        "lossP": 0.19723371529209535
+      },
+      "value": {
+        "fairOdds": 1.2456925746001664,
+        "minimumOddsR1": 1.3328910548221782,
+        "minimumOddsR2": 1.3328910548221782,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": true,
+          "elevatedRisk": true,
+          "minimumEVForR1": 0.07,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "X2",
+        "selectionFrozen": "Celtic OR Draw — Double Chance (X2)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Aberdeen",
+        "away": "St Johnstone",
+        "date": "2026-10-11",
+        "league": "sco.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T13:00:00Z",
+        "source": "ESPN:sco.1",
+        "fixtureSources": [
+          "ESPN:sco.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401878374",
+        "competition": "Scottish Premiership",
+        "competitionSlug": "sco.1",
+        "leagueHint": "sco.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Aberdeen",
+        "discoveryAway": "St Johnstone",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.7121016170838406,
+        "coverage": "stale-ish 511d",
+        "coveragePack": null,
+        "market": "1X",
+        "selection": "Aberdeen OR Draw — Double Chance (1X)",
+        "probability": 0.7944570580494612,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "Aberdeen — Draw No Bet (draw = refund)",
+        "fairOdds": 1.381317822658009,
+        "conditionalP": 0.7239463529658541,
+        "winP": 0.5390331364995843,
+        "pushP": 0.25542392154987686,
+        "lossP": 0.20554294195053882
+      },
+      "value": {
+        "fairOdds": 1.2587212736899647,
+        "minimumOddsR1": 1.3468317628482622,
+        "minimumOddsR2": 1.3468317628482622,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": true,
+          "elevatedRisk": true,
+          "minimumEVForR1": 0.07,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "1X",
+        "selectionFrozen": "Aberdeen OR Draw — Double Chance (1X)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Telstar 1963",
+        "away": "ADO Den Haag",
+        "date": "2026-10-11",
+        "league": "nl.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T12:30:00Z",
+        "source": "ESPN:nl.1",
+        "fixtureSources": [
+          "ESPN:nl.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401875585",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "leagueHint": "nl.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Telstar",
+        "discoveryAway": "ADO Den Haag",
+        "identityScore": 0.975,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.929885895682767,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "1X",
+        "selection": "Telstar 1963 OR Draw — Double Chance (1X)",
+        "probability": 0.7824960233909952,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "Telstar 1963 — Draw No Bet (draw = refund)",
+        "fairOdds": 1.4188572348062394,
+        "conditionalP": 0.7047925439352332,
+        "winP": 0.5192795027394496,
+        "pushP": 0.26321652065154566,
+        "lossP": 0.21750397660900492
+      },
+      "value": {
+        "fairOdds": 1.2779617660757403,
+        "minimumOddsR1": 1.3163006190580124,
+        "minimumOddsR2": 1.367419089701042,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": true,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": 0.07,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "1X",
+        "selectionFrozen": "Telstar 1963 OR Draw — Double Chance (1X)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Liverpool",
+        "away": "Manchester City",
+        "date": "2026-10-11",
+        "league": "en.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T15:30:00Z",
+        "source": "ESPN:en.1",
+        "fixtureSources": [
+          "ESPN:en.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401879264",
+        "competition": "Premier League",
+        "competitionSlug": "en.1",
+        "leagueHint": "en.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Liverpool",
+        "discoveryAway": "Manchester City",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.9404096843885886,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "X2",
+        "selection": "Manchester City OR Draw — Double Chance (X2)",
+        "probability": 0.7698691804100289,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "AWAY_DNB",
+        "selection": "Manchester City — Draw No Bet (draw = refund)",
+        "fairOdds": 1.460619533048039,
+        "conditionalP": 0.6846409878643671,
+        "winP": 0.499611508151067,
+        "pushP": 0.27025767225896197,
+        "lossP": 0.23013081958997098
+      },
+      "value": {
+        "fairOdds": 1.298921979793248,
+        "minimumOddsR1": 1.3378896391870454,
+        "minimumOddsR2": 1.3898465183787754,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": true,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": 0.07,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "X2",
+        "selectionFrozen": "Manchester City OR Draw — Double Chance (X2)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "PEC Zwolle",
+        "away": "SC Cambuur",
+        "date": "2026-10-11",
+        "league": "nl.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T12:30:00Z",
+        "source": "ESPN:nl.1",
+        "fixtureSources": [
+          "ESPN:nl.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401875586",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "leagueHint": "nl.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "PEC Zwolle",
+        "discoveryAway": "SC Cambuur",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.6961333703728593,
+        "coverage": "stale-ish 1232d",
+        "coveragePack": null,
+        "market": "1X",
+        "selection": "PEC Zwolle OR Draw — Double Chance (1X)",
+        "probability": 0.7473372864433363,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "PEC Zwolle — Draw No Bet (draw = refund)",
+        "fairOdds": 1.533839394115613,
+        "conditionalP": 0.6519587408149625,
+        "winP": 0.47329349677394683,
+        "pushP": 0.2740437896693895,
+        "lossP": 0.2526627135566636
+      },
+      "value": {
+        "fairOdds": 1.3380839122307338,
+        "minimumOddsR1": 1.4317497860868853,
+        "minimumOddsR2": 1.4317497860868853,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": true,
+          "elevatedRisk": true,
+          "minimumEVForR1": 0.07,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "1X",
+        "selectionFrozen": "PEC Zwolle OR Draw — Double Chance (1X)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "SBV Excelsior",
+        "away": "FC Groningen",
+        "date": "2026-10-11",
+        "league": "nl.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T14:45:00Z",
+        "source": "ESPN:nl.1",
+        "fixtureSources": [
+          "ESPN:nl.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401875584",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "leagueHint": "nl.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Excelsior",
+        "discoveryAway": "FC Groningen",
+        "identityScore": 0.975,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.9153186464312013,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "12",
+        "selection": "SBV Excelsior OR FC Groningen — Either team wins, draw loses (12)",
+        "probability": 0.7322705265608396,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "SBV Excelsior — Draw No Bet (draw = refund)",
+        "fairOdds": 1.710415838421245,
+        "conditionalP": 0.5846531454731057,
+        "winP": 0.4281242666910422,
+        "pushP": 0.2677294734391604,
+        "lossP": 0.3041462598697974
+      },
+      "value": {
+        "fairOdds": 1.3656155255852926,
+        "minimumOddsR1": 1.4065839913528515,
+        "minimumOddsR2": 1.4612086123762633,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": true,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": 0.07,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "12",
+        "selectionFrozen": "SBV Excelsior OR FC Groningen — Either team wins, draw loses (12)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Konyaspor",
+        "away": "Istanbul Basaksehir",
+        "date": "2026-10-11",
+        "league": "tr.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T10:30:00Z",
+        "source": "ESPN:tr.1",
+        "fixtureSources": [
+          "ESPN:tr.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401888281",
+        "competition": "Süper Lig",
+        "competitionSlug": "tr.1",
+        "leagueHint": "tr.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Konyaspor",
+        "discoveryAway": "Istanbul Basaksehir",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.7008604819145846,
+        "coverage": "stale-ish 345d",
+        "coveragePack": null,
+        "market": "12",
+        "selection": "Konyaspor OR Istanbul Basaksehir — Either team wins, draw loses (12)",
+        "probability": 0.7189901049576675,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "AWAY_DNB",
+        "selection": "Istanbul Basaksehir — Draw No Bet (draw = refund)",
+        "fairOdds": 1.9721513512409805,
+        "conditionalP": 0.5070604745273469,
+        "winP": 0.3645714638003018,
+        "pushP": 0.28100989504233254,
+        "lossP": 0.35441864115736565
+      },
+      "value": {
+        "fairOdds": 1.3908397251988298,
+        "minimumOddsR1": 1.488198505962748,
+        "minimumOddsR2": 1.488198505962748,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": true,
+          "elevatedRisk": true,
+          "minimumEVForR1": 0.07,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "12",
+        "selectionFrozen": "Konyaspor OR Istanbul Basaksehir — Either team wins, draw loses (12)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Crystal Palace",
+        "away": "Nottingham Forest",
+        "date": "2026-10-11",
+        "league": "en.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T13:00:00Z",
+        "source": "ESPN:en.1",
+        "fixtureSources": [
+          "ESPN:en.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401879266",
+        "competition": "Premier League",
+        "competitionSlug": "en.1",
+        "leagueHint": "en.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Crystal Palace",
+        "discoveryAway": "Nottingham Forest",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.9073130304497146,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "12",
+        "selection": "Crystal Palace OR Nottingham Forest — Either team wins, draw loses (12)",
+        "probability": 0.7178782402919028,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "Crystal Palace — Draw No Bet (draw = refund)",
+        "fairOdds": 1.947992305548869,
+        "conditionalP": 0.5133490502767867,
+        "winP": 0.3685221128682192,
+        "pushP": 0.28212175970809716,
+        "lossP": 0.3493561274236836
+      },
+      "value": {
+        "fairOdds": 1.3929938865306477,
+        "minimumOddsR1": 1.4347837031265673,
+        "minimumOddsR2": 1.4905034585877932,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": true,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": 0.07,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "12",
+        "selectionFrozen": "Crystal Palace OR Nottingham Forest — Either team wins, draw loses (12)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "PEC Zwolle",
+        "away": "SC Cambuur-Leeuwarden",
+        "date": "2026-10-11",
+        "league": "nl.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T12:30:00Z",
+        "source": "ESPN:nl.1",
+        "fixtureSources": [
+          "ESPN:nl.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401875586",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "leagueHint": "nl.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "PEC Zwolle",
+        "discoveryAway": "SC Cambuur",
+        "identityScore": 0.975,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.6534777316473668,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "12",
+        "selection": "PEC Zwolle OR SC Cambuur-Leeuwarden — Either team wins, draw loses (12)",
+        "probability": 0.7146382899265615,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "PEC Zwolle — Draw No Bet (draw = refund)",
+        "fairOdds": 1.996889489812689,
+        "conditionalP": 0.5007788388399006,
+        "winP": 0.35787573301995573,
+        "pushP": 0.2853617100734385,
+        "lossP": 0.35676255690660574
+      },
+      "value": {
+        "fairOdds": 1.3993092926811452,
+        "minimumOddsR1": 1.4412885714615795,
+        "minimumOddsR2": 1.4972609431688255,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "12",
+        "selectionFrozen": "PEC Zwolle OR SC Cambuur-Leeuwarden — Either team wins, draw loses (12)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Hull City",
+        "away": "Everton",
+        "date": "2026-10-11",
+        "league": "en.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-07T18:38:55.632270Z",
+      "executionSurfaceGeneratedAt": "2026-10-07T18:38:55.681876Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-11T13:00:00Z",
+        "source": "ESPN:en.1",
+        "fixtureSources": [
+          "ESPN:en.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401878774",
+        "competition": "Premier League",
+        "competitionSlug": "en.1",
+        "leagueHint": "en.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Hull City",
+        "discoveryAway": "Everton",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.924795590310496,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "12",
+        "selection": "Hull City OR Everton — Either team wins, draw loses (12)",
+        "probability": 0.7142977877050342,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "AWAY_DNB",
+        "selection": "Everton — Draw No Bet (draw = refund)",
+        "fairOdds": 1.8259966774404004,
+        "conditionalP": 0.5476461224462658,
+        "winP": 0.3911824137086079,
+        "pushP": 0.2857022122949659,
+        "lossP": 0.32311537399642626
+      },
+      "value": {
+        "fairOdds": 1.3999763364981122,
+        "minimumOddsR1": 1.4419756265930557,
+        "minimumOddsR2": 1.49797468005298,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": true,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": 0.07,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "12",
+        "selectionFrozen": "Hull City OR Everton — Either team wins, draw loses (12)"
+      }
+    }
+  ],
+  "chains": [
+    {
+      "name": "R0_CORE_3",
+      "stakeRand": 0,
+      "executionClass": "R0_SHADOW_CHAIN",
+      "approximateIndependence": true,
+      "jointModelProbabilityApprox": 0.6306895769598658,
+      "fairOddsApprox": 1.585566079624042,
+      "legs": [
+        {
+          "fixture": {
+            "home": "Stade Rennais",
+            "away": "AJ Auxerre",
+            "date": "2026-10-11",
+            "league": "fr.1"
+          },
+          "market": "1X",
+          "selection": "Stade Rennais OR Draw — Double Chance (1X)",
+          "p": 0.8772915798229954
+        },
+        {
+          "fixture": {
+            "home": "SC Freiburg",
+            "away": "Schalke 04",
+            "date": "2026-10-11",
+            "league": "de.1"
+          },
+          "market": "1X",
+          "selection": "SC Freiburg OR Draw — Double Chance (1X)",
+          "p": 0.86267947038699
+        },
+        {
+          "fixture": {
+            "home": "Besiktas",
+            "away": "Kocaelispor",
+            "date": "2026-10-11",
+            "league": "tr.1"
+          },
+          "market": "1X",
+          "selection": "Besiktas OR Draw — Double Chance (1X)",
+          "p": 0.8333400025586043
+        }
+      ]
+    },
+    {
+      "name": "R0_CORE_5",
+      "stakeRand": 0,
+      "executionClass": "R0_SHADOW_CHAIN",
+      "approximateIndependence": true,
+      "jointModelProbabilityApprox": 0.40223069164141045,
+      "fairOddsApprox": 2.4861354958251227,
+      "legs": [
+        {
+          "fixture": {
+            "home": "Stade Rennais",
+            "away": "AJ Auxerre",
+            "date": "2026-10-11",
+            "league": "fr.1"
+          },
+          "market": "1X",
+          "selection": "Stade Rennais OR Draw — Double Chance (1X)",
+          "p": 0.8772915798229954
+        },
+        {
+          "fixture": {
+            "home": "SC Freiburg",
+            "away": "Schalke 04",
+            "date": "2026-10-11",
+            "league": "de.1"
+          },
+          "market": "1X",
+          "selection": "SC Freiburg OR Draw — Double Chance (1X)",
+          "p": 0.86267947038699
+        },
+        {
+          "fixture": {
+            "home": "Besiktas",
+            "away": "Kocaelispor",
+            "date": "2026-10-11",
+            "league": "tr.1"
+          },
+          "market": "1X",
+          "selection": "Besiktas OR Draw — Double Chance (1X)",
+          "p": 0.8333400025586043
+        },
+        {
+          "fixture": {
+            "home": "Motherwell",
+            "away": "Celtic",
+            "date": "2026-10-11",
+            "league": "sco.1"
+          },
+          "market": "X2",
+          "selection": "Celtic OR Draw — Double Chance (X2)",
+          "p": 0.8027662847079047
+        },
+        {
+          "fixture": {
+            "home": "Aberdeen",
+            "away": "St Johnstone",
+            "date": "2026-10-11",
+            "league": "sco.1"
+          },
+          "market": "1X",
+          "selection": "Aberdeen OR Draw — Double Chance (1X)",
+          "p": 0.7944570580494612
+        }
+      ]
+    }
+  ]
+}

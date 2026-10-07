@@ -1,0 +1,2361 @@
+{
+  "schemaVersion": "HBT-PROSPECTIVE-CARD-2",
+  "version": "HBT-PROSPECTIVE-FROZEN-BRIDGE-1",
+  "capturedAt": "2026-10-07T18:38:51.025368Z",
+  "targetDate": "2026-10-10",
+  "origin": "HBT_EXACT_FROZEN_BRIDGE",
+  "policy": {
+    "bookmakerOddsUsedAsPredictiveFeature": false,
+    "bookmakerPriceObservedBeforeCapture": false,
+    "modelRetuned": false,
+    "preMatchCaptureImmutable": true,
+    "postKickoffBackfillAllowed": false,
+    "preserveExistingIntelligence": true,
+    "allValidatedIntelligenceFamiliesRetained": true,
+    "unvalidatedOverlayDoesNotChangeProbability": true,
+    "forensicLearningCanCreateHypothesesButNotAutoPromote": true,
+    "competitionLabelIsEligibilityGate": true,
+    "unsupportedCompetitionsMayNotEnterHBT": true,
+    "exactFrozenRuntimeParityRequired": true,
+    "c1ATierPromotionAllowed": false
+  },
+  "parityDiagnostic": 1.1102230246251565e-16,
+  "intelligenceSources": {
+    "matchIntelligenceGeneratedAt": "2026-10-07T18:32:20Z",
+    "preXiGeneratedAt": "2026-09-29T08:42:16Z",
+    "marketIntelligenceGeneratedAt": "2026-09-29T08:42:29Z"
+  },
+  "candidates": [
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "11:30",
+        "league": "en.1",
+        "home": "Arsenal",
+        "away": "Leeds United",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.6002701895472181,
+      "resolution": null,
+      "probs": {
+        "H": 0.28099846680018986,
+        "D": 0.2760801252868411,
+        "A": 0.44292140791296913
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.28099846680018986,
+          "fairOdds": 3.5587382784941384,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2760801252868411,
+          "fairOdds": 3.6221368668281437,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.44292140791296913,
+          "fairOdds": 2.257736885448745,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.5570785920870309,
+          "fairOdds": 1.795078852794567,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.7190015331998103,
+          "fairOdds": 1.3908176183570116,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.723919874713159,
+          "fairOdds": 1.3813683460427622,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.3881623873243303,
+          "winP": 0.28099846680018986,
+          "pushP": 0.2760801252868411,
+          "lossP": 0.44292140791296913,
+          "fairOdds": 2.5762413687044,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.6118376126756697,
+          "winP": 0.44292140791296913,
+          "pushP": 0.2760801252868411,
+          "lossP": 0.28099846680018986,
+          "fairOdds": 1.6344206032493331,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "12:00",
+        "league": "es.1",
+        "home": "Rayo Vallecano",
+        "away": "Athletic Club",
+        "provider": "ESPN:es.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 2702d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7030885368760728,
+      "resolution": null,
+      "probs": {
+        "H": 0.32024418565045065,
+        "D": 0.2764046275144094,
+        "A": 0.40335118683513993
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.32024418565045065,
+          "fairOdds": 3.122617192780227,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2764046275144094,
+          "fairOdds": 3.6178844362794482,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.40335118683513993,
+          "fairOdds": 2.479229100195324,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.5966488131648601,
+          "fairOdds": 1.676027803852666,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.6797558143495493,
+          "fairOdds": 1.4711165081491633,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7235953724855906,
+          "fairOdds": 1.3819878319079681,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.4425735678081992,
+          "winP": 0.32024418565045065,
+          "pushP": 0.2764046275144094,
+          "lossP": 0.40335118683513993,
+          "fairOdds": 2.2595113507397175,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.5574264321918009,
+          "winP": 0.40335118683513993,
+          "pushP": 0.2764046275144094,
+          "lossP": 0.32024418565045065,
+          "fairOdds": 1.793958704232951,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "13:00",
+        "league": "tr.1",
+        "home": "Samsunspor",
+        "away": "Trabzonspor",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 343d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.726062104370643,
+      "resolution": null,
+      "probs": {
+        "H": 0.4000806179013491,
+        "D": 0.2744264035166276,
+        "A": 0.32549297858202325
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.4000806179013491,
+          "fairOdds": 2.4994962396468243,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2744264035166276,
+          "fairOdds": 3.643964236624227,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.32549297858202325,
+          "fairOdds": 3.0722628929090803,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.6745070214179767,
+          "fairOdds": 1.4825642554435658,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.5999193820986508,
+          "fairOdds": 1.6668906353746709,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7255735964833723,
+          "fairOdds": 1.3782199419144887,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.5513990859651101,
+          "winP": 0.4000806179013491,
+          "pushP": 0.2744264035166276,
+          "lossP": 0.32549297858202325,
+          "fairOdds": 1.8135684759972113,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.44860091403489,
+          "winP": 0.32549297858202325,
+          "pushP": 0.2744264035166276,
+          "lossP": 0.4000806179013491,
+          "fairOdds": 2.2291528365504507,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "13:30",
+        "league": "de.1",
+        "home": "SC Paderborn 07",
+        "away": "VfB Stuttgart",
+        "provider": "ESPN:de.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7338168841076875,
+      "resolution": null,
+      "probs": {
+        "H": 0.4303629269879285,
+        "D": 0.277632608414621,
+        "A": 0.29200446459745055
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.4303629269879285,
+          "fairOdds": 2.3236202221202236,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.277632608414621,
+          "fairOdds": 3.6018823786958913,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.29200446459745055,
+          "fairOdds": 3.4246051730016283,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.7079955354025496,
+          "fairOdds": 1.4124382852660555,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.5696370730120716,
+          "fairOdds": 1.7555037187314673,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.722367391585379,
+          "fairOdds": 1.3843371276841567,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.5957673782082153,
+          "winP": 0.4303629269879285,
+          "pushP": 0.277632608414621,
+          "lossP": 0.29200446459745055,
+          "fairOdds": 1.678507478888025,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.4042326217917847,
+          "winP": 0.29200446459745055,
+          "pushP": 0.277632608414621,
+          "lossP": 0.4303629269879285,
+          "fairOdds": 2.4738231060309817,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "14:00",
+        "league": "en.1",
+        "home": "Aston Villa",
+        "away": "Brentford",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9102348636627882,
+      "resolution": null,
+      "probs": {
+        "H": 0.4232305311335938,
+        "D": 0.2799617329163169,
+        "A": 0.2968077359500893
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.4232305311335938,
+          "fairOdds": 2.3627785011671274,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2799617329163169,
+          "fairOdds": 3.5719167387026753,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.2968077359500893,
+          "fairOdds": 3.3691844210157593,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.7031922640499106,
+          "fairOdds": 1.4220861791634027,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.5767694688664062,
+          "fairOdds": 1.7337949631165797,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7200382670836831,
+          "fairOdds": 1.388815075135138,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.5877889418957865,
+          "winP": 0.4232305311335938,
+          "pushP": 0.2799617329163169,
+          "lossP": 0.2968077359500893,
+          "fairOdds": 1.7012909374829606,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.4122110581042135,
+          "winP": 0.2968077359500893,
+          "pushP": 0.2799617329163169,
+          "lossP": 0.4232305311335938,
+          "fairOdds": 2.42594171199353,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "14:00",
+        "league": "en.1",
+        "home": "Chelsea",
+        "away": "AFC Bournemouth",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9149328697902676,
+      "resolution": null,
+      "probs": {
+        "H": 0.3832064175613016,
+        "D": 0.2787618505240483,
+        "A": 0.3380317319146502
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.3832064175613016,
+          "fairOdds": 2.6095596372418,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2787618505240483,
+          "fairOdds": 3.5872914393418114,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.3380317319146502,
+          "fairOdds": 2.9583021520964503,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.6619682680853498,
+          "fairOdds": 1.5106464285551926,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.6167935824386985,
+          "fairOdds": 1.621287945387122,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7212381494759518,
+          "fairOdds": 1.3865045834397351,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.5313174543522657,
+          "winP": 0.3832064175613016,
+          "pushP": 0.2787618505240483,
+          "lossP": 0.3380317319146502,
+          "fairOdds": 1.882113963711412,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.4686825456477343,
+          "winP": 0.3380317319146502,
+          "pushP": 0.2787618505240483,
+          "lossP": 0.3832064175613016,
+          "fairOdds": 2.1336403697687696,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "14:00",
+        "league": "en.1",
+        "home": "Ipswich Town",
+        "away": "Fulham",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9172302794330482,
+      "resolution": null,
+      "probs": {
+        "H": 0.2753227245642882,
+        "D": 0.2777742661373605,
+        "A": 0.4469030092983513
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.2753227245642882,
+          "fairOdds": 3.632101206257309,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2777742661373605,
+          "fairOdds": 3.6000455114351593,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.4469030092983513,
+          "fairOdds": 2.237621987755295,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.5530969907016487,
+          "fairOdds": 1.8080011585877882,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.7246772754357118,
+          "fairOdds": 1.3799246007800514,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7222257338626394,
+          "fairOdds": 1.384608652272408,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.38121422659892645,
+          "winP": 0.2753227245642882,
+          "pushP": 0.2777742661373605,
+          "lossP": 0.4469030092983513,
+          "fairOdds": 2.623196959152563,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.6187857734010737,
+          "winP": 0.4469030092983513,
+          "pushP": 0.2777742661373605,
+          "lossP": 0.2753227245642882,
+          "fairOdds": 1.6160681822137462,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "14:00",
+        "league": "en.1",
+        "home": "Sunderland",
+        "away": "Brighton & Hove Albion",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8886631842582491,
+      "resolution": null,
+      "probs": {
+        "H": 0.25533317748574685,
+        "D": 0.2848596628016186,
+        "A": 0.4598071597126346
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.25533317748574685,
+          "fairOdds": 3.9164514766429903,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2848596628016186,
+          "fairOdds": 3.510500539686512,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.4598071597126346,
+          "fairOdds": 2.1748247692031795,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.5401928402873655,
+          "fairOdds": 1.8511907700739456,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.7446668225142532,
+          "fairOdds": 1.3428824405304556,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7151403371983814,
+          "fairOdds": 1.398326940859718,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.35703926097363586,
+          "winP": 0.25533317748574685,
+          "pushP": 0.2848596628016186,
+          "lossP": 0.4598071597126346,
+          "fairOdds": 2.800812429627567,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.6429607390263642,
+          "winP": 0.4598071597126346,
+          "pushP": 0.2848596628016186,
+          "lossP": 0.25533317748574685,
+          "fairOdds": 1.5553049187953538,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "14:00",
+        "league": "sco.1",
+        "home": "Dundee United",
+        "away": "Hibernian",
+        "provider": "ESPN:sco.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 346d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7140891565307539,
+      "resolution": null,
+      "probs": {
+        "H": 0.30942086818683084,
+        "D": 0.2782845187491917,
+        "A": 0.41229461306397747
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.30942086818683084,
+          "fairOdds": 3.231844076515847,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2782845187491917,
+          "fairOdds": 3.593444595821249,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.41229461306397747,
+          "fairOdds": 2.4254500745679786,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.5877053869360225,
+          "fairOdds": 1.7015328125771627,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.6905791318131691,
+          "fairOdds": 1.4480599744947729,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7217154812508083,
+          "fairOdds": 1.3855875701417621,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.42872970890214546,
+          "winP": 0.30942086818683084,
+          "pushP": 0.2782845187491917,
+          "lossP": 0.41229461306397747,
+          "fairOdds": 2.332471903010209,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.5712702910978545,
+          "winP": 0.41229461306397747,
+          "pushP": 0.2782845187491917,
+          "lossP": 0.30942086818683084,
+          "fairOdds": 1.7504848678166376,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "14:00",
+        "league": "sco.1",
+        "home": "Falkirk",
+        "away": "Dundee",
+        "provider": "ESPN:sco.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 343d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.5499728192407453,
+      "resolution": null,
+      "probs": {
+        "H": 0.5469974442517455,
+        "D": 0.24922500237644654,
+        "A": 0.203777553371808
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.5469974442517455,
+          "fairOdds": 1.8281621066217788,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.24922500237644654,
+          "fairOdds": 4.012438521274569,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.203777553371808,
+          "fairOdds": 4.907311838097409,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.796222446628192,
+          "fairOdds": 1.255930430289621,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.45300255574825454,
+          "fairOdds": 2.2074930644667847,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7507749976235535,
+          "fairOdds": 1.3319569820056936,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.7285770650103824,
+          "winP": 0.5469974442517455,
+          "pushP": 0.24922500237644654,
+          "lossP": 0.203777553371808,
+          "fairOdds": 1.3725384012544366,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.2714229349896175,
+          "winP": 0.203777553371808,
+          "pushP": 0.24922500237644654,
+          "lossP": 0.5469974442517455,
+          "fairOdds": 3.684287033585618,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "14:00",
+        "league": "sco.1",
+        "home": "Heart of Midlothian",
+        "away": "St Mirren",
+        "provider": "ESPN:sco.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 346d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.7003645824347733,
+      "resolution": null,
+      "probs": {
+        "H": 0.622419283223636,
+        "D": 0.23097329495215807,
+        "A": 0.14660742182420597
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.622419283223636,
+          "fairOdds": 1.606634027822526,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.23097329495215807,
+          "fairOdds": 4.329504846900729,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.14660742182420597,
+          "fairOdds": 6.820937081883072,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.8533925781757941,
+          "fairOdds": 1.1717936452383884,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.37758071677636407,
+          "fairOdds": 2.6484403349239005,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.769026705047842,
+          "fairOdds": 1.3003449599813168,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.8093597779350389,
+          "winP": 0.622419283223636,
+          "pushP": 0.23097329495215807,
+          "lossP": 0.14660742182420597,
+          "fairOdds": 1.2355444726341,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.19064022206496115,
+          "winP": 0.14660742182420597,
+          "pushP": 0.23097329495215807,
+          "lossP": 0.622419283223636,
+          "fairOdds": 5.245482769419181,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "14:00",
+        "league": "sco.1",
+        "home": "Rangers",
+        "away": "Kilmarnock",
+        "provider": "ESPN:sco.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 346d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.7217234716303048,
+      "resolution": null,
+      "probs": {
+        "H": 0.6883270752404679,
+        "D": 0.20331085878761543,
+        "A": 0.10836206597191678
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.6883270752404679,
+          "fairOdds": 1.4527977119752973,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.20331085878761543,
+          "fairOdds": 4.918576439857695,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.10836206597191678,
+          "fairOdds": 9.228321655099867,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.8916379340280833,
+          "fairOdds": 1.12153146679435,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.31167292475953223,
+          "fairOdds": 3.2084917250079994,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7966891412123847,
+          "fairOdds": 1.2551947155677574,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.8639845074240454,
+          "winP": 0.6883270752404679,
+          "pushP": 0.20331085878761543,
+          "lossP": 0.10836206597191678,
+          "fairOdds": 1.1574281615089168,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.13601549257595463,
+          "winP": 0.10836206597191678,
+          "pushP": 0.20331085878761543,
+          "lossP": 0.6883270752404679,
+          "fairOdds": 7.352103654233165,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "14:30",
+        "league": "nl.1",
+        "home": "Go Ahead Eagles",
+        "away": "Sparta Rotterdam",
+        "provider": "ESPN:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.9133224280227704,
+      "resolution": null,
+      "probs": {
+        "H": 0.5562754502195686,
+        "D": 0.24499662001829103,
+        "A": 0.19872792976214038
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.5562754502195686,
+          "fairOdds": 1.7976705598014222,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.24499662001829103,
+          "fairOdds": 4.081688963404237,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.19872792976214038,
+          "fairOdds": 5.032005321028156,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.8012720702378596,
+          "fairOdds": 1.2480155457098954,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.4437245497804314,
+          "fairOdds": 2.2536503794861718,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.755003379981709,
+          "fairOdds": 1.3244973817524186,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.7367853773489665,
+          "winP": 0.5562754502195686,
+          "pushP": 0.24499662001829103,
+          "lossP": 0.19872792976214038,
+          "fairOdds": 1.3572473487436847,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.2632146226510335,
+          "winP": 0.19872792976214038,
+          "pushP": 0.24499662001829103,
+          "lossP": 0.5562754502195686,
+          "fairOdds": 3.799181025462202,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "16:00",
+        "league": "tr.1",
+        "home": "Caykur Rizespor",
+        "away": "Fenerbahce",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 342d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.7214754433018894,
+      "resolution": null,
+      "probs": {
+        "H": 0.17895068551135687,
+        "D": 0.24803900089955763,
+        "A": 0.5730103135890855
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.17895068551135687,
+          "fairOdds": 5.588131708702152,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.24803900089955763,
+          "fairOdds": 4.031624044498332,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.5730103135890855,
+          "fairOdds": 1.7451692862846364,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.4269896864109145,
+          "fairOdds": 2.3419769418918652,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.8210493144886432,
+          "fairOdds": 1.2179536385373013,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7519609991004423,
+          "fairOdds": 1.329856204239691,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.23797867938022374,
+          "winP": 0.17895068551135687,
+          "pushP": 0.24803900089955763,
+          "lossP": 0.5730103135890855,
+          "fairOdds": 4.202057102780532,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.7620213206197763,
+          "winP": 0.5730103135890855,
+          "pushP": 0.24803900089955763,
+          "lossP": 0.17895068551135687,
+          "fairOdds": 1.312299240114001,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "16:30",
+        "league": "de.1",
+        "home": "RB Leipzig",
+        "away": "Eintracht Frankfurt",
+        "provider": "ESPN:de.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.934942402447399,
+      "resolution": null,
+      "probs": {
+        "H": 0.5511795819726917,
+        "D": 0.2502000332407211,
+        "A": 0.19862038478658728
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.5511795819726917,
+          "fairOdds": 1.8142907188632855,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2502000332407211,
+          "fairOdds": 3.9968020269521123,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.19862038478658728,
+          "fairOdds": 5.0347299501734195,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.8013796152134127,
+          "fairOdds": 1.2478480622865524,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.4488204180273084,
+          "fairOdds": 2.2280626277995115,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.749799966759279,
+          "fairOdds": 1.333689042855142,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.7351021691224564,
+          "winP": 0.5511795819726917,
+          "pushP": 0.2502000332407211,
+          "lossP": 0.19862038478658728,
+          "fairOdds": 1.36035512069536,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.2648978308775436,
+          "winP": 0.19862038478658728,
+          "pushP": 0.2502000332407211,
+          "lossP": 0.5511795819726917,
+          "fairOdds": 3.7750403492819764,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "16:30",
+        "league": "es.1",
+        "home": "Barcelona",
+        "away": "Getafe",
+        "provider": "ESPN:es.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "A",
+      "rawTier": "A",
+      "quality": 0.8949953552539726,
+      "resolution": null,
+      "probs": {
+        "H": 0.6867989227720381,
+        "D": 0.20553210784389897,
+        "A": 0.10766896938406292
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.6867989227720381,
+          "fairOdds": 1.4560302394823637,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.20553210784389897,
+          "fairOdds": 4.86541986305856,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.10766896938406292,
+          "fairOdds": 9.28772705562852,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.8923310306159371,
+          "fairOdds": 1.1206603443004148,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.31320107722796187,
+          "fairOdds": 3.192837038910166,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.794467892156101,
+          "fairOdds": 1.2587041085903508,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.8644766258685913,
+          "winP": 0.6867989227720381,
+          "pushP": 0.20553210784389897,
+          "lossP": 0.10766896938406292,
+          "fairOdds": 1.1567692752770964,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.1355233741314087,
+          "winP": 0.10766896938406292,
+          "pushP": 0.20553210784389897,
+          "lossP": 0.6867989227720381,
+          "fairOdds": 7.378800936806381,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "16:30",
+        "league": "en.1",
+        "home": "Manchester United",
+        "away": "Tottenham Hotspur",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "A",
+      "rawTier": "A",
+      "quality": 0.9240927014837952,
+      "resolution": null,
+      "probs": {
+        "H": 0.6848176730636878,
+        "D": 0.20479294555899746,
+        "A": 0.11038938137731483
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.6848176730636878,
+          "fairOdds": 1.4602426884316118,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.20479294555899746,
+          "fairOdds": 4.882980696773642,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.11038938137731483,
+          "fairOdds": 9.05884232272273,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.8896106186226853,
+          "fairOdds": 1.1240873018672168,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.3151823269363123,
+          "fairOdds": 3.1727667275014,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7952070544410026,
+          "fairOdds": 1.2575341156938784,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.8611815869076841,
+          "winP": 0.6848176730636878,
+          "pushP": 0.20479294555899746,
+          "lossP": 0.11038938137731483,
+          "fairOdds": 1.1611952870367126,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.13881841309231588,
+          "winP": 0.11038938137731483,
+          "pushP": 0.20479294555899746,
+          "lossP": 0.6848176730636878,
+          "fairOdds": 7.203655320097833,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "16:45",
+        "league": "nl.1",
+        "home": "Feyenoord Rotterdam",
+        "away": "AZ Alkmaar",
+        "provider": "ESPN:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 1231d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.26161234055545984,
+      "resolution": null,
+      "probs": {
+        "H": 0.3911934861653214,
+        "D": 0.2541628266357572,
+        "A": 0.3546436871989215
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.3911934861653214,
+          "fairOdds": 2.5562797831899284,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2541628266357572,
+          "fairOdds": 3.9344856729702182,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.3546436871989215,
+          "fairOdds": 2.81973156747351,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.6453563128010786,
+          "fairOdds": 1.5495316000856025,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.6088065138346787,
+          "fairOdds": 1.6425579839829867,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7458371733642428,
+          "fairOdds": 1.3407752197296718,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.5245025323701251,
+          "winP": 0.3911934861653214,
+          "pushP": 0.2541628266357572,
+          "lossP": 0.3546436871989215,
+          "fairOdds": 1.9065684878225355,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.47549746762987494,
+          "winP": 0.3546436871989215,
+          "pushP": 0.2541628266357572,
+          "lossP": 0.3911934861653214,
+          "fairOdds": 2.1030606219303682,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "18:00",
+        "league": "nl.1",
+        "home": "Fortuna Sittard",
+        "away": "FC Twente",
+        "provider": "ESPN:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 1231d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.6469570119821767,
+      "resolution": null,
+      "probs": {
+        "H": 0.18230207211951402,
+        "D": 0.2628147732847292,
+        "A": 0.5548831545957568
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.18230207211951402,
+          "fairOdds": 5.485401171657652,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2628147732847292,
+          "fairOdds": 3.804961142411186,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.5548831545957568,
+          "fairOdds": 1.8021812190866013,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.44511684540424323,
+          "fairOdds": 2.2466011123255214,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.8176979278804859,
+          "fairOdds": 1.2229454984581534,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7371852267152708,
+          "fairOdds": 1.3565111775988403,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.24729479852955066,
+          "winP": 0.18230207211951402,
+          "pushP": 0.2628147732847292,
+          "lossP": 0.5548831545957568,
+          "fairOdds": 4.043756706352658,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.7527052014704494,
+          "winP": 0.5548831545957568,
+          "pushP": 0.2628147732847292,
+          "lossP": 0.18230207211951402,
+          "fairOdds": 1.3285413705743592,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "18:30",
+        "league": "de.1",
+        "home": "1. FC Nürnberg",
+        "away": "VfL Wolfsburg",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 2702d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.6919036429499027,
+      "resolution": null,
+      "probs": {
+        "H": 0.3842389219379979,
+        "D": 0.28373680660826744,
+        "A": 0.33202427145373453
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.3842389219379979,
+          "fairOdds": 2.6025473810832818,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.28373680660826744,
+          "fairOdds": 3.524392946948964,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.33202427145373453,
+          "fairOdds": 3.011828007698358,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.6679757285462653,
+          "fairOdds": 1.497060382981772,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.615761078062002,
+          "fairOdds": 1.6240065110112536,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7162631933917325,
+          "fairOdds": 1.3961348415303656,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.5364493463897052,
+          "winP": 0.3842389219379979,
+          "pushP": 0.28373680660826744,
+          "lossP": 0.33202427145373453,
+          "fairOdds": 1.8641088981280016,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.46355065361029474,
+          "winP": 0.33202427145373453,
+          "pushP": 0.28373680660826744,
+          "lossP": 0.3842389219379979,
+          "fairOdds": 2.1572615467406853,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "18:45",
+        "league": "nl.1",
+        "home": "Feyenoord Rotterdam",
+        "away": "AZ",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.45884490126452004,
+      "resolution": null,
+      "probs": {
+        "H": 0.4266728398930756,
+        "D": 0.25438768882020135,
+        "A": 0.3189394712867229
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.4266728398930756,
+          "fairOdds": 2.3437160899451683,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.25438768882020135,
+          "fairOdds": 3.9310078433347058,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.3189394712867229,
+          "fairOdds": 3.1353911636136487,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.6810605287132769,
+          "fairOdds": 1.4682982757630856,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.5733271601069243,
+          "fairOdds": 1.7442048268104062,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7456123111797985,
+          "fairOdds": 1.3411795714822337,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.5722448965709027,
+          "winP": 0.4266728398930756,
+          "pushP": 0.25438768882020135,
+          "lossP": 0.3189394712867229,
+          "fairOdds": 1.7475035705732977,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.42775510342909717,
+          "winP": 0.3189394712867229,
+          "pushP": 0.25438768882020135,
+          "lossP": 0.4266728398930756,
+          "fairOdds": 2.3377862519546904,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "18:45",
+        "league": "fr.1",
+        "home": "AS Monaco",
+        "away": "Toulouse",
+        "provider": "ESPN:fr.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.9280295464159062,
+      "resolution": null,
+      "probs": {
+        "H": 0.6008203526578813,
+        "D": 0.24203078188239308,
+        "A": 0.15714886545972556
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.6008203526578813,
+          "fairOdds": 1.6643910206707317,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.24203078188239308,
+          "fairOdds": 4.131705860810371,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.15714886545972556,
+          "fairOdds": 6.363393060933565,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.8428511345402743,
+          "fairOdds": 1.1864491355824551,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.39917964734211864,
+          "fairOdds": 2.505137741010492,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7579692181176068,
+          "fairOdds": 1.3193147902278528,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.7926711775314572,
+          "winP": 0.6008203526578813,
+          "pushP": 0.24203078188239308,
+          "lossP": 0.15714886545972556,
+          "fairOdds": 1.26155716057976,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.2073288224685429,
+          "winP": 0.15714886545972556,
+          "pushP": 0.24203078188239308,
+          "lossP": 0.6008203526578813,
+          "fairOdds": 4.8232560629708185,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "18:45",
+        "league": "fr.1",
+        "home": "Lorient",
+        "away": "Paris FC",
+        "provider": "ESPN:fr.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9399217384780927,
+      "resolution": null,
+      "probs": {
+        "H": 0.3563510649359908,
+        "D": 0.2737048853446581,
+        "A": 0.36994404971935113
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.3563510649359908,
+          "fairOdds": 2.806221443956184,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2737048853446581,
+          "fairOdds": 3.6535701536374385,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.36994404971935113,
+          "fairOdds": 2.7031114590398877,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.6300559502806489,
+          "fairOdds": 1.587160631614645,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.6436489350640092,
+          "fairOdds": 1.5536419708370257,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7262951146553419,
+          "fairOdds": 1.3768507867143547,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.490642244103617,
+          "winP": 0.3563510649359908,
+          "pushP": 0.2737048853446581,
+          "lossP": 0.36994404971935113,
+          "fairOdds": 2.038144925386436,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.509357755896383,
+          "winP": 0.36994404971935113,
+          "pushP": 0.2737048853446581,
+          "lossP": 0.3563510649359908,
+          "fairOdds": 1.9632566470695438,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "18:45",
+        "league": "fr.1",
+        "home": "Paris Saint-Germain",
+        "away": "Le Mans",
+        "provider": "ESPN:fr.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.6612490832810974,
+      "resolution": null,
+      "probs": {
+        "H": 0.6642733933646076,
+        "D": 0.21973730507299113,
+        "A": 0.11598930156240142
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.6642733933646076,
+          "fairOdds": 1.5054042657570634,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.21973730507299113,
+          "fairOdds": 4.550888615239117,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.11598930156240142,
+          "fairOdds": 8.621484796699178,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.8840106984375987,
+          "fairOdds": 1.1312080292324527,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.33572660663539255,
+          "fairOdds": 2.9786140872833022,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.780262694927009,
+          "fairOdds": 1.2816196474618677,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.8513458322222469,
+          "winP": 0.6642733933646076,
+          "pushP": 0.21973730507299113,
+          "lossP": 0.11598930156240142,
+          "fairOdds": 1.1746107893542215,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.14865416777775317,
+          "winP": 0.11598930156240142,
+          "pushP": 0.21973730507299113,
+          "lossP": 0.6642733933646076,
+          "fairOdds": 6.727022961744736,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "19:00",
+        "league": "es.1",
+        "home": "Real Madrid",
+        "away": "Villarreal",
+        "provider": "ESPN:es.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.9326383291285293,
+      "resolution": null,
+      "probs": {
+        "H": 0.6151582476062832,
+        "D": 0.23286606287455802,
+        "A": 0.15197568951915877
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.6151582476062832,
+          "fairOdds": 1.625597972377386,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.23286606287455802,
+          "fairOdds": 4.294314026078962,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.15197568951915877,
+          "fairOdds": 6.579999756302703,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.8480243104808413,
+          "fairOdds": 1.1792114773608158,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.38484175239371676,
+          "fairOdds": 2.5984706539246254,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.767133937125442,
+          "fairOdds": 1.3035533322214106,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.8018915835106541,
+          "winP": 0.6151582476062832,
+          "pushP": 0.23286606287455802,
+          "lossP": 0.15197568951915877,
+          "fairOdds": 1.2470513727329997,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.19810841648934593,
+          "winP": 0.15197568951915877,
+          "pushP": 0.23286606287455802,
+          "lossP": 0.6151582476062832,
+          "fairOdds": 5.0477411193369415,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "20:00",
+        "league": "nl.1",
+        "home": "Fortuna Sittard",
+        "away": "FC Twente '65",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.9164092218190514,
+      "resolution": null,
+      "probs": {
+        "H": 0.19990325344174079,
+        "D": 0.2610744990570195,
+        "A": 0.5390222475012397
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.19990325344174079,
+          "fairOdds": 5.002419834509782,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2610744990570195,
+          "fairOdds": 3.830324308241215,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.5390222475012397,
+          "fairOdds": 1.8552109947886706,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.4609777524987603,
+          "fairOdds": 2.1693020857935856,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.8000967465582592,
+          "fairOdds": 1.2498488517815574,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7389255009429805,
+          "fairOdds": 1.3533164016180914,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.270532351619526,
+          "winP": 0.19990325344174079,
+          "pushP": 0.2610744990570195,
+          "lossP": 0.5390222475012397,
+          "fairOdds": 3.6964155821422424,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.7294676483804741,
+          "winP": 0.5390222475012397,
+          "pushP": 0.2610744990570195,
+          "lossP": 0.19990325344174079,
+          "fairOdds": 1.3708627136791436,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-10-10",
+        "time": "21:00",
+        "league": "nl.1",
+        "home": "AFC Ajax",
+        "away": "NEC",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.9026066153285336,
+      "resolution": null,
+      "probs": {
+        "H": 0.6011581083532238,
+        "D": 0.23391964117099537,
+        "A": 0.16492225047578082
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.6011581083532238,
+          "fairOdds": 1.6634558963852946,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.23391964117099537,
+          "fairOdds": 4.274972358003061,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.16492225047578082,
+          "fairOdds": 6.06346322048796,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.8350777495242192,
+          "fairOdds": 1.1974932879839564,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.3988418916467762,
+          "fairOdds": 2.5072591945422413,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7660803588290046,
+          "fairOdds": 1.30534608866432,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.7847193854077222,
+          "winP": 0.6011581083532238,
+          "pushP": 0.23391964117099537,
+          "lossP": 0.16492225047578082,
+          "fairOdds": 1.27434088999907,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.2152806145922778,
+          "winP": 0.16492225047578082,
+          "pushP": 0.23391964117099537,
+          "lossP": 0.6011581083532238,
+          "fairOdds": 4.6451000796978885,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    }
+  ],
+  "excludedUnsupported": [],
+  "counts": {
+    "predictions": 27,
+    "excludedUnsupported": 0,
+    "preKickoff": 27,
+    "postKickoff": 0,
+    "c1": 0,
+    "withIntelligenceOverlay": 0
+  }
+}
