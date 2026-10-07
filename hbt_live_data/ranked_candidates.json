@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-10-07",
+  "targetDate": "2026-10-08",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,14 +22,14 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 64,
-    "classifiedRows": 64,
+    "fixturesDiscovered": 102,
+    "classifiedRows": 102,
     "FALLBACK": 0,
     "FULL_MODEL": 0,
-    "INSUFFICIENT_DATA": 6,
+    "INSUFFICIENT_DATA": 4,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 58,
+    "UNSUPPORTED_COMPETITION": 98,
     "forecastRowsAvailable": 0,
     "forecastRowsMatched": 0,
     "knownForecastsMissedByDiscovery": 0,
@@ -39,10 +39,12 @@
       "2026-ncaa-division-i-men",
       "2026-ncaa-division-i-women",
       "2026-womens-international-friendly",
+      "League of Ireland Premier Division",
+      "apertura-2026",
+      "clausura",
       "group-stage",
-      "quarterfinals",
-      "regular-season",
-      "round-of-16"
+      "torneo-apertura",
+      "torneo-apertura-2026"
     ],
     "validatedEventForecastRows": 0,
     "eventFamiliesExcluded": 0
@@ -60,7 +62,7 @@
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-10-07T19:31:03Z",
+    "generatedAt": "2026-10-07T23:43:59Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -121,10 +123,10 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 64,
+      "count": 102,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 58,
-        "INSUFFICIENT_DATA": 6
+        "UNSUPPORTED_COMPETITION": 98,
+        "INSUFFICIENT_DATA": 4
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
