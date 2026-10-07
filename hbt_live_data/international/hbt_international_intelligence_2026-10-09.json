@@ -1,0 +1,3574 @@
+{
+  "schemaVersion": "HBT-INTERNATIONAL-INTELLIGENCE-3",
+  "version": "HBT-1.4-INTERNATIONAL-INTELLIGENCE-3-RECENT-INTERACTION",
+  "generatedAt": "2026-10-07T18:38:50Z",
+  "targetDate": "2026-10-09",
+  "source": "hbt_international_prospective_2026-10-09.json",
+  "policy": {
+    "researchOnly": true,
+    "frozenHBT112Mutated": false,
+    "domesticForecastsMutated": false,
+    "bookmakerOddsRead": false,
+    "missingIsZero": false,
+    "missingContributionNeutral": true,
+    "automaticPromotion": false,
+    "automaticFunding": false
+  },
+  "historySource": {
+    "url": "https://raw.githubusercontent.com/martj42/international_results/394fe81893b062fbc2cf6257e988ac7cc4c039a1/results.csv",
+    "commit": "394fe81893b062fbc2cf6257e988ac7cc4c039a1",
+    "sha256": "df35268f8fc341ff7fb93d448b4e40356676ac35300a6b4461fd199a99ac1514",
+    "rows": 49547,
+    "firstDate": "1872-11-30",
+    "lastDate": "2026-08-26"
+  },
+  "recentSupplement": {
+    "attemptedDays": 43,
+    "loadedDays": 43,
+    "failedDays": 0,
+    "addedMatches": 291,
+    "from": "2026-08-27",
+    "through": "2026-10-08"
+  },
+  "validation": {
+    "selectionWindow": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "holdoutWindow": [
+      "2025-01-01",
+      "2026-10-09"
+    ],
+    "baseParams": {
+      "eloSlope": 1.4,
+      "homeLogit": 0.15,
+      "drawIntercept": 0.0,
+      "drawMismatchPenalty": 0.4
+    },
+    "selectedRecentWeights": {
+      "pointsShare": -0.2,
+      "goalDifference": 0.1,
+      "opponentStrength": 0.15,
+      "rest": 0.05
+    },
+    "selection": {
+      "n": 2285,
+      "logLoss": 0.8803430424395654,
+      "brier": 0.5182725494244027,
+      "accuracy": 0.600875273522976,
+      "topPickECE": 0.022516177614832395
+    },
+    "holdout": {
+      "n": 1743,
+      "logLoss": 0.846263584988098,
+      "brier": 0.4967750164353856,
+      "accuracy": 0.6173264486517499,
+      "topPickECE": 0.02466954799729395
+    },
+    "structuralOnlyHoldout": {
+      "n": 1743,
+      "logLoss": 0.85384446041407,
+      "brier": 0.5009010886763036,
+      "accuracy": 0.6138841078600115,
+      "topPickECE": 0.028781736861918105
+    },
+    "improvesHoldoutLogLossAndBrier": true,
+    "promotionAllowed": false,
+    "promotionBlock": "requires clean prospective confirmation and broader HBT-1.4 interaction/ablation validation"
+  },
+  "summary": {
+    "prospectiveRows": 16,
+    "recentInteractionApplied": 16,
+    "fundedRows": 0
+  },
+  "prospectiveCandidates": [
+    {
+      "fixture": {
+        "home": "Kazakhstan",
+        "away": "Republic of Ireland",
+        "kickoff": "2026-10-09T11:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.14882947992368709,
+        "D": 0.2338684239056757,
+        "A": 0.6173020961706371
+      },
+      "pick": "A",
+      "pickProbability": 0.6173020961706371,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.38269790382936275,
+          "fairOdds": 2.613027116150288
+        },
+        "X2": {
+          "p": 0.8511705200763129,
+          "fairOdds": 1.1748527191829243
+        },
+        "12": {
+          "p": 0.7661315760943243,
+          "fairOdds": 1.305258823944991
+        },
+        "HOME_DNB": {
+          "winP": 0.14882947992368709,
+          "pushP": 0.2338684239056757,
+          "lossP": 0.6173020961706371,
+          "conditionalP": 0.19426099193353644,
+          "fairOdds": 5.147713856738338
+        },
+        "AWAY_DNB": {
+          "winP": 0.6173020961706371,
+          "pushP": 0.2338684239056757,
+          "lossP": 0.14882947992368709,
+          "conditionalP": 0.8057390080664635,
+          "fairOdds": 1.241096670247734
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1441.0004091800952,
+          "recentN": 8,
+          "goalsForMean": 1.25,
+          "goalsAgainstMean": 1.375,
+          "pointsShare": 0.375,
+          "recentOpponentEloMean": 1476.5665140246656,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1690.3216157912505,
+          "recentN": 8,
+          "goalsForMean": 1.625,
+          "goalsAgainstMean": 0.625,
+          "pointsShare": 0.5416666666666666,
+          "recentOpponentEloMean": 1632.9783250662247,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -184.32120661115528
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Astana Arena",
+          "city": "Astana",
+          "country": "Kazakhstan"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.18208085157517057,
+          "D": 0.24845303765156213,
+          "A": 0.5694661107732674
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.11638188511762063,
+          "D": 0.21706132419139154,
+          "A": 0.6665567906909878
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878167",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T11:00:00Z",
+        "leadMinutes": 2421.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878167",
+        "home": "Kazakhstan",
+        "away": "Republic of Ireland",
+        "kickoff": "2026-10-09T11:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Astana Arena",
+          "city": "Astana",
+          "country": "Kazakhstan"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "21485",
+            "team": "Kazakhstan",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "4178",
+            "team": "Republic of Ireland",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.16666666666666663,
+          "recentGoalDiffDiff": -1.125,
+          "recentOpponentStrengthDiff": -0.3910295276038977,
+          "restDiffScaled": -0.06666666666666667,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.033333333333333326,
+            -0.1125,
+            -0.05865442914058465,
+            -0.0033333333333333335
+          ],
+          "totalLogitAdjustment": -0.14115442914058465
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.18208085157517057,
+        "D": 0.24845303765156213,
+        "A": 0.5694661107732674
+      }
+    },
+    {
+      "fixture": {
+        "home": "Israel",
+        "away": "Switzerland",
+        "kickoff": "2026-10-09T13:30:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.06144017995443925,
+        "D": 0.15880863206089785,
+        "A": 0.7797511879846628
+      },
+      "pick": "A",
+      "pickProbability": 0.7797511879846628,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.22024881201533708,
+          "fairOdds": 4.540319608763042
+        },
+        "X2": {
+          "p": 0.9385598200455607,
+          "fairOdds": 1.065462188602381
+        },
+        "12": {
+          "p": 0.8411913679391021,
+          "fairOdds": 1.1887901351745622
+        },
+        "HOME_DNB": {
+          "winP": 0.06144017995443925,
+          "pushP": 0.15880863206089785,
+          "lossP": 0.7797511879846628,
+          "conditionalP": 0.07303947983318726,
+          "fairOdds": 13.691225653357211
+        },
+        "AWAY_DNB": {
+          "winP": 0.7797511879846628,
+          "pushP": 0.15880863206089785,
+          "lossP": 0.06144017995443925,
+          "conditionalP": 0.9269605201668127,
+          "fairOdds": 1.0787945961496217
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1603.7685610222227,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.4166666666666667,
+          "recentOpponentEloMean": 1593.766553304223,
+          "daysSinceMatch": 5
+        },
+        "away": {
+          "elo": 1924.5881040271295,
+          "recentN": 8,
+          "goalsForMean": 2.0,
+          "goalsAgainstMean": 0.625,
+          "pointsShare": 0.7916666666666666,
+          "recentOpponentEloMean": 1796.2208558156476,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": -255.8195430049068
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
+        "neutralSite": null,
+        "venue": {
+          "name": "Mezokovesdi Varosi Stadion",
+          "city": "Mezokovesd",
+          "country": "Hungary"
+        },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
+        "homeContextProbability": {
+          "H": 0.12836065482987685,
+          "D": 0.20943067449153377,
+          "A": 0.6622086706785894
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.07888003447239882,
+          "D": 0.17591079233895732,
+          "A": 0.7452091731886439
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878168",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T13:30:00Z",
+        "leadMinutes": 2571.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878168",
+        "home": "Israel",
+        "away": "Switzerland",
+        "kickoff": "2026-10-09T13:30Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Mezokovesdi Varosi Stadion",
+          "city": "Mezokovesd",
+          "country": "Hungary"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "21486",
+            "team": "Israel",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "17641",
+            "team": "Switzerland",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.37499999999999994,
+          "recentGoalDiffDiff": -1.5,
+          "recentOpponentStrengthDiff": -0.5061357562785617,
+          "restDiffScaled": 0.06666666666666667,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.075,
+            -0.15000000000000002,
+            -0.07592036344178425,
+            0.0033333333333333335
+          ],
+          "totalLogitAdjustment": -0.14758703010845095
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.07888003447239882,
+        "D": 0.17591079233895732,
+        "A": 0.7452091731886439
+      }
+    },
+    {
+      "fixture": {
+        "home": "Finland",
+        "away": "Serbia",
+        "kickoff": "2026-10-09T15:30:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.29684699866715963,
+        "D": 0.2971922913232633,
+        "A": 0.40596071000957706
+      },
+      "pick": "A",
+      "pickProbability": 0.40596071000957706,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.594039289990423,
+          "fairOdds": 1.6833903360434659
+        },
+        "X2": {
+          "p": 0.7031530013328404,
+          "fairOdds": 1.42216558573238
+        },
+        "12": {
+          "p": 0.7028077086767367,
+          "fairOdds": 1.4228643022183467
+        },
+        "HOME_DNB": {
+          "winP": 0.29684699866715963,
+          "pushP": 0.2971922913232633,
+          "lossP": 0.40596071000957706,
+          "conditionalP": 0.4223729976241586,
+          "fairOdds": 2.367575592248994
+        },
+        "AWAY_DNB": {
+          "winP": 0.40596071000957706,
+          "pushP": 0.2971922913232633,
+          "lossP": 0.29684699866715963,
+          "conditionalP": 0.5776270023758414,
+          "fairOdds": 1.7312210057474693
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1568.1360213512178,
+          "recentN": 8,
+          "goalsForMean": 1.625,
+          "goalsAgainstMean": 1.125,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1572.889358515958,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1713.4932623205257,
+          "recentN": 8,
+          "goalsForMean": 0.75,
+          "goalsAgainstMean": 2.5,
+          "pointsShare": 0.125,
+          "recentOpponentEloMean": 1853.6078181117969,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -80.3572409693079
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Tammelan Stadion",
+          "city": "Tampere",
+          "country": "Finland"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.28067804047648187,
+          "D": 0.2953323556346691,
+          "A": 0.42398960388884904
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.19214239647624573,
+          "D": 0.27633940759706416,
+          "A": 0.5315181959266901
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878160",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T15:30:00Z",
+        "leadMinutes": 2691.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878160",
+        "home": "Finland",
+        "away": "Serbia",
+        "kickoff": "2026-10-09T15:30Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Tammelan Stadion",
+          "city": "Tampere",
+          "country": "Finland"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "7536",
+            "team": "Finland",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "20884",
+            "team": "Serbia",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.3333333333333333,
+          "recentGoalDiffDiff": 2.25,
+          "recentOpponentStrengthDiff": -0.701796148989597,
+          "restDiffScaled": -0.06666666666666667,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.06666666666666667,
+            0.225,
+            -0.10526942234843954,
+            -0.0033333333333333335
+          ],
+          "totalLogitAdjustment": 0.04973057765156046
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.28067804047648187,
+        "D": 0.2953323556346691,
+        "A": 0.42398960388884904
+      }
+    },
+    {
+      "fixture": {
+        "home": "Albania",
+        "away": "Wales",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.3067272672028777,
+        "D": 0.30897354550718464,
+        "A": 0.38429918728993767
+      },
+      "pick": "A",
+      "pickProbability": 0.38429918728993767,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.6157008127100623,
+          "fairOdds": 1.6241654702361208
+        },
+        "X2": {
+          "p": 0.6932727327971223,
+          "fairOdds": 1.442433767682361
+        },
+        "12": {
+          "p": 0.6910264544928153,
+          "fairOdds": 1.4471226007316296
+        },
+        "HOME_DNB": {
+          "winP": 0.3067272672028777,
+          "pushP": 0.30897354550718464,
+          "lossP": 0.38429918728993767,
+          "conditionalP": 0.44387196062993384,
+          "fairOdds": 2.2529019372632164
+        },
+        "AWAY_DNB": {
+          "winP": 0.38429918728993767,
+          "pushP": 0.30897354550718464,
+          "lossP": 0.3067272672028777,
+          "conditionalP": 0.5561280393700663,
+          "fairOdds": 1.7981470618397761
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1611.4467594488142,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 1.0,
+          "pointsShare": 0.375,
+          "recentOpponentEloMean": 1435.711915261606,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1706.8812770039744,
+          "recentN": 8,
+          "goalsForMean": 0.75,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.25,
+          "recentOpponentEloMean": 1743.384076513234,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -30.434517555160255
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Loro Borici",
+          "city": "Shkoder",
+          "country": "Albania"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.33402108211401477,
+          "D": 0.3102226932728149,
+          "A": 0.3557562246131704
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.2369742831911846,
+          "D": 0.30082777333932414,
+          "A": 0.4621979434694913
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878159",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T16:00:00Z",
+        "leadMinutes": 2721.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878159",
+        "home": "Albania",
+        "away": "Wales",
+        "kickoff": "2026-10-09T16:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Loro Borici",
+          "city": "Shkoder",
+          "country": "Albania"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "21030",
+            "team": "Albania",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "12634",
+            "team": "Wales",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.125,
+          "recentGoalDiffDiff": 0.625,
+          "recentOpponentStrengthDiff": -0.7691804031290701,
+          "restDiffScaled": -0.06666666666666667,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.025,
+            0.0625,
+            -0.11537706046936051,
+            -0.0033333333333333335
+          ],
+          "totalLogitAdjustment": -0.08121039380269385
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.33402108211401477,
+        "D": 0.3102226932728149,
+        "A": 0.3557562246131704
+      }
+    },
+    {
+      "fixture": {
+        "home": "Kosovo",
+        "away": "Austria",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.268566739196243,
+        "D": 0.29394498539397435,
+        "A": 0.4374882754097826
+      },
+      "pick": "A",
+      "pickProbability": 0.4374882754097826,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.5625117245902174,
+          "fairOdds": 1.7777407230551279
+        },
+        "X2": {
+          "p": 0.7314332608037569,
+          "fairOdds": 1.3671787346683149
+        },
+        "12": {
+          "p": 0.7060550146060256,
+          "fairOdds": 1.4163202290376677
+        },
+        "HOME_DNB": {
+          "winP": 0.268566739196243,
+          "pushP": 0.29394498539397435,
+          "lossP": 0.4374882754097826,
+          "conditionalP": 0.3803765055703225,
+          "fairOdds": 2.628974148917628
+        },
+        "AWAY_DNB": {
+          "winP": 0.4374882754097826,
+          "pushP": 0.29394498539397435,
+          "lossP": 0.268566739196243,
+          "conditionalP": 0.6196234944296776,
+          "fairOdds": 1.613883283945574
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1668.8556031783708,
+          "recentN": 8,
+          "goalsForMean": 1.375,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1661.6104749442989,
+          "daysSinceMatch": 5
+        },
+        "away": {
+          "elo": 1812.5376541359255,
+          "recentN": 8,
+          "goalsForMean": 1.875,
+          "goalsAgainstMean": 1.75,
+          "pointsShare": 0.5,
+          "recentOpponentEloMean": 1800.067501827327,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -78.6820509575548
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Stadiumi Fadil Vokrri",
+          "city": "Prishtina",
+          "country": "Kosovo"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.28242258259913494,
+          "D": 0.2959260513306696,
+          "A": 0.4216513660701953
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.1935653415811406,
+          "D": 0.2772224535926131,
+          "A": 0.5292122048262462
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878165",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T16:00:00Z",
+        "leadMinutes": 2721.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878165",
+        "home": "Kosovo",
+        "away": "Austria",
+        "kickoff": "2026-10-09T16:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Stadiumi Fadil Vokrri",
+          "city": "Prishtina",
+          "country": "Kosovo"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "21479",
+            "team": "Kosovo",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "18444",
+            "team": "Austria",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.041666666666666685,
+          "recentGoalDiffDiff": 0.0,
+          "recentOpponentStrengthDiff": -0.34614256720757053,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.008333333333333337,
+            0.0,
+            -0.05192138508113558,
+            0.0
+          ],
+          "totalLogitAdjustment": -0.04358805174780224
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.28242258259913494,
+        "D": 0.2959260513306696,
+        "A": 0.4216513660701953
+      }
+    },
+    {
+      "fixture": {
+        "home": "Slovakia",
+        "away": "Ukraine",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.3598653284634483,
+        "D": 0.31527977396823853,
+        "A": 0.32485489756831315
+      },
+      "pick": "H",
+      "pickProbability": 0.3598653284634483,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.6751451024316868,
+          "fairOdds": 1.4811630809410825
+        },
+        "X2": {
+          "p": 0.6401346715365517,
+          "fairOdds": 1.5621712812393729
+        },
+        "12": {
+          "p": 0.6847202260317615,
+          "fairOdds": 1.4604505051580203
+        },
+        "HOME_DNB": {
+          "winP": 0.3598653284634483,
+          "pushP": 0.31527977396823853,
+          "lossP": 0.32485489756831315,
+          "conditionalP": 0.5255655007433,
+          "fairOdds": 1.9027124089874883
+        },
+        "AWAY_DNB": {
+          "winP": 0.32485489756831315,
+          "pushP": 0.31527977396823853,
+          "lossP": 0.3598653284634483,
+          "conditionalP": 0.4744344992566999,
+          "fairOdds": 2.1077725198456427
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1674.3750797185753,
+          "recentN": 8,
+          "goalsForMean": 2.25,
+          "goalsAgainstMean": 1.125,
+          "pointsShare": 0.7083333333333334,
+          "recentOpponentEloMean": 1446.9556802291847,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1745.4689074922635,
+          "recentN": 8,
+          "goalsForMean": 0.875,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.4166666666666667,
+          "recentOpponentEloMean": 1693.6116073438184,
+          "daysSinceMatch": 4
+        },
+        "eloDiffWithHomeAdvantage": -6.09382777368819
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Futbal Tatran Arena",
+          "city": "Prešov",
+          "country": "Slovakia"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.36073237232717736,
+          "D": 0.3152515532693782,
+          "A": 0.3240160744034445
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.26045934939621174,
+          "D": 0.31112083387124795,
+          "A": 0.4284198167325403
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878173",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T16:00:00Z",
+        "leadMinutes": 2721.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878173",
+        "home": "Slovakia",
+        "away": "Ukraine",
+        "kickoff": "2026-10-09T16:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Futbal Tatran Arena",
+          "city": "Prešov",
+          "country": "Slovakia"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "20883",
+            "team": "Slovakia ",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "20886",
+            "team": "Ukraine",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.2916666666666667,
+          "recentGoalDiffDiff": 1.5,
+          "recentOpponentStrengthDiff": -0.616639817786584,
+          "restDiffScaled": -0.03333333333333333,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.05833333333333334,
+            0.15000000000000002,
+            -0.0924959726679876,
+            -0.0016666666666666668
+          ],
+          "totalLogitAdjustment": -0.0024959726679875914
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.36073237232717736,
+        "D": 0.3152515532693782,
+        "A": 0.3240160744034445
+      }
+    },
+    {
+      "fixture": {
+        "home": "Türkiye",
+        "away": "Slovenia",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.5795165420153398,
+        "D": 0.24920786403511433,
+        "A": 0.17127559394954595
+      },
+      "pick": "H",
+      "pickProbability": 0.5795165420153398,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.828724406050454,
+          "fairOdds": 1.2066737659698155
+        },
+        "X2": {
+          "p": 0.42048345798466025,
+          "fairOdds": 2.378214840585908
+        },
+        "12": {
+          "p": 0.7507921359648857,
+          "fairOdds": 1.3319265774072648
+        },
+        "HOME_DNB": {
+          "winP": 0.5795165420153398,
+          "pushP": 0.24920786403511433,
+          "lossP": 0.17127559394954595,
+          "conditionalP": 0.7718734843573848,
+          "fairOdds": 1.2955491026259822
+        },
+        "AWAY_DNB": {
+          "winP": 0.17127559394954595,
+          "pushP": 0.24920786403511433,
+          "lossP": 0.5795165420153398,
+          "conditionalP": 0.22812651564261516,
+          "fairOdds": 4.38353252002765
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1796.5318161136497,
+          "recentN": 8,
+          "goalsForMean": 0.875,
+          "goalsAgainstMean": 2.125,
+          "pointsShare": 0.25,
+          "recentOpponentEloMean": 1868.9789883282128,
+          "daysSinceMatch": 4
+        },
+        "away": {
+          "elo": 1702.0850959564073,
+          "recentN": 8,
+          "goalsForMean": 1.25,
+          "goalsAgainstMean": 1.125,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1680.810214682936,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 159.44672015724245
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Siltas Yapi Pendik Stadium",
+          "city": "Istanbul",
+          "country": "Türkiye"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.587572609889725,
+          "D": 0.24677810905678266,
+          "A": 0.1656492810534923
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.4608226465736571,
+          "D": 0.30126883741155974,
+          "A": 0.2379085160147832
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878174",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T16:00:00Z",
+        "leadMinutes": 2721.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878174",
+        "home": "Türkiye",
+        "away": "Slovenia",
+        "kickoff": "2026-10-09T16:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Siltas Yapi Pendik Stadium",
+          "city": "Istanbul",
+          "country": "Türkiye"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "20973",
+            "team": "Türkiye",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "20921",
+            "team": "Slovenia",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.20833333333333331,
+          "recentGoalDiffDiff": -1.375,
+          "recentOpponentStrengthDiff": 0.47042193411319205,
+          "restDiffScaled": 0.03333333333333333,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.041666666666666664,
+            -0.1375,
+            0.0705632901169788,
+            0.0016666666666666668
+          ],
+          "totalLogitAdjustment": -0.023603376549687877
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.587572609889725,
+        "D": 0.24677810905678266,
+        "A": 0.1656492810534923
+      }
+    },
+    {
+      "fixture": {
+        "home": "Lithuania",
+        "away": "Sweden",
+        "kickoff": "2026-10-09T16:05:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.05350124907935956,
+        "D": 0.13309134455841823,
+        "A": 0.8134074063622222
+      },
+      "pick": "A",
+      "pickProbability": 0.8134074063622222,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.1865925936377778,
+          "fairOdds": 5.35926952138972
+        },
+        "X2": {
+          "p": 0.9464987509206404,
+          "fairOdds": 1.0565254301997968
+        },
+        "12": {
+          "p": 0.8669086554415818,
+          "fairOdds": 1.1535240693734046
+        },
+        "HOME_DNB": {
+          "winP": 0.05350124907935956,
+          "pushP": 0.13309134455841823,
+          "lossP": 0.8134074063622222,
+          "conditionalP": 0.06171497855458295,
+          "fairOdds": 16.203521793587985
+        },
+        "AWAY_DNB": {
+          "winP": 0.8134074063622222,
+          "pushP": 0.13309134455841823,
+          "lossP": 0.05350124907935956,
+          "conditionalP": 0.938285021445417,
+          "fairOdds": 1.0657742339950305
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1320.298174309251,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 0.75,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1329.0042227025478,
+          "daysSinceMatch": 5
+        },
+        "away": {
+          "elo": 1759.7310305241635,
+          "recentN": 8,
+          "goalsForMean": 1.875,
+          "goalsAgainstMean": 1.75,
+          "pointsShare": 0.5833333333333334,
+          "recentOpponentEloMean": 1800.778139756097,
+          "daysSinceMatch": 4
+        },
+        "eloDiffWithHomeAdvantage": -374.4328562149126
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "S. Darius and S. Gireno Stadium",
+          "city": "Kaunas",
+          "country": "Lithuania"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.0665362074138903,
+          "D": 0.14603238503469768,
+          "A": 0.7874314075514119
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.03895278978072437,
+          "D": 0.11685484633387212,
+          "A": 0.8441923638854035
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878172",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T16:05:00Z",
+        "leadMinutes": 2726.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878172",
+        "home": "Lithuania",
+        "away": "Sweden",
+        "kickoff": "2026-10-09T16:05Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "S. Darius and S. Gireno Stadium",
+          "city": "Kaunas",
+          "country": "Lithuania"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "21483",
+            "team": "Lithuania",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "2764",
+            "team": "Sweden",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.12500000000000006,
+          "recentGoalDiffDiff": 0.25,
+          "recentOpponentStrengthDiff": -1.179434792633873,
+          "restDiffScaled": 0.03333333333333333,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.025000000000000012,
+            0.025,
+            -0.17691521889508097,
+            0.0016666666666666668
+          ],
+          "totalLogitAdjustment": -0.1252485522284143
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.0665362074138903,
+        "D": 0.14603238503469768,
+        "A": 0.7874314075514119
+      }
+    },
+    {
+      "fixture": {
+        "home": "Belarus",
+        "away": "Italy",
+        "kickoff": "2026-10-09T16:15:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.052425130634076215,
+        "D": 0.14280269415564736,
+        "A": 0.8047721752102763
+      },
+      "pick": "A",
+      "pickProbability": 0.8047721752102763,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.1952278247897236,
+          "fairOdds": 5.122220672576167
+        },
+        "X2": {
+          "p": 0.9475748693659237,
+          "fairOdds": 1.05532558147005
+        },
+        "12": {
+          "p": 0.8571973058443525,
+          "fairOdds": 1.1665925606415488
+        },
+        "HOME_DNB": {
+          "winP": 0.052425130634076215,
+          "pushP": 0.14280269415564736,
+          "lossP": 0.8047721752102763,
+          "conditionalP": 0.061158767388374675,
+          "fairOdds": 16.350885452771312
+        },
+        "AWAY_DNB": {
+          "winP": 0.8047721752102763,
+          "pushP": 0.14280269415564736,
+          "lossP": 0.052425130634076215,
+          "conditionalP": 0.9388412326116253,
+          "fairOdds": 1.0651428220917034
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1522.027098102553,
+          "recentN": 8,
+          "goalsForMean": 1.75,
+          "goalsAgainstMean": 0.75,
+          "pointsShare": 0.7083333333333334,
+          "recentOpponentEloMean": 1465.6309106156655,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1885.5358286461899,
+          "recentN": 8,
+          "goalsForMean": 1.625,
+          "goalsAgainstMean": 0.75,
+          "pointsShare": 0.7083333333333334,
+          "recentOpponentEloMean": 1743.3358565494984,
+          "daysSinceMatch": 4
+        },
+        "eloDiffWithHomeAdvantage": -298.50873054363683
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
+        "neutralSite": null,
+        "venue": {
+          "name": "David Petriashvili Stadium",
+          "city": "Tbilisi",
+          "country": "Georgia"
+        },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
+        "homeContextProbability": {
+          "H": 0.10234329492705065,
+          "D": 0.1857877002101994,
+          "A": 0.7118690048627498
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.06165642559734349,
+          "D": 0.15298643809833046,
+          "A": 0.785357136304326
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878161",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T16:15:00Z",
+        "leadMinutes": 2736.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878161",
+        "home": "Belarus",
+        "away": "Italy",
+        "kickoff": "2026-10-09T16:15Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "David Petriashvili Stadium",
+          "city": "Tbilisi",
+          "country": "Georgia"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "20909",
+            "team": "Belarus",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "2792",
+            "team": "Italy",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.0,
+          "recentGoalDiffDiff": 0.125,
+          "recentOpponentStrengthDiff": -0.6942623648345824,
+          "restDiffScaled": -0.03333333333333333,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.0,
+            0.0125,
+            -0.10413935472518736,
+            -0.0016666666666666668
+          ],
+          "totalLogitAdjustment": -0.09330602139185402
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.06165642559734349,
+        "D": 0.15298643809833046,
+        "A": 0.785357136304326
+      }
+    },
+    {
+      "fixture": {
+        "home": "Greece",
+        "away": "England",
+        "kickoff": "2026-10-09T16:30:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.10922006363848574,
+        "D": 0.19973268890762458,
+        "A": 0.6910472474538897
+      },
+      "pick": "A",
+      "pickProbability": 0.6910472474538897,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.3089527525461103,
+          "fairOdds": 3.2367408665528976
+        },
+        "X2": {
+          "p": 0.8907799363615143,
+          "fairOdds": 1.1226117239288154
+        },
+        "12": {
+          "p": 0.8002673110923755,
+          "fairOdds": 1.249582465932523
+        },
+        "HOME_DNB": {
+          "winP": 0.10922006363848574,
+          "pushP": 0.19973268890762458,
+          "lossP": 0.6910472474538897,
+          "conditionalP": 0.1364794764506861,
+          "fairOdds": 7.32710899840921
+        },
+        "AWAY_DNB": {
+          "winP": 0.6910472474538897,
+          "pushP": 0.19973268890762458,
+          "lossP": 0.10922006363848574,
+          "conditionalP": 0.8635205235493139,
+          "fairOdds": 1.1580500668237934
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1764.635632980748,
+          "recentN": 8,
+          "goalsForMean": 0.875,
+          "goalsAgainstMean": 0.875,
+          "pointsShare": 0.4166666666666667,
+          "recentOpponentEloMean": 1831.5157679220513,
+          "daysSinceMatch": 5
+        },
+        "away": {
+          "elo": 2073.442204028141,
+          "recentN": 8,
+          "goalsForMean": 3.25,
+          "goalsAgainstMean": 1.5,
+          "pointsShare": 0.75,
+          "recentOpponentEloMean": 1935.7789948383772,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": -243.80657104739316
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Pankritio Stadium",
+          "city": "Crete",
+          "country": "Greece"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.136496502581375,
+          "D": 0.21611602576802136,
+          "A": 0.6473874716506036
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.08439140648164327,
+          "D": 0.18263360823731686,
+          "A": 0.73297498528104
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878170",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T16:30:00Z",
+        "leadMinutes": 2751.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878170",
+        "home": "Greece",
+        "away": "England",
+        "kickoff": "2026-10-09T16:30Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Pankritio Stadium",
+          "city": "Crete",
+          "country": "Greece"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "2976",
+            "team": "Greece",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "5159",
+            "team": "England",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.3333333333333333,
+          "recentGoalDiffDiff": -1.75,
+          "recentOpponentStrengthDiff": -0.26065806729081487,
+          "restDiffScaled": 0.06666666666666667,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.06666666666666667,
+            -0.17500000000000002,
+            -0.03909871009362223,
+            0.0033333333333333335
+          ],
+          "totalLogitAdjustment": -0.14409871009362224
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.136496502581375,
+        "D": 0.21611602576802136,
+        "A": 0.6473874716506036
+      }
+    },
+    {
+      "fixture": {
+        "home": "Croatia",
+        "away": "Iceland",
+        "kickoff": "2026-10-09T16:45:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.7816599110905424,
+        "D": 0.15104920082791098,
+        "A": 0.06729088808154657
+      },
+      "pick": "H",
+      "pickProbability": 0.7816599110905424,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.9327091119184534,
+          "fairOdds": 1.072145631710554
+        },
+        "X2": {
+          "p": 0.21834008890945755,
+          "fairOdds": 4.580010959025877
+        },
+        "12": {
+          "p": 0.848950799172089,
+          "fairOdds": 1.1779245640327056
+        },
+        "HOME_DNB": {
+          "winP": 0.7816599110905424,
+          "pushP": 0.15104920082791098,
+          "lossP": 0.06729088808154657,
+          "conditionalP": 0.9207364099931706,
+          "fairOdds": 1.0860871679956887
+        },
+        "AWAY_DNB": {
+          "winP": 0.06729088808154657,
+          "pushP": 0.15104920082791098,
+          "lossP": 0.7816599110905424,
+          "conditionalP": 0.07926359000682932,
+          "fairOdds": 12.616133080949782
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1863.5556790610297,
+          "recentN": 8,
+          "goalsForMean": 1.25,
+          "goalsAgainstMean": 2.625,
+          "pointsShare": 0.375,
+          "recentOpponentEloMean": 1938.1442290443194,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1585.9390038094784,
+          "recentN": 8,
+          "goalsForMean": 1.25,
+          "goalsAgainstMean": 1.0,
+          "pointsShare": 0.4166666666666667,
+          "recentOpponentEloMean": 1654.928867334155,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 342.6166752515512
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Stadion Aldo Drosina",
+          "city": "Pula",
+          "country": "Croatia"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.7921385039978746,
+          "D": 0.1459058012670276,
+          "A": 0.06195569473509782
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.6993297045303674,
+          "D": 0.20050662181231532,
+          "A": 0.10016367365731721
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878169",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T16:45:00Z",
+        "leadMinutes": 2766.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878169",
+        "home": "Croatia",
+        "away": "Iceland",
+        "kickoff": "2026-10-09T16:45Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Stadion Aldo Drosina",
+          "city": "Pula",
+          "country": "Croatia"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "18889",
+            "team": "Croatia",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "3683",
+            "team": "Iceland",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.041666666666666685,
+          "recentGoalDiffDiff": -1.625,
+          "recentOpponentStrengthDiff": 0.7080384042754111,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.008333333333333337,
+            -0.1625,
+            0.10620576064131167,
+            0.0
+          ],
+          "totalLogitAdjustment": -0.047960906025355
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.7921385039978746,
+        "D": 0.1459058012670276,
+        "A": 0.06195569473509782
+      }
+    },
+    {
+      "fixture": {
+        "home": "Czechia",
+        "away": "Scotland",
+        "kickoff": "2026-10-09T17:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.3899972569232786,
+        "D": 0.31208242593621227,
+        "A": 0.29792031714050915
+      },
+      "pick": "H",
+      "pickProbability": 0.3899972569232786,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.7020796828594909,
+          "fairOdds": 1.424339750051039
+        },
+        "X2": {
+          "p": 0.6100027430767214,
+          "fairOdds": 1.6393368904477659
+        },
+        "12": {
+          "p": 0.6879175740637877,
+          "fairOdds": 1.4536625283355156
+        },
+        "HOME_DNB": {
+          "winP": 0.3899972569232786,
+          "pushP": 0.31208242593621227,
+          "lossP": 0.29792031714050915,
+          "conditionalP": 0.5669243985430088,
+          "fairOdds": 1.7639036220173132
+        },
+        "AWAY_DNB": {
+          "winP": 0.29792031714050915,
+          "pushP": 0.31208242593621227,
+          "lossP": 0.3899972569232786,
+          "conditionalP": 0.4330756014569912,
+          "fairOdds": 2.3090656611356346
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1680.7686121830927,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 2.125,
+          "pointsShare": 0.16666666666666666,
+          "recentOpponentEloMean": 1898.8983769028125,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1732.5530687083128,
+          "recentN": 8,
+          "goalsForMean": 1.0,
+          "goalsAgainstMean": 1.125,
+          "pointsShare": 0.4166666666666667,
+          "recentOpponentEloMean": 1763.1585867139668,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 13.215543474779906
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Stadion Arnošta Košťála",
+          "city": "Pardubice",
+          "country": "Czechia"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.38525685910430135,
+          "D": 0.3124487115601618,
+          "A": 0.3022944293355368
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.2797109337740191,
+          "D": 0.31837114721892423,
+          "A": 0.4019179190070567
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878164",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T17:00:00Z",
+        "leadMinutes": 2781.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878164",
+        "home": "Czechia",
+        "away": "Scotland",
+        "kickoff": "2026-10-09T17:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Stadion Arnošta Košťála",
+          "city": "Pardubice",
+          "country": "Czechia"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "6517",
+            "team": "Czechia",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "12633",
+            "team": "Scotland",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.25,
+          "recentGoalDiffDiff": -0.875,
+          "recentOpponentStrengthDiff": 0.33934947547211436,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.05,
+            -0.08750000000000001,
+            0.050902421320817154,
+            0.0
+          ],
+          "totalLogitAdjustment": 0.013402421320817148
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.38525685910430135,
+        "D": 0.3124487115601618,
+        "A": 0.3022944293355368
+      }
+    },
+    {
+      "fixture": {
+        "home": "Romania",
+        "away": "Norway",
+        "kickoff": "2026-10-09T17:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.16071188245290152,
+        "D": 0.2400505142829781,
+        "A": 0.5992376032641203
+      },
+      "pick": "A",
+      "pickProbability": 0.5992376032641203,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.40076239673587966,
+          "fairOdds": 2.4952440851356736
+        },
+        "X2": {
+          "p": 0.8392881175470984,
+          "fairOdds": 1.1914859499293255
+        },
+        "12": {
+          "p": 0.7599494857170219,
+          "fairOdds": 1.315876934973497
+        },
+        "HOME_DNB": {
+          "winP": 0.16071188245290152,
+          "pushP": 0.2400505142829781,
+          "lossP": 0.5992376032641203,
+          "conditionalP": 0.21147705929594496,
+          "fairOdds": 4.728645288189776
+        },
+        "AWAY_DNB": {
+          "winP": 0.5992376032641203,
+          "pushP": 0.2400505142829781,
+          "lossP": 0.16071188245290152,
+          "conditionalP": 0.7885229407040549,
+          "fairOdds": 1.2681939210381397
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1628.3816894362303,
+          "recentN": 8,
+          "goalsForMean": 1.375,
+          "goalsAgainstMean": 1.875,
+          "pointsShare": 0.2916666666666667,
+          "recentOpponentEloMean": 1624.3439244862511,
+          "daysSinceMatch": 4
+        },
+        "away": {
+          "elo": 1875.1680109922672,
+          "recentN": 8,
+          "goalsForMean": 1.5,
+          "goalsAgainstMean": 2.0,
+          "pointsShare": 0.375,
+          "recentOpponentEloMean": 1922.398222190147,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -181.7863215560369
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Stadionul Arcul de Triumf",
+          "city": "Bucuresti",
+          "country": "Romania"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.18421500396489845,
+          "D": 0.24977721464601965,
+          "A": 0.5660077813890819
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.11792605741977925,
+          "D": 0.21855191857030432,
+          "A": 0.6635220240099164
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878171",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T17:00:00Z",
+        "leadMinutes": 2781.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878171",
+        "home": "Romania",
+        "away": "Norway",
+        "kickoff": "2026-10-09T17:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Stadionul Arcul de Triumf",
+          "city": "Bucuresti",
+          "country": "Romania"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "18395",
+            "team": "Romania",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "2762",
+            "team": "Norway",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.08333333333333331,
+          "recentGoalDiffDiff": 0.0,
+          "recentOpponentStrengthDiff": -0.7451357442597396,
+          "restDiffScaled": -0.03333333333333333,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.016666666666666663,
+            0.0,
+            -0.11177036163896094,
+            -0.0016666666666666668
+          ],
+          "totalLogitAdjustment": -0.09677036163896094
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.18421500396489845,
+        "D": 0.24977721464601965,
+        "A": 0.5660077813890819
+      }
+    },
+    {
+      "fixture": {
+        "home": "Hungary",
+        "away": "Netherlands",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.17278683721152496,
+        "D": 0.24877635214715335,
+        "A": 0.5784368106413217
+      },
+      "pick": "A",
+      "pickProbability": 0.5784368106413217,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.4215631893586783,
+          "fairOdds": 2.372123622845947
+        },
+        "X2": {
+          "p": 0.827213162788475,
+          "fairOdds": 1.2088782492641597
+        },
+        "12": {
+          "p": 0.7512236478528467,
+          "fairOdds": 1.3311615027804407
+        },
+        "HOME_DNB": {
+          "winP": 0.17278683721152496,
+          "pushP": 0.24877635214715335,
+          "lossP": 0.5784368106413217,
+          "conditionalP": 0.23000718588317295,
+          "fairOdds": 4.347690252199024
+        },
+        "AWAY_DNB": {
+          "winP": 0.5784368106413217,
+          "pushP": 0.24877635214715335,
+          "lossP": 0.17278683721152496,
+          "conditionalP": 0.769992814116827,
+          "fairOdds": 1.2987134187050675
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1731.5743785536442,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 0.5,
+          "pointsShare": 0.7083333333333334,
+          "recentOpponentEloMean": 1652.6294142871775,
+          "daysSinceMatch": 4
+        },
+        "away": {
+          "elo": 1961.2140653116362,
+          "recentN": 8,
+          "goalsForMean": 2.25,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.6666666666666666,
+          "recentOpponentEloMean": 1800.3531793231368,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -164.63968675799197
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Pancho Arena",
+          "city": "Felcsút",
+          "country": "Hungary"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.19904334288088546,
+          "D": 0.258558460536418,
+          "A": 0.5423981965826966
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.12877073696582778,
+          "D": 0.22863636307534208,
+          "A": 0.6425928999588302
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878163",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T18:00:00Z",
+        "leadMinutes": 2841.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878163",
+        "home": "Hungary",
+        "away": "Netherlands",
+        "kickoff": "2026-10-09T18:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Pancho Arena",
+          "city": "Felcsút",
+          "country": "Hungary"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "20919",
+            "team": "Hungary",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "7151",
+            "team": "Netherlands",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.04166666666666674,
+          "recentGoalDiffDiff": -0.375,
+          "recentOpponentStrengthDiff": -0.36930941258989836,
+          "restDiffScaled": -0.03333333333333333,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.008333333333333349,
+            -0.037500000000000006,
+            -0.05539641188848475,
+            -0.0016666666666666668
+          ],
+          "totalLogitAdjustment": -0.10289641188848477
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.19904334288088546,
+        "D": 0.258558460536418,
+        "A": 0.5423981965826966
+      }
+    },
+    {
+      "fixture": {
+        "home": "Northern Ireland",
+        "away": "Portugal",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.08010779515696981,
+        "D": 0.16708268651086364,
+        "A": 0.7528095183321666
+      },
+      "pick": "A",
+      "pickProbability": 0.7528095183321666,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.24719048166783344,
+          "fairOdds": 4.045463212227434
+        },
+        "X2": {
+          "p": 0.9198922048430302,
+          "fairOdds": 1.087083893890197
+        },
+        "12": {
+          "p": 0.8329173134891363,
+          "fairOdds": 1.2005993677943194
+        },
+        "HOME_DNB": {
+          "winP": 0.08010779515696981,
+          "pushP": 0.16708268651086364,
+          "lossP": 0.7528095183321666,
+          "conditionalP": 0.09617736822085479,
+          "fairOdds": 10.397456475453476
+        },
+        "AWAY_DNB": {
+          "winP": 0.7528095183321666,
+          "pushP": 0.16708268651086364,
+          "lossP": 0.08010779515696981,
+          "conditionalP": 0.9038226317791452,
+          "fairOdds": 1.1064117724420472
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1619.8578854951415,
+          "recentN": 8,
+          "goalsForMean": 0.875,
+          "goalsAgainstMean": 0.75,
+          "pointsShare": 0.5,
+          "recentOpponentEloMean": 1741.4977511097181,
+          "daysSinceMatch": 4
+        },
+        "away": {
+          "elo": 1994.9617664321286,
+          "recentN": 8,
+          "goalsForMean": 2.0,
+          "goalsAgainstMean": 0.75,
+          "pointsShare": 0.7916666666666666,
+          "recentOpponentEloMean": 1885.5580600659923,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -310.103880936987
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Inver Park",
+          "city": "Larne",
+          "country": "Northern Ireland"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.09603804870820602,
+          "D": 0.17946929880442825,
+          "A": 0.7244926524873657
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.05757427341636076,
+          "D": 0.147059244323085,
+          "A": 0.7953664822605543
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878162",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T18:00:00Z",
+        "leadMinutes": 2841.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878162",
+        "home": "Northern Ireland",
+        "away": "Portugal",
+        "kickoff": "2026-10-09T18:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Inver Park",
+          "city": "Larne",
+          "country": "Northern Ireland"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "20865",
+            "team": "Northern Ireland",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "9531",
+            "team": "Portugal",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.29166666666666663,
+          "recentGoalDiffDiff": -1.125,
+          "recentOpponentStrengthDiff": -0.36015077239068544,
+          "restDiffScaled": -0.03333333333333333,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.05833333333333333,
+            -0.1125,
+            -0.05402261585860282,
+            -0.0016666666666666668
+          ],
+          "totalLogitAdjustment": -0.10985594919193616
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.09603804870820602,
+        "D": 0.17946929880442825,
+        "A": 0.7244926524873657
+      }
+    },
+    {
+      "fixture": {
+        "home": "Belgium",
+        "away": "Poland",
+        "kickoff": "2026-10-09T18:15:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.7524639283803818,
+        "D": 0.17023482263353373,
+        "A": 0.0773012489860845
+      },
+      "pick": "H",
+      "pickProbability": 0.7524639283803818,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.9226987510139155,
+          "fairOdds": 1.0837773421727745
+        },
+        "X2": {
+          "p": 0.24753607161961821,
+          "fairOdds": 4.039815261901191
+        },
+        "12": {
+          "p": 0.8297651773664663,
+          "fairOdds": 1.2051602396401233
+        },
+        "HOME_DNB": {
+          "winP": 0.7524639283803818,
+          "pushP": 0.17023482263353373,
+          "lossP": 0.0773012489860845,
+          "conditionalP": 0.9068396082474496,
+          "fairOdds": 1.1027308367491704
+        },
+        "AWAY_DNB": {
+          "winP": 0.0773012489860845,
+          "pushP": 0.17023482263353373,
+          "lossP": 0.7524639283803818,
+          "conditionalP": 0.09316039175255043,
+          "fairOdds": 10.734175556669696
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1934.8653557514986,
+          "recentN": 8,
+          "goalsForMean": 2.375,
+          "goalsAgainstMean": 1.375,
+          "pointsShare": 0.625,
+          "recentOpponentEloMean": 1908.9067182975964,
+          "daysSinceMatch": 4
+        },
+        "away": {
+          "elo": 1726.5125628420672,
+          "recentN": 8,
+          "goalsForMean": 2.125,
+          "goalsAgainstMean": 1.75,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1690.453301020105,
+          "daysSinceMatch": 7
+        },
+        "eloDiffWithHomeAdvantage": 273.3527929094314
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "King Power at Den Dreef Stadion",
+          "city": "Leuven",
+          "country": "Belgium"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.7253898515936801,
+          "D": 0.18247654944516825,
+          "A": 0.09213359896115163
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.6157016320877919,
+          "D": 0.24109111066661118,
+          "A": 0.14320725724559677
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401878166",
+      "capture": {
+        "capturedAt": "2026-10-07T18:38:32.965629Z",
+        "kickoffUtc": "2026-10-09T18:15:00Z",
+        "leadMinutes": 2856.45057285,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401878166",
+        "home": "Belgium",
+        "away": "Poland",
+        "kickoff": "2026-10-09T18:15Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "King Power at Den Dreef Stadion",
+          "city": "Leuven",
+          "country": "Belgium"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13816,
+          "slug": "playoff-phase---first-round"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "20649",
+          "name": "FIFA Women's World Cup Qualifying - UEFA",
+          "slug": "fifa.wworldq.uefa",
+          "abbreviation": "WWCQ - UEFA"
+        },
+        "rosters": [
+          {
+            "teamId": "18736",
+            "team": "Belgium",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "19345",
+            "team": "Poland",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "20649",
+        "name": "FIFA Women's World Cup Qualifying - UEFA",
+        "slug": "fifa.wworldq.uefa",
+        "abbreviation": "WWCQ - UEFA"
+      },
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.16666666666666669,
+          "recentGoalDiffDiff": 0.625,
+          "recentOpponentStrengthDiff": 0.5461335431937283,
+          "restDiffScaled": -0.1,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.03333333333333334,
+            0.0625,
+            0.08192003147905924,
+            -0.005000000000000001
+          ],
+          "totalLogitAdjustment": 0.1060866981457259
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.7253898515936801,
+        "D": 0.18247654944516825,
+        "A": 0.09213359896115163
+      }
+    }
+  ]
+}

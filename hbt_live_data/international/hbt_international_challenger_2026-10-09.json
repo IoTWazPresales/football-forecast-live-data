@@ -1,0 +1,3106 @@
+{
+  "schemaVersion": "HBT-INTERNATIONAL-CHALLENGER-1",
+  "version": "HBT-1.4-INTERNATIONAL-CHALLENGER-1",
+  "generatedAt": "2026-10-07T18:38:32Z",
+  "targetDate": "2026-10-09",
+  "policy": {
+    "researchOnly": true,
+    "frozenHBT112Mutated": false,
+    "domesticForecastsMutated": false,
+    "bookmakerOddsRead": false,
+    "pointInTimeCausality": true,
+    "missingIsZero": false,
+    "unsupportedRelabelledAsSupportedWithoutEvidence": false,
+    "automaticPromotion": false,
+    "automaticFunding": false,
+    "cleanProspectiveConfirmationRequired": true
+  },
+  "historySource": {
+    "url": "https://raw.githubusercontent.com/martj42/international_results/394fe81893b062fbc2cf6257e988ac7cc4c039a1/results.csv",
+    "commit": "394fe81893b062fbc2cf6257e988ac7cc4c039a1",
+    "sha256": "df35268f8fc341ff7fb93d448b4e40356676ac35300a6b4461fd199a99ac1514",
+    "rows": 49547,
+    "firstDate": "1872-11-30",
+    "lastDate": "2026-08-26"
+  },
+  "recentSupplement": {
+    "attemptedDays": 43,
+    "loadedDays": 43,
+    "failedDays": 0,
+    "addedMatches": 291,
+    "from": "2026-08-27",
+    "through": "2026-10-08"
+  },
+  "validation": {
+    "selectionWindow": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "holdoutWindow": [
+      "2025-01-01",
+      "2026-10-09"
+    ],
+    "selectedParams": {
+      "eloSlope": 1.4,
+      "homeLogit": 0.15,
+      "drawIntercept": 0.0,
+      "drawMismatchPenalty": 0.4
+    },
+    "selection": {
+      "n": 2285,
+      "logLoss": 0.8842945020773297,
+      "brier": 0.5206899405328139,
+      "accuracy": 0.6026258205689278,
+      "topPickECE": 0.01644032866381879
+    },
+    "holdout": {
+      "n": 1743,
+      "logLoss": 0.85384446041407,
+      "brier": 0.5009010886763036,
+      "accuracy": 0.6138841078600115,
+      "topPickECE": 0.028781736861918105
+    },
+    "holdoutBaseline": {
+      "n": 1743,
+      "logLoss": 1.0499346468324464,
+      "brier": 0.6335303936254143,
+      "accuracy": 0.4750430292598967,
+      "topPickECE": 0.006996882048316944
+    },
+    "competitiveHoldout": {
+      "n": 1242,
+      "logLoss": 0.8352192949425452,
+      "brier": 0.48819478181834564,
+      "accuracy": 0.6304347826086957,
+      "topPickECE": 0.041008169856635246
+    },
+    "friendlyHoldout": {
+      "n": 501,
+      "logLoss": 0.9000170263135342,
+      "brier": 0.5324005559768724,
+      "accuracy": 0.5728542914171657,
+      "topPickECE": 0.025346405387168376
+    },
+    "beatsFixedHistoricalBaseRateOnLogLossAndBrier": true,
+    "promotionAllowed": false,
+    "promotionBlock": "requires clean prospective confirmation plus broader HBT-1.4 interaction/ablation validation"
+  },
+  "domainSummary": {
+    "CLUB_FRIENDLY": 1,
+    "CLUB_LEAGUE_OR_UNRESOLVED": 84,
+    "CLUB_WOMEN": 13,
+    "NATIONAL_COMPETITIVE": 16,
+    "NATIONAL_WOMEN": 11
+  },
+  "domainRows": [
+    {
+      "fixture": {
+        "home": "Andorra",
+        "away": "Faroe Islands",
+        "kickoff": "2026-10-09T10:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Kashima Antlers",
+        "away": "Gamba Osaka",
+        "kickoff": "2026-10-09T10:00:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Kashiwa Reysol",
+        "away": "Vissel Kobe",
+        "kickoff": "2026-10-09T10:00:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Montenegro",
+        "away": "Bosnia-Herzegovina",
+        "kickoff": "2026-10-09T11:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Kazakhstan",
+        "away": "Republic of Ireland",
+        "kickoff": "2026-10-09T11:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Qingdao Hainiu",
+        "away": "BEIJING GUOAN",
+        "kickoff": "2026-10-09T11:35:00Z",
+        "competition": "2026-chinese-super-league",
+        "competitionSlug": "2026-chinese-super-league"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Shenzhen Xinpengcheng",
+        "away": "Henan",
+        "kickoff": "2026-10-09T11:35:00Z",
+        "competition": "2026-chinese-super-league",
+        "competitionSlug": "2026-chinese-super-league"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Zhejiang Professional FC",
+        "away": "Shanghai Port",
+        "kickoff": "2026-10-09T12:00:00Z",
+        "competition": "2026-chinese-super-league",
+        "competitionSlug": "2026-chinese-super-league"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Israel",
+        "away": "Switzerland",
+        "kickoff": "2026-10-09T13:30:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Al Kholood",
+        "away": "Al Qadsiah",
+        "kickoff": "2026-10-09T13:50:00Z",
+        "competition": "2026-27-saudi-pro-league",
+        "competitionSlug": "2026-27-saudi-pro-league"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Moldova",
+        "away": "Georgia",
+        "kickoff": "2026-10-09T14:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Al Fateh",
+        "away": "Al Ahli",
+        "kickoff": "2026-10-09T14:55:00Z",
+        "competition": "2026-27-saudi-pro-league",
+        "competitionSlug": "2026-27-saudi-pro-league"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Finland",
+        "away": "Serbia",
+        "kickoff": "2026-10-09T15:30:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Wieczysta Kraków",
+        "away": "Wisła Płock",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "Ekstraklasa",
+        "competitionSlug": "pl.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Albania",
+        "away": "Wales",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Kosovo",
+        "away": "Austria",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Slovakia",
+        "away": "Ukraine",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Türkiye",
+        "away": "Slovenia",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Lithuania",
+        "away": "Sweden",
+        "kickoff": "2026-10-09T16:05:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Belarus",
+        "away": "Italy",
+        "kickoff": "2026-10-09T16:15:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "1. FC Heidenheim 1846",
+        "away": "Kaiserslautern",
+        "kickoff": "2026-10-09T16:30:00Z",
+        "competition": "2026-27-german-2-bundesliga",
+        "competitionSlug": "2026-27-german-2-bundesliga"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "INSUFFICIENT_DATA"
+    },
+    {
+      "fixture": {
+        "home": "TSV Eintracht Braunschweig",
+        "away": "Holstein Kiel",
+        "kickoff": "2026-10-09T16:30:00Z",
+        "competition": "2026-27-german-2-bundesliga",
+        "competitionSlug": "2026-27-german-2-bundesliga"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "INSUFFICIENT_DATA"
+    },
+    {
+      "fixture": {
+        "home": "Rostov",
+        "away": "Akron Tolyatti",
+        "kickoff": "2026-10-09T16:30:00Z",
+        "competition": "2026-27-russian-premier-league",
+        "competitionSlug": "2026-27-russian-premier-league"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "INSUFFICIENT_DATA"
+    },
+    {
+      "fixture": {
+        "home": "Greece",
+        "away": "England",
+        "kickoff": "2026-10-09T16:30:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Croatia",
+        "away": "Iceland",
+        "kickoff": "2026-10-09T16:45:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "IFK Göteborg",
+        "away": "Västerås SK",
+        "kickoff": "2026-10-09T17:00:00Z",
+        "competition": "2026-allsvenskan",
+        "competitionSlug": "2026-allsvenskan"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "SK Brann",
+        "away": "Viking FK",
+        "kickoff": "2026-10-09T17:00:00Z",
+        "competition": "2026-eliteserien",
+        "competitionSlug": "2026-eliteserien"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Malta",
+        "away": "Luxembourg",
+        "kickoff": "2026-10-09T17:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Galatasaray",
+        "away": "Kasimpasa",
+        "kickoff": "2026-10-09T17:00:00Z",
+        "competition": "Süper Lig",
+        "competitionSlug": "tr.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Czechia",
+        "away": "Scotland",
+        "kickoff": "2026-10-09T17:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Romania",
+        "away": "Norway",
+        "kickoff": "2026-10-09T17:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "FC Nordsjælland",
+        "away": "Odense Boldklub",
+        "kickoff": "2026-10-09T17:00:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Aldosivi",
+        "away": "Sarmiento (Junín)",
+        "kickoff": "2026-10-09T17:30:00Z",
+        "competition": "torneo-clausura",
+        "competitionSlug": "torneo-clausura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Moreirense",
+        "away": "Gil Vicente",
+        "kickoff": "2026-10-09T17:45:00Z",
+        "competition": "Primeira Liga",
+        "competitionSlug": "pt.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Almere City",
+        "away": "FC Eindhoven",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "De Graafschap",
+        "away": "Jong FC Utrecht",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "FC Dordrecht",
+        "away": "FC Emmen",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "FC Volendam",
+        "away": "Vitesse",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Heracles Almelo",
+        "away": "RKC Waalwijk",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Jong AZ",
+        "away": "FC Den Bosch",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Jong Ajax",
+        "away": "VVV-Venlo",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "NAC Breda",
+        "away": "MVV Maastricht",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Roda JC Kerkrade",
+        "away": "Jong PSV",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "TOP Oss",
+        "away": "Helmond Sport",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "AS Nancy Lorraine",
+        "away": "Guingamp",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-ligue-2",
+        "competitionSlug": "2026-27-ligue-2"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Dunkerque",
+        "away": "Annecy",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-ligue-2",
+        "competitionSlug": "2026-27-ligue-2"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Montpellier",
+        "away": "Grenoble",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-ligue-2",
+        "competitionSlug": "2026-27-ligue-2"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Pau",
+        "away": "Stade Laval",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-ligue-2",
+        "competitionSlug": "2026-27-ligue-2"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Sochaux",
+        "away": "Boulogne",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-ligue-2",
+        "competitionSlug": "2026-27-ligue-2"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Al Nassr",
+        "away": "Al Diriyah",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-27-saudi-pro-league",
+        "competitionSlug": "2026-27-saudi-pro-league"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Haiti",
+        "away": "Japan",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Malaysia",
+        "away": "Saudi Arabia",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "PSV Eindhoven",
+        "away": "Heerenveen",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Libertad (Ecuador)",
+        "away": "Leones",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "first-stage",
+        "competitionSlug": "first-stage"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Hungary",
+        "away": "Netherlands",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Northern Ireland",
+        "away": "Portugal",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Belgium",
+        "away": "Poland",
+        "kickoff": "2026-10-09T18:15:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Germany",
+        "away": "Australia",
+        "kickoff": "2026-10-09T18:30:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Borussia Dortmund",
+        "away": "Werder Bremen",
+        "kickoff": "2026-10-09T18:30:00Z",
+        "competition": "Bundesliga",
+        "competitionSlug": "de.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Raków Częstochowa",
+        "away": "GKS Katowice",
+        "kickoff": "2026-10-09T18:30:00Z",
+        "competition": "Ekstraklasa",
+        "competitionSlug": "pl.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "US Avellino",
+        "away": "Sampdoria",
+        "kickoff": "2026-10-09T18:30:00Z",
+        "competition": "Serie B",
+        "competitionSlug": "it.2"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Waasland-Beveren",
+        "away": "Lommel SK",
+        "kickoff": "2026-10-09T18:45:00Z",
+        "competition": "Belgian Pro League",
+        "competitionSlug": "be.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Derry City",
+        "away": "St Patrick's Athletic",
+        "kickoff": "2026-10-09T18:45:00Z",
+        "competition": "League of Ireland Premier Division",
+        "competitionSlug": "ie.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Shelbourne",
+        "away": "Sligo Rovers",
+        "kickoff": "2026-10-09T18:45:00Z",
+        "competition": "League of Ireland Premier Division",
+        "competitionSlug": "ie.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Waterford",
+        "away": "Galway United",
+        "kickoff": "2026-10-09T18:45:00Z",
+        "competition": "League of Ireland Premier Division",
+        "competitionSlug": "ie.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Lens",
+        "away": "Lyon",
+        "kickoff": "2026-10-09T18:45:00Z",
+        "competition": "Ligue 1",
+        "competitionSlug": "fr.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Sutton United",
+        "away": "Boreham Wood",
+        "kickoff": "2026-10-09T18:45:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "San Antonio Bulo Bulo",
+        "away": "Real Tomayapo",
+        "kickoff": "2026-10-09T19:00:00Z",
+        "competition": "2026-bolivian-liga-profesional",
+        "competitionSlug": "2026-bolivian-liga-profesional"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "West Ham United",
+        "away": "Queens Park Rangers",
+        "kickoff": "2026-10-09T19:00:00Z",
+        "competition": "Championship",
+        "competitionSlug": "en.2"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Málaga",
+        "away": "Espanyol",
+        "kickoff": "2026-10-09T19:00:00Z",
+        "competition": "LaLiga",
+        "competitionSlug": "es.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Braga",
+        "away": "Sporting CP",
+        "kickoff": "2026-10-09T19:15:00Z",
+        "competition": "Primeira Liga",
+        "competitionSlug": "pt.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "PSV",
+        "away": "SC Heerenveen",
+        "kickoff": "2026-10-09T20:00:00",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Army Black Knights",
+        "away": "Navy Midshipmen",
+        "kickoff": "2026-10-09T20:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Peru",
+        "away": "Philippines",
+        "kickoff": "2026-10-09T20:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Montevideo City Torque",
+        "away": "Danubio",
+        "kickoff": "2026-10-09T20:00:00Z",
+        "competition": "torneo-clausura",
+        "competitionSlug": "torneo-clausura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Delfín",
+        "away": "Mushuc Runa",
+        "kickoff": "2026-10-09T20:30:00Z",
+        "competition": "first-stage",
+        "competitionSlug": "first-stage"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Platense",
+        "away": "Juticalpa FC",
+        "kickoff": "2026-10-09T21:00:00Z",
+        "competition": "torneo-apertura-2026",
+        "competitionSlug": "torneo-apertura-2026"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Gimnasia La Plata",
+        "away": "Atlético Tucumán",
+        "kickoff": "2026-10-09T21:00:00Z",
+        "competition": "torneo-clausura",
+        "competitionSlug": "torneo-clausura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Coastal Carolina Chanticleers",
+        "away": "UCF Knights",
+        "kickoff": "2026-10-09T22:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Colgate Raiders",
+        "away": "Boston University Terriers",
+        "kickoff": "2026-10-09T22:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Lehigh Mountain Hawks",
+        "away": "American University Eagles",
+        "kickoff": "2026-10-09T22:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "South Carolina Upstate Spartans",
+        "away": "High Point Panthers",
+        "kickoff": "2026-10-09T22:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "UNC Asheville Bulldogs",
+        "away": "Winthrop Eagles",
+        "kickoff": "2026-10-09T22:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Virginia Cavaliers",
+        "away": "California Golden Bears",
+        "kickoff": "2026-10-09T22:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Florida State Seminoles",
+        "away": "North Carolina Tar Heels",
+        "kickoff": "2026-10-09T22:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Mercer Bears",
+        "away": "Tennessee Tech Golden Eagles",
+        "kickoff": "2026-10-09T22:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Wofford Terriers",
+        "away": "Chattanooga Mocs",
+        "kickoff": "2026-10-09T22:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Georgia Bulldogs",
+        "away": "Ole Miss Rebels",
+        "kickoff": "2026-10-09T22:30:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Instituto (Córdoba)",
+        "away": "Boca Juniors",
+        "kickoff": "2026-10-09T22:30:00Z",
+        "competition": "torneo-clausura",
+        "competitionSlug": "torneo-clausura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Boston College Eagles",
+        "away": "Wake Forest Demon Deacons",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Michigan Wolverines",
+        "away": "Penn State Nittany Lions",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Navy Midshipmen",
+        "away": "Army Black Knights",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Old Dominion Monarchs",
+        "away": "West Virginia Mountaineers",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Pittsburgh Panthers",
+        "away": "Virginia Tech Hokies",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Radford Highlanders",
+        "away": "Presbyterian Blue Hose",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Missouri Tigers",
+        "away": "Vanderbilt Commodores",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Samford Bulldogs",
+        "away": "Furman Paladins",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "South Carolina Gamecocks",
+        "away": "Tennessee Volunteers",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Toledo Rockets",
+        "away": "Central Michigan Chippewas",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Canada",
+        "away": "Denmark",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Tapatío",
+        "away": "Club Atlético La Paz",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "apertura-2026",
+        "competitionSlug": "apertura-2026"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Alianza FC",
+        "away": "Águilas Doradas",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "clausura",
+        "competitionSlug": "clausura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Sporting Jax",
+        "away": "DC Power FC",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "fall-season",
+        "competitionSlug": "fall-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Excursionistas",
+        "away": "Villa San Carlos",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Talleres de Remedios",
+        "away": "Camioneros",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Deportivo Maldonado",
+        "away": "Liverpool",
+        "kickoff": "2026-10-09T23:00:00Z",
+        "competition": "torneo-clausura",
+        "competitionSlug": "torneo-clausura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Marshall Thundering Herd",
+        "away": "Georgia Southern Eagles",
+        "kickoff": "2026-10-09T23:10:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Indiana Hoosiers",
+        "away": "Hanover",
+        "kickoff": "2026-10-09T23:30:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Maryland Terrapins",
+        "away": "Michigan State Spartans",
+        "kickoff": "2026-10-09T23:30:00Z",
+        "competition": "2026-ncaa-division-i-men",
+        "competitionSlug": "2026-ncaa-division-i-men"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Kentucky Wildcats",
+        "away": "Texas Longhorns",
+        "kickoff": "2026-10-09T23:30:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Lexington",
+        "away": "FC Tulsa",
+        "kickoff": "2026-10-09T23:30:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "LSU Tigers",
+        "away": "Arkansas Razorbacks",
+        "kickoff": "2026-10-10T00:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Mississippi State Bulldogs",
+        "away": "Texas A&M Aggies",
+        "kickoff": "2026-10-10T00:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Oklahoma Sooners",
+        "away": "Auburn Tigers",
+        "kickoff": "2026-10-10T00:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Inca Aruba",
+        "away": "C.D. Platense",
+        "kickoff": "2026-10-10T00:00:00Z",
+        "competition": "torneo-apertura-2026",
+        "competitionSlug": "torneo-apertura-2026"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Unión (Santa Fe)",
+        "away": "Defensa y Justicia",
+        "kickoff": "2026-10-10T00:45:00Z",
+        "competition": "torneo-clausura",
+        "competitionSlug": "torneo-clausura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Central Coast Mariners",
+        "away": "TBD Away",
+        "kickoff": "2026-10-10T01:00:00Z",
+        "competition": "2026-club-friendly",
+        "competitionSlug": "2026-club-friendly"
+      },
+      "domain": "CLUB_FRIENDLY",
+      "seniorMens": false,
+      "reason": "club/non-national friendly",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Mexico",
+        "away": "Jamaica",
+        "kickoff": "2026-10-10T01:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Tepatitlán FC",
+        "away": "Club Atlético Morelia",
+        "kickoff": "2026-10-10T01:00:00Z",
+        "competition": "apertura-2026",
+        "competitionSlug": "apertura-2026"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Deportivo Garcilaso",
+        "away": "Sport Huancayo",
+        "kickoff": "2026-10-10T01:00:00Z",
+        "competition": "clausura",
+        "competitionSlug": "clausura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Puebla",
+        "away": "León",
+        "kickoff": "2026-10-10T01:00:00Z",
+        "competition": "torneo-apertura",
+        "competitionSlug": "torneo-apertura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Once Caldas",
+        "away": "Llaneros FC",
+        "kickoff": "2026-10-10T01:10:00Z",
+        "competition": "clausura",
+        "competitionSlug": "clausura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "El Salvador",
+        "away": "Paraguay",
+        "kickoff": "2026-10-10T01:30:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Sporting San José",
+        "away": "Cartaginés",
+        "kickoff": "2026-10-10T02:00:00Z",
+        "competition": "apertura",
+        "competitionSlug": "apertura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Tigres UANL",
+        "away": "Toluca",
+        "kickoff": "2026-10-10T03:00:00Z",
+        "competition": "torneo-apertura",
+        "competitionSlug": "torneo-apertura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    }
+  ],
+  "internationalCandidates": [
+    {
+      "fixture": {
+        "home": "Kazakhstan",
+        "away": "Republic of Ireland",
+        "kickoff": "2026-10-09T11:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.18208085157517057,
+        "D": 0.24845303765156213,
+        "A": 0.5694661107732674
+      },
+      "pick": "A",
+      "pickProbability": 0.5694661107732674,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.4305338892267327,
+          "fairOdds": 2.322697527472381
+        },
+        "X2": {
+          "p": 0.8179191484248295,
+          "fairOdds": 1.2226147314509346
+        },
+        "12": {
+          "p": 0.7515469623484379,
+          "fairOdds": 1.3305888388866542
+        },
+        "HOME_DNB": {
+          "winP": 0.18208085157517057,
+          "pushP": 0.24845303765156213,
+          "lossP": 0.5694661107732674,
+          "conditionalP": 0.24227474888089942,
+          "fairOdds": 4.127545295657671
+        },
+        "AWAY_DNB": {
+          "winP": 0.5694661107732674,
+          "pushP": 0.24845303765156213,
+          "lossP": 0.18208085157517057,
+          "conditionalP": 0.7577252511191006,
+          "fairOdds": 1.319739573840358
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1441.0004091800952,
+          "recentN": 8,
+          "goalsForMean": 1.25,
+          "goalsAgainstMean": 1.375,
+          "pointsShare": 0.375,
+          "recentOpponentEloMean": 1476.5665140246656,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1690.3216157912505,
+          "recentN": 8,
+          "goalsForMean": 1.625,
+          "goalsAgainstMean": 0.625,
+          "pointsShare": 0.5416666666666666,
+          "recentOpponentEloMean": 1632.9783250662247,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -184.32120661115528
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Israel",
+        "away": "Switzerland",
+        "kickoff": "2026-10-09T13:30:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.12836065482987685,
+        "D": 0.20943067449153377,
+        "A": 0.6622086706785894
+      },
+      "pick": "A",
+      "pickProbability": 0.6622086706785894,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.33779132932141065,
+          "fairOdds": 2.9604075451223126
+        },
+        "X2": {
+          "p": 0.8716393451701231,
+          "fairOdds": 1.147263493256863
+        },
+        "12": {
+          "p": 0.7905693255084663,
+          "fairOdds": 1.2649112073211737
+        },
+        "HOME_DNB": {
+          "winP": 0.12836065482987685,
+          "pushP": 0.20943067449153377,
+          "lossP": 0.6622086706785894,
+          "conditionalP": 0.16236483087339598,
+          "fairOdds": 6.15896924611556
+        },
+        "AWAY_DNB": {
+          "winP": 0.6622086706785894,
+          "pushP": 0.20943067449153377,
+          "lossP": 0.12836065482987685,
+          "conditionalP": 0.837635169126604,
+          "fairOdds": 1.1938371702356918
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1603.7685610222227,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.4166666666666667,
+          "recentOpponentEloMean": 1593.766553304223,
+          "daysSinceMatch": 5
+        },
+        "away": {
+          "elo": 1924.5881040271295,
+          "recentN": 8,
+          "goalsForMean": 2.0,
+          "goalsAgainstMean": 0.625,
+          "pointsShare": 0.7916666666666666,
+          "recentOpponentEloMean": 1796.2208558156476,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": -255.8195430049068
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Finland",
+        "away": "Serbia",
+        "kickoff": "2026-10-09T15:30:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.28067804047648187,
+        "D": 0.2953323556346691,
+        "A": 0.42398960388884904
+      },
+      "pick": "A",
+      "pickProbability": 0.42398960388884904,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.5760103961111509,
+          "fairOdds": 1.7360797769473473
+        },
+        "X2": {
+          "p": 0.7193219595235181,
+          "fairOdds": 1.3901980702249161
+        },
+        "12": {
+          "p": 0.7046676443653309,
+          "fairOdds": 1.419108721673555
+        },
+        "HOME_DNB": {
+          "winP": 0.28067804047648187,
+          "pushP": 0.2953323556346691,
+          "lossP": 0.42398960388884904,
+          "conditionalP": 0.3983126552224185,
+          "fairOdds": 2.510590579758502
+        },
+        "AWAY_DNB": {
+          "winP": 0.42398960388884904,
+          "pushP": 0.2953323556346691,
+          "lossP": 0.28067804047648187,
+          "conditionalP": 0.6016873447775815,
+          "fairOdds": 1.6619927420438898
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1568.1360213512178,
+          "recentN": 8,
+          "goalsForMean": 1.625,
+          "goalsAgainstMean": 1.125,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1572.889358515958,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1713.4932623205257,
+          "recentN": 8,
+          "goalsForMean": 0.75,
+          "goalsAgainstMean": 2.5,
+          "pointsShare": 0.125,
+          "recentOpponentEloMean": 1853.6078181117969,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -80.3572409693079
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Albania",
+        "away": "Wales",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.33402108211401477,
+        "D": 0.3102226932728149,
+        "A": 0.3557562246131704
+      },
+      "pick": "A",
+      "pickProbability": 0.3557562246131704,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.6442437753868296,
+          "fairOdds": 1.5522074689810703
+        },
+        "X2": {
+          "p": 0.6659789178859853,
+          "fairOdds": 1.5015490327746361
+        },
+        "12": {
+          "p": 0.6897773067271852,
+          "fairOdds": 1.4497432580737415
+        },
+        "HOME_DNB": {
+          "winP": 0.33402108211401477,
+          "pushP": 0.3102226932728149,
+          "lossP": 0.3557562246131704,
+          "conditionalP": 0.4842448118492885,
+          "fairOdds": 2.065071169644725
+        },
+        "AWAY_DNB": {
+          "winP": 0.3557562246131704,
+          "pushP": 0.3102226932728149,
+          "lossP": 0.33402108211401477,
+          "conditionalP": 0.5157551881507115,
+          "fairOdds": 1.938904392965185
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1611.4467594488142,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 1.0,
+          "pointsShare": 0.375,
+          "recentOpponentEloMean": 1435.711915261606,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1706.8812770039744,
+          "recentN": 8,
+          "goalsForMean": 0.75,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.25,
+          "recentOpponentEloMean": 1743.384076513234,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -30.434517555160255
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Kosovo",
+        "away": "Austria",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.28242258259913494,
+        "D": 0.2959260513306696,
+        "A": 0.4216513660701953
+      },
+      "pick": "A",
+      "pickProbability": 0.4216513660701953,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.5783486339298045,
+          "fairOdds": 1.72906088358008
+        },
+        "X2": {
+          "p": 0.7175774174008649,
+          "fairOdds": 1.3935778575949298
+        },
+        "12": {
+          "p": 0.7040739486693303,
+          "fairOdds": 1.420305355552435
+        },
+        "HOME_DNB": {
+          "winP": 0.28242258259913494,
+          "pushP": 0.2959260513306696,
+          "lossP": 0.4216513660701953,
+          "conditionalP": 0.4011263065945013,
+          "fairOdds": 2.4929803494810434
+        },
+        "AWAY_DNB": {
+          "winP": 0.4216513660701953,
+          "pushP": 0.2959260513306696,
+          "lossP": 0.28242258259913494,
+          "conditionalP": 0.5988736934054987,
+          "fairOdds": 1.6698011801344859
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1668.8556031783708,
+          "recentN": 8,
+          "goalsForMean": 1.375,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1661.6104749442989,
+          "daysSinceMatch": 5
+        },
+        "away": {
+          "elo": 1812.5376541359255,
+          "recentN": 8,
+          "goalsForMean": 1.875,
+          "goalsAgainstMean": 1.75,
+          "pointsShare": 0.5,
+          "recentOpponentEloMean": 1800.067501827327,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -78.6820509575548
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Slovakia",
+        "away": "Ukraine",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.36073237232717736,
+        "D": 0.3152515532693782,
+        "A": 0.3240160744034445
+      },
+      "pick": "H",
+      "pickProbability": 0.36073237232717736,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.6759839255965556,
+          "fairOdds": 1.4793251172614796
+        },
+        "X2": {
+          "p": 0.6392676276728226,
+          "fairOdds": 1.5642900668072
+        },
+        "12": {
+          "p": 0.6847484467306219,
+          "fairOdds": 1.460390315267699
+        },
+        "HOME_DNB": {
+          "winP": 0.36073237232717736,
+          "pushP": 0.3152515532693782,
+          "lossP": 0.3240160744034445,
+          "conditionalP": 0.5268100629501515,
+          "fairOdds": 1.8982173468744528
+        },
+        "AWAY_DNB": {
+          "winP": 0.3240160744034445,
+          "pushP": 0.3152515532693782,
+          "lossP": 0.36073237232717736,
+          "conditionalP": 0.4731899370498485,
+          "fairOdds": 2.113316285284094
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1674.3750797185753,
+          "recentN": 8,
+          "goalsForMean": 2.25,
+          "goalsAgainstMean": 1.125,
+          "pointsShare": 0.7083333333333334,
+          "recentOpponentEloMean": 1446.9556802291847,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1745.4689074922635,
+          "recentN": 8,
+          "goalsForMean": 0.875,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.4166666666666667,
+          "recentOpponentEloMean": 1693.6116073438184,
+          "daysSinceMatch": 4
+        },
+        "eloDiffWithHomeAdvantage": -6.09382777368819
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Türkiye",
+        "away": "Slovenia",
+        "kickoff": "2026-10-09T16:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.587572609889725,
+        "D": 0.24677810905678266,
+        "A": 0.1656492810534923
+      },
+      "pick": "H",
+      "pickProbability": 0.587572609889725,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.8343507189465077,
+          "fairOdds": 1.1985367511430316
+        },
+        "X2": {
+          "p": 0.41242739011027496,
+          "fairOdds": 2.424669224157541
+        },
+        "12": {
+          "p": 0.7532218909432173,
+          "fairOdds": 1.3276300277833883
+        },
+        "HOME_DNB": {
+          "winP": 0.587572609889725,
+          "pushP": 0.24677810905678266,
+          "lossP": 0.1656492810534923,
+          "conditionalP": 0.7800790403926537,
+          "fairOdds": 1.2819213800394493
+        },
+        "AWAY_DNB": {
+          "winP": 0.1656492810534923,
+          "pushP": 0.24677810905678266,
+          "lossP": 0.587572609889725,
+          "conditionalP": 0.2199209596073463,
+          "fairOdds": 4.547088198348311
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1796.5318161136497,
+          "recentN": 8,
+          "goalsForMean": 0.875,
+          "goalsAgainstMean": 2.125,
+          "pointsShare": 0.25,
+          "recentOpponentEloMean": 1868.9789883282128,
+          "daysSinceMatch": 4
+        },
+        "away": {
+          "elo": 1702.0850959564073,
+          "recentN": 8,
+          "goalsForMean": 1.25,
+          "goalsAgainstMean": 1.125,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1680.810214682936,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 159.44672015724245
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Lithuania",
+        "away": "Sweden",
+        "kickoff": "2026-10-09T16:05:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.0665362074138903,
+        "D": 0.14603238503469768,
+        "A": 0.7874314075514119
+      },
+      "pick": "A",
+      "pickProbability": 0.7874314075514119,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.21256859244858797,
+          "fairOdds": 4.704363840777
+        },
+        "X2": {
+          "p": 0.9334637925861096,
+          "fairOdds": 1.0712788304617102
+        },
+        "12": {
+          "p": 0.8539676149653023,
+          "fairOdds": 1.1710045937053846
+        },
+        "HOME_DNB": {
+          "winP": 0.0665362074138903,
+          "pushP": 0.14603238503469768,
+          "lossP": 0.7874314075514119,
+          "conditionalP": 0.0779142045293998,
+          "fairOdds": 12.834630168400993
+        },
+        "AWAY_DNB": {
+          "winP": 0.7874314075514119,
+          "pushP": 0.14603238503469768,
+          "lossP": 0.0665362074138903,
+          "conditionalP": 0.9220857954706002,
+          "fairOdds": 1.0844977819982957
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1320.298174309251,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 0.75,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1329.0042227025478,
+          "daysSinceMatch": 5
+        },
+        "away": {
+          "elo": 1759.7310305241635,
+          "recentN": 8,
+          "goalsForMean": 1.875,
+          "goalsAgainstMean": 1.75,
+          "pointsShare": 0.5833333333333334,
+          "recentOpponentEloMean": 1800.778139756097,
+          "daysSinceMatch": 4
+        },
+        "eloDiffWithHomeAdvantage": -374.4328562149126
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Belarus",
+        "away": "Italy",
+        "kickoff": "2026-10-09T16:15:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.10234329492705065,
+        "D": 0.1857877002101994,
+        "A": 0.7118690048627498
+      },
+      "pick": "A",
+      "pickProbability": 0.7118690048627498,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.28813099513725005,
+          "fairOdds": 3.4706436200092043
+        },
+        "X2": {
+          "p": 0.8976567050729493,
+          "fairOdds": 1.1140116197524907
+        },
+        "12": {
+          "p": 0.8142122997898005,
+          "fairOdds": 1.2281809059604762
+        },
+        "HOME_DNB": {
+          "winP": 0.10234329492705065,
+          "pushP": 0.1857877002101994,
+          "lossP": 0.7118690048627498,
+          "conditionalP": 0.12569608068248528,
+          "fairOdds": 7.955697541008069
+        },
+        "AWAY_DNB": {
+          "winP": 0.7118690048627498,
+          "pushP": 0.1857877002101994,
+          "lossP": 0.10234329492705065,
+          "conditionalP": 0.8743039193175147,
+          "fairOdds": 1.1437670332995924
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1522.027098102553,
+          "recentN": 8,
+          "goalsForMean": 1.75,
+          "goalsAgainstMean": 0.75,
+          "pointsShare": 0.7083333333333334,
+          "recentOpponentEloMean": 1465.6309106156655,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1885.5358286461899,
+          "recentN": 8,
+          "goalsForMean": 1.625,
+          "goalsAgainstMean": 0.75,
+          "pointsShare": 0.7083333333333334,
+          "recentOpponentEloMean": 1743.3358565494984,
+          "daysSinceMatch": 4
+        },
+        "eloDiffWithHomeAdvantage": -298.50873054363683
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Greece",
+        "away": "England",
+        "kickoff": "2026-10-09T16:30:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.136496502581375,
+        "D": 0.21611602576802136,
+        "A": 0.6473874716506036
+      },
+      "pick": "A",
+      "pickProbability": 0.6473874716506036,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.3526125283493964,
+          "fairOdds": 2.835974106425172
+        },
+        "X2": {
+          "p": 0.863503497418625,
+          "fairOdds": 1.1580729006766277
+        },
+        "12": {
+          "p": 0.7838839742319786,
+          "fairOdds": 1.2756989973927761
+        },
+        "HOME_DNB": {
+          "winP": 0.136496502581375,
+          "pushP": 0.21611602576802136,
+          "lossP": 0.6473874716506036,
+          "conditionalP": 0.17412845149068057,
+          "fairOdds": 5.742886882868309
+        },
+        "AWAY_DNB": {
+          "winP": 0.6473874716506036,
+          "pushP": 0.21611602576802136,
+          "lossP": 0.136496502581375,
+          "conditionalP": 0.8258715485093194,
+          "fairOdds": 1.2108420514122067
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1764.635632980748,
+          "recentN": 8,
+          "goalsForMean": 0.875,
+          "goalsAgainstMean": 0.875,
+          "pointsShare": 0.4166666666666667,
+          "recentOpponentEloMean": 1831.5157679220513,
+          "daysSinceMatch": 5
+        },
+        "away": {
+          "elo": 2073.442204028141,
+          "recentN": 8,
+          "goalsForMean": 3.25,
+          "goalsAgainstMean": 1.5,
+          "pointsShare": 0.75,
+          "recentOpponentEloMean": 1935.7789948383772,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": -243.80657104739316
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Croatia",
+        "away": "Iceland",
+        "kickoff": "2026-10-09T16:45:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.7921385039978746,
+        "D": 0.1459058012670276,
+        "A": 0.06195569473509782
+      },
+      "pick": "H",
+      "pickProbability": 0.7921385039978746,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.9380443052649021,
+          "fairOdds": 1.0660477275831888
+        },
+        "X2": {
+          "p": 0.20786149600212542,
+          "fairOdds": 4.810895809148679
+        },
+        "12": {
+          "p": 0.8540941987329724,
+          "fairOdds": 1.1708310412170873
+        },
+        "HOME_DNB": {
+          "winP": 0.7921385039978746,
+          "pushP": 0.1459058012670276,
+          "lossP": 0.06195569473509782,
+          "conditionalP": 0.9274603494239774,
+          "fairOdds": 1.0782132094607335
+        },
+        "AWAY_DNB": {
+          "winP": 0.06195569473509782,
+          "pushP": 0.1459058012670276,
+          "lossP": 0.7921385039978746,
+          "conditionalP": 0.0725396505760226,
+          "fairOdds": 13.78556406129894
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1863.5556790610297,
+          "recentN": 8,
+          "goalsForMean": 1.25,
+          "goalsAgainstMean": 2.625,
+          "pointsShare": 0.375,
+          "recentOpponentEloMean": 1938.1442290443194,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1585.9390038094784,
+          "recentN": 8,
+          "goalsForMean": 1.25,
+          "goalsAgainstMean": 1.0,
+          "pointsShare": 0.4166666666666667,
+          "recentOpponentEloMean": 1654.928867334155,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 342.6166752515512
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Czechia",
+        "away": "Scotland",
+        "kickoff": "2026-10-09T17:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.38525685910430135,
+        "D": 0.3124487115601618,
+        "A": 0.3022944293355368
+      },
+      "pick": "H",
+      "pickProbability": 0.38525685910430135,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.6977055706644631,
+          "fairOdds": 1.4332693360146822
+        },
+        "X2": {
+          "p": 0.6147431408956986,
+          "fairOdds": 1.626695661122743
+        },
+        "12": {
+          "p": 0.6875512884398381,
+          "fairOdds": 1.4544369515605986
+        },
+        "HOME_DNB": {
+          "winP": 0.38525685910430135,
+          "pushP": 0.3124487115601618,
+          "lossP": 0.3022944293355368,
+          "conditionalP": 0.5603318117234711,
+          "fairOdds": 1.784656839175694
+        },
+        "AWAY_DNB": {
+          "winP": 0.3022944293355368,
+          "pushP": 0.3124487115601618,
+          "lossP": 0.38525685910430135,
+          "conditionalP": 0.4396681882765289,
+          "fairOdds": 2.2744424697177568
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1680.7686121830927,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 2.125,
+          "pointsShare": 0.16666666666666666,
+          "recentOpponentEloMean": 1898.8983769028125,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1732.5530687083128,
+          "recentN": 8,
+          "goalsForMean": 1.0,
+          "goalsAgainstMean": 1.125,
+          "pointsShare": 0.4166666666666667,
+          "recentOpponentEloMean": 1763.1585867139668,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 13.215543474779906
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Romania",
+        "away": "Norway",
+        "kickoff": "2026-10-09T17:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.18421500396489845,
+        "D": 0.24977721464601965,
+        "A": 0.5660077813890819
+      },
+      "pick": "A",
+      "pickProbability": 0.5660077813890819,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.4339922186109181,
+          "fairOdds": 2.304188778316595
+        },
+        "X2": {
+          "p": 0.8157849960351016,
+          "fairOdds": 1.2258131797719065
+        },
+        "12": {
+          "p": 0.7502227853539803,
+          "fairOdds": 1.3329373880962125
+        },
+        "HOME_DNB": {
+          "winP": 0.18421500396489845,
+          "pushP": 0.24977721464601965,
+          "lossP": 0.5660077813890819,
+          "conditionalP": 0.24554706623310518,
+          "fairOdds": 4.072538985461427
+        },
+        "AWAY_DNB": {
+          "winP": 0.5660077813890819,
+          "pushP": 0.24977721464601965,
+          "lossP": 0.18421500396489845,
+          "conditionalP": 0.7544529337668948,
+          "fairOdds": 1.3254637303974914
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1628.3816894362303,
+          "recentN": 8,
+          "goalsForMean": 1.375,
+          "goalsAgainstMean": 1.875,
+          "pointsShare": 0.2916666666666667,
+          "recentOpponentEloMean": 1624.3439244862511,
+          "daysSinceMatch": 4
+        },
+        "away": {
+          "elo": 1875.1680109922672,
+          "recentN": 8,
+          "goalsForMean": 1.5,
+          "goalsAgainstMean": 2.0,
+          "pointsShare": 0.375,
+          "recentOpponentEloMean": 1922.398222190147,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -181.7863215560369
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Hungary",
+        "away": "Netherlands",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.19904334288088546,
+        "D": 0.258558460536418,
+        "A": 0.5423981965826966
+      },
+      "pick": "A",
+      "pickProbability": 0.5423981965826966,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.4576018034173035,
+          "fairOdds": 2.1853060729484586
+        },
+        "X2": {
+          "p": 0.8009566571191147,
+          "fairOdds": 1.2485070086024448
+        },
+        "12": {
+          "p": 0.741441539463582,
+          "fairOdds": 1.3487240015220616
+        },
+        "HOME_DNB": {
+          "winP": 0.19904334288088546,
+          "pushP": 0.258558460536418,
+          "lossP": 0.5423981965826966,
+          "conditionalP": 0.2684545338866356,
+          "fairOdds": 3.725025558414615
+        },
+        "AWAY_DNB": {
+          "winP": 0.5423981965826966,
+          "pushP": 0.258558460536418,
+          "lossP": 0.19904334288088546,
+          "conditionalP": 0.7315454661133645,
+          "fairOdds": 1.3669690351755037
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1731.5743785536442,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 0.5,
+          "pointsShare": 0.7083333333333334,
+          "recentOpponentEloMean": 1652.6294142871775,
+          "daysSinceMatch": 4
+        },
+        "away": {
+          "elo": 1961.2140653116362,
+          "recentN": 8,
+          "goalsForMean": 2.25,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.6666666666666666,
+          "recentOpponentEloMean": 1800.3531793231368,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -164.63968675799197
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Northern Ireland",
+        "away": "Portugal",
+        "kickoff": "2026-10-09T18:00:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.09603804870820602,
+        "D": 0.17946929880442825,
+        "A": 0.7244926524873657
+      },
+      "pick": "A",
+      "pickProbability": 0.7244926524873657,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.2755073475126343,
+          "fairOdds": 3.629667263063254
+        },
+        "X2": {
+          "p": 0.903961951291794,
+          "fairOdds": 1.106241251162136
+        },
+        "12": {
+          "p": 0.8205307011955717,
+          "fairOdds": 1.2187234414787025
+        },
+        "HOME_DNB": {
+          "winP": 0.09603804870820602,
+          "pushP": 0.17946929880442825,
+          "lossP": 0.7244926524873657,
+          "conditionalP": 0.1170438212345641,
+          "fairOdds": 8.543808544971624
+        },
+        "AWAY_DNB": {
+          "winP": 0.7244926524873657,
+          "pushP": 0.17946929880442825,
+          "lossP": 0.09603804870820602,
+          "conditionalP": 0.882956178765436,
+          "fairOdds": 1.1325590375257544
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1619.8578854951415,
+          "recentN": 8,
+          "goalsForMean": 0.875,
+          "goalsAgainstMean": 0.75,
+          "pointsShare": 0.5,
+          "recentOpponentEloMean": 1741.4977511097181,
+          "daysSinceMatch": 4
+        },
+        "away": {
+          "elo": 1994.9617664321286,
+          "recentN": 8,
+          "goalsForMean": 2.0,
+          "goalsAgainstMean": 0.75,
+          "pointsShare": 0.7916666666666666,
+          "recentOpponentEloMean": 1885.5580600659923,
+          "daysSinceMatch": 5
+        },
+        "eloDiffWithHomeAdvantage": -310.103880936987
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Belgium",
+        "away": "Poland",
+        "kickoff": "2026-10-09T18:15:00Z",
+        "competition": "playoff-phase---first-round",
+        "competitionSlug": "playoff-phase---first-round"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.7253898515936801,
+        "D": 0.18247654944516825,
+        "A": 0.09213359896115163
+      },
+      "pick": "H",
+      "pickProbability": 0.7253898515936801,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.9078664010388483,
+          "fairOdds": 1.1014836531627623
+        },
+        "X2": {
+          "p": 0.27461014840631986,
+          "fairOdds": 3.6415260171680752
+        },
+        "12": {
+          "p": 0.8175234505548317,
+          "fairOdds": 1.223206501686681
+        },
+        "HOME_DNB": {
+          "winP": 0.7253898515936801,
+          "pushP": 0.18247654944516825,
+          "lossP": 0.09213359896115163,
+          "conditionalP": 0.8873015827269262,
+          "fairOdds": 1.1270125281718986
+        },
+        "AWAY_DNB": {
+          "winP": 0.09213359896115163,
+          "pushP": 0.18247654944516825,
+          "lossP": 0.7253898515936801,
+          "conditionalP": 0.1126984172730739,
+          "fairOdds": 8.873239076436628
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1934.8653557514986,
+          "recentN": 8,
+          "goalsForMean": 2.375,
+          "goalsAgainstMean": 1.375,
+          "pointsShare": 0.625,
+          "recentOpponentEloMean": 1908.9067182975964,
+          "daysSinceMatch": 4
+        },
+        "away": {
+          "elo": 1726.5125628420672,
+          "recentN": 8,
+          "goalsForMean": 2.125,
+          "goalsAgainstMean": 1.75,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1690.453301020105,
+          "daysSinceMatch": 7
+        },
+        "eloDiffWithHomeAdvantage": 273.3527929094314
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    }
+  ],
+  "summary": {
+    "discoveredFixtures": 125,
+    "seniorMensInternationalCandidates": 16,
+    "pricedOrFunded": 0,
+    "r0Shadow": 16
+  }
+}
