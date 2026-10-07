@@ -1,0 +1,101 @@
+name: HBT Forward Four-Day Prospective
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-forward-4day.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hbt-forward-four-day
+  cancel-in-progress: false
+
+jobs:
+  forward:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Resolve next four SAST dates
+        run: |
+          echo "D1=$(TZ=Africa/Johannesburg date -d '+1 day' +%F)" >> "$GITHUB_ENV"
+          echo "D2=$(TZ=Africa/Johannesburg date -d '+2 day' +%F)" >> "$GITHUB_ENV"
+          echo "D3=$(TZ=Africa/Johannesburg date -d '+3 day' +%F)" >> "$GITHUB_ENV"
+          echo "D4=$(TZ=Africa/Johannesburg date -d '+4 day' +%F)" >> "$GITHUB_ENV"
+      - name: Compile exact forward stack
+        run: |
+          python -m py_compile scripts/hbt_collect_live_data.py scripts/hbt_collect_players_espn.py scripts/hbt_collect_context_v3_runtime.py scripts/hbt_collect_market_intelligence_v4_final.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_build_prospective_from_frozen.py scripts/hbt_execution_surface_v1.py scripts/hbt_execution_surface_v1_2.py
+          node --check scripts/hbt_frozen_forecast_bridge.mjs
+      - name: Refresh existing intelligence families once
+        run: |
+          python scripts/hbt_collect_live_data.py
+          python scripts/hbt_collect_players_espn.py
+          python scripts/hbt_collect_context_v3_runtime.py
+          python scripts/hbt_collect_market_intelligence_v4_final.py
+          python scripts/hbt_collect_match_intelligence_v6.py
+      - name: Freeze four forward dates before bookmaker pricing
+        run: |
+          set -euo pipefail
+          for D in "$D1" "$D2" "$D3" "$D4"; do
+            echo "=== $D ==="
+            python scripts/hbt_scan_slate_v2_2.py --date "$D"
+            node scripts/hbt_frozen_forecast_bridge.mjs --date "$D"
+            python - <<'PY'
+          import json
+          s=json.load(open('hbt_live_data/forecast_bridge_status.json',encoding='utf-8'))
+          assert s['status']=='READY',s
+          assert s['goldenParity']['pass'] is True
+          assert s['goldenParity']['unresolved']==0
+          assert s['goldenParity']['maxAbsError']<=1e-9
+          assert s['policy']['retrainingOrRetuningPerformed'] is False
+          PY
+            python scripts/hbt_build_prospective_from_frozen.py --date "$D"
+            python scripts/hbt_execution_surface_v1_2.py --date "$D"
+          done
+      - name: Validate forward evidence
+        run: |
+          python - <<'PY'
+          import json, os
+          for d in [os.environ[x] for x in ('D1','D2','D3','D4')]:
+              c=json.load(open(f'hbt_live_data/hbt_prospective_card_{d}.json',encoding='utf-8'))
+              e=json.load(open(f'hbt_live_data/hbt_execution_surface_{d}.json',encoding='utf-8'))
+              q=c['policy']
+              assert q['bookmakerOddsUsedAsPredictiveFeature'] is False
+              assert q['bookmakerPriceObservedBeforeCapture'] is False
+              assert q['modelRetuned'] is False
+              assert q['preMatchCaptureImmutable'] is True
+              assert q['exactFrozenRuntimeParityRequired'] is True
+              assert c['counts']['postKickoff']==0
+              assert e['policy']['footballProbabilitiesImmutable'] is True
+              assert e['policy']['r0Default'] is True
+              assert all((r['value']['stakeRand']==0) for r in e.get('rows') or [])
+              print(d,c['counts'],e['summary'])
+          PY
+      - name: Commit exact forward evidence
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for D in "$D1" "$D2" "$D3" "$D4"; do
+            git add "hbt_live_data/frozen_control_forecast_${D}.json" "hbt_live_data/hbt_prospective_card_${D}.json" "hbt_live_data/hbt_execution_surface_${D}.json"
+          done
+          git add hbt_live_data/forecast_bridge_status.json hbt_live_data/slate_scanner.json hbt_live_data/manifest.json hbt_live_data/performance.json hbt_live_data/player_features.json hbt_live_data/pre_xi_context.json hbt_live_data/market_intelligence.json hbt_live_data/hbt_1_4_match_intelligence.json hbt_live_data/_hbt_1_4_live_cache.json || true
+          git diff --staged --quiet && exit 0
+          git commit -m "prospective: exact frozen HBT forward surfaces ${D1} to ${D4} [skip ci]"
+          git fetch origin research/hbt-1.4-match-intelligence
+          git rebase origin/research/hbt-1.4-match-intelligence
+          git push origin HEAD:research/hbt-1.4-match-intelligence
