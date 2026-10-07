@@ -1,0 +1,101 @@
+name: HBT Exact Weekend Freeze 10-11 Oct
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-exact-weekend-freeze-10-11-oct.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hbt-exact-weekend-freeze-10-11-oct
+  cancel-in-progress: false
+
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Compile exact immutable stack
+        run: |
+          python -m py_compile scripts/hbt_scan_slate_v2_2.py scripts/hbt_build_prospective_from_frozen.py scripts/hbt_execution_surface_v1.py scripts/hbt_execution_surface_v1_2.py
+          node --check scripts/hbt_frozen_forecast_bridge.mjs
+      - name: Freeze 10 and 11 October before bookmaker pricing
+        run: |
+          set -euo pipefail
+          for D in 2026-10-10 2026-10-11; do
+            python scripts/hbt_scan_slate_v2_2.py --date "$D"
+            node scripts/hbt_frozen_forecast_bridge.mjs --date "$D"
+            python - "$D" <<'PY'
+          import json,sys
+          d=sys.argv[1]
+          s=json.load(open('hbt_live_data/forecast_bridge_status.json',encoding='utf-8'))
+          assert s['status']=='READY',s
+          assert s['targetDate']==d,(s.get('targetDate'),d)
+          assert s['goldenParity']['pass'] is True
+          assert s['goldenParity']['unresolved']==0
+          assert float(s['goldenParity']['maxAbsError'])<=1e-9
+          assert s['policy']['retrainingOrRetuningPerformed'] is False
+          assert s['policy']['bookmakerOddsUsed'] is False
+          PY
+            python scripts/hbt_build_prospective_from_frozen.py --date "$D"
+            python scripts/hbt_execution_surface_v1_2.py --date "$D"
+          done
+      - name: Validate immutable pre-price capture
+        run: |
+          python - <<'PY'
+          import json
+          for d in ('2026-10-10','2026-10-11'):
+              c=json.load(open(f'hbt_live_data/hbt_prospective_card_{d}.json',encoding='utf-8'))
+              e=json.load(open(f'hbt_live_data/hbt_execution_surface_{d}.json',encoding='utf-8'))
+              q=c['policy']
+              assert q['bookmakerOddsUsedAsPredictiveFeature'] is False
+              assert q['bookmakerPriceObservedBeforeCapture'] is False
+              assert q['modelRetuned'] is False
+              assert q['preMatchCaptureImmutable'] is True
+              assert q['exactFrozenRuntimeParityRequired'] is True
+              assert c['counts']['postKickoff']==0
+              assert e['policy']['footballProbabilitiesImmutable'] is True
+              assert e['policy']['r0Default'] is True
+              assert all(r['value']['stakeRand']==0 for r in (e.get('rows') or []))
+              print(d,c['counts'],e['summary'])
+          PY
+      - name: Commit only exact frozen weekend evidence
+        run: |
+          set -euo pipefail
+          TMP="$(mktemp -d)"
+          for D in 2026-10-10 2026-10-11; do
+            cp "hbt_live_data/frozen_control_forecast_${D}.json" "$TMP/"
+            cp "hbt_live_data/hbt_prospective_card_${D}.json" "$TMP/"
+            cp "hbt_live_data/hbt_execution_surface_${D}.json" "$TMP/"
+          done
+          cp hbt_live_data/forecast_bridge_status.json "$TMP/"
+          BRANCH='research/hbt-1.4-match-intelligence'
+          git fetch origin "$BRANCH"
+          git reset --hard "origin/$BRANCH"
+          for D in 2026-10-10 2026-10-11; do
+            cp "$TMP/frozen_control_forecast_${D}.json" hbt_live_data/
+            cp "$TMP/hbt_prospective_card_${D}.json" hbt_live_data/
+            cp "$TMP/hbt_execution_surface_${D}.json" hbt_live_data/
+          done
+          cp "$TMP/forecast_bridge_status.json" hbt_live_data/
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/frozen_control_forecast_2026-10-10.json hbt_live_data/hbt_prospective_card_2026-10-10.json hbt_live_data/hbt_execution_surface_2026-10-10.json hbt_live_data/frozen_control_forecast_2026-10-11.json hbt_live_data/hbt_prospective_card_2026-10-11.json hbt_live_data/hbt_execution_surface_2026-10-11.json hbt_live_data/forecast_bridge_status.json
+          git diff --staged --quiet && exit 0
+          git commit -m 'prospective: exact frozen HBT weekend 10-11 Oct [skip ci]'
+          git push origin HEAD:"$BRANCH"
