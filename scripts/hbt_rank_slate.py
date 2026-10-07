@@ -250,7 +250,7 @@ def main() -> int:
         "rawProbabilityIsNotBettingValue": True,
         "universalBestBetsClaimAllowed": False,
         "configuredSourceRankingLabel": "Best HBT-supported candidates from the configured-source discovered slate",
-        "testAImmutable": bool((ex.get("policy") or {}).get("testAImmutable") and test_a and test_a.get("state") == "FROZEN_PROSPECTIVE"),
+        "testAImmutable": bool((ex.get("policy") or {}).get("testAImmutable") and test_a and test_a.get("state") in {"FROZEN_PROSPECTIVE", "SETTLED"}),
         "intelligenceByteIntegrityRequired": True,
         "intelligenceIntegrityMode": integrity_mode,
     }
