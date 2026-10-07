@@ -6,6 +6,9 @@ on:
       - research/hbt-1.4-match-intelligence
     paths:
       - '.github/workflows/hbt-forward-2day.yml'
+      - 'scripts/hbt_frozen_forecast_bridge.mjs'
+      - 'scripts/hbt_build_prospective_from_frozen.py'
+      - 'scripts/hbt_execution_surface_v1_2.py'
   workflow_dispatch:
     inputs:
       start_date:
@@ -53,7 +56,7 @@ jobs:
           echo "d2=$D2" >> "$GITHUB_OUTPUT"
           echo "Forward targets: $D1 / $D2"
 
-      - name: Compile execution stack
+      - name: Compile exact forward execution stack
         run: |
           set -euo pipefail
           python -m py_compile \
@@ -63,11 +66,10 @@ jobs:
             scripts/hbt_collect_market_intelligence_v4_final.py \
             scripts/hbt_collect_match_intelligence_v6.py \
             scripts/hbt_scan_slate_v2_2.py \
-            scripts/hbt_patch_resolver_v3.py \
-            scripts/hbt_patch_resolver_daily.py \
-            scripts/hbt_harden_resolver_v3.py \
-            scripts/hbt_build_prospective_card_v2.py \
-            scripts/hbt_execution_surface_v1.py
+            scripts/hbt_build_prospective_from_frozen.py \
+            scripts/hbt_execution_surface_v1.py \
+            scripts/hbt_execution_surface_v1_2.py
+          node --check scripts/hbt_frozen_forecast_bridge.mjs
 
       - name: Refresh existing intelligence families once
         run: |
@@ -78,35 +80,45 @@ jobs:
           python scripts/hbt_collect_market_intelligence_v4_final.py
           python scripts/hbt_collect_match_intelligence_v6.py
 
-      - name: Freeze first forward date
+      - name: Freeze first forward date with exact recovered runtime
         env:
           D: '${{ steps.dates.outputs.d1 }}'
         run: |
           set -euo pipefail
           python scripts/hbt_scan_slate_v2_2.py --date "$D"
-          python scripts/hbt_patch_resolver_daily.py --date "$D"
-          python scripts/hbt_harden_resolver_v3.py
-          node --check scripts/.hbt_resolver_v3_tmp.mjs
-          node scripts/.hbt_resolver_v3_tmp.mjs --date "$D"
-          python scripts/hbt_build_prospective_card_v2.py --date "$D"
-          python scripts/hbt_execution_surface_v1.py --date "$D"
-          rm -f scripts/.hbt_resolver_v3_tmp.mjs
+          node scripts/hbt_frozen_forecast_bridge.mjs --date "$D"
+          python - <<'PY'
+          import json
+          s=json.load(open('hbt_live_data/forecast_bridge_status.json',encoding='utf-8'))
+          assert s['status']=='READY',s
+          assert s['goldenParity']['pass'] is True
+          assert s['goldenParity']['unresolved']==0
+          assert s['goldenParity']['maxAbsError']<=1e-9
+          assert s['policy']['retrainingOrRetuningPerformed'] is False
+          PY
+          python scripts/hbt_build_prospective_from_frozen.py --date "$D"
+          python scripts/hbt_execution_surface_v1_2.py --date "$D"
 
-      - name: Freeze second forward date
+      - name: Freeze second forward date with exact recovered runtime
         env:
           D: '${{ steps.dates.outputs.d2 }}'
         run: |
           set -euo pipefail
           python scripts/hbt_scan_slate_v2_2.py --date "$D"
-          python scripts/hbt_patch_resolver_daily.py --date "$D"
-          python scripts/hbt_harden_resolver_v3.py
-          node --check scripts/.hbt_resolver_v3_tmp.mjs
-          node scripts/.hbt_resolver_v3_tmp.mjs --date "$D"
-          python scripts/hbt_build_prospective_card_v2.py --date "$D"
-          python scripts/hbt_execution_surface_v1.py --date "$D"
-          rm -f scripts/.hbt_resolver_v3_tmp.mjs
+          node scripts/hbt_frozen_forecast_bridge.mjs --date "$D"
+          python - <<'PY'
+          import json
+          s=json.load(open('hbt_live_data/forecast_bridge_status.json',encoding='utf-8'))
+          assert s['status']=='READY',s
+          assert s['goldenParity']['pass'] is True
+          assert s['goldenParity']['unresolved']==0
+          assert s['goldenParity']['maxAbsError']<=1e-9
+          assert s['policy']['retrainingOrRetuningPerformed'] is False
+          PY
+          python scripts/hbt_build_prospective_from_frozen.py --date "$D"
+          python scripts/hbt_execution_surface_v1_2.py --date "$D"
 
-      - name: Validate forward execution contracts
+      - name: Validate exact forward execution contracts
         env:
           D1: '${{ steps.dates.outputs.d1 }}'
           D2: '${{ steps.dates.outputs.d2 }}'
@@ -117,17 +129,20 @@ jobs:
           for d in (os.environ['D1'], os.environ['D2']):
               c=json.load(open(f'hbt_live_data/hbt_prospective_card_{d}.json',encoding='utf-8'))
               e=json.load(open(f'hbt_live_data/hbt_execution_surface_{d}.json',encoding='utf-8'))
-              assert c['policy']['bookmakerOddsUsedAsPredictiveFeature'] is False
-              assert c['policy']['bookmakerPriceObservedBeforeCapture'] is False
-              assert c['policy']['modelRetuned'] is False
+              q=c['policy']
+              assert q['bookmakerOddsUsedAsPredictiveFeature'] is False
+              assert q['bookmakerPriceObservedBeforeCapture'] is False
+              assert q['modelRetuned'] is False
+              assert q['preMatchCaptureImmutable'] is True
+              assert q['exactFrozenRuntimeParityRequired'] is True
+              assert c['counts']['postKickoff']==0
               assert e['policy']['footballProbabilitiesImmutable'] is True
               assert e['policy']['r0Default'] is True
-              assert e['policy']['executionRequiresTimezoneAwareVerifiedKickoff'] is True
-              assert all((r['value']['stakeRand']==0) for r in e['rows']), 'forward unpriced run must remain R0'
+              assert all((r['value']['stakeRand']==0) for r in e.get('rows') or []), 'unpriced forward run must remain R0'
               print(d, c['counts'], e['summary'])
           PY
 
-      - name: Commit forward evidence
+      - name: Commit exact forward evidence
         env:
           D1: '${{ steps.dates.outputs.d1 }}'
           D2: '${{ steps.dates.outputs.d2 }}'
@@ -136,14 +151,13 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add \
-            "hbt_live_data/hbt_broad_shadow_forecast_${D1}_resolver_v3.json" \
-            "hbt_live_data/hbt_broad_shadow_status_${D1}_resolver_v3.json" \
+            "hbt_live_data/frozen_control_forecast_${D1}.json" \
             "hbt_live_data/hbt_prospective_card_${D1}.json" \
             "hbt_live_data/hbt_execution_surface_${D1}.json" \
-            "hbt_live_data/hbt_broad_shadow_forecast_${D2}_resolver_v3.json" \
-            "hbt_live_data/hbt_broad_shadow_status_${D2}_resolver_v3.json" \
+            "hbt_live_data/frozen_control_forecast_${D2}.json" \
             "hbt_live_data/hbt_prospective_card_${D2}.json" \
             "hbt_live_data/hbt_execution_surface_${D2}.json" \
+            hbt_live_data/forecast_bridge_status.json \
             hbt_live_data/slate_scanner.json \
             hbt_live_data/manifest.json \
             hbt_live_data/performance.json \
@@ -153,5 +167,7 @@ jobs:
             hbt_live_data/hbt_1_4_match_intelligence.json \
             hbt_live_data/_hbt_1_4_live_cache.json || true
           git diff --staged --quiet && exit 0
-          git commit -m "test: freeze HBT forward two-day execution surfaces ${D1} ${D2} [skip ci]"
+          git commit -m "prospective: exact frozen HBT forward surfaces ${D1} ${D2} [skip ci]"
+          git fetch origin research/hbt-1.4-match-intelligence
+          git rebase origin/research/hbt-1.4-match-intelligence
           git push origin HEAD:research/hbt-1.4-match-intelligence
