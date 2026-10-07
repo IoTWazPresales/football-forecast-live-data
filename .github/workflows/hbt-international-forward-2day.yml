@@ -1,0 +1,77 @@
+name: HBT International Forward Two-Day Capture
+
+on:
+  push:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-international-forward-2day.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hbt-international-forward-two-day
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Resolve next two SAST dates
+        run: |
+          echo "D1=$(TZ=Africa/Johannesburg date -d '+1 day' +%F)" >> "$GITHUB_ENV"
+          echo "D2=$(TZ=Africa/Johannesburg date -d '+2 day' +%F)" >> "$GITHUB_ENV"
+      - name: Compile international forward stack
+        run: |
+          python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_international_challenger_v1.py scripts/hbt_international_context_v2.py scripts/hbt_international_intelligence_v3.py
+      - name: Capture next two international slates before prices
+        run: |
+          set -euo pipefail
+          for D in "$D1" "$D2"; do
+            python scripts/hbt_scan_slate_v2_2.py --date "$D"
+            python scripts/hbt_international_challenger_v1.py --date "$D"
+            python scripts/hbt_international_context_v2.py --date "$D"
+            python scripts/hbt_international_intelligence_v3.py --date "$D"
+          done
+      - name: Validate research-only prospective contract
+        run: |
+          python - <<'PY'
+          import json,os
+          for d in (os.environ['D1'],os.environ['D2']):
+              p=f'hbt_live_data/international/hbt_international_intelligence_{d}.json'
+              x=json.load(open(p,encoding='utf-8')); q=x['policy']; v=x['validation']
+              assert q['researchOnly'] is True
+              assert q['frozenHBT112Mutated'] is False and q['domesticForecastsMutated'] is False
+              assert q['bookmakerOddsRead'] is False
+              assert q['automaticPromotion'] is False and q['automaticFunding'] is False
+              assert v['promotionAllowed'] is False
+              for r in x.get('prospectiveCandidates') or []:
+                  assert (r.get('capture') or {}).get('statusAtCapture')=='PRE_KICKOFF'
+                  assert (r.get('execution') or {}).get('fundingAllowed') is False
+              print(d,x['summary'])
+          PY
+      - name: Keep scanner output out of international commit
+        run: git checkout -- hbt_live_data/slate_scanner.json || true
+      - name: Commit immutable forward research evidence
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          for D in "$D1" "$D2"; do
+            git add "hbt_live_data/international/hbt_international_challenger_${D}.json" "hbt_live_data/international/hbt_international_prospective_${D}.json" "hbt_live_data/international/hbt_international_intelligence_${D}.json" "hbt_live_data/international/hbt_international_validation.json"
+          done
+          git diff --staged --quiet && exit 0
+          git commit -m "prospective: freeze international research ${D1} ${D2} [skip ci]"
+          git fetch origin research/hbt-1.4-match-intelligence
+          git rebase origin/research/hbt-1.4-match-intelligence
+          git push origin HEAD:research/hbt-1.4-match-intelligence
