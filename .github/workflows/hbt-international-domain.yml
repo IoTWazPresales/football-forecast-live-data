@@ -9,6 +9,7 @@ on:
       - 'scripts/hbt_international_challenger_v1.py'
       - 'scripts/hbt_international_context_v2.py'
       - 'scripts/hbt_international_intelligence_v3.py'
+      - 'scripts/hbt_international_forensic_v1.py'
       - 'scripts/hbt_scan_slate_v2.py'
       - 'scripts/hbt_scan_slate_v2_1.py'
       - 'scripts/hbt_scan_slate_v2_2.py'
@@ -59,7 +60,39 @@ jobs:
       - name: Compile research adapter
         run: |
           set -euo pipefail
-          python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_international_challenger_v1.py scripts/hbt_international_context_v2.py scripts/hbt_international_intelligence_v3.py
+          python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_international_challenger_v1.py scripts/hbt_international_context_v2.py scripts/hbt_international_intelligence_v3.py scripts/hbt_international_forensic_v1.py
+
+      - name: Settle prior immutable international evidence and rebuild registry
+        run: |
+          set -euo pipefail
+          python scripts/hbt_international_forensic_v1.py --date '${{ steps.target.outputs.date }}'
+
+      - name: Guard forensic learning contract
+        env:
+          TARGET_DATE: '${{ steps.target.outputs.date }}'
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import json, pathlib
+          root=pathlib.Path('hbt_live_data/international')
+          s=json.load(open(root/'hbt_international_forensic_settlement.json',encoding='utf-8'))
+          r=json.load(open(root/'hbt_international_evidence_registry.json',encoding='utf-8'))
+          a=json.load(open(root/'hbt_international_learning_assessment.json',encoding='utf-8'))
+          assert s['policy']['retrospectivePredictionsFabricated'] is False
+          assert s['policy']['identityTimingBlockedExcludedFromLearning'] is True
+          assert s['policy']['bookmakerOddsRead'] is False
+          assert s['policy']['modelRetuned'] is False
+          assert r['policy']['cleanProspectiveOnlyForPredictiveLearning'] is True
+          assert r['policy']['legacyEvidenceHypothesisOnly'] is True
+          assert a['retuningPerformed'] is False
+          assert a['promotionAllowed'] is False
+          for row in r.get('records') or []:
+              if row.get('learningEligible'):
+                  assert row.get('evidenceClass') == 'CLEAN_PROSPECTIVE'
+                  assert row.get('identityVerified') is True
+                  assert not row.get('exclusionReasons')
+          print(json.dumps({'settlement':s['summary'],'assessment':a},indent=2))
+          PY
 
       - name: Discover public slate without changing frozen model
         run: |
