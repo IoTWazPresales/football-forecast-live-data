@@ -154,10 +154,18 @@ jobs:
                   if state=='FALLBACK': assert str(row.get('predictionMode') or '').startswith('L0')
           adapter=s.get('frozenForecastAdapter') or {}
           if b.get('status')=='READY':
-              assert adapter.get('available') is True, adapter
-              assert adapter.get('generalFutureLiveFeed') is False
-              assert int(adapter.get('predictions') or 0) >= 1
               c=s.get('coverage') or {}; g=s.get('rankingGate') or {}
+              target_predictions=int((b.get('target') or {}).get('predictions') or 0)
+              # READY proves frozen-runtime parity. A zero-prediction date is legitimate
+              # when no supported HBT competition has a fixture; do not fail the
+              # research pipeline merely because the supported slate is empty.
+              if target_predictions > 0:
+                  assert adapter.get('available') is True, adapter
+                  assert adapter.get('generalFutureLiveFeed') is False
+                  assert int(adapter.get('predictions') or 0) == target_predictions, (adapter,target_predictions)
+              else:
+                  assert int(c.get('forecastRowsAvailable') or 0)==0, c
+                  assert int(c.get('forecastRowsMatched') or 0)==0, c
               assert int(c.get('knownForecastsMissedByDiscovery') or 0)==0, c
               assert int(c.get('forecastRowsMatched') or 0)==int(c.get('forecastRowsAvailable') or 0), c
               assert g.get('knownForecastCoverageComplete') is True, g
