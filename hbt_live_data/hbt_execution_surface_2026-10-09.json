@@ -1,0 +1,300 @@
+{
+  "schemaVersion": "HBT-EXECUTION-SURFACE-1",
+  "version": "HBT-EXECUTION-SURFACE-1.2-RISK-ADJUSTED",
+  "targetDate": "2026-10-09",
+  "generatedAt": "2026-10-08T11:33:23.974119Z",
+  "policy": {
+    "footballProbabilitiesImmutable": true,
+    "bookmakerPriceObservedOnlyAfterPredictionFreeze": true,
+    "r0Default": true,
+    "r1MinimumModelEV": 0.03,
+    "r2MinimumModelEV": 0.07,
+    "r2RequiresNativeCurrentQualityAtLeast": 0.9,
+    "c1MaximumFundedStakeRand": 1,
+    "executionRequiresTimezoneAwareVerifiedKickoff": true,
+    "genericDiscoveryIdentityMayNotAuthorizeExecution": true,
+    "startedFixtureAction": "R0_BLOCKED_IN_PLAY",
+    "chainLegMustIndependentlyPassValueGateForFunding": true,
+    "sameMatchCorrelatedLegsAllowed": false
+  },
+  "sourceProspectiveCard": "hbt_prospective_card_2026-10-09.json",
+  "priceSource": null,
+  "summary": {
+    "surfaces": 3,
+    "executionEligibleNow": 3,
+    "blockedIdentityOrTiming": 0,
+    "fundedSingles": 0,
+    "fundedStakeRand": 0,
+    "r0Singles": 3,
+    "chains": 1
+  },
+  "rows": [
+    {
+      "fixture": {
+        "home": "PSV",
+        "away": "SC Heerenveen",
+        "date": "2026-10-09",
+        "league": "nl.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-08T11:33:23.927070Z",
+      "executionSurfaceGeneratedAt": "2026-10-08T11:33:23.974119Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-09T18:00:00Z",
+        "source": "ESPN:nl.1",
+        "fixtureSources": [
+          "ESPN:nl.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401875592",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1",
+        "leagueHint": "nl.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "PSV Eindhoven",
+        "discoveryAway": "Heerenveen",
+        "identityScore": 0.975,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "A",
+        "rawTier": "A",
+        "quality": 0.9115280097768986,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "1X",
+        "selection": "PSV OR Draw — Double Chance (1X)",
+        "probability": 0.9360947362456833,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "PSV — Draw No Bet (draw = refund)",
+        "fairOdds": 1.083033724263,
+        "conditionalP": 0.923332281901467,
+        "winP": 0.7696302234006026,
+        "pushP": 0.16646451284508068,
+        "lossP": 0.06390526375431672
+      },
+      "value": {
+        "fairOdds": 1.0682679447708638,
+        "minimumOddsR1": 1.10031598311399,
+        "minimumOddsR2": 1.1430467009048244,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": true,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": 0.07,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "1X",
+        "selectionFrozen": "PSV OR Draw — Double Chance (1X)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Borussia Dortmund",
+        "away": "Werder Bremen",
+        "date": "2026-10-09",
+        "league": "de.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-08T11:33:23.927070Z",
+      "executionSurfaceGeneratedAt": "2026-10-08T11:33:23.974119Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-09T18:30:00Z",
+        "source": "ESPN:de.1",
+        "fixtureSources": [
+          "ESPN:de.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401884781",
+        "competition": "Bundesliga",
+        "competitionSlug": "de.1",
+        "leagueHint": "de.1",
+        "hbtSupportLevel": "NOT_YET_READY",
+        "discoveryHome": "Borussia Dortmund",
+        "discoveryAway": "Werder Bremen",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "A",
+        "rawTier": "A",
+        "quality": 0.9252239450587324,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "1X",
+        "selection": "Borussia Dortmund OR Draw — Double Chance (1X)",
+        "probability": 0.931607597629392,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "Borussia Dortmund — Draw No Bet (draw = refund)",
+        "fairOdds": 1.0891817997608257,
+        "conditionalP": 0.918120372760168,
+        "winP": 0.7668874428866403,
+        "pushP": 0.16472015474275165,
+        "lossP": 0.06839240237060806
+      },
+      "value": {
+        "fairOdds": 1.0734133153751022,
+        "minimumOddsR1": 1.1056157148363555,
+        "minimumOddsR2": 1.1485522474513594,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": true,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": 0.07,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "1X",
+        "selectionFrozen": "Borussia Dortmund OR Draw — Double Chance (1X)"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Moreirense",
+        "away": "Gil Vicente",
+        "date": "2026-10-09",
+        "league": "pt.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-08T11:33:23.927070Z",
+      "executionSurfaceGeneratedAt": "2026-10-08T11:33:23.974119Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-09T17:45:00Z",
+        "source": "ESPN:pt.1",
+        "fixtureSources": [
+          "ESPN:pt.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401885423",
+        "competition": "Primeira Liga",
+        "competitionSlug": "pt.1",
+        "leagueHint": "pt.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Moreirense",
+        "discoveryAway": "Gil Vicente",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.9289454158300608,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "12",
+        "selection": "Moreirense OR Gil Vicente — Either team wins, draw loses (12)",
+        "probability": 0.7174529016620774,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "Moreirense — Draw No Bet (draw = refund)",
+        "fairOdds": 1.82748403443914,
+        "conditionalP": 0.5472004029336993,
+        "winP": 0.39259051687544055,
+        "pushP": 0.28254709833792263,
+        "lossP": 0.32486238478663687
+      },
+      "value": {
+        "fairOdds": 1.393819716504545,
+        "minimumOddsR1": 1.4356343079996814,
+        "minimumOddsR2": 1.4913870966598632,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_UNPRICED",
+        "nativeCleanForR2": true,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": 0.07,
+          "probabilityChangedByRiskPolicy": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "12",
+        "selectionFrozen": "Moreirense OR Gil Vicente — Either team wins, draw loses (12)"
+      }
+    }
+  ],
+  "chains": [
+    {
+      "name": "R0_CORE_3",
+      "stakeRand": 0,
+      "executionClass": "R0_SHADOW_CHAIN",
+      "approximateIndependence": true,
+      "jointModelProbabilityApprox": 0.6256712816305728,
+      "fairOddsApprox": 1.5982833627809838,
+      "legs": [
+        {
+          "fixture": {
+            "home": "PSV",
+            "away": "SC Heerenveen",
+            "date": "2026-10-09",
+            "league": "nl.1"
+          },
+          "market": "1X",
+          "selection": "PSV OR Draw — Double Chance (1X)",
+          "p": 0.9360947362456833
+        },
+        {
+          "fixture": {
+            "home": "Borussia Dortmund",
+            "away": "Werder Bremen",
+            "date": "2026-10-09",
+            "league": "de.1"
+          },
+          "market": "1X",
+          "selection": "Borussia Dortmund OR Draw — Double Chance (1X)",
+          "p": 0.931607597629392
+        },
+        {
+          "fixture": {
+            "home": "Moreirense",
+            "away": "Gil Vicente",
+            "date": "2026-10-09",
+            "league": "pt.1"
+          },
+          "market": "12",
+          "selection": "Moreirense OR Gil Vicente — Either team wins, draw loses (12)",
+          "p": 0.7174529016620774
+        }
+      ]
+    }
+  ]
+}

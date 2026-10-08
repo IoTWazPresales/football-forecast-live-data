@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-PROSPECTIVE-CARD-2",
   "version": "HBT-PROSPECTIVE-FROZEN-BRIDGE-1",
-  "capturedAt": "2026-10-07T18:38:51.025368Z",
+  "capturedAt": "2026-10-08T11:33:37.437314Z",
   "targetDate": "2026-10-10",
   "origin": "HBT_EXACT_FROZEN_BRIDGE",
   "policy": {
@@ -21,9 +21,9 @@
   },
   "parityDiagnostic": 1.1102230246251565e-16,
   "intelligenceSources": {
-    "matchIntelligenceGeneratedAt": "2026-10-07T18:32:20Z",
-    "preXiGeneratedAt": "2026-09-29T08:42:16Z",
-    "marketIntelligenceGeneratedAt": "2026-09-29T08:42:29Z"
+    "matchIntelligenceGeneratedAt": "2026-10-08T11:33:13Z",
+    "preXiGeneratedAt": "2026-10-08T11:19:07Z",
+    "marketIntelligenceGeneratedAt": "2026-10-08T11:29:48Z"
   },
   "candidates": [
     {
@@ -99,12 +99,209 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
-        "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        "availabilityContinuity": {
+          "features": {
+            "availabilityKnown": true,
+            "availabilityAdv": 0.00021832405144971145,
+            "replacementQualityAdv": 0.10281258383090142,
+            "expectedXIStrengthDiff": 0.016863968239303806,
+            "expectedContinuityDiff": -0.5363636363636364,
+            "doubtfulWeightDiff": 0.09382855947371875
+          },
+          "sourceState": {
+            "availability": true,
+            "lineupHistory": true,
+            "workload": false,
+            "manager": false,
+            "roleShape": true
+          },
+          "featureReadiness": "full-shadow"
+        },
+        "tactical": {
+          "home": {
+            "n": 5,
+            "npxG": 1.679939283205729,
+            "npxGA": 1.06847861233913,
+            "deep": 11.052473365756057,
+            "deepAllowed": 4.830536243006041,
+            "ppda": 10.720909273077389,
+            "ppdaAllowed": 13.513149968430113,
+            "finishingResidual": -0.23220820046535673,
+            "shotStoppingResidual": 0.07986322333774432
+          },
+          "away": {
+            "n": 0,
+            "npxG": null,
+            "npxGA": null,
+            "deep": null,
+            "deepAllowed": null,
+            "ppda": null,
+            "ppdaAllowed": null,
+            "finishingResidual": null,
+            "shotStoppingResidual": null
+          },
+          "npxGAttackDiff": null,
+          "npxGADefenceDiff": null,
+          "deepAttackDiff": null,
+          "deepAllowedDefenceDiff": null,
+          "ppdaDiff": null,
+          "ppdaAllowedDiff": null
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": 0.07986322333774432,
+          "awayTeamResidual": null,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Emirates Stadium",
+              "city": "London",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Emirates Stadium",
+              "city": "London",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 2,
+            "points": 12.0,
+            "games": 5,
+            "ppg": 2.4,
+            "leaderGap": 3.0,
+            "relegationLineGap": 9.0
+          },
+          "away": {
+            "rank": null,
+            "points": 0,
+            "games": 0,
+            "ppg": 0.0,
+            "leaderGap": 15.0,
+            "relegationLineGap": -3.0
+          },
+          "teamsN": 20
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
         ],
-        "forensicFamiliesSurfaced": {}
+        "intelligenceGaps": [
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -185,12 +382,205 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
+        "availabilityContinuity": {
+          "features": {
+            "availabilityKnown": false,
+            "availabilityAdv": null,
+            "replacementQualityAdv": null,
+            "expectedXIStrengthDiff": null,
+            "expectedContinuityDiff": -0.2318181818181818,
+            "doubtfulWeightDiff": null
+          },
+          "sourceState": {
+            "availability": false,
+            "lineupHistory": true,
+            "workload": false,
+            "manager": false,
+            "roleShape": true
+          },
+          "featureReadiness": "continuity-only"
+        },
+        "tactical": {
+          "home": {
+            "n": 7,
+            "npxG": 1.3299877935038202,
+            "npxGA": 1.4945064782683908,
+            "deep": 5.06718965278009,
+            "deepAllowed": 10.821296316821341,
+            "ppda": 9.17464747430782,
+            "ppdaAllowed": 10.01513023432226,
+            "finishingResidual": 0.24521972980320395,
+            "shotStoppingResidual": -0.6750631621844942
+          },
+          "away": {
+            "n": 6,
+            "npxG": 1.7865453410384973,
+            "npxGA": 0.946604717759294,
+            "deep": 5.545201955183215,
+            "deepAllowed": 5.891012454555095,
+            "ppda": 13.387306551033538,
+            "ppdaAllowed": 17.333124534639516,
+            "finishingResidual": -0.652937144959179,
+            "shotStoppingResidual": 0.15534555300773523
+          },
+          "npxGAttackDiff": -0.45655754753467703,
+          "npxGADefenceDiff": -0.5479017605090968,
+          "deepAttackDiff": -0.4780123024031244,
+          "deepAllowedDefenceDiff": -4.930283862266246,
+          "ppdaDiff": -4.212659076725718,
+          "ppdaAllowedDiff": -7.317994300317256
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": -0.6750631621844942,
+          "awayTeamResidual": 0.15534555300773523,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Estadio de Vallecas",
+              "city": "Madrid",
+              "country": "Spain"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Estadio de Vallecas",
+              "city": "Madrid",
+              "country": "Spain"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": null,
+            "points": 0,
+            "games": 0,
+            "ppg": 0.0,
+            "leaderGap": 21.0,
+            "relegationLineGap": -5.0
+          },
+          "away": {
+            "rank": null,
+            "points": 0,
+            "games": 0,
+            "ppg": 0.0,
+            "leaderGap": 21.0,
+            "relegationLineGap": -5.0
+          },
+          "teamsN": 20
+        },
+        "validatedEventFamilies": [],
         "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          "AVAILABILITY_SIGNAL_MISSING",
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
         ],
-        "forensicFamiliesSurfaced": {}
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -357,12 +747,203 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
-        "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        "availabilityContinuity": {
+          "features": null,
+          "sourceState": {
+            "availability": false,
+            "lineupHistory": false,
+            "workload": false,
+            "manager": false,
+            "roleShape": false
+          },
+          "featureReadiness": "partial"
+        },
+        "tactical": {
+          "home": {
+            "n": 4,
+            "npxG": 0.8004610521439857,
+            "npxGA": 1.9252775725231608,
+            "deep": 4.834682055199935,
+            "deepAllowed": 13.672083806189535,
+            "ppda": 19.25759527495188,
+            "ppdaAllowed": 9.664581311263161,
+            "finishingResidual": 0.12670796705953913,
+            "shotStoppingResidual": 0.5902778074059789
+          },
+          "away": {
+            "n": 4,
+            "npxG": 1.9662091929920862,
+            "npxGA": 2.894003648818045,
+            "deep": 6.061564022875114,
+            "deepAllowed": 10.313627901111863,
+            "ppda": 11.006420799986156,
+            "ppdaAllowed": 14.339997920572618,
+            "finishingResidual": -0.5895313261236674,
+            "shotStoppingResidual": 0.8419066397416786
+          },
+          "npxGAttackDiff": -1.1657481408481005,
+          "npxGADefenceDiff": 0.9687260762948844,
+          "deepAttackDiff": -1.2268819676751788,
+          "deepAllowedDefenceDiff": -3.3584559050776726,
+          "ppdaDiff": 8.251174474965723,
+          "ppdaAllowedDiff": -4.6754166093094565
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": 0.5902778074059789,
+          "awayTeamResidual": 0.8419066397416786,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Home Deluxe Arena",
+              "city": "Paderborn",
+              "country": "Germany"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Home Deluxe Arena",
+              "city": "Paderborn",
+              "country": "Germany"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 13,
+            "points": 4.0,
+            "games": 4,
+            "ppg": 1.0,
+            "leaderGap": 8.0,
+            "relegationLineGap": 1.0
+          },
+          "away": {
+            "rank": 14,
+            "points": 3.0,
+            "games": 4,
+            "ppg": 0.75,
+            "leaderGap": 9.0,
+            "relegationLineGap": 0.0
+          },
+          "teamsN": 18
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
         ],
-        "forensicFamiliesSurfaced": {}
+        "intelligenceGaps": [
+          "AVAILABILITY_SIGNAL_MISSING",
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -443,12 +1024,209 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
-        "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        "availabilityContinuity": {
+          "features": {
+            "availabilityKnown": true,
+            "availabilityAdv": 0.0762815793238131,
+            "replacementQualityAdv": 0.026224141641890353,
+            "expectedXIStrengthDiff": 0.06873859042484909,
+            "expectedContinuityDiff": -0.30454545454545456,
+            "doubtfulWeightDiff": -0.08775446579521243
+          },
+          "sourceState": {
+            "availability": true,
+            "lineupHistory": true,
+            "workload": false,
+            "manager": false,
+            "roleShape": true
+          },
+          "featureReadiness": "full-shadow"
+        },
+        "tactical": {
+          "home": {
+            "n": 5,
+            "npxG": 1.1061202517201107,
+            "npxGA": 2.084594269041109,
+            "deep": 5.085696003210605,
+            "deepAllowed": 9.030237059163085,
+            "ppda": 16.688306877116876,
+            "ppdaAllowed": 10.394089128083348,
+            "finishingResidual": -0.08567544437564889,
+            "shotStoppingResidual": 0.3545732142509843
+          },
+          "away": {
+            "n": 5,
+            "npxG": 1.891765819501354,
+            "npxGA": 1.3888593544496535,
+            "deep": 6.8389328224158294,
+            "deepAllowed": 8.829732618927503,
+            "ppda": 10.55018774356361,
+            "ppdaAllowed": 7.891487608376346,
+            "finishingResidual": 0.1535335125968993,
+            "shotStoppingResidual": 0.5704795382515376
+          },
+          "npxGAttackDiff": -0.7856455677812433,
+          "npxGADefenceDiff": -0.6957349145914555,
+          "deepAttackDiff": -1.7532368192052248,
+          "deepAllowedDefenceDiff": -0.20050444023558178,
+          "ppdaDiff": 6.138119133553266,
+          "ppdaAllowedDiff": 2.5026015197070013
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": 0.3545732142509843,
+          "awayTeamResidual": 0.5704795382515376,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Villa Park",
+              "city": "Birmingham",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Villa Park",
+              "city": "Birmingham",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 16,
+            "points": 4.0,
+            "games": 5,
+            "ppg": 0.8,
+            "leaderGap": 11.0,
+            "relegationLineGap": 1.0
+          },
+          "away": {
+            "rank": 4,
+            "points": 9.0,
+            "games": 5,
+            "ppg": 1.8,
+            "leaderGap": 6.0,
+            "relegationLineGap": 6.0
+          },
+          "teamsN": 20
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
         ],
-        "forensicFamiliesSurfaced": {}
+        "intelligenceGaps": [
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -529,12 +1307,209 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
-        "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        "availabilityContinuity": {
+          "features": {
+            "availabilityKnown": true,
+            "availabilityAdv": 0.029988766433109715,
+            "replacementQualityAdv": -0.047590184686560455,
+            "expectedXIStrengthDiff": 0.03799636240410187,
+            "expectedContinuityDiff": 0.07727272727272727,
+            "doubtfulWeightDiff": 0.017966233475973648
+          },
+          "sourceState": {
+            "availability": true,
+            "lineupHistory": true,
+            "workload": false,
+            "manager": false,
+            "roleShape": true
+          },
+          "featureReadiness": "full-shadow"
+        },
+        "tactical": {
+          "home": {
+            "n": 5,
+            "npxG": 1.6115909955205752,
+            "npxGA": 2.1202638433995156,
+            "deep": 9.717174997634473,
+            "deepAllowed": 6.664223873366542,
+            "ppda": 13.545713090073635,
+            "ppdaAllowed": 11.514693205013476,
+            "finishingResidual": 0.14506732753816576,
+            "shotStoppingResidual": -0.31225036637373593
+          },
+          "away": {
+            "n": 5,
+            "npxG": 1.6318312187182276,
+            "npxGA": 1.3103297582068192,
+            "deep": 7.25583001796279,
+            "deepAllowed": 8.19505431325418,
+            "ppda": 9.974787850776032,
+            "ppdaAllowed": 8.723830156199808,
+            "finishingResidual": -0.4733186004581915,
+            "shotStoppingResidual": -0.25715603201992954
+          },
+          "npxGAttackDiff": -0.020240223197652396,
+          "npxGADefenceDiff": -0.8099340851926964,
+          "deepAttackDiff": 2.461344979671683,
+          "deepAllowedDefenceDiff": 1.5308304398876382,
+          "ppdaDiff": 3.570925239297603,
+          "ppdaAllowedDiff": 2.7908630488136676
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": -0.31225036637373593,
+          "awayTeamResidual": -0.25715603201992954,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Stamford Bridge",
+              "city": "London",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Stamford Bridge",
+              "city": "London",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 10,
+            "points": 7.0,
+            "games": 5,
+            "ppg": 1.4,
+            "leaderGap": 8.0,
+            "relegationLineGap": 4.0
+          },
+          "away": {
+            "rank": 18,
+            "points": 3.0,
+            "games": 5,
+            "ppg": 0.6,
+            "leaderGap": 12.0,
+            "relegationLineGap": 0.0
+          },
+          "teamsN": 20
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
         ],
-        "forensicFamiliesSurfaced": {}
+        "intelligenceGaps": [
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -615,12 +1590,202 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
-        "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        "availabilityContinuity": {
+          "features": null,
+          "sourceState": {
+            "availability": true,
+            "lineupHistory": false,
+            "workload": false,
+            "manager": false,
+            "roleShape": false
+          },
+          "featureReadiness": "availability-only"
+        },
+        "tactical": {
+          "home": {
+            "n": 0,
+            "npxG": null,
+            "npxGA": null,
+            "deep": null,
+            "deepAllowed": null,
+            "ppda": null,
+            "ppdaAllowed": null,
+            "finishingResidual": null,
+            "shotStoppingResidual": null
+          },
+          "away": {
+            "n": 5,
+            "npxG": 1.6044448640904985,
+            "npxGA": 2.0682476258675844,
+            "deep": 9.792510049319315,
+            "deepAllowed": 8.171161988644533,
+            "ppda": 13.29777294461077,
+            "ppdaAllowed": 17.643411107337908,
+            "finishingResidual": -0.6598153202401134,
+            "shotStoppingResidual": 0.6153350099085717
+          },
+          "npxGAttackDiff": null,
+          "npxGADefenceDiff": null,
+          "deepAttackDiff": null,
+          "deepAllowedDefenceDiff": null,
+          "ppdaDiff": null,
+          "ppdaAllowedDiff": null
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": null,
+          "awayTeamResidual": 0.6153350099085717,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Portman Road",
+              "city": "Ipswich",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Portman Road",
+              "city": "Ipswich",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": null,
+            "points": 0,
+            "games": 0,
+            "ppg": 0.0,
+            "leaderGap": 15.0,
+            "relegationLineGap": -3.0
+          },
+          "away": {
+            "rank": 19,
+            "points": 2.0,
+            "games": 5,
+            "ppg": 0.4,
+            "leaderGap": 13.0,
+            "relegationLineGap": -1.0
+          },
+          "teamsN": 20
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
         ],
-        "forensicFamiliesSurfaced": {}
+        "intelligenceGaps": [
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -701,12 +1866,210 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
-        "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        "availabilityContinuity": {
+          "features": {
+            "availabilityKnown": false,
+            "availabilityAdv": null,
+            "replacementQualityAdv": null,
+            "expectedXIStrengthDiff": null,
+            "expectedContinuityDiff": 0.0,
+            "doubtfulWeightDiff": null
+          },
+          "sourceState": {
+            "availability": false,
+            "lineupHistory": true,
+            "workload": false,
+            "manager": false,
+            "roleShape": true
+          },
+          "featureReadiness": "continuity-only"
+        },
+        "tactical": {
+          "home": {
+            "n": 5,
+            "npxG": 1.8243908954552286,
+            "npxGA": 1.696032824781146,
+            "deep": 7.766253549720365,
+            "deepAllowed": 6.874088615892351,
+            "ppda": 10.126667264717165,
+            "ppdaAllowed": 9.890120303843618,
+            "finishingResidual": -0.5230160041669676,
+            "shotStoppingResidual": -0.5652348844833213
+          },
+          "away": {
+            "n": 5,
+            "npxG": 2.3284369156270013,
+            "npxGA": 1.6864964399672848,
+            "deep": 5.934702402975156,
+            "deepAllowed": 8.21260537176528,
+            "ppda": 5.771213133629516,
+            "ppdaAllowed": 24.916211500491087,
+            "finishingResidual": 0.8798311532993188,
+            "shotStoppingResidual": 0.8183717899587046
+          },
+          "npxGAttackDiff": -0.5040460201717727,
+          "npxGADefenceDiff": -0.00953638481386121,
+          "deepAttackDiff": 1.831551146745209,
+          "deepAllowedDefenceDiff": 1.338516755872929,
+          "ppdaDiff": 4.355454131087649,
+          "ppdaAllowedDiff": -15.026091196647469
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": -0.5652348844833213,
+          "awayTeamResidual": 0.8183717899587046,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Stadium of Light",
+              "city": "Sunderland",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Stadium of Light",
+              "city": "Sunderland",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 15,
+            "points": 4.0,
+            "games": 5,
+            "ppg": 0.8,
+            "leaderGap": 11.0,
+            "relegationLineGap": 1.0
+          },
+          "away": {
+            "rank": 3,
+            "points": 10.0,
+            "games": 5,
+            "ppg": 2.0,
+            "leaderGap": 5.0,
+            "relegationLineGap": 7.0
+          },
+          "teamsN": 20
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
         ],
-        "forensicFamiliesSurfaced": {}
+        "intelligenceGaps": [
+          "AVAILABILITY_SIGNAL_MISSING",
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -1303,12 +2666,198 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
+        "availabilityContinuity": {
+          "features": null,
+          "sourceState": {
+            "availability": false,
+            "lineupHistory": false,
+            "workload": false,
+            "manager": false,
+            "roleShape": false
+          },
+          "featureReadiness": "partial"
+        },
+        "tactical": {
+          "home": {
+            "n": 4,
+            "npxG": 2.0450672610932683,
+            "npxGA": 1.3594787131882995,
+            "deep": 9.139604457334155,
+            "deepAllowed": 7.135013116351059,
+            "ppda": 11.793966923054814,
+            "ppdaAllowed": 13.640357813067894,
+            "finishingResidual": 0.10218448631127686,
+            "shotStoppingResidual": 0.05563182711635606
+          },
+          "away": {
+            "n": 4,
+            "npxG": 2.208084638910935,
+            "npxGA": 2.042907035210171,
+            "deep": 10.146510012189182,
+            "deepAllowed": 5.642466319040095,
+            "ppda": 13.324489850918463,
+            "ppdaAllowed": 9.433777053146358,
+            "finishingResidual": 0.025702883619271866,
+            "shotStoppingResidual": -0.3450377895796093
+          },
+          "npxGAttackDiff": -0.1630173778176669,
+          "npxGADefenceDiff": 0.6834283220218713,
+          "deepAttackDiff": -1.0069055548550274,
+          "deepAllowedDefenceDiff": -1.4925467973109638,
+          "ppdaDiff": -1.5305229278636485,
+          "ppdaAllowedDiff": 4.206580759921536
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": 0.05563182711635606,
+          "awayTeamResidual": -0.3450377895796093,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Red Bull Arena",
+              "city": "Leipzig",
+              "country": "Germany"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Red Bull Arena",
+              "city": "Leipzig",
+              "country": "Germany"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 9,
+            "points": 6.0,
+            "games": 4,
+            "ppg": 1.5,
+            "leaderGap": 6.0,
+            "relegationLineGap": 3.0
+          },
+          "away": {
+            "rank": null,
+            "points": 0,
+            "games": 0,
+            "ppg": 0.0,
+            "leaderGap": 12.0,
+            "relegationLineGap": -3.0
+          },
+          "teamsN": 18
+        },
+        "validatedEventFamilies": [],
         "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          "AVAILABILITY_SIGNAL_MISSING",
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
         ],
-        "forensicFamiliesSurfaced": {}
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -1389,12 +2938,210 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
-        "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        "availabilityContinuity": {
+          "features": {
+            "availabilityKnown": false,
+            "availabilityAdv": null,
+            "replacementQualityAdv": null,
+            "expectedXIStrengthDiff": null,
+            "expectedContinuityDiff": -0.30454545454545456,
+            "doubtfulWeightDiff": null
+          },
+          "sourceState": {
+            "availability": false,
+            "lineupHistory": true,
+            "workload": false,
+            "manager": false,
+            "roleShape": true
+          },
+          "featureReadiness": "continuity-only"
+        },
+        "tactical": {
+          "home": {
+            "n": 7,
+            "npxG": 3.706357848842682,
+            "npxGA": 1.1637155913765485,
+            "deep": 13.742310508401802,
+            "deepAllowed": 3.116287664216629,
+            "ppda": 7.013505455065917,
+            "ppdaAllowed": 23.114561488730555,
+            "finishingResidual": 0.7717316035411708,
+            "shotStoppingResidual": 0.02726120787643671
+          },
+          "away": {
+            "n": 7,
+            "npxG": 0.9224313223639607,
+            "npxGA": 1.3220707478531137,
+            "deep": 3.8664731249858515,
+            "deepAllowed": 5.77964436856564,
+            "ppda": 12.057166078826613,
+            "ppdaAllowed": 7.401421616847902,
+            "finishingResidual": -0.3113768470470053,
+            "shotStoppingResidual": 0.46405036265692756
+          },
+          "npxGAttackDiff": 2.783926526478721,
+          "npxGADefenceDiff": 0.15835515647656528,
+          "deepAttackDiff": 9.87583738341595,
+          "deepAllowedDefenceDiff": 2.6633567043490105,
+          "ppdaDiff": -5.0436606237606965,
+          "ppdaAllowedDiff": 15.713139871882653
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": 0.02726120787643671,
+          "awayTeamResidual": 0.46405036265692756,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Spotify Camp Nou",
+              "city": "Barcelona",
+              "country": "Spain"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Spotify Camp Nou",
+              "city": "Barcelona",
+              "country": "Spain"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 1,
+            "points": 21.0,
+            "games": 7,
+            "ppg": 3.0,
+            "leaderGap": 0.0,
+            "relegationLineGap": 16.0
+          },
+          "away": {
+            "rank": 11,
+            "points": 8.0,
+            "games": 7,
+            "ppg": 1.1428571428571428,
+            "leaderGap": 13.0,
+            "relegationLineGap": 3.0
+          },
+          "teamsN": 20
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
         ],
-        "forensicFamiliesSurfaced": {}
+        "intelligenceGaps": [
+          "AVAILABILITY_SIGNAL_MISSING",
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -1475,12 +3222,205 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
+        "availabilityContinuity": {
+          "features": {
+            "availabilityKnown": false,
+            "availabilityAdv": null,
+            "replacementQualityAdv": null,
+            "expectedXIStrengthDiff": null,
+            "expectedContinuityDiff": -0.07727272727272727,
+            "doubtfulWeightDiff": null
+          },
+          "sourceState": {
+            "availability": false,
+            "lineupHistory": true,
+            "workload": false,
+            "manager": false,
+            "roleShape": true
+          },
+          "featureReadiness": "continuity-only"
+        },
+        "tactical": {
+          "home": {
+            "n": 5,
+            "npxG": 1.8941465164907476,
+            "npxGA": 1.4398074849032332,
+            "deep": 11.502714467784,
+            "deepAllowed": 3.794250706094934,
+            "ppda": 13.100284863520963,
+            "ppdaAllowed": 14.774006051211304,
+            "finishingResidual": -0.3979840868871636,
+            "shotStoppingResidual": -0.06847558720539415
+          },
+          "away": {
+            "n": 5,
+            "npxG": 1.210703399055506,
+            "npxGA": 1.622482627223454,
+            "deep": 7.539725419345714,
+            "deepAllowed": 7.274543262651158,
+            "ppda": 7.634896756508958,
+            "ppdaAllowed": 14.703495826152048,
+            "finishingResidual": -0.681975519602417,
+            "shotStoppingResidual": 0.05926257122990242
+          },
+          "npxGAttackDiff": 0.6834431174352416,
+          "npxGADefenceDiff": 0.18267514232022086,
+          "deepAttackDiff": 3.962989048438285,
+          "deepAllowedDefenceDiff": 3.480292556556224,
+          "ppdaDiff": 5.465388107012005,
+          "ppdaAllowedDiff": 0.0705102250592553
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": -0.06847558720539415,
+          "awayTeamResidual": 0.05926257122990242,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Old Trafford",
+              "city": "Manchester",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Old Trafford",
+              "city": "Manchester",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 13,
+            "points": 5.0,
+            "games": 5,
+            "ppg": 1.0,
+            "leaderGap": 10.0,
+            "relegationLineGap": 2.0
+          },
+          "away": {
+            "rank": 20,
+            "points": 2.0,
+            "games": 5,
+            "ppg": 0.4,
+            "leaderGap": 13.0,
+            "relegationLineGap": -1.0
+          },
+          "teamsN": 20
+        },
+        "validatedEventFamilies": [],
         "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          "AVAILABILITY_SIGNAL_MISSING",
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
         ],
-        "forensicFamiliesSurfaced": {}
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -1905,12 +3845,210 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
-        "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        "availabilityContinuity": {
+          "features": {
+            "availabilityKnown": false,
+            "availabilityAdv": null,
+            "replacementQualityAdv": null,
+            "expectedXIStrengthDiff": null,
+            "expectedContinuityDiff": 0.0,
+            "doubtfulWeightDiff": null
+          },
+          "sourceState": {
+            "availability": false,
+            "lineupHistory": true,
+            "workload": false,
+            "manager": false,
+            "roleShape": true
+          },
+          "featureReadiness": "continuity-only"
+        },
+        "tactical": {
+          "home": {
+            "n": 5,
+            "npxG": 1.2080176627922474,
+            "npxGA": 1.3396641364081554,
+            "deep": 6.434271785841014,
+            "deepAllowed": 8.164561096008057,
+            "ppda": 13.951983286623825,
+            "ppdaAllowed": 12.802835833637527,
+            "finishingResidual": 0.4200201168027564,
+            "shotStoppingResidual": 0.6524236386950304
+          },
+          "away": {
+            "n": 5,
+            "npxG": 1.9635387935774875,
+            "npxGA": 1.65363331964502,
+            "deep": 9.007372581551094,
+            "deepAllowed": 6.817946343933426,
+            "ppda": 9.99215444017785,
+            "ppdaAllowed": 14.723554506639557,
+            "finishingResidual": -0.37944045797478343,
+            "shotStoppingResidual": -0.15084311053322796
+          },
+          "npxGAttackDiff": -0.7555211307852401,
+          "npxGADefenceDiff": 0.3139691832368645,
+          "deepAttackDiff": -2.5731007957100793,
+          "deepAllowedDefenceDiff": -1.3466147520746317,
+          "ppdaDiff": 3.9598288464459745,
+          "ppdaAllowedDiff": -1.92071867300203
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": 0.6524236386950304,
+          "awayTeamResidual": -0.15084311053322796,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Stade Louis II",
+              "city": "Monaco",
+              "country": "France"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Stade Louis II",
+              "city": "Monaco",
+              "country": "France"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 1,
+            "points": 13.0,
+            "games": 5,
+            "ppg": 2.6,
+            "leaderGap": 0.0,
+            "relegationLineGap": 9.0
+          },
+          "away": {
+            "rank": 14,
+            "points": 5.0,
+            "games": 5,
+            "ppg": 1.0,
+            "leaderGap": 8.0,
+            "relegationLineGap": 1.0
+          },
+          "teamsN": 18
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
         ],
-        "forensicFamiliesSurfaced": {}
+        "intelligenceGaps": [
+          "AVAILABILITY_SIGNAL_MISSING",
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -1991,12 +4129,210 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
-        "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        "availabilityContinuity": {
+          "features": {
+            "availabilityKnown": false,
+            "availabilityAdv": null,
+            "replacementQualityAdv": null,
+            "expectedXIStrengthDiff": null,
+            "expectedContinuityDiff": 0.2318181818181818,
+            "doubtfulWeightDiff": null
+          },
+          "sourceState": {
+            "availability": false,
+            "lineupHistory": true,
+            "workload": false,
+            "manager": false,
+            "roleShape": true
+          },
+          "featureReadiness": "continuity-only"
+        },
+        "tactical": {
+          "home": {
+            "n": 5,
+            "npxG": 1.1007258387978065,
+            "npxGA": 1.0848544420535606,
+            "deep": 5.601051550925948,
+            "deepAllowed": 6.977336523578662,
+            "ppda": 20.400055642606503,
+            "ppdaAllowed": 10.907276390115099,
+            "finishingResidual": -0.017982082873146066,
+            "shotStoppingResidual": -0.23487995382259896
+          },
+          "away": {
+            "n": 5,
+            "npxG": 1.4862441808103843,
+            "npxGA": 0.6376297564847735,
+            "deep": 8.751480765873755,
+            "deepAllowed": 6.197259912177876,
+            "ppda": 13.157447956341047,
+            "ppdaAllowed": 15.019233500008689,
+            "finishingResidual": 0.13350521824808248,
+            "shotStoppingResidual": -0.017781322885275563
+          },
+          "npxGAttackDiff": -0.38551834201257784,
+          "npxGADefenceDiff": -0.44722468556878714,
+          "deepAttackDiff": -3.150429214947806,
+          "deepAllowedDefenceDiff": -0.7800766114007862,
+          "ppdaDiff": 7.2426076862654565,
+          "ppdaAllowedDiff": -4.11195710989359
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": -0.23487995382259896,
+          "awayTeamResidual": -0.017781322885275563,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Stade du Moustoir - Yves Allainmat",
+              "city": "Lorient",
+              "country": "France"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Stade du Moustoir - Yves Allainmat",
+              "city": "Lorient",
+              "country": "France"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 12,
+            "points": 5.0,
+            "games": 5,
+            "ppg": 1.0,
+            "leaderGap": 8.0,
+            "relegationLineGap": 1.0
+          },
+          "away": {
+            "rank": 3,
+            "points": 11.0,
+            "games": 5,
+            "ppg": 2.2,
+            "leaderGap": 2.0,
+            "relegationLineGap": 7.0
+          },
+          "teamsN": 18
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
         ],
-        "forensicFamiliesSurfaced": {}
+        "intelligenceGaps": [
+          "AVAILABILITY_SIGNAL_MISSING",
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -2077,12 +4413,203 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
-        "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        "availabilityContinuity": {
+          "features": null,
+          "sourceState": {
+            "availability": false,
+            "lineupHistory": false,
+            "workload": false,
+            "manager": false,
+            "roleShape": false
+          },
+          "featureReadiness": "partial"
+        },
+        "tactical": {
+          "home": {
+            "n": 5,
+            "npxG": 2.4227046341078298,
+            "npxGA": 1.2204687762687558,
+            "deep": 14.427706804402114,
+            "deepAllowed": 4.480332316892758,
+            "ppda": 11.802805102886744,
+            "ppdaAllowed": 21.031765253473882,
+            "finishingResidual": -1.1347996565747462,
+            "shotStoppingResidual": 0.22875715680529285
+          },
+          "away": {
+            "n": 5,
+            "npxG": 1.415397317579301,
+            "npxGA": 1.8182216165842224,
+            "deep": 4.614567865839827,
+            "deepAllowed": 4.657302021758126,
+            "ppda": 12.997521590023316,
+            "ppdaAllowed": 13.671008199716566,
+            "finishingResidual": 0.3890791125989468,
+            "shotStoppingResidual": 0.10995885608581202
+          },
+          "npxGAttackDiff": 1.0073073165285287,
+          "npxGADefenceDiff": 0.5977528403154666,
+          "deepAttackDiff": 9.813138938562286,
+          "deepAllowedDefenceDiff": 0.17696970486536756,
+          "ppdaDiff": -1.1947164871365725,
+          "ppdaAllowedDiff": 7.360757053757316
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": 0.22875715680529285,
+          "awayTeamResidual": 0.10995885608581202,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Parc des Princes",
+              "city": "Paris",
+              "country": "France"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Parc des Princes",
+              "city": "Paris",
+              "country": "France"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 6,
+            "points": 8.0,
+            "games": 5,
+            "ppg": 1.6,
+            "leaderGap": 5.0,
+            "relegationLineGap": 4.0
+          },
+          "away": {
+            "rank": 10,
+            "points": 6.0,
+            "games": 5,
+            "ppg": 1.2,
+            "leaderGap": 7.0,
+            "relegationLineGap": 2.0
+          },
+          "teamsN": 18
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
         ],
-        "forensicFamiliesSurfaced": {}
+        "intelligenceGaps": [
+          "AVAILABILITY_SIGNAL_MISSING",
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -2163,12 +4690,210 @@
         }
       },
       "intelligenceOverlay": {
-        "readinessState": null,
+        "readinessState": "PRE_XI_PROVISIONAL",
         "officialXIConfirmed": false,
-        "intelligenceGaps": [
-          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        "availabilityContinuity": {
+          "features": {
+            "availabilityKnown": false,
+            "availabilityAdv": null,
+            "replacementQualityAdv": null,
+            "expectedXIStrengthDiff": null,
+            "expectedContinuityDiff": -0.23181818181818192,
+            "doubtfulWeightDiff": null
+          },
+          "sourceState": {
+            "availability": false,
+            "lineupHistory": true,
+            "workload": false,
+            "manager": false,
+            "roleShape": true
+          },
+          "featureReadiness": "continuity-only"
+        },
+        "tactical": {
+          "home": {
+            "n": 7,
+            "npxG": 2.4240602806289826,
+            "npxGA": 1.0861301502789962,
+            "deep": 13.78523018241426,
+            "deepAllowed": 7.432482929292518,
+            "ppda": 15.12271103883398,
+            "ppdaAllowed": 14.710430205854262,
+            "finishingResidual": 0.02723051163958745,
+            "shotStoppingResidual": -0.1957694060323314
+          },
+          "away": {
+            "n": 7,
+            "npxG": 2.774985272377905,
+            "npxGA": 1.537552142590731,
+            "deep": 15.116997289064807,
+            "deepAllowed": 6.4957005561332615,
+            "ppda": 9.519117396253662,
+            "ppdaAllowed": 16.415985178444302,
+            "finishingResidual": -0.7693206920969948,
+            "shotStoppingResidual": -0.08222414775347464
+          },
+          "npxGAttackDiff": -0.35092499174892255,
+          "npxGADefenceDiff": 0.45142199231173485,
+          "deepAttackDiff": -1.3317671066505472,
+          "deepAllowedDefenceDiff": -0.9367823731592564,
+          "ppdaDiff": 5.603593642580318,
+          "ppdaAllowedDiff": -1.7055549725900399
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": -0.1957694060323314,
+          "awayTeamResidual": -0.08222414775347464,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "Santiago Bernabéu",
+              "city": "Madrid",
+              "country": "Spain"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "Santiago Bernabéu",
+              "city": "Madrid",
+              "country": "Spain"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 4,
+            "points": 15.0,
+            "games": 7,
+            "ppg": 2.142857142857143,
+            "leaderGap": 6.0,
+            "relegationLineGap": 10.0
+          },
+          "away": {
+            "rank": 12,
+            "points": 8.0,
+            "games": 7,
+            "ppg": 1.1428571428571428,
+            "leaderGap": 13.0,
+            "relegationLineGap": 3.0
+          },
+          "teamsN": 20
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
         ],
-        "forensicFamiliesSurfaced": {}
+        "intelligenceGaps": [
+          "AVAILABILITY_SIGNAL_MISSING",
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
       },
       "surfacingPolicy": {
         "baseProbabilityChangedByOverlay": false,
@@ -2356,6 +5081,6 @@
     "preKickoff": 27,
     "postKickoff": 0,
     "c1": 0,
-    "withIntelligenceOverlay": 0
+    "withIntelligenceOverlay": 14
   }
 }
