@@ -168,6 +168,11 @@ jobs:
             hbt_live_data/_hbt_1_4_live_cache.json || true
           git diff --staged --quiet && exit 0
           git commit -m "prospective: exact frozen HBT forward surfaces ${D1} ${D2} [skip ci]"
+          # Generated collectors may leave non-evidence worktree changes. The intended
+          # forward evidence is already committed above, so clean the worktree before
+          # rebasing onto any concurrent branch advance.
+          git reset --hard HEAD
+          git clean -fd
           git fetch origin research/hbt-1.4-match-intelligence
           git rebase origin/research/hbt-1.4-match-intelligence
           git push origin HEAD:research/hbt-1.4-match-intelligence
