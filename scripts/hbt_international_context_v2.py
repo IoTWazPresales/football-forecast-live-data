@@ -290,12 +290,29 @@ def main() -> int:
             row["officialXI"] = {"available": False, "reason": "not probed after kickoff or event id unavailable"}
             row["resolvedCompetition"] = None
 
+        # Summary/league identity is authoritative for namespace exclusions.
+        # Generic discovery labels such as "playoff-phase---first-round" may hide
+        # women's or youth competitions until the event summary is resolved.
+        resolved = row.get("resolvedCompetition") or {}
+        resolved_text = " ".join(str(resolved.get(k) or "") for k in ("name","slug","abbreviation"))
+        resolved_namespace_block = None
+        if v1.WOMEN_RE.search(resolved_text):
+            resolved_namespace_block = "RESOLVED_WOMENS_COMPETITION"
+        elif v1.YOUTH_RE.search(resolved_text):
+            resolved_namespace_block = "RESOLVED_YOUTH_COMPETITION"
+        row["resolvedNamespaceBlock"] = resolved_namespace_block
+
         row["cleanProspectiveEligible"] = bool(
-            pre and row.get("probs") and (row.get("venueContext") or {}).get("probabilityContextVerified") is True
+            pre and row.get("probs")
+            and (row.get("venueContext") or {}).get("probabilityContextVerified") is True
+            and resolved_namespace_block is None
         )
         row["execution"] = {
             "class": "R0_SHADOW_RESEARCH", "fundingAllowed": False,
-            "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here",
+            "reason": (
+                resolved_namespace_block
+                or "international challenger remains unpromoted; bookmaker odds are not consumed here"
+            ),
         }
         if not ko:
             unresolved_timing.append(row)
