@@ -8,7 +8,7 @@ on:
       - '.github/workflows/hbt-forward-2day.yml'
       - 'scripts/hbt_frozen_forecast_bridge.mjs'
       - 'scripts/hbt_build_prospective_from_frozen.py'
-      - 'scripts/hbt_execution_surface_v1_2.py'
+      - 'scripts/hbt_execution_surface_v1_3.py'
   workflow_dispatch:
     inputs:
       start_date:
@@ -68,7 +68,7 @@ jobs:
             scripts/hbt_scan_slate_v2_2.py \
             scripts/hbt_build_prospective_from_frozen.py \
             scripts/hbt_execution_surface_v1.py \
-            scripts/hbt_execution_surface_v1_2.py
+            scripts/hbt_execution_surface_v1_3.py
           node --check scripts/hbt_frozen_forecast_bridge.mjs
 
       - name: Refresh existing intelligence families once
@@ -97,7 +97,7 @@ jobs:
           assert s['policy']['retrainingOrRetuningPerformed'] is False
           PY
           python scripts/hbt_build_prospective_from_frozen.py --date "$D"
-          python scripts/hbt_execution_surface_v1_2.py --date "$D"
+          python scripts/hbt_execution_surface_v1_3.py --date "$D"
 
       - name: Freeze second forward date with exact recovered runtime
         env:
@@ -116,7 +116,7 @@ jobs:
           assert s['policy']['retrainingOrRetuningPerformed'] is False
           PY
           python scripts/hbt_build_prospective_from_frozen.py --date "$D"
-          python scripts/hbt_execution_surface_v1_2.py --date "$D"
+          python scripts/hbt_execution_surface_v1_3.py --date "$D"
 
       - name: Validate exact forward execution contracts
         env:
