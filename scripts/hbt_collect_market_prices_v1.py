@@ -159,6 +159,7 @@ def main() -> int:
         "providerEvents": 0,
         "fixturesMatched": 0,
         "fixtures": {},
+        "prices": [],
     }
 
     if not API_KEY:
@@ -206,6 +207,43 @@ def main() -> int:
             m["priceStatus"] = "CURRENT_PRICE_AVAILABLE" if isinstance(book, list) and book else "PRICE_UNAVAILABLE"
             m["markets"] = book if isinstance(book, list) else []
             m["providerUrls"] = snap.get("urls") or {}
+
+            # Normalize validated 1X2 and common double-chance quotes into the flat
+            # execution contract. This keeps the provider payload for audit while
+            # giving the execution layer stable market identifiers.
+            home = (m.get("slateFixture") or {}).get("home")
+            away = (m.get("slateFixture") or {}).get("away")
+            for market in (book if isinstance(book, list) else []):
+                name = str(market.get("name") or "").strip().lower()
+                for q in market.get("odds") or []:
+                    if not isinstance(q, dict):
+                        continue
+                    if name in {"moneyline", "ml", "match winner", "1x2"}:
+                        for mk, key_name in (("HOME_WIN","home"),("DRAW","draw"),("AWAY_WIN","away")):
+                            try:
+                                odd = float(q.get(key_name))
+                            except Exception:
+                                continue
+                            if odd > 1:
+                                base_payload["prices"].append({"home":home,"away":away,"market":mk,"odds":odd,"bookmaker":BOOKMAKER,"eventId":eid})
+                    elif "double chance" in name or name in {"dc","double_chance"}:
+                        aliases = {
+                            "1X": ("1x","homeDraw","home_draw","homeOrDraw"),
+                            "X2": ("x2","awayDraw","drawAway","away_draw","awayOrDraw"),
+                            "12": ("12","homeAway","home_away","eitherTeam"),
+                        }
+                        for mk, names in aliases.items():
+                            odd = None
+                            for key_name in names:
+                                if key_name in q:
+                                    try:
+                                        odd = float(q.get(key_name))
+                                    except Exception:
+                                        odd = None
+                                    break
+                            if odd and odd > 1:
+                                base_payload["prices"].append({"home":home,"away":away,"market":mk,"odds":odd,"bookmaker":BOOKMAKER,"eventId":eid})
+
             base_payload["fixtures"][k] = m
 
         base_payload["fixturesMatched"] = len(matches)
