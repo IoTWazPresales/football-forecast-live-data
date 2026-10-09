@@ -85,6 +85,8 @@ def key(s: Any) -> str:
         "newcastle united": "newcastle", "west ham united": "west ham",
         "brighton and hove albion": "brighton", "borussia monchengladbach": "monchengladbach",
         "bayern munchen": "bayern munich",
+        "twente 65": "twente", "cambuur leeuwarden": "cambuur",
+        "az alkmaar": "az", "feyenoord rotterdam": "feyenoord",
     }
     return aliases.get(x, x)
 
