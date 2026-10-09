@@ -84,6 +84,10 @@ def main()->int:
         from pathlib import Path
         p=Path(__file__).resolve().parents[1]/'hbt_live_data'/'hbt_1_4_match_intelligence.json'
         data=json.loads(p.read_text(encoding='utf-8'))
+        policy=data.setdefault('policy',{})
+        policy['bookmakerOddsUsed']=False
+        policy['frozenPredictiveModelMutated']=False
+        policy['testAImmutable']=True
         data['understatTransportVersion']=VERSION
         data['understatCompressionVersion']=COMPRESSION_VERSION
         data['confirmedXIFeatureRefreshVersion']=PLAYER_REFRESH_VERSION
