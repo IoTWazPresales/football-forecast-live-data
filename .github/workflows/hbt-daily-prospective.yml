@@ -52,7 +52,7 @@ jobs:
       - name: Compile prospective stack
         run: |
           set -euo pipefail
-          python -m py_compile scripts/hbt_collect_live_data.py scripts/hbt_collect_players_espn.py scripts/hbt_collect_context_v3_runtime.py scripts/hbt_collect_market_intelligence_v4_final.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_build_prospective_card_v2.py scripts/hbt_build_prospective_from_frozen.py scripts/hbt_collect_market_prices_v1.py scripts/hbt_execution_surface_v1.py scripts/hbt_execution_surface_v1_2.py
+          python -m py_compile scripts/hbt_collect_live_data.py scripts/hbt_collect_players_espn.py scripts/hbt_collect_context_v3_runtime.py scripts/hbt_collect_market_intelligence_v4_final.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_build_prospective_card_v2.py scripts/hbt_build_prospective_from_frozen.py scripts/hbt_collect_market_prices_v1.py scripts/hbt_execution_surface_v1.py scripts/hbt_execution_surface_v1_3.py
           node --check scripts/hbt_frozen_forecast_bridge.mjs
 
       - name: Refresh supported HBT intelligence
@@ -124,7 +124,7 @@ jobs:
       - name: Build risk-adjusted identity-safe execution surface
         run: |
           set -euo pipefail
-          python scripts/hbt_execution_surface_v1_2.py --date '${{ steps.target.outputs.date }}' --prices hbt_live_data/market_prices.json
+          python scripts/hbt_execution_surface_v1_3.py --date '${{ steps.target.outputs.date }}' --prices hbt_live_data/market_prices.json
           python - <<'PY'
           import json,os
           d=os.environ['TARGET_DATE'];x=json.load(open(f'hbt_live_data/hbt_execution_surface_{d}.json',encoding='utf-8'))
