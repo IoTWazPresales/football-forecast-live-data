@@ -11,10 +11,12 @@ Supported priced families:
 - Double chance: 1X / X2 / 12
 
 DNB remains surfaced as secondary R0 until bookmaker DNB quote normalization is
-fully validated. Risk gates remain unchanged from v1.2:
+fully validated. Execution robustness extends v1.2 without changing football probabilities:
 - native/current R1 >= +3% EV
-- native/current + quality >= .90 R2 >= +7% EV
-- C1 or stale R1 >= +7% EV; never R2
+- native/current + quality >= .90 + tier A/B R2 >= +7% EV
+- C1, stale, or tier Avoid R1 >= +7% EV; never R2
+- MATCH_INTELLIGENCE_NOT_CAPTURED caps at R1
+- extreme raw EV >= +25% is quarantined for model/identity review rather than funded
 """
 from __future__ import annotations
 
@@ -22,7 +24,7 @@ from typing import Any
 import hbt_execution_surface_v1 as base
 import hbt_execution_surface_v1_2 as risk
 
-VERSION = "HBT-EXECUTION-SURFACE-1.3-ALL-MARKET-VALUE"
+VERSION = "HBT-EXECUTION-SURFACE-1.3.1-ROBUST-VALUE"
 _PRICE_INDEX: dict[tuple[str, str, str], float] = {}
 
 
@@ -119,13 +121,68 @@ def primary_market(row: dict[str, Any]) -> tuple[str, dict[str, Any]] | None:
     return max(dc, key=lambda x: float(x[1]["p"])) if dc else None
 
 
+def classify_stake(row: dict[str, Any], p: float, odds: float | None, execution_ok: bool) -> dict[str, Any]:
+    """Apply value gates plus robustness controls; never mutate football probability."""
+    result = risk.classify_stake(row, p, odds, execution_ok)
+    ev = result.get("expectedValue")
+    tier = str(row.get("tier") or "")
+    gaps = set(((row.get("intelligenceOverlay") or {}).get("intelligenceGaps") or []))
+    coverage_risk = result.get("riskAdjustedValueGate") or {}
+
+    # An extreme apparent edge is more likely to be a stale/identity/model-domain
+    # disagreement until independently checked. Preserve it for research, but fail
+    # closed for funding.
+    if execution_ok and isinstance(ev, (int, float)) and ev >= 0.25:
+        result["stakeRand"] = 0
+        result["executionClass"] = "R0_EXTREME_MARKET_DISAGREEMENT_REVIEW"
+        result["robustnessReview"] = {
+            "required": True,
+            "reason": "raw model EV >= 25%; verify identity, freshness, domain and current match intelligence before execution",
+        }
+        return result
+
+    # 'Avoid' is an HBT risk signal. It can only become R1 at the stronger +7%
+    # edge gate; it can never jump to R2 merely because price is generous.
+    if execution_ok and isinstance(ev, (int, float)) and tier == "Avoid":
+        result["nativeCleanForR2"] = False
+        result["riskAdjustedValueGate"]["elevatedRisk"] = True
+        result["riskAdjustedValueGate"]["minimumEVForR1"] = 0.07
+        result["riskAdjustedValueGate"]["minimumEVForR2"] = None
+        if ev >= 0.07:
+            result["stakeRand"] = 1
+            result["executionClass"] = "R1_POSITIVE_VALUE_TIER_AVOID_REVIEWED"
+        else:
+            result["stakeRand"] = 0
+            result["executionClass"] = "R0_PRICE_BELOW_AVOID_VALUE_GATE"
+
+    # R2 is reserved for stronger HBT confidence, not quality score alone.
+    if result.get("stakeRand") == 2 and tier not in {"A", "B"}:
+        result["stakeRand"] = 1
+        result["executionClass"] = "R1_VALUE_R2_BLOCKED_BY_TIER"
+        result["nativeCleanForR2"] = False
+
+    # If the match-intelligence snapshot was not captured, keep positive-value
+    # candidates visible but cap them at R1 until the context collector catches up.
+    if result.get("stakeRand") == 2 and "MATCH_INTELLIGENCE_NOT_CAPTURED" in gaps:
+        result["stakeRand"] = 1
+        result["executionClass"] = "R1_VALUE_R2_BLOCKED_BY_INTELLIGENCE_GAP"
+        result["nativeCleanForR2"] = False
+
+    result["robustnessReview"] = {
+        "required": False,
+        "tier": tier or None,
+        "matchIntelligenceCaptured": "MATCH_INTELLIGENCE_NOT_CAPTURED" not in gaps,
+    }
+    return result
+
+
 def main() -> int:
     if not hasattr(base, "_ORIG_PLAIN_SELECTION"):
         base._ORIG_PLAIN_SELECTION = base.plain_selection
     base.price_index = price_index
     base.primary_market = primary_market
     base.plain_selection = plain_selection
-    base.classify_stake = risk.classify_stake
+    base.classify_stake = classify_stake
     base.VERSION = VERSION
     return base.main()
 
