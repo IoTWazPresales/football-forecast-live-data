@@ -1,6 +1,6 @@
 # HBT forecast results watch — 2026-10-10
 
-Observed 2026-10-10T20:02:39Z. Actual user wagers are excluded.
+Observed 2026-10-10T20:36:24Z. Actual user wagers are excluded.
 
 Forecasts are frozen. Alternatives are evaluated individually; mutually exclusive outcomes are not a betting portfolio. Late research is separated from pre-kickoff evidence. No model learning or promotion is performed.
 
@@ -23,19 +23,19 @@ Forecasts are frozen. Alternatives are evaluated individually; mutually exclusiv
 | 10 Oct 19:30 | Serie B | Arezzo vs Cremonese | 0–0 | Full Time 90'+5' | No saved HBT forecast |
 | 10 Oct 20:00 | Eredivisie | Fortuna Sittard vs FC Twente | 1–1 | Full Time 90'+3' | Original frozen L0 |
 | 10 Oct 18:15 (provider timezone unverified) | pl.1 | Jagiellonia Białystok vs Górnik Zabrze | 1–2 | 2H  | No saved HBT forecast |
-| 10 Oct 20:30 | 2026-27-german-2-bundesliga | 1. FC Nürnberg vs VfL Wolfsburg | 3–2 | Second Half 74' | Original frozen L0 |
-| 10 Oct 20:45 | Belgian Pro League | Racing Genk vs KV Kortrijk | 2–0 | Second Half 58' | No saved HBT forecast |
-| 10 Oct 20:45 | Belgian Pro League | Zulte-Waregem vs KAA Gent | 0–1 | Second Half 57' | No saved HBT forecast |
-| 10 Oct 20:45 | Ligue 1 | AS Monaco vs Toulouse | 2–1 | Second Half 55' | Original frozen L0, Restored Fusion research, Saved event-model research |
-| 10 Oct 20:45 | Ligue 1 | Brest vs Angers | 5–1 | Second Half 57' | No saved HBT forecast |
-| 10 Oct 20:45 | Ligue 1 | Lorient vs Paris FC | 0–0 | Second Half 60' | Original frozen L0, Restored Fusion research, Saved event-model research |
-| 10 Oct 20:45 | Ligue 1 | Paris Saint-Germain vs Le Mans | 1–0 | Second Half 55' | Original frozen L0, Restored Fusion research |
-| 10 Oct 20:45 | Serie A | Napoli vs Frosinone | 2–0 | Second Half 59' | No saved HBT forecast |
-| 10 Oct 21:00 | Eredivisie | AFC Ajax vs NEC | 1–1 | Halftime 45' | Original frozen L0 |
-| 10 Oct 21:00 | LaLiga | Real Madrid vs Villarreal | 0–0 | Halftime 45' | Original frozen L0, Restored Fusion research, Saved event-model research |
-| 10 Oct 21:00 | Segunda División | RC Celta Fortuna vs Real Sociedad II | 3–0 | Halftime 45'+3' | No saved HBT forecast |
-| 10 Oct 21:30 | Primeira Liga | Académico de Viseu vs Estoril | 0–0 | First Half 27' | No saved HBT forecast |
-| 10 Oct 21:30 | Primeira Liga | Casa Pia vs Santa Clara | 0–0 | First Half 29' | No saved HBT forecast |
+| 10 Oct 20:30 | 2026-27-german-2-bundesliga | 1. FC Nürnberg vs VfL Wolfsburg | 4–4 | Full Time 90'+10' | Original frozen L0 |
+| 10 Oct 20:45 | Belgian Pro League | Racing Genk vs KV Kortrijk | 3–0 | Second Half 90'+2' | No saved HBT forecast |
+| 10 Oct 20:45 | Belgian Pro League | Zulte-Waregem vs KAA Gent | 0–1 | Second Half 90'+1' | No saved HBT forecast |
+| 10 Oct 20:45 | Ligue 1 | AS Monaco vs Toulouse | 2–2 | Second Half 89' | Original frozen L0, Restored Fusion research, Saved event-model research |
+| 10 Oct 20:45 | Ligue 1 | Brest vs Angers | 5–1 | Second Half 90' | No saved HBT forecast |
+| 10 Oct 20:45 | Ligue 1 | Lorient vs Paris FC | 1–0 | Second Half 90'+4' | Original frozen L0, Restored Fusion research, Saved event-model research |
+| 10 Oct 20:45 | Ligue 1 | Paris Saint-Germain vs Le Mans | 3–1 | Second Half 89' | Original frozen L0, Restored Fusion research |
+| 10 Oct 20:45 | Serie A | Napoli vs Frosinone | 2–0 | Second Half 90'+2' | No saved HBT forecast |
+| 10 Oct 21:00 | Eredivisie | AFC Ajax vs NEC | 1–1 | Second Half 74' | Original frozen L0 |
+| 10 Oct 21:00 | LaLiga | Real Madrid vs Villarreal | 1–0 | Second Half 77' | Original frozen L0, Restored Fusion research, Saved event-model research |
+| 10 Oct 21:00 | Segunda División | RC Celta Fortuna vs Real Sociedad II | 4–0 | Second Half 76' | No saved HBT forecast |
+| 10 Oct 21:30 | Primeira Liga | Académico de Viseu vs Estoril | 1–0 | Halftime 45'+1' | No saved HBT forecast |
+| 10 Oct 21:30 | Primeira Liga | Casa Pia vs Santa Clara | 0–0 | Second Half 47' | No saved HBT forecast |
 | 10 Oct 23:00 | 2026-brasileiro-serie-a | Vasco da Gama vs Remo | 0–0 | Scheduled 0' | No saved HBT forecast |
 | 11 Oct 02:00 | 2026-brasileiro-serie-a | São Paulo vs Vitória | 0–0 | Scheduled 0' | No saved HBT forecast |
 
