@@ -119,8 +119,13 @@ def best_matches(slate_rows: list[dict[str, Any]], events: list[dict[str, Any]])
             score, diff_h = fixture_match_score(row, ev)
             if score > best[0]:
                 best = (score, ev, diff_h)
-        if best[1] is not None and best[0] >= 0.78:
+        if best[1] is not None and best[0] >= 0.92 and best[2] is not None and best[2] <= 0.25:
             ev = best[1]
+            # Guard both team identities, not just their average similarity.
+            if min(similarity(row.get("home"), ev.get("home")), similarity(row.get("away"), ev.get("away"))) < 0.90:
+                continue
+            if str(ev.get("status") or "").strip().lower() not in {"pending", "scheduled", "not_started", "upcoming"}:
+                continue
             eid = str(ev.get("id"))
             used.add(eid)
             key = str(row.get("sourceFixtureId") or row.get("sourceFixtureIds") or f"{row.get('home')}|{row.get('away')}|{row.get('kickoff')}")
@@ -225,7 +230,7 @@ def main() -> int:
                             except Exception:
                                 continue
                             if odd > 1:
-                                base_payload["prices"].append({"home":home,"away":away,"market":mk,"odds":odd,"bookmaker":BOOKMAKER,"eventId":eid})
+                                base_payload["prices"].append({"home":home,"away":away,"market":mk,"odds":odd,"bookmaker":BOOKMAKER,"eventId":eid,"collectedAt":base_payload["generatedAt"],"providerKickoff":m["providerEvent"]["date"],"identityMatchScore":m["identityMatchScore"]})
                     elif "double chance" in name or name in {"dc","double_chance"}:
                         aliases = {
                             "1X": ("1x","homeDraw","home_draw","homeOrDraw"),
@@ -242,13 +247,14 @@ def main() -> int:
                                         odd = None
                                     break
                             if odd and odd > 1:
-                                base_payload["prices"].append({"home":home,"away":away,"market":mk,"odds":odd,"bookmaker":BOOKMAKER,"eventId":eid})
+                                base_payload["prices"].append({"home":home,"away":away,"market":mk,"odds":odd,"bookmaker":BOOKMAKER,"eventId":eid,"collectedAt":base_payload["generatedAt"],"providerKickoff":m["providerEvent"]["date"],"identityMatchScore":m["identityMatchScore"]})
 
             base_payload["fixtures"][k] = m
 
         base_payload["fixturesMatched"] = len(matches)
         priced = sum(1 for x in base_payload["fixtures"].values() if x.get("priceStatus") == "CURRENT_PRICE_AVAILABLE")
         base_payload["pricedFixtures"] = priced
+        base_payload["identityPolicy"] = {"minimumFixtureScore": 0.92, "minimumEachTeamScore": 0.90, "maxKickoffDifferenceMinutes": 15, "allowInPlayOdds": False}
         base_payload["status"] = "PRICES_AVAILABLE" if priced else "PRICE_UNAVAILABLE"
         if not priced:
             base_payload["reason"] = "Provider was reachable but returned no current Betway markets for matched HBT fixtures."
