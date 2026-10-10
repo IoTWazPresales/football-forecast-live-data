@@ -257,6 +257,15 @@ def governed_execution_identity_block(row: dict[str, Any], timing: dict[str, Any
         return original
     fx = row.get("fixture") or {}
     date = str(fx.get("date") or "")
+    # A later exact frozen export supersedes the older prospective slate for
+    # live execution, without retrospectively editing its historical forecasts.
+    current_export = base.read(base.ROOT / f"frozen_control_forecast_{date}.json", {})
+    original_card = base.read(base.ROOT / f"hbt_prospective_card_{date}.json", {})
+    current_at = base.parse_aware(current_export.get("sourceExportedAt"))
+    old_at = base.parse_aware(original_card.get("capturedAt"))
+    if (current_export.get("targetDate") == date and current_at and old_at and current_at > old_at):
+        timing["independentKickoffVerified"] = False
+        return "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT"
     proof = base.read(base.ROOT / f"hbt_independent_kickoffs_{date}.json", {})
     if proof.get("targetDate") != date:
         timing["independentKickoffVerified"] = False
@@ -310,6 +319,7 @@ def main() -> int:
             doc.setdefault("policy", {})["unpromotedOrUnconfirmedProposalsAreResearchOnly"] = True
             doc["policy"]["quotesRequireFreshSourceEventIdBookmakerAndTargetDate"] = True
             doc["policy"]["stakingRequiresIndependentKickoffConfirmation"] = True
+            doc["policy"]["stakingRequiresLatestFrozenExportReconciliation"] = True
             # Product-of-marginals is a research approximation, not a funded
             # accumulator risk model. Preserve shadow chains, but never fund
             # automatically without a validated dependence/correlation layer.
