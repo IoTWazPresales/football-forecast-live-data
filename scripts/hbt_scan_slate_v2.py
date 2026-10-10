@@ -275,6 +275,22 @@ def main() -> int:
                      "kickoff":None,"home":None,"away":None,"hbtSupportLevel":"SOURCE_FAILURE","rankingBucket":None,"predictionMode":"NONE",
                      "probabilityOutput":None,"classificationReason":"All public discovery sources failed.","exclusionReason":"All public discovery sources failed.",
                      "rankEligible":False,"rankEligibleFullModel":False,"rankEligibleFallback":False}]
+    # A newly refreshed frozen export can silently lose matches that an earlier
+    # prospective card scored. Do not count this as complete supported coverage.
+    previous = read_json(OUT / f"hbt_prospective_card_{target.isoformat()}.json", {})
+    previous_scored = (previous.get("candidates") or []) if previous.get("targetDate") == target.isoformat() else []
+    current_by_key = {fixture_key(r): r for r in fixtures}
+    prospective_regressions = []
+    for old in previous_scored:
+        k = fixture_key(old)
+        new = current_by_key.get(k)
+        if new and new.get("hbtSupportLevel") not in {"FULL_MODEL", "FALLBACK"}:
+            prospective_regressions.append({
+                "fixture": old.get("fixture"), "previousMode": old.get("predictionMode"),
+                "currentStatus": new.get("hbtSupportLevel"),
+                "currentCompetition": new.get("competition"),
+                "reason": "PREVIOUS_PROSPECTIVE_SCORE_NOT_IN_CURRENT_FROZEN_EXPORT",
+            })
     counts = {s:sum(1 for x in fixtures if x.get("hbtSupportLevel") == s) for s in sorted(STATUS)}
     unsupported = sorted({str(x.get("competition")) for x in fixtures if x.get("hbtSupportLevel") == "UNSUPPORTED_COMPETITION" and x.get("competition")})
     full_rank = [x for x in fixtures if x.get("rankEligibleFullModel")]; fallback_rank = [x for x in fixtures if x.get("rankEligibleFallback")]
@@ -286,9 +302,13 @@ def main() -> int:
         "sourceAudit":audits,"hbtFeedHealth":feed_health,"frozenForecastAdapter":fc_meta,
         "coverage":{"fixturesDiscovered":len(merged),"classifiedRows":len(fixtures),**counts,"forecastRowsAvailable":len(fidx),
                     "forecastRowsMatched":len(fidx)-len(orphans),"knownForecastsMissedByDiscovery":len(orphans),
-                    "knownForecastDiscoveryMisses":orphans,"unsupportedCompetitions":unsupported},
+                    "knownForecastDiscoveryMisses":orphans,"unsupportedCompetitions":unsupported,
+                    "previousProspectiveScoredNowUnsupported":len(prospective_regressions),
+                    "previousProspectiveCoverageRegressions":prospective_regressions},
         "rankingGate":{"sourceDiscoverySucceeded":source_ok,"knownForecastCoverageComplete":not orphans,
-                       "discoveryComplete":bool(source_ok and not orphans),"rankEligibleFixtures":len(full_rank)+len(fallback_rank),
+                       "discoveryComplete":bool(source_ok and not orphans and not prospective_regressions),
+                       "previousProspectiveCoverageConsistent":not prospective_regressions,
+                       "rankEligibleFixtures":len(full_rank)+len(fallback_rank),
                        "fullModelRankEligible":len(full_rank),"fallbackRankEligible":len(fallback_rank),
                        "note":"Discovery completeness means configured public sources reconciled all known date-scoped HBT forecasts; it is not a claim of universal world-football coverage."},
         "fixtures":fixtures,
