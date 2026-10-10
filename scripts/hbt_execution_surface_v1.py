@@ -17,6 +17,7 @@ import unicodedata
 from difflib import SequenceMatcher
 from pathlib import Path
 from typing import Any
+from hbt_capture_store import capture_path
 
 ROOT = Path("hbt_live_data")
 VERSION = "HBT-EXECUTION-SURFACE-1.1-IDENTITY-SAFE"
@@ -126,6 +127,10 @@ def execution_identity_block(row: dict[str, Any], timing: dict[str, Any]) -> str
     if not timing.get("verified"):
         return str(timing.get("reason") or "KICKOFF_IDENTITY_UNVERIFIED")
     fx = row.get("fixture") or {}
+    if fx.get('time'):
+        forecast_kickoff = parse_aware(f"{fx.get('date')}T{str(fx['time'])[:5]}:00+00:00")
+        if not forecast_kickoff or forecast_kickoff != parse_aware(timing.get('kickoffUtc')):
+            return 'FORECAST_KICKOFF_DISAGREEMENT'
     res = row.get("resolution") or {}
     home = str(timing.get("discoveryHome") or fx.get("home") or "")
     away = str(timing.get("discoveryAway") or fx.get("away") or "")
@@ -206,7 +211,10 @@ def product(values: list[float]) -> float:
 def main() -> int:
     ap = argparse.ArgumentParser(); ap.add_argument("--date", required=True); ap.add_argument("--prices", default=None); args = ap.parse_args()
     target = args.date
-    card = read(ROOT / f"hbt_prospective_card_{target}.json", {}); scanner = read(ROOT / "slate_scanner.json", {})
+    selected_capture = capture_path(ROOT, target)
+    card = read(selected_capture, {})
+    dated_scanner = ROOT / f"slate_scanner_{target}.json"
+    scanner = read(dated_scanner if dated_scanner.exists() else ROOT / "slate_scanner.json", {})
     if not card.get("candidates"): raise SystemExit(f"no prospective card for {target}")
     if scanner.get("targetDate") != target: raise SystemExit(f"slate_scanner targetDate {scanner.get('targetDate')} does not match {target}")
     prices = price_index(read(Path(args.prices), {}) if args.prices else {})
@@ -244,7 +252,7 @@ def main() -> int:
     out = {
         "schemaVersion": "HBT-EXECUTION-SURFACE-1", "version": VERSION, "targetDate": target, "generatedAt": iso(captured),
         "policy": {"footballProbabilitiesImmutable": True, "bookmakerPriceObservedOnlyAfterPredictionFreeze": True, "r0Default": True, "r1MinimumModelEV": 0.03, "r2MinimumModelEV": 0.07, "r2RequiresNativeCurrentQualityAtLeast": 0.90, "c1MaximumFundedStakeRand": 1, "executionRequiresTimezoneAwareVerifiedKickoff": True, "genericDiscoveryIdentityMayNotAuthorizeExecution": True, "startedFixtureAction": "R0_BLOCKED_IN_PLAY", "chainLegMustIndependentlyPassValueGateForFunding": True, "sameMatchCorrelatedLegsAllowed": False},
-        "sourceProspectiveCard": f"hbt_prospective_card_{target}.json", "priceSource": args.prices,
+        "sourceProspectiveCard": str(selected_capture.relative_to(ROOT)), "priceSource": args.prices,
         "summary": {"surfaces": len(rows), "executionEligibleNow": sum(1 for r in rows if r.get("executionEligibleNow")), "blockedIdentityOrTiming": sum(1 for r in rows if not r.get("executionEligibleNow")), "fundedSingles": len(funded), "fundedStakeRand": sum(int(r["value"]["stakeRand"]) for r in funded), "r0Singles": len(rows)-len(funded), "chains": len(chains)},
         "rows": rows, "chains": chains,
     }

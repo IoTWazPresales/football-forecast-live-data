@@ -77,7 +77,8 @@ def key(s: Any) -> str:
         "deportivo alaves": "alaves", "real madrid cf": "real madrid",
         "rayo vallecano de madrid": "rayo vallecano",
         "rcd espanyol de barcelona": "espanyol", "rcd espanyol": "espanyol",
-        "afc ajax": "ajax", "willem ii tilburg": "willem ii",
+        "afc ajax": "ajax", "ajax amsterdam": "ajax", "nec nijmegen": "nec",
+        "willem ii tilburg": "willem ii",
         "heart of midlothian": "hearts", "heart of midlothian fc": "hearts",
         "paris saint germain": "psg", "paris sg": "psg",
         "internazionale": "inter", "inter milan": "inter",
@@ -109,7 +110,10 @@ def iso_kickoff(v: Any) -> str | None:
         return dt.datetime.fromtimestamp(float(v), tz=dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     s = str(v)
     try:
-        return dt.datetime.fromisoformat(s.replace("Z", "+00:00")).astimezone(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+        parsed = dt.datetime.fromisoformat(s.replace("Z", "+00:00"))
+        if parsed.tzinfo is None:
+            return s  # Unknown timezone remains unknown, never runner-local UTC.
+        return parsed.astimezone(dt.timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
     except Exception:
         return s or None
 
@@ -265,7 +269,8 @@ def main() -> int:
     discovered, audits = [], []
     providers = (("ESPN_ALL",parse_espn),("SOFASCORE",parse_sofascore))
     if args.reconcile_existing:
-        saved = read_json(OUTPUT, {})
+        dated = OUT / f"slate_scanner_{target.isoformat()}.json"
+        saved = read_json(dated if dated.exists() else OUTPUT, {})
         if saved.get("targetDate") != target.isoformat():
             raise SystemExit("cannot reconcile discovery for a different target date")
         discovered = list(saved.get("fixtures") or [])
@@ -328,6 +333,7 @@ def main() -> int:
         "fixtures":fixtures,
     }
     write_json(OUTPUT,payload)
+    write_json(OUT / f"slate_scanner_{target.isoformat()}.json", payload)
     print("HBT slate scanner",target,payload["coverage"],payload["rankingGate"])
     return 0
 

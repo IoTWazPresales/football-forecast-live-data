@@ -37,6 +37,12 @@ def clean_capture_guard(row, source_doc, surface):
             return "CAPTURE_NOT_VERIFIED_PREMATCH"
     except (ValueError, TypeError):
         return "CAPTURE_NOT_VERIFIED_PREMATCH"
+    try:
+        surface_capture=dt.datetime.fromisoformat(str(surface.get('predictionFrozenAt')).replace('Z','+00:00'))
+    except (ValueError, TypeError):
+        return 'SURFACE_CAPTURE_LINEAGE_UNPROVEN'
+    if surface_capture != capture:
+        return 'SURFACE_BELONGS_TO_DIFFERENT_FORECAST_CAPTURE'
     policy = source_doc.get("policy") or {}
     if (policy.get("preMatchCaptureImmutable") is not True
             or policy.get("bookmakerPriceObservedBeforeCapture") is not False

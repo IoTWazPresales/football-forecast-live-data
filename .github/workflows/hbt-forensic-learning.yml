@@ -24,7 +24,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: hbt-forensic-learning
+  group: hbt-research-output-writer
   cancel-in-progress: false
 
 jobs:
@@ -112,6 +112,4 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add hbt_live_data/forensic/
-          git diff --staged --quiet && exit 0
-          git commit -m "forensic: competition-safe guard-aware audit HBT settled slate ${{ steps.target.outputs.date }} [skip ci]"
-          git push origin HEAD:research/hbt-1.4-match-intelligence
+          python scripts/hbt_publish_research_outputs.py --message "forensic: competition-safe guard-aware audit HBT settled slate ${{ steps.target.outputs.date }} [skip ci]"

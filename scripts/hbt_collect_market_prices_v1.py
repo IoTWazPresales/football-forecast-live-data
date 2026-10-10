@@ -14,6 +14,7 @@ sidecar instead of silently inventing or reusing stale prices.
 from __future__ import annotations
 
 import json
+import argparse
 import math
 import os
 import re
@@ -195,7 +196,13 @@ def best_matches(slate_rows: list[dict[str, Any]], events: list[dict[str, Any]])
 
 
 def main() -> int:
-    slate = read(SLATE, {})
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--date', help='Explicit date-scoped slate; never use another day silently')
+    args = ap.parse_args()
+    dated = OUT / f"slate_scanner_{args.date}.json"
+    slate = read(dated if args.date and dated.exists() else SLATE, {})
+    if args.date and slate.get('targetDate') != args.date:
+        raise SystemExit('price collector target does not match saved discovery')
     target = str(slate.get("targetDate") or date.today().isoformat())
     rows = list(slate.get("fixtures") or [])
     base_payload: dict[str, Any] = {
@@ -227,6 +234,7 @@ def main() -> int:
         base_payload["status"] = "PRICE_SOURCE_UNCONFIGURED"
         base_payload["reason"] = "ODDS_API_IO_KEY is not configured. Football forecasts remain valid; price assessment is unavailable."
         write(OUTPUT, base_payload)
+        write(OUT / f"market_prices_{target}.json", base_payload)
         print("HBT market prices: provider unconfigured")
         return 0
 
@@ -291,6 +299,7 @@ def main() -> int:
         base_payload["reason"] = f"{type(exc).__name__}: {exc}"
 
     write(OUTPUT, base_payload)
+    write(OUT / f"market_prices_{target}.json", base_payload)
     print("HBT market prices", {"status": base_payload["status"], "events": base_payload["providerEvents"], "matched": base_payload["fixturesMatched"], "priced": base_payload.get("pricedFixtures", 0)})
     return 0
 

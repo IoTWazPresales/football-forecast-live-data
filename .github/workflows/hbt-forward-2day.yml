@@ -12,7 +12,7 @@ on:
   workflow_dispatch:
     inputs:
       start_date:
-        description: 'Optional first YYYY-MM-DD target; default tomorrow UTC'
+        description: 'Optional first YYYY-MM-DD target; default tomorrow in South Africa'
         required: false
         type: string
 
@@ -20,7 +20,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: hbt-forward-two-day
+  group: hbt-research-output-writer
   cancel-in-progress: false
 
 jobs:
@@ -49,7 +49,7 @@ jobs:
           if [[ "${{ github.event_name }}" == "workflow_dispatch" && -n "${{ inputs.start_date }}" ]]; then
             D1='${{ inputs.start_date }}'
           else
-            D1="$(date -u -d '+1 day' +%F)"
+            D1="$(TZ=Africa/Johannesburg date -d '+1 day' +%F)"
           fi
           D2="$(date -u -d "$D1 +1 day" +%F)"
           echo "d1=$D1" >> "$GITHUB_OUTPUT"
@@ -83,6 +83,8 @@ jobs:
       - name: Freeze first forward date with exact recovered runtime
         env:
           D: '${{ steps.dates.outputs.d1 }}'
+          ODDS_API_IO_KEY: ${{ secrets.ODDS_API_IO_KEY }}
+          HBT_PRIMARY_BOOKMAKER: Betway
         run: |
           set -euo pipefail
           python scripts/hbt_scan_slate_v2_2.py --date "$D"
@@ -97,13 +99,17 @@ jobs:
           assert s['goldenParity']['maxAbsError']<=1e-9
           assert s['policy']['retrainingOrRetuningPerformed'] is False
           PY
-          python scripts/hbt_build_prospective_from_frozen.py --date "$D"
-          python scripts/hbt_execution_surface_v1_3.py --date "$D"
+          python scripts/hbt_build_prospective_from_frozen.py --date "$D" --refresh
+          python scripts/hbt_collect_independent_kickoffs_v1.py --date "$D"
+          python scripts/hbt_collect_market_prices_v1.py --date "$D"
+          python scripts/hbt_execution_surface_v1_3.py --date "$D" --prices "hbt_live_data/market_prices_${D}.json"
           python scripts/hbt_build_betting_desk_v1.py --date "$D"
 
       - name: Freeze second forward date with exact recovered runtime
         env:
           D: '${{ steps.dates.outputs.d2 }}'
+          ODDS_API_IO_KEY: ${{ secrets.ODDS_API_IO_KEY }}
+          HBT_PRIMARY_BOOKMAKER: Betway
         run: |
           set -euo pipefail
           python scripts/hbt_scan_slate_v2_2.py --date "$D"
@@ -118,8 +124,10 @@ jobs:
           assert s['goldenParity']['maxAbsError']<=1e-9
           assert s['policy']['retrainingOrRetuningPerformed'] is False
           PY
-          python scripts/hbt_build_prospective_from_frozen.py --date "$D"
-          python scripts/hbt_execution_surface_v1_3.py --date "$D"
+          python scripts/hbt_build_prospective_from_frozen.py --date "$D" --refresh
+          python scripts/hbt_collect_independent_kickoffs_v1.py --date "$D"
+          python scripts/hbt_collect_market_prices_v1.py --date "$D"
+          python scripts/hbt_execution_surface_v1_3.py --date "$D" --prices "hbt_live_data/market_prices_${D}.json"
           python scripts/hbt_build_betting_desk_v1.py --date "$D"
 
       - name: Validate exact forward execution contracts
@@ -131,7 +139,9 @@ jobs:
           python - <<'PY'
           import json, os
           for d in (os.environ['D1'], os.environ['D2']):
-              c=json.load(open(f'hbt_live_data/hbt_prospective_card_{d}.json',encoding='utf-8'))
+              import sys;from pathlib import Path;sys.path.insert(0,'scripts')
+              from hbt_capture_store import capture_path
+              c=json.load(open(capture_path(Path('hbt_live_data'),d),encoding='utf-8'))
               e=json.load(open(f'hbt_live_data/hbt_execution_surface_{d}.json',encoding='utf-8'))
               q=c['policy']
               assert q['bookmakerOddsUsedAsPredictiveFeature'] is False
@@ -174,13 +184,6 @@ jobs:
             hbt_live_data/market_intelligence.json \
             hbt_live_data/hbt_1_4_match_intelligence.json \
             hbt_live_data/_hbt_1_4_live_cache.json || true
-          git diff --staged --quiet && exit 0
-          git commit -m "prospective: exact frozen HBT forward surfaces ${D1} ${D2} [skip ci]"
-          # Generated collectors may leave non-evidence worktree changes. The intended
-          # forward evidence is already committed above, so clean the worktree before
-          # rebasing onto any concurrent branch advance.
-          git reset --hard HEAD
-          git clean -fd
-          git fetch origin research/hbt-1.4-match-intelligence
-          git rebase origin/research/hbt-1.4-match-intelligence
-          git push origin HEAD:research/hbt-1.4-match-intelligence
+          git add "hbt_live_data/slate_scanner_${D1}.json" "hbt_live_data/slate_scanner_${D2}.json" "hbt_live_data/market_prices_${D1}.json" "hbt_live_data/market_prices_${D2}.json" "hbt_live_data/hbt_independent_kickoffs_${D1}.json" "hbt_live_data/hbt_independent_kickoffs_${D2}.json"
+          git add hbt_live_data/captures/ "hbt_live_data/hbt_current_capture_${D1}.json" "hbt_live_data/hbt_current_capture_${D2}.json"
+          python scripts/hbt_publish_research_outputs.py --message "prospective: exact frozen HBT forward surfaces ${D1} ${D2} [skip ci]"

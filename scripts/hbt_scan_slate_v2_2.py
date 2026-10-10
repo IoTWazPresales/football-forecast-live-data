@@ -8,6 +8,7 @@ This does not create or alter probabilities.
 from __future__ import annotations
 
 import hbt_scan_slate_v2_1 as v
+from concurrent.futures import ThreadPoolExecutor
 
 v.base.VERSION = "HBT-SLATE-SCANNER-2.3-IDENTITY"
 
@@ -43,17 +44,23 @@ def parse_discovery_bundle(date):
     ]
     providers.append(("ESPN_ALL", lambda: v._ORIG_ESPN(date)))
 
-    for name, fn in providers:
+    def fetch_provider(provider):
+        name, fn = provider
         try:
             got, audit = fn()
-            rows.extend(got)
-            components.append(audit)
-            successes += 1
+            return got, audit, True
         except Exception as exc:
-            components.append({
+            return [], {
                 "source": name, "fetchedAt": v.base.now(), "status": "failed",
                 "events": 0, "error": str(exc)[:240]
-            })
+            }, False
+    # map preserves the configured source precedence even when requests finish
+    # out of order. A slow failed source cannot serialize the entire refresh.
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        for got, audit, success in pool.map(fetch_provider, providers):
+            rows.extend(got)
+            components.append(audit)
+            successes += int(success)
     if not successes:
         raise RuntimeError("all discovery sources failed")
     return rows, {

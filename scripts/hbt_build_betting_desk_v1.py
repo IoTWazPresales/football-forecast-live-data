@@ -247,11 +247,15 @@ def chain_candidates(fixtures, limit=10):
 
 def build(target, data_root=ROOT, now=None, price_path=None):
     now = now or datetime.now(timezone.utc)
+    dated_scanner = data_root / f"slate_scanner_{target}.json"
+    dated_prices = data_root / f"market_prices_{target}.json"
     paths = {"forecast": data_root / f"frozen_control_forecast_{target}.json",
-        "card": data_root / f"hbt_prospective_card_{target}.json", "scanner": data_root / "slate_scanner.json",
+        "card": base.capture_path(data_root, target), "scanner": dated_scanner if dated_scanner.exists() else data_root / "slate_scanner.json",
         "intel": data_root / "hbt_1_4_match_intelligence.json", "events": data_root / "event_model_params.json",
         "registry": data_root / "hbt_1_4_feature_registry.json", "learning": data_root / "forensic/hbt_learning_assessment_v1.json",
-        "prices": price_path or data_root / "market_prices.json"}
+        "prices": price_path or (dated_prices if dated_prices.exists() else data_root / "market_prices.json"),
+        "kickoffProof": data_root / f"hbt_independent_kickoffs_{target}.json",
+        "capturePointer": data_root / f"hbt_current_capture_{target}.json"}
     docs = {k: base.read(p, {}) for k, p in paths.items()}
     forecast, card, scanner, intel = (docs[k] for k in ("forecast", "card", "scanner", "intel"))
     global_blocks = []
@@ -273,6 +277,8 @@ def build(target, data_root=ROOT, now=None, price_path=None):
         global_blocks.append("IMMUTABLE_PROSPECTIVE_CAPTURE_MISSING")
     elif frozen_at and frozen_at > capture_at:
         global_blocks.append("PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT")
+    if card.get('sourceForecastSha256') and (not paths['forecast'].exists() or card['sourceForecastSha256'] != hashlib.sha256(paths['forecast'].read_bytes()).hexdigest()):
+        global_blocks.append('CAPTURE_FORECAST_HASH_MISMATCH')
     quotes, quote_audit = quote_index(docs["prices"], target, now)
     intel_index = {fixture_key(r): r for r in (intel.get("fixtures") or {}).values()}
     card_index = {fixture_key(r): r for r in card.get("candidates") or []}
@@ -290,13 +296,9 @@ def build(target, data_root=ROOT, now=None, price_path=None):
         if ident: blocks.append(ident)
         if not ko or ko <= now: blocks.append("KICKOFF_STARTED_OR_UNKNOWN")
         if frozen_at is None or (ko and frozen_at >= ko): blocks.append("FORECAST_CAPTURE_NOT_PREMATCH")
-        proof = base.read(data_root / f"hbt_independent_kickoffs_{target}.json", {})
-        confirmations = [c for c in proof.get("confirmations") or [] if fixture_key({**c, "date": target}) == k
-                         and c.get("sourceUrl") and c.get("independentSource") and c.get("independentSource") != timing.get("source")
-                         and base.parse_aware(c.get("kickoffUtc")) == ko
-                         and base.parse_aware(c.get("verifiedAt")) and base.parse_aware(c.get("verifiedAt")) <= now
-                         and ko and base.parse_aware(c.get("verifiedAt")) < ko]
-        if proof.get("targetDate") != target or len(confirmations) != 1: blocks.append("INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING")
+        proof_block = governed.independent_kickoff_block(f, timing, docs['kickoffProof'], now)
+        if proof_block:
+            blocks.append(proof_block)
         context = intel_index.get(k) or {}
         readiness = context.get("decisionReadinessState") or context.get("readinessState")
         if not context: blocks.append("MATCH_INTELLIGENCE_NOT_CAPTURED")
@@ -348,8 +350,12 @@ def build(target, data_root=ROOT, now=None, price_path=None):
             "goalProbabilitiesInferredFrom1X2": False, "chainFundingAutomatic": False,
             "priority": "highest profit probability among independently eligible positive-value markets; separate highest EV view"},
         "sourceHashes": {k: hashlib.sha256(p.read_bytes()).hexdigest() for k, p in paths.items() if p.exists()},
+        "sourceFiles": {k: str(p.relative_to(data_root)) if p.is_relative_to(data_root) else str(p.resolve()) for k, p in paths.items() if p.exists()},
         "quoteAudit": quote_audit, "globalBlockers": global_blocks,
         "summary": {"scoredFixtures": len(fixtures), "marketsModelled": len(flat), "readySingles": len(actionable),
+            "futureScoredFixtures": sum(not f['started'] and bool(f['kickoffVerification'].get('kickoffUtc')) for f in fixtures),
+            "independentlyVerifiedKickoffs": sum(f['kickoffVerification'].get('independentKickoffVerified') is True for f in fixtures),
+            "currentCaptureFixtures": len(card.get('candidates') or []),
             "bookmakerPricedMarkets": sum(m["observedOdds"] is not None for m in flat),
             "unscoredDiscoveredFixtures": len(unscored), "previouslyScoredMissingNow": len(disappeared),
             "missingBTTSFixtures": sum("BTTS" in f["missingMainFamilies"] for f in fixtures),

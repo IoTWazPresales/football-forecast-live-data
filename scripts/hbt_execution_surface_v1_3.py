@@ -23,6 +23,7 @@ from __future__ import annotations
 from typing import Any
 from datetime import datetime, timezone
 import math
+from urllib.parse import urlsplit
 import hbt_execution_surface_v1 as base
 import hbt_execution_surface_v1_2 as risk
 
@@ -63,7 +64,8 @@ def price_index(price_doc: dict[str, Any]) -> dict[tuple[str, str, str], float]:
         age_seconds = (datetime.now(timezone.utc) - collected.astimezone(timezone.utc)).total_seconds()
         if not 0 <= age_seconds <= 900:
             return _PRICE_INDEX
-        slate = base.read(base.ROOT / "slate_scanner.json", {})
+        dated = base.ROOT / f"slate_scanner_{price_doc.get('targetDate')}.json"
+        slate = base.read(dated if dated.exists() else base.ROOT / "slate_scanner.json", {})
         if price_doc.get("targetDate") != slate.get("targetDate"):
             return _PRICE_INDEX
     except (KeyError, TypeError, ValueError):
@@ -263,6 +265,48 @@ def classify_stake(row: dict[str, Any], p: float, odds: float | None, execution_
 _ORIGINAL_EXECUTION_IDENTITY_BLOCK = base.execution_identity_block
 
 
+def independent_kickoff_block(fx, timing, proof, now=None):
+    """One shared evidence rule for execution and desk; source labels cannot fake independence."""
+    now = now or datetime.now(timezone.utc)
+    timing['independentKickoffVerified'] = False
+    if proof.get('targetDate') != fx.get('date'):
+        return 'INDEPENDENT_KICKOFF_CONFIRMATION_MISSING'
+    matched = []
+    sources = ' '.join(timing.get('fixtureSources') or [str(timing.get('source') or '')]).lower()
+    for c in proof.get('confirmations') or []:
+        if not isinstance(c, dict):
+            continue
+        if base.norm(c.get('home')) != base.norm(fx.get('home')) or base.norm(c.get('away')) != base.norm(fx.get('away')):
+            continue
+        try:
+            url = urlsplit(str(c.get('sourceUrl') or ''))
+        except ValueError:
+            continue
+        host = (url.hostname or '').lower()
+        label = str(c.get('independentSource') or '').strip().lower()
+        observed = base.parse_aware(c.get('verifiedAt'))
+        if url.scheme != 'https' or not host or not label or not observed:
+            continue
+        if label == str(timing.get('source') or '').strip().lower():
+            continue
+        if ('espn' in sources and ('espn' in host or 'espn' in label)) or ('openfootball' in sources and 'openfootball' in str(c.get('sourceUrl')).lower()):
+            continue
+        matched.append(c)
+    if len(matched) != 1:
+        return 'INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS'
+    c = matched[0]
+    official, discovered = base.parse_aware(c.get('kickoffUtc')), base.parse_aware(timing.get('kickoffUtc'))
+    if not official or official != discovered:
+        return 'KICKOFF_INDEPENDENT_SOURCE_DISAGREEMENT'
+    verified = base.parse_aware(c['verifiedAt'])
+    if verified > now:
+        return 'KICKOFF_PROOF_CLOCK_IN_FUTURE'
+    if verified >= discovered:
+        return 'KICKOFF_PROOF_CAPTURED_AFTER_START'
+    timing.update(independentKickoffVerified=True, independentSource=c['independentSource'], independentSourceUrl=c['sourceUrl'])
+    return None
+
+
 def governed_execution_identity_block(row: dict[str, Any], timing: dict[str, Any]) -> str | None:
     """A discovery timestamp is not independent kickoff confirmation.
 
@@ -280,7 +324,7 @@ def governed_execution_identity_block(row: dict[str, Any], timing: dict[str, Any
     # A later exact frozen export supersedes the older prospective slate for
     # live execution, without retrospectively editing its historical forecasts.
     current_export = base.read(base.ROOT / f"frozen_control_forecast_{date}.json", {})
-    original_card = base.read(base.ROOT / f"hbt_prospective_card_{date}.json", {})
+    original_card = base.read(base.capture_path(base.ROOT, date), {})
     current_at = base.parse_aware(current_export.get("sourceExportedAt"))
     old_at = base.parse_aware(original_card.get("capturedAt"))
     quote_times = _QUOTE_TIMES.get((base.norm(fx.get("home")), base.norm(fx.get("away"))), set())
@@ -293,35 +337,7 @@ def governed_execution_identity_block(row: dict[str, Any], timing: dict[str, Any
         timing["independentKickoffVerified"] = False
         return "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT"
     proof = base.read(base.ROOT / f"hbt_independent_kickoffs_{date}.json", {})
-    if proof.get("targetDate") != date:
-        timing["independentKickoffVerified"] = False
-        return "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING"
-    matched = []
-    for c in proof.get("confirmations") or []:
-        if not isinstance(c, dict):
-            continue
-        if base.norm(c.get("home")) != base.norm(fx.get("home")) or base.norm(c.get("away")) != base.norm(fx.get("away")):
-            continue
-        if not c.get("sourceUrl") or not c.get("independentSource") or not base.parse_aware(c.get("verifiedAt")):
-            continue
-        if str(c.get("independentSource")).strip().lower() == str(timing.get("source") or "").strip().lower():
-            continue
-        matched.append(c)
-    if len(matched) != 1:
-        timing["independentKickoffVerified"] = False
-        return "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS"
-    official = base.parse_aware(matched[0].get("kickoffUtc"))
-    discovered = base.parse_aware(timing.get("kickoffUtc"))
-    if not official or official != discovered:
-        timing["independentKickoffVerified"] = False
-        return "KICKOFF_INDEPENDENT_SOURCE_DISAGREEMENT"
-    if base.parse_aware(matched[0]["verifiedAt"]) >= discovered:
-        timing["independentKickoffVerified"] = False
-        return "KICKOFF_PROOF_CAPTURED_AFTER_START"
-    timing["independentKickoffVerified"] = True
-    timing["independentSource"] = matched[0]["independentSource"]
-    timing["independentSourceUrl"] = matched[0]["sourceUrl"]
-    return None
+    return independent_kickoff_block(fx, timing, proof)
 
 
 def main() -> int:

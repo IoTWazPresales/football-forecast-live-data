@@ -39,6 +39,14 @@ OPENFOOTBALL_LEAGUES = {
 }
 
 
+def model_display_name(name, league):
+    # Explicit senior Eredivisie provider aliases for identities already in the
+    # frozen model. Keep the provider label separately; no state/weight changes.
+    if league == 'nl.1':
+        return {'Ajax Amsterdam': 'AFC Ajax', 'NEC Nijmegen': 'NEC'}.get(name, name)
+    return name
+
+
 def espn_league(date: dt.date, code: str, slug: str, label: str) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     ds = date.strftime("%Y%m%d")
     url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/scoreboard?dates={ds}&limit=1000"
@@ -50,10 +58,13 @@ def espn_league(date: dt.date, code: str, slug: str, label: str) -> tuple[list[d
         hn = str((home.get("team") or {}).get("displayName") or (home.get("team") or {}).get("name") or "").strip()
         an = str((away.get("team") or {}).get("displayName") or (away.get("team") or {}).get("name") or "").strip()
         if not hn or not an: continue
+        provider_home, provider_away = hn, an
+        hn, an = model_display_name(hn, code), model_display_name(an, code)
         rows.append({
             "source": f"ESPN:{code}", "sourceFixtureId": str(e.get("id") or ""), "sourceFreshness": fetched,
             "competition": label, "competitionSlug": code, "leagueHint": code,
             "kickoff": base.iso_kickoff(e.get("date")), "home": hn, "away": an,
+            "providerHome": provider_home, "providerAway": provider_away,
         })
     return rows, {"source": f"ESPN:{code}", "url": url, "fetchedAt": fetched, "status": "loaded", "events": len(rows)}
 

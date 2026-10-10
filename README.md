@@ -22,3 +22,6 @@ Missing data stays unavailable. The desk never places bets, guarantees wins,
 promotes a research model or rewrites historical forecasts.
 
 See `docs/HBT-BETTING-READINESS-2026-10-10.md` for the audit and remaining gates.
+
+See `docs/HBT-OPERATIONAL-CLOSEOUT-2026-10-10.md` for the latest date isolation,
+official kickoff proof, immutable capture refresh and publication safeguards.
