@@ -1,8 +1,8 @@
 {
   "schemaVersion": "HBT-EXECUTION-SURFACE-1",
-  "version": "HBT-EXECUTION-SURFACE-1.3.1-ROBUST-VALUE",
+  "version": "HBT-EXECUTION-SURFACE-1.3.2-GOVERNED-RESEARCH",
   "targetDate": "2026-10-11",
-  "generatedAt": "2026-10-09T14:09:15.538940Z",
+  "generatedAt": "2026-10-10T09:23:02.663860Z",
   "policy": {
     "footballProbabilitiesImmutable": true,
     "bookmakerPriceObservedOnlyAfterPredictionFreeze": true,
@@ -15,7 +15,9 @@
     "genericDiscoveryIdentityMayNotAuthorizeExecution": true,
     "startedFixtureAction": "R0_BLOCKED_IN_PLAY",
     "chainLegMustIndependentlyPassValueGateForFunding": true,
-    "sameMatchCorrelatedLegsAllowed": false
+    "sameMatchCorrelatedLegsAllowed": false,
+    "unpromotedOrUnconfirmedProposalsAreResearchOnly": true,
+    "quotesRequireFreshSourceEventIdBookmakerAndTargetDate": true
   },
   "sourceProspectiveCard": "hbt_prospective_card_2026-10-11.json",
   "priceSource": null,
@@ -37,8 +39,8 @@
         "league": "fr.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T15:15:00Z",
@@ -86,7 +88,7 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
         "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
@@ -96,8 +98,13 @@
           "minimumEVForR2": null,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "STALE_TEAM_STATE"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "B",
           "matchIntelligenceCaptured": true
         }
@@ -106,6 +113,132 @@
         "stakeRand": 0,
         "marketFrozen": "1X",
         "selectionFrozen": "Stade Rennais OR Draw — Double Chance (1X)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.6723982904368695,
+          "fairOdds": 1.487213775261507,
+          "minimumOddsR1": 1.5913187395298127,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "1X",
+          "probability": 0.8772915798229954,
+          "fairOdds": 1.1398718772631586,
+          "minimumOddsR1": 1.2196629086715798,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.6723982904368695,
+            "fairOdds": 1.487213775261507,
+            "minimumOddsR1": 1.5913187395298127,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.20489328938612592,
+            "fairOdds": 4.880589320402183,
+            "minimumOddsR1": 5.222230572830336,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.12270842017700449,
+            "fairOdds": 8.14940000496722,
+            "minimumOddsR1": 8.719858005314924,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.8772915798229954,
+            "fairOdds": 1.1398718772631586,
+            "minimumOddsR1": 1.2196629086715798,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.3276017095631304,
+            "fairOdds": 3.052487123261777,
+            "minimumOddsR1": 3.2661612218901013,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.795106710613874,
+            "fairOdds": 1.2576928186506378,
+            "minimumOddsR1": 1.3457313159561823,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -116,8 +249,8 @@
         "league": "de.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T15:30:00Z",
@@ -165,7 +298,7 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
         "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
@@ -175,8 +308,12 @@
           "minimumEVForR2": null,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "B",
           "matchIntelligenceCaptured": true
         }
@@ -185,6 +322,124 @@
         "stakeRand": 0,
         "marketFrozen": "1X",
         "selectionFrozen": "SC Freiburg OR Draw — Double Chance (1X)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.6550141376212887,
+          "fairOdds": 1.5266846050553076,
+          "minimumOddsR1": 1.5724851432069669,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "1X",
+          "probability": 0.86267947038699,
+          "fairOdds": 1.1591790860067752,
+          "minimumOddsR1": 1.1939544585869786,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.6550141376212887,
+            "fairOdds": 1.5266846050553076,
+            "minimumOddsR1": 1.5724851432069669,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.20766533276570126,
+            "fairOdds": 4.815440240708118,
+            "minimumOddsR1": 4.959903447929362,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.13732052961300995,
+            "fairOdds": 7.2822323276654375,
+            "minimumOddsR1": 7.500699297495401,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.86267947038699,
+            "fairOdds": 1.1591790860067752,
+            "minimumOddsR1": 1.1939544585869786,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.3449858623787112,
+            "fairOdds": 2.8986695080920195,
+            "minimumOddsR1": 2.9856295933347803,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7923346672342986,
+            "fairOdds": 1.2620929530832878,
+            "minimumOddsR1": 1.2999557416757863,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -195,8 +450,8 @@
         "league": "tr.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T16:00:00Z",
@@ -244,7 +499,7 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
         "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
@@ -254,8 +509,14 @@
           "minimumEVForR2": null,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "STALE_TEAM_STATE",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "C",
           "matchIntelligenceCaptured": false
         }
@@ -264,6 +525,140 @@
         "stakeRand": 0,
         "marketFrozen": "1X",
         "selectionFrozen": "Besiktas OR Draw — Double Chance (1X)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.5890901790222769,
+          "fairOdds": 1.6975329679739648,
+          "minimumOddsR1": 1.8163602757321424,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "1X",
+          "probability": 0.8333400025586043,
+          "fairOdds": 1.199990396392468,
+          "minimumOddsR1": 1.283989724139941,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.5890901790222769,
+            "fairOdds": 1.6975329679739648,
+            "minimumOddsR1": 1.8163602757321424,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.2442498235363274,
+            "fairOdds": 4.0941687716358555,
+            "minimumOddsR1": 4.380760585650365,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.16665999744139576,
+            "fairOdds": 6.000240101717507,
+            "minimumOddsR1": 6.420256908837733,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.8333400025586043,
+            "fairOdds": 1.199990396392468,
+            "minimumOddsR1": 1.283989724139941,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.41090982097772316,
+            "fairOdds": 2.4336239947261165,
+            "minimumOddsR1": 2.603977674356945,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7557501764636727,
+            "fairOdds": 1.3231885762557514,
+            "minimumOddsR1": 1.4158117765936542,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -274,8 +669,8 @@
         "league": "nl.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T10:15:00Z",
@@ -324,7 +719,7 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_EXECUTION_BLOCKED",
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
         "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
@@ -334,8 +729,14 @@
           "minimumEVForR2": null,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "STALE_TEAM_STATE",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "C",
           "matchIntelligenceCaptured": false
         }
@@ -344,6 +745,140 @@
         "stakeRand": 0,
         "marketFrozen": "1X",
         "selectionFrozen": "FC Utrecht OR Draw — Double Chance (1X)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.5565305836219236,
+          "fairOdds": 1.7968464437155625,
+          "minimumOddsR1": 1.922625694775652,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "1X",
+          "probability": 0.8134814380258574,
+          "fairOdds": 1.2292843490403207,
+          "minimumOddsR1": 1.3153342534731431,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.5565305836219236,
+            "fairOdds": 1.7968464437155625,
+            "minimumOddsR1": 1.922625694775652,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.2569508544039337,
+            "fairOdds": 3.891794803795331,
+            "minimumOddsR1": 4.164220440061005,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.1865185619741425,
+            "fairOdds": 5.361396685755236,
+            "minimumOddsR1": 5.736694453758102,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.8134814380258574,
+            "fairOdds": 1.2292843490403207,
+            "minimumOddsR1": 1.3153342534731431,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.44346941637807624,
+            "fairOdds": 2.254946932230966,
+            "minimumOddsR1": 2.412793217487134,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7430491455960662,
+            "fairOdds": 1.345806002102069,
+            "minimumOddsR1": 1.4400124222492139,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -354,8 +889,8 @@
         "league": "sco.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T11:00:00Z",
@@ -403,7 +938,7 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
         "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
@@ -413,8 +948,14 @@
           "minimumEVForR2": null,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "STALE_TEAM_STATE",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "C",
           "matchIntelligenceCaptured": false
         }
@@ -423,6 +964,140 @@
         "stakeRand": 0,
         "marketFrozen": "X2",
         "selectionFrozen": "Celtic OR Draw — Double Chance (X2)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "AWAY_WIN",
+          "probability": 0.5512768312858525,
+          "fairOdds": 1.8139706645525104,
+          "minimumOddsR1": 1.9409486110711862,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "X2",
+          "probability": 0.8027662847079047,
+          "fairOdds": 1.2456925746001664,
+          "minimumOddsR1": 1.3328910548221782,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.19723371529209535,
+            "fairOdds": 5.070127074973158,
+            "minimumOddsR1": 5.42503597022128,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.25148945342205214,
+            "fairOdds": 3.9763098865294757,
+            "minimumOddsR1": 4.2546515785865395,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.5512768312858525,
+            "fairOdds": 1.8139706645525104,
+            "minimumOddsR1": 1.9409486110711862,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.4487231687141475,
+            "fairOdds": 2.2285455036021,
+            "minimumOddsR1": 2.3845436888542473,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.8027662847079047,
+            "fairOdds": 1.2456925746001664,
+            "minimumOddsR1": 1.3328910548221782,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7485105465779478,
+            "fairOdds": 1.3359865195912277,
+            "minimumOddsR1": 1.4295055759626136,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -433,8 +1108,8 @@
         "league": "sco.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T13:00:00Z",
@@ -482,7 +1157,7 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
         "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
@@ -492,8 +1167,14 @@
           "minimumEVForR2": null,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "STALE_TEAM_STATE",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "C",
           "matchIntelligenceCaptured": false
         }
@@ -502,6 +1183,140 @@
         "stakeRand": 0,
         "marketFrozen": "1X",
         "selectionFrozen": "Aberdeen OR Draw — Double Chance (1X)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.5390331364995843,
+          "fairOdds": 1.85517351770594,
+          "minimumOddsR1": 1.9850356639453561,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "1X",
+          "probability": 0.7944570580494612,
+          "fairOdds": 1.2587212736899647,
+          "minimumOddsR1": 1.3468317628482622,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.5390331364995843,
+            "fairOdds": 1.85517351770594,
+            "minimumOddsR1": 1.9850356639453561,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.25542392154987686,
+            "fairOdds": 3.91506008494482,
+            "minimumOddsR1": 4.1891142908909575,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.20554294195053882,
+            "fairOdds": 4.865163408241168,
+            "minimumOddsR1": 5.20572484681805,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.7944570580494612,
+            "fairOdds": 1.2587212736899647,
+            "minimumOddsR1": 1.3468317628482622,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.4609668635004157,
+            "fairOdds": 2.1693533292314364,
+            "minimumOddsR1": 2.321208062277637,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7445760784501231,
+            "fairOdds": 1.3430461022620497,
+            "minimumOddsR1": 1.4370593294203933,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -512,8 +1327,8 @@
         "league": "nl.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T12:30:00Z",
@@ -561,8 +1376,8 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
-        "nativeCleanForR2": true,
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
+        "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
           "stale": false,
@@ -571,8 +1386,13 @@
           "minimumEVForR2": 0.07,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "C",
           "matchIntelligenceCaptured": false
         }
@@ -581,6 +1401,132 @@
         "stakeRand": 0,
         "marketFrozen": "1X",
         "selectionFrozen": "Telstar 1963 OR Draw — Double Chance (1X)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.5192795027394496,
+          "fairOdds": 1.9257451810143058,
+          "minimumOddsR1": 1.983517536444735,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "1X",
+          "probability": 0.7824960233909952,
+          "fairOdds": 1.2779617660757403,
+          "minimumOddsR1": 1.3163006190580124,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.5192795027394496,
+            "fairOdds": 1.9257451810143058,
+            "minimumOddsR1": 1.983517536444735,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.26321652065154566,
+            "fairOdds": 3.7991536303446227,
+            "minimumOddsR1": 3.913128239254961,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.21750397660900492,
+            "fairOdds": 4.597617089997604,
+            "minimumOddsR1": 4.735545602697532,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.7824960233909952,
+            "fairOdds": 1.2779617660757403,
+            "minimumOddsR1": 1.3163006190580124,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.48072049726055055,
+            "fairOdds": 2.0802108620261306,
+            "minimumOddsR1": 2.1426171878869145,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7367834793484545,
+            "fairOdds": 1.3572508450980887,
+            "minimumOddsR1": 1.3979683704510315,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -591,8 +1537,8 @@
         "league": "en.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T15:30:00Z",
@@ -640,8 +1586,8 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
-        "nativeCleanForR2": true,
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
+        "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
           "stale": false,
@@ -650,8 +1596,12 @@
           "minimumEVForR2": 0.07,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "Avoid",
           "matchIntelligenceCaptured": true
         }
@@ -660,6 +1610,124 @@
         "stakeRand": 0,
         "marketFrozen": "X2",
         "selectionFrozen": "Manchester City OR Draw — Double Chance (X2)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "AWAY_WIN",
+          "probability": 0.499611508151067,
+          "fairOdds": 2.001555175741931,
+          "minimumOddsR1": 2.061601831014189,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "X2",
+          "probability": 0.7698691804100289,
+          "fairOdds": 1.298921979793248,
+          "minimumOddsR1": 1.3378896391870454,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.23013081958997098,
+            "fairOdds": 4.345354532616368,
+            "minimumOddsR1": 4.475715168594859,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.27025767225896197,
+            "fairOdds": 3.7001724748143174,
+            "minimumOddsR1": 3.811177649058747,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.499611508151067,
+            "fairOdds": 2.001555175741931,
+            "minimumOddsR1": 2.061601831014189,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.500388491848933,
+            "fairOdds": 1.998447239074194,
+            "minimumOddsR1": 2.05840065624642,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.7698691804100289,
+            "fairOdds": 1.298921979793248,
+            "minimumOddsR1": 1.3378896391870454,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.729742327741038,
+            "fairOdds": 1.3703467127849924,
+            "minimumOddsR1": 1.4114571141685424,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -670,8 +1738,8 @@
         "league": "nl.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T12:30:00Z",
@@ -720,7 +1788,7 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
         "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
@@ -730,8 +1798,14 @@
           "minimumEVForR2": null,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "STALE_TEAM_STATE",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "Avoid",
           "matchIntelligenceCaptured": false
         }
@@ -740,6 +1814,140 @@
         "stakeRand": 0,
         "marketFrozen": "1X",
         "selectionFrozen": "PEC Zwolle OR Draw — Double Chance (1X)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.47329349677394683,
+          "fairOdds": 2.1128538778077006,
+          "minimumOddsR1": 2.26075364925424,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "1X",
+          "probability": 0.7473372864433363,
+          "fairOdds": 1.3380839122307338,
+          "minimumOddsR1": 1.4317497860868853,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.47329349677394683,
+            "fairOdds": 2.1128538778077006,
+            "minimumOddsR1": 2.26075364925424,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.2740437896693895,
+            "fairOdds": 3.6490518584873417,
+            "minimumOddsR1": 3.904485488581456,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.2526627135566636,
+            "fairOdds": 3.957845563847846,
+            "minimumOddsR1": 4.234894753317196,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.7473372864433363,
+            "fairOdds": 1.3380839122307338,
+            "minimumOddsR1": 1.4317497860868853,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.5267065032260532,
+            "fairOdds": 1.898590569653205,
+            "minimumOddsR1": 2.0314919095289294,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7259562103306104,
+            "fairOdds": 1.3774935537015192,
+            "minimumOddsR1": 1.4739181024606256,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -750,8 +1958,8 @@
         "league": "nl.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T14:45:00Z",
@@ -799,8 +2007,8 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
-        "nativeCleanForR2": true,
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
+        "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
           "stale": false,
@@ -809,8 +2017,13 @@
           "minimumEVForR2": 0.07,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "Avoid",
           "matchIntelligenceCaptured": false
         }
@@ -819,6 +2032,132 @@
         "stakeRand": 0,
         "marketFrozen": "12",
         "selectionFrozen": "SBV Excelsior OR FC Groningen — Either team wins, draw loses (12)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.4281242666910422,
+          "fairOdds": 2.3357704241550374,
+          "minimumOddsR1": 2.4058435368796887,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "12",
+          "probability": 0.7322705265608396,
+          "fairOdds": 1.3656155255852926,
+          "minimumOddsR1": 1.4065839913528515,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.4281242666910422,
+            "fairOdds": 2.3357704241550374,
+            "minimumOddsR1": 2.4058435368796887,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.2677294734391604,
+            "fairOdds": 3.7351136098478253,
+            "minimumOddsR1": 3.8471670181432605,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.3041462598697974,
+            "fairOdds": 3.287891820297551,
+            "minimumOddsR1": 3.3865285749064773,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.6958537401302026,
+            "fairOdds": 1.4370836029607141,
+            "minimumOddsR1": 1.4801961110495354,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.5718757333089578,
+            "fairOdds": 1.7486316375305029,
+            "minimumOddsR1": 1.801090586656418,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7322705265608396,
+            "fairOdds": 1.3656155255852926,
+            "minimumOddsR1": 1.4065839913528515,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -829,8 +2168,8 @@
         "league": "tr.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T10:30:00Z",
@@ -878,7 +2217,7 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
         "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
@@ -888,8 +2227,14 @@
           "minimumEVForR2": null,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "STALE_TEAM_STATE",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "Avoid",
           "matchIntelligenceCaptured": false
         }
@@ -898,6 +2243,140 @@
         "stakeRand": 0,
         "marketFrozen": "12",
         "selectionFrozen": "Konyaspor OR Istanbul Basaksehir — Either team wins, draw loses (12)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "AWAY_WIN",
+          "probability": 0.3645714638003018,
+          "fairOdds": 2.7429464434105064,
+          "minimumOddsR1": 2.934952694449242,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "12",
+          "probability": 0.7189901049576675,
+          "fairOdds": 1.3908397251988298,
+          "minimumOddsR1": 1.488198505962748,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.35441864115736565,
+            "fairOdds": 2.821522019085868,
+            "minimumOddsR1": 3.0190285604218787,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.28100989504233254,
+            "fairOdds": 3.5585935500575725,
+            "minimumOddsR1": 3.8076950985616027,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.3645714638003018,
+            "fairOdds": 2.7429464434105064,
+            "minimumOddsR1": 2.934952694449242,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.6354285361996982,
+            "fairOdds": 1.5737410944442174,
+            "minimumOddsR1": 1.6839029710553126,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.6455813588426343,
+            "fairOdds": 1.5489914420589057,
+            "minimumOddsR1": 1.657420843003029,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7189901049576675,
+            "fairOdds": 1.3908397251988298,
+            "minimumOddsR1": 1.488198505962748,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -908,8 +2387,8 @@
         "league": "en.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T13:00:00Z",
@@ -957,8 +2436,8 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
-        "nativeCleanForR2": true,
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
+        "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
           "stale": false,
@@ -967,8 +2446,12 @@
           "minimumEVForR2": 0.07,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "Avoid",
           "matchIntelligenceCaptured": true
         }
@@ -977,6 +2460,124 @@
         "stakeRand": 0,
         "marketFrozen": "12",
         "selectionFrozen": "Crystal Palace OR Nottingham Forest — Either team wins, draw loses (12)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.3685221128682192,
+          "fairOdds": 2.7135413726383164,
+          "minimumOddsR1": 2.794947613817466,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "12",
+          "probability": 0.7178782402919028,
+          "fairOdds": 1.3929938865306477,
+          "minimumOddsR1": 1.4347837031265673,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.3685221128682192,
+            "fairOdds": 2.7135413726383164,
+            "minimumOddsR1": 2.794947613817466,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.28212175970809716,
+            "fairOdds": 3.5445688451492354,
+            "minimumOddsR1": 3.6509059105037123,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.3493561274236836,
+            "fairOdds": 2.8624086469427925,
+            "minimumOddsR1": 2.9482809063510764,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.6506438725763164,
+            "fairOdds": 1.5369390877998415,
+            "minimumOddsR1": 1.5830472604338368,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.6314778871317808,
+            "fairOdds": 1.5835867262780552,
+            "minimumOddsR1": 1.631094328066397,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7178782402919028,
+            "fairOdds": 1.3929938865306477,
+            "minimumOddsR1": 1.4347837031265673,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     },
     {
@@ -987,8 +2588,8 @@
         "league": "en.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-09T14:09:15.500650Z",
-      "executionSurfaceGeneratedAt": "2026-10-09T14:09:15.538940Z",
+      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T13:00:00Z",
@@ -1036,8 +2637,8 @@
         "observedOdds": null,
         "expectedValue": null,
         "stakeRand": 0,
-        "executionClass": "R0_UNPRICED",
-        "nativeCleanForR2": true,
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
+        "nativeCleanForR2": false,
         "riskAdjustedValueGate": {
           "c1": false,
           "stale": false,
@@ -1046,8 +2647,12 @@
           "minimumEVForR2": 0.07,
           "probabilityChangedByRiskPolicy": false
         },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY"
+        ],
         "robustnessReview": {
-          "required": false,
+          "required": true,
           "tier": "Avoid",
           "matchIntelligenceCaptured": true
         }
@@ -1056,6 +2661,124 @@
         "stakeRand": 0,
         "marketFrozen": "12",
         "selectionFrozen": "Hull City OR Everton — Either team wins, draw loses (12)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "AWAY_WIN",
+          "probability": 0.3911824137086079,
+          "fairOdds": 2.5563521389407367,
+          "minimumOddsR1": 2.633042703108959,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "12",
+          "probability": 0.7142977877050342,
+          "fairOdds": 1.3999763364981122,
+          "minimumOddsR1": 1.4419756265930557,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.32311537399642626,
+            "fairOdds": 3.094869760084707,
+            "minimumOddsR1": 3.187715852887248,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.2857022122949659,
+            "fairOdds": 3.5001479056367115,
+            "minimumOddsR1": 3.605152342805813,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.3911824137086079,
+            "fairOdds": 2.5563521389407367,
+            "minimumOddsR1": 2.633042703108959,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.6088175862913922,
+            "fairOdds": 1.6425281110742753,
+            "minimumOddsR1": 1.6918039544065038,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.6768846260035738,
+            "fairOdds": 1.4773566448157447,
+            "minimumOddsR1": 1.5216773441602172,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7142977877050342,
+            "fairOdds": 1.3999763364981122,
+            "minimumOddsR1": 1.4419756265930557,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
       }
     }
   ],

@@ -1,0 +1,920 @@
+{
+  "schemaVersion": "HBT-EXECUTION-SURFACE-1",
+  "version": "HBT-EXECUTION-SURFACE-1.3.2-GOVERNED-RESEARCH",
+  "targetDate": "2026-10-12",
+  "generatedAt": "2026-10-10T09:23:07.163203Z",
+  "policy": {
+    "footballProbabilitiesImmutable": true,
+    "bookmakerPriceObservedOnlyAfterPredictionFreeze": true,
+    "r0Default": true,
+    "r1MinimumModelEV": 0.03,
+    "r2MinimumModelEV": 0.07,
+    "r2RequiresNativeCurrentQualityAtLeast": 0.9,
+    "c1MaximumFundedStakeRand": 1,
+    "executionRequiresTimezoneAwareVerifiedKickoff": true,
+    "genericDiscoveryIdentityMayNotAuthorizeExecution": true,
+    "startedFixtureAction": "R0_BLOCKED_IN_PLAY",
+    "chainLegMustIndependentlyPassValueGateForFunding": true,
+    "sameMatchCorrelatedLegsAllowed": false,
+    "unpromotedOrUnconfirmedProposalsAreResearchOnly": true,
+    "quotesRequireFreshSourceEventIdBookmakerAndTargetDate": true
+  },
+  "sourceProspectiveCard": "hbt_prospective_card_2026-10-12.json",
+  "priceSource": null,
+  "summary": {
+    "surfaces": 4,
+    "executionEligibleNow": 4,
+    "blockedIdentityOrTiming": 0,
+    "fundedSingles": 0,
+    "fundedStakeRand": 0,
+    "r0Singles": 4,
+    "chains": 1
+  },
+  "rows": [
+    {
+      "fixture": {
+        "home": "Atalanta",
+        "away": "Venezia",
+        "date": "2026-10-12",
+        "league": "it.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-10T09:23:07.117138Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:07.163203Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-12T16:30:00Z",
+        "source": "ESPN:it.1",
+        "fixtureSources": [
+          "ESPN:it.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401875005",
+        "competition": "Serie A",
+        "competitionSlug": "it.1",
+        "leagueHint": "it.1",
+        "hbtSupportLevel": "NOT_YET_READY",
+        "discoveryHome": "Atalanta",
+        "discoveryAway": "Venezia",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "B",
+        "rawTier": "B",
+        "quality": 0.7193776830756792,
+        "coverage": "stale-ish 2252d",
+        "coveragePack": null,
+        "market": "1X",
+        "selection": "Atalanta OR Draw — Double Chance (1X)",
+        "probability": 0.9307360420833333,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "Atalanta — Draw No Bet (draw = refund)",
+        "fairOdds": 1.0920582233964673,
+        "conditionalP": 0.9157020922289727,
+        "winP": 0.7523929461289688,
+        "pushP": 0.17834309595436443,
+        "lossP": 0.06926395791666684
+      },
+      "value": {
+        "fairOdds": 1.0744184761144828,
+        "minimumOddsR1": 1.1496277694424966,
+        "minimumOddsR2": 1.1496277694424966,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": true,
+          "elevatedRisk": true,
+          "minimumEVForR1": 0.07,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "STALE_TEAM_STATE"
+        ],
+        "robustnessReview": {
+          "required": true,
+          "tier": "B",
+          "matchIntelligenceCaptured": true
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "1X",
+        "selectionFrozen": "Atalanta OR Draw — Double Chance (1X)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.7523929461289688,
+          "fairOdds": 1.329092736906904,
+          "minimumOddsR1": 1.4221292284903875,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "1X",
+          "probability": 0.9307360420833333,
+          "fairOdds": 1.0744184761144828,
+          "minimumOddsR1": 1.1496277694424966,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.7523929461289688,
+            "fairOdds": 1.329092736906904,
+            "minimumOddsR1": 1.4221292284903875,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.17834309595436443,
+            "fairOdds": 5.607169678471245,
+            "minimumOddsR1": 5.999671555964232,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.06926395791666684,
+            "fairOdds": 14.437523209446454,
+            "minimumOddsR1": 15.448149834107706,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.9307360420833333,
+            "fairOdds": 1.0744184761144828,
+            "minimumOddsR1": 1.1496277694424966,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.24760705387103127,
+            "fairOdds": 4.038657156031025,
+            "minimumOddsR1": 4.321363156953197,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.8216569040456356,
+            "fairOdds": 1.2170529999519837,
+            "minimumOddsR1": 1.3022467099486226,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
+      }
+    },
+    {
+      "fixture": {
+        "home": "FC Famalicao",
+        "away": "Alverca",
+        "date": "2026-10-12",
+        "league": "pt.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-10T09:23:07.117138Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:07.163203Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-12T19:15:00Z",
+        "source": "ESPN:pt.1",
+        "fixtureSources": [
+          "ESPN:pt.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401885425",
+        "competition": "Primeira Liga",
+        "competitionSlug": "pt.1",
+        "leagueHint": "pt.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "FC Famalicao",
+        "discoveryAway": "Alverca",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.918328702313577,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "1X",
+        "selection": "FC Famalicao OR Draw — Double Chance (1X)",
+        "probability": 0.8128904696302726,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "FC Famalicao — Draw No Bet (draw = refund)",
+        "fairOdds": 1.3262632572426256,
+        "conditionalP": 0.7539981180501487,
+        "winP": 0.5734924979020345,
+        "pushP": 0.23939797172823804,
+        "lossP": 0.18710953036972747
+      },
+      "value": {
+        "fairOdds": 1.2301780342618982,
+        "minimumOddsR1": 1.2670833752897552,
+        "minimumOddsR2": 1.3162904966602311,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": 0.07,
+          "probabilityChangedByRiskPolicy": false
+        },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "robustnessReview": {
+          "required": true,
+          "tier": "C",
+          "matchIntelligenceCaptured": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "1X",
+        "selectionFrozen": "FC Famalicao OR Draw — Double Chance (1X)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.5734924979020345,
+          "fairOdds": 1.7437019728387495,
+          "minimumOddsR1": 1.796013032023912,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "1X",
+          "probability": 0.8128904696302726,
+          "fairOdds": 1.2301780342618982,
+          "minimumOddsR1": 1.2670833752897552,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.5734924979020345,
+            "fairOdds": 1.7437019728387495,
+            "minimumOddsR1": 1.796013032023912,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.23939797172823804,
+            "fairOdds": 4.177144830346303,
+            "minimumOddsR1": 4.3024591752566925,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.18710953036972747,
+            "fairOdds": 5.34446320304479,
+            "minimumOddsR1": 5.504797099136134,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.8128904696302726,
+            "fairOdds": 1.2301780342618982,
+            "minimumOddsR1": 1.2670833752897552,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.4265075020979655,
+            "fairOdds": 2.344624643367487,
+            "minimumOddsR1": 2.4149633826685113,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7606020282717619,
+            "fairOdds": 1.3147480059607486,
+            "minimumOddsR1": 1.3541904461395713,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
+      }
+    },
+    {
+      "fixture": {
+        "home": "Coventry City",
+        "away": "Newcastle United",
+        "date": "2026-10-12",
+        "league": "en.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-10T09:23:07.117138Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:07.163203Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-12T19:00:00Z",
+        "source": "ESPN:en.1",
+        "fixtureSources": [
+          "ESPN:en.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401879267",
+        "competition": "Premier League",
+        "competitionSlug": "en.1",
+        "leagueHint": "en.1",
+        "hbtSupportLevel": "NOT_YET_READY",
+        "discoveryHome": "Coventry City",
+        "discoveryAway": "Newcastle United",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.6351757597353159,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "X2",
+        "selection": "Newcastle United OR Draw — Double Chance (X2)",
+        "probability": 0.7829862506712222,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "AWAY_DNB",
+        "selection": "Newcastle United — Draw No Bet (draw = refund)",
+        "fairOdds": 1.4263335247398352,
+        "conditionalP": 0.7010982933899708,
+        "winP": 0.5090234211846414,
+        "pushP": 0.2739628294865808,
+        "lossP": 0.21701374932877782
+      },
+      "value": {
+        "fairOdds": 1.277161634885339,
+        "minimumOddsR1": 1.3154764839318993,
+        "minimumOddsR2": 1.3665629493273128,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY"
+        ],
+        "robustnessReview": {
+          "required": true,
+          "tier": "C",
+          "matchIntelligenceCaptured": true
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "X2",
+        "selectionFrozen": "Newcastle United OR Draw — Double Chance (X2)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "AWAY_WIN",
+          "probability": 0.5090234211846414,
+          "fairOdds": 1.9645461453870183,
+          "minimumOddsR1": 2.023482529748629,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "X2",
+          "probability": 0.7829862506712222,
+          "fairOdds": 1.277161634885339,
+          "minimumOddsR1": 1.3154764839318993,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.21701374932877782,
+            "fairOdds": 4.608002963374412,
+            "minimumOddsR1": 4.746243052275645,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.2739628294865808,
+            "fairOdds": 3.650130208809885,
+            "minimumOddsR1": 3.7596341150741814,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.5090234211846414,
+            "fairOdds": 1.9645461453870183,
+            "minimumOddsR1": 2.023482529748629,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.4909765788153586,
+            "fairOdds": 2.0367570331212677,
+            "minimumOddsR1": 2.097859744114906,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.7829862506712222,
+            "fairOdds": 1.277161634885339,
+            "minimumOddsR1": 1.3154764839318993,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7260371705134192,
+            "fairOdds": 1.3773399498166838,
+            "minimumOddsR1": 1.4186601483111845,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
+      }
+    },
+    {
+      "fixture": {
+        "home": "Eyupspor",
+        "away": "Goztepe",
+        "date": "2026-10-12",
+        "league": "tr.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-10T09:23:07.117138Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:23:07.163203Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-12T17:00:00Z",
+        "source": "ESPN:tr.1",
+        "fixtureSources": [
+          "ESPN:tr.1",
+          "ESPN_ALL"
+        ],
+        "sourceFixtureId": "401888284",
+        "competition": "Süper Lig",
+        "competitionSlug": "tr.1",
+        "leagueHint": "tr.1",
+        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "discoveryHome": "Eyupspor",
+        "discoveryAway": "Goztepe",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "executionEligibleNow": true,
+      "executionBlockReason": null,
+      "signal": {
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.7219973985288775,
+        "coverage": "stale-ish 345d",
+        "coveragePack": null,
+        "market": "12",
+        "selection": "Eyupspor OR Goztepe — Either team wins, draw loses (12)",
+        "probability": 0.7282602659181867,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "AWAY_DNB",
+        "selection": "Goztepe — Draw No Bet (draw = refund)",
+        "fairOdds": 1.7491063025260905,
+        "conditionalP": 0.571720540115705,
+        "winP": 0.4163613525755526,
+        "pushP": 0.27173973408181323,
+        "lossP": 0.3118989133426341
+      },
+      "value": {
+        "fairOdds": 1.3731354665343511,
+        "minimumOddsR1": 1.469254949191756,
+        "minimumOddsR2": 1.469254949191756,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": true,
+          "elevatedRisk": true,
+          "minimumEVForR1": 0.07,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "STALE_TEAM_STATE",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "robustnessReview": {
+          "required": true,
+          "tier": "Avoid",
+          "matchIntelligenceCaptured": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "12",
+        "selectionFrozen": "Eyupspor OR Goztepe — Either team wins, draw loses (12)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "AWAY_WIN",
+          "probability": 0.4163613525755526,
+          "fairOdds": 2.401759898737337,
+          "minimumOddsR1": 2.569883091648951,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "12",
+          "probability": 0.7282602659181867,
+          "fairOdds": 1.3731354665343511,
+          "minimumOddsR1": 1.469254949191756,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "UNPROMOTED_L0_FALLBACK",
+            "CONFIRMED_XI_NOT_READY",
+            "STALE_TEAM_STATE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.3118989133426341,
+            "fairOdds": 3.206166989435638,
+            "minimumOddsR1": 3.4305986786961324,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.27173973408181323,
+            "fairOdds": 3.6799918251886123,
+            "minimumOddsR1": 3.9375912529518153,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.4163613525755526,
+            "fairOdds": 2.401759898737337,
+            "minimumOddsR1": 2.569883091648951,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.5836386474244473,
+            "fairOdds": 1.7133889340826272,
+            "minimumOddsR1": 1.8333261594684112,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.6881010866573658,
+            "fairOdds": 1.453274844918159,
+            "minimumOddsR1": 1.5550040840624302,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7282602659181867,
+            "fairOdds": 1.3731354665343511,
+            "minimumOddsR1": 1.469254949191756,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "UNPROMOTED_L0_FALLBACK",
+              "CONFIRMED_XI_NOT_READY",
+              "STALE_TEAM_STATE",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false
+      }
+    }
+  ],
+  "chains": [
+    {
+      "name": "R0_CORE_3",
+      "stakeRand": 0,
+      "executionClass": "R0_SHADOW_CHAIN",
+      "approximateIndependence": true,
+      "jointModelProbabilityApprox": 0.5923967943328229,
+      "fairOddsApprox": 1.6880577504242464,
+      "legs": [
+        {
+          "fixture": {
+            "home": "Atalanta",
+            "away": "Venezia",
+            "date": "2026-10-12",
+            "league": "it.1"
+          },
+          "market": "1X",
+          "selection": "Atalanta OR Draw — Double Chance (1X)",
+          "p": 0.9307360420833333
+        },
+        {
+          "fixture": {
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "date": "2026-10-12",
+            "league": "pt.1"
+          },
+          "market": "1X",
+          "selection": "FC Famalicao OR Draw — Double Chance (1X)",
+          "p": 0.8128904696302726
+        },
+        {
+          "fixture": {
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "date": "2026-10-12",
+            "league": "en.1"
+          },
+          "market": "X2",
+          "selection": "Newcastle United OR Draw — Double Chance (X2)",
+          "p": 0.7829862506712222
+        }
+      ]
+    }
+  ]
+}

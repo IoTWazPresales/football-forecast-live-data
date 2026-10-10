@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "HBT-FROZEN-CONTROL-FORECAST-1",
+  "sourceFile": "exact HBT-0.4a frozen browser deployment snapshot",
+  "sourceExportedAt": "2026-10-10T09:23:07.028Z",
+  "sourceLabVersion": "HBT-1.1.2L-R1",
+  "sourceEngineVersion": "HBT-0.4a exact frozen L0 snapshot bridge",
+  "targetDate": "2026-10-12",
+  "policy": {
+    "prospectiveExport": true,
+    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "predictiveModelMutated": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "generalFutureLiveFeed": false,
+    "scope": "Date-scoped forecasts emitted only after exact HBT-0.4a frozen-state golden parity.",
+    "missingFixtureSemantics": "unknown/not forecast in this export; never infer a probability",
+    "goldenParityRequired": true,
+    "goldenParityTolerance": 1e-9,
+    "targetStateAsOfExclusive": "2026-10-12"
+  },
+  "bridge": {
+    "version": "HBT-FROZEN-FORECAST-BRIDGE-1.4-EXACT-SNAPSHOT",
+    "weightsSource": "exact frozen HBT-0.4a browser snapshot",
+    "snapshotCreated": "2026-09-11T20:30:57.701Z",
+    "snapshotDataCutoff": "2026-09-07",
+    "sourceSnapshotSha256": "c9b53377b8733d63a50413d7a1d3b3287c49c686e24eb75f944861423c3e8eb8",
+    "compactPayloadSha256": "3921c17a6f496412ddfb4e1a22d66d102cf58ccae2e0204d796422d526ce0cdb",
+    "goldenForecastDate": "2026-09-15",
+    "goldenMaxAbsError": 1.1102230246251565e-16,
+    "targetStateAsOfExclusive": "2026-10-12",
+    "incrementalMatches": 146,
+    "sourceFailures": [
+      {
+        "source": "2026-27/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      }
+    ],
+    "duplicatesRemoved": 0,
+    "crossLeagueLinks": 0,
+    "newStates": 4,
+    "unresolvedUpdates": 0,
+    "excluded": [
+      {
+        "fixture": "Torino vs Udinese",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Coritiba vs Botafogo",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Levante vs Sevilla",
+        "league": "es.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Chapecoense vs Athletico-PR",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "16:30",
+        "league": "it.1",
+        "home": "Atalanta",
+        "away": "Venezia",
+        "provider": "ESPN:it.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 2252d",
+      "coveragePack": null,
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.7193776830756792,
+      "probs": [
+        0.7523929461289688,
+        0.17834309595436443,
+        0.06926395791666684
+      ],
+      "pick": "Atalanta",
+      "pickProb": 0.7523929461289688,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.7523929461289688,
+          0.17834309595436443,
+          0.06926395791666684
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "17:00",
+        "league": "tr.1",
+        "home": "Eyupspor",
+        "away": "Goztepe",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 345d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7219973985288775,
+      "probs": [
+        0.3118989133426341,
+        0.27173973408181323,
+        0.4163613525755526
+      ],
+      "pick": "Goztepe",
+      "pickProb": 0.4163613525755526,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.3118989133426341,
+          0.27173973408181323,
+          0.4163613525755526
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "19:00",
+        "league": "en.1",
+        "home": "Coventry City",
+        "away": "Newcastle United",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.6351757597353159,
+      "probs": [
+        0.21701374932877782,
+        0.2739628294865808,
+        0.5090234211846414
+      ],
+      "pick": "Newcastle United",
+      "pickProb": 0.5090234211846414,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.21701374932877782,
+          0.2739628294865808,
+          0.5090234211846414
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "19:15",
+        "league": "pt.1",
+        "home": "FC Famalicao",
+        "away": "Alverca",
+        "provider": "ESPN:pt.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.918328702313577,
+      "probs": [
+        0.5734924979020345,
+        0.23939797172823804,
+        0.18710953036972747
+      ],
+      "pick": "FC Famalicao",
+      "pickProb": 0.5734924979020345,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5734924979020345,
+          0.23939797172823804,
+          0.18710953036972747
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    }
+  ]
+}
