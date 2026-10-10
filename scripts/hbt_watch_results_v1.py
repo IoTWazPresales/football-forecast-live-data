@@ -72,6 +72,9 @@ def freeze(date, folder):
 
 def settle(market, observation):
     """Only settle verified regulation-time finals, even for monotonic goals."""
+    if observation.get('identityVerified') and observation.get('statusName') in (
+            'STATUS_ABANDONED', 'STATUS_CANCELED', 'STATUS_CANCELLED', 'STATUS_POSTPONED'):
+        return 'NO_REGULATION_RESULT'
     if not observation.get('completed') or not observation.get('identityVerified'):
         return 'PENDING'
     if not observation.get('regulationFinal'):
@@ -132,7 +135,7 @@ def parse_event(e, league, feed):
         value = t.get('score'); value = value.get('value') if isinstance(value, dict) else value
         return float(value) if value not in (None, '') else None
     counts = {}
-    for family, aliases in {'CORNERS': ('cornerKicks',), 'YELLOW_CARDS': ('yellowCards',),
+    for family, aliases in {'CORNERS': ('cornerKicks', 'wonCorners'), 'YELLOW_CARDS': ('yellowCards',),
                              'TOTAL_SHOTS': ('totalShots', 'shots'), 'TOTAL_SOT': ('shotsOnTarget',)}.items():
         vals = []
         for t in (h, a):
@@ -148,6 +151,47 @@ def parse_event(e, league, feed):
                and not any(x in str(typ.get('name')).upper() for x in ('OVERTIME', 'PENALT', 'CANCEL', 'ABANDON')),
             'homeScore': score(h), 'awayScore': score(a), 'eventCounts': counts,
             'sourceUrl': feed['url'], 'retrievedAt': feed['retrievedAt']}
+
+def enrich_final_event_counts(obs):
+    """Fetch final statistics only; verify the same event, teams and result."""
+    slug = common.LEAGUE_SLUGS.get(obs.get('league'))
+    if not slug or not obs.get('completed') or not obs.get('regulationFinal') or not obs.get('identityVerified'):
+        return obs
+    url = f"https://site.api.espn.com/apis/site/v2/sports/soccer/{slug}/summary?event={obs['eventId']}"
+    audit = {'url': url, 'retrievedAt': common.now_iso()}
+    try:
+        raw = common.http_json(url)
+        header = raw.get('header') or {}; comps = header.get('competitions') or []
+        if str(header.get('id')) != obs['eventId'] or not comps:
+            raise ValueError('SUMMARY_EVENT_ID_MISMATCH')
+        c = comps[0]; competitors = c.get('competitors') or []
+        h = next((t for t in competitors if t.get('homeAway') == 'home'), {})
+        a = next((t for t in competitors if t.get('homeAway') == 'away'), {})
+        names = {'home': (h.get('team') or {}).get('displayName'), 'away': (a.get('team') or {}).get('displayName')}
+        status = c.get('status') or {}; typ = status.get('type') or {}
+        if (key(names) != key(obs) or float(h.get('score')) != obs['homeScore']
+                or float(a.get('score')) != obs['awayScore'] or not typ.get('completed')
+                or int(status.get('period') or 2) > 2 or stamp(c['date']) != stamp(obs['kickoff'])):
+            raise ValueError('SUMMARY_FINAL_IDENTITY_SCORE_TIME_MISMATCH')
+        teams = common.parse_stats(raw)['teams']; counts = dict(obs.get('eventCounts') or {})
+        for family, aliases in {'CORNERS': ('wonCorners','cornerKicks'), 'YELLOW_CARDS': ('yellowCards',),
+                                 'TOTAL_SHOTS': ('totalShots',), 'TOTAL_SOT': ('shotsOnTarget',)}.items():
+            vals = []
+            for name in (names['home'], names['away']):
+                stats = next((s for team,s in teams.items() if common.norm(team) == common.norm(name)), {})
+                value = next((stats[n] for n in aliases if n in stats), None)
+                try: vals.append(float(value))
+                except (ValueError, TypeError): pass
+            if len(vals) == 2:
+                total = sum(vals)
+                if family in counts and counts[family] != total:
+                    raise ValueError('FINAL_STATISTICS_CONFLICT:'+family)
+                counts[family] = total
+        audit['status'] = 'VERIFIED_FINAL_STATS'
+        return {**obs, 'eventCounts': counts, 'eventStatsAudit': audit}
+    except Exception as exc:
+        audit.update(status='UNVERIFIED', error=str(exc))
+        return {**obs, 'eventStatsAudit': audit}
 
 def run(date):
     folder = DATA / 'watches' / date; folder.mkdir(parents=True, exist_ok=True)
@@ -175,6 +219,8 @@ def run(date):
         expected = f.get('leagueHint') or f.get('hbtLeague')
         verified = bool(obs) and key(f) == key(obs) and (obs.get('league') == 'all' or not expected or obs.get('league') == expected)
         obs = {**obs, 'identityVerified': verified}
+        if any(s['name'] == 'Saved event-model research' for s in saved['streams']):
+            obs = enrich_final_event_counts(obs)
         streams = []
         for stream in saved['streams']:
             captured = stamp(stream['capturedAt']); ko = stamp(obs.get('kickoff') or f['kickoff'])
@@ -208,6 +254,7 @@ def run(date):
                     'observation': {**obs, 'identityVerified': True, 'kickoffTimezoneVerified': timezone_known}, 'streams': [], 'eveningWindow': True})
     rows.sort(key=lambda r: r['fixture']['kickoff'])
     summary = {group: {'settled': len(vals), 'topPickCorrect': sum(v['topPickCorrect'] for v in vals),
+               'topPickAccuracy': sum(v['topPickCorrect'] for v in vals)/len(vals),
                'meanBrier': sum(v['brier'] for v in vals)/len(vals), 'meanLogLoss': sum(v['logLoss'] for v in vals)/len(vals)} for group,vals in metrics.items()}
     out = {'targetDate': date, 'observedAt': common.now_iso(), 'windowSast': '10 October 18:00 through 11 October 06:00',
            'policy': baseline['policy'], 'baselineSha256': hashlib.sha256(frozen_bytes(folder/'baseline.json')).hexdigest(),
@@ -233,7 +280,7 @@ def run(date):
             for m in s['markets']: lines.append(f"| {m['selection']} | {m['winProbability']*100:.1f}% | {m['settlement']} |")
             lines += ['']
     lines += ['## Result-model metrics', '', 'These scores evaluate probability quality; they do not establish profitability.', '', '| Stream | Settled | Top pick correct | Mean Brier | Mean log loss |', '|---|---:|---:|---:|---:|']
-    for name,v in summary.items(): lines.append(f"| {name} | {v['settled']} | {v['topPickCorrect']} | {v['meanBrier']:.4f} | {v['meanLogLoss']:.4f} |")
+    for name,v in summary.items(): lines.append(f"| {name} | {v['settled']} | {v['topPickCorrect']} ({v['topPickAccuracy']:.1%}) | {v['meanBrier']:.4f} | {v['meanLogLoss']:.4f} |")
     (folder / 'latest.md').write_text('\n'.join(lines)+'\n')
     print(json.dumps({'observedAt':out['observedAt'], 'fixtures':len(rows), 'eveningFixtures':sum(r['eveningWindow'] for r in rows), 'settlementCounts':out['settlementCounts'], 'summary':summary, 'sourceFailures':[a for a in out['sourceAudit'] if a['status']=='FAILED']}, indent=2))
 

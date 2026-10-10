@@ -1,6 +1,6 @@
 # HBT forecast results watch — 2026-10-10
 
-Observed 2026-10-10T20:36:24Z. Actual user wagers are excluded.
+Observed 2026-10-10T22:26:05Z. Actual user wagers are excluded.
 
 Forecasts are frozen. Alternatives are evaluated individually; mutually exclusive outcomes are not a betting portfolio. Late research is separated from pre-kickoff evidence. No model learning or promotion is performed.
 
@@ -22,21 +22,21 @@ Forecasts are frozen. Alternatives are evaluated individually; mutually exclusiv
 | 10 Oct 19:00 | Primeira Liga | Maritimo vs FC Porto | 1–2 | Full Time 90'+7' | No saved HBT forecast |
 | 10 Oct 19:30 | Serie B | Arezzo vs Cremonese | 0–0 | Full Time 90'+5' | No saved HBT forecast |
 | 10 Oct 20:00 | Eredivisie | Fortuna Sittard vs FC Twente | 1–1 | Full Time 90'+3' | Original frozen L0 |
-| 10 Oct 18:15 (provider timezone unverified) | pl.1 | Jagiellonia Białystok vs Górnik Zabrze | 1–2 | 2H  | No saved HBT forecast |
+| 10 Oct 18:15 (provider timezone unverified) | pl.1 | Jagiellonia Białystok vs Górnik Zabrze | 1–3 | FT  | No saved HBT forecast |
 | 10 Oct 20:30 | 2026-27-german-2-bundesliga | 1. FC Nürnberg vs VfL Wolfsburg | 4–4 | Full Time 90'+10' | Original frozen L0 |
-| 10 Oct 20:45 | Belgian Pro League | Racing Genk vs KV Kortrijk | 3–0 | Second Half 90'+2' | No saved HBT forecast |
-| 10 Oct 20:45 | Belgian Pro League | Zulte-Waregem vs KAA Gent | 0–1 | Second Half 90'+1' | No saved HBT forecast |
-| 10 Oct 20:45 | Ligue 1 | AS Monaco vs Toulouse | 2–2 | Second Half 89' | Original frozen L0, Restored Fusion research, Saved event-model research |
-| 10 Oct 20:45 | Ligue 1 | Brest vs Angers | 5–1 | Second Half 90' | No saved HBT forecast |
-| 10 Oct 20:45 | Ligue 1 | Lorient vs Paris FC | 1–0 | Second Half 90'+4' | Original frozen L0, Restored Fusion research, Saved event-model research |
-| 10 Oct 20:45 | Ligue 1 | Paris Saint-Germain vs Le Mans | 3–1 | Second Half 89' | Original frozen L0, Restored Fusion research |
-| 10 Oct 20:45 | Serie A | Napoli vs Frosinone | 2–0 | Second Half 90'+2' | No saved HBT forecast |
-| 10 Oct 21:00 | Eredivisie | AFC Ajax vs NEC | 1–1 | Second Half 74' | Original frozen L0 |
-| 10 Oct 21:00 | LaLiga | Real Madrid vs Villarreal | 1–0 | Second Half 77' | Original frozen L0, Restored Fusion research, Saved event-model research |
-| 10 Oct 21:00 | Segunda División | RC Celta Fortuna vs Real Sociedad II | 4–0 | Second Half 76' | No saved HBT forecast |
-| 10 Oct 21:30 | Primeira Liga | Académico de Viseu vs Estoril | 1–0 | Halftime 45'+1' | No saved HBT forecast |
-| 10 Oct 21:30 | Primeira Liga | Casa Pia vs Santa Clara | 0–0 | Second Half 47' | No saved HBT forecast |
-| 10 Oct 23:00 | 2026-brasileiro-serie-a | Vasco da Gama vs Remo | 0–0 | Scheduled 0' | No saved HBT forecast |
+| 10 Oct 20:45 | Belgian Pro League | Racing Genk vs KV Kortrijk | 3–0 | Full Time 90'+3' | No saved HBT forecast |
+| 10 Oct 20:45 | Belgian Pro League | Zulte-Waregem vs KAA Gent | 0–2 | Full Time 90'+4' | No saved HBT forecast |
+| 10 Oct 20:45 | Ligue 1 | AS Monaco vs Toulouse | 2–2 | Full Time 90'+5' | Original frozen L0, Restored Fusion research, Saved event-model research |
+| 10 Oct 20:45 | Ligue 1 | Brest vs Angers | 5–1 | Full Time 90'+7' | No saved HBT forecast |
+| 10 Oct 20:45 | Ligue 1 | Lorient vs Paris FC | 1–0 | Full Time 90'+6' | Original frozen L0, Restored Fusion research, Saved event-model research |
+| 10 Oct 20:45 | Ligue 1 | Paris Saint-Germain vs Le Mans | 3–1 | Full Time 90'+8' | Original frozen L0, Restored Fusion research |
+| 10 Oct 20:45 | Serie A | Napoli vs Frosinone | 3–0 | Full Time 90'+5' | No saved HBT forecast |
+| 10 Oct 21:00 | Eredivisie | AFC Ajax vs NEC | 1–1 | Full Time 90'+4' | Original frozen L0 |
+| 10 Oct 21:00 | LaLiga | Real Madrid vs Villarreal | 1–0 | Full Time 90'+8' | Original frozen L0, Restored Fusion research, Saved event-model research |
+| 10 Oct 21:00 | Segunda División | RC Celta Fortuna vs Real Sociedad II | 4–1 | Full Time 90'+4' | No saved HBT forecast |
+| 10 Oct 21:30 | Primeira Liga | Académico de Viseu vs Estoril | 2–1 | Full Time 90'+5' | No saved HBT forecast |
+| 10 Oct 21:30 | Primeira Liga | Casa Pia vs Santa Clara | 0–1 | Full Time 90'+10' | No saved HBT forecast |
+| 10 Oct 23:00 | 2026-brasileiro-serie-a | Vasco da Gama vs Remo | 0–0 | Second Half 65' | No saved HBT forecast |
 | 11 Oct 02:00 | 2026-brasileiro-serie-a | São Paulo vs Vitória | 0–0 | Scheduled 0' | No saved HBT forecast |
 
 ## Every modeled selection — full day and evening
@@ -87,39 +87,39 @@ Original frozen L0 — pre-kickoff timestamp
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| Rayo Vallecano — Match Winner | 32.0% | PENDING |
-| Rayo Vallecano vs Athletic Club — Draw | 27.6% | PENDING |
-| Athletic Club — Match Winner | 40.3% | PENDING |
-| Rayo Vallecano OR Draw — Double Chance (1X) | 59.7% | PENDING |
-| Athletic Club OR Draw — Double Chance (X2) | 68.0% | PENDING |
-| Rayo Vallecano OR Athletic Club — Either team wins, draw loses (12) | 72.4% | PENDING |
-| Rayo Vallecano — Draw No Bet (draw = refund) | 32.0% | PENDING |
-| Athletic Club — Draw No Bet (draw = refund) | 40.3% | PENDING |
+| Rayo Vallecano — Match Winner | 32.0% | NO_REGULATION_RESULT |
+| Rayo Vallecano vs Athletic Club — Draw | 27.6% | NO_REGULATION_RESULT |
+| Athletic Club — Match Winner | 40.3% | NO_REGULATION_RESULT |
+| Rayo Vallecano OR Draw — Double Chance (1X) | 59.7% | NO_REGULATION_RESULT |
+| Athletic Club OR Draw — Double Chance (X2) | 68.0% | NO_REGULATION_RESULT |
+| Rayo Vallecano OR Athletic Club — Either team wins, draw loses (12) | 72.4% | NO_REGULATION_RESULT |
+| Rayo Vallecano — Draw No Bet (draw = refund) | 32.0% | NO_REGULATION_RESULT |
+| Athletic Club — Draw No Bet (draw = refund) | 40.3% | NO_REGULATION_RESULT |
 
 Restored Fusion research — late/unverified research; excluded from clean prospective metrics
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| Rayo Vallecano — Match Winner | 37.4% | PENDING |
-| Rayo Vallecano vs Athletic Club — Draw | 26.7% | PENDING |
-| Athletic Club — Match Winner | 35.9% | PENDING |
-| Rayo Vallecano OR Draw — Double Chance (1X) | 64.1% | PENDING |
-| Athletic Club OR Draw — Double Chance (X2) | 62.6% | PENDING |
-| Rayo Vallecano OR Athletic Club — Either team wins, draw loses (12) | 73.3% | PENDING |
-| Rayo Vallecano — Draw No Bet (draw = refund) | 37.4% | PENDING |
-| Athletic Club — Draw No Bet (draw = refund) | 35.9% | PENDING |
-| Over 1.5 goals | 79.1% | PENDING |
-| Under 1.5 goals | 20.9% | PENDING |
-| Over 2.5 goals | 55.4% | PENDING |
-| Under 2.5 goals | 44.6% | PENDING |
-| Over 3.5 goals | 33.0% | PENDING |
-| Under 3.5 goals | 67.0% | PENDING |
-| Both teams to score — Yes | 59.0% | PENDING |
-| Both teams to score — No | 41.0% | PENDING |
-| Home over 0.5 goals | 77.9% | PENDING |
-| Away over 0.5 goals | 75.1% | PENDING |
-| Home over 1.5 goals | 44.5% | PENDING |
-| Away over 1.5 goals | 40.5% | PENDING |
+| Rayo Vallecano — Match Winner | 37.4% | NO_REGULATION_RESULT |
+| Rayo Vallecano vs Athletic Club — Draw | 26.7% | NO_REGULATION_RESULT |
+| Athletic Club — Match Winner | 35.9% | NO_REGULATION_RESULT |
+| Rayo Vallecano OR Draw — Double Chance (1X) | 64.1% | NO_REGULATION_RESULT |
+| Athletic Club OR Draw — Double Chance (X2) | 62.6% | NO_REGULATION_RESULT |
+| Rayo Vallecano OR Athletic Club — Either team wins, draw loses (12) | 73.3% | NO_REGULATION_RESULT |
+| Rayo Vallecano — Draw No Bet (draw = refund) | 37.4% | NO_REGULATION_RESULT |
+| Athletic Club — Draw No Bet (draw = refund) | 35.9% | NO_REGULATION_RESULT |
+| Over 1.5 goals | 79.1% | NO_REGULATION_RESULT |
+| Under 1.5 goals | 20.9% | NO_REGULATION_RESULT |
+| Over 2.5 goals | 55.4% | NO_REGULATION_RESULT |
+| Under 2.5 goals | 44.6% | NO_REGULATION_RESULT |
+| Over 3.5 goals | 33.0% | NO_REGULATION_RESULT |
+| Under 3.5 goals | 67.0% | NO_REGULATION_RESULT |
+| Both teams to score — Yes | 59.0% | NO_REGULATION_RESULT |
+| Both teams to score — No | 41.0% | NO_REGULATION_RESULT |
+| Home over 0.5 goals | 77.9% | NO_REGULATION_RESULT |
+| Away over 0.5 goals | 75.1% | NO_REGULATION_RESULT |
+| Home over 1.5 goals | 44.5% | NO_REGULATION_RESULT |
+| Away over 1.5 goals | 40.5% | NO_REGULATION_RESULT |
 
 ### Samsunspor vs Trabzonspor
 
@@ -572,68 +572,68 @@ Original frozen L0 — pre-kickoff timestamp
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| AS Monaco — Match Winner | 60.1% | PENDING |
-| AS Monaco vs Toulouse — Draw | 24.2% | PENDING |
-| Toulouse — Match Winner | 15.7% | PENDING |
-| AS Monaco OR Draw — Double Chance (1X) | 84.3% | PENDING |
-| Toulouse OR Draw — Double Chance (X2) | 39.9% | PENDING |
-| AS Monaco OR Toulouse — Either team wins, draw loses (12) | 75.8% | PENDING |
-| AS Monaco — Draw No Bet (draw = refund) | 60.1% | PENDING |
-| Toulouse — Draw No Bet (draw = refund) | 15.7% | PENDING |
+| AS Monaco — Match Winner | 60.1% | LOSS |
+| AS Monaco vs Toulouse — Draw | 24.2% | WIN |
+| Toulouse — Match Winner | 15.7% | LOSS |
+| AS Monaco OR Draw — Double Chance (1X) | 84.3% | WIN |
+| Toulouse OR Draw — Double Chance (X2) | 39.9% | WIN |
+| AS Monaco OR Toulouse — Either team wins, draw loses (12) | 75.8% | LOSS |
+| AS Monaco — Draw No Bet (draw = refund) | 60.1% | REFUND |
+| Toulouse — Draw No Bet (draw = refund) | 15.7% | REFUND |
 
 Restored Fusion research — late/unverified research; excluded from clean prospective metrics
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| AS Monaco — Match Winner | 60.2% | PENDING |
-| AS Monaco vs Toulouse — Draw | 22.4% | PENDING |
-| Toulouse — Match Winner | 17.4% | PENDING |
-| AS Monaco OR Draw — Double Chance (1X) | 82.6% | PENDING |
-| Toulouse OR Draw — Double Chance (X2) | 39.8% | PENDING |
-| AS Monaco OR Toulouse — Either team wins, draw loses (12) | 77.6% | PENDING |
-| AS Monaco — Draw No Bet (draw = refund) | 60.2% | PENDING |
-| Toulouse — Draw No Bet (draw = refund) | 17.4% | PENDING |
-| Over 1.5 goals | 81.8% | PENDING |
-| Under 1.5 goals | 18.2% | PENDING |
-| Over 2.5 goals | 59.5% | PENDING |
-| Under 2.5 goals | 40.5% | PENDING |
-| Over 3.5 goals | 37.1% | PENDING |
-| Under 3.5 goals | 62.9% | PENDING |
-| Both teams to score — Yes | 58.6% | PENDING |
-| Both teams to score — No | 41.4% | PENDING |
-| Home over 0.5 goals | 85.8% | PENDING |
-| Away over 0.5 goals | 67.6% | PENDING |
-| Home over 1.5 goals | 58.1% | PENDING |
-| Away over 1.5 goals | 31.1% | PENDING |
+| AS Monaco — Match Winner | 60.2% | LOSS |
+| AS Monaco vs Toulouse — Draw | 22.4% | WIN |
+| Toulouse — Match Winner | 17.4% | LOSS |
+| AS Monaco OR Draw — Double Chance (1X) | 82.6% | WIN |
+| Toulouse OR Draw — Double Chance (X2) | 39.8% | WIN |
+| AS Monaco OR Toulouse — Either team wins, draw loses (12) | 77.6% | LOSS |
+| AS Monaco — Draw No Bet (draw = refund) | 60.2% | REFUND |
+| Toulouse — Draw No Bet (draw = refund) | 17.4% | REFUND |
+| Over 1.5 goals | 81.8% | WIN |
+| Under 1.5 goals | 18.2% | LOSS |
+| Over 2.5 goals | 59.5% | WIN |
+| Under 2.5 goals | 40.5% | LOSS |
+| Over 3.5 goals | 37.1% | WIN |
+| Under 3.5 goals | 62.9% | LOSS |
+| Both teams to score — Yes | 58.6% | WIN |
+| Both teams to score — No | 41.4% | LOSS |
+| Home over 0.5 goals | 85.8% | WIN |
+| Away over 0.5 goals | 67.6% | WIN |
+| Home over 1.5 goals | 58.1% | WIN |
+| Away over 1.5 goals | 31.1% | WIN |
 
 Saved event-model research — late/unverified research; excluded from clean prospective metrics
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| Over 8.5 corners | 57.4% | PENDING |
-| Under 8.5 corners | 42.6% | PENDING |
-| Over 9.5 corners | 44.3% | PENDING |
-| Under 9.5 corners | 55.7% | PENDING |
-| Over 10.5 corners | 32.2% | PENDING |
-| Under 10.5 corners | 67.8% | PENDING |
-| Over 3.5 yellow cards | 48.5% | PENDING |
-| Under 3.5 yellow cards | 51.5% | PENDING |
-| Over 4.5 yellow cards | 29.4% | PENDING |
-| Under 4.5 yellow cards | 70.6% | PENDING |
-| Over 5.5 yellow cards | 15.6% | PENDING |
-| Under 5.5 yellow cards | 84.4% | PENDING |
-| Over 20.5 total shots | 76.4% | PENDING |
-| Under 20.5 total shots | 23.6% | PENDING |
-| Over 24.5 total shots | 45.4% | PENDING |
-| Under 24.5 total shots | 54.6% | PENDING |
-| Over 28.5 total shots | 18.3% | PENDING |
-| Under 28.5 total shots | 81.7% | PENDING |
-| Over 7.5 total sot | 60.8% | PENDING |
-| Under 7.5 total sot | 39.2% | PENDING |
-| Over 8.5 total sot | 47.0% | PENDING |
-| Under 8.5 total sot | 53.0% | PENDING |
-| Over 9.5 total sot | 34.1% | PENDING |
-| Under 9.5 total sot | 65.9% | PENDING |
+| Over 8.5 corners | 57.4% | LOSS |
+| Under 8.5 corners | 42.6% | WIN |
+| Over 9.5 corners | 44.3% | LOSS |
+| Under 9.5 corners | 55.7% | WIN |
+| Over 10.5 corners | 32.2% | LOSS |
+| Under 10.5 corners | 67.8% | WIN |
+| Over 3.5 yellow cards | 48.5% | WIN |
+| Under 3.5 yellow cards | 51.5% | LOSS |
+| Over 4.5 yellow cards | 29.4% | LOSS |
+| Under 4.5 yellow cards | 70.6% | WIN |
+| Over 5.5 yellow cards | 15.6% | LOSS |
+| Under 5.5 yellow cards | 84.4% | WIN |
+| Over 20.5 total shots | 76.4% | WIN |
+| Under 20.5 total shots | 23.6% | LOSS |
+| Over 24.5 total shots | 45.4% | WIN |
+| Under 24.5 total shots | 54.6% | LOSS |
+| Over 28.5 total shots | 18.3% | LOSS |
+| Under 28.5 total shots | 81.7% | WIN |
+| Over 7.5 total sot | 60.8% | WIN |
+| Under 7.5 total sot | 39.2% | LOSS |
+| Over 8.5 total sot | 47.0% | LOSS |
+| Under 8.5 total sot | 53.0% | WIN |
+| Over 9.5 total sot | 34.1% | LOSS |
+| Under 9.5 total sot | 65.9% | WIN |
 
 ### Lorient vs Paris FC
 
@@ -641,68 +641,68 @@ Original frozen L0 — pre-kickoff timestamp
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| Lorient — Match Winner | 35.6% | PENDING |
-| Lorient vs Paris FC — Draw | 27.4% | PENDING |
-| Paris FC — Match Winner | 37.0% | PENDING |
-| Lorient OR Draw — Double Chance (1X) | 63.0% | PENDING |
-| Paris FC OR Draw — Double Chance (X2) | 64.4% | PENDING |
-| Lorient OR Paris FC — Either team wins, draw loses (12) | 72.6% | PENDING |
-| Lorient — Draw No Bet (draw = refund) | 35.6% | PENDING |
-| Paris FC — Draw No Bet (draw = refund) | 37.0% | PENDING |
+| Lorient — Match Winner | 35.6% | WIN |
+| Lorient vs Paris FC — Draw | 27.4% | LOSS |
+| Paris FC — Match Winner | 37.0% | LOSS |
+| Lorient OR Draw — Double Chance (1X) | 63.0% | WIN |
+| Paris FC OR Draw — Double Chance (X2) | 64.4% | LOSS |
+| Lorient OR Paris FC — Either team wins, draw loses (12) | 72.6% | WIN |
+| Lorient — Draw No Bet (draw = refund) | 35.6% | WIN |
+| Paris FC — Draw No Bet (draw = refund) | 37.0% | LOSS |
 
 Restored Fusion research — late/unverified research; excluded from clean prospective metrics
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| Lorient — Match Winner | 35.2% | PENDING |
-| Lorient vs Paris FC — Draw | 28.0% | PENDING |
-| Paris FC — Match Winner | 36.9% | PENDING |
-| Lorient OR Draw — Double Chance (1X) | 63.1% | PENDING |
-| Paris FC OR Draw — Double Chance (X2) | 64.8% | PENDING |
-| Lorient OR Paris FC — Either team wins, draw loses (12) | 72.0% | PENDING |
-| Lorient — Draw No Bet (draw = refund) | 35.2% | PENDING |
-| Paris FC — Draw No Bet (draw = refund) | 36.9% | PENDING |
-| Over 1.5 goals | 73.2% | PENDING |
-| Under 1.5 goals | 26.8% | PENDING |
-| Over 2.5 goals | 47.3% | PENDING |
-| Under 2.5 goals | 52.7% | PENDING |
-| Over 3.5 goals | 25.7% | PENDING |
-| Under 3.5 goals | 74.3% | PENDING |
-| Both teams to score — Yes | 52.9% | PENDING |
-| Both teams to score — No | 47.1% | PENDING |
-| Home over 0.5 goals | 71.8% | PENDING |
-| Away over 0.5 goals | 72.8% | PENDING |
-| Home over 1.5 goals | 36.1% | PENDING |
-| Away over 1.5 goals | 37.3% | PENDING |
+| Lorient — Match Winner | 35.2% | WIN |
+| Lorient vs Paris FC — Draw | 28.0% | LOSS |
+| Paris FC — Match Winner | 36.9% | LOSS |
+| Lorient OR Draw — Double Chance (1X) | 63.1% | WIN |
+| Paris FC OR Draw — Double Chance (X2) | 64.8% | LOSS |
+| Lorient OR Paris FC — Either team wins, draw loses (12) | 72.0% | WIN |
+| Lorient — Draw No Bet (draw = refund) | 35.2% | WIN |
+| Paris FC — Draw No Bet (draw = refund) | 36.9% | LOSS |
+| Over 1.5 goals | 73.2% | LOSS |
+| Under 1.5 goals | 26.8% | WIN |
+| Over 2.5 goals | 47.3% | LOSS |
+| Under 2.5 goals | 52.7% | WIN |
+| Over 3.5 goals | 25.7% | LOSS |
+| Under 3.5 goals | 74.3% | WIN |
+| Both teams to score — Yes | 52.9% | LOSS |
+| Both teams to score — No | 47.1% | WIN |
+| Home over 0.5 goals | 71.8% | WIN |
+| Away over 0.5 goals | 72.8% | LOSS |
+| Home over 1.5 goals | 36.1% | LOSS |
+| Away over 1.5 goals | 37.3% | LOSS |
 
 Saved event-model research — late/unverified research; excluded from clean prospective metrics
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| Over 8.5 corners | 58.4% | PENDING |
-| Under 8.5 corners | 41.6% | PENDING |
-| Over 9.5 corners | 45.3% | PENDING |
-| Under 9.5 corners | 54.7% | PENDING |
-| Over 10.5 corners | 33.1% | PENDING |
-| Under 10.5 corners | 66.9% | PENDING |
-| Over 3.5 yellow cards | 38.9% | PENDING |
-| Under 3.5 yellow cards | 61.1% | PENDING |
-| Over 4.5 yellow cards | 21.2% | PENDING |
-| Under 4.5 yellow cards | 78.8% | PENDING |
-| Over 5.5 yellow cards | 10.1% | PENDING |
-| Under 5.5 yellow cards | 89.9% | PENDING |
-| Over 20.5 total shots | 72.2% | PENDING |
-| Under 20.5 total shots | 27.8% | PENDING |
-| Over 24.5 total shots | 40.2% | PENDING |
-| Under 24.5 total shots | 59.8% | PENDING |
-| Over 28.5 total shots | 14.9% | PENDING |
-| Under 28.5 total shots | 85.1% | PENDING |
-| Over 7.5 total sot | 55.0% | PENDING |
-| Under 7.5 total sot | 45.0% | PENDING |
-| Over 8.5 total sot | 41.1% | PENDING |
-| Under 8.5 total sot | 58.9% | PENDING |
-| Over 9.5 total sot | 28.6% | PENDING |
-| Under 9.5 total sot | 71.4% | PENDING |
+| Over 8.5 corners | 58.4% | WIN |
+| Under 8.5 corners | 41.6% | LOSS |
+| Over 9.5 corners | 45.3% | WIN |
+| Under 9.5 corners | 54.7% | LOSS |
+| Over 10.5 corners | 33.1% | WIN |
+| Under 10.5 corners | 66.9% | LOSS |
+| Over 3.5 yellow cards | 38.9% | WIN |
+| Under 3.5 yellow cards | 61.1% | LOSS |
+| Over 4.5 yellow cards | 21.2% | WIN |
+| Under 4.5 yellow cards | 78.8% | LOSS |
+| Over 5.5 yellow cards | 10.1% | WIN |
+| Under 5.5 yellow cards | 89.9% | LOSS |
+| Over 20.5 total shots | 72.2% | WIN |
+| Under 20.5 total shots | 27.8% | LOSS |
+| Over 24.5 total shots | 40.2% | LOSS |
+| Under 24.5 total shots | 59.8% | WIN |
+| Over 28.5 total shots | 14.9% | LOSS |
+| Under 28.5 total shots | 85.1% | WIN |
+| Over 7.5 total sot | 55.0% | WIN |
+| Under 7.5 total sot | 45.0% | LOSS |
+| Over 8.5 total sot | 41.1% | LOSS |
+| Under 8.5 total sot | 58.9% | WIN |
+| Over 9.5 total sot | 28.6% | LOSS |
+| Under 9.5 total sot | 71.4% | WIN |
 
 ### Paris Saint-Germain vs Le Mans
 
@@ -710,39 +710,39 @@ Original frozen L0 — pre-kickoff timestamp
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| Paris Saint-Germain — Match Winner | 66.4% | PENDING |
-| Paris Saint-Germain vs Le Mans — Draw | 22.0% | PENDING |
-| Le Mans — Match Winner | 11.6% | PENDING |
-| Paris Saint-Germain OR Draw — Double Chance (1X) | 88.4% | PENDING |
-| Le Mans OR Draw — Double Chance (X2) | 33.6% | PENDING |
-| Paris Saint-Germain OR Le Mans — Either team wins, draw loses (12) | 78.0% | PENDING |
-| Paris Saint-Germain — Draw No Bet (draw = refund) | 66.4% | PENDING |
-| Le Mans — Draw No Bet (draw = refund) | 11.6% | PENDING |
+| Paris Saint-Germain — Match Winner | 66.4% | WIN |
+| Paris Saint-Germain vs Le Mans — Draw | 22.0% | LOSS |
+| Le Mans — Match Winner | 11.6% | LOSS |
+| Paris Saint-Germain OR Draw — Double Chance (1X) | 88.4% | WIN |
+| Le Mans OR Draw — Double Chance (X2) | 33.6% | LOSS |
+| Paris Saint-Germain OR Le Mans — Either team wins, draw loses (12) | 78.0% | WIN |
+| Paris Saint-Germain — Draw No Bet (draw = refund) | 66.4% | WIN |
+| Le Mans — Draw No Bet (draw = refund) | 11.6% | LOSS |
 
 Restored Fusion research — late/unverified research; excluded from clean prospective metrics
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| Paris Saint-Germain — Match Winner | 71.5% | PENDING |
-| Paris Saint-Germain vs Le Mans — Draw | 18.1% | PENDING |
-| Le Mans — Match Winner | 10.5% | PENDING |
-| Paris Saint-Germain OR Draw — Double Chance (1X) | 89.5% | PENDING |
-| Le Mans OR Draw — Double Chance (X2) | 28.5% | PENDING |
-| Paris Saint-Germain OR Le Mans — Either team wins, draw loses (12) | 81.9% | PENDING |
-| Paris Saint-Germain — Draw No Bet (draw = refund) | 71.5% | PENDING |
-| Le Mans — Draw No Bet (draw = refund) | 10.5% | PENDING |
-| Over 1.5 goals | 84.5% | PENDING |
-| Under 1.5 goals | 15.5% | PENDING |
-| Over 2.5 goals | 63.9% | PENDING |
-| Under 2.5 goals | 36.1% | PENDING |
-| Over 3.5 goals | 41.8% | PENDING |
-| Under 3.5 goals | 58.2% | PENDING |
-| Both teams to score — Yes | 56.6% | PENDING |
-| Both teams to score — No | 43.4% | PENDING |
-| Home over 0.5 goals | 90.2% | PENDING |
-| Away over 0.5 goals | 62.3% | PENDING |
-| Home over 1.5 goals | 67.3% | PENDING |
-| Away over 1.5 goals | 25.5% | PENDING |
+| Paris Saint-Germain — Match Winner | 71.5% | WIN |
+| Paris Saint-Germain vs Le Mans — Draw | 18.1% | LOSS |
+| Le Mans — Match Winner | 10.5% | LOSS |
+| Paris Saint-Germain OR Draw — Double Chance (1X) | 89.5% | WIN |
+| Le Mans OR Draw — Double Chance (X2) | 28.5% | LOSS |
+| Paris Saint-Germain OR Le Mans — Either team wins, draw loses (12) | 81.9% | WIN |
+| Paris Saint-Germain — Draw No Bet (draw = refund) | 71.5% | WIN |
+| Le Mans — Draw No Bet (draw = refund) | 10.5% | LOSS |
+| Over 1.5 goals | 84.5% | WIN |
+| Under 1.5 goals | 15.5% | LOSS |
+| Over 2.5 goals | 63.9% | WIN |
+| Under 2.5 goals | 36.1% | LOSS |
+| Over 3.5 goals | 41.8% | WIN |
+| Under 3.5 goals | 58.2% | LOSS |
+| Both teams to score — Yes | 56.6% | WIN |
+| Both teams to score — No | 43.4% | LOSS |
+| Home over 0.5 goals | 90.2% | WIN |
+| Away over 0.5 goals | 62.3% | WIN |
+| Home over 1.5 goals | 67.3% | WIN |
+| Away over 1.5 goals | 25.5% | LOSS |
 
 ### AFC Ajax vs NEC
 
@@ -750,14 +750,14 @@ Original frozen L0 — pre-kickoff timestamp
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| AFC Ajax — Match Winner | 60.1% | PENDING |
-| AFC Ajax vs NEC — Draw | 23.4% | PENDING |
-| NEC — Match Winner | 16.5% | PENDING |
-| AFC Ajax OR Draw — Double Chance (1X) | 83.5% | PENDING |
-| NEC OR Draw — Double Chance (X2) | 39.9% | PENDING |
-| AFC Ajax OR NEC — Either team wins, draw loses (12) | 76.6% | PENDING |
-| AFC Ajax — Draw No Bet (draw = refund) | 60.1% | PENDING |
-| NEC — Draw No Bet (draw = refund) | 16.5% | PENDING |
+| AFC Ajax — Match Winner | 60.1% | LOSS |
+| AFC Ajax vs NEC — Draw | 23.4% | WIN |
+| NEC — Match Winner | 16.5% | LOSS |
+| AFC Ajax OR Draw — Double Chance (1X) | 83.5% | WIN |
+| NEC OR Draw — Double Chance (X2) | 39.9% | WIN |
+| AFC Ajax OR NEC — Either team wins, draw loses (12) | 76.6% | LOSS |
+| AFC Ajax — Draw No Bet (draw = refund) | 60.1% | REFUND |
+| NEC — Draw No Bet (draw = refund) | 16.5% | REFUND |
 
 ### Real Madrid vs Villarreal
 
@@ -765,68 +765,68 @@ Original frozen L0 — pre-kickoff timestamp
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| Real Madrid — Match Winner | 61.5% | PENDING |
-| Real Madrid vs Villarreal — Draw | 23.3% | PENDING |
-| Villarreal — Match Winner | 15.2% | PENDING |
-| Real Madrid OR Draw — Double Chance (1X) | 84.8% | PENDING |
-| Villarreal OR Draw — Double Chance (X2) | 38.5% | PENDING |
-| Real Madrid OR Villarreal — Either team wins, draw loses (12) | 76.7% | PENDING |
-| Real Madrid — Draw No Bet (draw = refund) | 61.5% | PENDING |
-| Villarreal — Draw No Bet (draw = refund) | 15.2% | PENDING |
+| Real Madrid — Match Winner | 61.5% | WIN |
+| Real Madrid vs Villarreal — Draw | 23.3% | LOSS |
+| Villarreal — Match Winner | 15.2% | LOSS |
+| Real Madrid OR Draw — Double Chance (1X) | 84.8% | WIN |
+| Villarreal OR Draw — Double Chance (X2) | 38.5% | LOSS |
+| Real Madrid OR Villarreal — Either team wins, draw loses (12) | 76.7% | WIN |
+| Real Madrid — Draw No Bet (draw = refund) | 61.5% | WIN |
+| Villarreal — Draw No Bet (draw = refund) | 15.2% | LOSS |
 
 Restored Fusion research — pre-kickoff timestamp
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| Real Madrid — Match Winner | 65.8% | PENDING |
-| Real Madrid vs Villarreal — Draw | 19.7% | PENDING |
-| Villarreal — Match Winner | 14.5% | PENDING |
-| Real Madrid OR Draw — Double Chance (1X) | 85.5% | PENDING |
-| Villarreal OR Draw — Double Chance (X2) | 34.2% | PENDING |
-| Real Madrid OR Villarreal — Either team wins, draw loses (12) | 80.3% | PENDING |
-| Real Madrid — Draw No Bet (draw = refund) | 65.8% | PENDING |
-| Villarreal — Draw No Bet (draw = refund) | 14.5% | PENDING |
-| Over 1.5 goals | 86.6% | PENDING |
-| Under 1.5 goals | 13.4% | PENDING |
-| Over 2.5 goals | 67.5% | PENDING |
-| Under 2.5 goals | 32.5% | PENDING |
-| Over 3.5 goals | 45.9% | PENDING |
-| Under 3.5 goals | 54.1% | PENDING |
-| Both teams to score — Yes | 61.9% | PENDING |
-| Both teams to score — No | 38.1% | PENDING |
-| Home over 0.5 goals | 90.4% | PENDING |
-| Away over 0.5 goals | 68.1% | PENDING |
-| Home over 1.5 goals | 67.8% | PENDING |
-| Away over 1.5 goals | 31.6% | PENDING |
+| Real Madrid — Match Winner | 65.8% | WIN |
+| Real Madrid vs Villarreal — Draw | 19.7% | LOSS |
+| Villarreal — Match Winner | 14.5% | LOSS |
+| Real Madrid OR Draw — Double Chance (1X) | 85.5% | WIN |
+| Villarreal OR Draw — Double Chance (X2) | 34.2% | LOSS |
+| Real Madrid OR Villarreal — Either team wins, draw loses (12) | 80.3% | WIN |
+| Real Madrid — Draw No Bet (draw = refund) | 65.8% | WIN |
+| Villarreal — Draw No Bet (draw = refund) | 14.5% | LOSS |
+| Over 1.5 goals | 86.6% | LOSS |
+| Under 1.5 goals | 13.4% | WIN |
+| Over 2.5 goals | 67.5% | LOSS |
+| Under 2.5 goals | 32.5% | WIN |
+| Over 3.5 goals | 45.9% | LOSS |
+| Under 3.5 goals | 54.1% | WIN |
+| Both teams to score — Yes | 61.9% | LOSS |
+| Both teams to score — No | 38.1% | WIN |
+| Home over 0.5 goals | 90.4% | WIN |
+| Away over 0.5 goals | 68.1% | LOSS |
+| Home over 1.5 goals | 67.8% | LOSS |
+| Away over 1.5 goals | 31.6% | LOSS |
 
 Saved event-model research — pre-kickoff timestamp
 
 | Selection | Probability | Settlement |
 |---|---:|---|
-| Over 8.5 corners | 66.8% | PENDING |
-| Under 8.5 corners | 33.2% | PENDING |
-| Over 9.5 corners | 54.3% | PENDING |
-| Under 9.5 corners | 45.7% | PENDING |
-| Over 10.5 corners | 41.8% | PENDING |
-| Under 10.5 corners | 58.2% | PENDING |
-| Over 3.5 yellow cards | 56.9% | PENDING |
-| Under 3.5 yellow cards | 43.1% | PENDING |
-| Over 4.5 yellow cards | 37.4% | PENDING |
-| Under 4.5 yellow cards | 62.6% | PENDING |
-| Over 5.5 yellow cards | 21.7% | PENDING |
-| Under 5.5 yellow cards | 78.3% | PENDING |
-| Over 20.5 total shots | 91.3% | PENDING |
-| Under 20.5 total shots | 8.7% | PENDING |
-| Over 24.5 total shots | 70.7% | PENDING |
-| Under 24.5 total shots | 29.3% | PENDING |
-| Over 28.5 total shots | 41.0% | PENDING |
-| Under 28.5 total shots | 59.0% | PENDING |
-| Over 7.5 total sot | 78.6% | PENDING |
-| Under 7.5 total sot | 21.4% | PENDING |
-| Over 8.5 total sot | 67.5% | PENDING |
-| Under 8.5 total sot | 32.5% | PENDING |
-| Over 9.5 total sot | 55.1% | PENDING |
-| Under 9.5 total sot | 44.9% | PENDING |
+| Over 8.5 corners | 66.8% | WIN |
+| Under 8.5 corners | 33.2% | LOSS |
+| Over 9.5 corners | 54.3% | WIN |
+| Under 9.5 corners | 45.7% | LOSS |
+| Over 10.5 corners | 41.8% | WIN |
+| Under 10.5 corners | 58.2% | LOSS |
+| Over 3.5 yellow cards | 56.9% | WIN |
+| Under 3.5 yellow cards | 43.1% | LOSS |
+| Over 4.5 yellow cards | 37.4% | WIN |
+| Under 4.5 yellow cards | 62.6% | LOSS |
+| Over 5.5 yellow cards | 21.7% | WIN |
+| Under 5.5 yellow cards | 78.3% | LOSS |
+| Over 20.5 total shots | 91.3% | WIN |
+| Under 20.5 total shots | 8.7% | LOSS |
+| Over 24.5 total shots | 70.7% | WIN |
+| Under 24.5 total shots | 29.3% | LOSS |
+| Over 28.5 total shots | 41.0% | LOSS |
+| Under 28.5 total shots | 59.0% | WIN |
+| Over 7.5 total sot | 78.6% | WIN |
+| Under 7.5 total sot | 21.4% | LOSS |
+| Over 8.5 total sot | 67.5% | LOSS |
+| Under 8.5 total sot | 32.5% | WIN |
+| Over 9.5 total sot | 55.1% | LOSS |
+| Under 9.5 total sot | 44.9% | WIN |
 
 ## Result-model metrics
 
@@ -834,5 +834,6 @@ These scores evaluate probability quality; they do not establish profitability.
 
 | Stream | Settled | Top pick correct | Mean Brier | Mean log loss |
 |---|---:|---:|---:|---:|
-| Original frozen L0 / pre-kickoff | 18 | 8 | 0.6188 | 1.0183 |
-| Restored Fusion research / late research | 8 | 5 | 0.5781 | 0.9555 |
+| Original frozen L0 / pre-kickoff | 23 | 10 (43.5%) | 0.6130 | 1.0055 |
+| Restored Fusion research / late research | 11 | 6 (54.5%) | 0.5799 | 0.9565 |
+| Restored Fusion research / pre-kickoff | 1 | 1 (100.0%) | 0.1771 | 0.4190 |
