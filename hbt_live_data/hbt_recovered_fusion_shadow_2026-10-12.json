@@ -1,0 +1,358 @@
+{
+  "schemaVersion": "HBT-RECOVERED-FUSION-SHADOW-1",
+  "targetDate": "2026-10-12",
+  "generatedAt": "2026-10-10T18:56:19.105Z",
+  "policy": {
+    "bookmakerOddsUsedAsFeature": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "modelPromotionAllowed": false,
+    "executionAllowed": false,
+    "controlForecastUnchanged": true
+  },
+  "sourceFiles": {
+    "control": "hbt_live_data/frozen_control_forecast_2026-10-12.json",
+    "performance": "hbt_live_data/performance.json",
+    "players": "hbt_live_data/player_features.json",
+    "deployment": "runtime/hbt_frozen_fusion_deployment.json"
+  },
+  "sourceHashes": {
+    "control": "81e28c5020ecd9cdc1a0bacfab1fd65a02b8082535849f11ab9b81823beccf32",
+    "performance": "dd20be0c6f8031831d706f1c9626c96c0b63b0431ca52e4e6d460512ed2dd52e",
+    "players": "b50a79b6f728fc2843dae582b86c00c635bb7fe1d05d98cd48604847f7aec05a",
+    "deployment": "c70c8bd40ad83c0f4942d7536ed6f7ff736a4a13319a993d06a132f3627ab286"
+  },
+  "deploymentCreated": "2026-09-12T11:15:44.195Z",
+  "validation": {
+    "full": {
+      "n": 477,
+      "metrics": {
+        "logloss": 0.9833605605510539,
+        "brier": 0.19491211336090997,
+        "accuracy": 0.5178197064989518,
+        "n": 477
+      },
+      "comparisonVsL1": {
+        "deltaLogloss": -0.0005511696769950868,
+        "deltaBrier": -0.000058669377025451214,
+        "loglossCI": [
+          -0.006791170497667031,
+          0.005929971910121035
+        ],
+        "brierCI": [
+          -0.0014543274989953676,
+          0.0014215803281917175
+        ],
+        "bootstrap": "date-block"
+      }
+    },
+    "preXi": {
+      "n": 477,
+      "metrics": {
+        "logloss": 0.9842363126507243,
+        "brier": 0.19507367109947807,
+        "accuracy": 0.5115303983228512,
+        "n": 477
+      },
+      "comparisonVsL1": {
+        "deltaLogloss": 0.00032458242267565036,
+        "deltaBrier": 0.00010288836154313641,
+        "loglossCI": [
+          -0.007220108989338226,
+          0.008517516766458415
+        ],
+        "brierCI": [
+          -0.0016581694468763037,
+          0.00177713311708228
+        ],
+        "bootstrap": "date-block"
+      }
+    }
+  },
+  "validationLimits": [
+    "2019 confirmation was reused; it is not a new untouched holdout",
+    "Historical raw model-versus-bookmaker EV failed its earlier value audit",
+    "Recovered inference is not current execution validation"
+  ],
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "16:30",
+        "league": "it.1",
+        "home": "Atalanta",
+        "away": "Venezia",
+        "provider": "ESPN:it.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "RESEARCH_ONLY",
+      "predictionMode": "PRE-XI FUSION",
+      "probs": [
+        0.7065712723777197,
+        0.1884595389944199,
+        0.10496918862786034
+      ],
+      "layerPredictions": {
+        "L0": [
+          0.7523929461289688,
+          0.17834309595436443,
+          0.06926395791666684
+        ],
+        "L1": [
+          0.7260799586550963,
+          0.19588210126032213,
+          0.07803794008458151
+        ],
+        "L4": [
+          0.6267312355209599,
+          0.2114393733511882,
+          0.1618293911278516
+        ],
+        "Fusion": [
+          0.7065712723777197,
+          0.1884595389944199,
+          0.10496918862786034
+        ]
+      },
+      "scoreMarkets": {
+        "hda": [
+          0.6267312355209599,
+          0.2114393733511882,
+          0.1618293911278516
+        ],
+        "oneX": 0.8381706088721481,
+        "x2": 0.3732687644790398,
+        "twelve": 0.7885606266488114,
+        "over15": 0.8164791582362316,
+        "under15": 0.18352084176376837,
+        "over25": 0.5933504922026197,
+        "under25": 0.4066495077973803,
+        "over35": 0.36951117072672024,
+        "under35": 0.6304888292732798,
+        "bttsYes": 0.5517242354994945,
+        "bttsNo": 0.44827576450050555,
+        "homeOver05": 0.8772915553566324,
+        "awayOver05": 0.6234988047792456,
+        "homeOver15": 0.6198545180707775,
+        "awayOver15": 0.25571961172927565,
+        "mostLikelyScore": {
+          "h": 2,
+          "a": 0,
+          "p": 0.10167260936714173
+        }
+      },
+      "inputFeatures": {
+        "structural": [
+          1.243217265331175,
+          0.4666666666666666,
+          0.43333333333333335,
+          0.64,
+          0.76,
+          0.07999999999999999,
+          0.56,
+          0.4666666666666666,
+          0.8,
+          0.35536118926351834,
+          0
+        ],
+        "performance": [
+          -0.8874584000000003,
+          0.3318340000000002,
+          1,
+          0.4889061
+        ],
+        "context": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "homeScore": [
+          -0.26511333971457646,
+          0.8415947715046227,
+          0.11644050000000002,
+          0.13996800000000004,
+          0.42433770949302463,
+          1.243217265331175
+        ],
+        "awayScore": [
+          0.5035456287902959,
+          0.6872447957073183,
+          -0.4272887000000001,
+          -0.2941149999999999,
+          0.2529597773305303,
+          -1.243217265331175
+        ]
+      },
+      "diagnostics": {
+        "performanceFeedAgeMinutes": 5.868416666666667,
+        "performanceFeedCurrent": true,
+        "confirmedXi": false,
+        "xiReason": "outside confirmed-XI collection window",
+        "preKickoff": true
+      },
+      "executionEligible": false,
+      "blockers": [
+        "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+        "RESEARCH_RUNTIME_NOT_PROMOTED"
+      ],
+      "stakeRand": 0
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "17:00",
+        "league": "tr.1",
+        "home": "Eyupspor",
+        "away": "Goztepe",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "19:00",
+        "league": "en.1",
+        "home": "Coventry City",
+        "away": "Newcastle United",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "RESEARCH_ONLY",
+      "predictionMode": "PRE-XI FUSION",
+      "probs": [
+        0.28919466434200597,
+        0.27347565527322903,
+        0.43732968038476494
+      ],
+      "layerPredictions": {
+        "L0": [
+          0.21701374932877782,
+          0.2739628294865808,
+          0.5090234211846414
+        ],
+        "L1": [
+          0.2524515516434923,
+          0.28926962024528957,
+          0.458278828111218
+        ],
+        "L4": [
+          0.32120519569470685,
+          0.272395695608386,
+          0.4063991086969075
+        ],
+        "Fusion": [
+          0.28919466434200597,
+          0.27347565527322903,
+          0.43732968038476494
+        ]
+      },
+      "scoreMarkets": {
+        "hda": [
+          0.32120519569470685,
+          0.272395695608386,
+          0.4063991086969075
+        ],
+        "oneX": 0.5936008913030928,
+        "x2": 0.6787948043052935,
+        "twelve": 0.7276043043916143,
+        "over15": 0.7472298535883212,
+        "under15": 0.25277014641167883,
+        "over25": 0.49262758986903843,
+        "under25": 0.5073724101309616,
+        "over35": 0.2736625719215001,
+        "under35": 0.7263374280784999,
+        "bttsYes": 0.5418638854546892,
+        "bttsNo": 0.4581361145453108,
+        "homeOver05": 0.7078313738747647,
+        "awayOver05": 0.7567949785224516,
+        "homeOver15": 0.34834001517496427,
+        "awayOver15": 0.4129393660830668,
+        "mostLikelyScore": {
+          "h": 1,
+          "a": 1,
+          "p": 0.12979377737800593
+        }
+      },
+      "inputFeatures": {
+        "structural": [
+          -0.6772407286402177,
+          -0.3333333333333333,
+          -0.3,
+          -0.72,
+          -0.76,
+          -0.64,
+          -0.07999999999999999,
+          -0.26666666666666666,
+          -0.8800000000000001,
+          0.3545589202011342,
+          0
+        ],
+        "performance": [
+          0.038516399999999895,
+          0.15032879999999982,
+          -3.6,
+          -0.4972113
+        ],
+        "context": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "homeScore": [
+          -0.0048927500038960774,
+          0.5398234920144455,
+          -0.3975596,
+          0.042148000000000005,
+          0.4475773883958349,
+          -0.6772407286402177
+        ],
+        "awayScore": [
+          -0.04436702070698158,
+          0.44812553966696395,
+          0.42169860000000003,
+          0.21731239999999996,
+          0.22087146277902983,
+          0.6772407286402177
+        ]
+      },
+      "diagnostics": {
+        "performanceFeedAgeMinutes": 5.868416666666667,
+        "performanceFeedCurrent": true,
+        "confirmedXi": false,
+        "xiReason": "outside confirmed-XI collection window",
+        "preKickoff": true
+      },
+      "executionEligible": false,
+      "blockers": [
+        "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+        "RESEARCH_RUNTIME_NOT_PROMOTED"
+      ],
+      "stakeRand": 0
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "19:15",
+        "league": "pt.1",
+        "home": "FC Famalicao",
+        "away": "Alverca",
+        "provider": "ESPN:pt.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    }
+  ],
+  "summary": {
+    "fixtures": 4,
+    "scoreDistributions": 2,
+    "futureScoreDistributions": 2,
+    "confirmedXiFusion": 0,
+    "readyBets": 0
+  }
+}

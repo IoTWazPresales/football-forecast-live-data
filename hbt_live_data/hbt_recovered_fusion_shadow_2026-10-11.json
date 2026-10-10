@@ -1,0 +1,585 @@
+{
+  "schemaVersion": "HBT-RECOVERED-FUSION-SHADOW-1",
+  "targetDate": "2026-10-11",
+  "generatedAt": "2026-10-10T18:56:13.933Z",
+  "policy": {
+    "bookmakerOddsUsedAsFeature": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "modelPromotionAllowed": false,
+    "executionAllowed": false,
+    "controlForecastUnchanged": true
+  },
+  "sourceFiles": {
+    "control": "hbt_live_data/frozen_control_forecast_2026-10-11.json",
+    "performance": "hbt_live_data/performance.json",
+    "players": "hbt_live_data/player_features.json",
+    "deployment": "runtime/hbt_frozen_fusion_deployment.json"
+  },
+  "sourceHashes": {
+    "control": "a6c23d7fa852d6a83c4c46c503f89034cea19b9e1449316e269198e4ce31524b",
+    "performance": "dd20be0c6f8031831d706f1c9626c96c0b63b0431ca52e4e6d460512ed2dd52e",
+    "players": "b50a79b6f728fc2843dae582b86c00c635bb7fe1d05d98cd48604847f7aec05a",
+    "deployment": "c70c8bd40ad83c0f4942d7536ed6f7ff736a4a13319a993d06a132f3627ab286"
+  },
+  "deploymentCreated": "2026-09-12T11:15:44.195Z",
+  "validation": {
+    "full": {
+      "n": 477,
+      "metrics": {
+        "logloss": 0.9833605605510539,
+        "brier": 0.19491211336090997,
+        "accuracy": 0.5178197064989518,
+        "n": 477
+      },
+      "comparisonVsL1": {
+        "deltaLogloss": -0.0005511696769950868,
+        "deltaBrier": -0.000058669377025451214,
+        "loglossCI": [
+          -0.006791170497667031,
+          0.005929971910121035
+        ],
+        "brierCI": [
+          -0.0014543274989953676,
+          0.0014215803281917175
+        ],
+        "bootstrap": "date-block"
+      }
+    },
+    "preXi": {
+      "n": 477,
+      "metrics": {
+        "logloss": 0.9842363126507243,
+        "brier": 0.19507367109947807,
+        "accuracy": 0.5115303983228512,
+        "n": 477
+      },
+      "comparisonVsL1": {
+        "deltaLogloss": 0.00032458242267565036,
+        "deltaBrier": 0.00010288836154313641,
+        "loglossCI": [
+          -0.007220108989338226,
+          0.008517516766458415
+        ],
+        "brierCI": [
+          -0.0016581694468763037,
+          0.00177713311708228
+        ],
+        "bootstrap": "date-block"
+      }
+    }
+  },
+  "validationLimits": [
+    "2019 confirmation was reused; it is not a new untouched holdout",
+    "Historical raw model-versus-bookmaker EV failed its earlier value audit",
+    "Recovered inference is not current execution validation"
+  ],
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "10:15",
+        "league": "nl.1",
+        "home": "FC Utrecht",
+        "away": "Willem II",
+        "provider": "ESPN:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "10:30",
+        "league": "tr.1",
+        "home": "Konyaspor",
+        "away": "Istanbul Basaksehir",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "11:00",
+        "league": "sco.1",
+        "home": "Motherwell",
+        "away": "Celtic",
+        "provider": "ESPN:sco.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "12:30",
+        "league": "nl.1",
+        "home": "PEC Zwolle",
+        "away": "SC Cambuur",
+        "provider": "ESPN:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "13:00",
+        "league": "en.1",
+        "home": "Crystal Palace",
+        "away": "Nottingham Forest",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "RESEARCH_ONLY",
+      "predictionMode": "PRE-XI FUSION",
+      "probs": [
+        0.3975335542161098,
+        0.2689159462558614,
+        0.3335504995280287
+      ],
+      "layerPredictions": {
+        "L0": [
+          0.3685221128682192,
+          0.28212175970809716,
+          0.3493561274236836
+        ],
+        "L1": [
+          0.36441457389543463,
+          0.3001540725334585,
+          0.33543135357110687
+        ],
+        "L4": [
+          0.4046372376924514,
+          0.26085029651842284,
+          0.3345124657891259
+        ],
+        "Fusion": [
+          0.3975335542161098,
+          0.2689159462558614,
+          0.3335504995280287
+        ]
+      },
+      "scoreMarkets": {
+        "hda": [
+          0.4046372376924514,
+          0.26085029651842284,
+          0.3345124657891259
+        ],
+        "oneX": 0.6654875342108743,
+        "x2": 0.5953627623075488,
+        "twelve": 0.7391497034815773,
+        "over15": 0.7839148628565199,
+        "under15": 0.2160851371434801,
+        "over25": 0.5434746052842775,
+        "under25": 0.4565253947157225,
+        "over35": 0.32024625836583664,
+        "under35": 0.6797537416341634,
+        "bttsYes": 0.5820640814951809,
+        "bttsNo": 0.41793591850481915,
+        "homeOver05": 0.7780678345542439,
+        "awayOver05": 0.7405739814189354,
+        "homeOver15": 0.44397468674087914,
+        "awayOver15": 0.39053462960312524,
+        "mostLikelyScore": {
+          "h": 1,
+          "a": 1,
+          "p": 0.12279303635202901
+        }
+      },
+      "inputFeatures": {
+        "structural": [
+          -0.14227313936581595,
+          -0.06666666666666665,
+          -0.23333333333333336,
+          -0.32,
+          -0.6799999999999999,
+          0.15999999999999998,
+          -0.4800000000000001,
+          -0.5333333333333333,
+          -0.96,
+          0.11881208040357137,
+          0
+        ],
+        "performance": [
+          -0.027056199999999864,
+          -1.0016866,
+          -9.4,
+          0.05718569999999998
+        ],
+        "context": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "homeScore": [
+          0.41664530942322037,
+          0.0023027466426706195,
+          -0.1584322,
+          -0.0011526999999999954,
+          0.4475773883958349,
+          -0.14227313936581595
+        ],
+        "awayScore": [
+          0.43432502540981405,
+          0.6951411911986821,
+          -0.37196029999999997,
+          0.09800400000000001,
+          0.22087146277902983,
+          0.14227313936581595
+        ]
+      },
+      "diagnostics": {
+        "performanceFeedAgeMinutes": 5.782216666666667,
+        "performanceFeedCurrent": true,
+        "confirmedXi": false,
+        "xiReason": "outside confirmed-XI collection window",
+        "preKickoff": true
+      },
+      "executionEligible": false,
+      "blockers": [
+        "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+        "RESEARCH_RUNTIME_NOT_PROMOTED"
+      ],
+      "stakeRand": 0
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "13:00",
+        "league": "en.1",
+        "home": "Hull City",
+        "away": "Everton",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "static performance team identity unresolved"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "13:00",
+        "league": "sco.1",
+        "home": "Aberdeen",
+        "away": "St Johnstone",
+        "provider": "ESPN:sco.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "14:30",
+        "league": "nl.1",
+        "home": "Telstar 1963",
+        "away": "ADO Den Haag",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "15:15",
+        "league": "fr.1",
+        "home": "Stade Rennais",
+        "away": "AJ Auxerre",
+        "provider": "ESPN:fr.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "static performance team identity unresolved"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "15:30",
+        "league": "de.1",
+        "home": "SC Freiburg",
+        "away": "Schalke 04",
+        "provider": "ESPN:de.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "RESEARCH_ONLY",
+      "predictionMode": "PRE-XI FUSION",
+      "probs": [
+        0.7214923900429698,
+        0.16969350159905885,
+        0.10881410835797146
+      ],
+      "layerPredictions": {
+        "L0": [
+          0.6550141376212887,
+          0.20766533276570126,
+          0.13732052961300995
+        ],
+        "L1": [
+          0.6340449031153436,
+          0.22725866128855213,
+          0.13869643559610434
+        ],
+        "L4": [
+          0.7061821156438952,
+          0.17002441363832932,
+          0.12379347071777534
+        ],
+        "Fusion": [
+          0.7214923900429698,
+          0.16969350159905885,
+          0.10881410835797146
+        ]
+      },
+      "scoreMarkets": {
+        "hda": [
+          0.7061821156438952,
+          0.17002441363832932,
+          0.12379347071777534
+        ],
+        "oneX": 0.8762065292822245,
+        "x2": 0.2938178843561047,
+        "twelve": 0.8299755863616706,
+        "over15": 0.8776053340582793,
+        "under15": 0.12239466594172066,
+        "over25": 0.6967028126454308,
+        "under25": 0.30329718735456923,
+        "over35": 0.484111437478474,
+        "under35": 0.5158885625215259,
+        "bttsYes": 0.5937096316981463,
+        "bttsNo": 0.4062903683018537,
+        "homeOver05": 0.9241794420787411,
+        "awayOver05": 0.6385261591399262,
+        "homeOver15": 0.728602832769788,
+        "awayOver15": 0.270702808051392,
+        "mostLikelyScore": {
+          "h": 2,
+          "a": 1,
+          "p": 0.0927803807291013
+        }
+      },
+      "inputFeatures": {
+        "structural": [
+          0.5343987174811639,
+          0.5333333333333333,
+          0.26666666666666666,
+          1.2,
+          0.8,
+          0.8800000000000001,
+          0.32,
+          0.46666666666666673,
+          1.6,
+          -0.38973569331824026,
+          0
+        ],
+        "performance": [
+          0.515415,
+          1.5674287500000001,
+          8.25,
+          0.0927013888888889
+        ],
+        "context": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "homeScore": [
+          0.7697620969870123,
+          0.9461428891411585,
+          0.3736655555555556,
+          -0.7003357777777778,
+          0.6535258775792333,
+          0.5343987174811639
+        ],
+        "awayScore": [
+          0.49703344746633177,
+          0.00829227386776167,
+          -0.3972611111111111,
+          -0.11481188888888888,
+          0.29811974925540885,
+          -0.5343987174811639
+        ]
+      },
+      "diagnostics": {
+        "performanceFeedAgeMinutes": 5.782216666666667,
+        "performanceFeedCurrent": true,
+        "confirmedXi": false,
+        "xiReason": "outside confirmed-XI collection window",
+        "preKickoff": true
+      },
+      "executionEligible": false,
+      "blockers": [
+        "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+        "RESEARCH_RUNTIME_NOT_PROMOTED"
+      ],
+      "stakeRand": 0
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "15:30",
+        "league": "en.1",
+        "home": "Liverpool",
+        "away": "Manchester City",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "RESEARCH_ONLY",
+      "predictionMode": "PRE-XI FUSION",
+      "probs": [
+        0.2744498150147849,
+        0.25122451226467846,
+        0.4743256727205367
+      ],
+      "layerPredictions": {
+        "L0": [
+          0.23013081958997098,
+          0.27025767225896197,
+          0.499611508151067
+        ],
+        "L1": [
+          0.23645329002885754,
+          0.2815349889207633,
+          0.48201172105037915
+        ],
+        "L4": [
+          0.3108353274195511,
+          0.24649849077599403,
+          0.4426661818044555
+        ],
+        "Fusion": [
+          0.2744498150147849,
+          0.25122451226467846,
+          0.4743256727205367
+        ]
+      },
+      "scoreMarkets": {
+        "hda": [
+          0.3108353274195511,
+          0.24649849077599403,
+          0.4426661818044555
+        ],
+        "oneX": 0.5573338181955452,
+        "x2": 0.6891646725804496,
+        "twelve": 0.7535015092240066,
+        "over15": 0.8201183367044746,
+        "under15": 0.17988166329552535,
+        "over25": 0.5979902939363424,
+        "under25": 0.4020097060636576,
+        "over35": 0.37428538521780164,
+        "under35": 0.6257146147821984,
+        "bttsYes": 0.6203079272675559,
+        "bttsNo": 0.3796920727324441,
+        "homeOver05": 0.752291777209795,
+        "awayOver05": 0.8174242021637758,
+        "homeOver15": 0.40661395636997477,
+        "awayOver15": 0.5069373173278929,
+        "mostLikelyScore": {
+          "h": 1,
+          "a": 1,
+          "p": 0.11269485123688282
+        }
+      },
+      "inputFeatures": {
+        "structural": [
+          -0.7398953658393862,
+          -0.5333333333333333,
+          -0.033333333333333215,
+          -0.64,
+          -0.16,
+          -0.72,
+          0.07999999999999999,
+          -0.06666666666666672,
+          0.07999999999999999,
+          0.25248337946812627,
+          0
+        ],
+        "performance": [
+          -0.7115482000000002,
+          0.19985200000000014,
+          -4.4,
+          -0.12207595000000002
+        ],
+        "context": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "homeScore": [
+          0.403194398664377,
+          0.36147713494009376,
+          -0.04829889999999999,
+          -0.2177241,
+          0.4475773883958349,
+          -0.7398953658393862
+        ],
+        "awayScore": [
+          0.7921532494172131,
+          0.21155360662861908,
+          0.19592700000000002,
+          -0.2177981,
+          0.22087146277902983,
+          0.7398953658393862
+        ]
+      },
+      "diagnostics": {
+        "performanceFeedAgeMinutes": 5.782216666666667,
+        "performanceFeedCurrent": true,
+        "confirmedXi": false,
+        "xiReason": "outside confirmed-XI collection window",
+        "preKickoff": true
+      },
+      "executionEligible": false,
+      "blockers": [
+        "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+        "RESEARCH_RUNTIME_NOT_PROMOTED"
+      ],
+      "stakeRand": 0
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "16:00",
+        "league": "tr.1",
+        "home": "Besiktas",
+        "away": "Kocaelispor",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-11",
+        "time": "16:45",
+        "league": "nl.1",
+        "home": "SBV Excelsior",
+        "away": "FC Groningen",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    }
+  ],
+  "summary": {
+    "fixtures": 13,
+    "scoreDistributions": 3,
+    "futureScoreDistributions": 3,
+    "confirmedXiFusion": 0,
+    "readyBets": 0
+  }
+}
