@@ -237,6 +237,55 @@ def classify_stake(row: dict[str, Any], p: float, odds: float | None, execution_
     return result
 
 
+_ORIGINAL_EXECUTION_IDENTITY_BLOCK = base.execution_identity_block
+
+
+def governed_execution_identity_block(row: dict[str, Any], timing: dict[str, Any]) -> str | None:
+    """A discovery timestamp is not independent kickoff confirmation.
+
+    Provide hbt_live_data/hbt_independent_kickoffs_YYYY-MM-DD.json with
+    targetDate and confirmations: [{home,away,kickoffUtc,independentSource,
+    sourceUrl,verifiedAt}]. Same-source restatements are not independent.
+    Missing/mismatched proof blocks staking but preserves research forecasts.
+    """
+    original = _ORIGINAL_EXECUTION_IDENTITY_BLOCK(row, timing)
+    if original:
+        timing["independentKickoffVerified"] = False
+        return original
+    fx = row.get("fixture") or {}
+    date = str(fx.get("date") or "")
+    proof = base.read(base.ROOT / f"hbt_independent_kickoffs_{date}.json", {})
+    if proof.get("targetDate") != date:
+        timing["independentKickoffVerified"] = False
+        return "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING"
+    matched = []
+    for c in proof.get("confirmations") or []:
+        if not isinstance(c, dict):
+            continue
+        if base.norm(c.get("home")) != base.norm(fx.get("home")) or base.norm(c.get("away")) != base.norm(fx.get("away")):
+            continue
+        if not c.get("sourceUrl") or not c.get("independentSource") or not base.parse_aware(c.get("verifiedAt")):
+            continue
+        if str(c.get("independentSource")).strip().lower() == str(timing.get("source") or "").strip().lower():
+            continue
+        matched.append(c)
+    if len(matched) != 1:
+        timing["independentKickoffVerified"] = False
+        return "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS"
+    official = base.parse_aware(matched[0].get("kickoffUtc"))
+    discovered = base.parse_aware(timing.get("kickoffUtc"))
+    if not official or official != discovered:
+        timing["independentKickoffVerified"] = False
+        return "KICKOFF_INDEPENDENT_SOURCE_DISAGREEMENT"
+    if base.parse_aware(matched[0]["verifiedAt"]) >= discovered:
+        timing["independentKickoffVerified"] = False
+        return "KICKOFF_PROOF_CAPTURED_AFTER_START"
+    timing["independentKickoffVerified"] = True
+    timing["independentSource"] = matched[0]["independentSource"]
+    timing["independentSourceUrl"] = matched[0]["sourceUrl"]
+    return None
+
+
 def main() -> int:
     if not hasattr(base, "_ORIG_PLAIN_SELECTION"):
         base._ORIG_PLAIN_SELECTION = base.plain_selection
@@ -244,6 +293,7 @@ def main() -> int:
     base.primary_market = primary_market
     base.plain_selection = plain_selection
     base.classify_stake = classify_stake
+    base.execution_identity_block = governed_execution_identity_block
     base.VERSION = VERSION
     original_write = base.write
 
@@ -256,6 +306,7 @@ def main() -> int:
                     surface_row["fullMarketDecisionAudit"] = audit
             doc.setdefault("policy", {})["unpromotedOrUnconfirmedProposalsAreResearchOnly"] = True
             doc["policy"]["quotesRequireFreshSourceEventIdBookmakerAndTargetDate"] = True
+            doc["policy"]["stakingRequiresIndependentKickoffConfirmation"] = True
         original_write(path, doc)
 
     base.write = write_with_market_audit
