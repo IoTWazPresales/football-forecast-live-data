@@ -256,6 +256,9 @@ def build(target, data_root=ROOT, now=None, price_path=None):
         "prices": price_path or (dated_prices if dated_prices.exists() else data_root / "market_prices.json"),
         "kickoffProof": data_root / f"hbt_independent_kickoffs_{target}.json",
         "capturePointer": data_root / f"hbt_current_capture_{target}.json"}
+    recovered_path = data_root / f"hbt_recovered_fusion_shadow_{target}.json"
+    if recovered_path.exists():
+        paths["recoveredFusion"] = recovered_path
     docs = {k: base.read(p, {}) for k, p in paths.items()}
     forecast, card, scanner, intel = (docs[k] for k in ("forecast", "card", "scanner", "intel"))
     global_blocks = []
@@ -343,6 +346,10 @@ def build(target, data_root=ROOT, now=None, price_path=None):
             if any(x in str(v.get("status")) for x in ("build", "planned", "partial", "research", "retained-after"))]
     flat = [m for f in fixtures for m in f["markets"]]
     actionable = [m for m in flat if m["stakeReady"]]
+    recovered = docs.get("recoveredFusion") or {}
+    if recovered and (recovered.get("targetDate") != target or
+            (recovered.get("sourceHashes") or {}).get("control") != hashlib.sha256(paths["forecast"].read_bytes()).hexdigest()):
+        recovered = {"status": "BLOCKED_SOURCE_MISMATCH", "predictions": [], "summary": {}}
     return {"schemaVersion": "HBT-BETTING-DESK-1", "version": VERSION, "targetDate": target,
         "generatedAt": base.iso(now), "readiness": "VALUE_CANDIDATES_REQUIRE_REVIEW" if actionable else "NO_EXECUTABLE_BETS",
         "policy": {"bookmakerOddsAreDecisionLayerOnly": True, "frozenModelMutated": False,
@@ -364,11 +371,20 @@ def build(target, data_root=ROOT, now=None, price_path=None):
         "intelligence": {"researchOrIncompleteFamilies": gaps, "learningEvidence": docs["learning"].get("evidenceQuality"),
             "promotionRule": docs["learning"].get("nextPromotionRule")},
         "fixtures": fixtures, "unscoredFixtures": unscored, "previouslyScoredMissingNow": disappeared,
+        "recoveredFusionResearch": recovered,
         "chains": chain_candidates(fixtures)}
 
 
 def render(doc):
     e = lambda x: html.escape(str(x if x is not None else "—"))
+    recovered_rows = []
+    for r in (doc.get('recoveredFusionResearch') or {}).get('predictions') or []:
+        sm = r.get('scoreMarkets')
+        if not sm or not (r.get('diagnostics') or {}).get('preKickoff'):
+            continue
+        fx = r['fixture']
+        recovered_rows.append(f'<tr><td>{e(fx["home"])} vs {e(fx["away"])}</td><td>{e(r["predictionMode"])}</td><td>{sm["bttsYes"]:.1%}</td><td>{sm["over25"]:.1%}</td><td>RESEARCH ONLY · R0</td></tr>')
+    recovered_html = ('<h2>Recovered Fusion research</h2><p>Existing frozen Fusion weights restored without retraining. These BTTS and totals estimates have no current verified bookmaker price or approved value calibration and cannot fund bets.</p><table><thead><tr><th>Fixture</th><th>Mode</th><th>BTTS yes</th><th>Over 2.5</th><th>Decision</th></tr></thead><tbody>' + ''.join(recovered_rows) + '</tbody></table>') if recovered_rows else ''
     rows = []
     for f in doc["fixtures"]:
         fx = f["fixture"]
@@ -389,7 +405,7 @@ def render(doc):
 <input id="search" type="search" aria-label="Filter fixtures" placeholder="Search team or league"><button id="events">Show event markets</button>
 <section id="fixtures" class="hide-events">{''.join(rows)}</section><h2>Chains to inspect</h2><p>One fixture per leg. These are bounded research candidates, not funded recommendations or an exhaustive optimum. Short-price legs remain visible; chains do not remove their price disadvantage.</p>{chains or '<p>No current chain candidates.</p>'}
 <h2>Coverage gaps</h2><p>{doc['summary']['unscoredDiscoveredFixtures']} discovered fixtures have no governed 1X2 forecast. {doc['summary']['previouslyScoredMissingNow']} previously scored fixtures are absent from the latest export. BTTS probabilities missing for {doc['summary']['missingBTTSFixtures']} scored fixtures.</p><details><summary>All unscored fixtures</summary><div class="scroll"><table><tbody>{unscored}</tbody></table></div></details>
-<h2>Learning and intelligence</h2><p>{e(doc['intelligence']['learningEvidence'])}</p><p>{e(doc['intelligence']['promotionRule'])}</p><p>{e(', '.join(x['family']+': '+str(x['status']) for x in doc['intelligence']['researchOrIncompleteFamilies']))}</p>
+{recovered_html}<h2>Learning and intelligence</h2><p>{e(doc['intelligence']['learningEvidence'])}</p><p>{e(doc['intelligence']['promotionRule'])}</p><p>{e(', '.join(x['family']+': '+str(x['status']) for x in doc['intelligence']['researchOrIncompleteFamilies']))}</p>
 </main><script>const fs=document.getElementById('fixtures');document.getElementById('events').onclick=function(){{fs.classList.toggle('hide-events');this.textContent=fs.classList.contains('hide-events')?'Show event markets':'Hide event markets'}};document.getElementById('search').oninput=function(){{const q=this.value.toLowerCase();document.querySelectorAll('.fixture').forEach(x=>x.hidden=!x.querySelector('summary').textContent.toLowerCase().includes(q))}};</script></html>'''
 
 

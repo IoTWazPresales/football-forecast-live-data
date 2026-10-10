@@ -54,6 +54,8 @@ jobs:
           set -euo pipefail
           python -m py_compile scripts/hbt_collect_live_data.py scripts/hbt_collect_players_espn.py scripts/hbt_collect_context_v3_runtime.py scripts/hbt_collect_market_intelligence_v4_final.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_build_prospective_card_v2.py scripts/hbt_build_prospective_from_frozen.py scripts/hbt_collect_market_prices_v1.py scripts/hbt_execution_surface_v1.py scripts/hbt_execution_surface_v1_3.py
           node --check scripts/hbt_frozen_forecast_bridge.mjs
+          node --check scripts/hbt_recovered_fusion_shadow.mjs
+          node --test tests/test_hbt_recovered_fusion.mjs
 
       - name: Refresh supported HBT intelligence
         run: |
@@ -83,7 +85,8 @@ jobs:
       - name: Freeze exact HBT probabilities before bookmaker pricing
         run: |
           set -euo pipefail
-          node scripts/hbt_frozen_forecast_bridge.mjs --date '${{ steps.target.outputs.date }}'
+          node scripts/hbt_frozen_forecast_bridge.mjs --date '${{ steps.target.outputs.date }}' --with-structural-features
+          node scripts/hbt_recovered_fusion_shadow.mjs --date '${{ steps.target.outputs.date }}'
           python scripts/hbt_scan_slate_v2_2.py --date '${{ steps.target.outputs.date }}' --reconcile-existing
           python - <<'PY'
           import json
@@ -131,7 +134,7 @@ jobs:
         run: |
           set -euo pipefail
           python scripts/hbt_execution_surface_v1_3.py --date '${{ steps.target.outputs.date }}' --prices hbt_live_data/market_prices.json
-          python scripts/hbt_build_betting_desk_v1.py --date '${{ steps.target.outputs.date }}'
+          python scripts/hbt_build_bet_list_v1.py --date '${{ steps.target.outputs.date }}'
           python - <<'PY'
           import json,os
           d=os.environ['TARGET_DATE'];x=json.load(open(f'hbt_live_data/hbt_execution_surface_{d}.json',encoding='utf-8'))
@@ -167,6 +170,7 @@ jobs:
           git add hbt_live_data/slate_scanner.json "hbt_live_data/frozen_control_forecast_${D}.json" "hbt_live_data/hbt_prospective_card_${D}.json" "hbt_live_data/hbt_execution_surface_${D}.json" hbt_live_data/forecast_bridge_status.json hbt_live_data/market_prices.json hbt_live_data/manifest.json hbt_live_data/performance.json hbt_live_data/player_features.json hbt_live_data/pre_xi_context.json hbt_live_data/market_intelligence.json hbt_live_data/hbt_1_4_match_intelligence.json hbt_live_data/_hbt_1_4_live_cache.json || true
           git add "hbt_live_data/hbt_betting_desk_${D}.json" "hbt_live_data/hbt_betting_desk_${D}.html"
           git add "hbt_live_data/slate_scanner_${D}.json" "hbt_live_data/market_prices_${D}.json" "hbt_live_data/hbt_independent_kickoffs_${D}.json"
+          git add "hbt_live_data/hbt_recovered_fusion_shadow_${D}.json" "hbt_live_data/hbt_bet_list_${D}.json" "hbt_live_data/hbt_bet_list_${D}.md"
           git add hbt_live_data/captures/ "hbt_live_data/hbt_current_capture_${D}.json"
           python scripts/hbt_publish_research_outputs.py --message "prospective: exact frozen HBT slate ${D} and execution surface [skip ci]"
 

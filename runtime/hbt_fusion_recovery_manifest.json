@@ -1,0 +1,126 @@
+{
+  "sourceApplication": "football_forecast_lab_hbt_1_2r_r4_slate_fixed.html",
+  "sourceApplicationSha256": "b6c3ae2d904012f9c9dad18e6ab68a922ae8c4827f11cc3778e944696b9fa82e",
+  "sourceExport": "HBT-1.0L-R1-intelligence-fusion-run.json",
+  "sourceExportSha256": "484706e307b3a0a5aa8db98b39eb7b79c27911f20dbbaa3352b76971c4ea84c1",
+  "deploymentCreated": "2026-09-12T11:15:44.195Z",
+  "liveL0Reference": {
+    "snapshotCreated": "2026-09-11T20:30:57.701Z",
+    "modelChoiceLock": {
+      "opts": {
+        "historyStart": "2015-16",
+        "clubHalfLife": 3650,
+        "leagueHalfLife": 1825,
+        "newTeamOffset": -70,
+        "leagueShare": 0,
+        "K": 22,
+        "homeAdv": 75
+      },
+      "residL2": 0.05,
+      "T": 1,
+      "lockedAt": "2026-09-11T20:30:57.701Z",
+      "source": "FULL"
+    }
+  },
+  "trainingAudit": {
+    "futurePlayerViolations": 0,
+    "badConfirmedXI": 0,
+    "l4PerformanceLeakageViolations": 0,
+    "holdoutUsedInTuning": false,
+    "validationUsedInMetaSelection": false,
+    "sameMatchResultUsed": false,
+    "sameMatchSubstitutionUsed": false,
+    "oddsUsed": false,
+    "expandingWalkForward": true,
+    "blendSelectedOnEarlierOOS": true,
+    "reused2019Confirmation": true,
+    "selectionFolds": [
+      "2016-17",
+      "2017-18"
+    ],
+    "validationFold": "2018-19 H1",
+    "preXiSeparatelyValidated": true
+  },
+  "deploymentRefit": {
+    "trainingN": 4388,
+    "coreConverged": true,
+    "preXiCoreConverged": true,
+    "homePoissonConverged": true,
+    "awayPoissonConverged": true,
+    "coreCoefficients": [
+      {
+        "name": "Confirmed-XI continuity advantage",
+        "featureIndex": 15,
+        "magnitude": 1
+      },
+      {
+        "name": "Position-matched replacement quality advantage",
+        "featureIndex": 16,
+        "magnitude": 0.4510710439418419
+      },
+      {
+        "name": "Late-season stakes-pressure differential",
+        "featureIndex": 18,
+        "magnitude": 0.8406122606603043
+      }
+    ]
+  },
+  "validation": {
+    "full": {
+      "n": 477,
+      "metrics": {
+        "logloss": 0.9833605605510539,
+        "brier": 0.19491211336090997,
+        "accuracy": 0.5178197064989518,
+        "n": 477
+      },
+      "comparisonVsL1": {
+        "deltaLogloss": -0.0005511696769950868,
+        "deltaBrier": -5.8669377025451214e-05,
+        "loglossCI": [
+          -0.006791170497667031,
+          0.005929971910121035
+        ],
+        "brierCI": [
+          -0.0014543274989953676,
+          0.0014215803281917175
+        ],
+        "bootstrap": "date-block"
+      }
+    },
+    "preXi": {
+      "n": 477,
+      "metrics": {
+        "logloss": 0.9842363126507243,
+        "brier": 0.19507367109947807,
+        "accuracy": 0.5115303983228512,
+        "n": 477
+      },
+      "comparisonVsL1": {
+        "deltaLogloss": 0.00032458242267565036,
+        "deltaBrier": 0.00010288836154313641,
+        "loglossCI": [
+          -0.007220108989338226,
+          0.008517516766458415
+        ],
+        "brierCI": [
+          -0.0016581694468763037,
+          0.00177713311708228
+        ],
+        "bootstrap": "date-block"
+      }
+    }
+  },
+  "policy": {
+    "restoredExistingWeights": true,
+    "retrainingPerformed": false,
+    "modelPromotionAllowed": false,
+    "valueCalibrationValidated": false,
+    "reusedConfirmationIsNotUntouchedHoldout": true
+  },
+  "files": {
+    "hbt_forecast_lab_r4.html.gz.b64": "1911bb86bb3cace104ce901c230422d49a2f288715f082a1c5b5b325395dac22",
+    "hbt_frozen_fusion_deployment.json": "c70c8bd40ad83c0f4942d7536ed6f7ff736a4a13319a993d06a132f3627ab286",
+    "hbt_fusion_inference_exact.mjs": "cd2493da4a6068b3fb7402fc21e797ececcbb0d4fe17b762ea0ff0a2713f4f83"
+  }
+}

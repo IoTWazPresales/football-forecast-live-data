@@ -100,6 +100,14 @@ const hashConst=/const EXPECTED_COMPACT_SHA256 = '[0-9a-f]{64}';/;
 if(!hashConst.test(src))fail('audited bridge compact hash contract not found');
 src=src.replace(hashConst,`const EXPECTED_COMPACT_SHA256 = '${compactHash}';`);
 
+// An opt-in data projection exposes the already-computed causal feature vector
+// for the separately recovered Fusion shadow. It changes no prediction logic.
+if(process.argv.includes('--with-structural-features')){
+  const projection='intelligenceStatus:null,scoreMarkets:null';
+  if(src.split(projection).length!==2)fail('structural output projection contract not unique');
+  src=src.replace(projection,projection+',structuralFeatures:p.snap');
+}
+
 const tmp=path.join(runtimeTemp,'hbt_frozen_forecast_bridge_exact_recovered.mjs');
 fs.writeFileSync(tmp,src);
 const check=spawnSync(process.execPath,['--check',tmp],{cwd:ROOT,stdio:'inherit'});

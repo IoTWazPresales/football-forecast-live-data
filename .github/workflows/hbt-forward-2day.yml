@@ -88,7 +88,8 @@ jobs:
         run: |
           set -euo pipefail
           python scripts/hbt_scan_slate_v2_2.py --date "$D"
-          node scripts/hbt_frozen_forecast_bridge.mjs --date "$D"
+          node scripts/hbt_frozen_forecast_bridge.mjs --date "$D" --with-structural-features
+          node scripts/hbt_recovered_fusion_shadow.mjs --date "$D"
           python scripts/hbt_scan_slate_v2_2.py --date "$D" --reconcile-existing
           python - <<'PY'
           import json
@@ -103,7 +104,7 @@ jobs:
           python scripts/hbt_collect_independent_kickoffs_v1.py --date "$D"
           python scripts/hbt_collect_market_prices_v1.py --date "$D"
           python scripts/hbt_execution_surface_v1_3.py --date "$D" --prices "hbt_live_data/market_prices_${D}.json"
-          python scripts/hbt_build_betting_desk_v1.py --date "$D"
+          python scripts/hbt_build_bet_list_v1.py --date "$D"
 
       - name: Freeze second forward date with exact recovered runtime
         env:
@@ -113,7 +114,8 @@ jobs:
         run: |
           set -euo pipefail
           python scripts/hbt_scan_slate_v2_2.py --date "$D"
-          node scripts/hbt_frozen_forecast_bridge.mjs --date "$D"
+          node scripts/hbt_frozen_forecast_bridge.mjs --date "$D" --with-structural-features
+          node scripts/hbt_recovered_fusion_shadow.mjs --date "$D"
           python scripts/hbt_scan_slate_v2_2.py --date "$D" --reconcile-existing
           python - <<'PY'
           import json
@@ -128,7 +130,7 @@ jobs:
           python scripts/hbt_collect_independent_kickoffs_v1.py --date "$D"
           python scripts/hbt_collect_market_prices_v1.py --date "$D"
           python scripts/hbt_execution_surface_v1_3.py --date "$D" --prices "hbt_live_data/market_prices_${D}.json"
-          python scripts/hbt_build_betting_desk_v1.py --date "$D"
+          python scripts/hbt_build_bet_list_v1.py --date "$D"
 
       - name: Validate exact forward execution contracts
         env:
@@ -185,5 +187,6 @@ jobs:
             hbt_live_data/hbt_1_4_match_intelligence.json \
             hbt_live_data/_hbt_1_4_live_cache.json || true
           git add "hbt_live_data/slate_scanner_${D1}.json" "hbt_live_data/slate_scanner_${D2}.json" "hbt_live_data/market_prices_${D1}.json" "hbt_live_data/market_prices_${D2}.json" "hbt_live_data/hbt_independent_kickoffs_${D1}.json" "hbt_live_data/hbt_independent_kickoffs_${D2}.json"
+          git add "hbt_live_data/hbt_recovered_fusion_shadow_${D1}.json" "hbt_live_data/hbt_recovered_fusion_shadow_${D2}.json" "hbt_live_data/hbt_bet_list_${D1}.json" "hbt_live_data/hbt_bet_list_${D2}.json" "hbt_live_data/hbt_bet_list_${D1}.md" "hbt_live_data/hbt_bet_list_${D2}.md"
           git add hbt_live_data/captures/ "hbt_live_data/hbt_current_capture_${D1}.json" "hbt_live_data/hbt_current_capture_${D2}.json"
           python scripts/hbt_publish_research_outputs.py --message "prospective: exact frozen HBT forward surfaces ${D1} ${D2} [skip ci]"
