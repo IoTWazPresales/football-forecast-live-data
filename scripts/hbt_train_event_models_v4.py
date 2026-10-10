@@ -91,17 +91,20 @@ def replay(rows:list[dict[str,Any]],metric:str,params:tuple[float,float,float],s
       pair=r.get(metric);hv,av=pair if pair else (None,None)
       if hv is None or av is None:continue
       lk=r['league'];hs=state[(lk,r['home'])];as_=state[(lk,r['away'])]
-      ph=sum(league[lk]['h'])/len(league[lk]['h']) if league[lk]['h'] else hv
-      pa=sum(league[lk]['a'])/len(league[lk]['a']) if league[lk]['a'] else av
+      # Never use the target's observed counts as its own league prior. A cold
+      # league seeds state only; it is not a scored out-of-sample prediction.
+      prior_ready=bool(league[lk]['h'] and league[lk]['a'])
+      ph=sum(league[lk]['h'])/len(league[lk]['h']) if prior_ready else 0.
+      pa=sum(league[lk]['a'])/len(league[lk]['a']) if prior_ready else 0.
       haf,nh=ew(hs['hf'],decay);hada,nd=ew(as_['ha'],decay);aaf,na=ew(as_['af'],decay);hdaa,nhd=ew(hs['aa'],decay)
       ah=shrink(haf,nh,ph,prior_n);dh=shrink(hada,nd,ph,prior_n);aa=shrink(aaf,na,pa,prior_n);da=shrink(hdaa,nhd,pa,prior_n)
       mh=max(.03,blend*ah+(1-blend)*dh);ma=max(.03,blend*aa+(1-blend)*da)
-      if r['season'] in score_seasons:
+      if prior_ready and r['season'] in score_seasons:
         n+=1;ll+=pnll(hv,mh)+pnll(av,ma);base_ll+=pnll(hv,ph)+pnll(av,pa);ae+=abs(hv-mh)+abs(av-ma);base_ae+=abs(hv-ph)+abs(av-pa)
         for line in lines:
           prob=ptail(mh+ma,line);y=int(hv+av>line);q=line_stats[str(line)];q[0]+=blogloss(y,prob);q[1]+=1;q[2]+=abs(y-prob)
       hs['hf'].append(hv);hs['aa'].append(av);as_['af'].append(av);as_['ha'].append(hv);league[lk]['h'].append(hv);league[lk]['a'].append(av)
-    return {'n':n,'poissonNLLPerTeam':ll/max(1,2*n),'baselineNLLPerTeam':base_ll/max(1,2*n),'maePerTeam':ae/max(1,2*n),'baselineMaePerTeam':base_ae/max(1,2*n),'lines':{k:{'binaryLogloss':v[0]/max(1,v[1]),'maeCalibration':v[2]/max(1,v[1]),'n':int(v[1])} for k,v in line_stats.items()}}
+    return {'n':n,'poissonNLLPerTeam':ll/max(1,2*n),'baselineNLLPerTeam':base_ll/max(1,2*n),'maePerTeam':ae/max(1,2*n),'baselineMaePerTeam':base_ae/max(1,2*n),'lines':{k:{'binaryLogloss':v[0]/max(1,v[1]),'meanAbsoluteOutcomeResidual':v[2]/max(1,v[1]),'n':int(v[1])} for k,v in line_stats.items()}}
 
 def main()->int:
     OUT.mkdir(parents=True,exist_ok=True);rows,audit=load();selection={2023,2024};holdout={2025};models={}

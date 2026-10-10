@@ -201,12 +201,23 @@ def settle_market(exec_row: dict[str, Any], hs: float, as_: float) -> str:
     rc = result_code(hs, as_)
     if market in {"HOME_WIN", "1X2_HOME"}: return "WIN" if rc == "H" else "LOSS"
     if market in {"AWAY_WIN", "1X2_AWAY"}: return "WIN" if rc == "A" else "LOSS"
+    if market in {"DRAW", "1X2_DRAW"}: return "WIN" if rc == "D" else "LOSS"
     if market == "1X": return "WIN" if rc in {"H", "D"} else "LOSS"
     if market == "X2": return "WIN" if rc in {"D", "A"} else "LOSS"
     if market == "12": return "WIN" if rc in {"H", "A"} else "LOSS"
-    if market == "DNB":
+    if market in {"DNB", "HOME_DNB", "AWAY_DNB"}:
+        if market == "HOME_DNB": side = "HOME"
+        if market == "AWAY_DNB": side = "AWAY"
         if rc == "D": return "VOID"
         return "WIN" if (side == "HOME" and rc == "H") or (side == "AWAY" and rc == "A") else "LOSS"
+    if market in {"BTTS_YES", "BTTS_NO"}:
+        yes = hs > 0 and as_ > 0
+        return "WIN" if yes == (market == "BTTS_YES") else "LOSS"
+    match = re.fullmatch(r"(TOTAL_GOALS|HOME_GOALS|AWAY_GOALS)_(OVER|UNDER)_(\d+\.5)", market)
+    if match:
+        total = hs + as_ if match[1] == "TOTAL_GOALS" else hs if match[1] == "HOME_GOALS" else as_
+        wins = total > float(match[3]) if match[2] == "OVER" else total < float(match[3])
+        return "WIN" if wins else "LOSS"
     return "UNKNOWN"
 
 

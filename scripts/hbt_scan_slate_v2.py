@@ -32,6 +32,7 @@ VERSION = "HBT-SLATE-SCANNER-2"
 UA = "Mozilla/5.0 (compatible; HBT-Slate-Scanner/2.0)"
 
 FULL_MODEL_LEAGUES = {"en.1", "es.1", "de.1", "it.1", "fr.1"}
+FALLBACK_MODEL_LEAGUES = {"nl.1", "pt.1", "sco.1", "tr.1", "uefa.cl"}
 FULL_MODEL_SLUGS = {
     "english premier league", "premier league", "spanish laliga", "laliga", "la liga",
     "german bundesliga", "bundesliga", "italian serie a", "serie a", "french ligue 1", "ligue 1",
@@ -205,7 +206,7 @@ def league_from_hit(hit: dict[str, Any] | None) -> str | None:
 
 
 def full_model_comp(public: dict[str, Any], hit: dict[str, Any] | None, fc: dict[str, Any] | None) -> bool:
-    league = league_from_hit(hit) or str(((fc or {}).get("fixture") or {}).get("league") or "")
+    league = public.get("leagueHint") or league_from_hit(hit) or str(((fc or {}).get("fixture") or {}).get("league") or "")
     if league in FULL_MODEL_LEAGUES: return True
     s = key(public.get("competitionSlug") or public.get("competition") or "")
     return any(x in s or s in x for x in FULL_MODEL_SLUGS if s)
@@ -217,7 +218,7 @@ def valid_probs(v: Any) -> bool:
 
 def classify(public: dict[str, Any], hit: dict[str, Any] | None, fc: dict[str, Any] | None, fc_meta: dict[str, Any]) -> dict[str, Any]:
     rows = (hit or {}).get("rows") or {}; h14, market, pre = rows.get("HBT14") or {}, rows.get("MARKET") or {}, rows.get("PREXI") or {}
-    league = league_from_hit(hit) or str(((fc or {}).get("fixture") or {}).get("league") or "") or None
+    league = public.get("leagueHint") or league_from_hit(hit) or str(((fc or {}).get("fixture") or {}).get("league") or "") or None
     mode = str((fc or {}).get("predictionMode") or "")
     probs = (fc or {}).get("probs") if fc else None
     if fc and valid_probs(probs) and "FUSION" in mode:
@@ -230,6 +231,8 @@ def classify(public: dict[str, Any], hit: dict[str, Any] | None, fc: dict[str, A
         status, reason = "NOT_YET_READY", "Fixture exists upstream in HBT context/market feeds, but predictive output is not available in the scanner contract."
     elif full_model_comp(public, hit, fc):
         status, reason = "INSUFFICIENT_DATA", "Competition is in the full-model support contract, but the fixture lacks reconciled predictive output."
+    elif league in FALLBACK_MODEL_LEAGUES:
+        status, reason = "NOT_YET_READY", "Competition has frozen fallback support, but this fixture has no reconciled forecast. Missing output is unknown, not unsupported."
     else:
         status, reason = "UNSUPPORTED_COMPETITION", "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
 
@@ -255,10 +258,20 @@ def classify(public: dict[str, Any], hit: dict[str, Any] | None, fc: dict[str, A
 
 
 def main() -> int:
-    ap = argparse.ArgumentParser(); ap.add_argument("--date", help="Target slate date YYYY-MM-DD; defaults to UTC today"); args = ap.parse_args()
+    ap = argparse.ArgumentParser(); ap.add_argument("--date", help="Target slate date YYYY-MM-DD; defaults to UTC today")
+    ap.add_argument("--reconcile-existing", action="store_true", help="Reclassify saved discovery after the frozen bridge; do not refetch or restamp source freshness")
+    args = ap.parse_args()
     target = dt.date.fromisoformat(args.date) if args.date else dt.datetime.now(dt.timezone.utc).date()
     discovered, audits = [], []
-    for name, fn in (("ESPN_ALL",parse_espn),("SOFASCORE",parse_sofascore)):
+    providers = (("ESPN_ALL",parse_espn),("SOFASCORE",parse_sofascore))
+    if args.reconcile_existing:
+        saved = read_json(OUTPUT, {})
+        if saved.get("targetDate") != target.isoformat():
+            raise SystemExit("cannot reconcile discovery for a different target date")
+        discovered = list(saved.get("fixtures") or [])
+        audits = list(saved.get("sourceAudit") or [])
+        providers = ()
+    for name, fn in providers:
         try:
             rows, audit = fn(target); discovered.extend(rows); audits.append(audit)
         except Exception as exc:
@@ -299,7 +312,8 @@ def main() -> int:
         "policy":{"discoveryBeforeRanking":True,"bookmakerOddsUsed":False,"frozenPredictiveModelMutated":False,"retrainingPerformed":False,
                   "fallbackFabricated":False,"dateScopedFrozenAuditAdapter":True,"rankingAllowedOnlyAfterDiscovery":True,"testAImmutable":True,
                   "missingForecastMeansUnknown":True,"fullModelAndFallbackNeverMerged":True},
-        "sourceAudit":audits,"hbtFeedHealth":feed_health,"frozenForecastAdapter":fc_meta,
+        "sourceAudit":audits,"discoveryReused":args.reconcile_existing,
+        "hbtFeedHealth":feed_health,"frozenForecastAdapter":fc_meta,
         "coverage":{"fixturesDiscovered":len(merged),"classifiedRows":len(fixtures),**counts,"forecastRowsAvailable":len(fidx),
                     "forecastRowsMatched":len(fidx)-len(orphans),"knownForecastsMissedByDiscovery":len(orphans),
                     "knownForecastDiscoveryMisses":orphans,"unsupportedCompetitions":unsupported,

@@ -14,6 +14,7 @@ sidecar instead of silently inventing or reusing stale prices.
 from __future__ import annotations
 
 import json
+import math
 import os
 import re
 import unicodedata
@@ -76,10 +77,65 @@ def parse_dt(value: Any) -> datetime | None:
         s = str(value or "").strip().replace("Z", "+00:00")
         d = datetime.fromisoformat(s)
         if d.tzinfo is None:
-            d = d.replace(tzinfo=timezone.utc)
+            return None
         return d.astimezone(timezone.utc)
     except Exception:
         return None
+
+
+def normalize_markets(markets, home, away, event_id, kickoff, retrieved_at):
+    """Exact full-match market whitelist; no HT, handicaps or naming guesses.
+
+    Provider updatedAt is quote time. A recent HTTP retrieval must not make an
+    old quote appear fresh. Unrecognized market shapes remain in the raw audit.
+    """
+    rows = []
+    simple = {
+        "ml": {"HOME_WIN": ("home",), "DRAW": ("draw",), "AWAY_WIN": ("away",)},
+        "draw no bet": {"HOME_DNB": ("home",), "AWAY_DNB": ("away",)},
+        "double chance": {"1X": ("1x", "homeDraw", "home_draw"),
+                          "X2": ("x2", "drawAway", "awayDraw", "away_draw"),
+                          "12": ("12", "homeAway", "home_away")},
+        "both teams to score": {"BTTS_YES": ("yes",), "BTTS_NO": ("no",)},
+    }
+    totals = {"totals": "TOTAL_GOALS", "goals over/under": "TOTAL_GOALS",
+              "team total home": "HOME_GOALS", "team total away": "AWAY_GOALS"}
+    for market in markets:
+        if not isinstance(market, dict):
+            continue
+        name = str(market.get("name") or "").strip().lower()
+        if name not in simple and name not in totals:
+            continue
+        stamp = market.get("updatedAt")
+        if not parse_dt(stamp):
+            continue
+        for q in market.get("odds") or []:
+            if not isinstance(q, dict) or q.get("suspended") or market.get("suspended"):
+                continue
+            aliases = simple.get(name, {})
+            if name in totals:
+                try:
+                    line = float(q.get("hdp"))
+                except (ValueError, TypeError):
+                    continue
+                # Integer/quarter Asian lines need push/split settlement models.
+                if not math.isfinite(line) or line < 0 or line % 1 != .5:
+                    continue
+                aliases = {f"{totals[name]}_OVER_{line:g}": ("over",),
+                           f"{totals[name]}_UNDER_{line:g}": ("under",)}
+            for key, names in aliases.items():
+                try:
+                    odd = float(next(q[n] for n in names if n in q))
+                except (StopIteration, TypeError, ValueError):
+                    continue
+                if not math.isfinite(odd) or odd <= 1:
+                    continue
+                rows.append({"home": home, "away": away, "market": key, "odds": odd,
+                             "bookmaker": BOOKMAKER, "eventId": str(event_id),
+                             "collectedAt": stamp, "retrievedAt": retrieved_at,
+                             "providerKickoff": kickoff, "period": "REGULATION_90",
+                             "providerMarketName": market.get("name")})
+    return rows
 
 
 def http_json(path: str, params: dict[str, Any]) -> Any:
@@ -218,36 +274,8 @@ def main() -> int:
             # giving the execution layer stable market identifiers.
             home = (m.get("slateFixture") or {}).get("home")
             away = (m.get("slateFixture") or {}).get("away")
-            for market in (book if isinstance(book, list) else []):
-                name = str(market.get("name") or "").strip().lower()
-                for q in market.get("odds") or []:
-                    if not isinstance(q, dict):
-                        continue
-                    if name in {"moneyline", "ml", "match winner", "1x2"}:
-                        for mk, key_name in (("HOME_WIN","home"),("DRAW","draw"),("AWAY_WIN","away")):
-                            try:
-                                odd = float(q.get(key_name))
-                            except Exception:
-                                continue
-                            if odd > 1:
-                                base_payload["prices"].append({"home":home,"away":away,"market":mk,"odds":odd,"bookmaker":BOOKMAKER,"eventId":eid,"collectedAt":base_payload["generatedAt"],"providerKickoff":m["providerEvent"]["date"],"identityMatchScore":m["identityMatchScore"]})
-                    elif "double chance" in name or name in {"dc","double_chance"}:
-                        aliases = {
-                            "1X": ("1x","homeDraw","home_draw","homeOrDraw"),
-                            "X2": ("x2","awayDraw","drawAway","away_draw","awayOrDraw"),
-                            "12": ("12","homeAway","home_away","eitherTeam"),
-                        }
-                        for mk, names in aliases.items():
-                            odd = None
-                            for key_name in names:
-                                if key_name in q:
-                                    try:
-                                        odd = float(q.get(key_name))
-                                    except Exception:
-                                        odd = None
-                                    break
-                            if odd and odd > 1:
-                                base_payload["prices"].append({"home":home,"away":away,"market":mk,"odds":odd,"bookmaker":BOOKMAKER,"eventId":eid,"collectedAt":base_payload["generatedAt"],"providerKickoff":m["providerEvent"]["date"],"identityMatchScore":m["identityMatchScore"]})
+            base_payload["prices"].extend(normalize_markets(book if isinstance(book, list) else [],
+                home, away, eid, m["providerEvent"]["date"], base_payload["generatedAt"]))
 
             base_payload["fixtures"][k] = m
 

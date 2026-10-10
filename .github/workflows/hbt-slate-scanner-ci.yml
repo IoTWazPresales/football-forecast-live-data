@@ -8,6 +8,7 @@ on:
     paths:
       - 'scripts/hbt_scan_slate_v2.py'
       - 'scripts/hbt_scan_slate_v2_1.py'
+      - 'scripts/hbt_scan_slate_v2_2.py'
       - 'scripts/hbt_rank_slate.py'
       - 'scripts/hbt_collect_match_intelligence_v5.py'
       - 'scripts/hbt_collect_match_intelligence_v6.py'
@@ -33,11 +34,11 @@ jobs:
         with:
           python-version: '3.12'
       - name: Compile scanner and ranker
-        run: python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_rank_slate.py
+        run: python -m py_compile scripts/hbt_scan_slate_v2.py scripts/hbt_scan_slate_v2_1.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_rank_slate.py
       - name: Run SAST slate scanner
         run: |
           TARGET_DATE="$(TZ=Africa/Johannesburg date +%F)"
-          python scripts/hbt_scan_slate_v2_1.py --date "$TARGET_DATE"
+          python scripts/hbt_scan_slate_v2_2.py --date "$TARGET_DATE"
       - name: Validate scanner contract
         run: |
           python - <<'PY'

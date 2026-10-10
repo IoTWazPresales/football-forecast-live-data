@@ -29,6 +29,8 @@ import hbt_execution_surface_v1_2 as risk
 VERSION = "HBT-EXECUTION-SURFACE-1.3.2-GOVERNED-RESEARCH"
 _PRICE_INDEX: dict[tuple[str, str, str], float] = {}
 _MARKET_AUDITS: dict[tuple[str, str], dict[str, Any]] = {}
+_QUOTE_TIMES: dict[tuple[str, str], set[datetime]] = {}
+_QUOTE_KICKOFFS: dict[tuple[str, str], set[datetime]] = {}
 
 
 def _put(out: dict[tuple[str, str, str], float], home: Any, away: Any, market: str, value: Any) -> None:
@@ -50,6 +52,8 @@ def price_index(price_doc: dict[str, Any]) -> dict[tuple[str, str, str], float]:
     """
     global _PRICE_INDEX
     _PRICE_INDEX = {}
+    _QUOTE_TIMES.clear()
+    _QUOTE_KICKOFFS.clear()
     if price_doc.get("status") != "PRICES_AVAILABLE":
         return _PRICE_INDEX
     try:
@@ -69,22 +73,37 @@ def price_index(price_doc: dict[str, Any]) -> dict[tuple[str, str, str], float]:
     if not bookmaker:
         return _PRICE_INDEX
     event_ids: dict[tuple[str, str, str], set[str]] = {}
+    quote_values: dict[tuple[str, str, str], set[float]] = {}
     for r in price_doc.get("prices") or []:
         if not isinstance(r, dict) or not r.get("eventId") or r.get("bookmaker") != bookmaker:
             continue
         if not r.get("home") or not r.get("away"):
             continue
+        row_at = base.parse_aware(r.get("collectedAt"))
+        observed_at = base.parse_aware(r.get("retrievedAt"))
+        kickoff = base.parse_aware(r.get("providerKickoff"))
+        if (not row_at or not observed_at or not kickoff or r.get("period") != "REGULATION_90"
+                or not 0 <= (datetime.now(timezone.utc) - row_at).total_seconds() <= 900
+                or not 0 <= (datetime.now(timezone.utc) - observed_at).total_seconds() <= 900
+                or kickoff.date().isoformat() != price_doc.get("targetDate") or row_at >= kickoff):
+            continue
         key = (base.norm(r["home"]), base.norm(r["away"]), str(r.get("market") or "").upper())
         if key[2] not in {"HOME_WIN", "DRAW", "AWAY_WIN", "1X", "X2", "12"}:
             continue
         event_ids.setdefault(key, set()).add(str(r["eventId"]))
+        _QUOTE_TIMES.setdefault(key[:2], set()).add(observed_at)
+        _QUOTE_KICKOFFS.setdefault(key[:2], set()).add(kickoff)
+        try:
+            quote_values.setdefault(key, set()).add(float(r.get("odds")))
+        except (TypeError, ValueError):
+            continue
         _put(_PRICE_INDEX, r["home"], r["away"], key[2], r.get("odds"))
     # A fixture cannot safely combine markets from different provider event IDs.
     by_fixture: dict[tuple[str, str], set[str]] = {}
     for key, ids in event_ids.items():
         by_fixture.setdefault(key[:2], set()).update(ids)
     for key, ids in event_ids.items():
-        if len(ids) != 1 or len(by_fixture[key[:2]]) != 1:
+        if len(ids) != 1 or len(by_fixture[key[:2]]) != 1 or len(quote_values.get(key, set())) != 1:
             _PRICE_INDEX.pop(key, None)
     return _PRICE_INDEX
 
@@ -218,7 +237,8 @@ def classify_stake(row: dict[str, Any], p: float, odds: float | None, execution_
     # Promotion/readiness controls are independent of raw bookmaker value.
     # L0 fallback and PRE-XI overlays are research, not validated funded signals.
     blockers = []
-    if row.get("predictionMode") != "FULL_MODEL":
+    mode = str(row.get("predictionMode") or "")
+    if mode != "FULL_MODEL" and "FUSION" not in mode:
         blockers.append("UNPROMOTED_L0_FALLBACK")
     readiness = (row.get("intelligenceOverlay") or {}).get("readinessState")
     if readiness != "CONFIRMED_XI_READY":
@@ -263,6 +283,12 @@ def governed_execution_identity_block(row: dict[str, Any], timing: dict[str, Any
     original_card = base.read(base.ROOT / f"hbt_prospective_card_{date}.json", {})
     current_at = base.parse_aware(current_export.get("sourceExportedAt"))
     old_at = base.parse_aware(original_card.get("capturedAt"))
+    quote_times = _QUOTE_TIMES.get((base.norm(fx.get("home")), base.norm(fx.get("away"))), set())
+    quote_kickoffs = _QUOTE_KICKOFFS.get((base.norm(fx.get("home")), base.norm(fx.get("away"))), set())
+    if quote_kickoffs and quote_kickoffs != {base.parse_aware(timing.get("kickoffUtc"))}:
+        return "QUOTE_KICKOFF_IDENTITY_DISAGREEMENT"
+    if quote_times and (not old_at or any(t <= old_at for t in quote_times)):
+        return "QUOTE_NOT_AFTER_IMMUTABLE_PREDICTION_FREEZE"
     if (current_export.get("targetDate") == date and current_at and old_at and current_at > old_at):
         timing["independentKickoffVerified"] = False
         return "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT"
@@ -299,6 +325,7 @@ def governed_execution_identity_block(row: dict[str, Any], timing: dict[str, Any
 
 
 def main() -> int:
+    _MARKET_AUDITS.clear()
     if not hasattr(base, "_ORIG_PLAIN_SELECTION"):
         base._ORIG_PLAIN_SELECTION = base.plain_selection
     base.price_index = price_index
@@ -315,6 +342,13 @@ def main() -> int:
                 fx = surface_row.get("fixture") or {}
                 audit = _MARKET_AUDITS.get((base.norm(fx.get("home")), base.norm(fx.get("away"))))
                 if audit:
+                    audit["fixtureExecutionEligibleNow"] = surface_row.get("executionEligibleNow", False)
+                    audit["fixtureExecutionBlockReason"] = surface_row.get("executionBlockReason")
+                    if not surface_row.get("executionEligibleNow"):
+                        for assessment in audit.get("allMarketAssessments") or []:
+                            assessment["provisionalValueEligible"] = False
+                            assessment["fundingBlockers"] = sorted(set(assessment.get("fundingBlockers", []) + [surface_row.get("executionBlockReason") or "FIXTURE_EXECUTION_BLOCKED"]))
+                        audit["bestProvisionalValue"] = None
                     surface_row["fullMarketDecisionAudit"] = audit
             doc.setdefault("policy", {})["unpromotedOrUnconfirmedProposalsAreResearchOnly"] = True
             doc["policy"]["quotesRequireFreshSourceEventIdBookmakerAndTargetDate"] = True

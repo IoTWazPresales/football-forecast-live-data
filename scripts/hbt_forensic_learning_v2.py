@@ -10,6 +10,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import datetime as dt
 from pathlib import Path
 from typing import Any
 
@@ -18,6 +19,30 @@ import hbt_forensic_learning_v1 as base
 DATA = base.DATA
 FORENSIC = base.FORENSIC
 VERSION = "HBT-FORENSIC-LEARNING-2-GUARD-AWARE"
+
+
+def clean_capture_guard(row, source_doc, surface):
+    """Missing verification is unknown, never clean prospective evidence."""
+    if not surface:
+        return "EXECUTION_SURFACE_MISSING"
+    if surface.get("executionBlockReason"):
+        return surface["executionBlockReason"]
+    timing = surface.get("kickoffVerification") or {}
+    if timing.get("verified") is not True or timing.get("independentKickoffVerified") is not True:
+        return "INDEPENDENT_PREMATCH_IDENTITY_AND_TIME_UNPROVEN"
+    try:
+        capture = dt.datetime.fromisoformat(str(source_doc.get("capturedAt")).replace("Z", "+00:00"))
+        kickoff = dt.datetime.fromisoformat(str(timing.get("kickoffUtc")).replace("Z", "+00:00"))
+        if not capture.tzinfo or not kickoff.tzinfo or capture >= kickoff or row.get("statusAtCapture") != "PRE_KICKOFF":
+            return "CAPTURE_NOT_VERIFIED_PREMATCH"
+    except (ValueError, TypeError):
+        return "CAPTURE_NOT_VERIFIED_PREMATCH"
+    policy = source_doc.get("policy") or {}
+    if (policy.get("preMatchCaptureImmutable") is not True
+            or policy.get("bookmakerPriceObservedBeforeCapture") is not False
+            or policy.get("bookmakerOddsUsedAsPredictiveFeature") is not False):
+        return "IMMUTABLE_PRICE_FREE_CAPTURE_POLICY_UNPROVEN"
+    return None
 
 
 def load_surface(date: str) -> dict[str, Any]:
@@ -81,7 +106,7 @@ def run(date: str) -> dict[str, Any]:
         home, away = fx.get("home"), fx.get("away")
         key = base.fixture_key(home, away)
         surface = surf_idx.get(key)
-        guard_reason = (surface or {}).get("executionBlockReason")
+        guard_reason = clean_capture_guard(row, source_doc, surface)
         learning_eligible = guard_reason is None
 
         event_id = str(fx.get("sourceFixtureId") or "")
@@ -144,6 +169,14 @@ def run(date: str) -> dict[str, Any]:
             "topPick": pick, "topPickProbability": p[pick_idx], "topPickCorrect": pick == rc,
             "actualOutcomeProbability": actual_p, "brier": brier, "logLoss": logloss,
         }
+        # Settle every captured main market, not just whichever market happened
+        # to be displayed. Unknown/blocked rows remain process evidence only.
+        audit["allCapturedMarketOutcomes"] = [
+            {"market": key, "settlement": base.settle_market({"market": key}, hs, as_),
+             "probabilityAtCapture": values.get("p"), "winProbabilityAtCapture": values.get("winP"),
+             "pushProbabilityAtCapture": values.get("pushP"), "eligibleForCalibration": learning_eligible}
+            for key, values in (row.get("derivedMarkets") or {}).items()
+        ]
 
         if surface and (surface.get("r0Tracking") or {}).get("marketFrozen"):
             r0 = surface.get("r0Tracking") or {}

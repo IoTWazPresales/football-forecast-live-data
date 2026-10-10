@@ -37,6 +37,8 @@ class BetExecutionGovernanceTests(unittest.TestCase):
     def tearDown(self):
         execution._PRICE_INDEX = {}
         execution._MARKET_AUDITS.clear()
+        execution._QUOTE_TIMES.clear()
+        execution._QUOTE_KICKOFFS.clear()
 
     def test_pre_xi_never_funded_even_with_positive_ev(self):
         row = ready_row(intelligenceOverlay={"readinessState": "PRE_XI_PROVISIONAL", "intelligenceGaps": []})
@@ -80,11 +82,19 @@ class BetExecutionGovernanceTests(unittest.TestCase):
                                 "odds": 1.90, "eventId": "a", "bookmaker": "Betway"},
                                {"home": "Alpha", "away": "Beta", "market": "DRAW",
                                 "odds": 3.50, "eventId": "b", "bookmaker": "Betway"}]}
-        with patch.object(execution.base, "read", return_value={"targetDate": "2026-10-10"}):
+        document["targetDate"] = datetime.now(timezone.utc).date().isoformat()
+        for row in document["prices"]:
+            row.update({"collectedAt": now, "retrievedAt": now, "providerKickoff":
+                        datetime.now(timezone.utc).replace(hour=23, minute=59, second=59).isoformat(),
+                        "period": "REGULATION_90"})
+        with patch.object(execution.base, "read", return_value={"targetDate": document["targetDate"]}):
             self.assertEqual(execution.price_index(document), {})
             document["prices"][1]["eventId"] = "a"
             result = execution.price_index(document)
+            document["prices"].append(dict(document["prices"][0], odds=2.05))
+            conflicted = execution.price_index(document)
         self.assertEqual(len(result), 2)
+        self.assertNotIn(("alpha", "beta", "HOME_WIN"), conflicted)
 
     def test_newer_frozen_export_blocks_old_prospective_card(self):
         row = ready_row()

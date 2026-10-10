@@ -1,0 +1,30 @@
+name: HBT Betting Desk Contracts
+on:
+  pull_request:
+    branches: [research/hbt-1.4-match-intelligence]
+  push:
+    branches: [codex/hbt-betting-desk-2026-10-10, research/hbt-1.4-match-intelligence]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Financial and causal regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Preserve intelligence and immutable capture hashes
+        run: |
+          python scripts/hbt_intelligence_integrity_guard_v1.py snapshot
+          python scripts/hbt_build_betting_desk_v1.py --date 2026-10-10
+          python scripts/hbt_intelligence_integrity_guard_v1.py verify
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hbt-betting-desk-review
+          path: |
+            hbt_live_data/hbt_betting_desk_2026-10-10.json
+            hbt_live_data/hbt_betting_desk_2026-10-10.html

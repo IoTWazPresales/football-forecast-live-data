@@ -18,6 +18,13 @@ def read(p,default=None):
 
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--date',required=True);a=ap.parse_args();date=a.date
+    existing_path=ROOT/f'hbt_prospective_card_{date}.json'
+    if existing_path.exists():
+        existing=read(existing_path)
+        if existing.get('targetDate')!=date or not existing.get('policy',{}).get('preMatchCaptureImmutable'):
+            raise SystemExit('existing capture has invalid identity/immutability; refusing overwrite')
+        print('Preserved existing immutable prospective card:',existing_path)
+        return 0
     src=ROOT/f'frozen_control_forecast_{date}.json';frozen=read(src)
     if frozen.get('targetDate')!=date:raise SystemExit('frozen forecast target mismatch')
     bridge=frozen.get('bridge') or {}
@@ -38,6 +45,9 @@ def main():
         overlay=card.extract_overlay(ir) if ir else {'readinessState':None,'officialXIConfirmed':False,'intelligenceGaps':['MATCH_INTELLIGENCE_NOT_CAPTURED'],'forensicFamiliesSurfaced':{}}
         time=str(f.get('time') or '00:00')[:5]
         ko=dt.datetime.fromisoformat(f"{date}T{time}:00+00:00")
+        if ko<=captured:
+            excluded.append({'fixture':f,'reason':'POST_KICKOFF_CAPTURE_BLOCKED'})
+            continue
         rows.append({'fixture':f,'statusAtCapture':'PRE_KICKOFF' if ko>captured else 'POST_KICKOFF','origin':'HBT_EXACT_FROZEN_BRIDGE','coverage':r.get('coverage'),'coveragePack':r.get('coveragePack'),'predictionMode':r.get('predictionMode'),'tier':r.get('tier'),'rawTier':r.get('rawTier'),'quality':r.get('quality'),'resolution':r.get('resolution'),'probs':{'H':h,'D':d,'A':a3},'derivedMarkets':card.market_map(h,d,a3),'intelligenceOverlay':overlay,'surfacingPolicy':{'baseProbabilityChangedByOverlay':False,'overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule':False,'overlayPurpose':'Expose knowable match state and gaps; do not alter exact frozen HBT probabilities.'}})
     out={'schemaVersion':'HBT-PROSPECTIVE-CARD-2','version':VERSION,'capturedAt':captured.isoformat().replace('+00:00','Z'),'targetDate':date,'origin':'HBT_EXACT_FROZEN_BRIDGE','policy':{'bookmakerOddsUsedAsPredictiveFeature':False,'bookmakerPriceObservedBeforeCapture':False,'modelRetuned':False,'preMatchCaptureImmutable':True,'postKickoffBackfillAllowed':False,'preserveExistingIntelligence':True,'allValidatedIntelligenceFamiliesRetained':True,'unvalidatedOverlayDoesNotChangeProbability':True,'forensicLearningCanCreateHypothesesButNotAutoPromote':True,'competitionLabelIsEligibilityGate':True,'unsupportedCompetitionsMayNotEnterHBT':True,'exactFrozenRuntimeParityRequired':True,'c1ATierPromotionAllowed':False},'parityDiagnostic':maxerr,'intelligenceSources':{'matchIntelligenceGeneratedAt':intel.get('generatedAt'),'preXiGeneratedAt':pre.get('generatedAt'),'marketIntelligenceGeneratedAt':market.get('generatedAt')},'candidates':rows,'excludedUnsupported':excluded,'counts':{'predictions':len(rows),'excludedUnsupported':len(excluded),'preKickoff':sum(x['statusAtCapture']=='PRE_KICKOFF' for x in rows),'postKickoff':sum(x['statusAtCapture']=='POST_KICKOFF' for x in rows),'c1':sum(x.get('coveragePack')=='C1' for x in rows),'withIntelligenceOverlay':sum('MATCH_INTELLIGENCE_NOT_CAPTURED' not in x['intelligenceOverlay'].get('intelligenceGaps',[]) for x in rows)}}
     json.dump(out,open(ROOT/f'hbt_prospective_card_{date}.json','w',encoding='utf-8'),indent=2,ensure_ascii=False)
