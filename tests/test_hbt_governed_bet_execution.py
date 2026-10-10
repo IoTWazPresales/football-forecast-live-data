@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import sys
 import unittest
+from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import patch
 
@@ -70,6 +71,31 @@ class BetExecutionGovernanceTests(unittest.TestCase):
              "generatedAt": "2026-10-10T08:59:00Z", "targetDate": "2026-10-10",
              "primaryBookmaker": "Betway", "prices": [{"home": "Alpha", "away": "Beta",
              "market": "HOME_WIN", "odds": 1.80}]}), {})
+
+    def test_provenance_and_cross_event_price_mixing_are_rejected(self):
+        now = datetime.now(timezone.utc).isoformat()
+        document = {"status": "PRICES_AVAILABLE", "generatedAt": now,
+                    "targetDate": "2026-10-10", "primaryBookmaker": "Betway",
+                    "prices": [{"home": "Alpha", "away": "Beta", "market": "HOME_WIN",
+                                "odds": 1.90, "eventId": "a", "bookmaker": "Betway"},
+                               {"home": "Alpha", "away": "Beta", "market": "DRAW",
+                                "odds": 3.50, "eventId": "b", "bookmaker": "Betway"}]}
+        with patch.object(execution.base, "read", return_value={"targetDate": "2026-10-10"}):
+            self.assertEqual(execution.price_index(document), {})
+            document["prices"][1]["eventId"] = "a"
+            result = execution.price_index(document)
+        self.assertEqual(len(result), 2)
+
+    def test_newer_frozen_export_blocks_old_prospective_card(self):
+        row = ready_row()
+        timing = {"verified": True, "kickoffUtc": "2026-10-10T18:00:00Z",
+                  "source": "ESPN:en.1", "competition": "Premier League",
+                  "fixtureSources": ["ESPN:en.1"], "leagueHint": "en.1"}
+        refreshed = {"targetDate": "2026-10-10", "sourceExportedAt": "2026-10-10T06:29:07Z"}
+        old_card = {"capturedAt": "2026-10-09T14:09:10Z"}
+        with patch.object(execution.base, "read", side_effect=[refreshed, old_card]):
+            reason = execution.governed_execution_identity_block(row, timing)
+        self.assertEqual(reason, "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT")
 
     def test_no_independent_kickoff_proof_is_blocked(self):
         row = ready_row()
