@@ -2,7 +2,7 @@
   "schemaVersion": "HBT-EXECUTION-SURFACE-1",
   "version": "HBT-EXECUTION-SURFACE-1.3.2-GOVERNED-RESEARCH",
   "targetDate": "2026-10-12",
-  "generatedAt": "2026-10-10T09:23:07.163203Z",
+  "generatedAt": "2026-10-10T09:38:02.913000Z",
   "policy": {
     "footballProbabilitiesImmutable": true,
     "bookmakerPriceObservedOnlyAfterPredictionFreeze": true,
@@ -17,18 +17,22 @@
     "chainLegMustIndependentlyPassValueGateForFunding": true,
     "sameMatchCorrelatedLegsAllowed": false,
     "unpromotedOrUnconfirmedProposalsAreResearchOnly": true,
-    "quotesRequireFreshSourceEventIdBookmakerAndTargetDate": true
+    "quotesRequireFreshSourceEventIdBookmakerAndTargetDate": true,
+    "stakingRequiresIndependentKickoffConfirmation": true,
+    "stakingRequiresLatestFrozenExportReconciliation": true,
+    "fundedChainsRequireValidatedDependenceModel": true
   },
   "sourceProspectiveCard": "hbt_prospective_card_2026-10-12.json",
   "priceSource": null,
   "summary": {
     "surfaces": 4,
-    "executionEligibleNow": 4,
-    "blockedIdentityOrTiming": 0,
+    "executionEligibleNow": 0,
+    "blockedIdentityOrTiming": 4,
     "fundedSingles": 0,
     "fundedStakeRand": 0,
     "r0Singles": 4,
-    "chains": 1
+    "chains": 0,
+    "fundedChains": 0
   },
   "rows": [
     {
@@ -39,8 +43,8 @@
         "league": "it.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:07.117138Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:07.163203Z",
+      "predictionFrozenAt": "2026-10-10T09:38:02.863015Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:38:02.913000Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-12T16:30:00Z",
@@ -53,14 +57,15 @@
         "competition": "Serie A",
         "competitionSlug": "it.1",
         "leagueHint": "it.1",
-        "hbtSupportLevel": "NOT_YET_READY",
+        "hbtSupportLevel": "FALLBACK",
         "discoveryHome": "Atalanta",
         "discoveryAway": "Venezia",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "B",
         "rawTier": "B",
@@ -249,8 +254,8 @@
         "league": "pt.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:07.117138Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:07.163203Z",
+      "predictionFrozenAt": "2026-10-10T09:38:02.863015Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:38:02.913000Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-12T19:15:00Z",
@@ -263,14 +268,15 @@
         "competition": "Primeira Liga",
         "competitionSlug": "pt.1",
         "leagueHint": "pt.1",
-        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "hbtSupportLevel": "FALLBACK",
         "discoveryHome": "FC Famalicao",
         "discoveryAway": "Alverca",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "C",
         "rawTier": "C",
@@ -459,8 +465,8 @@
         "league": "en.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:07.117138Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:07.163203Z",
+      "predictionFrozenAt": "2026-10-10T09:38:02.863015Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:38:02.913000Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-12T19:00:00Z",
@@ -473,14 +479,15 @@
         "competition": "Premier League",
         "competitionSlug": "en.1",
         "leagueHint": "en.1",
-        "hbtSupportLevel": "NOT_YET_READY",
+        "hbtSupportLevel": "FALLBACK",
         "discoveryHome": "Coventry City",
         "discoveryAway": "Newcastle United",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "C",
         "rawTier": "C",
@@ -660,8 +667,8 @@
         "league": "tr.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:07.117138Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:07.163203Z",
+      "predictionFrozenAt": "2026-10-10T09:38:02.863015Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:38:02.913000Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-12T17:00:00Z",
@@ -674,14 +681,15 @@
         "competition": "Süper Lig",
         "competitionSlug": "tr.1",
         "leagueHint": "tr.1",
-        "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+        "hbtSupportLevel": "FALLBACK",
         "discoveryHome": "Eyupspor",
         "discoveryAway": "Goztepe",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "Avoid",
         "rawTier": "Avoid",
@@ -872,49 +880,5 @@
       }
     }
   ],
-  "chains": [
-    {
-      "name": "R0_CORE_3",
-      "stakeRand": 0,
-      "executionClass": "R0_SHADOW_CHAIN",
-      "approximateIndependence": true,
-      "jointModelProbabilityApprox": 0.5923967943328229,
-      "fairOddsApprox": 1.6880577504242464,
-      "legs": [
-        {
-          "fixture": {
-            "home": "Atalanta",
-            "away": "Venezia",
-            "date": "2026-10-12",
-            "league": "it.1"
-          },
-          "market": "1X",
-          "selection": "Atalanta OR Draw — Double Chance (1X)",
-          "p": 0.9307360420833333
-        },
-        {
-          "fixture": {
-            "home": "FC Famalicao",
-            "away": "Alverca",
-            "date": "2026-10-12",
-            "league": "pt.1"
-          },
-          "market": "1X",
-          "selection": "FC Famalicao OR Draw — Double Chance (1X)",
-          "p": 0.8128904696302726
-        },
-        {
-          "fixture": {
-            "home": "Coventry City",
-            "away": "Newcastle United",
-            "date": "2026-10-12",
-            "league": "en.1"
-          },
-          "market": "X2",
-          "selection": "Newcastle United OR Draw — Double Chance (X2)",
-          "p": 0.7829862506712222
-        }
-      ]
-    }
-  ]
+  "chains": []
 }

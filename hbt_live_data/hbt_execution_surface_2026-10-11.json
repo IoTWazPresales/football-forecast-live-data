@@ -2,7 +2,7 @@
   "schemaVersion": "HBT-EXECUTION-SURFACE-1",
   "version": "HBT-EXECUTION-SURFACE-1.3.2-GOVERNED-RESEARCH",
   "targetDate": "2026-10-11",
-  "generatedAt": "2026-10-10T09:23:02.663860Z",
+  "generatedAt": "2026-10-10T09:37:58.226787Z",
   "policy": {
     "footballProbabilitiesImmutable": true,
     "bookmakerPriceObservedOnlyAfterPredictionFreeze": true,
@@ -17,18 +17,22 @@
     "chainLegMustIndependentlyPassValueGateForFunding": true,
     "sameMatchCorrelatedLegsAllowed": false,
     "unpromotedOrUnconfirmedProposalsAreResearchOnly": true,
-    "quotesRequireFreshSourceEventIdBookmakerAndTargetDate": true
+    "quotesRequireFreshSourceEventIdBookmakerAndTargetDate": true,
+    "stakingRequiresIndependentKickoffConfirmation": true,
+    "stakingRequiresLatestFrozenExportReconciliation": true,
+    "fundedChainsRequireValidatedDependenceModel": true
   },
   "sourceProspectiveCard": "hbt_prospective_card_2026-10-11.json",
   "priceSource": null,
   "summary": {
     "surfaces": 13,
-    "executionEligibleNow": 12,
-    "blockedIdentityOrTiming": 1,
+    "executionEligibleNow": 0,
+    "blockedIdentityOrTiming": 13,
     "fundedSingles": 0,
     "fundedStakeRand": 0,
     "r0Singles": 13,
-    "chains": 2
+    "chains": 0,
+    "fundedChains": 0
   },
   "rows": [
     {
@@ -39,8 +43,8 @@
         "league": "fr.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T15:15:00Z",
@@ -57,10 +61,11 @@
         "discoveryHome": "Stade Rennais",
         "discoveryAway": "AJ Auxerre",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "B",
         "rawTier": "B",
@@ -249,8 +254,8 @@
         "league": "de.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T15:30:00Z",
@@ -267,10 +272,11 @@
         "discoveryHome": "SC Freiburg",
         "discoveryAway": "Schalke 04",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "B",
         "rawTier": "B",
@@ -450,8 +456,8 @@
         "league": "tr.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T16:00:00Z",
@@ -468,10 +474,11 @@
         "discoveryHome": "Besiktas",
         "discoveryAway": "Kocaelispor",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "C",
         "rawTier": "C",
@@ -669,8 +676,8 @@
         "league": "nl.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T10:15:00Z",
@@ -688,7 +695,8 @@
         "discoveryHome": "FC Utrecht",
         "discoveryAway": "Willem II",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
       "executionEligibleNow": false,
       "executionBlockReason": "RESERVE_B_TEAM_NAMESPACE",
@@ -889,8 +897,8 @@
         "league": "sco.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T11:00:00Z",
@@ -907,10 +915,11 @@
         "discoveryHome": "Motherwell",
         "discoveryAway": "Celtic",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "C",
         "rawTier": "C",
@@ -1108,8 +1117,8 @@
         "league": "sco.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T13:00:00Z",
@@ -1126,10 +1135,11 @@
         "discoveryHome": "Aberdeen",
         "discoveryAway": "St Johnstone",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "C",
         "rawTier": "C",
@@ -1327,8 +1337,8 @@
         "league": "nl.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T12:30:00Z",
@@ -1345,10 +1355,11 @@
         "discoveryHome": "Telstar",
         "discoveryAway": "ADO Den Haag",
         "identityScore": 0.975,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "C",
         "rawTier": "C",
@@ -1537,8 +1548,8 @@
         "league": "en.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T15:30:00Z",
@@ -1555,10 +1566,11 @@
         "discoveryHome": "Liverpool",
         "discoveryAway": "Manchester City",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "Avoid",
         "rawTier": "Avoid",
@@ -1738,8 +1750,8 @@
         "league": "nl.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T12:30:00Z",
@@ -1757,10 +1769,11 @@
         "discoveryHome": "PEC Zwolle",
         "discoveryAway": "SC Cambuur",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "Avoid",
         "rawTier": "Avoid",
@@ -1958,8 +1971,8 @@
         "league": "nl.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T14:45:00Z",
@@ -1976,10 +1989,11 @@
         "discoveryHome": "Excelsior",
         "discoveryAway": "FC Groningen",
         "identityScore": 0.975,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "Avoid",
         "rawTier": "Avoid",
@@ -2168,8 +2182,8 @@
         "league": "tr.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T10:30:00Z",
@@ -2186,10 +2200,11 @@
         "discoveryHome": "Konyaspor",
         "discoveryAway": "Istanbul Basaksehir",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "Avoid",
         "rawTier": "Avoid",
@@ -2387,8 +2402,8 @@
         "league": "en.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T13:00:00Z",
@@ -2405,10 +2420,11 @@
         "discoveryHome": "Crystal Palace",
         "discoveryAway": "Nottingham Forest",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "Avoid",
         "rawTier": "Avoid",
@@ -2588,8 +2604,8 @@
         "league": "en.1"
       },
       "origin": "HBT_EXACT_FROZEN_BRIDGE",
-      "predictionFrozenAt": "2026-10-10T09:23:02.585229Z",
-      "executionSurfaceGeneratedAt": "2026-10-10T09:23:02.663860Z",
+      "predictionFrozenAt": "2026-10-10T09:37:58.158925Z",
+      "executionSurfaceGeneratedAt": "2026-10-10T09:37:58.226787Z",
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-10-11T13:00:00Z",
@@ -2606,10 +2622,11 @@
         "discoveryHome": "Hull City",
         "discoveryAway": "Everton",
         "identityScore": 1.0,
-        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
       },
-      "executionEligibleNow": true,
-      "executionBlockReason": null,
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING",
       "signal": {
         "tier": "Avoid",
         "rawTier": "Avoid",
@@ -2782,114 +2799,5 @@
       }
     }
   ],
-  "chains": [
-    {
-      "name": "R0_CORE_3",
-      "stakeRand": 0,
-      "executionClass": "R0_SHADOW_CHAIN",
-      "approximateIndependence": true,
-      "jointModelProbabilityApprox": 0.6306895769598658,
-      "fairOddsApprox": 1.585566079624042,
-      "legs": [
-        {
-          "fixture": {
-            "home": "Stade Rennais",
-            "away": "AJ Auxerre",
-            "date": "2026-10-11",
-            "league": "fr.1"
-          },
-          "market": "1X",
-          "selection": "Stade Rennais OR Draw — Double Chance (1X)",
-          "p": 0.8772915798229954
-        },
-        {
-          "fixture": {
-            "home": "SC Freiburg",
-            "away": "Schalke 04",
-            "date": "2026-10-11",
-            "league": "de.1"
-          },
-          "market": "1X",
-          "selection": "SC Freiburg OR Draw — Double Chance (1X)",
-          "p": 0.86267947038699
-        },
-        {
-          "fixture": {
-            "home": "Besiktas",
-            "away": "Kocaelispor",
-            "date": "2026-10-11",
-            "league": "tr.1"
-          },
-          "market": "1X",
-          "selection": "Besiktas OR Draw — Double Chance (1X)",
-          "p": 0.8333400025586043
-        }
-      ]
-    },
-    {
-      "name": "R0_CORE_5",
-      "stakeRand": 0,
-      "executionClass": "R0_SHADOW_CHAIN",
-      "approximateIndependence": true,
-      "jointModelProbabilityApprox": 0.40223069164141045,
-      "fairOddsApprox": 2.4861354958251227,
-      "legs": [
-        {
-          "fixture": {
-            "home": "Stade Rennais",
-            "away": "AJ Auxerre",
-            "date": "2026-10-11",
-            "league": "fr.1"
-          },
-          "market": "1X",
-          "selection": "Stade Rennais OR Draw — Double Chance (1X)",
-          "p": 0.8772915798229954
-        },
-        {
-          "fixture": {
-            "home": "SC Freiburg",
-            "away": "Schalke 04",
-            "date": "2026-10-11",
-            "league": "de.1"
-          },
-          "market": "1X",
-          "selection": "SC Freiburg OR Draw — Double Chance (1X)",
-          "p": 0.86267947038699
-        },
-        {
-          "fixture": {
-            "home": "Besiktas",
-            "away": "Kocaelispor",
-            "date": "2026-10-11",
-            "league": "tr.1"
-          },
-          "market": "1X",
-          "selection": "Besiktas OR Draw — Double Chance (1X)",
-          "p": 0.8333400025586043
-        },
-        {
-          "fixture": {
-            "home": "Motherwell",
-            "away": "Celtic",
-            "date": "2026-10-11",
-            "league": "sco.1"
-          },
-          "market": "X2",
-          "selection": "Celtic OR Draw — Double Chance (X2)",
-          "p": 0.8027662847079047
-        },
-        {
-          "fixture": {
-            "home": "Aberdeen",
-            "away": "St Johnstone",
-            "date": "2026-10-11",
-            "league": "sco.1"
-          },
-          "market": "1X",
-          "selection": "Aberdeen OR Draw — Double Chance (1X)",
-          "p": 0.7944570580494612
-        }
-      ]
-    }
-  ]
+  "chains": []
 }
