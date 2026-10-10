@@ -21,11 +21,14 @@ fully validated. Execution robustness extends v1.2 without changing football pro
 from __future__ import annotations
 
 from typing import Any
+from datetime import datetime, timezone
+import math
 import hbt_execution_surface_v1 as base
 import hbt_execution_surface_v1_2 as risk
 
-VERSION = "HBT-EXECUTION-SURFACE-1.3.1-ROBUST-VALUE"
+VERSION = "HBT-EXECUTION-SURFACE-1.3.2-GOVERNED-RESEARCH"
 _PRICE_INDEX: dict[tuple[str, str, str], float] = {}
+_MARKET_AUDITS: dict[tuple[str, str], dict[str, Any]] = {}
 
 
 def _put(out: dict[tuple[str, str, str], float], home: Any, away: Any, market: str, value: Any) -> None:
@@ -33,48 +36,54 @@ def _put(out: dict[tuple[str, str, str], float], home: Any, away: Any, market: s
         odds = float(value)
     except Exception:
         return
-    if odds <= 1.0:
+    if not math.isfinite(odds) or odds <= 1.0:
         return
     out[(base.norm(home), base.norm(away), market.upper())] = odds
 
 
 def price_index(price_doc: dict[str, Any]) -> dict[tuple[str, str, str], float]:
-    """Accept both legacy flat price rows and HBT market_prices nested provider format."""
+    """Fail closed unless odds are fresh, attributable and for the target slate.
+
+    Existing collector writes PRICE_SOURCE_UNCONFIGURED without a key.
+    Ignore unaudited manual rows and provider-specific nested odds: the collector
+    must normalize them with bookmaker + event ID before they can be acted on.
+    """
     global _PRICE_INDEX
-    out: dict[tuple[str, str, str], float] = {}
+    _PRICE_INDEX = {}
+    if price_doc.get("status") != "PRICES_AVAILABLE":
+        return _PRICE_INDEX
+    try:
+        collected = datetime.fromisoformat(str(price_doc["generatedAt"]).replace("Z", "+00:00"))
+        if collected.tzinfo is None:
+            return _PRICE_INDEX
+        age_seconds = (datetime.now(timezone.utc) - collected.astimezone(timezone.utc)).total_seconds()
+        if not 0 <= age_seconds <= 900:
+            return _PRICE_INDEX
+        slate = base.read(base.ROOT / "slate_scanner.json", {})
+        if price_doc.get("targetDate") != slate.get("targetDate"):
+            return _PRICE_INDEX
+    except (KeyError, TypeError, ValueError):
+        return _PRICE_INDEX
 
-    # Legacy/explicit flat rows.
+    bookmaker = str(price_doc.get("primaryBookmaker") or "").strip()
+    if not bookmaker:
+        return _PRICE_INDEX
+    event_ids: dict[tuple[str, str, str], set[str]] = {}
     for r in price_doc.get("prices") or []:
-        _put(out, r.get("home"), r.get("away"), str(r.get("market") or ""), r.get("odds"))
-
-    # Nested Odds-API.io sidecar.
-    for item in (price_doc.get("fixtures") or {}).values():
-        fx = item.get("slateFixture") or {}
-        home, away = fx.get("home"), fx.get("away")
-        for m in item.get("markets") or []:
-            name = str(m.get("name") or "").strip().lower()
-            for q in m.get("odds") or []:
-                if not isinstance(q, dict):
-                    continue
-                if name in {"moneyline", "ml", "match winner", "1x2"}:
-                    _put(out, home, away, "HOME_WIN", q.get("home"))
-                    _put(out, home, away, "DRAW", q.get("draw"))
-                    _put(out, home, away, "AWAY_WIN", q.get("away"))
-                elif "double chance" in name or name in {"dc", "double_chance"}:
-                    # Provider schemas vary; support common key names fail-closed.
-                    for key, aliases in {
-                        "1X": ("1x", "homeDraw", "home_draw", "homeOrDraw"),
-                        "X2": ("x2", "awayDraw", "drawAway", "away_draw", "awayOrDraw"),
-                        "12": ("12", "homeAway", "home_away", "eitherTeam"),
-                    }.items():
-                        for alias in aliases:
-                            if alias in q:
-                                _put(out, home, away, key, q.get(alias))
-                                break
-
-    _PRICE_INDEX = out
-    return out
-
+        if not isinstance(r, dict) or not r.get("eventId") or r.get("bookmaker") != bookmaker:
+            continue
+        if not r.get("home") or not r.get("away"):
+            continue
+        key = (base.norm(r["home"]), base.norm(r["away"]), str(r.get("market") or "").upper())
+        if key[2] not in {"HOME_WIN", "DRAW", "AWAY_WIN", "1X", "X2", "12"}:
+            continue
+        event_ids.setdefault(key, set()).add(str(r["eventId"]))
+        _put(_PRICE_INDEX, r["home"], r["away"], key[2], r.get("odds"))
+    # Two provider events matched to one fixture/market is an identity hazard.
+    for key, ids in event_ids.items():
+        if len(ids) != 1:
+            _PRICE_INDEX.pop(key, None)
+    return _PRICE_INDEX
 
 def plain_selection(home: str, away: str, market: str) -> str:
     if market == "HOME_WIN":
@@ -96,30 +105,65 @@ def _legacy_plain(home: str, away: str, market: str) -> str:
 
 
 def primary_market(row: dict[str, Any]) -> tuple[str, dict[str, Any]] | None:
+    """Record every 1X2/DC market, then prefer an eligible value candidate.
+
+    Previously the highest raw EV won even when that market was quarantined,
+    masking a lower-EV alternative that passed execution controls.
+    """
     markets = row.get("derivedMarkets") or {}
     fx = row.get("fixture") or {}
     home, away = str(fx.get("home") or ""), str(fx.get("away") or "")
-
-    candidates: list[tuple[str, dict[str, Any], float | None]] = []
+    candidates = []
+    assessed = []
     for key in ("HOME_WIN", "DRAW", "AWAY_WIN", "1X", "X2", "12"):
         m = markets.get(key)
         if not isinstance(m, dict) or not isinstance(m.get("p"), (int, float)):
             continue
+        p = float(m["p"])
+        if not math.isfinite(p) or not 0 < p < 1:
+            continue
         odds = _PRICE_INDEX.get((base.norm(home), base.norm(away), key))
-        ev = float(m["p"]) * odds - 1.0 if odds else None
-        candidates.append((key, m, ev))
+        ev = p * odds - 1.0 if odds else None
+        # Provisional assessment: actual kickoff identity/timing is checked by
+        # the base execution layer before any funded recommendation.
+        governance = classify_stake(row, p, odds, True)
+        eligible = bool(odds and governance.get("stakeRand", 0) > 0)
+        assessed.append({"market": key, "probability": p, "fairOdds": 1 / p,
+                         "minimumOddsR1": governance.get("minimumOddsR1"),
+                         "odds": odds, "rawEV": ev,
+                         "provisionalValueEligible": eligible,
+                         "decision": governance.get("executionClass"),
+                         "fundingBlockers": governance.get("fundingBlockers", [])})
+        candidates.append((key, m, ev, eligible))
 
+    likely = max(
+        (x for x in assessed if x["market"] in {"HOME_WIN", "DRAW", "AWAY_WIN"}),
+        key=lambda x: x["probability"], default=None,
+    )
+    chain_role = max(
+        (x for x in assessed if x["market"] in {"HOME_WIN", "AWAY_WIN", "1X", "X2", "12"}),
+        key=lambda x: x["probability"], default=None,
+    )
+    _MARKET_AUDITS[(base.norm(home), base.norm(away))] = {
+        "mostLikelyOutcome": likely, "highestProbabilityChainRoleWatch": chain_role,
+        "allMarketAssessments": assessed,
+        "bestProvisionalValue": max(
+            (x for x in assessed if x["provisionalValueEligible"]),
+            key=lambda x: x["rawEV"], default=None,
+        ),
+        "extremeValueDisagreementNeedsReview": any(
+            x["rawEV"] is not None and x["rawEV"] >= .25 for x in assessed
+        ),
+    }
     priced = [x for x in candidates if x[2] is not None]
     if priced:
-        # Highest model EV wins. Probability is only a tiebreaker.
-        best = max(priced, key=lambda x: (float(x[2]), float(x[1]["p"])))
-        return best[0], best[1]
+        viable = [x for x in priced if x[3]]
+        winner = max(viable or priced, key=lambda x: (float(x[2]), float(x[1]["p"])))
+        return winner[0], winner[1]
 
-    # No price: preserve legacy conservative R0 display behaviour.
     dc = [(k, markets[k]) for k in ("1X", "X2", "12")
           if isinstance(markets.get(k), dict) and isinstance(markets[k].get("p"), (int, float))]
     return max(dc, key=lambda x: float(x[1]["p"])) if dc else None
-
 
 def classify_stake(row: dict[str, Any], p: float, odds: float | None, execution_ok: bool) -> dict[str, Any]:
     """Apply value gates plus robustness controls; never mutate football probability."""
@@ -168,8 +212,25 @@ def classify_stake(row: dict[str, Any], p: float, odds: float | None, execution_
         result["executionClass"] = "R1_VALUE_R2_BLOCKED_BY_INTELLIGENCE_GAP"
         result["nativeCleanForR2"] = False
 
+    # Promotion/readiness controls are independent of raw bookmaker value.
+    # L0 fallback and PRE-XI overlays are research, not validated funded signals.
+    blockers = []
+    if row.get("predictionMode") != "FULL_MODEL":
+        blockers.append("UNPROMOTED_L0_FALLBACK")
+    readiness = (row.get("intelligenceOverlay") or {}).get("readinessState")
+    if readiness != "CONFIRMED_XI_READY":
+        blockers.append("CONFIRMED_XI_NOT_READY")
+    if risk.base.coverage_stale(row):
+        blockers.append("STALE_TEAM_STATE")
+    if "MATCH_INTELLIGENCE_NOT_CAPTURED" in gaps:
+        blockers.append("MATCH_INTELLIGENCE_NOT_CAPTURED")
+    if blockers:
+        result["stakeRand"] = 0
+        result["executionClass"] = "R0_RESEARCH_READINESS_BLOCKED"
+        result["nativeCleanForR2"] = False
+    result["fundingBlockers"] = blockers
     result["robustnessReview"] = {
-        "required": False,
+        "required": bool(blockers),
         "tier": tier or None,
         "matchIntelligenceCaptured": "MATCH_INTELLIGENCE_NOT_CAPTURED" not in gaps,
     }
@@ -184,6 +245,20 @@ def main() -> int:
     base.plain_selection = plain_selection
     base.classify_stake = classify_stake
     base.VERSION = VERSION
+    original_write = base.write
+
+    def write_with_market_audit(path: Any, doc: Any) -> None:
+        if isinstance(doc, dict) and str(path).endswith(".json") and "hbt_execution_surface_" in str(path):
+            for surface_row in doc.get("rows") or []:
+                fx = surface_row.get("fixture") or {}
+                audit = _MARKET_AUDITS.get((base.norm(fx.get("home")), base.norm(fx.get("away"))))
+                if audit:
+                    surface_row["fullMarketDecisionAudit"] = audit
+            doc.setdefault("policy", {})["unpromotedOrUnconfirmedProposalsAreResearchOnly"] = True
+            doc["policy"]["quotesRequireFreshSourceEventIdBookmakerAndTargetDate"] = True
+        original_write(path, doc)
+
+    base.write = write_with_market_audit
     return base.main()
 
 
