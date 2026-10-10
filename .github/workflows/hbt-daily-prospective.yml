@@ -19,7 +19,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: hbt-daily-prospective
+  group: hbt-research-output-writer
   cancel-in-progress: false
 
 jobs:
@@ -77,6 +77,9 @@ jobs:
         env:
           TARGET_DATE: '${{ steps.target.outputs.date }}'
 
+      - name: Crosscheck independently available official kickoffs
+        run: python scripts/hbt_collect_independent_kickoffs_v1.py --date '${{ steps.target.outputs.date }}'
+
       - name: Freeze exact HBT probabilities before bookmaker pricing
         run: |
           set -euo pipefail
@@ -92,14 +95,16 @@ jobs:
           assert s['policy']['retrainingOrRetuningPerformed'] is False
           print(json.dumps({'status':s['status'],'goldenParity':s['goldenParity'],'target':s.get('target')},indent=2))
           PY
-          python scripts/hbt_build_prospective_from_frozen.py --date '${{ steps.target.outputs.date }}'
+          python scripts/hbt_build_prospective_from_frozen.py --date '${{ steps.target.outputs.date }}' --refresh
 
       - name: Validate immutable prospective HBT card
         run: |
           set -euo pipefail
           python - <<'PY'
           import hashlib,json,os,pathlib
-          d=os.environ['TARGET_DATE'];p=pathlib.Path(f'hbt_live_data/hbt_prospective_card_{d}.json');x=json.load(open(p,encoding='utf-8'));q=x['policy']
+          import sys;sys.path.insert(0,'scripts')
+          from hbt_capture_store import capture_path
+          d=os.environ['TARGET_DATE'];p=capture_path(pathlib.Path('hbt_live_data'),d);x=json.load(open(p,encoding='utf-8'));q=x['policy']
           assert q['bookmakerOddsUsedAsPredictiveFeature'] is False and q['bookmakerPriceObservedBeforeCapture'] is False
           assert q['modelRetuned'] is False and q['preMatchCaptureImmutable'] is True
           assert q['unsupportedCompetitionsMayNotEnterHBT'] is True and q['competitionLabelIsEligibilityGate'] is True
@@ -117,7 +122,7 @@ jobs:
           TARGET_DATE: '${{ steps.target.outputs.date }}'
 
       - name: Collect bookmaker prices after freeze
-        run: python scripts/hbt_collect_market_prices_v1.py
+        run: python scripts/hbt_collect_market_prices_v1.py --date '${{ steps.target.outputs.date }}'
         env:
           ODDS_API_IO_KEY: ${{ secrets.ODDS_API_IO_KEY }}
           HBT_PRIMARY_BOOKMAKER: Betway
@@ -139,13 +144,20 @@ jobs:
         run: |
           python - <<'PY'
           import hashlib,os,pathlib
-          d=os.environ['TARGET_DATE'];p=pathlib.Path(f'hbt_live_data/hbt_prospective_card_{d}.json')
+          import sys;sys.path.insert(0,'scripts')
+          from hbt_capture_store import capture_path
+          d=os.environ['TARGET_DATE'];p=capture_path(pathlib.Path('hbt_live_data'),d)
           before=pathlib.Path('/tmp/hbt_card_sha').read_text().strip();after=hashlib.sha256(p.read_bytes()).hexdigest()
           assert before==after,(before,after)
           print('Immutable prospective card hash preserved:',after)
           PY
         env:
           TARGET_DATE: '${{ steps.target.outputs.date }}'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hbt-daily-evidence-${{ steps.target.outputs.date }}
+          path: hbt_live_data/
 
       - name: Commit prospective evidence and execution surface
         run: |
@@ -154,8 +166,8 @@ jobs:
           git config user.name 'github-actions[bot]';git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add hbt_live_data/slate_scanner.json "hbt_live_data/frozen_control_forecast_${D}.json" "hbt_live_data/hbt_prospective_card_${D}.json" "hbt_live_data/hbt_execution_surface_${D}.json" hbt_live_data/forecast_bridge_status.json hbt_live_data/market_prices.json hbt_live_data/manifest.json hbt_live_data/performance.json hbt_live_data/player_features.json hbt_live_data/pre_xi_context.json hbt_live_data/market_intelligence.json hbt_live_data/hbt_1_4_match_intelligence.json hbt_live_data/_hbt_1_4_live_cache.json || true
           git add "hbt_live_data/hbt_betting_desk_${D}.json" "hbt_live_data/hbt_betting_desk_${D}.html"
-          git diff --staged --quiet && exit 0
-          git commit -m "prospective: exact frozen HBT slate ${D} and execution surface [skip ci]"
-          git push origin HEAD:research/hbt-1.4-match-intelligence
+          git add "hbt_live_data/slate_scanner_${D}.json" "hbt_live_data/market_prices_${D}.json" "hbt_live_data/hbt_independent_kickoffs_${D}.json"
+          git add hbt_live_data/captures/ "hbt_live_data/hbt_current_capture_${D}.json"
+          python scripts/hbt_publish_research_outputs.py --message "prospective: exact frozen HBT slate ${D} and execution surface [skip ci]"
 
 # maintenance trigger: 2026-09-29 exact-runtime restart

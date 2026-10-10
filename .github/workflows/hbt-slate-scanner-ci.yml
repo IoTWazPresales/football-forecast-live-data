@@ -88,7 +88,8 @@ jobs:
           z=r['rankings']
           assert all(x['support']=='FULL_MODEL' for x in z['strongestFullModelConfidence'])
           assert all(x['support']=='FALLBACK' for x in z['fallbackOnly'])
-          assert z['experimentalValueVsPrice']['status']=='UNAVAILABLE_NO_BOOKMAKER_PRICE'
+          expected_price_status='AVAILABLE_DOWNSTREAM_ONLY' if r['priceLayer']['status']=='PRICES_AVAILABLE' else 'UNAVAILABLE_NO_BOOKMAKER_PRICE'
+          assert z['experimentalValueVsPrice']['status']==expected_price_status
           t=r['testAReference']
           canonical=json.load(open('hbt_live_data/live_experiments.json',encoding='utf-8'))
           test_a=next(x for x in canonical['experiments'] if x['id']=='PRE_XI_TEST_A_2026-09-15')
@@ -103,3 +104,5 @@ jobs:
             'ignored':z['unsupportedOrIgnored']
           },indent=2,ensure_ascii=False))
           PY
+
+# Date-scoped discovery and provider identity validation, 2026-10-10.
