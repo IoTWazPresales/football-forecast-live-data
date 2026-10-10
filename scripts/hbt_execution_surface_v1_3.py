@@ -79,9 +79,12 @@ def price_index(price_doc: dict[str, Any]) -> dict[tuple[str, str, str], float]:
             continue
         event_ids.setdefault(key, set()).add(str(r["eventId"]))
         _put(_PRICE_INDEX, r["home"], r["away"], key[2], r.get("odds"))
-    # Two provider events matched to one fixture/market is an identity hazard.
+    # A fixture cannot safely combine markets from different provider event IDs.
+    by_fixture: dict[tuple[str, str], set[str]] = {}
     for key, ids in event_ids.items():
-        if len(ids) != 1:
+        by_fixture.setdefault(key[:2], set()).update(ids)
+    for key, ids in event_ids.items():
+        if len(ids) != 1 or len(by_fixture[key[:2]]) != 1:
             _PRICE_INDEX.pop(key, None)
     return _PRICE_INDEX
 
@@ -307,6 +310,17 @@ def main() -> int:
             doc.setdefault("policy", {})["unpromotedOrUnconfirmedProposalsAreResearchOnly"] = True
             doc["policy"]["quotesRequireFreshSourceEventIdBookmakerAndTargetDate"] = True
             doc["policy"]["stakingRequiresIndependentKickoffConfirmation"] = True
+            # Product-of-marginals is a research approximation, not a funded
+            # accumulator risk model. Preserve shadow chains, but never fund
+            # automatically without a validated dependence/correlation layer.
+            doc["policy"]["fundedChainsRequireValidatedDependenceModel"] = True
+            for chain in doc.get("chains") or []:
+                chain["independenceAssumptionUnvalidated"] = bool(chain.get("approximateIndependence"))
+                if int(chain.get("stakeRand") or 0) > 0:
+                    chain["previousExecutionClass"] = chain.get("executionClass")
+                    chain["stakeRand"] = 0
+                    chain["executionClass"] = "R0_CHAIN_DEPENDENCE_NOT_VALIDATED"
+            doc.setdefault("summary", {})["fundedChains"] = 0
         original_write(path, doc)
 
     base.write = write_with_market_audit
