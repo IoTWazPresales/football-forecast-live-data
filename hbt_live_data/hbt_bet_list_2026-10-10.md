@@ -1,6 +1,6 @@
 # HBT bet list — 2026-10-10
 
-Evaluated: 2026-10-10T18:41:23.911995Z
+Evaluated: 2026-10-10T18:50:08.950264Z
 
 **Eligible bets: 0. Placed bets: 0.**
 
