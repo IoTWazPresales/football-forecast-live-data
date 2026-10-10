@@ -1,0 +1,2966 @@
+{
+  "schemaVersion": "HBT-BETTING-DESK-1",
+  "version": "HBT-BETTING-DESK-1-RESEARCH",
+  "targetDate": "2026-10-12",
+  "generatedAt": "2026-10-10T14:53:09.874796Z",
+  "readiness": "NO_EXECUTABLE_BETS",
+  "policy": {
+    "bookmakerOddsAreDecisionLayerOnly": true,
+    "frozenModelMutated": false,
+    "historicalCapturesRewritten": false,
+    "guaranteedProfit": false,
+    "automaticBetsPlaced": false,
+    "goalProbabilitiesInferredFrom1X2": false,
+    "chainFundingAutomatic": false,
+    "priority": "highest profit probability among independently eligible positive-value markets; separate highest EV view"
+  },
+  "sourceHashes": {
+    "forecast": "6087af107ab56c0b3a055d90a10b8614e9fc90ad780e0b427a14422b44e22646",
+    "card": "b7747ebe8d3f14b8c37cc29460dcfb01e43472953bcdc79f347b991077676f52",
+    "scanner": "eefa804d0dd079c0a3a6c78cdd1ca519ba01efa07e71ede83f507c3053797404",
+    "intel": "9e274e94bb2c71edc01661129f30bde08ad7c8af2796283c86b938d566dd339c",
+    "events": "31aaa86f8ba989660dc8472d9e2ad6dfd0649cabfe01cf26226bf2170f690406",
+    "registry": "cbe2a62e7d9987c8ec4745671b2e6a6366fd9fbba72bc9da856bbfac850191f4",
+    "learning": "4386f1d61acb9dca8d2c67b81968f0d718d37044673799c197f1e8520c9d4ac8",
+    "prices": "823e669d54f4f7bd8bba60b63c1e0bc924bd638ef9c6e510cf21f79eeeda4495"
+  },
+  "quoteAudit": {
+    "sourceStatus": "PRICE_SOURCE_UNCONFIGURED",
+    "accepted": 0
+  },
+  "globalBlockers": [
+    "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT"
+  ],
+  "summary": {
+    "scoredFixtures": 4,
+    "marketsModelled": 32,
+    "readySingles": 0,
+    "bookmakerPricedMarkets": 0,
+    "unscoredDiscoveredFixtures": 48,
+    "previouslyScoredMissingNow": 0,
+    "missingBTTSFixtures": 4,
+    "modelModes": {
+      "L0 FALLBACK": 4
+    },
+    "blockerCounts": {
+      "CONFIRMED_XI_NOT_READY": 32,
+      "CURRENT_BOOKMAKER_QUOTE_MISSING": 32,
+      "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY": 32,
+      "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING": 32,
+      "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT": 32,
+      "STALE_TEAM_STATE": 16,
+      "UNPROMOTED_L0_FALLBACK": 32,
+      "MATCH_INTELLIGENCE_NOT_CAPTURED": 16
+    }
+  },
+  "intelligence": {
+    "researchOrIncompleteFamilies": [
+      {
+        "family": "availability",
+        "status": "preserved-research",
+        "role": "candidate"
+      },
+      {
+        "family": "continuity",
+        "status": "preserved-research",
+        "role": "candidate"
+      },
+      {
+        "family": "workloadRest",
+        "status": "preserved-research",
+        "role": "candidate"
+      },
+      {
+        "family": "formation",
+        "status": "retained-after-standalone-reject",
+        "role": "interaction-candidate/context"
+      },
+      {
+        "family": "travel",
+        "status": "retained-after-standalone-reject",
+        "role": "interaction-candidate/context"
+      },
+      {
+        "family": "manager",
+        "status": "collected-partial",
+        "role": "interaction-candidate/context"
+      },
+      {
+        "family": "tacticalMatchup",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "shotStoppingGoalkeeper",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "setPieces",
+        "status": "HBT-1.4-build",
+        "role": "interaction/market-candidate"
+      },
+      {
+        "family": "referee",
+        "status": "HBT-1.4-build",
+        "role": "cards/context-candidate"
+      },
+      {
+        "family": "weatherVenue",
+        "status": "HBT-1.4-build-live-context",
+        "role": "context until strict historical forecast archive validation"
+      },
+      {
+        "family": "fatigueCongestionInteractions",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "motivationCompetition",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "benchSubstitution",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "playerTeamImpact",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "teamToScoreAttribution",
+        "status": "HBT-1.4-build",
+        "role": "explanation-and-calibration"
+      },
+      {
+        "family": "redCards",
+        "status": "retained-after-standalone-reject",
+        "role": "context/research only"
+      },
+      {
+        "family": "competitionDomain",
+        "status": "HBT-1.4-build-research",
+        "role": "domain/eligibility adapter"
+      },
+      {
+        "family": "internationalStructuralState",
+        "status": "HBT-1.4-build-research",
+        "role": "international structural challenger"
+      },
+      {
+        "family": "internationalRecentPerformance",
+        "status": "HBT-1.4-build-research",
+        "role": "international recent-performance challenger"
+      },
+      {
+        "family": "internationalCompetitionState",
+        "status": "HBT-1.4-planned",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "confederationNormalization",
+        "status": "HBT-1.4-planned",
+        "role": "domain-calibration candidate"
+      },
+      {
+        "family": "clubToCountryPlayerTransfer",
+        "status": "HBT-1.4-planned",
+        "role": "international player-impact candidate"
+      },
+      {
+        "family": "internationalSquadContinuity",
+        "status": "HBT-1.4-planned",
+        "role": "international continuity candidate"
+      }
+    ],
+    "learningEvidence": {
+      "legacyEligibleRows": 102,
+      "cleanGuardAwareRows": 0,
+      "guardBlockedRowsExcluded": 10,
+      "settledEligibleRows": 97
+    },
+    "promotionRule": "No hypothesis changes predictive weights until historical backtest plus unseen holdout improvement and clean prospective confirmation."
+  },
+  "fixtures": [
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "16:30",
+        "league": "it.1",
+        "home": "Atalanta",
+        "away": "Venezia",
+        "provider": "ESPN:it.1",
+        "sourceStatus": "loaded"
+      },
+      "predictionMode": "L0 FALLBACK",
+      "tier": "B",
+      "quality": 0.7193776830756792,
+      "coverage": "stale-ish 2252d",
+      "readinessState": "PRE_XI_PROVISIONAL",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-12T16:30:00Z",
+        "source": "ESPN:it.1",
+        "fixtureSources": [
+          "ESPN:it.1"
+        ],
+        "sourceFixtureId": "401875005",
+        "competition": "Serie A",
+        "competitionSlug": "it.1",
+        "leagueHint": "it.1",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Atalanta",
+        "discoveryAway": "Venezia",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "started": false,
+      "identityBlocked": false,
+      "fundingBlockers": [
+        "CONFIRMED_XI_NOT_READY",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "markets": [
+        {
+          "market": "HOME_WIN",
+          "family": "1X2",
+          "selection": "Atalanta — Match Winner",
+          "winProbability": 0.7523929461289688,
+          "pushProbability": 0.0,
+          "lossProbability": 0.2476070538710312,
+          "profitProbability": 0.7523929461289688,
+          "nonLossProbability": 0.7523929461289688,
+          "fairOdds": 1.329092736906904,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.4221292284903875,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "DRAW",
+          "family": "1X2",
+          "selection": "Atalanta vs Venezia — Draw",
+          "winProbability": 0.17834309595436443,
+          "pushProbability": 0.0,
+          "lossProbability": 0.8216569040456356,
+          "profitProbability": 0.17834309595436443,
+          "nonLossProbability": 0.17834309595436443,
+          "fairOdds": 5.607169678471245,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 5.999671555964232,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_WIN",
+          "family": "1X2",
+          "selection": "Venezia — Match Winner",
+          "winProbability": 0.06926395791666684,
+          "pushProbability": 0.0,
+          "lossProbability": 0.9307360420833332,
+          "profitProbability": 0.06926395791666684,
+          "nonLossProbability": 0.06926395791666684,
+          "fairOdds": 14.437523209446454,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 15.448149834107706,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "1X",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Atalanta OR Draw — Double Chance (1X)",
+          "winProbability": 0.9307360420833333,
+          "pushProbability": 0.0,
+          "lossProbability": 0.06926395791666673,
+          "profitProbability": 0.9307360420833333,
+          "nonLossProbability": 0.9307360420833333,
+          "fairOdds": 1.0744184761144828,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.1496277694424966,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "X2",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Venezia OR Draw — Double Chance (X2)",
+          "winProbability": 0.24760705387103127,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7523929461289687,
+          "profitProbability": 0.24760705387103127,
+          "nonLossProbability": 0.24760705387103127,
+          "fairOdds": 4.038657156031025,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 4.321363156953197,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "12",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Atalanta OR Venezia — Either team wins, draw loses (12)",
+          "winProbability": 0.8216569040456356,
+          "pushProbability": 0.0,
+          "lossProbability": 0.17834309595436437,
+          "profitProbability": 0.8216569040456356,
+          "nonLossProbability": 0.8216569040456356,
+          "fairOdds": 1.2170529999519837,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.3022467099486226,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "HOME_DNB",
+          "family": "DNB",
+          "selection": "Atalanta — Draw No Bet (draw = refund)",
+          "winProbability": 0.7523929461289688,
+          "pushProbability": 0.17834309595436443,
+          "lossProbability": 0.06926395791666679,
+          "profitProbability": 0.7523929461289688,
+          "nonLossProbability": 0.9307360420833333,
+          "fairOdds": 1.0920582233964673,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.1850947149799507,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_DNB",
+          "family": "DNB",
+          "selection": "Venezia — Draw No Bet (draw = refund)",
+          "winProbability": 0.06926395791666684,
+          "pushProbability": 0.17834309595436443,
+          "lossProbability": 0.7523929461289687,
+          "profitProbability": 0.06926395791666684,
+          "nonLossProbability": 0.24760705387103127,
+          "fairOdds": 11.862690622360782,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 12.873317247022035,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        }
+      ],
+      "mostLikelyOutcome": {
+        "market": "HOME_WIN",
+        "family": "1X2",
+        "selection": "Atalanta — Match Winner",
+        "winProbability": 0.7523929461289688,
+        "pushProbability": 0.0,
+        "lossProbability": 0.2476070538710312,
+        "profitProbability": 0.7523929461289688,
+        "nonLossProbability": 0.7523929461289688,
+        "fairOdds": 1.329092736906904,
+        "source": "EXACT_FROZEN_FORECAST",
+        "mainMarket": true,
+        "fixture": {
+          "date": "2026-10-12",
+          "time": "16:30",
+          "league": "it.1",
+          "home": "Atalanta",
+          "away": "Venezia",
+          "provider": "ESPN:it.1",
+          "sourceStatus": "loaded"
+        },
+        "observedOdds": null,
+        "bookmaker": null,
+        "quotedAt": null,
+        "expectedProfitPerRand": null,
+        "minimumEVGate": 0.07,
+        "minimumOddsForValueGate": 1.4221292284903875,
+        "valuePositive": false,
+        "fundingBlockers": [
+          "CONFIRMED_XI_NOT_READY",
+          "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+          "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+          "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+          "STALE_TEAM_STATE",
+          "UNPROMOTED_L0_FALLBACK"
+        ],
+        "stakeReady": false,
+        "decision": "BLOCKED",
+        "guaranteedProfit": false
+      },
+      "strongestWinCandidate": null,
+      "bestStandaloneValue": null,
+      "missingMainFamilies": [
+        "BTTS",
+        "TOTAL_GOALS",
+        "TEAM_GOALS"
+      ],
+      "bookmakerAvailabilityConfirmed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "17:00",
+        "league": "tr.1",
+        "home": "Eyupspor",
+        "away": "Goztepe",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "quality": 0.7219973985288775,
+      "coverage": "stale-ish 345d",
+      "readinessState": null,
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-12T17:00:00Z",
+        "source": "ESPN:tr.1",
+        "fixtureSources": [
+          "ESPN:tr.1"
+        ],
+        "sourceFixtureId": "401888284",
+        "competition": "Süper Lig",
+        "competitionSlug": "tr.1",
+        "leagueHint": "tr.1",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Eyupspor",
+        "discoveryAway": "Goztepe",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "started": false,
+      "identityBlocked": false,
+      "fundingBlockers": [
+        "CONFIRMED_XI_NOT_READY",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "markets": [
+        {
+          "market": "HOME_WIN",
+          "family": "1X2",
+          "selection": "Eyupspor — Match Winner",
+          "winProbability": 0.3118989133426341,
+          "pushProbability": 0.0,
+          "lossProbability": 0.6881010866573659,
+          "profitProbability": 0.3118989133426341,
+          "nonLossProbability": 0.3118989133426341,
+          "fairOdds": 3.206166989435638,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 3.4305986786961324,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "DRAW",
+          "family": "1X2",
+          "selection": "Eyupspor vs Goztepe — Draw",
+          "winProbability": 0.27173973408181323,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7282602659181867,
+          "profitProbability": 0.27173973408181323,
+          "nonLossProbability": 0.27173973408181323,
+          "fairOdds": 3.6799918251886123,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 3.9375912529518153,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_WIN",
+          "family": "1X2",
+          "selection": "Goztepe — Match Winner",
+          "winProbability": 0.4163613525755526,
+          "pushProbability": 0.0,
+          "lossProbability": 0.5836386474244474,
+          "profitProbability": 0.4163613525755526,
+          "nonLossProbability": 0.4163613525755526,
+          "fairOdds": 2.401759898737337,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 2.569883091648951,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "1X",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Eyupspor OR Draw — Double Chance (1X)",
+          "winProbability": 0.5836386474244473,
+          "pushProbability": 0.0,
+          "lossProbability": 0.41636135257555273,
+          "profitProbability": 0.5836386474244473,
+          "nonLossProbability": 0.5836386474244473,
+          "fairOdds": 1.7133889340826272,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.8333261594684112,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "X2",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Goztepe OR Draw — Double Chance (X2)",
+          "winProbability": 0.6881010866573658,
+          "pushProbability": 0.0,
+          "lossProbability": 0.3118989133426342,
+          "profitProbability": 0.6881010866573658,
+          "nonLossProbability": 0.6881010866573658,
+          "fairOdds": 1.453274844918159,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.5550040840624302,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "12",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Eyupspor OR Goztepe — Either team wins, draw loses (12)",
+          "winProbability": 0.7282602659181867,
+          "pushProbability": 0.0,
+          "lossProbability": 0.2717397340818133,
+          "profitProbability": 0.7282602659181867,
+          "nonLossProbability": 0.7282602659181867,
+          "fairOdds": 1.3731354665343511,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.469254949191756,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "HOME_DNB",
+          "family": "DNB",
+          "selection": "Eyupspor — Draw No Bet (draw = refund)",
+          "winProbability": 0.3118989133426341,
+          "pushProbability": 0.27173973408181323,
+          "lossProbability": 0.4163613525755527,
+          "profitProbability": 0.3118989133426341,
+          "nonLossProbability": 0.5836386474244473,
+          "fairOdds": 2.3349240243045095,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 2.5593557135650045,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_DNB",
+          "family": "DNB",
+          "selection": "Goztepe — Draw No Bet (draw = refund)",
+          "winProbability": 0.4163613525755526,
+          "pushProbability": 0.27173973408181323,
+          "lossProbability": 0.31189891334263414,
+          "profitProbability": 0.4163613525755526,
+          "nonLossProbability": 0.6881010866573658,
+          "fairOdds": 1.7491063025260905,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.917229495437704,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        }
+      ],
+      "mostLikelyOutcome": {
+        "market": "AWAY_WIN",
+        "family": "1X2",
+        "selection": "Goztepe — Match Winner",
+        "winProbability": 0.4163613525755526,
+        "pushProbability": 0.0,
+        "lossProbability": 0.5836386474244474,
+        "profitProbability": 0.4163613525755526,
+        "nonLossProbability": 0.4163613525755526,
+        "fairOdds": 2.401759898737337,
+        "source": "EXACT_FROZEN_FORECAST",
+        "mainMarket": true,
+        "fixture": {
+          "date": "2026-10-12",
+          "time": "17:00",
+          "league": "tr.1",
+          "home": "Eyupspor",
+          "away": "Goztepe",
+          "provider": "ESPN:tr.1",
+          "sourceStatus": "loaded"
+        },
+        "observedOdds": null,
+        "bookmaker": null,
+        "quotedAt": null,
+        "expectedProfitPerRand": null,
+        "minimumEVGate": 0.07,
+        "minimumOddsForValueGate": 2.569883091648951,
+        "valuePositive": false,
+        "fundingBlockers": [
+          "CONFIRMED_XI_NOT_READY",
+          "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+          "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED",
+          "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+          "STALE_TEAM_STATE",
+          "UNPROMOTED_L0_FALLBACK"
+        ],
+        "stakeReady": false,
+        "decision": "BLOCKED",
+        "guaranteedProfit": false
+      },
+      "strongestWinCandidate": null,
+      "bestStandaloneValue": null,
+      "missingMainFamilies": [
+        "BTTS",
+        "TOTAL_GOALS",
+        "TEAM_GOALS"
+      ],
+      "bookmakerAvailabilityConfirmed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "19:00",
+        "league": "en.1",
+        "home": "Coventry City",
+        "away": "Newcastle United",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "predictionMode": "L0 FALLBACK",
+      "tier": "C",
+      "quality": 0.6351757597353159,
+      "coverage": "good",
+      "readinessState": "PRE_XI_PROVISIONAL",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-12T19:00:00Z",
+        "source": "ESPN:en.1",
+        "fixtureSources": [
+          "ESPN:en.1"
+        ],
+        "sourceFixtureId": "401879267",
+        "competition": "Premier League",
+        "competitionSlug": "en.1",
+        "leagueHint": "en.1",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Coventry City",
+        "discoveryAway": "Newcastle United",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "started": false,
+      "identityBlocked": false,
+      "fundingBlockers": [
+        "CONFIRMED_XI_NOT_READY",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "markets": [
+        {
+          "market": "HOME_WIN",
+          "family": "1X2",
+          "selection": "Coventry City — Match Winner",
+          "winProbability": 0.21701374932877782,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7829862506712222,
+          "profitProbability": 0.21701374932877782,
+          "nonLossProbability": 0.21701374932877782,
+          "fairOdds": 4.608002963374412,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 4.746243052275645,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "DRAW",
+          "family": "1X2",
+          "selection": "Coventry City vs Newcastle United — Draw",
+          "winProbability": 0.2739628294865808,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7260371705134192,
+          "profitProbability": 0.2739628294865808,
+          "nonLossProbability": 0.2739628294865808,
+          "fairOdds": 3.650130208809885,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 3.7596341150741814,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_WIN",
+          "family": "1X2",
+          "selection": "Newcastle United — Match Winner",
+          "winProbability": 0.5090234211846414,
+          "pushProbability": 0.0,
+          "lossProbability": 0.4909765788153586,
+          "profitProbability": 0.5090234211846414,
+          "nonLossProbability": 0.5090234211846414,
+          "fairOdds": 1.9645461453870183,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.023482529748629,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "1X",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Coventry City OR Draw — Double Chance (1X)",
+          "winProbability": 0.4909765788153586,
+          "pushProbability": 0.0,
+          "lossProbability": 0.5090234211846414,
+          "profitProbability": 0.4909765788153586,
+          "nonLossProbability": 0.4909765788153586,
+          "fairOdds": 2.0367570331212677,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.097859744114906,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "X2",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Newcastle United OR Draw — Double Chance (X2)",
+          "winProbability": 0.7829862506712222,
+          "pushProbability": 0.0,
+          "lossProbability": 0.21701374932877782,
+          "profitProbability": 0.7829862506712222,
+          "nonLossProbability": 0.7829862506712222,
+          "fairOdds": 1.277161634885339,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.3154764839318993,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "12",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Coventry City OR Newcastle United — Either team wins, draw loses (12)",
+          "winProbability": 0.7260371705134192,
+          "pushProbability": 0.0,
+          "lossProbability": 0.2739628294865808,
+          "profitProbability": 0.7260371705134192,
+          "nonLossProbability": 0.7260371705134192,
+          "fairOdds": 1.3773399498166838,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.4186601483111845,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "HOME_DNB",
+          "family": "DNB",
+          "selection": "Coventry City — Draw No Bet (draw = refund)",
+          "winProbability": 0.21701374932877782,
+          "pushProbability": 0.2739628294865808,
+          "lossProbability": 0.5090234211846414,
+          "profitProbability": 0.21701374932877782,
+          "nonLossProbability": 0.4909765788153586,
+          "fairOdds": 3.345581433245809,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 3.4838215221470414,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_DNB",
+          "family": "DNB",
+          "selection": "Newcastle United — Draw No Bet (draw = refund)",
+          "winProbability": 0.5090234211846414,
+          "pushProbability": 0.2739628294865808,
+          "lossProbability": 0.21701374932877782,
+          "profitProbability": 0.5090234211846414,
+          "nonLossProbability": 0.7829862506712222,
+          "fairOdds": 1.4263335247398352,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.4852699091014456,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        }
+      ],
+      "mostLikelyOutcome": {
+        "market": "AWAY_WIN",
+        "family": "1X2",
+        "selection": "Newcastle United — Match Winner",
+        "winProbability": 0.5090234211846414,
+        "pushProbability": 0.0,
+        "lossProbability": 0.4909765788153586,
+        "profitProbability": 0.5090234211846414,
+        "nonLossProbability": 0.5090234211846414,
+        "fairOdds": 1.9645461453870183,
+        "source": "EXACT_FROZEN_FORECAST",
+        "mainMarket": true,
+        "fixture": {
+          "date": "2026-10-12",
+          "time": "19:00",
+          "league": "en.1",
+          "home": "Coventry City",
+          "away": "Newcastle United",
+          "provider": "ESPN:en.1",
+          "sourceStatus": "loaded"
+        },
+        "observedOdds": null,
+        "bookmaker": null,
+        "quotedAt": null,
+        "expectedProfitPerRand": null,
+        "minimumEVGate": 0.03,
+        "minimumOddsForValueGate": 2.023482529748629,
+        "valuePositive": false,
+        "fundingBlockers": [
+          "CONFIRMED_XI_NOT_READY",
+          "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+          "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+          "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+          "UNPROMOTED_L0_FALLBACK"
+        ],
+        "stakeReady": false,
+        "decision": "BLOCKED",
+        "guaranteedProfit": false
+      },
+      "strongestWinCandidate": null,
+      "bestStandaloneValue": null,
+      "missingMainFamilies": [
+        "BTTS",
+        "TOTAL_GOALS",
+        "TEAM_GOALS"
+      ],
+      "bookmakerAvailabilityConfirmed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-10-12",
+        "time": "19:15",
+        "league": "pt.1",
+        "home": "FC Famalicao",
+        "away": "Alverca",
+        "provider": "ESPN:pt.1",
+        "sourceStatus": "loaded"
+      },
+      "predictionMode": "L0 FALLBACK",
+      "tier": "C",
+      "quality": 0.918328702313577,
+      "coverage": "good",
+      "readinessState": null,
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-12T19:15:00Z",
+        "source": "ESPN:pt.1",
+        "fixtureSources": [
+          "ESPN:pt.1"
+        ],
+        "sourceFixtureId": "401885425",
+        "competition": "Primeira Liga",
+        "competitionSlug": "pt.1",
+        "leagueHint": "pt.1",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "FC Famalicao",
+        "discoveryAway": "Alverca",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH"
+      },
+      "started": false,
+      "identityBlocked": false,
+      "fundingBlockers": [
+        "CONFIRMED_XI_NOT_READY",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "markets": [
+        {
+          "market": "HOME_WIN",
+          "family": "1X2",
+          "selection": "FC Famalicao — Match Winner",
+          "winProbability": 0.5734924979020345,
+          "pushProbability": 0.0,
+          "lossProbability": 0.4265075020979655,
+          "profitProbability": 0.5734924979020345,
+          "nonLossProbability": 0.5734924979020345,
+          "fairOdds": 1.7437019728387495,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.796013032023912,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "DRAW",
+          "family": "1X2",
+          "selection": "FC Famalicao vs Alverca — Draw",
+          "winProbability": 0.23939797172823804,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7606020282717619,
+          "profitProbability": 0.23939797172823804,
+          "nonLossProbability": 0.23939797172823804,
+          "fairOdds": 4.177144830346303,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 4.3024591752566925,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_WIN",
+          "family": "1X2",
+          "selection": "Alverca — Match Winner",
+          "winProbability": 0.18710953036972747,
+          "pushProbability": 0.0,
+          "lossProbability": 0.8128904696302726,
+          "profitProbability": 0.18710953036972747,
+          "nonLossProbability": 0.18710953036972747,
+          "fairOdds": 5.34446320304479,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 5.504797099136134,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "1X",
+          "family": "DOUBLE_CHANCE",
+          "selection": "FC Famalicao OR Draw — Double Chance (1X)",
+          "winProbability": 0.8128904696302726,
+          "pushProbability": 0.0,
+          "lossProbability": 0.18710953036972744,
+          "profitProbability": 0.8128904696302726,
+          "nonLossProbability": 0.8128904696302726,
+          "fairOdds": 1.2301780342618982,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.2670833752897552,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "X2",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Alverca OR Draw — Double Chance (X2)",
+          "winProbability": 0.4265075020979655,
+          "pushProbability": 0.0,
+          "lossProbability": 0.5734924979020345,
+          "profitProbability": 0.4265075020979655,
+          "nonLossProbability": 0.4265075020979655,
+          "fairOdds": 2.344624643367487,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.4149633826685113,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "12",
+          "family": "DOUBLE_CHANCE",
+          "selection": "FC Famalicao OR Alverca — Either team wins, draw loses (12)",
+          "winProbability": 0.7606020282717619,
+          "pushProbability": 0.0,
+          "lossProbability": 0.23939797172823807,
+          "profitProbability": 0.7606020282717619,
+          "nonLossProbability": 0.7606020282717619,
+          "fairOdds": 1.3147480059607486,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.3541904461395713,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "HOME_DNB",
+          "family": "DNB",
+          "selection": "FC Famalicao — Draw No Bet (draw = refund)",
+          "winProbability": 0.5734924979020345,
+          "pushProbability": 0.23939797172823804,
+          "lossProbability": 0.18710953036972747,
+          "profitProbability": 0.5734924979020345,
+          "nonLossProbability": 0.8128904696302726,
+          "fairOdds": 1.3262632572426256,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.3785743164277882,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_DNB",
+          "family": "DNB",
+          "selection": "Alverca — Draw No Bet (draw = refund)",
+          "winProbability": 0.18710953036972747,
+          "pushProbability": 0.23939797172823804,
+          "lossProbability": 0.5734924979020345,
+          "profitProbability": 0.18710953036972747,
+          "nonLossProbability": 0.4265075020979655,
+          "fairOdds": 4.0650095522596645,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 4.225343448351008,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        }
+      ],
+      "mostLikelyOutcome": {
+        "market": "HOME_WIN",
+        "family": "1X2",
+        "selection": "FC Famalicao — Match Winner",
+        "winProbability": 0.5734924979020345,
+        "pushProbability": 0.0,
+        "lossProbability": 0.4265075020979655,
+        "profitProbability": 0.5734924979020345,
+        "nonLossProbability": 0.5734924979020345,
+        "fairOdds": 1.7437019728387495,
+        "source": "EXACT_FROZEN_FORECAST",
+        "mainMarket": true,
+        "fixture": {
+          "date": "2026-10-12",
+          "time": "19:15",
+          "league": "pt.1",
+          "home": "FC Famalicao",
+          "away": "Alverca",
+          "provider": "ESPN:pt.1",
+          "sourceStatus": "loaded"
+        },
+        "observedOdds": null,
+        "bookmaker": null,
+        "quotedAt": null,
+        "expectedProfitPerRand": null,
+        "minimumEVGate": 0.03,
+        "minimumOddsForValueGate": 1.796013032023912,
+        "valuePositive": false,
+        "fundingBlockers": [
+          "CONFIRMED_XI_NOT_READY",
+          "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+          "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED",
+          "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+          "UNPROMOTED_L0_FALLBACK"
+        ],
+        "stakeReady": false,
+        "decision": "BLOCKED",
+        "guaranteedProfit": false
+      },
+      "strongestWinCandidate": null,
+      "bestStandaloneValue": null,
+      "missingMainFamilies": [
+        "BTTS",
+        "TOTAL_GOALS",
+        "TEAM_GOALS"
+      ],
+      "bookmakerAvailabilityConfirmed": false
+    }
+  ],
+  "unscoredFixtures": [
+    {
+      "home": "Real Valladolid",
+      "away": "Albacete",
+      "kickoff": "2026-10-12T12:00:00Z",
+      "competition": "Segunda División",
+      "leagueHint": "es.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Pakhtakor Tashkent",
+      "away": "Al Qadsiah",
+      "kickoff": "2026-10-12T13:45:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Moldova",
+      "away": "Georgia",
+      "kickoff": "2026-10-12T14:00:00Z",
+      "competition": "2026-womens-international-friendly",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "NorthEast United FC",
+      "away": "Mohun Bagan Super Giant",
+      "kickoff": "2026-10-12T14:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Burgos",
+      "away": "Granada",
+      "kickoff": "2026-10-12T14:15:00Z",
+      "competition": "Segunda División",
+      "leagueHint": "es.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Andorra",
+      "away": "Faroe Islands",
+      "kickoff": "2026-10-12T15:00:00Z",
+      "competition": "2026-womens-international-friendly",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "PAOK",
+      "away": "Kalamata",
+      "kickoff": "2026-10-12T15:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Radomiak Radom",
+      "away": "Motor Lublin",
+      "kickoff": "2026-10-12T16:00:00Z",
+      "competition": "Ekstraklasa",
+      "leagueHint": "pl.1",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Al Wasl",
+      "away": "Al Ahli",
+      "kickoff": "2026-10-12T16:00:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Traktor Sazi FC",
+      "away": "AL-SHAMAL",
+      "kickoff": "2026-10-12T16:00:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Real Oviedo",
+      "away": "Eibar",
+      "kickoff": "2026-10-12T16:30:00Z",
+      "competition": "Segunda División",
+      "leagueHint": "es.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "IF Elfsborg",
+      "away": "Halmstads BK",
+      "kickoff": "2026-10-12T17:00:00Z",
+      "competition": "2026-allsvenskan",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Malmö FF",
+      "away": "Kalmar FF",
+      "kickoff": "2026-10-12T17:00:00Z",
+      "competition": "2026-allsvenskan",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "KFUM Oslo",
+      "away": "Vålerenga",
+      "kickoff": "2026-10-12T17:00:00Z",
+      "competition": "2026-eliteserien",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "American University",
+      "away": "West Virginia",
+      "kickoff": "2026-10-12T17:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "AGF",
+      "away": "Sønderjyske Fodbold",
+      "kickoff": "2026-10-12T17:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Morocco",
+      "away": "Uzbekistan",
+      "kickoff": "2026-10-12T18:00:00Z",
+      "competition": "2026-womens-international-friendly",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Brown de Adrogué",
+      "away": "Dock Sud",
+      "kickoff": "2026-10-12T18:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "UAI Urquiza",
+      "away": "Real Pilar",
+      "kickoff": "2026-10-12T18:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "AL GHARAFA AL GHARAFA",
+      "away": "Esteghlal",
+      "kickoff": "2026-10-12T18:15:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Al Nassr",
+      "away": "Neftchi Fergana",
+      "kickoff": "2026-10-12T18:15:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Al-QUWA AL-JAWIYA",
+      "away": "Al Ain",
+      "kickoff": "2026-10-12T18:15:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "GKS Katowice",
+      "away": "Wieczysta Kraków",
+      "kickoff": "2026-10-12T18:30:00Z",
+      "competition": "Ekstraklasa",
+      "leagueHint": "pl.1",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Dijon FCO",
+      "away": "Metz",
+      "kickoff": "2026-10-12T18:45:00Z",
+      "competition": "2026-27-ligue-2",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Torino",
+      "away": "Udinese",
+      "kickoff": "2026-10-12T18:45:00Z",
+      "competition": "Serie A",
+      "leagueHint": "it.1",
+      "hbtSupportLevel": "NOT_YET_READY",
+      "classificationReason": "Live HBT-1.4 intelligence exists, but no date-matched frozen control probability output is available for ranking."
+    },
+    {
+      "home": "GV San José",
+      "away": "Guabirá",
+      "kickoff": "2026-10-12T19:00:00Z",
+      "competition": "2026-bolivian-liga-profesional",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Coritiba",
+      "away": "Botafogo",
+      "kickoff": "2026-10-12T19:00:00Z",
+      "competition": "2026-brasileiro-serie-a",
+      "leagueHint": null,
+      "hbtSupportLevel": "INSUFFICIENT_DATA",
+      "classificationReason": "Competition is in the full-model support contract, but the fixture lacks reconciled predictive output."
+    },
+    {
+      "home": "Fortaleza",
+      "away": "CRB",
+      "kickoff": "2026-10-12T19:00:00Z",
+      "competition": "2026-brasileiro-serie-b",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Levante",
+      "away": "Sevilla",
+      "kickoff": "2026-10-12T19:00:00Z",
+      "competition": "LaLiga",
+      "leagueHint": "es.1",
+      "hbtSupportLevel": "NOT_YET_READY",
+      "classificationReason": "Live HBT-1.4 intelligence exists, but no date-matched frozen control probability output is available for ranking."
+    },
+    {
+      "home": "Shamrock Rovers",
+      "away": "Bohemians",
+      "kickoff": "2026-10-12T19:00:00Z",
+      "competition": "League of Ireland Premier Division",
+      "leagueHint": "ie.1",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Tenerife",
+      "away": "Girona",
+      "kickoff": "2026-10-12T19:00:00Z",
+      "competition": "Segunda División",
+      "leagueHint": "es.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Lanús",
+      "away": "Vélez Sarsfield",
+      "kickoff": "2026-10-12T19:00:00Z",
+      "competition": "torneo-clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Canada",
+      "away": "Denmark",
+      "kickoff": "2026-10-12T19:30:00Z",
+      "competition": "2026-womens-international-friendly",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Universidad de Chile",
+      "away": "Ñublense",
+      "kickoff": "2026-10-12T20:00:00Z",
+      "competition": "2026-primera-division-de-chile",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Racing (Córdoba)",
+      "away": "Los Andes",
+      "kickoff": "2026-10-12T20:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "2 de Mayo",
+      "away": "Sportivo Ameliano",
+      "kickoff": "2026-10-12T20:00:00Z",
+      "competition": "torneo-clausura-2026",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Always Ready",
+      "away": "Independiente Petrolero",
+      "kickoff": "2026-10-12T21:15:00Z",
+      "competition": "2026-bolivian-liga-profesional",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Gimnasia (Mendoza)",
+      "away": "Newell's Old Boys",
+      "kickoff": "2026-10-12T21:30:00Z",
+      "competition": "torneo-clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Novorizontino",
+      "away": "Ponte Preta",
+      "kickoff": "2026-10-12T22:00:00Z",
+      "competition": "2026-brasileiro-serie-b",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "All Boys",
+      "away": "Godoy Cruz Antonio Tomba",
+      "kickoff": "2026-10-12T22:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Nacional Asunción",
+      "away": "Deportivo Recoleta",
+      "kickoff": "2026-10-12T22:20:00Z",
+      "competition": "torneo-clausura-2026",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Chapecoense",
+      "away": "Athletico-PR",
+      "kickoff": "2026-10-12T22:30:00Z",
+      "competition": "2026-brasileiro-serie-a",
+      "leagueHint": null,
+      "hbtSupportLevel": "INSUFFICIENT_DATA",
+      "classificationReason": "Competition is in the full-model support contract, but the fixture lacks reconciled predictive output."
+    },
+    {
+      "home": "Criciúma",
+      "away": "América Mineiro",
+      "kickoff": "2026-10-12T22:30:00Z",
+      "competition": "2026-brasileiro-serie-b",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "South Carolina",
+      "away": "Columbia (SC)",
+      "kickoff": "2026-10-12T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Cincinnati",
+      "away": "BYU",
+      "kickoff": "2026-10-12T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Red Bull Bragantino",
+      "away": "Cruzeiro",
+      "kickoff": "2026-10-13T00:00:00Z",
+      "competition": "2026-brasileiro-serie-a",
+      "leagueHint": null,
+      "hbtSupportLevel": "INSUFFICIENT_DATA",
+      "classificationReason": "Competition is in the full-model support contract, but the fixture lacks reconciled predictive output."
+    },
+    {
+      "home": "Botafogo-SP",
+      "away": "Ceará",
+      "kickoff": "2026-10-13T00:00:00Z",
+      "competition": "2026-brasileiro-serie-b",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "El Salvador",
+      "away": "Paraguay",
+      "kickoff": "2026-10-13T02:00:00Z",
+      "competition": "2026-womens-international-friendly",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    }
+  ],
+  "previouslyScoredMissingNow": [],
+  "chains": [
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.756586458350942,
+      "jointProbabilityBounds": {
+        "lower": 0.7436265117136058,
+        "upper": 0.8128904696302726
+      },
+      "lossProbabilityIndependenceApprox": 0.24341354164905804,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Atalanta OR Draw — Double Chance (1X)",
+          "winProbability": 0.9307360420833333,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "FC Famalicao OR Draw — Double Chance (1X)",
+          "winProbability": 0.8128904696302726,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.7287535239554019,
+      "jointProbabilityBounds": {
+        "lower": 0.7137222927545555,
+        "upper": 0.7829862506712222
+      },
+      "lossProbabilityIndependenceApprox": 0.27124647604459806,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Atalanta OR Draw — Double Chance (1X)",
+          "winProbability": 0.9307360420833333,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Newcastle United OR Draw — Double Chance (X2)",
+          "winProbability": 0.7829862506712222,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.6778180775072489,
+      "jointProbabilityBounds": {
+        "lower": 0.65899630800152,
+        "upper": 0.7282602659181867
+      },
+      "lossProbabilityIndependenceApprox": 0.3221819224927511,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Atalanta OR Draw — Double Chance (1X)",
+          "winProbability": 0.9307360420833333,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Eyupspor OR Goztepe — Either team wins, draw loses (12)",
+          "winProbability": 0.7282602659181867,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.6364820610221761,
+      "jointProbabilityBounds": {
+        "lower": 0.5958767203014947,
+        "upper": 0.7829862506712222
+      },
+      "lossProbabilityIndependenceApprox": 0.3635179389778239,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "FC Famalicao OR Draw — Double Chance (1X)",
+          "winProbability": 0.8128904696302726,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Newcastle United OR Draw — Double Chance (X2)",
+          "winProbability": 0.7829862506712222,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.591995829575302,
+      "jointProbabilityBounds": {
+        "lower": 0.5411507355484593,
+        "upper": 0.7282602659181867
+      },
+      "lossProbabilityIndependenceApprox": 0.40800417042469805,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "FC Famalicao OR Draw — Double Chance (1X)",
+          "winProbability": 0.8128904696302726,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Eyupspor OR Goztepe — Either team wins, draw loses (12)",
+          "winProbability": 0.7282602659181867,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 3,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.5923967943328229,
+      "jointProbabilityBounds": {
+        "lower": 0.5266127623848282,
+        "upper": 0.7829862506712222
+      },
+      "lossProbabilityIndependenceApprox": 0.4076032056671771,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Atalanta OR Draw — Double Chance (1X)",
+          "winProbability": 0.9307360420833333,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "FC Famalicao OR Draw — Double Chance (1X)",
+          "winProbability": 0.8128904696302726,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Newcastle United OR Draw — Double Chance (X2)",
+          "winProbability": 0.7829862506712222,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.5702177751241083,
+      "jointProbabilityBounds": {
+        "lower": 0.5112465165894089,
+        "upper": 0.7282602659181867
+      },
+      "lossProbabilityIndependenceApprox": 0.4297822248758917,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Newcastle United OR Draw — Double Chance (X2)",
+          "winProbability": 0.7829862506712222,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Eyupspor OR Goztepe — Either team wins, draw loses (12)",
+          "winProbability": 0.7282602659181867,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 3,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.550991855348756,
+      "jointProbabilityBounds": {
+        "lower": 0.4718867776317923,
+        "upper": 0.7282602659181867
+      },
+      "lossProbabilityIndependenceApprox": 0.44900814465124395,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Atalanta OR Draw — Double Chance (1X)",
+          "winProbability": 0.9307360420833333,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "FC Famalicao OR Draw — Double Chance (1X)",
+          "winProbability": 0.8128904696302726,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Eyupspor OR Goztepe — Either team wins, draw loses (12)",
+          "winProbability": 0.7282602659181867,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 3,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.5307222351445766,
+      "jointProbabilityBounds": {
+        "lower": 0.44198255867274217,
+        "upper": 0.7282602659181867
+      },
+      "lossProbabilityIndependenceApprox": 0.4692777648554234,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "16:30",
+            "league": "it.1",
+            "home": "Atalanta",
+            "away": "Venezia",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Atalanta OR Draw — Double Chance (1X)",
+          "winProbability": 0.9307360420833333,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Newcastle United OR Draw — Double Chance (X2)",
+          "winProbability": 0.7829862506712222,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Eyupspor OR Goztepe — Either team wins, draw loses (12)",
+          "winProbability": 0.7282602659181867,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 3,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.4635245950121655,
+      "jointProbabilityBounds": {
+        "lower": 0.32413698621968123,
+        "upper": 0.7282602659181867
+      },
+      "lossProbabilityIndependenceApprox": 0.5364754049878345,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_PROOF_MISSING_OR_CONFLICTING",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "PROSPECTIVE_CARD_BEHIND_NEWER_FROZEN_EXPORT",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:15",
+            "league": "pt.1",
+            "home": "FC Famalicao",
+            "away": "Alverca",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "FC Famalicao OR Draw — Double Chance (1X)",
+          "winProbability": 0.8128904696302726,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "19:00",
+            "league": "en.1",
+            "home": "Coventry City",
+            "away": "Newcastle United",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Newcastle United OR Draw — Double Chance (X2)",
+          "winProbability": 0.7829862506712222,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-12",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Eyupspor",
+            "away": "Goztepe",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Eyupspor OR Goztepe — Either team wins, draw loses (12)",
+          "winProbability": 0.7282602659181867,
+          "observedOdds": null
+        }
+      ]
+    }
+  ],
+  "evaluationClock": {
+    "source": "SYSTEM_UTC",
+    "explicitAsOf": null
+  }
+}
