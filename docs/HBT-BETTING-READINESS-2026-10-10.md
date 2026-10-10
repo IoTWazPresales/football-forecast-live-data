@@ -101,6 +101,18 @@ No weights were retuned and no hypothesis was automatically promoted.
    this repository contains the data/runtime scripts, not that application's UI
    source. The standalone desk and feed are provided as reviewable outputs.
 
+## Remote workflow safeguards
+
+The event-training workflow previously reacted to research pushes but checked
+out and committed to the default branch. It now has read-only permissions,
+checks the triggering revision, and trains only on explicit manual dispatch.
+Candidate parameters are uploaded for review; no workflow step promotes them.
+The earlier automatic run was cancelled through the shared concurrency group;
+the default-branch event parameter artifact was verified byte-identical.
+Scanner CI now compares the immutable Test A reference against its canonical
+record, including all legs and stake. It accepts its recorded SETTLED lifecycle
+state instead of incorrectly requiring it to remain FROZEN_PROSPECTIVE.
+
 ## Verification
 
 - 26 financial, timestamp, identity, causal and settlement tests pass.
