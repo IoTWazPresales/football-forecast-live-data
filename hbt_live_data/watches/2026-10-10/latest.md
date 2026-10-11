@@ -1,6 +1,6 @@
 # HBT forecast results watch — 2026-10-10
 
-Observed 2026-10-11T01:11:41Z. Actual user wagers are excluded.
+Observed 2026-10-11T02:03:55Z. Actual user wagers are excluded.
 
 Forecasts are frozen. Alternatives are evaluated individually; mutually exclusive outcomes are not a betting portfolio. Late research is separated from pre-kickoff evidence. No model learning or promotion is performed.
 
@@ -37,7 +37,7 @@ Forecasts are frozen. Alternatives are evaluated individually; mutually exclusiv
 | 10 Oct 21:30 | Primeira Liga | Académico de Viseu vs Estoril | 2–1 | Full Time 90'+5' | No saved HBT forecast |
 | 10 Oct 21:30 | Primeira Liga | Casa Pia vs Santa Clara | 0–1 | Full Time 90'+10' | No saved HBT forecast |
 | 10 Oct 23:00 | 2026-brasileiro-serie-a | Vasco da Gama vs Remo | 0–0 | Full Time 90'+7' | No saved HBT forecast |
-| 11 Oct 02:00 | 2026-brasileiro-serie-a | São Paulo vs Vitória | 1–1 | Second Half 47' | No saved HBT forecast |
+| 11 Oct 02:00 | 2026-brasileiro-serie-a | São Paulo vs Vitória | 2–1 | Full Time 90'+7' | No saved HBT forecast |
 
 ## Every modeled selection — full day and evening
 
