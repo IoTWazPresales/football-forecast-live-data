@@ -163,7 +163,17 @@ def merge_sources(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
             z = out[k]
             if row["source"] not in z["fixtureSources"]: z["fixtureSources"].append(row["source"])
             z["sourceFixtureIds"][row["source"]] = row.get("sourceFixtureId")
-            if (not z.get("competition") or z.get("competition") == "Unknown competition") and row.get("competition"):
+            # A generic feed's "league-phase" label must not erase a known
+            # competition identity from a specific provider feed.
+            existing = z.get("leagueHint")
+            incoming = row.get("leagueHint")
+            if existing and incoming and existing != incoming:
+                z["competitionIdentityConflict"] = sorted({existing, incoming})
+            elif incoming and not existing:
+                z["leagueHint"] = incoming
+                z["competition"], z["competitionSlug"] = row.get("competition"), row.get("competitionSlug")
+                z["competitionIdentitySource"] = row["source"]
+            elif (not z.get("competition") or z.get("competition") == "Unknown competition") and row.get("competition"):
                 z["competition"], z["competitionSlug"] = row["competition"], row.get("competitionSlug")
     return sorted(out.values(), key=lambda x:(x.get("kickoff") or "",x.get("competition") or "",x.get("home") or ""))
 
@@ -225,7 +235,9 @@ def classify(public: dict[str, Any], hit: dict[str, Any] | None, fc: dict[str, A
     league = public.get("leagueHint") or league_from_hit(hit) or str(((fc or {}).get("fixture") or {}).get("league") or "") or None
     mode = str((fc or {}).get("predictionMode") or "")
     probs = (fc or {}).get("probs") if fc else None
-    if fc and valid_probs(probs) and "FUSION" in mode:
+    if public.get("competitionIdentityConflict"):
+        status, reason = "SOURCE_FAILURE", "Conflicting authoritative competition identities; quarantine fixture before ranking."
+    elif fc and valid_probs(probs) and "FUSION" in mode:
         status, reason = "FULL_MODEL", "Matched a prospective frozen HBT control forecast with Fusion probability output."
     elif fc and valid_probs(probs) and mode.startswith("L0"):
         status, reason = "FALLBACK", "Matched a prospective frozen structural L0 forecast; retained separately from Fusion/full-model confidence."
@@ -311,6 +323,12 @@ def main() -> int:
             })
     counts = {s:sum(1 for x in fixtures if x.get("hbtSupportLevel") == s) for s in sorted(STATUS)}
     unsupported = sorted({str(x.get("competition")) for x in fixtures if x.get("hbtSupportLevel") == "UNSUPPORTED_COMPETITION" and x.get("competition")})
+    # Discovery and prediction coverage are distinct health dimensions.
+    # A successful discovery with zero forecasts must not be presented as
+    # an operationally ready betting slate.
+    known_model_leagues = FULL_MODEL_LEAGUES | FALLBACK_MODEL_LEAGUES
+    known_model_fixtures = [x for x in fixtures if x.get("hbtLeague") in known_model_leagues]
+    unscored_known_model = [x for x in known_model_fixtures if not x.get("rankEligible")]
     full_rank = [x for x in fixtures if x.get("rankEligibleFullModel")]; fallback_rank = [x for x in fixtures if x.get("rankEligibleFallback")]
     payload = {
         "schemaVersion":"HBT-SLATE-2","version":VERSION,"generatedAt":now(),"targetDate":target.isoformat(),
@@ -323,12 +341,15 @@ def main() -> int:
                     "forecastRowsMatched":len(fidx)-len(orphans),"knownForecastsMissedByDiscovery":len(orphans),
                     "knownForecastDiscoveryMisses":orphans,"unsupportedCompetitions":unsupported,
                     "previousProspectiveScoredNowUnsupported":len(prospective_regressions),
-                    "previousProspectiveCoverageRegressions":prospective_regressions},
+                    "previousProspectiveCoverageRegressions":prospective_regressions,
+                    "knownModelLeagueFixtures":len(known_model_fixtures),
+                    "knownModelLeagueForecastGaps":len(unscored_known_model)},
         "rankingGate":{"sourceDiscoverySucceeded":source_ok,"knownForecastCoverageComplete":not orphans,
                        "discoveryComplete":bool(source_ok and not orphans and not prospective_regressions),
                        "previousProspectiveCoverageConsistent":not prospective_regressions,
                        "rankEligibleFixtures":len(full_rank)+len(fallback_rank),
                        "fullModelRankEligible":len(full_rank),"fallbackRankEligible":len(fallback_rank),
+                       "predictionCoverageHealthy":bool(known_model_fixtures) and not unscored_known_model,
                        "note":"Discovery completeness means configured public sources reconciled all known date-scoped HBT forecasts; it is not a claim of universal world-football coverage."},
         "fixtures":fixtures,
     }
