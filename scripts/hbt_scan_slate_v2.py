@@ -158,7 +158,11 @@ def merge_sources(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
         k = fixture_key(row)
         if not k.strip("|"): continue
         if k not in out:
-            out[k] = {**row,"fixtureSources":[row["source"]],"sourceFixtureIds":{row["source"]:row.get("sourceFixtureId")}}
+            # Reconciliation reads previously merged scanner rows. Preserve all
+            # original provider evidence instead of reducing it to ESPN_ALL.
+            sources = list(dict.fromkeys(row.get("fixtureSources") or [row["source"]]))
+            source_ids = dict(row.get("sourceFixtureIds") or {row["source"]: row.get("sourceFixtureId")})
+            out[k] = {**row, "fixtureSources": sources, "sourceFixtureIds": source_ids}
         else:
             z = out[k]
             if row["source"] not in z["fixtureSources"]: z["fixtureSources"].append(row["source"])
@@ -231,6 +235,23 @@ def valid_probs(v: Any) -> bool:
 
 
 def classify(public: dict[str, Any], hit: dict[str, Any] | None, fc: dict[str, Any] | None, fc_meta: dict[str, Any]) -> dict[str, Any]:
+    public = dict(public)
+    # Previously published 2.2 rows lost leagueHint when ESPN_ALL arrived
+    # first, but retained a specific provider source in fixtureSources.
+    # Recover only explicit known codes; never infer from "league-phase".
+    if not public.get("leagueHint") and not public.get("competitionIdentityConflict"):
+        specific_codes = {source.removeprefix("ESPN:") for source in public.get("fixtureSources") or []
+                          if source.startswith("ESPN:") and source.removeprefix("ESPN:") in
+                          (FULL_MODEL_LEAGUES | FALLBACK_MODEL_LEAGUES)}
+        if len(specific_codes) > 1:
+            public["competitionIdentityConflict"] = sorted(specific_codes)
+        elif len(specific_codes) == 1:
+            code = next(iter(specific_codes))
+            public["leagueHint"] = code
+            public["competitionIdentitySource"] = "ESPN:" + code
+            if code == "uefa.cl" and public.get("competition") in ("league-phase", "Unknown competition"):
+                public["competition"] = "UEFA Champions League"
+                public["competitionSlug"] = "uefa.cl"
     rows = (hit or {}).get("rows") or {}; h14, market, pre = rows.get("HBT14") or {}, rows.get("MARKET") or {}, rows.get("PREXI") or {}
     league = public.get("leagueHint") or league_from_hit(hit) or str(((fc or {}).get("fixture") or {}).get("league") or "") or None
     mode = str((fc or {}).get("predictionMode") or "")
