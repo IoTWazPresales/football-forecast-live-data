@@ -46,6 +46,18 @@ class CompetitionIdentityTests(unittest.TestCase):
         self.assertEqual(result["hbtSupportLevel"], "SOURCE_FAILURE")
         self.assertFalse(result["rankEligible"])
 
+    def test_reconciliation_preserves_saved_provider_evidence(self):
+        saved = {**self.generic(),
+                 "fixtureSources": ["ESPN_ALL", "ESPN:uefa.cl"],
+                 "sourceFixtureIds": {"ESPN_ALL": "401915417", "ESPN:uefa.cl": "401915417"}}
+        restored = slate.merge_sources([saved])[0]
+        self.assertIn("ESPN:uefa.cl", restored["fixtureSources"])
+        result = slate.classify(restored, None, None, {})
+        self.assertEqual(result["hbtLeague"], "uefa.cl")
+        self.assertEqual(result["competition"], "UEFA Champions League")
+        self.assertEqual(result["hbtSupportLevel"], "NOT_YET_READY")
+        self.assertFalse(result["rankEligible"])
+
     def test_womens_competition_is_not_promoted_to_mens(self):
         row = {"competition": "2026-womens-international-friendly",
                "home": "Sweden", "away": "Lithuania"}
