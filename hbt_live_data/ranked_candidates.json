@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-10-15",
+  "targetDate": "2026-10-16",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,31 +22,43 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 135,
-    "classifiedRows": 135,
-    "FALLBACK": 0,
+    "fixturesDiscovered": 101,
+    "classifiedRows": 101,
+    "FALLBACK": 2,
     "FULL_MODEL": 0,
-    "INSUFFICIENT_DATA": 0,
+    "INSUFFICIENT_DATA": 6,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 135,
-    "forecastRowsAvailable": 0,
-    "forecastRowsMatched": 0,
+    "UNSUPPORTED_COMPETITION": 93,
+    "forecastRowsAvailable": 2,
+    "forecastRowsMatched": 2,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
+      "2026-27-keuken-kampioen-divisie",
+      "2026-27-ligue-2",
       "2026-27-saudi-pro-league",
+      "2026-27-scottish-championship",
+      "2026-27-turkish-super-lig",
+      "2026-allsvenskan",
+      "2026-bolivian-liga-profesional",
+      "2026-brasileiro-serie-b",
+      "2026-chinese-super-league",
+      "2026-club-friendly",
       "2026-ncaa-division-i-men",
       "2026-ncaa-division-i-women",
-      "apertura",
-      "group-stage",
-      "league-phase",
-      "quarterfinals",
+      "3rd-round",
+      "apertura-2026",
+      "clausura",
+      "fall-season",
+      "final-stage",
+      "first-round",
       "regular-season",
-      "semifinals",
+      "second-preliminary-round",
       "torneo-apertura",
       "torneo-apertura-2026",
-      "torneo-clausura"
+      "torneo-clausura",
+      "torneo-clausura-2026"
     ],
     "previousProspectiveScoredNowUnsupported": 0,
     "previousProspectiveCoverageRegressions": [],
@@ -58,16 +70,16 @@
     "knownForecastCoverageComplete": true,
     "discoveryComplete": true,
     "previousProspectiveCoverageConsistent": true,
-    "rankEligibleFixtures": 0,
+    "rankEligibleFixtures": 2,
     "fullModelRankEligible": 0,
-    "fallbackRankEligible": 0,
+    "fallbackRankEligible": 2,
     "note": "Discovery completeness means configured public sources reconciled all known date-scoped HBT forecasts; it is not a claim of universal world-football coverage."
   },
   "priceLayer": {
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-10-15T21:43:06Z",
+    "generatedAt": "2026-10-15T23:57:52Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -109,9 +121,187 @@
     "note": "Reference only. Ranking does not alter, remove, replace, or retrospectively optimise Test A."
   },
   "rankings": {
-    "highestRawDeployedPickProbability": [],
+    "highestRawDeployedPickProbability": [
+      {
+        "competition": "Eredivisie",
+        "kickoff": "2026-10-16T20:00:00",
+        "home": "SC Heerenveen",
+        "away": "SBV Excelsior",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "SC Heerenveen",
+        "pickProbability": 0.49241712401913756,
+        "probabilityOutput": [
+          0.49241712401913756,
+          0.263000528502909,
+          0.24458234747795343
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.9132260834736673,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-10-15T23:57:11.374Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-ligue-1",
+        "kickoff": "2026-10-16T18:45:00Z",
+        "home": "Le Mans",
+        "away": "Toulouse",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Le Mans",
+        "pickProbability": 0.377874269712579,
+        "probabilityOutput": [
+          0.377874269712579,
+          0.27631788567041127,
+          0.34580784461700975
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.6466711740102085,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-10-15T23:57:11.374Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      }
+    ],
     "strongestFullModelConfidence": [],
-    "fallbackOnly": [],
+    "fallbackOnly": [
+      {
+        "competition": "Eredivisie",
+        "kickoff": "2026-10-16T20:00:00",
+        "home": "SC Heerenveen",
+        "away": "SBV Excelsior",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "SC Heerenveen",
+        "pickProbability": 0.49241712401913756,
+        "probabilityOutput": [
+          0.49241712401913756,
+          0.263000528502909,
+          0.24458234747795343
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.9132260834736673,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-10-15T23:57:11.374Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-ligue-1",
+        "kickoff": "2026-10-16T18:45:00Z",
+        "home": "Le Mans",
+        "away": "Toulouse",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Le Mans",
+        "pickProbability": 0.377874269712579,
+        "probabilityOutput": [
+          0.377874269712579,
+          0.27631788567041127,
+          0.34580784461700975
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.6466711740102085,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-10-15T23:57:11.374Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      }
+    ],
     "validatedEventForecasts": [],
     "eventMarketExcluded": [],
     "experimentalValueVsPrice": {
@@ -128,9 +318,10 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 135,
+      "count": 99,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 135
+        "UNSUPPORTED_COMPETITION": 93,
+        "INSUFFICIENT_DATA": 6
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."

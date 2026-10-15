@@ -1,8 +1,8 @@
 {
   "schemaVersion": "HBT-FORECAST-BRIDGE-STATUS-1",
   "version": "HBT-FROZEN-FORECAST-BRIDGE-1.4-EXACT-SNAPSHOT",
-  "generatedAt": "2026-10-15T21:43:02.676Z",
-  "targetDate": "2026-10-15",
+  "generatedAt": "2026-10-15T23:57:05.771Z",
+  "targetDate": "2026-10-16",
   "policy": {
     "predictiveModel": "HBT-1.1.2L-R1",
     "bookmakerOddsUsed": false,
@@ -16,7 +16,7 @@
     "targetStateUpdatedThroughPreviousCompletedDay": true
   },
   "status": "READY",
-  "output": "frozen_control_forecast_2026-10-15.json",
+  "output": "frozen_control_forecast_2026-10-16.json",
   "frozenSnapshot": {
     "created": "2026-09-11T20:30:57.701Z",
     "dataCutoff": "2026-09-07",
@@ -27,7 +27,7 @@
     "aliases": 37
   },
   "stateAdvance": {
-    "targetStateAsOfExclusive": "2026-10-15",
+    "targetStateAsOfExclusive": "2026-10-16",
     "incrementalMatches": 146,
     "sourceFailures": [
       {
@@ -264,9 +264,45 @@
     ]
   },
   "target": {
-    "discovered": 109,
-    "predictions": 0,
-    "excluded": []
+    "discovered": 79,
+    "predictions": 2,
+    "excluded": [
+      {
+        "fixture": "Energie Cottbus vs 1. FC Nürnberg",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Holstein Kiel vs Hertha Berlin",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Çorum FK vs Caykur Rizespor",
+        "league": "tr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Eintracht Frankfurt vs FC Cologne",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Frosinone vs Sassuolo",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Deportivo vs Levante",
+        "league": "es.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Mirassol vs Internacional",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      }
+    ]
   },
-  "runtimeMs": 2918.142377
+  "runtimeMs": 5607.653836
 }
