@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-10-21",
+  "targetDate": "2026-10-22",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,34 +22,31 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 106,
-    "classifiedRows": 106,
+    "fixturesDiscovered": 132,
+    "classifiedRows": 132,
     "FALLBACK": 0,
     "FULL_MODEL": 0,
-    "INSUFFICIENT_DATA": 1,
+    "INSUFFICIENT_DATA": 0,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 105,
+    "UNSUPPORTED_COMPETITION": 132,
     "forecastRowsAvailable": 0,
     "forecastRowsMatched": 0,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
+      "2026-27-saudi-pro-league",
       "2026-club-friendly",
       "2026-ncaa-division-i-men",
       "2026-ncaa-division-i-women",
+      "apertura-2026",
       "clausura",
-      "final",
-      "first-round",
+      "fall-season",
       "group-stage",
       "league-phase",
-      "play-in",
       "quarterfinals",
-      "regular-season",
-      "second-preliminary-round",
       "semifinals",
-      "torneo-apertura",
-      "torneo-apertura-2026"
+      "torneo-apertura"
     ],
     "previousProspectiveScoredNowUnsupported": 0,
     "previousProspectiveCoverageRegressions": [],
@@ -70,7 +67,7 @@
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-10-21T20:54:46Z",
+    "generatedAt": "2026-10-21T23:49:05Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -131,10 +128,9 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 106,
+      "count": 132,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 105,
-        "INSUFFICIENT_DATA": 1
+        "UNSUPPORTED_COMPETITION": 132
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
