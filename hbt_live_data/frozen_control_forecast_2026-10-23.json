@@ -1,0 +1,267 @@
+{
+  "schemaVersion": "HBT-FROZEN-CONTROL-FORECAST-1",
+  "sourceFile": "exact HBT-0.4a frozen browser deployment snapshot",
+  "sourceExportedAt": "2026-10-22T23:55:04.595Z",
+  "sourceLabVersion": "HBT-1.1.2L-R1",
+  "sourceEngineVersion": "HBT-0.4a exact frozen L0 snapshot bridge",
+  "targetDate": "2026-10-23",
+  "policy": {
+    "prospectiveExport": true,
+    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "predictiveModelMutated": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "generalFutureLiveFeed": false,
+    "scope": "Date-scoped forecasts emitted only after exact HBT-0.4a frozen-state golden parity.",
+    "missingFixtureSemantics": "unknown/not forecast in this export; never infer a probability",
+    "goldenParityRequired": true,
+    "goldenParityTolerance": 1e-9,
+    "targetStateAsOfExclusive": "2026-10-23"
+  },
+  "bridge": {
+    "version": "HBT-FROZEN-FORECAST-BRIDGE-1.4-EXACT-SNAPSHOT",
+    "weightsSource": "exact frozen HBT-0.4a browser snapshot",
+    "snapshotCreated": "2026-09-11T20:30:57.701Z",
+    "snapshotDataCutoff": "2026-09-07",
+    "sourceSnapshotSha256": "c9b53377b8733d63a50413d7a1d3b3287c49c686e24eb75f944861423c3e8eb8",
+    "compactPayloadSha256": "3921c17a6f496412ddfb4e1a22d66d102cf58ccae2e0204d796422d526ce0cdb",
+    "goldenForecastDate": "2026-09-15",
+    "goldenMaxAbsError": 1.1102230246251565e-16,
+    "targetStateAsOfExclusive": "2026-10-23",
+    "incrementalMatches": 146,
+    "sourceFailures": [
+      {
+        "source": "2026-27/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      }
+    ],
+    "duplicatesRemoved": 0,
+    "crossLeagueLinks": 0,
+    "newStates": 4,
+    "unresolvedUpdates": 0,
+    "excluded": [
+      {
+        "fixture": "SV Darmstadt 98 vs St. Pauli",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "VfL Bochum vs VfL Wolfsburg",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Akhmat Grozny vs Gazovik Orenburg",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Brest vs Nice",
+        "league": "fr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Alavés vs Málaga",
+        "league": "es.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Vitória de Guimaraes vs Maritimo",
+        "league": "pt.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Cruzeiro vs Remo",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "time": "17:00",
+        "league": "tr.1",
+        "home": "Alanyaspor",
+        "away": "Kocaelispor",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 357d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.5575787886661204,
+      "probs": [
+        0.489515120456088,
+        0.26747458349220543,
+        0.2430102960517065
+      ],
+      "pick": "Alanyaspor",
+      "pickProb": 0.489515120456088,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.489515120456088,
+          0.26747458349220543,
+          0.2430102960517065
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "time": "18:30",
+        "league": "de.1",
+        "home": "VfB Stuttgart",
+        "away": "Borussia Mönchengladbach",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.711593949907232,
+      "probs": [
+        0.435123340967041,
+        0.26959328348362743,
+        0.29528337554933154
+      ],
+      "pick": "VfB Stuttgart",
+      "pickProb": 0.435123340967041,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.435123340967041,
+          0.26959328348362743,
+          0.29528337554933154
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "time": "18:45",
+        "league": "it.1",
+        "home": "Torino",
+        "away": "Monza",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.9067201653664699,
+      "probs": [
+        0.5630066476762103,
+        0.24992585635596476,
+        0.18706749596782496
+      ],
+      "pick": "Torino",
+      "pickProb": 0.5630066476762103,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5630066476762103,
+          0.24992585635596476,
+          0.18706749596782496
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "time": "19:00",
+        "league": "en.1",
+        "home": "Ipswich Town",
+        "away": "Nottingham Forest",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8806033245953341,
+      "probs": [
+        0.24194171007979826,
+        0.27635872565361036,
+        0.48169956426659144
+      ],
+      "pick": "Nottingham Forest",
+      "pickProb": 0.48169956426659144,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.24194171007979826,
+          0.27635872565361036,
+          0.48169956426659144
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-23",
+        "time": "20:00",
+        "league": "nl.1",
+        "home": "Go Ahead Eagles",
+        "away": "Telstar 1963",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.8975945594633644,
+      "probs": [
+        0.5213772455704732,
+        0.25400710855461667,
+        0.2246156458749102
+      ],
+      "pick": "Go Ahead Eagles",
+      "pickProb": 0.5213772455704732,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5213772455704732,
+          0.25400710855461667,
+          0.2246156458749102
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    }
+  ]
+}
