@@ -1,0 +1,760 @@
+{
+  "schemaVersion": "HBT-FROZEN-CONTROL-FORECAST-1",
+  "sourceFile": "exact HBT-0.4a frozen browser deployment snapshot",
+  "sourceExportedAt": "2026-10-24T22:16:21.908Z",
+  "sourceLabVersion": "HBT-1.1.2L-R1",
+  "sourceEngineVersion": "HBT-0.4a exact frozen L0 snapshot bridge",
+  "targetDate": "2026-10-25",
+  "policy": {
+    "prospectiveExport": true,
+    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "predictiveModelMutated": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "generalFutureLiveFeed": false,
+    "scope": "Date-scoped forecasts emitted only after exact HBT-0.4a frozen-state golden parity.",
+    "missingFixtureSemantics": "unknown/not forecast in this export; never infer a probability",
+    "goldenParityRequired": true,
+    "goldenParityTolerance": 1e-9,
+    "targetStateAsOfExclusive": "2026-10-25"
+  },
+  "bridge": {
+    "version": "HBT-FROZEN-FORECAST-BRIDGE-1.4-EXACT-SNAPSHOT",
+    "weightsSource": "exact frozen HBT-0.4a browser snapshot",
+    "snapshotCreated": "2026-09-11T20:30:57.701Z",
+    "snapshotDataCutoff": "2026-09-07",
+    "sourceSnapshotSha256": "c9b53377b8733d63a50413d7a1d3b3287c49c686e24eb75f944861423c3e8eb8",
+    "compactPayloadSha256": "3921c17a6f496412ddfb4e1a22d66d102cf58ccae2e0204d796422d526ce0cdb",
+    "goldenForecastDate": "2026-09-15",
+    "goldenMaxAbsError": 1.1102230246251565e-16,
+    "targetStateAsOfExclusive": "2026-10-25",
+    "incrementalMatches": 146,
+    "sourceFailures": [
+      {
+        "source": "2026-27/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      }
+    ],
+    "duplicatesRemoved": 0,
+    "crossLeagueLinks": 0,
+    "newStates": 4,
+    "unresolvedUpdates": 0,
+    "excluded": [
+      {
+        "fixture": "Rostov vs Lokomotiv Moscow",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Heerenveen vs AZ Alkmaar",
+        "league": "nl.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Internazionale vs Fiorentina",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Holstein Kiel vs Dynamo Dresden",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "TSV Eintracht Braunschweig vs Hannover 96",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "VfL Osnabruck vs SpVgg Greuther Fürth",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "CSKA Moscow vs Spartak Moscow",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Atalanta vs Frosinone",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Genoa vs Venezia",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "AS Monaco vs Lille",
+        "league": "fr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "TSG Hoffenheim vs Bayer Leverkusen",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Celta Vigo vs Real Betis",
+        "league": "es.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Estoril vs Moreirense",
+        "league": "pt.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Zenit St Petersburg vs Dynamo Makhachkala",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Goztepe vs Çorum FK",
+        "league": "tr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Angers vs Lorient",
+        "league": "fr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Marseille vs Le Havre AC",
+        "league": "fr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Stade Rennais vs Strasbourg",
+        "league": "fr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Toulouse vs Troyes",
+        "league": "fr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "SC Freiburg vs Bayern Munich",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Lecce vs Juventus",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Real Sociedad vs Levante",
+        "league": "es.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "C.D. Nacional vs Braga",
+        "league": "pt.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Udinese vs AC Milan",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "12:00",
+        "league": "sco.1",
+        "home": "Hibernian",
+        "away": "Celtic",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 361d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7063538506428438,
+      "probs": [
+        0.3036203486974693,
+        0.2695199721891954,
+        0.42685967911333544
+      ],
+      "pick": "Celtic",
+      "pickProb": 0.42685967911333544,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.3036203486974693,
+          0.2695199721891954,
+          0.42685967911333544
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "12:15",
+        "league": "nl.1",
+        "home": "Fortuna Sittard",
+        "away": "SBV Excelsior",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8505956645547037,
+      "probs": [
+        0.3617368776562018,
+        0.2845860089187257,
+        0.3536771134250724
+      ],
+      "pick": "Fortuna Sittard",
+      "pickProb": 0.3617368776562018,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.3617368776562018,
+          0.2845860089187257,
+          0.3536771134250724
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "13:00",
+        "league": "es.1",
+        "home": "Athletic Club",
+        "away": "Getafe",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8944543624207498,
+      "probs": [
+        0.4929983904628152,
+        0.2663007731733257,
+        0.24070083636385906
+      ],
+      "pick": "Athletic Club",
+      "pickProb": 0.4929983904628152,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4929983904628152,
+          0.2663007731733257,
+          0.24070083636385906
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "13:00",
+        "league": "tr.1",
+        "home": "Konyaspor",
+        "away": "Genclerbirligi",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 358d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7070017325389468,
+      "probs": [
+        0.4800858967010947,
+        0.2694827737007368,
+        0.2504313295981684
+      ],
+      "pick": "Konyaspor",
+      "pickProb": 0.4800858967010947,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4800858967010947,
+          0.2694827737007368,
+          0.2504313295981684
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "14:00",
+        "league": "en.1",
+        "home": "Crystal Palace",
+        "away": "Newcastle United",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9032489331472493,
+      "probs": [
+        0.35600514074266837,
+        0.2766711883375196,
+        0.36732367091981205
+      ],
+      "pick": "Newcastle United",
+      "pickProb": 0.36732367091981205,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.35600514074266837,
+          0.2766711883375196,
+          0.36732367091981205
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "14:00",
+        "league": "en.1",
+        "home": "Hull City",
+        "away": "Brentford",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8795744465584109,
+      "probs": [
+        0.2677148773222428,
+        0.2792318008555441,
+        0.4530533218222132
+      ],
+      "pick": "Brentford",
+      "pickProb": 0.4530533218222132,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.2677148773222428,
+          0.2792318008555441,
+          0.4530533218222132
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "14:00",
+        "league": "en.1",
+        "home": "Liverpool",
+        "away": "Brighton & Hove Albion",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8483196680146724,
+      "probs": [
+        0.39785044593848695,
+        0.2918908732077678,
+        0.31025868085374525
+      ],
+      "pick": "Liverpool",
+      "pickProb": 0.39785044593848695,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.39785044593848695,
+          0.2918908732077678,
+          0.31025868085374525
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "14:00",
+        "league": "en.1",
+        "home": "Manchester United",
+        "away": "AFC Bournemouth",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.9049557439716885,
+      "probs": [
+        0.48576579030412825,
+        0.2633891708754894,
+        0.2508450388203824
+      ],
+      "pick": "Manchester United",
+      "pickProb": 0.48576579030412825,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.48576579030412825,
+          0.2633891708754894,
+          0.2508450388203824
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "14:00",
+        "league": "sco.1",
+        "home": "Motherwell",
+        "away": "Heart of Midlothian",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 361d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7151097162288935,
+      "probs": [
+        0.2709142252313332,
+        0.26907423799891245,
+        0.4600115367697543
+      ],
+      "pick": "Heart of Midlothian",
+      "pickProb": 0.4600115367697543,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.2709142252313332,
+          0.26907423799891245,
+          0.4600115367697543
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "14:30",
+        "league": "nl.1",
+        "home": "PSV",
+        "away": "Feyenoord Rotterdam",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.4803983225317221,
+      "probs": [
+        0.6824514808204689,
+        0.22135655805468277,
+        0.09619196112484832
+      ],
+      "pick": "PSV",
+      "pickProb": 0.6824514808204689,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.6824514808204689,
+          0.22135655805468277,
+          0.09619196112484832
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "15:45",
+        "league": "nl.1",
+        "home": "FC Utrecht",
+        "away": "ADO Den Haag",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.8722682301648361,
+      "probs": [
+        0.5990159480563707,
+        0.24400075221325077,
+        0.1569832997303785
+      ],
+      "pick": "FC Utrecht",
+      "pickProb": 0.5990159480563707,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5990159480563707,
+          0.24400075221325077,
+          0.1569832997303785
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "15:45",
+        "league": "nl.1",
+        "home": "PEC Zwolle",
+        "away": "FC Twente",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 1246d",
+      "coveragePack": null,
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.6427286875325152,
+      "probs": [
+        0.11881416847239619,
+        0.23391552908920266,
+        0.6472703024384011
+      ],
+      "pick": "FC Twente",
+      "pickProb": 0.6472703024384011,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.11881416847239619,
+          0.23391552908920266,
+          0.6472703024384011
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "16:15",
+        "league": "fr.1",
+        "home": "AJ Auxerre",
+        "away": "Le Mans",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.6025974288554757,
+      "probs": [
+        0.4336471844980714,
+        0.2801494102153847,
+        0.2862034052865441
+      ],
+      "pick": "AJ Auxerre",
+      "pickProb": 0.4336471844980714,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4336471844980714,
+          0.2801494102153847,
+          0.2862034052865441
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "16:30",
+        "league": "en.1",
+        "home": "Sunderland",
+        "away": "Leeds United",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8947372361253874,
+      "probs": [
+        0.35822667979401057,
+        0.2809876901134219,
+        0.36078563009256764
+      ],
+      "pick": "Leeds United",
+      "pickProb": 0.36078563009256764,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.35822667979401057,
+          0.2809876901134219,
+          0.36078563009256764
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "18:00",
+        "league": "pt.1",
+        "home": "Rio Ave",
+        "away": "FC Famalicao",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.8709753307875817,
+      "probs": [
+        0.2129648992463878,
+        0.27487465913372156,
+        0.5121604416198906
+      ],
+      "pick": "FC Famalicao",
+      "pickProb": 0.5121604416198906,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.2129648992463878,
+          0.27487465913372156,
+          0.5121604416198906
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "20:00",
+        "league": "es.1",
+        "home": "Barcelona",
+        "away": "Real Madrid",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8711513076630498,
+      "probs": [
+        0.3528843323841855,
+        0.2774787434376348,
+        0.36963692417817967
+      ],
+      "pick": "Real Madrid",
+      "pickProb": 0.36963692417817967,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.3528843323841855,
+          0.2774787434376348,
+          0.36963692417817967
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    },
+    {
+      "fixture": {
+        "date": "2026-10-25",
+        "time": "20:30",
+        "league": "pt.1",
+        "home": "Sporting CP",
+        "away": "Académico de Viseu",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 3246d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.47534459996302864,
+      "probs": [
+        0.49639413707608976,
+        0.27012585801067607,
+        0.23348000491323417
+      ],
+      "pick": "Sporting CP",
+      "pickProb": 0.49639413707608976,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.49639413707608976,
+          0.27012585801067607,
+          0.23348000491323417
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null
+    }
+  ]
+}
