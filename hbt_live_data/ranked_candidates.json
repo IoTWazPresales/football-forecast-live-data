@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-10-26",
+  "targetDate": "2026-10-27",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,31 +22,33 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 40,
-    "classifiedRows": 40,
-    "FALLBACK": 3,
+    "fixturesDiscovered": 102,
+    "classifiedRows": 102,
+    "FALLBACK": 0,
     "FULL_MODEL": 0,
-    "INSUFFICIENT_DATA": 4,
+    "INSUFFICIENT_DATA": 3,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 33,
-    "forecastRowsAvailable": 3,
-    "forecastRowsMatched": 3,
+    "UNSUPPORTED_COMPETITION": 99,
+    "forecastRowsAvailable": 0,
+    "forecastRowsMatched": 0,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
-      "2026-27-ligue-2",
-      "2026-27-portuguese-primeira-liga",
-      "2026-bolivian-liga-profesional",
+      "2026-27-saudi-pro-league",
+      "2026-27-scottish-championship",
+      "2026-allsvenskan",
       "2026-brasileiro-serie-b",
       "2026-ncaa-division-i-men",
-      "2026-ncaa-division-i-women",
-      "2026-primera-division-de-chile",
       "clausura",
-      "final-stage",
+      "clausura-quadrangular",
+      "first-round",
+      "fourth-round",
+      "group-stage",
       "league-stage",
+      "play-in",
       "regular-season",
-      "torneo-apertura",
+      "second-round",
       "torneo-clausura"
     ],
     "previousProspectiveScoredNowUnsupported": 0,
@@ -59,16 +61,16 @@
     "knownForecastCoverageComplete": true,
     "discoveryComplete": true,
     "previousProspectiveCoverageConsistent": true,
-    "rankEligibleFixtures": 3,
+    "rankEligibleFixtures": 0,
     "fullModelRankEligible": 0,
-    "fallbackRankEligible": 3,
+    "fallbackRankEligible": 0,
     "note": "Discovery completeness means configured public sources reconciled all known date-scoped HBT forecasts; it is not a claim of universal world-football coverage."
   },
   "priceLayer": {
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-10-26T21:40:30Z",
+    "generatedAt": "2026-10-27T00:52:14Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -110,275 +112,9 @@
     "note": "Reference only. Ranking does not alter, remove, replace, or retrospectively optimise Test A."
   },
   "rankings": {
-    "highestRawDeployedPickProbability": [
-      {
-        "competition": "2026-27-turkish-super-lig",
-        "kickoff": "2026-10-26T18:30:00Z",
-        "home": "Galatasaray",
-        "away": "Fenerbahce",
-        "support": "FALLBACK",
-        "predictionMode": "L0 FALLBACK",
-        "pick": "Fenerbahce",
-        "pickProbability": 0.5755641958735292,
-        "probabilityOutput": [
-          0.16738768110229904,
-          0.25704812302417174,
-          0.5755641958735292
-        ],
-        "tier": "C",
-        "rawTier": "C",
-        "quality": 0.6622348133413961,
-        "forecastCoverage": "stale-ish 2511d",
-        "coveragePack": null,
-        "fusionEligible": false,
-        "xiState": null,
-        "scoreMarketsExist": false,
-        "scoreMarkets": null,
-        "validatedEventMarketsExist": false,
-        "validatedEventFamilies": [],
-        "predictionSource": {
-          "type": "FROZEN_CONTROL_AUDIT",
-          "sourceExportedAt": "2026-10-26T21:40:29.285Z",
-          "sourceLabVersion": "HBT-1.1.2L-R1",
-          "prospectiveForTargetDate": true,
-          "generalFutureLiveFeed": false
-        },
-        "forecastDecision": "MODEL_SUPPORTED",
-        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
-        "priceAssessment": {
-          "status": "PRICE_UNAVAILABLE",
-          "bookmaker": "Betway",
-          "identityMatchScore": null,
-          "markets": [],
-          "advisoryOnly": true,
-          "gatesFootballForecast": false,
-          "gatesR1Experiment": false
-        }
-      },
-      {
-        "competition": "2026-27-turkish-super-lig",
-        "kickoff": "2026-10-26T16:00:00Z",
-        "home": "Besiktas",
-        "away": "Istanbul Basaksehir",
-        "support": "FALLBACK",
-        "predictionMode": "L0 FALLBACK",
-        "pick": "Besiktas",
-        "pickProbability": 0.4909444255118712,
-        "probabilityOutput": [
-          0.4909444255118712,
-          0.27136624746431426,
-          0.23768932702381454
-        ],
-        "tier": "Avoid",
-        "rawTier": "Avoid",
-        "quality": 0.7049366719447813,
-        "forecastCoverage": "stale-ish 360d",
-        "coveragePack": null,
-        "fusionEligible": false,
-        "xiState": null,
-        "scoreMarketsExist": false,
-        "scoreMarkets": null,
-        "validatedEventMarketsExist": false,
-        "validatedEventFamilies": [],
-        "predictionSource": {
-          "type": "FROZEN_CONTROL_AUDIT",
-          "sourceExportedAt": "2026-10-26T21:40:29.285Z",
-          "sourceLabVersion": "HBT-1.1.2L-R1",
-          "prospectiveForTargetDate": true,
-          "generalFutureLiveFeed": false
-        },
-        "forecastDecision": "MODEL_SUPPORTED",
-        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
-        "priceAssessment": {
-          "status": "PRICE_UNAVAILABLE",
-          "bookmaker": "Betway",
-          "identityMatchScore": null,
-          "markets": [],
-          "advisoryOnly": true,
-          "gatesFootballForecast": false,
-          "gatesR1Experiment": false
-        }
-      },
-      {
-        "competition": "2026-27-turkish-super-lig",
-        "kickoff": "2026-10-26T16:00:00Z",
-        "home": "Caykur Rizespor",
-        "away": "Trabzonspor",
-        "support": "FALLBACK",
-        "predictionMode": "L0 FALLBACK",
-        "pick": "Trabzonspor",
-        "pickProbability": 0.43110713026702935,
-        "probabilityOutput": [
-          0.29749408227497964,
-          0.27139878745799106,
-          0.43110713026702935
-        ],
-        "tier": "Avoid",
-        "rawTier": "Avoid",
-        "quality": 0.7243905941275898,
-        "forecastCoverage": "stale-ish 359d",
-        "coveragePack": null,
-        "fusionEligible": false,
-        "xiState": null,
-        "scoreMarketsExist": false,
-        "scoreMarkets": null,
-        "validatedEventMarketsExist": false,
-        "validatedEventFamilies": [],
-        "predictionSource": {
-          "type": "FROZEN_CONTROL_AUDIT",
-          "sourceExportedAt": "2026-10-26T21:40:29.285Z",
-          "sourceLabVersion": "HBT-1.1.2L-R1",
-          "prospectiveForTargetDate": true,
-          "generalFutureLiveFeed": false
-        },
-        "forecastDecision": "MODEL_SUPPORTED",
-        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
-        "priceAssessment": {
-          "status": "PRICE_UNAVAILABLE",
-          "bookmaker": "Betway",
-          "identityMatchScore": null,
-          "markets": [],
-          "advisoryOnly": true,
-          "gatesFootballForecast": false,
-          "gatesR1Experiment": false
-        }
-      }
-    ],
+    "highestRawDeployedPickProbability": [],
     "strongestFullModelConfidence": [],
-    "fallbackOnly": [
-      {
-        "competition": "2026-27-turkish-super-lig",
-        "kickoff": "2026-10-26T18:30:00Z",
-        "home": "Galatasaray",
-        "away": "Fenerbahce",
-        "support": "FALLBACK",
-        "predictionMode": "L0 FALLBACK",
-        "pick": "Fenerbahce",
-        "pickProbability": 0.5755641958735292,
-        "probabilityOutput": [
-          0.16738768110229904,
-          0.25704812302417174,
-          0.5755641958735292
-        ],
-        "tier": "C",
-        "rawTier": "C",
-        "quality": 0.6622348133413961,
-        "forecastCoverage": "stale-ish 2511d",
-        "coveragePack": null,
-        "fusionEligible": false,
-        "xiState": null,
-        "scoreMarketsExist": false,
-        "scoreMarkets": null,
-        "validatedEventMarketsExist": false,
-        "validatedEventFamilies": [],
-        "predictionSource": {
-          "type": "FROZEN_CONTROL_AUDIT",
-          "sourceExportedAt": "2026-10-26T21:40:29.285Z",
-          "sourceLabVersion": "HBT-1.1.2L-R1",
-          "prospectiveForTargetDate": true,
-          "generalFutureLiveFeed": false
-        },
-        "forecastDecision": "MODEL_SUPPORTED",
-        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
-        "priceAssessment": {
-          "status": "PRICE_UNAVAILABLE",
-          "bookmaker": "Betway",
-          "identityMatchScore": null,
-          "markets": [],
-          "advisoryOnly": true,
-          "gatesFootballForecast": false,
-          "gatesR1Experiment": false
-        }
-      },
-      {
-        "competition": "2026-27-turkish-super-lig",
-        "kickoff": "2026-10-26T16:00:00Z",
-        "home": "Besiktas",
-        "away": "Istanbul Basaksehir",
-        "support": "FALLBACK",
-        "predictionMode": "L0 FALLBACK",
-        "pick": "Besiktas",
-        "pickProbability": 0.4909444255118712,
-        "probabilityOutput": [
-          0.4909444255118712,
-          0.27136624746431426,
-          0.23768932702381454
-        ],
-        "tier": "Avoid",
-        "rawTier": "Avoid",
-        "quality": 0.7049366719447813,
-        "forecastCoverage": "stale-ish 360d",
-        "coveragePack": null,
-        "fusionEligible": false,
-        "xiState": null,
-        "scoreMarketsExist": false,
-        "scoreMarkets": null,
-        "validatedEventMarketsExist": false,
-        "validatedEventFamilies": [],
-        "predictionSource": {
-          "type": "FROZEN_CONTROL_AUDIT",
-          "sourceExportedAt": "2026-10-26T21:40:29.285Z",
-          "sourceLabVersion": "HBT-1.1.2L-R1",
-          "prospectiveForTargetDate": true,
-          "generalFutureLiveFeed": false
-        },
-        "forecastDecision": "MODEL_SUPPORTED",
-        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
-        "priceAssessment": {
-          "status": "PRICE_UNAVAILABLE",
-          "bookmaker": "Betway",
-          "identityMatchScore": null,
-          "markets": [],
-          "advisoryOnly": true,
-          "gatesFootballForecast": false,
-          "gatesR1Experiment": false
-        }
-      },
-      {
-        "competition": "2026-27-turkish-super-lig",
-        "kickoff": "2026-10-26T16:00:00Z",
-        "home": "Caykur Rizespor",
-        "away": "Trabzonspor",
-        "support": "FALLBACK",
-        "predictionMode": "L0 FALLBACK",
-        "pick": "Trabzonspor",
-        "pickProbability": 0.43110713026702935,
-        "probabilityOutput": [
-          0.29749408227497964,
-          0.27139878745799106,
-          0.43110713026702935
-        ],
-        "tier": "Avoid",
-        "rawTier": "Avoid",
-        "quality": 0.7243905941275898,
-        "forecastCoverage": "stale-ish 359d",
-        "coveragePack": null,
-        "fusionEligible": false,
-        "xiState": null,
-        "scoreMarketsExist": false,
-        "scoreMarkets": null,
-        "validatedEventMarketsExist": false,
-        "validatedEventFamilies": [],
-        "predictionSource": {
-          "type": "FROZEN_CONTROL_AUDIT",
-          "sourceExportedAt": "2026-10-26T21:40:29.285Z",
-          "sourceLabVersion": "HBT-1.1.2L-R1",
-          "prospectiveForTargetDate": true,
-          "generalFutureLiveFeed": false
-        },
-        "forecastDecision": "MODEL_SUPPORTED",
-        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
-        "priceAssessment": {
-          "status": "PRICE_UNAVAILABLE",
-          "bookmaker": "Betway",
-          "identityMatchScore": null,
-          "markets": [],
-          "advisoryOnly": true,
-          "gatesFootballForecast": false,
-          "gatesR1Experiment": false
-        }
-      }
-    ],
+    "fallbackOnly": [],
     "validatedEventForecasts": [],
     "eventMarketExcluded": [],
     "experimentalValueVsPrice": {
@@ -395,10 +131,10 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 37,
+      "count": 102,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 33,
-        "INSUFFICIENT_DATA": 4
+        "UNSUPPORTED_COMPETITION": 99,
+        "INSUFFICIENT_DATA": 3
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
