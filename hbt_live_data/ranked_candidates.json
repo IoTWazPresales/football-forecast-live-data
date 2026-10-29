@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-10-29",
+  "targetDate": "2026-10-30",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,32 +22,43 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 108,
-    "classifiedRows": 108,
-    "FALLBACK": 0,
+    "fixturesDiscovered": 141,
+    "classifiedRows": 141,
+    "FALLBACK": 3,
     "FULL_MODEL": 0,
-    "INSUFFICIENT_DATA": 5,
+    "INSUFFICIENT_DATA": 7,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 103,
-    "forecastRowsAvailable": 0,
-    "forecastRowsMatched": 0,
+    "UNSUPPORTED_COMPETITION": 131,
+    "forecastRowsAvailable": 3,
+    "forecastRowsMatched": 3,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
+      "2026-27-keuken-kampioen-divisie",
+      "2026-27-ligue-2",
       "2026-27-saudi-pro-league",
-      "2026-allsvenskan",
+      "2026-27-scottish-championship",
+      "2026-27-south-african-premiership",
+      "2026-bolivian-liga-profesional",
+      "2026-brasileiro-serie-b",
+      "2026-eliteserien",
       "2026-ncaa-division-i-men",
       "2026-ncaa-division-i-women",
+      "2026-primera-division-de-chile",
+      "Ekstraklasa",
+      "League of Ireland Premier Division",
+      "apertura",
       "apertura-2026",
       "clausura",
-      "first-round",
-      "fourth-round",
-      "group-stage",
-      "league-phase",
-      "round-of-16",
-      "semifinals",
-      "torneo-apertura"
+      "eastern-conference-playoffs---quarterfinals",
+      "playoffs---quarterfinals",
+      "regular-season",
+      "torneo-apertura",
+      "torneo-apertura-2026",
+      "torneo-clausura",
+      "torneo-clausura-2026",
+      "western-conference-playoffs---quarterfinals"
     ],
     "previousProspectiveScoredNowUnsupported": 0,
     "previousProspectiveCoverageRegressions": [],
@@ -59,16 +70,16 @@
     "knownForecastCoverageComplete": true,
     "discoveryComplete": true,
     "previousProspectiveCoverageConsistent": true,
-    "rankEligibleFixtures": 0,
+    "rankEligibleFixtures": 3,
     "fullModelRankEligible": 0,
-    "fallbackRankEligible": 0,
+    "fallbackRankEligible": 3,
     "note": "Discovery completeness means configured public sources reconciled all known date-scoped HBT forecasts; it is not a claim of universal world-football coverage."
   },
   "priceLayer": {
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-10-29T19:49:30Z",
+    "generatedAt": "2026-10-29T23:44:15Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -110,9 +121,275 @@
     "note": "Reference only. Ranking does not alter, remove, replace, or retrospectively optimise Test A."
   },
   "rankings": {
-    "highestRawDeployedPickProbability": [],
+    "highestRawDeployedPickProbability": [
+      {
+        "competition": "2026-27-ligue-1",
+        "kickoff": "2026-10-30T18:00:00Z",
+        "home": "Le Havre AC",
+        "away": "Paris Saint-Germain",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Paris Saint-Germain",
+        "pickProbability": 0.5660252493183037,
+        "probabilityOutput": [
+          0.19398140667383393,
+          0.23999334400786237,
+          0.5660252493183037
+        ],
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.8895901195329998,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-10-29T23:44:13.087Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-portuguese-primeira-liga",
+        "kickoff": "2026-10-30T20:15:00Z",
+        "home": "Casa Pia",
+        "away": "Sporting CP",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Sporting CP",
+        "pickProbability": 0.4814008956935936,
+        "probabilityOutput": [
+          0.25267621395787176,
+          0.26592289034853467,
+          0.4814008956935936
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.5316411883427845,
+        "forecastCoverage": "stale-ish 3251d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-10-29T23:44:13.087Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-turkish-super-lig",
+        "kickoff": "2026-10-30T17:00:00Z",
+        "home": "Konyaspor",
+        "away": "Galatasaray",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Konyaspor",
+        "pickProbability": 0.45157376037212565,
+        "probabilityOutput": [
+          0.45157376037212565,
+          0.2553887862905167,
+          0.2930374533373577
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.6358581850445724,
+        "forecastCoverage": "stale-ish 2515d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-10-29T23:44:13.087Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      }
+    ],
     "strongestFullModelConfidence": [],
-    "fallbackOnly": [],
+    "fallbackOnly": [
+      {
+        "competition": "2026-27-ligue-1",
+        "kickoff": "2026-10-30T18:00:00Z",
+        "home": "Le Havre AC",
+        "away": "Paris Saint-Germain",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Paris Saint-Germain",
+        "pickProbability": 0.5660252493183037,
+        "probabilityOutput": [
+          0.19398140667383393,
+          0.23999334400786237,
+          0.5660252493183037
+        ],
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.8895901195329998,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-10-29T23:44:13.087Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-portuguese-primeira-liga",
+        "kickoff": "2026-10-30T20:15:00Z",
+        "home": "Casa Pia",
+        "away": "Sporting CP",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Sporting CP",
+        "pickProbability": 0.4814008956935936,
+        "probabilityOutput": [
+          0.25267621395787176,
+          0.26592289034853467,
+          0.4814008956935936
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.5316411883427845,
+        "forecastCoverage": "stale-ish 3251d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-10-29T23:44:13.087Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-turkish-super-lig",
+        "kickoff": "2026-10-30T17:00:00Z",
+        "home": "Konyaspor",
+        "away": "Galatasaray",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Konyaspor",
+        "pickProbability": 0.45157376037212565,
+        "probabilityOutput": [
+          0.45157376037212565,
+          0.2553887862905167,
+          0.2930374533373577
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.6358581850445724,
+        "forecastCoverage": "stale-ish 2515d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-10-29T23:44:13.087Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      }
+    ],
     "validatedEventForecasts": [],
     "eventMarketExcluded": [],
     "experimentalValueVsPrice": {
@@ -129,10 +406,10 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 108,
+      "count": 138,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 103,
-        "INSUFFICIENT_DATA": 5
+        "UNSUPPORTED_COMPETITION": 131,
+        "INSUFFICIENT_DATA": 7
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
