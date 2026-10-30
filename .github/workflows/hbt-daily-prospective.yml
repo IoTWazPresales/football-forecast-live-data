@@ -88,7 +88,9 @@ jobs:
           node scripts/hbt_frozen_forecast_bridge.mjs --date '${{ steps.target.outputs.date }}' --with-structural-features
           node scripts/hbt_recovered_fusion_shadow.mjs --date '${{ steps.target.outputs.date }}'
           python scripts/hbt_capture_fusion_firstadd_v1.py --date '${{ steps.target.outputs.date }}'
+          python scripts/hbt_rank_firstadd_markets_v1.py --date '${{ steps.target.outputs.date }}'
           python scripts/hbt_scan_slate_v2_2.py --date '${{ steps.target.outputs.date }}' --reconcile-existing
+          python scripts/hbt_slate_coverage_triage.py --date '${{ steps.target.outputs.date }}'
           python - <<'PY'
           import json
           s=json.load(open('hbt_live_data/forecast_bridge_status.json',encoding='utf-8'))
@@ -172,6 +174,7 @@ jobs:
           git add "hbt_live_data/hbt_betting_desk_${D}.json" "hbt_live_data/hbt_betting_desk_${D}.html"
           git add "hbt_live_data/slate_scanner_${D}.json" "hbt_live_data/market_prices_${D}.json" "hbt_live_data/hbt_independent_kickoffs_${D}.json"
           git add "hbt_live_data/hbt_recovered_fusion_shadow_${D}.json" "hbt_live_data/hbt_bet_list_${D}.json" "hbt_live_data/hbt_bet_list_${D}.md"
+          git add "hbt_live_data/hbt_firstadd_market_watch_${D}.json" "hbt_live_data/hbt_coverage_triage_${D}.json"
           git add hbt_live_data/captures/ "hbt_live_data/hbt_current_capture_${D}.json"
           python scripts/hbt_publish_research_outputs.py --message "prospective: exact frozen HBT slate ${D} and execution surface [skip ci]"
 
