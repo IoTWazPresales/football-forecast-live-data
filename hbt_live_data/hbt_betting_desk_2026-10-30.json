@@ -1,0 +1,4240 @@
+{
+  "schemaVersion": "HBT-BETTING-DESK-1",
+  "version": "HBT-BETTING-DESK-1-RESEARCH",
+  "targetDate": "2026-10-30",
+  "generatedAt": "2026-10-30T16:41:39.856630Z",
+  "readiness": "NO_EXECUTABLE_BETS",
+  "policy": {
+    "bookmakerOddsAreDecisionLayerOnly": true,
+    "frozenModelMutated": false,
+    "historicalCapturesRewritten": false,
+    "guaranteedProfit": false,
+    "automaticBetsPlaced": false,
+    "goalProbabilitiesInferredFrom1X2": false,
+    "chainFundingAutomatic": false,
+    "priority": "highest profit probability among independently eligible positive-value markets; separate highest EV view"
+  },
+  "sourceHashes": {
+    "forecast": "324ae0cb9139367d814d3b9f1e2bac4702de7d71eed7e3054f993e8ff2b3b069",
+    "card": "b93881be015ddcd34bb21cafb552763d97471ee107feb59e42395e006bf52de1",
+    "scanner": "8cf461da007bee9270e45b63711241af7c2f6213537680c46a59f8c328a5ef89",
+    "intel": "3f7b096e71cacf4a312b2301e2b5ff24b6018b4e8f466d4da9ac083452aa9d5b",
+    "events": "31aaa86f8ba989660dc8472d9e2ad6dfd0649cabfe01cf26226bf2170f690406",
+    "registry": "cbe2a62e7d9987c8ec4745671b2e6a6366fd9fbba72bc9da856bbfac850191f4",
+    "learning": "aa5875e038a477f65322074b1b390c420157b21c8d20428bfef32ea9bc3cc70d",
+    "prices": "78818bdc468f6cb2236a346f771b57563132f79fb9465bbe743215fe80a9f347",
+    "kickoffProof": "91f166d3219362eee18b32c38bab4833c1066e6896870bd13f7dad4f4a029c88",
+    "capturePointer": "470ef8592910a6369aacad13c77be394c63fcda1becb0374136ef2aba809e993",
+    "recoveredFusion": "841c50f4482dac1b0e4100fd48bb39099dbd1e3b45599c02e3c4ce8967fad878"
+  },
+  "sourceFiles": {
+    "forecast": "frozen_control_forecast_2026-10-30.json",
+    "card": "captures/hbt_prospective_card_2026-10-30_20261030T164139562145Z.json",
+    "scanner": "slate_scanner_2026-10-30.json",
+    "intel": "hbt_1_4_match_intelligence.json",
+    "events": "event_model_params.json",
+    "registry": "hbt_1_4_feature_registry.json",
+    "learning": "forensic/hbt_learning_assessment_v1.json",
+    "prices": "market_prices_2026-10-30.json",
+    "kickoffProof": "hbt_independent_kickoffs_2026-10-30.json",
+    "capturePointer": "hbt_current_capture_2026-10-30.json",
+    "recoveredFusion": "hbt_recovered_fusion_shadow_2026-10-30.json"
+  },
+  "quoteAudit": {
+    "sourceStatus": "PRICE_SOURCE_UNCONFIGURED",
+    "accepted": 0
+  },
+  "globalBlockers": [],
+  "summary": {
+    "scoredFixtures": 3,
+    "marketsModelled": 48,
+    "readySingles": 0,
+    "futureScoredFixtures": 3,
+    "independentlyVerifiedKickoffs": 0,
+    "currentCaptureFixtures": 3,
+    "bookmakerPricedMarkets": 0,
+    "unscoredDiscoveredFixtures": 138,
+    "previouslyScoredMissingNow": 0,
+    "missingBTTSFixtures": 3,
+    "modelModes": {
+      "L0 FALLBACK": 3
+    },
+    "blockerCounts": {
+      "CONFIRMED_XI_NOT_READY": 48,
+      "CURRENT_BOOKMAKER_QUOTE_MISSING": 48,
+      "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY": 48,
+      "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS": 48,
+      "MATCH_INTELLIGENCE_NOT_CAPTURED": 16,
+      "STALE_TEAM_STATE": 16,
+      "UNPROMOTED_L0_FALLBACK": 48,
+      "EVENT_EXECUTION_VALIDATION_PENDING": 24
+    }
+  },
+  "intelligence": {
+    "researchOrIncompleteFamilies": [
+      {
+        "family": "availability",
+        "status": "preserved-research",
+        "role": "candidate"
+      },
+      {
+        "family": "continuity",
+        "status": "preserved-research",
+        "role": "candidate"
+      },
+      {
+        "family": "workloadRest",
+        "status": "preserved-research",
+        "role": "candidate"
+      },
+      {
+        "family": "formation",
+        "status": "retained-after-standalone-reject",
+        "role": "interaction-candidate/context"
+      },
+      {
+        "family": "travel",
+        "status": "retained-after-standalone-reject",
+        "role": "interaction-candidate/context"
+      },
+      {
+        "family": "manager",
+        "status": "collected-partial",
+        "role": "interaction-candidate/context"
+      },
+      {
+        "family": "tacticalMatchup",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "shotStoppingGoalkeeper",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "setPieces",
+        "status": "HBT-1.4-build",
+        "role": "interaction/market-candidate"
+      },
+      {
+        "family": "referee",
+        "status": "HBT-1.4-build",
+        "role": "cards/context-candidate"
+      },
+      {
+        "family": "weatherVenue",
+        "status": "HBT-1.4-build-live-context",
+        "role": "context until strict historical forecast archive validation"
+      },
+      {
+        "family": "fatigueCongestionInteractions",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "motivationCompetition",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "benchSubstitution",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "playerTeamImpact",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "teamToScoreAttribution",
+        "status": "HBT-1.4-build",
+        "role": "explanation-and-calibration"
+      },
+      {
+        "family": "redCards",
+        "status": "retained-after-standalone-reject",
+        "role": "context/research only"
+      },
+      {
+        "family": "competitionDomain",
+        "status": "HBT-1.4-build-research",
+        "role": "domain/eligibility adapter"
+      },
+      {
+        "family": "internationalStructuralState",
+        "status": "HBT-1.4-build-research",
+        "role": "international structural challenger"
+      },
+      {
+        "family": "internationalRecentPerformance",
+        "status": "HBT-1.4-build-research",
+        "role": "international recent-performance challenger"
+      },
+      {
+        "family": "internationalCompetitionState",
+        "status": "HBT-1.4-planned",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "confederationNormalization",
+        "status": "HBT-1.4-planned",
+        "role": "domain-calibration candidate"
+      },
+      {
+        "family": "clubToCountryPlayerTransfer",
+        "status": "HBT-1.4-planned",
+        "role": "international player-impact candidate"
+      },
+      {
+        "family": "internationalSquadContinuity",
+        "status": "HBT-1.4-planned",
+        "role": "international continuity candidate"
+      }
+    ],
+    "learningEvidence": {
+      "legacyEligibleRows": 102,
+      "cleanGuardAwareRows": 0,
+      "guardBlockedRowsExcluded": 10,
+      "settledEligibleRows": 97
+    },
+    "promotionRule": "No hypothesis changes predictive weights until historical backtest plus unseen holdout improvement and clean prospective confirmation."
+  },
+  "fixtures": [
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "time": "17:00",
+        "league": "tr.1",
+        "home": "Konyaspor",
+        "away": "Galatasaray",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "quality": 0.6358581850445724,
+      "coverage": "stale-ish 2515d",
+      "readinessState": null,
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-30T17:00:00Z",
+        "source": "ESPN:tr.1",
+        "fixtureSources": [
+          "ESPN:tr.1"
+        ],
+        "sourceFixtureId": "401888259",
+        "competition": "Süper Lig",
+        "competitionSlug": "tr.1",
+        "leagueHint": "tr.1",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Konyaspor",
+        "discoveryAway": "Galatasaray",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
+      },
+      "started": false,
+      "identityBlocked": false,
+      "fundingBlockers": [
+        "CONFIRMED_XI_NOT_READY",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "markets": [
+        {
+          "market": "HOME_WIN",
+          "family": "1X2",
+          "selection": "Konyaspor — Match Winner",
+          "winProbability": 0.45157376037212565,
+          "pushProbability": 0.0,
+          "lossProbability": 0.5484262396278743,
+          "profitProbability": 0.45157376037212565,
+          "nonLossProbability": 0.45157376037212565,
+          "fairOdds": 2.2144776507296084,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Konyaspor",
+            "away": "Galatasaray",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 2.3694910862806813,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "DRAW",
+          "family": "1X2",
+          "selection": "Konyaspor vs Galatasaray — Draw",
+          "winProbability": 0.2553887862905167,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7446112137094834,
+          "profitProbability": 0.2553887862905167,
+          "nonLossProbability": 0.2553887862905167,
+          "fairOdds": 3.9155987015908096,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Konyaspor",
+            "away": "Galatasaray",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 4.189690610702167,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_WIN",
+          "family": "1X2",
+          "selection": "Galatasaray — Match Winner",
+          "winProbability": 0.2930374533373577,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7069625466626424,
+          "profitProbability": 0.2930374533373577,
+          "nonLossProbability": 0.2930374533373577,
+          "fairOdds": 3.412533069104841,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Konyaspor",
+            "away": "Galatasaray",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 3.6514103839421805,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "1X",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Konyaspor OR Draw — Double Chance (1X)",
+          "winProbability": 0.7069625466626424,
+          "pushProbability": 0.0,
+          "lossProbability": 0.29303745333735765,
+          "profitProbability": 0.7069625466626424,
+          "nonLossProbability": 0.7069625466626424,
+          "fairOdds": 1.4145020902743708,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Konyaspor",
+            "away": "Galatasaray",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.5135172365935767,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "X2",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Galatasaray OR Draw — Double Chance (X2)",
+          "winProbability": 0.5484262396278744,
+          "pushProbability": 0.0,
+          "lossProbability": 0.4515737603721256,
+          "profitProbability": 0.5484262396278744,
+          "nonLossProbability": 0.5484262396278744,
+          "fairOdds": 1.8233992609079637,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Konyaspor",
+            "away": "Galatasaray",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.9510372091715213,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "12",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Konyaspor OR Galatasaray — Either team wins, draw loses (12)",
+          "winProbability": 0.7446112137094834,
+          "pushProbability": 0.0,
+          "lossProbability": 0.25538878629051665,
+          "profitProbability": 0.7446112137094834,
+          "nonLossProbability": 0.7446112137094834,
+          "fairOdds": 1.3429827292262064,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Konyaspor",
+            "away": "Galatasaray",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.436991520272041,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "HOME_DNB",
+          "family": "DNB",
+          "selection": "Konyaspor — Draw No Bet (draw = refund)",
+          "winProbability": 0.45157376037212565,
+          "pushProbability": 0.2553887862905167,
+          "lossProbability": 0.2930374533373576,
+          "profitProbability": 0.45157376037212565,
+          "nonLossProbability": 0.7069625466626424,
+          "fairOdds": 1.6489248912422991,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Konyaspor",
+            "away": "Galatasaray",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.803938326793372,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_DNB",
+          "family": "DNB",
+          "selection": "Galatasaray — Draw No Bet (draw = refund)",
+          "winProbability": 0.2930374533373577,
+          "pushProbability": 0.2553887862905167,
+          "lossProbability": 0.45157376037212565,
+          "profitProbability": 0.2930374533373577,
+          "nonLossProbability": 0.5484262396278744,
+          "fairOdds": 2.541010390409904,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Konyaspor",
+            "away": "Galatasaray",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 2.7798877052472433,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        }
+      ],
+      "mostLikelyOutcome": {
+        "market": "HOME_WIN",
+        "family": "1X2",
+        "selection": "Konyaspor — Match Winner",
+        "winProbability": 0.45157376037212565,
+        "pushProbability": 0.0,
+        "lossProbability": 0.5484262396278743,
+        "profitProbability": 0.45157376037212565,
+        "nonLossProbability": 0.45157376037212565,
+        "fairOdds": 2.2144776507296084,
+        "source": "EXACT_FROZEN_FORECAST",
+        "mainMarket": true,
+        "fixture": {
+          "date": "2026-10-30",
+          "time": "17:00",
+          "league": "tr.1",
+          "home": "Konyaspor",
+          "away": "Galatasaray",
+          "provider": "ESPN:tr.1",
+          "sourceStatus": "loaded"
+        },
+        "observedOdds": null,
+        "bookmaker": null,
+        "quotedAt": null,
+        "expectedProfitPerRand": null,
+        "minimumEVGate": 0.07,
+        "minimumOddsForValueGate": 2.3694910862806813,
+        "valuePositive": false,
+        "fundingBlockers": [
+          "CONFIRMED_XI_NOT_READY",
+          "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+          "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED",
+          "STALE_TEAM_STATE",
+          "UNPROMOTED_L0_FALLBACK"
+        ],
+        "stakeReady": false,
+        "decision": "BLOCKED",
+        "guaranteedProfit": false
+      },
+      "strongestWinCandidate": null,
+      "bestStandaloneValue": null,
+      "missingMainFamilies": [
+        "BTTS",
+        "TOTAL_GOALS",
+        "TEAM_GOALS"
+      ],
+      "bookmakerAvailabilityConfirmed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "time": "18:00",
+        "league": "fr.1",
+        "home": "Le Havre AC",
+        "away": "Paris Saint-Germain",
+        "provider": "ESPN:fr.1",
+        "sourceStatus": "loaded"
+      },
+      "predictionMode": "L0 FALLBACK",
+      "tier": "C",
+      "quality": 0.8895901195329998,
+      "coverage": "good",
+      "readinessState": "PRE_XI_PROVISIONAL",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-30T18:00:00Z",
+        "source": "ESPN:fr.1",
+        "fixtureSources": [
+          "ESPN:fr.1"
+        ],
+        "sourceFixtureId": "401876421",
+        "competition": "Ligue 1",
+        "competitionSlug": "fr.1",
+        "leagueHint": "fr.1",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Le Havre AC",
+        "discoveryAway": "Paris Saint-Germain",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
+      },
+      "started": false,
+      "identityBlocked": false,
+      "fundingBlockers": [
+        "CONFIRMED_XI_NOT_READY",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "markets": [
+        {
+          "market": "HOME_WIN",
+          "family": "1X2",
+          "selection": "Le Havre AC — Match Winner",
+          "winProbability": 0.19398140667383393,
+          "pushProbability": 0.0,
+          "lossProbability": 0.8060185933261661,
+          "profitProbability": 0.19398140667383393,
+          "nonLossProbability": 0.19398140667383393,
+          "fairOdds": 5.155133252958772,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 5.309787250547536,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "DRAW",
+          "family": "1X2",
+          "selection": "Le Havre AC vs Paris Saint-Germain — Draw",
+          "winProbability": 0.23999334400786237,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7600066559921377,
+          "profitProbability": 0.23999334400786237,
+          "nonLossProbability": 0.23999334400786237,
+          "fairOdds": 4.166782225290545,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 4.291785692049261,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_WIN",
+          "family": "1X2",
+          "selection": "Paris Saint-Germain — Match Winner",
+          "winProbability": 0.5660252493183037,
+          "pushProbability": 0.0,
+          "lossProbability": 0.43397475068169633,
+          "profitProbability": 0.5660252493183037,
+          "nonLossProbability": 0.5660252493183037,
+          "fairOdds": 1.7667056393762588,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.8197068085575467,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "1X",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Le Havre AC OR Draw — Double Chance (1X)",
+          "winProbability": 0.43397475068169633,
+          "pushProbability": 0.0,
+          "lossProbability": 0.5660252493183037,
+          "profitProbability": 0.43397475068169633,
+          "nonLossProbability": 0.43397475068169633,
+          "fairOdds": 2.3042815242803405,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.3734099700087508,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "X2",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Paris Saint-Germain OR Draw — Double Chance (X2)",
+          "winProbability": 0.8060185933261661,
+          "pushProbability": 0.0,
+          "lossProbability": 0.1939814066738339,
+          "profitProbability": 0.8060185933261661,
+          "nonLossProbability": 0.8060185933261661,
+          "fairOdds": 1.2406661685971019,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.2778861536550148,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "12",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Le Havre AC OR Paris Saint-Germain — Either team wins, draw loses (12)",
+          "winProbability": 0.7600066559921376,
+          "pushProbability": 0.0,
+          "lossProbability": 0.23999334400786243,
+          "profitProbability": 0.7600066559921376,
+          "nonLossProbability": 0.7600066559921376,
+          "fairOdds": 1.3157779502530373,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.3552512887606285,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "HOME_DNB",
+          "family": "DNB",
+          "selection": "Le Havre AC — Draw No Bet (draw = refund)",
+          "winProbability": 0.19398140667383393,
+          "pushProbability": 0.23999334400786237,
+          "lossProbability": 0.5660252493183038,
+          "profitProbability": 0.19398140667383393,
+          "nonLossProbability": 0.43397475068169633,
+          "fairOdds": 3.9179355847750674,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 4.072589582363831,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_DNB",
+          "family": "DNB",
+          "selection": "Paris Saint-Germain — Draw No Bet (draw = refund)",
+          "winProbability": 0.5660252493183037,
+          "pushProbability": 0.23999334400786237,
+          "lossProbability": 0.19398140667383396,
+          "profitProbability": 0.5660252493183037,
+          "nonLossProbability": 0.8060185933261661,
+          "fairOdds": 1.342708045104802,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.3957092142860898,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "CORNERS_OVER_8.5",
+          "family": "CORNERS",
+          "selection": "Over 8.5 corners",
+          "winProbability": 0.5129285490744413,
+          "pushProbability": 0.0,
+          "lossProbability": 0.4870714509255587,
+          "profitProbability": 0.5129285490744413,
+          "nonLossProbability": 0.5129285490744413,
+          "fairOdds": 1.9495892786713849,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6738072345147857,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.0080769570315264,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "CORNERS_UNDER_8.5",
+          "family": "CORNERS",
+          "selection": "Under 8.5 corners",
+          "winProbability": 0.4870714509255587,
+          "pushProbability": 0.0,
+          "lossProbability": 0.5129285490744413,
+          "profitProbability": 0.4870714509255587,
+          "nonLossProbability": 0.4870714509255587,
+          "fairOdds": 2.0530868686714188,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6738072345147857,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.1146794747315614,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "CORNERS_OVER_9.5",
+          "family": "CORNERS",
+          "selection": "Over 9.5 corners",
+          "winProbability": 0.3815857060096861,
+          "pushProbability": 0.0,
+          "lossProbability": 0.6184142939903139,
+          "profitProbability": 0.3815857060096861,
+          "nonLossProbability": 0.3815857060096861,
+          "fairOdds": 2.620643237549931,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6909187745959469,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.699262534676429,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "CORNERS_UNDER_9.5",
+          "family": "CORNERS",
+          "selection": "Under 9.5 corners",
+          "winProbability": 0.6184142939903139,
+          "pushProbability": 0.0,
+          "lossProbability": 0.3815857060096861,
+          "profitProbability": 0.6184142939903139,
+          "nonLossProbability": 0.6184142939903139,
+          "fairOdds": 1.6170389489989099,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6909187745959469,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.6655501174688772,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "CORNERS_OVER_10.5",
+          "family": "CORNERS",
+          "selection": "Over 10.5 corners",
+          "winProbability": 0.2664712569280405,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7335287430719595,
+          "profitProbability": 0.2664712569280405,
+          "nonLossProbability": 0.2664712569280405,
+          "fairOdds": 3.752749964586409,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6586741155289347,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 3.8653324635240014,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "CORNERS_UNDER_10.5",
+          "family": "CORNERS",
+          "selection": "Under 10.5 corners",
+          "winProbability": 0.7335287430719595,
+          "pushProbability": 0.0,
+          "lossProbability": 0.2664712569280405,
+          "profitProbability": 0.7335287430719595,
+          "nonLossProbability": 0.7335287430719595,
+          "fairOdds": 1.363273095219255,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6586741155289347,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.4041712880758328,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "YELLOW_CARDS_OVER_3.5",
+          "family": "YELLOW_CARDS",
+          "selection": "Over 3.5 yellow cards",
+          "winProbability": 0.3945159053175564,
+          "pushProbability": 0.0,
+          "lossProbability": 0.6054840946824436,
+          "profitProbability": 0.3945159053175564,
+          "nonLossProbability": 0.3945159053175564,
+          "fairOdds": 2.534752050605091,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6757638447337603,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.6107946121232435,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "YELLOW_CARDS_UNDER_3.5",
+          "family": "YELLOW_CARDS",
+          "selection": "Under 3.5 yellow cards",
+          "winProbability": 0.6054840946824436,
+          "pushProbability": 0.0,
+          "lossProbability": 0.3945159053175564,
+          "profitProbability": 0.6054840946824436,
+          "nonLossProbability": 0.6054840946824436,
+          "fairOdds": 1.6515710466754159,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6757638447337603,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.7011181780756786,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "YELLOW_CARDS_OVER_4.5",
+          "family": "YELLOW_CARDS",
+          "selection": "Over 4.5 yellow cards",
+          "winProbability": 0.21702092558498143,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7829790744150186,
+          "profitProbability": 0.21702092558498143,
+          "nonLossProbability": 0.21702092558498143,
+          "fairOdds": 4.607850590004134,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6339369597032496,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 4.746086107704259,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "YELLOW_CARDS_UNDER_4.5",
+          "family": "YELLOW_CARDS",
+          "selection": "Under 4.5 yellow cards",
+          "winProbability": 0.7829790744150186,
+          "pushProbability": 0.0,
+          "lossProbability": 0.21702092558498143,
+          "profitProbability": 0.7829790744150186,
+          "nonLossProbability": 0.7829790744150186,
+          "fairOdds": 1.2771733404843835,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6339369597032496,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.3154885406989152,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "YELLOW_CARDS_OVER_5.5",
+          "family": "YELLOW_CARDS",
+          "selection": "Over 5.5 yellow cards",
+          "winProbability": 0.10389665321065178,
+          "pushProbability": 0.0,
+          "lossProbability": 0.8961033467893482,
+          "profitProbability": 0.10389665321065178,
+          "nonLossProbability": 0.10389665321065178,
+          "fairOdds": 9.624949111426018,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.4807566602463999,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 9.9136975847688,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "YELLOW_CARDS_UNDER_5.5",
+          "family": "YELLOW_CARDS",
+          "selection": "Under 5.5 yellow cards",
+          "winProbability": 0.8961033467893482,
+          "pushProbability": 0.0,
+          "lossProbability": 0.10389665321065178,
+          "profitProbability": 0.8961033467893482,
+          "nonLossProbability": 0.8961033467893482,
+          "fairOdds": 1.1159427130619515,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.4807566602463999,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.14942099445381,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SHOTS_OVER_20.5",
+          "family": "TOTAL_SHOTS",
+          "selection": "Over 20.5 total shots",
+          "winProbability": 0.8853407428257983,
+          "pushProbability": 0.0,
+          "lossProbability": 0.11465925717420167,
+          "profitProbability": 0.8853407428257983,
+          "nonLossProbability": 0.8853407428257983,
+          "fairOdds": 1.1295086192557189,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.5143294033324514,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.1633938778333905,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SHOTS_UNDER_20.5",
+          "family": "TOTAL_SHOTS",
+          "selection": "Under 20.5 total shots",
+          "winProbability": 0.11465925717420167,
+          "pushProbability": 0.0,
+          "lossProbability": 0.8853407428257983,
+          "profitProbability": 0.11465925717420167,
+          "nonLossProbability": 0.11465925717420167,
+          "fairOdds": 8.721493795138592,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.5143294033324514,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 8.98313860899275,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SHOTS_OVER_24.5",
+          "family": "TOTAL_SHOTS",
+          "selection": "Over 24.5 total shots",
+          "winProbability": 0.6491357156303198,
+          "pushProbability": 0.0,
+          "lossProbability": 0.3508642843696802,
+          "profitProbability": 0.6491357156303198,
+          "nonLossProbability": 0.6491357156303198,
+          "fairOdds": 1.5405099055888276,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6773021622910069,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.5867252027564924,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SHOTS_UNDER_24.5",
+          "family": "TOTAL_SHOTS",
+          "selection": "Under 24.5 total shots",
+          "winProbability": 0.3508642843696802,
+          "pushProbability": 0.0,
+          "lossProbability": 0.6491357156303198,
+          "profitProbability": 0.3508642843696802,
+          "nonLossProbability": 0.3508642843696802,
+          "fairOdds": 2.850104854064806,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6773021622910069,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.9356079996867503,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SHOTS_OVER_28.5",
+          "family": "TOTAL_SHOTS",
+          "selection": "Over 28.5 total shots",
+          "winProbability": 0.3471824127480285,
+          "pushProbability": 0.0,
+          "lossProbability": 0.6528175872519715,
+          "profitProbability": 0.3471824127480285,
+          "nonLossProbability": 0.3471824127480285,
+          "fairOdds": 2.880330233564455,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.5660975195258439,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.9667401405713885,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SHOTS_UNDER_28.5",
+          "family": "TOTAL_SHOTS",
+          "selection": "Under 28.5 total shots",
+          "winProbability": 0.6528175872519715,
+          "pushProbability": 0.0,
+          "lossProbability": 0.3471824127480285,
+          "profitProbability": 0.6528175872519715,
+          "nonLossProbability": 0.6528175872519715,
+          "fairOdds": 1.5318214759033824,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.5660975195258439,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.5777761201804839,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SOT_OVER_7.5",
+          "family": "TOTAL_SOT",
+          "selection": "Over 7.5 total sot",
+          "winProbability": 0.7434937558726349,
+          "pushProbability": 0.0,
+          "lossProbability": 0.2565062441273651,
+          "profitProbability": 0.7434937558726349,
+          "nonLossProbability": 0.7434937558726349,
+          "fairOdds": 1.345001208283592,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6484067378394434,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.3853512445321,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SOT_UNDER_7.5",
+          "family": "TOTAL_SOT",
+          "selection": "Under 7.5 total sot",
+          "winProbability": 0.2565062441273651,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7434937558726349,
+          "profitProbability": 0.2565062441273651,
+          "nonLossProbability": 0.2565062441273651,
+          "fairOdds": 3.8985405731622733,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6484067378394434,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 4.015496790357141,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SOT_OVER_8.5",
+          "family": "TOTAL_SOT",
+          "selection": "Over 8.5 total sot",
+          "winProbability": 0.6227028810393141,
+          "pushProbability": 0.0,
+          "lossProbability": 0.37729711896068585,
+          "profitProbability": 0.6227028810393141,
+          "nonLossProbability": 0.6227028810393141,
+          "fairOdds": 1.60590231786139,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.683864283905212,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.6540793873972317,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SOT_UNDER_8.5",
+          "family": "TOTAL_SOT",
+          "selection": "Under 8.5 total sot",
+          "winProbability": 0.37729711896068585,
+          "pushProbability": 0.0,
+          "lossProbability": 0.6227028810393141,
+          "profitProbability": 0.37729711896068585,
+          "nonLossProbability": 0.37729711896068585,
+          "fairOdds": 2.6504310522026526,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.683864283905212,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.7299439837687323,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SOT_OVER_9.5",
+          "family": "TOTAL_SOT",
+          "selection": "Over 9.5 total sot",
+          "winProbability": 0.493603153441987,
+          "pushProbability": 0.0,
+          "lossProbability": 0.506396846558013,
+          "profitProbability": 0.493603153441987,
+          "nonLossProbability": 0.493603153441987,
+          "fairOdds": 2.0259189857820257,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6444322795375642,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.086696555355487,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "TOTAL_SOT_UNDER_9.5",
+          "family": "TOTAL_SOT",
+          "selection": "Under 9.5 total sot",
+          "winProbability": 0.506396846558013,
+          "pushProbability": 0.0,
+          "lossProbability": 0.493603153441987,
+          "profitProbability": 0.506396846558013,
+          "nonLossProbability": 0.506396846558013,
+          "fairOdds": 1.9747358357324203,
+          "source": "EXISTING_VALIDATED_EVENT_POISSON",
+          "mainMarket": false,
+          "modelArtifact": "HBT-1.3R-EVENT-CAL",
+          "lineHoldoutN": 1752,
+          "lineBinaryLogloss": 0.6444322795375642,
+          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.033977910804393,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "EVENT_EXECUTION_VALIDATION_PENDING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        }
+      ],
+      "mostLikelyOutcome": {
+        "market": "AWAY_WIN",
+        "family": "1X2",
+        "selection": "Paris Saint-Germain — Match Winner",
+        "winProbability": 0.5660252493183037,
+        "pushProbability": 0.0,
+        "lossProbability": 0.43397475068169633,
+        "profitProbability": 0.5660252493183037,
+        "nonLossProbability": 0.5660252493183037,
+        "fairOdds": 1.7667056393762588,
+        "source": "EXACT_FROZEN_FORECAST",
+        "mainMarket": true,
+        "fixture": {
+          "date": "2026-10-30",
+          "time": "18:00",
+          "league": "fr.1",
+          "home": "Le Havre AC",
+          "away": "Paris Saint-Germain",
+          "provider": "ESPN:fr.1",
+          "sourceStatus": "loaded"
+        },
+        "observedOdds": null,
+        "bookmaker": null,
+        "quotedAt": null,
+        "expectedProfitPerRand": null,
+        "minimumEVGate": 0.03,
+        "minimumOddsForValueGate": 1.8197068085575467,
+        "valuePositive": false,
+        "fundingBlockers": [
+          "CONFIRMED_XI_NOT_READY",
+          "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+          "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "UNPROMOTED_L0_FALLBACK"
+        ],
+        "stakeReady": false,
+        "decision": "BLOCKED",
+        "guaranteedProfit": false
+      },
+      "strongestWinCandidate": null,
+      "bestStandaloneValue": null,
+      "missingMainFamilies": [
+        "BTTS",
+        "TOTAL_GOALS",
+        "TEAM_GOALS"
+      ],
+      "bookmakerAvailabilityConfirmed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "time": "20:15",
+        "league": "pt.1",
+        "home": "Casa Pia",
+        "away": "Sporting CP",
+        "provider": "ESPN:pt.1",
+        "sourceStatus": "loaded"
+      },
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "quality": 0.5316411883427845,
+      "coverage": "stale-ish 3251d",
+      "readinessState": null,
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-10-30T20:15:00Z",
+        "source": "ESPN:pt.1",
+        "fixtureSources": [
+          "ESPN:pt.1"
+        ],
+        "sourceFixtureId": "401885408",
+        "competition": "Primeira Liga",
+        "competitionSlug": "pt.1",
+        "leagueHint": "pt.1",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Casa Pia",
+        "discoveryAway": "Sporting CP",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
+      },
+      "started": false,
+      "identityBlocked": false,
+      "fundingBlockers": [
+        "CONFIRMED_XI_NOT_READY",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "markets": [
+        {
+          "market": "HOME_WIN",
+          "family": "1X2",
+          "selection": "Casa Pia — Match Winner",
+          "winProbability": 0.25267621395787176,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7473237860421282,
+          "profitProbability": 0.25267621395787176,
+          "nonLossProbability": 0.25267621395787176,
+          "fairOdds": 3.9576340975519293,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "20:15",
+            "league": "pt.1",
+            "home": "Casa Pia",
+            "away": "Sporting CP",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 4.234668484380564,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "DRAW",
+          "family": "1X2",
+          "selection": "Casa Pia vs Sporting CP — Draw",
+          "winProbability": 0.26592289034853467,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7340771096514653,
+          "profitProbability": 0.26592289034853467,
+          "nonLossProbability": 0.26592289034853467,
+          "fairOdds": 3.7604886088946285,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "20:15",
+            "league": "pt.1",
+            "home": "Casa Pia",
+            "away": "Sporting CP",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 4.023722811517253,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_WIN",
+          "family": "1X2",
+          "selection": "Sporting CP — Match Winner",
+          "winProbability": 0.4814008956935936,
+          "pushProbability": 0.0,
+          "lossProbability": 0.5185991043064064,
+          "profitProbability": 0.4814008956935936,
+          "nonLossProbability": 0.4814008956935936,
+          "fairOdds": 2.0772707507309853,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "20:15",
+            "league": "pt.1",
+            "home": "Casa Pia",
+            "away": "Sporting CP",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 2.2226797032821546,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "1X",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Casa Pia OR Draw — Double Chance (1X)",
+          "winProbability": 0.5185991043064064,
+          "pushProbability": 0.0,
+          "lossProbability": 0.48140089569359357,
+          "profitProbability": 0.5185991043064064,
+          "nonLossProbability": 0.5185991043064064,
+          "fairOdds": 1.9282717453541245,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "20:15",
+            "league": "pt.1",
+            "home": "Casa Pia",
+            "away": "Sporting CP",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 2.0632507675289133,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "X2",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Sporting CP OR Draw — Double Chance (X2)",
+          "winProbability": 0.7473237860421282,
+          "pushProbability": 0.0,
+          "lossProbability": 0.25267621395787176,
+          "profitProbability": 0.7473237860421282,
+          "nonLossProbability": 0.7473237860421282,
+          "fairOdds": 1.3381080847112605,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "20:15",
+            "league": "pt.1",
+            "home": "Casa Pia",
+            "away": "Sporting CP",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.4317756506410488,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "12",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Casa Pia OR Sporting CP — Either team wins, draw loses (12)",
+          "winProbability": 0.7340771096514653,
+          "pushProbability": 0.0,
+          "lossProbability": 0.26592289034853467,
+          "profitProbability": 0.7340771096514653,
+          "nonLossProbability": 0.7340771096514653,
+          "fairOdds": 1.3622547098284987,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "20:15",
+            "league": "pt.1",
+            "home": "Casa Pia",
+            "away": "Sporting CP",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.4576125395164938,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "HOME_DNB",
+          "family": "DNB",
+          "selection": "Casa Pia — Draw No Bet (draw = refund)",
+          "winProbability": 0.25267621395787176,
+          "pushProbability": 0.26592289034853467,
+          "lossProbability": 0.48140089569359357,
+          "profitProbability": 0.25267621395787176,
+          "nonLossProbability": 0.5185991043064064,
+          "fairOdds": 2.9052085993890056,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "20:15",
+            "league": "pt.1",
+            "home": "Casa Pia",
+            "away": "Sporting CP",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 3.182242986217641,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_DNB",
+          "family": "DNB",
+          "selection": "Sporting CP — Draw No Bet (draw = refund)",
+          "winProbability": 0.4814008956935936,
+          "pushProbability": 0.26592289034853467,
+          "lossProbability": 0.25267621395787176,
+          "profitProbability": 0.4814008956935936,
+          "nonLossProbability": 0.7473237860421282,
+          "fairOdds": 1.5248769086601313,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "20:15",
+            "league": "pt.1",
+            "home": "Casa Pia",
+            "away": "Sporting CP",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.6702858612113003,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        }
+      ],
+      "mostLikelyOutcome": {
+        "market": "AWAY_WIN",
+        "family": "1X2",
+        "selection": "Sporting CP — Match Winner",
+        "winProbability": 0.4814008956935936,
+        "pushProbability": 0.0,
+        "lossProbability": 0.5185991043064064,
+        "profitProbability": 0.4814008956935936,
+        "nonLossProbability": 0.4814008956935936,
+        "fairOdds": 2.0772707507309853,
+        "source": "EXACT_FROZEN_FORECAST",
+        "mainMarket": true,
+        "fixture": {
+          "date": "2026-10-30",
+          "time": "20:15",
+          "league": "pt.1",
+          "home": "Casa Pia",
+          "away": "Sporting CP",
+          "provider": "ESPN:pt.1",
+          "sourceStatus": "loaded"
+        },
+        "observedOdds": null,
+        "bookmaker": null,
+        "quotedAt": null,
+        "expectedProfitPerRand": null,
+        "minimumEVGate": 0.07,
+        "minimumOddsForValueGate": 2.2226797032821546,
+        "valuePositive": false,
+        "fundingBlockers": [
+          "CONFIRMED_XI_NOT_READY",
+          "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+          "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED",
+          "STALE_TEAM_STATE",
+          "UNPROMOTED_L0_FALLBACK"
+        ],
+        "stakeReady": false,
+        "decision": "BLOCKED",
+        "guaranteedProfit": false
+      },
+      "strongestWinCandidate": null,
+      "bestStandaloneValue": null,
+      "missingMainFamilies": [
+        "BTTS",
+        "TOTAL_GOALS",
+        "TEAM_GOALS"
+      ],
+      "bookmakerAvailabilityConfirmed": false
+    }
+  ],
+  "unscoredFixtures": [
+    {
+      "home": "Brisbane Roar FC",
+      "away": "Auckland FC",
+      "kickoff": "2026-10-30T09:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Abha",
+      "away": "Al Ittihad",
+      "kickoff": "2026-10-30T12:30:00Z",
+      "competition": "2026-27-saudi-pro-league",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Real Kashmir",
+      "away": "Nagaland United SC",
+      "kickoff": "2026-10-30T13:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "NorthEast United FC",
+      "away": "Bengaluru FC",
+      "kickoff": "2026-10-30T14:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Al Diriyah",
+      "away": "Neom SC",
+      "kickoff": "2026-10-30T14:50:00Z",
+      "competition": "2026-27-saudi-pro-league",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Cracovia",
+      "away": "Motor Lublin",
+      "kickoff": "2026-10-30T17:00:00",
+      "competition": "Ekstraklasa",
+      "leagueHint": "pl.1",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "American University",
+      "away": "Holy Cross",
+      "kickoff": "2026-10-30T17:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Arminia Bielefeld",
+      "away": "TSV Eintracht Braunschweig",
+      "kickoff": "2026-10-30T17:30:00Z",
+      "competition": "2026-27-german-2-bundesliga",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Energie Cottbus",
+      "away": "VfL Bochum",
+      "kickoff": "2026-10-30T17:30:00Z",
+      "competition": "2026-27-german-2-bundesliga",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Marumo Gallants",
+      "away": "Siwelele",
+      "kickoff": "2026-10-30T17:30:00Z",
+      "competition": "2026-27-south-african-premiership",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Rice",
+      "away": "Charlotte",
+      "kickoff": "2026-10-30T17:30:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Al Shabab",
+      "away": "Al Ahli",
+      "kickoff": "2026-10-30T18:00:00Z",
+      "competition": "2026-27-saudi-pro-league",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Bodo/Glimt",
+      "away": "Viking FK",
+      "kickoff": "2026-10-30T18:00:00Z",
+      "competition": "2026-eliteserien",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Oakland",
+      "away": "Northern Kentucky",
+      "kickoff": "2026-10-30T18:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "IU Indianapolis",
+      "away": "Northern Illinois",
+      "kickoff": "2026-10-30T18:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Prairie View A&M",
+      "away": "Alcorn State",
+      "kickoff": "2026-10-30T18:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Nice",
+      "away": "Stade Rennais",
+      "kickoff": "2026-10-30T18:00:00Z",
+      "competition": "Ligue 1",
+      "leagueHint": "fr.1",
+      "hbtSupportLevel": "NOT_YET_READY",
+      "classificationReason": "Live HBT-1.4 intelligence exists, but no date-matched frozen control probability output is available for ranking."
+    },
+    {
+      "home": "Lyngby Boldklub",
+      "away": "Randers FC",
+      "kickoff": "2026-10-30T18:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Grazer AK",
+      "away": "TSV Hartberg",
+      "kickoff": "2026-10-30T18:30:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "FC Volendam",
+      "away": "De Graafschap",
+      "kickoff": "2026-10-30T19:00:00Z",
+      "competition": "2026-27-keuken-kampioen-divisie",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Helmond Sport",
+      "away": "FC Eindhoven",
+      "kickoff": "2026-10-30T19:00:00Z",
+      "competition": "2026-27-keuken-kampioen-divisie",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "RKC Waalwijk",
+      "away": "Almere City",
+      "kickoff": "2026-10-30T19:00:00Z",
+      "competition": "2026-27-keuken-kampioen-divisie",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Roda JC Kerkrade",
+      "away": "Jong AZ",
+      "kickoff": "2026-10-30T19:00:00Z",
+      "competition": "2026-27-keuken-kampioen-divisie",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Grenoble",
+      "away": "Dijon FCO",
+      "kickoff": "2026-10-30T19:00:00Z",
+      "competition": "2026-27-ligue-2",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Metz",
+      "away": "Pau",
+      "kickoff": "2026-10-30T19:00:00Z",
+      "competition": "2026-27-ligue-2",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Nantes",
+      "away": "Clermont Foot",
+      "kickoff": "2026-10-30T19:00:00Z",
+      "competition": "2026-27-ligue-2",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Rodez Aveyron",
+      "away": "Dunkerque",
+      "kickoff": "2026-10-30T19:00:00Z",
+      "competition": "2026-27-ligue-2",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Stade Laval",
+      "away": "Boulogne",
+      "kickoff": "2026-10-30T19:00:00Z",
+      "competition": "2026-27-ligue-2",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Detroit Mercy",
+      "away": "Milwaukee",
+      "kickoff": "2026-10-30T19:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Liberty",
+      "away": "VMI",
+      "kickoff": "2026-10-30T19:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Górnik Zabrze",
+      "away": "Legia Warsaw",
+      "kickoff": "2026-10-30T19:30:00",
+      "competition": "Ekstraklasa",
+      "leagueHint": "pl.1",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Stenhousemuir",
+      "away": "Livingston",
+      "kickoff": "2026-10-30T19:30:00Z",
+      "competition": "2026-27-scottish-championship",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "SV Elversberg",
+      "away": "Mainz",
+      "kickoff": "2026-10-30T19:30:00Z",
+      "competition": "Bundesliga",
+      "leagueHint": "de.1",
+      "hbtSupportLevel": "NOT_YET_READY",
+      "classificationReason": "Live HBT-1.4 intelligence exists, but no date-matched frozen control probability output is available for ranking."
+    },
+    {
+      "home": "Drogheda United",
+      "away": "Galway United",
+      "kickoff": "2026-10-30T19:45:00",
+      "competition": "League of Ireland Premier Division",
+      "leagueHint": "ie.1",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Dundalk",
+      "away": "Shamrock Rovers",
+      "kickoff": "2026-10-30T19:45:00",
+      "competition": "League of Ireland Premier Division",
+      "leagueHint": "ie.1",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Shelbourne",
+      "away": "Waterford",
+      "kickoff": "2026-10-30T19:45:00",
+      "competition": "League of Ireland Premier Division",
+      "leagueHint": "ie.1",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Zulte-Waregem",
+      "away": "Club Brugge",
+      "kickoff": "2026-10-30T19:45:00Z",
+      "competition": "Belgian Pro League",
+      "leagueHint": "be.1",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "AFC Fylde",
+      "away": "AFC Hornchurch",
+      "kickoff": "2026-10-30T19:45:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Newport County",
+      "away": "Chesterfield",
+      "kickoff": "2026-10-30T19:45:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "South Florida",
+      "away": "Florida College",
+      "kickoff": "2026-10-30T20:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Vermont",
+      "away": "Binghamton",
+      "kickoff": "2026-10-30T20:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Sheffield United",
+      "away": "Wrexham",
+      "kickoff": "2026-10-30T20:00:00Z",
+      "competition": "Championship",
+      "leagueHint": "en.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Villarreal",
+      "away": "Espanyol",
+      "kickoff": "2026-10-30T20:00:00Z",
+      "competition": "LaLiga",
+      "leagueHint": "es.1",
+      "hbtSupportLevel": "NOT_YET_READY",
+      "classificationReason": "Live HBT-1.4 intelligence exists, but no date-matched frozen control probability output is available for ranking."
+    },
+    {
+      "home": "Marseille",
+      "away": "Nantes",
+      "kickoff": "2026-10-30T20:00:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Lille",
+      "away": "Lens",
+      "kickoff": "2026-10-30T20:05:00Z",
+      "competition": "Ligue 1",
+      "leagueHint": "fr.1",
+      "hbtSupportLevel": "NOT_YET_READY",
+      "classificationReason": "Live HBT-1.4 intelligence exists, but no date-matched frozen control probability output is available for ranking."
+    },
+    {
+      "home": "Mercer",
+      "away": "Charleston",
+      "kickoff": "2026-10-30T21:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Virginia Tech",
+      "away": "Syracuse",
+      "kickoff": "2026-10-30T21:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Grambling",
+      "away": "Arkansas-Pine Bluff",
+      "kickoff": "2026-10-30T21:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Deportivo Pereira",
+      "away": "Jaguares de Córdoba",
+      "kickoff": "2026-10-30T21:00:00Z",
+      "competition": "clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Real Potosí",
+      "away": "Independiente Petrolero",
+      "kickoff": "2026-10-30T22:00:00Z",
+      "competition": "2026-bolivian-liga-profesional",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Army",
+      "away": "Loyola Maryland",
+      "kickoff": "2026-10-30T22:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Lehigh",
+      "away": "Colgate",
+      "kickoff": "2026-10-30T22:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "NJIT",
+      "away": "Bryant",
+      "kickoff": "2026-10-30T22:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "New Hampshire",
+      "away": "UMass Lowell",
+      "kickoff": "2026-10-30T22:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Stony Brook",
+      "away": "Northeastern",
+      "kickoff": "2026-10-30T22:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Virginia",
+      "away": "Pittsburgh",
+      "kickoff": "2026-10-30T22:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Colo Colo",
+      "away": "Universidad de Concepción",
+      "kickoff": "2026-10-30T22:00:00Z",
+      "competition": "2026-primera-division-de-chile",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Coquimbo Unido",
+      "away": "Unión La Calera",
+      "kickoff": "2026-10-30T22:00:00Z",
+      "competition": "2026-primera-division-de-chile",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Estudiantes de Río Cuarto",
+      "away": "Gimnasia La Plata",
+      "kickoff": "2026-10-30T22:00:00Z",
+      "competition": "torneo-clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Huracán",
+      "away": "Tigre",
+      "kickoff": "2026-10-30T22:00:00Z",
+      "competition": "torneo-clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Criciúma",
+      "away": "Ponte Preta",
+      "kickoff": "2026-10-30T22:30:00Z",
+      "competition": "2026-brasileiro-serie-b",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Louisville City FC",
+      "away": "Pittsburgh Riverhounds",
+      "kickoff": "2026-10-30T22:30:00Z",
+      "competition": "eastern-conference-playoffs---quarterfinals",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Guaraní",
+      "away": "2 de Mayo",
+      "kickoff": "2026-10-30T22:30:00Z",
+      "competition": "torneo-clausura-2026",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Sportivo Trinidense",
+      "away": "Rubio Ñú",
+      "kickoff": "2026-10-30T22:30:00Z",
+      "competition": "torneo-clausura-2026",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Corinthians",
+      "away": "Mirassol",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-brasileiro-serie-a",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Boston University",
+      "away": "Lafayette",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Bradley",
+      "away": "Evansville",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Bucknell",
+      "away": "Navy",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Clemson",
+      "away": "Wake Forest",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Cleveland State",
+      "away": "Robert Morris",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Drake",
+      "away": "UIC",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Georgetown",
+      "away": "Creighton",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Kentucky",
+      "away": "Georgia Southern",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Longwood",
+      "away": "Radford",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Michigan State",
+      "away": "Rutgers",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "North Carolina",
+      "away": "NC State",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Notre Dame",
+      "away": "Duke",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Ohio State",
+      "away": "Northwestern",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Old Dominion",
+      "away": "James Madison",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Purdue Fort Wayne",
+      "away": "Northern Illinois",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Rhode Island",
+      "away": "Maine Fort Kent",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "South Carolina",
+      "away": "Marshall",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "UMBC",
+      "away": "UAlbany",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Wright State",
+      "away": "IU Indianapolis",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Illinois",
+      "away": "Minnesota",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Lafayette",
+      "away": "Navy",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Michigan",
+      "away": "Ohio State",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Penn State",
+      "away": "Indiana",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Pittsburgh",
+      "away": "Wake Forest",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Purdue",
+      "away": "Nebraska",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Rutgers",
+      "away": "Maryland",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "South Carolina State",
+      "away": "Tuskegee",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "South Florida",
+      "away": "UAB",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Temple",
+      "away": "Tulsa",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "West Virginia",
+      "away": "TCU",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Charleston Battery",
+      "away": "Rhode Island FC",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "eastern-conference-playoffs---quarterfinals",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Union Omaha",
+      "away": "Chattanooga Red Wolves",
+      "kickoff": "2026-10-30T23:00:00Z",
+      "competition": "playoffs---quarterfinals",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Belmont",
+      "away": "Western Michigan",
+      "kickoff": "2026-10-30T23:30:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "SMU",
+      "away": "Louisville",
+      "kickoff": "2026-10-30T23:30:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Kansas State",
+      "away": "UCF",
+      "kickoff": "2026-10-30T23:30:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Northwestern",
+      "away": "Michigan State",
+      "kickoff": "2026-10-30T23:30:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Tampa Bay Rowdies",
+      "away": "Miami FC",
+      "kickoff": "2026-10-30T23:30:00Z",
+      "competition": "eastern-conference-playoffs---quarterfinals",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Forward Madison FC",
+      "away": "Spokane Velocity FC",
+      "kickoff": "2026-10-30T23:30:00Z",
+      "competition": "playoffs---quarterfinals",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Oriente Petrolero",
+      "away": "Aurora",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "2026-bolivian-liga-profesional",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Washington",
+      "away": "Maryland",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Wisconsin",
+      "away": "Michigan",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Houston",
+      "away": "Kansas",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Iowa",
+      "away": "Wisconsin",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Memphis",
+      "away": "East Carolina",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "North Texas",
+      "away": "UTSA",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Texas State",
+      "away": "Boise State",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Texas Tech",
+      "away": "Baylor",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Inter de San Carlos",
+      "away": "Escorpiones Belén",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "apertura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Detroit City FC",
+      "away": "Hartford Athletic",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "eastern-conference-playoffs---quarterfinals",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Toluca",
+      "away": "Guadalajara",
+      "kickoff": "2026-10-31T00:00:00Z",
+      "competition": "torneo-apertura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Racing Club",
+      "away": "Aldosivi",
+      "kickoff": "2026-10-31T00:15:00Z",
+      "competition": "torneo-clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Sarmiento (Junín)",
+      "away": "Rosario Central",
+      "kickoff": "2026-10-31T00:15:00Z",
+      "competition": "torneo-clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Stanford",
+      "away": "California",
+      "kickoff": "2026-10-31T01:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Arizona State",
+      "away": "Arizona",
+      "kickoff": "2026-10-31T01:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Colorado",
+      "away": "Cincinnati",
+      "kickoff": "2026-10-31T01:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Oregon State",
+      "away": "Utah State",
+      "kickoff": "2026-10-31T01:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Correcaminos UAT",
+      "away": "Venados FC",
+      "kickoff": "2026-10-31T01:00:00Z",
+      "competition": "apertura-2026",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Atlético de San Luis",
+      "away": "Atlas",
+      "kickoff": "2026-10-31T01:00:00Z",
+      "competition": "torneo-apertura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "FC Juárez",
+      "away": "Querétaro",
+      "kickoff": "2026-10-31T01:00:00Z",
+      "competition": "torneo-apertura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "CD Estrella Roja",
+      "away": "CA Independiente Siguatepeque",
+      "kickoff": "2026-10-31T01:00:00Z",
+      "competition": "torneo-apertura-2026",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Internacional Santa Tecla",
+      "away": "C.D. Platense",
+      "kickoff": "2026-10-31T01:00:00Z",
+      "competition": "torneo-apertura-2026",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "El Paso Locomotive FC",
+      "away": "San Antonio FC",
+      "kickoff": "2026-10-31T01:00:00Z",
+      "competition": "western-conference-playoffs---quarterfinals",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Atlético Bucaramanga",
+      "away": "Deportivo Pasto",
+      "kickoff": "2026-10-31T01:05:00Z",
+      "competition": "clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Atlas",
+      "away": "Tigres UANL",
+      "kickoff": "2026-10-31T01:06:00Z",
+      "competition": "torneo-apertura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "BYU",
+      "away": "Utah",
+      "kickoff": "2026-10-31T01:30:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "UCLA",
+      "away": "Indiana",
+      "kickoff": "2026-10-31T02:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "San Diego State",
+      "away": "Gonzaga",
+      "kickoff": "2026-10-31T02:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "USC",
+      "away": "UCLA",
+      "kickoff": "2026-10-31T02:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Pérez Zeledón",
+      "away": "Puntarenas FC",
+      "kickoff": "2026-10-31T02:00:00Z",
+      "competition": "apertura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Washington",
+      "away": "Oregon",
+      "kickoff": "2026-10-31T03:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Club Atlético La Paz",
+      "away": "Dorados de Sinaloa",
+      "kickoff": "2026-10-31T03:00:00Z",
+      "competition": "apertura-2026",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Puebla",
+      "away": "Pumas UNAM",
+      "kickoff": "2026-10-31T03:00:00Z",
+      "competition": "torneo-apertura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Monterrey",
+      "away": "Pumas UNAM",
+      "kickoff": "2026-10-31T03:10:00Z",
+      "competition": "torneo-apertura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    }
+  ],
+  "previouslyScoredMissingNow": [],
+  "recoveredFusionResearch": {
+    "schemaVersion": "HBT-RECOVERED-FUSION-SHADOW-1",
+    "targetDate": "2026-10-30",
+    "generatedAt": "2026-10-30T16:41:39.224Z",
+    "policy": {
+      "bookmakerOddsUsedAsFeature": false,
+      "retrainingPerformed": false,
+      "retuningPerformed": false,
+      "modelPromotionAllowed": false,
+      "executionAllowed": false,
+      "controlForecastUnchanged": true
+    },
+    "sourceFiles": {
+      "control": "hbt_live_data/frozen_control_forecast_2026-10-30.json",
+      "performance": "hbt_live_data/performance.json",
+      "players": "hbt_live_data/player_features.json",
+      "deployment": "runtime/hbt_frozen_fusion_deployment.json"
+    },
+    "sourceHashes": {
+      "control": "324ae0cb9139367d814d3b9f1e2bac4702de7d71eed7e3054f993e8ff2b3b069",
+      "performance": "3d6bf1cc37f54027ffa518999df2866d0b68a3ec890392071ec1985fef8b14fb",
+      "players": "c5a87f79000fd032912d2404c2e5f560bb615df5072abd34eda5b9cf2e8fb2b1",
+      "deployment": "c70c8bd40ad83c0f4942d7536ed6f7ff736a4a13319a993d06a132f3627ab286"
+    },
+    "deploymentCreated": "2026-09-12T11:15:44.195Z",
+    "validation": {
+      "full": {
+        "n": 477,
+        "metrics": {
+          "logloss": 0.9833605605510539,
+          "brier": 0.19491211336090997,
+          "accuracy": 0.5178197064989518,
+          "n": 477
+        },
+        "comparisonVsL1": {
+          "deltaLogloss": -0.0005511696769950868,
+          "deltaBrier": -5.8669377025451214e-05,
+          "loglossCI": [
+            -0.006791170497667031,
+            0.005929971910121035
+          ],
+          "brierCI": [
+            -0.0014543274989953676,
+            0.0014215803281917175
+          ],
+          "bootstrap": "date-block"
+        }
+      },
+      "preXi": {
+        "n": 477,
+        "metrics": {
+          "logloss": 0.9842363126507243,
+          "brier": 0.19507367109947807,
+          "accuracy": 0.5115303983228512,
+          "n": 477
+        },
+        "comparisonVsL1": {
+          "deltaLogloss": 0.00032458242267565036,
+          "deltaBrier": 0.00010288836154313641,
+          "loglossCI": [
+            -0.007220108989338226,
+            0.008517516766458415
+          ],
+          "brierCI": [
+            -0.0016581694468763037,
+            0.00177713311708228
+          ],
+          "bootstrap": "date-block"
+        }
+      }
+    },
+    "validationLimits": [
+      "2019 confirmation was reused; it is not a new untouched holdout",
+      "Historical raw model-versus-bookmaker EV failed its earlier value audit",
+      "Recovered inference is not current execution validation"
+    ],
+    "predictions": [
+      {
+        "fixture": {
+          "date": "2026-10-30",
+          "time": "17:00",
+          "league": "tr.1",
+          "home": "Konyaspor",
+          "away": "Galatasaray",
+          "provider": "ESPN:tr.1",
+          "sourceStatus": "loaded"
+        },
+        "status": "UNAVAILABLE",
+        "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+      },
+      {
+        "fixture": {
+          "date": "2026-10-30",
+          "time": "18:00",
+          "league": "fr.1",
+          "home": "Le Havre AC",
+          "away": "Paris Saint-Germain",
+          "provider": "ESPN:fr.1",
+          "sourceStatus": "loaded"
+        },
+        "status": "RESEARCH_ONLY",
+        "predictionMode": "PRE-XI FUSION",
+        "probs": [
+          0.22526032115492023,
+          0.23981576130493729,
+          0.5349239175401425
+        ],
+        "layerPredictions": {
+          "L0": [
+            0.19398140667383393,
+            0.23999334400786237,
+            0.5660252493183037
+          ],
+          "L1": [
+            0.18650902575306008,
+            0.2624088352719638,
+            0.5510821389749762
+          ],
+          "L4": [
+            0.2721305311585633,
+            0.24168370384915724,
+            0.48618576499227933
+          ],
+          "Fusion": [
+            0.22526032115492023,
+            0.23981576130493729,
+            0.5349239175401425
+          ]
+        },
+        "scoreMarkets": {
+          "hda": [
+            0.2721305311585633,
+            0.24168370384915724,
+            0.48618576499227933
+          ],
+          "oneX": 0.5138142350077205,
+          "x2": 0.7278694688414366,
+          "twelve": 0.7583162961508426,
+          "over15": 0.8195204574285511,
+          "under15": 0.18047954257144894,
+          "over25": 0.597190575393674,
+          "under25": 0.40280942460632596,
+          "over35": 0.3734603139971533,
+          "under35": 0.6265396860028467,
+          "bttsYes": 0.611287065034751,
+          "bttsNo": 0.38871293496524895,
+          "homeOver05": 0.7266991736921025,
+          "awayOver05": 0.833909985484581,
+          "homeOver15": 0.3721781801068942,
+          "awayOver15": 0.5357404697070705,
+          "mostLikelyScore": {
+            "h": 1,
+            "a": 1,
+            "p": 0.11099272063977651
+          }
+        },
+        "inputFeatures": {
+          "structural": [
+            -1.0091076296816994,
+            -0.6666666666666666,
+            -0.5333333333333333,
+            -0.48,
+            -0.6799999999999999,
+            -0.32,
+            -0.15999999999999998,
+            -0.6666666666666666,
+            -0.48,
+            -0.39867194529000244,
+            0
+          ],
+          "performance": [
+            -0.7546358,
+            -0.10339719999999986,
+            -7.8,
+            -0.43549175000000007
+          ],
+          "context": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "homeScore": [
+            0.4149573802730883,
+            0.3540071685884006,
+            -0.15715310000000002,
+            -0.41238270000000005,
+            0.4668130000042974,
+            -1.0091076296816994
+          ],
+          "awayScore": [
+            0.8193136435494419,
+            0.4240660986953673,
+            -0.03447099999999996,
+            0.3359187,
+            0.24770023669562216,
+            1.0091076296816994
+          ]
+        },
+        "diagnostics": {
+          "performanceFeedAgeMinutes": 14.453733333333334,
+          "performanceFeedCurrent": true,
+          "confirmedXi": false,
+          "xiReason": "confirmed XI not published by ESPN",
+          "preKickoff": true
+        },
+        "executionEligible": false,
+        "blockers": [
+          "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+          "RESEARCH_RUNTIME_NOT_PROMOTED"
+        ],
+        "stakeRand": 0
+      },
+      {
+        "fixture": {
+          "date": "2026-10-30",
+          "time": "20:15",
+          "league": "pt.1",
+          "home": "Casa Pia",
+          "away": "Sporting CP",
+          "provider": "ESPN:pt.1",
+          "sourceStatus": "loaded"
+        },
+        "status": "UNAVAILABLE",
+        "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+      }
+    ],
+    "summary": {
+      "fixtures": 3,
+      "scoreDistributions": 1,
+      "futureScoreDistributions": 1,
+      "confirmedXiFusion": 0,
+      "readyBets": 0
+    }
+  },
+  "chains": [
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.6023568667848609,
+      "jointProbabilityBounds": {
+        "lower": 0.5533423793682943,
+        "upper": 0.7473237860421282
+      },
+      "lossProbabilityIndependenceApprox": 0.3976431332151391,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Paris Saint-Germain OR Draw — Double Chance (X2)",
+          "winProbability": 0.8060185933261661,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "20:15",
+            "league": "pt.1",
+            "home": "Casa Pia",
+            "away": "Sporting CP",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Sporting CP OR Draw — Double Chance (X2)",
+          "winProbability": 0.7473237860421282,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.600170483049007,
+      "jointProbabilityBounds": {
+        "lower": 0.5506298070356495,
+        "upper": 0.7446112137094834
+      },
+      "lossProbabilityIndependenceApprox": 0.399829516950993,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Paris Saint-Germain OR Draw — Double Chance (X2)",
+          "winProbability": 0.8060185933261661,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Konyaspor",
+            "away": "Galatasaray",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Konyaspor OR Galatasaray — Either team wins, draw loses (12)",
+          "winProbability": 0.7446112137094834,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.5564656713587953,
+      "jointProbabilityBounds": {
+        "lower": 0.4919349997516116,
+        "upper": 0.7446112137094834
+      },
+      "lossProbabilityIndependenceApprox": 0.4435343286412047,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "20:15",
+            "league": "pt.1",
+            "home": "Casa Pia",
+            "away": "Sporting CP",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Sporting CP OR Draw — Double Chance (X2)",
+          "winProbability": 0.7473237860421282,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Konyaspor",
+            "away": "Galatasaray",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Konyaspor OR Galatasaray — Either team wins, draw loses (12)",
+          "winProbability": 0.7446112137094834,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 3,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.44852167766291684,
+      "jointProbabilityBounds": {
+        "lower": 0.2979535930777777,
+        "upper": 0.7446112137094834
+      },
+      "lossProbabilityIndependenceApprox": 0.5514783223370832,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "18:00",
+            "league": "fr.1",
+            "home": "Le Havre AC",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Paris Saint-Germain OR Draw — Double Chance (X2)",
+          "winProbability": 0.8060185933261661,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "20:15",
+            "league": "pt.1",
+            "home": "Casa Pia",
+            "away": "Sporting CP",
+            "provider": "ESPN:pt.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "X2",
+          "selection": "Sporting CP OR Draw — Double Chance (X2)",
+          "winProbability": 0.7473237860421282,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-10-30",
+            "time": "17:00",
+            "league": "tr.1",
+            "home": "Konyaspor",
+            "away": "Galatasaray",
+            "provider": "ESPN:tr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Konyaspor OR Galatasaray — Either team wins, draw loses (12)",
+          "winProbability": 0.7446112137094834,
+          "observedOdds": null
+        }
+      ]
+    }
+  ]
+}

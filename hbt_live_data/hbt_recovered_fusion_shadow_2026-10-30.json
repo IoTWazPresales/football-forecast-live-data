@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "HBT-RECOVERED-FUSION-SHADOW-1",
+  "targetDate": "2026-10-30",
+  "generatedAt": "2026-10-30T16:41:39.224Z",
+  "policy": {
+    "bookmakerOddsUsedAsFeature": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "modelPromotionAllowed": false,
+    "executionAllowed": false,
+    "controlForecastUnchanged": true
+  },
+  "sourceFiles": {
+    "control": "hbt_live_data/frozen_control_forecast_2026-10-30.json",
+    "performance": "hbt_live_data/performance.json",
+    "players": "hbt_live_data/player_features.json",
+    "deployment": "runtime/hbt_frozen_fusion_deployment.json"
+  },
+  "sourceHashes": {
+    "control": "324ae0cb9139367d814d3b9f1e2bac4702de7d71eed7e3054f993e8ff2b3b069",
+    "performance": "3d6bf1cc37f54027ffa518999df2866d0b68a3ec890392071ec1985fef8b14fb",
+    "players": "c5a87f79000fd032912d2404c2e5f560bb615df5072abd34eda5b9cf2e8fb2b1",
+    "deployment": "c70c8bd40ad83c0f4942d7536ed6f7ff736a4a13319a993d06a132f3627ab286"
+  },
+  "deploymentCreated": "2026-09-12T11:15:44.195Z",
+  "validation": {
+    "full": {
+      "n": 477,
+      "metrics": {
+        "logloss": 0.9833605605510539,
+        "brier": 0.19491211336090997,
+        "accuracy": 0.5178197064989518,
+        "n": 477
+      },
+      "comparisonVsL1": {
+        "deltaLogloss": -0.0005511696769950868,
+        "deltaBrier": -0.000058669377025451214,
+        "loglossCI": [
+          -0.006791170497667031,
+          0.005929971910121035
+        ],
+        "brierCI": [
+          -0.0014543274989953676,
+          0.0014215803281917175
+        ],
+        "bootstrap": "date-block"
+      }
+    },
+    "preXi": {
+      "n": 477,
+      "metrics": {
+        "logloss": 0.9842363126507243,
+        "brier": 0.19507367109947807,
+        "accuracy": 0.5115303983228512,
+        "n": 477
+      },
+      "comparisonVsL1": {
+        "deltaLogloss": 0.00032458242267565036,
+        "deltaBrier": 0.00010288836154313641,
+        "loglossCI": [
+          -0.007220108989338226,
+          0.008517516766458415
+        ],
+        "brierCI": [
+          -0.0016581694468763037,
+          0.00177713311708228
+        ],
+        "bootstrap": "date-block"
+      }
+    }
+  },
+  "validationLimits": [
+    "2019 confirmation was reused; it is not a new untouched holdout",
+    "Historical raw model-versus-bookmaker EV failed its earlier value audit",
+    "Recovered inference is not current execution validation"
+  ],
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "time": "17:00",
+        "league": "tr.1",
+        "home": "Konyaspor",
+        "away": "Galatasaray",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "time": "18:00",
+        "league": "fr.1",
+        "home": "Le Havre AC",
+        "away": "Paris Saint-Germain",
+        "provider": "ESPN:fr.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "RESEARCH_ONLY",
+      "predictionMode": "PRE-XI FUSION",
+      "probs": [
+        0.22526032115492023,
+        0.23981576130493729,
+        0.5349239175401425
+      ],
+      "layerPredictions": {
+        "L0": [
+          0.19398140667383393,
+          0.23999334400786237,
+          0.5660252493183037
+        ],
+        "L1": [
+          0.18650902575306008,
+          0.2624088352719638,
+          0.5510821389749762
+        ],
+        "L4": [
+          0.2721305311585633,
+          0.24168370384915724,
+          0.48618576499227933
+        ],
+        "Fusion": [
+          0.22526032115492023,
+          0.23981576130493729,
+          0.5349239175401425
+        ]
+      },
+      "scoreMarkets": {
+        "hda": [
+          0.2721305311585633,
+          0.24168370384915724,
+          0.48618576499227933
+        ],
+        "oneX": 0.5138142350077205,
+        "x2": 0.7278694688414366,
+        "twelve": 0.7583162961508426,
+        "over15": 0.8195204574285511,
+        "under15": 0.18047954257144894,
+        "over25": 0.597190575393674,
+        "under25": 0.40280942460632596,
+        "over35": 0.3734603139971533,
+        "under35": 0.6265396860028467,
+        "bttsYes": 0.611287065034751,
+        "bttsNo": 0.38871293496524895,
+        "homeOver05": 0.7266991736921025,
+        "awayOver05": 0.833909985484581,
+        "homeOver15": 0.3721781801068942,
+        "awayOver15": 0.5357404697070705,
+        "mostLikelyScore": {
+          "h": 1,
+          "a": 1,
+          "p": 0.11099272063977651
+        }
+      },
+      "inputFeatures": {
+        "structural": [
+          -1.0091076296816994,
+          -0.6666666666666666,
+          -0.5333333333333333,
+          -0.48,
+          -0.6799999999999999,
+          -0.32,
+          -0.15999999999999998,
+          -0.6666666666666666,
+          -0.48,
+          -0.39867194529000244,
+          0
+        ],
+        "performance": [
+          -0.7546358,
+          -0.10339719999999986,
+          -7.8,
+          -0.43549175000000007
+        ],
+        "context": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "homeScore": [
+          0.4149573802730883,
+          0.3540071685884006,
+          -0.15715310000000002,
+          -0.41238270000000005,
+          0.4668130000042974,
+          -1.0091076296816994
+        ],
+        "awayScore": [
+          0.8193136435494419,
+          0.4240660986953673,
+          -0.03447099999999996,
+          0.3359187,
+          0.24770023669562216,
+          1.0091076296816994
+        ]
+      },
+      "diagnostics": {
+        "performanceFeedAgeMinutes": 14.453733333333334,
+        "performanceFeedCurrent": true,
+        "confirmedXi": false,
+        "xiReason": "confirmed XI not published by ESPN",
+        "preKickoff": true
+      },
+      "executionEligible": false,
+      "blockers": [
+        "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+        "RESEARCH_RUNTIME_NOT_PROMOTED"
+      ],
+      "stakeRand": 0
+    },
+    {
+      "fixture": {
+        "date": "2026-10-30",
+        "time": "20:15",
+        "league": "pt.1",
+        "home": "Casa Pia",
+        "away": "Sporting CP",
+        "provider": "ESPN:pt.1",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    }
+  ],
+  "summary": {
+    "fixtures": 3,
+    "scoreDistributions": 1,
+    "futureScoreDistributions": 1,
+    "confirmedXiFusion": 0,
+    "readyBets": 0
+  }
+}
