@@ -52,7 +52,7 @@ jobs:
       - name: Compile prospective stack
         run: |
           set -euo pipefail
-          python -m py_compile scripts/hbt_collect_live_data.py scripts/hbt_collect_players_espn.py scripts/hbt_collect_context_v3_runtime.py scripts/hbt_collect_market_intelligence_v4_final.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_build_prospective_card_v2.py scripts/hbt_build_prospective_from_frozen.py scripts/hbt_collect_market_prices_v1.py scripts/hbt_execution_surface_v1.py scripts/hbt_execution_surface_v1_3.py
+          python -m py_compile scripts/hbt_collect_live_data.py scripts/hbt_collect_players_espn.py scripts/hbt_collect_context_v3_runtime.py scripts/hbt_collect_market_intelligence_v4_final.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_build_prospective_card_v2.py scripts/hbt_capture_fusion_firstadd_v1.py scripts/hbt_build_prospective_from_frozen.py scripts/hbt_collect_market_prices_v1.py scripts/hbt_execution_surface_v1.py scripts/hbt_execution_surface_v1_3.py
           node --check scripts/hbt_frozen_forecast_bridge.mjs
           node --check scripts/hbt_recovered_fusion_shadow.mjs
           node --test tests/test_hbt_recovered_fusion.mjs
@@ -87,6 +87,7 @@ jobs:
           set -euo pipefail
           node scripts/hbt_frozen_forecast_bridge.mjs --date '${{ steps.target.outputs.date }}' --with-structural-features
           node scripts/hbt_recovered_fusion_shadow.mjs --date '${{ steps.target.outputs.date }}'
+          python scripts/hbt_capture_fusion_firstadd_v1.py --date '${{ steps.target.outputs.date }}'
           python scripts/hbt_scan_slate_v2_2.py --date '${{ steps.target.outputs.date }}' --reconcile-existing
           python - <<'PY'
           import json
