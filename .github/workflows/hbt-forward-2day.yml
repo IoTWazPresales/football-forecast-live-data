@@ -69,6 +69,7 @@ jobs:
             scripts/hbt_build_prospective_from_frozen.py \
             scripts/hbt_execution_surface_v1.py \
             scripts/hbt_execution_surface_v1_3.py
+          python -m py_compile scripts/hbt_stage_prospective_evidence.py scripts/hbt_rank_firstadd_markets_v1.py scripts/hbt_slate_coverage_triage.py
           node --check scripts/hbt_frozen_forecast_bridge.mjs
 
       - name: Refresh existing intelligence families once
@@ -172,28 +173,5 @@ jobs:
           set -euo pipefail
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add \
-            "hbt_live_data/frozen_control_forecast_${D1}.json" \
-            "hbt_live_data/hbt_prospective_card_${D1}.json" \
-            "hbt_live_data/hbt_execution_surface_${D1}.json" \
-            "hbt_live_data/frozen_control_forecast_${D2}.json" \
-            "hbt_live_data/hbt_prospective_card_${D2}.json" \
-            "hbt_live_data/hbt_execution_surface_${D2}.json" \
-            "hbt_live_data/hbt_betting_desk_${D1}.json" \
-            "hbt_live_data/hbt_betting_desk_${D1}.html" \
-            "hbt_live_data/hbt_betting_desk_${D2}.json" \
-            "hbt_live_data/hbt_betting_desk_${D2}.html" \
-            hbt_live_data/forecast_bridge_status.json \
-            hbt_live_data/slate_scanner.json \
-            hbt_live_data/manifest.json \
-            hbt_live_data/performance.json \
-            hbt_live_data/player_features.json \
-            hbt_live_data/pre_xi_context.json \
-            hbt_live_data/market_intelligence.json \
-            hbt_live_data/hbt_1_4_match_intelligence.json \
-            hbt_live_data/_hbt_1_4_live_cache.json || true
-          git add "hbt_live_data/slate_scanner_${D1}.json" "hbt_live_data/slate_scanner_${D2}.json" "hbt_live_data/market_prices_${D1}.json" "hbt_live_data/market_prices_${D2}.json" "hbt_live_data/hbt_independent_kickoffs_${D1}.json" "hbt_live_data/hbt_independent_kickoffs_${D2}.json"
-          git add "hbt_live_data/hbt_recovered_fusion_shadow_${D1}.json" "hbt_live_data/hbt_recovered_fusion_shadow_${D2}.json" "hbt_live_data/hbt_bet_list_${D1}.json" "hbt_live_data/hbt_bet_list_${D2}.json" "hbt_live_data/hbt_bet_list_${D1}.md" "hbt_live_data/hbt_bet_list_${D2}.md"
-          git add hbt_live_data/captures/ "hbt_live_data/hbt_current_capture_${D1}.json" "hbt_live_data/hbt_current_capture_${D2}.json"
-          git add "hbt_live_data/hbt_firstadd_market_watch_${D1}.json" "hbt_live_data/hbt_firstadd_market_watch_${D2}.json" "hbt_live_data/hbt_coverage_triage_${D1}.json" "hbt_live_data/hbt_coverage_triage_${D2}.json"
+          python scripts/hbt_stage_prospective_evidence.py --dates "$D1" "$D2"
           python scripts/hbt_publish_research_outputs.py --message "prospective: exact frozen HBT forward surfaces ${D1} ${D2} [skip ci]"
