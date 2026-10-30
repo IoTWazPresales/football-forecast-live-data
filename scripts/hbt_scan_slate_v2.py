@@ -241,7 +241,7 @@ def full_model_comp(public: dict[str, Any], hit: dict[str, Any] | None, fc: dict
             continue
         if s in FULL_MODEL_SLUGS:
             return True
-        season = re.fullmatch(r"\\d{4}\\s+\\d{2}\\s+(.+)", s)
+        season = re.fullmatch(r"\d{4}\s+\d{2}\s+(.+)", s)
         if season and season.group(1) in FULL_MODEL_SEASON_SLUGS:
             return True
     return False
