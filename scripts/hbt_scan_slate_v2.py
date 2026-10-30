@@ -33,9 +33,19 @@ UA = "Mozilla/5.0 (compatible; HBT-Slate-Scanner/2.0)"
 
 FULL_MODEL_LEAGUES = {"en.1", "es.1", "de.1", "it.1", "fr.1"}
 FALLBACK_MODEL_LEAGUES = {"nl.1", "pt.1", "sco.1", "tr.1", "uefa.cl"}
+# Names with multiple national/tier meanings are never sufficient to identify
+# a trained league (e.g. Russian Premier League, Brazilian Serie A, 2. Bundesliga).
+# Exact labels here are discovery hints, NOT permissions to create forecasts.
 FULL_MODEL_SLUGS = {
-    "english premier league", "premier league", "spanish laliga", "laliga", "la liga",
-    "german bundesliga", "bundesliga", "italian serie a", "serie a", "french ligue 1", "ligue 1",
+    "english premier league", "england premier league",
+    "spanish laliga", "laliga", "la liga",
+    "german bundesliga",
+    "italian serie a",
+    "french ligue 1", "ligue 1",
+}
+FULL_MODEL_SEASON_SLUGS = {
+    "english premier league", "spanish laliga", "laliga",
+    "german bundesliga", "italian serie a", "ligue 1",
 }
 STATUS = {
     "FULL_MODEL", "FALLBACK", "INSUFFICIENT_DATA", "UNSUPPORTED_COMPETITION",
@@ -210,10 +220,31 @@ def league_from_hit(hit: dict[str, Any] | None) -> str | None:
 
 
 def full_model_comp(public: dict[str, Any], hit: dict[str, Any] | None, fc: dict[str, Any] | None) -> bool:
-    league = public.get("leagueHint") or league_from_hit(hit) or str(((fc or {}).get("fixture") or {}).get("league") or "")
-    if league in FULL_MODEL_LEAGUES: return True
-    s = key(public.get("competitionSlug") or public.get("competition") or "")
-    return any(x in s or s in x for x in FULL_MODEL_SLUGS if s)
+    """Only identify a native full-model league from a canonical code or exact label.
+
+    This is a coverage classifier, never a model-eligibility or betting bypass.
+    A specific source's explicit non-full-model league code overrides ambiguous
+    human-readable names; never substring-match other leagues or divisions.
+    """
+    hint = str(public.get("leagueHint") or "").strip()
+    if hint:
+        return hint in FULL_MODEL_LEAGUES
+    from_hit = league_from_hit(hit)
+    if from_hit:
+        return from_hit in FULL_MODEL_LEAGUES
+    from_frozen = str(((fc or {}).get("fixture") or {}).get("league") or "").strip()
+    if from_frozen:
+        return from_frozen in FULL_MODEL_LEAGUES
+    for label in (public.get("competitionSlug"), public.get("competition")):
+        s = key(label)
+        if not s:
+            continue
+        if s in FULL_MODEL_SLUGS:
+            return True
+        season = re.fullmatch(r"\d{4}\s+\d{2}\s+(.+)", s)
+        if season and season.group(1) in FULL_MODEL_SEASON_SLUGS:
+            return True
+    return False
 
 
 def valid_probs(v: Any) -> bool:
