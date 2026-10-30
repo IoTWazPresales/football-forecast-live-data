@@ -7,7 +7,7 @@ on:
     paths:
       - '.github/workflows/hbt-forward-2day.yml'
       - 'scripts/hbt_frozen_forecast_bridge.mjs'
-      - 'scripts/hbt_build_prospective_from_frozen.py'
+      - 'scripts/hbt_capture_fusion_firstadd_v1.py scripts/hbt_build_prospective_from_frozen.py'
       - 'scripts/hbt_execution_surface_v1_3.py'
   workflow_dispatch:
     inputs:
@@ -90,6 +90,7 @@ jobs:
           python scripts/hbt_scan_slate_v2_2.py --date "$D"
           node scripts/hbt_frozen_forecast_bridge.mjs --date "$D" --with-structural-features
           node scripts/hbt_recovered_fusion_shadow.mjs --date "$D"
+          python scripts/hbt_capture_fusion_firstadd_v1.py --date "$D"
           python scripts/hbt_scan_slate_v2_2.py --date "$D" --reconcile-existing
           python - <<'PY'
           import json
@@ -116,6 +117,7 @@ jobs:
           python scripts/hbt_scan_slate_v2_2.py --date "$D"
           node scripts/hbt_frozen_forecast_bridge.mjs --date "$D" --with-structural-features
           node scripts/hbt_recovered_fusion_shadow.mjs --date "$D"
+          python scripts/hbt_capture_fusion_firstadd_v1.py --date "$D"
           python scripts/hbt_scan_slate_v2_2.py --date "$D" --reconcile-existing
           python - <<'PY'
           import json
