@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-10-31|en.1|manchester city|brighton & hove albion|P1",
+  "targetDate": "2026-10-31",
+  "capturedAt": "2026-10-30T15:30:47.090421Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:47.014Z",
+  "sourceSha256": "488f888f1d86c106f67c1c678b174bbd2722909df46d4dbdcc870e77f0eddab0",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-10-31.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-10-31",
+      "time": "15:00",
+      "league": "en.1",
+      "home": "Manchester City",
+      "away": "Brighton & Hove Albion",
+      "provider": "ESPN:en.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.6701943212258553,
+      0.19698935272496743,
+      0.1328163260491773
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.6117688327031023,
+        0.2407987448838034,
+        0.14743242241309412
+      ],
+      "L1": [
+        0.6319643807867869,
+        0.24013408788466517,
+        0.12790153132854798
+      ],
+      "L4": [
+        0.6310956818472254,
+        0.2000627329285023,
+        0.16884158522427206
+      ],
+      "Fusion": [
+        0.6701943212258553,
+        0.19698935272496743,
+        0.1328163260491773
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.6310956818472254,
+        0.2000627329285023,
+        0.16884158522427206
+      ],
+      "oneX": 0.8311584147757277,
+      "x2": 0.36890431815277436,
+      "twelve": 0.7999372670714975,
+      "over15": 0.8549093438908676,
+      "under15": 0.1450906561091324,
+      "over25": 0.655958701174922,
+      "under25": 0.34404129882507795,
+      "over35": 0.4367793192793743,
+      "under35": 0.5632206807206257,
+      "bttsYes": 0.6046396174082708,
+      "bttsNo": 0.39536038259172923,
+      "homeOver05": 0.8967703085950461,
+      "awayOver05": 0.6694587909027079,
+      "homeOver15": 0.6623537376928873,
+      "awayOver15": 0.3035417499463305,
+      "mostLikelyScore": {
+        "h": 2,
+        "a": 1,
+        "p": 0.09739230129628108
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        0.7805838296907336,
+        0.3333333333333333,
+        0.23333333333333325,
+        -0.24000000000000005,
+        0.07999999999999999,
+        -0.24000000000000005,
+        0,
+        0.5333333333333333,
+        0.4,
+        0.08105760503998226,
+        0
+      ],
+      "performance": [
+        0.47308599999999945,
+        -0.19970139999999992,
+        4,
+        -0.4183461499999999
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.8492496686553015,
+        0.013311408770468814,
+        0.13105400000000006,
+        -0.3067002,
+        0.41996585343117526,
+        0.7805838296907336
+      ],
+      "awayScore": [
+        0.6231570262374517,
+        0.19318055059546585,
+        0.5675969999999999,
+        0.09344910000000002,
+        0.20620419219420963,
+        -0.7805838296907336
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.400233333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}

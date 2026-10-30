@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-10-31|de.1|bayer leverkusen|vfb stuttgart|P1",
+  "targetDate": "2026-10-31",
+  "capturedAt": "2026-10-30T15:30:47.090421Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:47.014Z",
+  "sourceSha256": "488f888f1d86c106f67c1c678b174bbd2722909df46d4dbdcc870e77f0eddab0",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-10-31.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-10-31",
+      "time": "14:30",
+      "league": "de.1",
+      "home": "Bayer Leverkusen",
+      "away": "VfB Stuttgart",
+      "provider": "ESPN:de.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.6925980286131677,
+      0.18586380467417615,
+      0.12153816671265617
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.6320572971453072,
+        0.22796750185981135,
+        0.13997520099488145
+      ],
+      "L1": [
+        0.6300480496129486,
+        0.2385907821237837,
+        0.13136116826326769
+      ],
+      "L4": [
+        0.6656606103377034,
+        0.18639871697526594,
+        0.14794067268703054
+      ],
+      "Fusion": [
+        0.6925980286131677,
+        0.18586380467417615,
+        0.12153816671265617
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.6656606103377034,
+        0.18639871697526594,
+        0.14794067268703054
+      ],
+      "oneX": 0.8520593273129693,
+      "x2": 0.3343393896622965,
+      "twelve": 0.8136012830247339,
+      "over15": 0.8669053446172948,
+      "under15": 0.13309465538270515,
+      "over25": 0.6771134476783285,
+      "under25": 0.3228865523216715,
+      "over35": 0.46098437624784594,
+      "under35": 0.5390156237521541,
+      "bttsYes": 0.6033728312320913,
+      "bttsNo": 0.3966271687679087,
+      "homeOver05": 0.9106754997372989,
+      "awayOver05": 0.6582084060676909,
+      "homeOver15": 0.6949099336296499,
+      "awayOver15": 0.29127663131628506,
+      "mostLikelyScore": {
+        "h": 2,
+        "a": 1,
+        "p": 0.09562005844628817
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        0.7309724049713862,
+        0.06666666666666665,
+        0.3,
+        -0.16,
+        0.48,
+        -0.24000000000000005,
+        0.07999999999999999,
+        0.20000000000000004,
+        0.4800000000000001,
+        -0.10575125389830532,
+        0
+      ],
+      "performance": [
+        -0.3095466,
+        0.7734637999999996,
+        6.4,
+        0.03402070000000003
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.5867490156191514,
+        0.8291752040064654,
+        0.10093339999999998,
+        -0.445714,
+        0.6617324091171337,
+        0.7309724049713862
+      ],
+      "awayScore": [
+        0.7455877216083104,
+        0.4173700950326253,
+        -0.5538399,
+        0.14101789999999997,
+        0.2517064446340231,
+        -0.7309724049713862
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.400233333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}

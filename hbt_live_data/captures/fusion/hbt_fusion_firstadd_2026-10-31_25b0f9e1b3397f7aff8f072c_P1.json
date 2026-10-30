@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-10-31|de.1|fc augsburg|sc freiburg|P1",
+  "targetDate": "2026-10-31",
+  "capturedAt": "2026-10-30T15:30:47.090421Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:47.014Z",
+  "sourceSha256": "488f888f1d86c106f67c1c678b174bbd2722909df46d4dbdcc870e77f0eddab0",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-10-31.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-10-31",
+      "time": "14:30",
+      "league": "de.1",
+      "home": "FC Augsburg",
+      "away": "SC Freiburg",
+      "provider": "ESPN:de.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.38279121610477135,
+      0.25391354763032165,
+      0.36329523626490695
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.3614053338120782,
+        0.2780803042475328,
+        0.36051436194038905
+      ],
+      "L1": [
+        0.34057675351929756,
+        0.297922930185344,
+        0.3615003162953585
+      ],
+      "L4": [
+        0.3984878866350261,
+        0.24150786924333004,
+        0.3600042441216439
+      ],
+      "Fusion": [
+        0.38279121610477135,
+        0.25391354763032165,
+        0.36329523626490695
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.3984878866350261,
+        0.24150786924333004,
+        0.3600042441216439
+      ],
+      "oneX": 0.6399957558783561,
+      "x2": 0.6015121133649739,
+      "twelve": 0.75849213075667,
+      "over15": 0.8423241474084768,
+      "under15": 0.15767585259152317,
+      "over25": 0.6337416638511199,
+      "under25": 0.36625833614888015,
+      "over35": 0.4121848236719593,
+      "under35": 0.5878151763280407,
+      "bttsYes": 0.6521858120392601,
+      "bttsNo": 0.34781418796073993,
+      "homeOver05": 0.8133601109164256,
+      "awayOver05": 0.795591366548722,
+      "homeOver15": 0.5000708980500471,
+      "awayOver15": 0.4710650381424305,
+      "mostLikelyScore": {
+        "h": 1,
+        "a": 1,
+        "p": 0.10675412787986377
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        -0.25258725771523016,
+        -0.4000000000000001,
+        -0.06666666666666665,
+        -0.8799999999999999,
+        -0.12000000000000002,
+        -0.4,
+        -0.48,
+        0.1333333333333334,
+        0.64,
+        0.0026482418869545653,
+        0
+      ],
+      "performance": [
+        -0.18951819999999997,
+        -0.8504855999999998,
+        -5.3999999999999995,
+        0.010000949999999995
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.44291515198734877,
+        0.42785797261285224,
+        0.22137990000000002,
+        0.03301590000000001,
+        0.6617324091171337,
+        -0.25258725771523016
+      ],
+      "awayScore": [
+        0.5577617273697317,
+        0.8689700834373869,
+        0.22662079999999998,
+        0.007773100000000055,
+        0.2517064446340231,
+        0.25258725771523016
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.400233333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}

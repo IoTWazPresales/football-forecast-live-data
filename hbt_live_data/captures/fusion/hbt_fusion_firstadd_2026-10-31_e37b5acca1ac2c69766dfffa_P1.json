@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-10-31|en.1|aston villa|fulham|P1",
+  "targetDate": "2026-10-31",
+  "capturedAt": "2026-10-30T15:30:47.090421Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:47.014Z",
+  "sourceSha256": "488f888f1d86c106f67c1c678b174bbd2722909df46d4dbdcc870e77f0eddab0",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-10-31.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-10-31",
+      "time": "20:00",
+      "league": "en.1",
+      "home": "Aston Villa",
+      "away": "Fulham",
+      "provider": "ESPN:en.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.5503570539020601,
+      0.2405811547432949,
+      0.2090617913546449
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.5353860648926716,
+        0.2578341547970746,
+        0.20677978031025385
+      ],
+      "L1": [
+        0.5159095692746807,
+        0.27545955362617214,
+        0.20863087709914716
+      ],
+      "L4": [
+        0.5278935999714269,
+        0.2384758951096701,
+        0.23363050491890283
+      ],
+      "Fusion": [
+        0.5503570539020601,
+        0.2405811547432949,
+        0.2090617913546449
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.5278935999714269,
+        0.2384758951096701,
+        0.23363050491890283
+      ],
+      "oneX": 0.7663694950810971,
+      "x2": 0.47210640002857296,
+      "twelve": 0.7615241048903297,
+      "over15": 0.8069620718757531,
+      "under15": 0.19303792812424692,
+      "over25": 0.5780212025320657,
+      "under25": 0.4219787974679343,
+      "over35": 0.3539796044290151,
+      "under35": 0.6460203955709849,
+      "bttsYes": 0.5836575317027436,
+      "bttsNo": 0.4163424682972564,
+      "homeOver05": 0.8417527100088987,
+      "awayOver05": 0.687083392423364,
+      "homeOver15": 0.5500079665262237,
+      "awayOver15": 0.3235310579434186,
+      "mostLikelyScore": {
+        "h": 1,
+        "a": 1,
+        "p": 0.11136770669364834
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        0.393750039523577,
+        0.13333333333333333,
+        0.0666666666666667,
+        -0.16,
+        0,
+        -0.07999999999999999,
+        -0.07999999999999999,
+        0.19999999999999998,
+        0.32,
+        0.01758298797630232,
+        0
+      ],
+      "performance": [
+        0.01968700000000001,
+        -0.6575353999999998,
+        -5,
+        0.20946209999999998
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.3871170064764672,
+        0.13374142056711003,
+        0.16363560000000002,
+        -0.27154860000000003,
+        0.41996585343117526,
+        0.393750039523577
+      ],
+      "awayScore": [
+        0.37365915224042323,
+        0.58813804760443,
+        -0.3265209,
+        -0.20031629999999997,
+        0.20620419219420963,
+        -0.393750039523577
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.400233333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}

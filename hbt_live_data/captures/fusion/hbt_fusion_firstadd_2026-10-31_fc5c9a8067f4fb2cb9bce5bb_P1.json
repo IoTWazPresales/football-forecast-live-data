@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-10-31|it.1|bologna|monza|P1",
+  "targetDate": "2026-10-31",
+  "capturedAt": "2026-10-30T15:30:47.090421Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:47.014Z",
+  "sourceSha256": "488f888f1d86c106f67c1c678b174bbd2722909df46d4dbdcc870e77f0eddab0",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-10-31.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-10-31",
+      "time": "14:00",
+      "league": "it.1",
+      "home": "Bologna",
+      "away": "Monza",
+      "provider": "ESPN:it.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.6212206313847042,
+      0.215431279481802,
+      0.16334808913349372
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.5644529617679668,
+        0.250342653060643,
+        0.18520438517139023
+      ],
+      "L1": [
+        0.5635365145634846,
+        0.2623010601886827,
+        0.1741624252478327
+      ],
+      "L4": [
+        0.6005718437385753,
+        0.2130441404289951,
+        0.18638401583242928
+      ],
+      "Fusion": [
+        0.6212206313847042,
+        0.215431279481802,
+        0.16334808913349372
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.6005718437385753,
+        0.2130441404289951,
+        0.18638401583242928
+      ],
+      "oneX": 0.8136159841675704,
+      "x2": 0.39942815626142436,
+      "twelve": 0.7869558595710046,
+      "over15": 0.8381283305956866,
+      "under15": 0.1618716694043134,
+      "over25": 0.6276354959712573,
+      "under25": 0.37236450402874266,
+      "over35": 0.4055649454500248,
+      "under35": 0.5944350545499753,
+      "bttsYes": 0.5955948506921709,
+      "bttsNo": 0.4044051493078291,
+      "homeOver05": 0.8804632675807378,
+      "awayOver05": 0.6711826701434386,
+      "homeOver15": 0.6265497984170562,
+      "awayOver15": 0.30545462827097924,
+      "mostLikelyScore": {
+        "h": 2,
+        "a": 1,
+        "p": 0.09862757689607671
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        0.4810764762023109,
+        0,
+        0.10000000000000002,
+        -0.32,
+        0.15999999999999998,
+        -0.24000000000000005,
+        -0.08000000000000007,
+        0.1333333333333333,
+        0.4,
+        0.06156202861346174,
+        0
+      ],
+      "performance": [
+        0.41417139999999986,
+        0.6414942000000001,
+        0,
+        -0.06391639999999998
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.40145159807441166,
+        0.8030064615807907,
+        0.2530041,
+        -0.016121000000000007,
+        0.4633911921573584,
+        0.4810764762023109
+      ],
+      "awayScore": [
+        0.07679473101106983,
+        0.4642042201343658,
+        0.4600898,
+        -0.09537390000000001,
+        0.355415281972894,
+        -0.4810764762023109
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.400233333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}

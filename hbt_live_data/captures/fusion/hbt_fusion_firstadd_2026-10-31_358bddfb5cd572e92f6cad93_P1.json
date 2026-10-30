@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-10-31|de.1|borussia mönchengladbach|sc paderborn 07|P1",
+  "targetDate": "2026-10-31",
+  "capturedAt": "2026-10-30T15:30:47.090421Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:47.014Z",
+  "sourceSha256": "488f888f1d86c106f67c1c678b174bbd2722909df46d4dbdcc870e77f0eddab0",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-10-31.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-10-31",
+      "time": "14:30",
+      "league": "de.1",
+      "home": "Borussia Mönchengladbach",
+      "away": "SC Paderborn 07",
+      "provider": "ESPN:de.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.4894811999908855,
+      0.25020472022592316,
+      0.26031407978319143
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.45580517111222907,
+        0.2685387049465746,
+        0.2756561239411964
+      ],
+      "L1": [
+        0.4510420944515186,
+        0.2861365350477312,
+        0.26282137050075016
+      ],
+      "L4": [
+        0.48079938637140124,
+        0.24430520112090898,
+        0.2748954125076897
+      ],
+      "Fusion": [
+        0.4894811999908855,
+        0.25020472022592316,
+        0.26031407978319143
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.48079938637140124,
+        0.24430520112090898,
+        0.2748954125076897
+      ],
+      "oneX": 0.7251045874923102,
+      "x2": 0.5192006136285987,
+      "twelve": 0.755694798879091,
+      "over15": 0.813494669049866,
+      "under15": 0.186505330950134,
+      "over25": 0.587802561638802,
+      "under25": 0.41219743836119804,
+      "over35": 0.36385056080007605,
+      "under35": 0.636149439199924,
+      "bttsYes": 0.6050278221137435,
+      "bttsNo": 0.3949721778862565,
+      "homeOver05": 0.8284018739077941,
+      "awayOver05": 0.723868367513792,
+      "homeOver15": 0.5259425745969822,
+      "awayOver15": 0.36852072140157766,
+      "mostLikelyScore": {
+        "h": 1,
+        "a": 1,
+        "p": 0.11285211005758887
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        0.01689882574927651,
+        -0.0666666666666667,
+        0.10000000000000002,
+        -0.24,
+        0.27999999999999997,
+        0.4,
+        -0.64,
+        0.3333333333333333,
+        0.64,
+        -0.11820627920129709,
+        0
+      ],
+      "performance": [
+        -0.04235179999999983,
+        -0.31522199999999967,
+        6.2,
+        -0.16060655000000001
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.225225861800124,
+        0.6661613154749586,
+        0.17369719999999997,
+        -0.173375,
+        0.6617324091171337,
+        0.01689882574927651
+      ],
+      "awayScore": [
+        0.2584777988575281,
+        0.8162369991911439,
+        -0.047478699999999985,
+        0.369014,
+        0.2517064446340231,
+        -0.01689882574927651
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.400233333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-11-01|fr.1|paris fc|as monaco|P1",
+  "targetDate": "2026-11-01",
+  "capturedAt": "2026-10-30T15:30:54.932329Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:54.862Z",
+  "sourceSha256": "76fb09f0631bbffe9308d0f4d36639a2a523d96328b8a6bc3231c77a94f9ac50",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-11-01.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-11-01",
+      "time": "16:15",
+      "league": "fr.1",
+      "home": "Paris FC",
+      "away": "AS Monaco",
+      "provider": "ESPN:fr.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.39951563958067704,
+      0.28606567485379064,
+      0.3144186855655323
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.34477472304659645,
+        0.27097090315875305,
+        0.3842543737946505
+      ],
+      "L1": [
+        0.3472611963038977,
+        0.2866619304114886,
+        0.36607687328461364
+      ],
+      "L4": [
+        0.41729253330060045,
+        0.2906676783189045,
+        0.29203978838049566
+      ],
+      "Fusion": [
+        0.39951563958067704,
+        0.28606567485379064,
+        0.3144186855655323
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.41729253330060045,
+        0.2906676783189045,
+        0.29203978838049566
+      ],
+      "oneX": 0.707960211619505,
+      "x2": 0.5827074666994001,
+      "twelve": 0.7093323216810961,
+      "over15": 0.6855018113226339,
+      "under15": 0.3144981886773661,
+      "over25": 0.4153885975979642,
+      "under25": 0.5846114024020358,
+      "over35": 0.2094961540634812,
+      "under35": 0.7905038459365188,
+      "bttsYes": 0.4776970787496713,
+      "bttsNo": 0.5223029212503287,
+      "homeOver05": 0.7274055381796627,
+      "awayOver05": 0.6477622990359555,
+      "homeOver15": 0.37309537650311164,
+      "awayOver15": 0.2802202011115585,
+      "mostLikelyScore": {
+        "h": 1,
+        "a": 1,
+        "p": 0.13673509514545854
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        -0.38999535442755134,
+        -0.1333333333333333,
+        0.06666666666666665,
+        0,
+        0.24,
+        0,
+        0,
+        0.20000000000000004,
+        0.5599999999999999,
+        -0.2763050627921234,
+        0
+      ],
+      "performance": [
+        -0.10170880000000015,
+        0.36585200000000007,
+        2.3999999999999995,
+        -0.06603579999999999
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.07562051340055057,
+        -0.13199200665874375,
+        0.16072340000000002,
+        0.16182599999999997,
+        0.4668130000042974,
+        -0.38999535442755134
+      ],
+      "awayScore": [
+        0.16573644773000068,
+        -0.6723724768635498,
+        0.009868999999999994,
+        0.444752,
+        0.24770023669562216,
+        0.38999535442755134
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.531033333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}

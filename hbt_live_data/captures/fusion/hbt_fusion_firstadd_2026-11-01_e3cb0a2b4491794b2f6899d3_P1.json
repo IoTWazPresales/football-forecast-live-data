@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-11-01|en.1|liverpool|arsenal|P1",
+  "targetDate": "2026-11-01",
+  "capturedAt": "2026-10-30T15:30:54.932329Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:54.862Z",
+  "sourceSha256": "76fb09f0631bbffe9308d0f4d36639a2a523d96328b8a6bc3231c77a94f9ac50",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-11-01.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-11-01",
+      "time": "16:30",
+      "league": "en.1",
+      "home": "Liverpool",
+      "away": "Arsenal",
+      "provider": "ESPN:en.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.6286106129254899,
+      0.22105714926506317,
+      0.15033223780944688
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.6650488755445022,
+        0.21469397733271936,
+        0.12025714712277846
+      ],
+      "L1": [
+        0.619955948610703,
+        0.24232778472248226,
+        0.1377162666668147
+      ],
+      "L4": [
+        0.5784400052159522,
+        0.23126532929613586,
+        0.1902946654879115
+      ],
+      "Fusion": [
+        0.6286106129254899,
+        0.22105714926506317,
+        0.15033223780944688
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.5784400052159522,
+        0.23126532929613586,
+        0.1902946654879115
+      ],
+      "oneX": 0.809705334512088,
+      "x2": 0.4215599947840474,
+      "twelve": 0.7687346707038637,
+      "over15": 0.7919402406709568,
+      "under15": 0.2080597593290432,
+      "over25": 0.5559413490501259,
+      "under25": 0.44405865094987407,
+      "over35": 0.3322190095722598,
+      "under35": 0.6677809904277402,
+      "bttsYes": 0.5446244456823884,
+      "bttsNo": 0.45537555431761156,
+      "homeOver05": 0.8509417610560611,
+      "awayOver05": 0.6338926772647391,
+      "homeOver15": 0.5672208145491079,
+      "awayOver15": 0.266017507352909,
+      "mostLikelyScore": {
+        "h": 1,
+        "a": 1,
+        "p": 0.10959258597398035
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        0.7611814369525598,
+        -0.03333333333333336,
+        0.2333333333333334,
+        0.2,
+        0.5599999999999999,
+        -0.07999999999999999,
+        0.27999999999999997,
+        0.16666666666666666,
+        0.6799999999999999,
+        0.1614016355428646,
+        0
+      ],
+      "performance": [
+        -0.2619539999999998,
+        0.09253660000000008,
+        -9.2,
+        -0.05764565000000004
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.28964714044037715,
+        0.19706648080409014,
+        -0.16797800000000004,
+        -0.2089125,
+        0.41996585343117526,
+        0.7611814369525598
+      ],
+      "awayScore": [
+        0.4686965253575289,
+        0.11803935835846831,
+        -0.09895499999999997,
+        -0.1626442,
+        0.20620419219420963,
+        -0.7611814369525598
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.531033333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-10-31|en.1|tottenham hotspur|crystal palace|P1",
+  "targetDate": "2026-10-31",
+  "capturedAt": "2026-10-30T15:30:47.090421Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:47.014Z",
+  "sourceSha256": "488f888f1d86c106f67c1c678b174bbd2722909df46d4dbdcc870e77f0eddab0",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-10-31.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-10-31",
+      "time": "17:30",
+      "league": "en.1",
+      "home": "Tottenham Hotspur",
+      "away": "Crystal Palace",
+      "provider": "ESPN:en.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.43667238850055295,
+      0.26077328862747795,
+      0.30255432287196904
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.35920455168665055,
+        0.280210613270547,
+        0.3605848350428024
+      ],
+      "L1": [
+        0.37072538174393094,
+        0.2892951822021203,
+        0.3399794360539488
+      ],
+      "L4": [
+        0.45555812236469767,
+        0.2549099748617534,
+        0.28953190277354923
+      ],
+      "Fusion": [
+        0.43667238850055295,
+        0.26077328862747795,
+        0.30255432287196904
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.45555812236469767,
+        0.2549099748617534,
+        0.28953190277354923
+      ],
+      "oneX": 0.710468097226451,
+      "x2": 0.5444418776353026,
+      "twelve": 0.7450900251382468,
+      "over15": 0.7894610686110307,
+      "under15": 0.21053893138896929,
+      "over25": 0.5516420747976931,
+      "under25": 0.4483579252023069,
+      "over35": 0.3280654864158555,
+      "under35": 0.6719345135841446,
+      "bttsYes": 0.5814923406166307,
+      "bttsNo": 0.4185076593833693,
+      "homeOver05": 0.8043600976220318,
+      "awayOver05": 0.7158315713209611,
+      "homeOver15": 0.48517735778023213,
+      "awayOver15": 0.3582941912735153,
+      "mostLikelyScore": {
+        "h": 1,
+        "a": 1,
+        "p": 0.11982574858737284
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        -0.26658943587799283,
+        -0.13333333333333333,
+        0.19999999999999998,
+        -0.07999999999999999,
+        0.31999999999999995,
+        -0.31999999999999995,
+        0.24000000000000005,
+        0,
+        0.16,
+        0.05585220879946633,
+        0
+      ],
+      "performance": [
+        -0.10542300000000004,
+        0.9302693999999998,
+        0,
+        0.2437884
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.2537816931892055,
+        0.7355637430806397,
+        0.15555480000000002,
+        0.056670999999999985,
+        0.41996585343117526,
+        -0.26658943587799283
+      ],
+      "awayScore": [
+        0.3324021077299261,
+        0.1453018729309015,
+        -0.19715670000000002,
+        -0.07819429999999998,
+        0.20620419219420963,
+        0.26658943587799283
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.400233333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}

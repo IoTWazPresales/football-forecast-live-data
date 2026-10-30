@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-11-01|es.1|athletic club|real sociedad|P1",
+  "targetDate": "2026-11-01",
+  "capturedAt": "2026-10-30T15:30:54.932329Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:54.862Z",
+  "sourceSha256": "76fb09f0631bbffe9308d0f4d36639a2a523d96328b8a6bc3231c77a94f9ac50",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-11-01.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-11-01",
+      "time": "20:00",
+      "league": "es.1",
+      "home": "Athletic Club",
+      "away": "Real Sociedad",
+      "provider": "ESPN:es.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.4453968425830073,
+      0.26205493907963007,
+      0.29254821833736266
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.4315999709414097,
+        0.27233335772847167,
+        0.2960666713301186
+      ],
+      "L1": [
+        0.43358743358192114,
+        0.2840394277519303,
+        0.28237313866614855
+      ],
+      "L4": [
+        0.4301868084187669,
+        0.26073318062516354,
+        0.3090800109560697
+      ],
+      "Fusion": [
+        0.4453968425830073,
+        0.26205493907963007,
+        0.29254821833736266
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.4301868084187669,
+        0.26073318062516354,
+        0.3090800109560697
+      ],
+      "oneX": 0.6909199890439304,
+      "x2": 0.5698131915812332,
+      "twelve": 0.7392668193748366,
+      "over15": 0.7788656760662576,
+      "under15": 0.22113432393374244,
+      "over25": 0.5362821364677872,
+      "under25": 0.4637178635322128,
+      "over35": 0.31343884127069466,
+      "under35": 0.6865611587293053,
+      "bttsYes": 0.5735399737107507,
+      "bttsNo": 0.4264600262892493,
+      "homeOver05": 0.7870050574378317,
+      "awayOver05": 0.7213112688994779,
+      "homeOver15": 0.4576110204534479,
+      "awayOver15": 0.36524185406427717,
+      "mostLikelyScore": {
+        "h": 1,
+        "a": 1,
+        "p": 0.1231514990991959
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        -0.033201581710407026,
+        0.1333333333333334,
+        0,
+        0.24,
+        0,
+        0,
+        0.24,
+        0.06666666666666665,
+        0.24000000000000005,
+        0.007529617384877838,
+        0
+      ],
+      "performance": [
+        -0.5976882000000001,
+        0.46696229999999994,
+        1.2,
+        -0.01731852500000001
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.18814904395931964,
+        0.3206575554582081,
+        -0.0035066999999999737,
+        0.3109832,
+        0.5019916849670409,
+        -0.033201581710407026
+      ],
+      "awayScore": [
+        0.5903952595586681,
+        -0.09313411914262279,
+        0.3976492000000001,
+        -0.05553565000000003,
+        0.23873643159042152,
+        0.033201581710407026
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.531033333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}

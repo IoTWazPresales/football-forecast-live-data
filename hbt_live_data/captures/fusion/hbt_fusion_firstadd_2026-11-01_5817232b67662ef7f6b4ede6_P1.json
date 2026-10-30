@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-11-01|it.1|juventus|napoli|P1",
+  "targetDate": "2026-11-01",
+  "capturedAt": "2026-10-30T15:30:54.932329Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:54.862Z",
+  "sourceSha256": "76fb09f0631bbffe9308d0f4d36639a2a523d96328b8a6bc3231c77a94f9ac50",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-11-01.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-11-01",
+      "time": "19:45",
+      "league": "it.1",
+      "home": "Juventus",
+      "away": "Napoli",
+      "provider": "ESPN:it.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.6691918668322476,
+      0.20706830116138128,
+      0.12373983200637093
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.7002228658166911,
+        0.19954709872040532,
+        0.10023003546290346
+      ],
+      "L1": [
+        0.6739659276250033,
+        0.22176604400597416,
+        0.10426802836902244
+      ],
+      "L4": [
+        0.6048369726506874,
+        0.2236222708925553,
+        0.1715407564567571
+      ],
+      "Fusion": [
+        0.6691918668322476,
+        0.20706830116138128,
+        0.12373983200637093
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.6048369726506874,
+        0.2236222708925553,
+        0.1715407564567571
+      ],
+      "oneX": 0.8284592435432426,
+      "x2": 0.3951630273493124,
+      "twelve": 0.7763777291074445,
+      "over15": 0.7938041497959899,
+      "under15": 0.2061958502040101,
+      "over25": 0.5588970296529844,
+      "under25": 0.4411029703470156,
+      "over35": 0.3350901733635227,
+      "under35": 0.6649098266364772,
+      "bttsYes": 0.5337917941706373,
+      "bttsNo": 0.46620820582936273,
+      "homeOver05": 0.8601790596104104,
+      "awayOver05": 0.6146830743131084,
+      "homeOver15": 0.5850953675336926,
+      "awayOver15": 0.24721051995014393,
+      "mostLikelyScore": {
+        "h": 1,
+        "a": 1,
+        "p": 0.10613999234057805
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        0.9547491154914212,
+        0,
+        -0.1333333333333333,
+        0.12000000000000002,
+        -0.08,
+        0.24000000000000005,
+        -0.12000000000000002,
+        0.20000000000000004,
+        0.16,
+        -0.004529261106579269,
+        0
+      ],
+      "performance": [
+        -1.0334775999999997,
+        0.3318934,
+        6.199999999999999,
+        -0.12460394999999999
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.33594381131486406,
+        0.08806673656841735,
+        -0.1996302,
+        0.053969500000000004,
+        0.4633911921573584,
+        0.9547491154914212
+      ],
+      "awayScore": [
+        0.8890173720184521,
+        -0.2742163436983246,
+        -0.11636899999999999,
+        0.21991619999999995,
+        0.355415281972894,
+        -0.9547491154914212
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.531033333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}

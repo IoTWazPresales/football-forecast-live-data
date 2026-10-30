@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "HBT-FUSION-FIRST-ADD-1",
+  "fixtureIdentityKey": "2026-10-31|en.1|afc bournemouth|leeds united|P1",
+  "targetDate": "2026-10-31",
+  "capturedAt": "2026-10-30T15:30:47.090421Z",
+  "sourceGeneratedAt": "2026-10-30T15:30:47.014Z",
+  "sourceSha256": "488f888f1d86c106f67c1c678b174bbd2722909df46d4dbdcc870e77f0eddab0",
+  "sourcePath": "hbt_recovered_fusion_shadow_2026-10-31.json",
+  "originalDeploymentCreated": "2026-09-12T11:15:44.195Z",
+  "policy": {
+    "immutableFirstAdd": true,
+    "retrainingPerformed": false,
+    "bettingEligible": false,
+    "marketPricesUsedAsPredictors": false,
+    "cleanCalibrationEligible": false,
+    "cleanEvidencePending": "INDEPENDENT_PREMATCH_IDENTITY_KICKOFF_LINEUP_AND_RESULTS_PROOF",
+    "modelPromoted": false,
+    "distinctP1P2NotIndependentMatches": true
+  },
+  "forecast": {
+    "fixture": {
+      "date": "2026-10-31",
+      "time": "15:00",
+      "league": "en.1",
+      "home": "AFC Bournemouth",
+      "away": "Leeds United",
+      "provider": "ESPN:en.1",
+      "sourceStatus": "loaded"
+    },
+    "status": "RESEARCH_ONLY",
+    "predictionMode": "PRE-XI FUSION",
+    "probs": [
+      0.5769940768148143,
+      0.23589911583722112,
+      0.18710680734796467
+    ],
+    "layerPredictions": {
+      "L0": [
+        0.5088544386605842,
+        0.26198736347817075,
+        0.22915819786124506
+      ],
+      "L1": [
+        0.5061915917301284,
+        0.2773691783510981,
+        0.21643922991877346
+      ],
+      "L4": [
+        0.5714332337626505,
+        0.23182326805100414,
+        0.1967434981863453
+      ],
+      "Fusion": [
+        0.5769940768148143,
+        0.23589911583722112,
+        0.18710680734796467
+      ]
+    },
+    "scoreMarkets": {
+      "hda": [
+        0.5714332337626505,
+        0.23182326805100414,
+        0.1967434981863453
+      ],
+      "oneX": 0.8032565018136547,
+      "x2": 0.42856676623734946,
+      "twelve": 0.7681767319489958,
+      "over15": 0.7964467841609717,
+      "under15": 0.2035532158390283,
+      "over25": 0.5625297168894863,
+      "under25": 0.4374702831105137,
+      "over35": 0.3386373308136197,
+      "under35": 0.6613626691863803,
+      "bttsYes": 0.5534919853728882,
+      "bttsNo": 0.44650801462711176,
+      "homeOver05": 0.8508966270418659,
+      "awayOver05": 0.6443501824719423,
+      "homeOver15": 0.567134913397622,
+      "awayOver15": 0.2766763052101584,
+      "mostLikelyScore": {
+        "h": 1,
+        "a": 1,
+        "p": 0.10954835794772863
+      }
+    },
+    "inputFeatures": {
+      "structural": [
+        0.19656188660373686,
+        -0.4000000000000001,
+        -0.16666666666666666,
+        -0.4800000000000001,
+        -0.08,
+        -0.07999999999999999,
+        -0.4,
+        0,
+        0.32,
+        0.21816925944956553,
+        0
+      ],
+      "performance": [
+        1.0136712000000003,
+        0.3902171200000001,
+        5.2,
+        -0.45097207999999994
+      ],
+      "context": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "homeScore": [
+        0.885236378252948,
+        0.23866171929089577,
+        -0.41177860000000005,
+        -0.23477449999999997,
+        0.41996585343117526,
+        0.19656188660373686
+      ],
+      "awayScore": [
+        0.34350885005762366,
+        -0.1285928871416006,
+        -0.10494300000000001,
+        0.3603340599999999,
+        0.20620419219420963,
+        -0.19656188660373686
+      ]
+    },
+    "diagnostics": {
+      "performanceFeedAgeMinutes": 17.400233333333333,
+      "performanceFeedCurrent": true,
+      "confirmedXi": false,
+      "xiReason": "outside confirmed-XI collection window",
+      "preKickoff": true
+    },
+    "executionEligible": false,
+    "blockers": [
+      "RECOVERED_FUSION_VALUE_CALIBRATION_UNVALIDATED",
+      "RESEARCH_RUNTIME_NOT_PROMOTED"
+    ],
+    "stakeRand": 0
+  }
+}
