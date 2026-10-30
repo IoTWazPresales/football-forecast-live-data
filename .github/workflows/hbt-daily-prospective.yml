@@ -1,0 +1,179 @@
+name: HBT Daily Prospective Shadow
+
+on:
+  push:
+    branches:
+      - main
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - '.github/workflows/hbt-daily-prospective.yml'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: 'YYYY-MM-DD prospective slate date'
+        required: true
+        type: string
+  schedule:
+    - cron: '30 8 * * *'
+    - cron: '30 15 * * *'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hbt-research-output-writer
+  cancel-in-progress: false
+
+jobs:
+  prospective:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: research/hbt-1.4-match-intelligence
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Resolve prospective date
+        id: target
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then TARGET='${{ inputs.date }}'; else TARGET="$(TZ=Africa/Johannesburg date +%F)"; fi
+          echo "date=$TARGET" >> "$GITHUB_OUTPUT"
+          echo "Prospective target: $TARGET"
+
+      - name: Compile prospective stack
+        run: |
+          set -euo pipefail
+          python -m py_compile scripts/hbt_collect_live_data.py scripts/hbt_collect_players_espn.py scripts/hbt_collect_context_v3_runtime.py scripts/hbt_collect_market_intelligence_v4_final.py scripts/hbt_collect_match_intelligence_v6.py scripts/hbt_scan_slate_v2_2.py scripts/hbt_build_prospective_card_v2.py scripts/hbt_build_prospective_from_frozen.py scripts/hbt_collect_market_prices_v1.py scripts/hbt_execution_surface_v1.py scripts/hbt_execution_surface_v1_3.py
+          node --check scripts/hbt_frozen_forecast_bridge.mjs
+          node --check scripts/hbt_recovered_fusion_shadow.mjs
+          node --test tests/test_hbt_recovered_fusion.mjs
+
+      - name: Refresh supported HBT intelligence
+        run: |
+          set -euo pipefail
+          python scripts/hbt_collect_live_data.py
+          python scripts/hbt_collect_players_espn.py
+          python scripts/hbt_collect_context_v3_runtime.py
+          python scripts/hbt_collect_market_intelligence_v4_final.py
+          python scripts/hbt_collect_match_intelligence_v6.py
+
+      - name: Discover full public slate
+        run: |
+          set -euo pipefail
+          python scripts/hbt_scan_slate_v2_2.py --date '${{ steps.target.outputs.date }}'
+          python - <<'PY'
+          import json,os
+          d=os.environ['TARGET_DATE'];x=json.load(open('hbt_live_data/slate_scanner.json',encoding='utf-8'))
+          assert x.get('targetDate')==d
+          print(json.dumps({'version':x.get('version'),'coverage':x.get('coverage')},indent=2))
+          PY
+        env:
+          TARGET_DATE: '${{ steps.target.outputs.date }}'
+
+      - name: Crosscheck independently available official kickoffs
+        run: python scripts/hbt_collect_independent_kickoffs_v1.py --date '${{ steps.target.outputs.date }}'
+
+      - name: Freeze exact HBT probabilities before bookmaker pricing
+        run: |
+          set -euo pipefail
+          node scripts/hbt_frozen_forecast_bridge.mjs --date '${{ steps.target.outputs.date }}' --with-structural-features
+          node scripts/hbt_recovered_fusion_shadow.mjs --date '${{ steps.target.outputs.date }}'
+          python scripts/hbt_scan_slate_v2_2.py --date '${{ steps.target.outputs.date }}' --reconcile-existing
+          python - <<'PY'
+          import json
+          s=json.load(open('hbt_live_data/forecast_bridge_status.json',encoding='utf-8'))
+          assert s['status']=='READY',s
+          assert s['goldenParity']['pass'] is True
+          assert s['goldenParity']['unresolved']==0
+          assert s['goldenParity']['maxAbsError']<=1e-9
+          assert s['policy']['retrainingOrRetuningPerformed'] is False
+          print(json.dumps({'status':s['status'],'goldenParity':s['goldenParity'],'target':s.get('target')},indent=2))
+          PY
+          python scripts/hbt_build_prospective_from_frozen.py --date '${{ steps.target.outputs.date }}' --refresh
+
+      - name: Validate immutable prospective HBT card
+        run: |
+          set -euo pipefail
+          python - <<'PY'
+          import hashlib,json,os,pathlib
+          import sys;sys.path.insert(0,'scripts')
+          from hbt_capture_store import capture_path
+          d=os.environ['TARGET_DATE'];p=capture_path(pathlib.Path('hbt_live_data'),d);x=json.load(open(p,encoding='utf-8'));q=x['policy']
+          assert q['bookmakerOddsUsedAsPredictiveFeature'] is False and q['bookmakerPriceObservedBeforeCapture'] is False
+          assert q['modelRetuned'] is False and q['preMatchCaptureImmutable'] is True
+          assert q['unsupportedCompetitionsMayNotEnterHBT'] is True and q['competitionLabelIsEligibilityGate'] is True
+          assert q['exactFrozenRuntimeParityRequired'] is True
+          assert x['counts']['postKickoff']==0, 'retrospective/post-kickoff prediction detected'
+          assert x['counts']['predictions']==x['counts']['preKickoff']
+          for r in x['candidates']:
+              assert r['statusAtCapture']=='PRE_KICKOFF'
+              assert r['fixture'].get('league')
+              assert r['surfacingPolicy']['baseProbabilityChangedByOverlay'] is False
+          digest=hashlib.sha256(p.read_bytes()).hexdigest();open('/tmp/hbt_card_sha','w').write(digest)
+          print(json.dumps({'capturedAt':x['capturedAt'],'counts':x['counts'],'sha256':digest},indent=2))
+          PY
+        env:
+          TARGET_DATE: '${{ steps.target.outputs.date }}'
+
+      - name: Collect bookmaker prices after freeze
+        run: python scripts/hbt_collect_market_prices_v1.py --date '${{ steps.target.outputs.date }}'
+        env:
+          ODDS_API_IO_KEY: ${{ secrets.ODDS_API_IO_KEY }}
+          HBT_PRIMARY_BOOKMAKER: Betway
+
+      - name: Build risk-adjusted identity-safe execution surface
+        run: |
+          set -euo pipefail
+          python scripts/hbt_execution_surface_v1_3.py --date '${{ steps.target.outputs.date }}' --prices hbt_live_data/market_prices.json
+          python scripts/hbt_build_bet_list_v1.py --date '${{ steps.target.outputs.date }}'
+          python - <<'PY'
+          import json,os
+          d=os.environ['TARGET_DATE'];x=json.load(open(f'hbt_live_data/hbt_execution_surface_{d}.json',encoding='utf-8'))
+          print(json.dumps({'summary':x.get('summary'),'rows':[{'fixture':r.get('fixture'),'selection':(r.get('signal') or {}).get('selection'),'value':r.get('value'),'block':r.get('executionBlockReason')} for r in x.get('rows') or []]},indent=2))
+          PY
+        env:
+          TARGET_DATE: '${{ steps.target.outputs.date }}'
+
+      - name: Prove pricing did not mutate forecast
+        run: |
+          python - <<'PY'
+          import hashlib,os,pathlib
+          import sys;sys.path.insert(0,'scripts')
+          from hbt_capture_store import capture_path
+          d=os.environ['TARGET_DATE'];p=capture_path(pathlib.Path('hbt_live_data'),d)
+          before=pathlib.Path('/tmp/hbt_card_sha').read_text().strip();after=hashlib.sha256(p.read_bytes()).hexdigest()
+          assert before==after,(before,after)
+          print('Immutable prospective card hash preserved:',after)
+          PY
+        env:
+          TARGET_DATE: '${{ steps.target.outputs.date }}'
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hbt-daily-evidence-${{ steps.target.outputs.date }}
+          path: hbt_live_data/
+
+      - name: Commit prospective evidence and execution surface
+        run: |
+          set -euo pipefail
+          D='${{ steps.target.outputs.date }}'
+          git config user.name 'github-actions[bot]';git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add hbt_live_data/slate_scanner.json "hbt_live_data/frozen_control_forecast_${D}.json" "hbt_live_data/hbt_prospective_card_${D}.json" "hbt_live_data/hbt_execution_surface_${D}.json" hbt_live_data/forecast_bridge_status.json hbt_live_data/market_prices.json hbt_live_data/manifest.json hbt_live_data/performance.json hbt_live_data/player_features.json hbt_live_data/pre_xi_context.json hbt_live_data/market_intelligence.json hbt_live_data/hbt_1_4_match_intelligence.json hbt_live_data/_hbt_1_4_live_cache.json || true
+          git add "hbt_live_data/hbt_betting_desk_${D}.json" "hbt_live_data/hbt_betting_desk_${D}.html"
+          git add "hbt_live_data/slate_scanner_${D}.json" "hbt_live_data/market_prices_${D}.json" "hbt_live_data/hbt_independent_kickoffs_${D}.json"
+          git add "hbt_live_data/hbt_recovered_fusion_shadow_${D}.json" "hbt_live_data/hbt_bet_list_${D}.json" "hbt_live_data/hbt_bet_list_${D}.md"
+          git add hbt_live_data/captures/ "hbt_live_data/hbt_current_capture_${D}.json"
+          python scripts/hbt_publish_research_outputs.py --message "prospective: exact frozen HBT slate ${D} and execution surface [skip ci]"
+
+# maintenance trigger: 2026-09-29 exact-runtime restart
