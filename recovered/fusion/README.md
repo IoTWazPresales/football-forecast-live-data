@@ -2,11 +2,19 @@
 
 ## What this restores
 
-The actual original single-file HBT browser application's Fusion / PRE-XI / confirmed-XI and L4 score-model **source code**. This was recovered from the user's own HBT Library files. It is not a newly generated or approximated replacement.
+The actual original single-file HBT browser application's Fusion / PRE-XI / confirmed-XI and L4 score-model **source code and original trained Fusion coefficient export**. This was recovered from the user's own HBT Library files. It is not a newly generated or approximated replacement.
 
 The exact original source is `recovery/HBT_1_2R_R4_FROZEN_SNAPSHOT_RECOVERY.html`; SHA-256 `8d139104722ea51171c2a473f80ed69dfea6b2ba08466b39b7e95fafc9514de7`. Identical code is preserved in the dedicated GitHub branch `recovery/hbt-fusion-source-20261030`, Git blob `8d68270a2d99170faa3fe4023396fb301e1904cc`.
 
 `recovery/HBT_FUSION_WITH_MODEL_EXPORT.html` adds **only** a read-only button, **Export HBT saved models**. It does not change training, inference, forecast probabilities, betting gates or stored records. The exporter is also available separately as `recovery/hbt_snapshot_exporter.js`.
+
+## Original trained Fusion export FOUND
+
+The user's Library also contains `HBT-1.0L-R1-intelligence-fusion-run.json` created 12 September 2026, included unchanged in this archive. It has the full five model coefficients under `deploymentSnapshot.models`: `l1`, `fullCore`, `preXiCore`, `homePoisson`, `awayPoisson`. These are preserved separately in `recovery/HBT-1.0L-R1-deploymentSnapshot.json` and committed to the recovery GitHub branch. SHA-256 of the complete original export is `484706e307b3a0a5aa8db98b39eb7b79c27911f20dbbaa3352b76971c4ea84c1`. No coefficients were changed.
+
+`HBT_ORIGINAL_FUSION_REVALIDATION.json` was independently recomputed from the original match-level predictions using `scripts/hbt_revalidate_original_fusion.py`: **477 validation fixtures in 2018** and **378 confirmation fixtures in 2019**. On validation, full Fusion log loss was 0.98336 versus 0.98391 for L1; on confirmation, 0.99039 versus 0.99694. Both 95% date-block bootstrap intervals on the loss difference include zero. The PRE-XI challenger is not established as superior and no bookmaker odds were included. These are old retrospective holdouts, not modern clean prospective evidence or 2021–2026 Five-Year Live-Fusion tests.
+
+The original L0 live deployment states are still not in this full-Fusion export. The Fusion export records the original L0 lock timestamp and hyperparameters, but not its per-club states and complete snapshot. The original deployed L0 needs to be recovered from browser state or proven identical to the GitHub frozen runtime before Fusion can be safely replayed live.
 
 ## Recover existing trained state (preserve original before retraining)
 
@@ -26,8 +34,8 @@ The recovered Fusion training path explicitly fetches seasons **2014–15 throug
 
 ## Still NOT resolved by source recovery
 
-- No original deployed browser snapshot has been recovered from the user's current browser profile by this package alone.
-- No identical server-side runtime has been deployed or compared point-by-point against the browser app and frozen prospective captures.
+- Original trained Fusion coefficients have been recovered and preserved; the exact L0 browser deployment snapshot and states have not been recovered from the original browser profile by this package alone.
+- No combined L0+Fusion server-side runtime has been deployed or compared point-by-point against the browser app and frozen prospective captures.
 - No verified current bookmaker offers and independent lineup proof have been obtained. Provider credentials are absent.
 - Five-year point-in-time matched model/odds/results backtests and multi-date clean prospective confirmation remain outstanding.
 
