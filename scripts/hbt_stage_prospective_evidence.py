@@ -36,7 +36,6 @@ def sha(path: Path) -> str:
 def mandatory_names(date: str) -> tuple[str, ...]:
     return (
         f"frozen_control_forecast_{date}.json",
-        f"hbt_prospective_card_{date}.json",
         f"hbt_execution_surface_{date}.json",
         f"hbt_betting_desk_{date}.json",
         f"hbt_betting_desk_{date}.html",
@@ -107,6 +106,14 @@ def stage(dates: list[str], root: Path = ROOT) -> dict:
         subprocess.run(["git", "ls-files", "--error-unmatch", "--",
                         str(path.relative_to(root))], cwd=root,
                        check=True, stdout=subprocess.DEVNULL)
+    # An original pre-kickoff card may be absent for newly generated dates:
+    # --refresh records a new hash-pinned immutable capture and pointer instead.
+    # Never require or fabricate a retroactive original card.
+    for date in dates:
+        original = data / f"hbt_prospective_card_{date}.json"
+        if original.is_file():
+            subprocess.run(["git", "add", "--", str(original.relative_to(root))],
+                           cwd=root, check=True)
     for name in LIVE_OPTIONAL:
         path = data / name
         if path.is_file():
