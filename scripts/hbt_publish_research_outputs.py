@@ -28,7 +28,7 @@ def publish(message, remote='origin'):
         path = Path(name)
         if not name.startswith('hbt_live_data/') or path.name in PARAMS:
             raise ValueError('publication allows generated HBT output only: ' + name)
-        if path.name.startswith('hbt_prospective_card_'):
+        if path.name.startswith(('hbt_prospective_card_', 'hbt_fusion_firstadd_')):
             original = subprocess.run(['git', 'cat-file', '-e', 'HEAD:' + name], capture_output=True)
             if original.returncode == 0:
                 raise ValueError('cannot edit an existing immutable prospective capture: ' + name)
