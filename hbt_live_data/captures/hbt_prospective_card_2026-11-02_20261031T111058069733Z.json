@@ -1,0 +1,410 @@
+{
+  "schemaVersion": "HBT-PROSPECTIVE-CARD-2",
+  "version": "HBT-PROSPECTIVE-FROZEN-BRIDGE-1",
+  "capturedAt": "2026-10-31T11:10:58.069733Z",
+  "targetDate": "2026-11-02",
+  "origin": "HBT_EXACT_FROZEN_BRIDGE",
+  "policy": {
+    "bookmakerOddsUsedAsPredictiveFeature": false,
+    "bookmakerPriceObservedBeforeCapture": false,
+    "modelRetuned": false,
+    "preMatchCaptureImmutable": true,
+    "postKickoffBackfillAllowed": false,
+    "preserveExistingIntelligence": true,
+    "allValidatedIntelligenceFamiliesRetained": true,
+    "unvalidatedOverlayDoesNotChangeProbability": true,
+    "forensicLearningCanCreateHypothesesButNotAutoPromote": true,
+    "competitionLabelIsEligibilityGate": true,
+    "unsupportedCompetitionsMayNotEnterHBT": true,
+    "exactFrozenRuntimeParityRequired": true,
+    "c1ATierPromotionAllowed": false
+  },
+  "parityDiagnostic": 1.1102230246251565e-16,
+  "intelligenceSources": {
+    "matchIntelligenceGeneratedAt": "2026-10-31T11:10:45Z",
+    "preXiGeneratedAt": "2026-10-31T11:00:31Z",
+    "marketIntelligenceGeneratedAt": "2026-10-31T11:08:45Z"
+  },
+  "candidates": [
+    {
+      "fixture": {
+        "date": "2026-11-02",
+        "time": "17:00",
+        "league": "tr.1",
+        "home": "Genclerbirligi",
+        "away": "Alanyaspor",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 366d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.720427797922583,
+      "resolution": null,
+      "probs": {
+        "H": 0.35681958631254324,
+        "D": 0.2734930446205402,
+        "A": 0.36968736906691657
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.35681958631254324,
+          "fairOdds": 2.8025367394605016,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2734930446205402,
+          "fairOdds": 3.6564001157230774,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.36968736906691657,
+          "fairOdds": 2.7049882784039383,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.6303126309330834,
+          "fairOdds": 1.5865142961194507,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.6431804136874568,
+          "fairOdds": 1.5547737131279218,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7265069553794599,
+          "fairOdds": 1.3764493135206017,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.4911440746306053,
+          "winP": 0.35681958631254324,
+          "pushP": 0.2734930446205402,
+          "lossP": 0.36968736906691657,
+          "fairOdds": 2.0360624339245277,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.5088559253693947,
+          "winP": 0.36968736906691657,
+          "pushP": 0.2734930446205402,
+          "lossP": 0.35681958631254324,
+          "fairOdds": 1.9651927984803719,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-02",
+        "time": "20:00",
+        "league": "en.1",
+        "home": "Newcastle United",
+        "away": "Everton",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8835094049490103,
+      "resolution": null,
+      "probs": {
+        "H": 0.44580282511048314,
+        "D": 0.2764849088817225,
+        "A": 0.27771226600779436
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.44580282511048314,
+          "fairOdds": 2.2431441517943957,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2764849088817225,
+          "fairOdds": 3.616833931532191,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.27771226600779436,
+          "fairOdds": 3.6008492328240687,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.7222877339922056,
+          "fairOdds": 1.3844897994776018,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.5541971748895169,
+          "fairOdds": 1.80441194092943,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7235150911182775,
+          "fairOdds": 1.3821411775314634,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.6161624416450562,
+          "winP": 0.44580282511048314,
+          "pushP": 0.2764849088817225,
+          "lossP": 0.27771226600779436,
+          "fairOdds": 1.6229486453769535,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.3838375583549439,
+          "winP": 0.27771226600779436,
+          "pushP": 0.2764849088817225,
+          "lossP": 0.44580282511048314,
+          "fairOdds": 2.6052687607898855,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": "PRE_XI_PROVISIONAL",
+        "officialXIConfirmed": false,
+        "availabilityContinuity": {
+          "features": {
+            "availabilityKnown": true,
+            "availabilityAdv": -0.07854190951190669,
+            "replacementQualityAdv": -0.07844996299166351,
+            "expectedXIStrengthDiff": -0.00616160989450365,
+            "expectedContinuityDiff": -0.07727272727272727,
+            "doubtfulWeightDiff": 0.10166493620598159
+          },
+          "sourceState": {
+            "availability": true,
+            "lineupHistory": true,
+            "workload": false,
+            "manager": false,
+            "roleShape": true
+          },
+          "featureReadiness": "full-shadow"
+        },
+        "tactical": {
+          "home": {
+            "n": 8,
+            "npxG": 1.1747863975727162,
+            "npxGA": 1.7033766170930853,
+            "deep": 6.584683739615691,
+            "deepAllowed": 6.518722662247068,
+            "ppda": 8.940995587552989,
+            "ppdaAllowed": 14.55299039554537,
+            "finishingResidual": 0.22456304545445915,
+            "shotStoppingResidual": 0.049384870467682696
+          },
+          "away": {
+            "n": 8,
+            "npxG": 1.4930424489065772,
+            "npxGA": 1.5984559577596371,
+            "deep": 5.93652614721018,
+            "deepAllowed": 9.38782458680454,
+            "ppda": 14.396481101687366,
+            "ppdaAllowed": 10.645896414774793,
+            "finishingResidual": -0.6626636042178728,
+            "shotStoppingResidual": 0.2909924633468788
+          },
+          "npxGAttackDiff": -0.31825605133386103,
+          "npxGADefenceDiff": -0.10492065933344819,
+          "deepAttackDiff": 0.6481575924055116,
+          "deepAllowedDefenceDiff": 2.869101924557471,
+          "ppdaDiff": -5.455485514134377,
+          "ppdaAllowedDiff": 3.9070939807705773
+        },
+        "shotStoppingGoalkeeper": {
+          "homeTeamResidual": 0.049384870467682696,
+          "awayTeamResidual": 0.2909924633468788,
+          "homeGoalkeeper": null,
+          "awayGoalkeeper": null,
+          "homeGoalkeeperPriorN": 0,
+          "awayGoalkeeperPriorN": 0,
+          "homeGoalkeeperResidual": null,
+          "awayGoalkeeperResidual": null
+        },
+        "setPieces": {
+          "home": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "away": {
+            "priorMatchN": 0,
+            "setPieceXGFor": null,
+            "setPieceXGAgainst": null,
+            "cornerXGFor": null,
+            "cornerXGAgainst": null,
+            "directFKXGFor": null,
+            "avgSubMinutes": null,
+            "subXGShare": null,
+            "goalkeeperPriorN": 0,
+            "goalkeeperResidual": null
+          },
+          "setPieceBalanceDiff": null
+        },
+        "workload": {
+          "home": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "away": {
+            "sourceKnown": false,
+            "restDays": null,
+            "matches7": null,
+            "matches14": null,
+            "matches21": null,
+            "shortTurnarounds21": null,
+            "awayMatches10": null,
+            "lastMatchAt": null
+          },
+          "restAdvDays": null,
+          "shortTurnAdv": null,
+          "load7Adv": null,
+          "awayTravelProxyAdv": null
+        },
+        "travel": {
+          "home": {
+            "currentVenue": {
+              "name": "St. James' Park",
+              "city": "Newcastle-upon-Tyne",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          },
+          "away": {
+            "currentVenue": {
+              "name": "St. James' Park",
+              "city": "Newcastle-upon-Tyne",
+              "country": "England"
+            },
+            "homeVenue": null,
+            "homeBaseToFixtureKm": null,
+            "lastVenueToFixtureKm": null,
+            "sourceKnown": false,
+            "semantics": "great-circle venue-city distance; not a flight-path estimate"
+          }
+        },
+        "formation": {
+          "home": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          },
+          "away": {
+            "confirmed": null,
+            "expected": null,
+            "recentMode": null,
+            "stability": null,
+            "history": [],
+            "source": "recency-weighted prior ESPN formations"
+          }
+        },
+        "manager": {
+          "homeCoach": null,
+          "awayCoach": null,
+          "homeChangedDetected": false,
+          "awayChangedDetected": false,
+          "homeTenureLowerBoundDays": null,
+          "awayTenureLowerBoundDays": null
+        },
+        "competitionState": {
+          "home": {
+            "rank": 8,
+            "points": 11.0,
+            "games": 8,
+            "ppg": 1.375,
+            "leaderGap": 10.0,
+            "relegationLineGap": 5.0
+          },
+          "away": {
+            "rank": 12,
+            "points": 10.0,
+            "games": 8,
+            "ppg": 1.25,
+            "leaderGap": 11.0,
+            "relegationLineGap": 4.0
+          },
+          "teamsN": 20
+        },
+        "validatedEventFamilies": [
+          "corners",
+          "yellowCards",
+          "shots",
+          "shotsOnTarget"
+        ],
+        "intelligenceGaps": [
+          "CONFIRMED_XI_NOT_READY",
+          "TRAVEL_SIGNAL_MISSING",
+          "WORKLOAD_SIGNAL_MISSING"
+        ],
+        "forensicFamiliesSurfaced": {
+          "DEFENSIVE_AVAILABILITY_CLUSTER": true,
+          "RETURNING_PLAYER_FITNESS": true,
+          "GOALKEEPER_RECENT_ERROR_FORM": true,
+          "CONFIRMED_XI_DELTA": true,
+          "PRESS_RESISTANCE_MATCHUP": true,
+          "SET_PIECE_DEFENDING": true
+        }
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    }
+  ],
+  "excludedUnsupported": [],
+  "counts": {
+    "predictions": 2,
+    "excludedUnsupported": 0,
+    "preKickoff": 2,
+    "postKickoff": 0,
+    "c1": 0,
+    "withIntelligenceOverlay": 1
+  },
+  "sourceForecastSha256": "7c9fd2fe58536c270fbe851d893912d0e2561a857e408bb3fdacc905cce4dc64",
+  "sourceForecastExportedAt": "2026-10-31T11:10:57.813Z"
+}

@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "HBT-FROZEN-CONTROL-FORECAST-1",
+  "sourceFile": "exact HBT-0.4a frozen browser deployment snapshot",
+  "sourceExportedAt": "2026-10-31T11:10:57.813Z",
+  "sourceLabVersion": "HBT-1.1.2L-R1",
+  "sourceEngineVersion": "HBT-0.4a exact frozen L0 snapshot bridge",
+  "targetDate": "2026-11-02",
+  "policy": {
+    "prospectiveExport": true,
+    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "predictiveModelMutated": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "generalFutureLiveFeed": false,
+    "scope": "Date-scoped forecasts emitted only after exact HBT-0.4a frozen-state golden parity.",
+    "missingFixtureSemantics": "unknown/not forecast in this export; never infer a probability",
+    "goldenParityRequired": true,
+    "goldenParityTolerance": 1e-9,
+    "targetStateAsOfExclusive": "2026-11-02"
+  },
+  "bridge": {
+    "version": "HBT-FROZEN-FORECAST-BRIDGE-1.4-EXACT-SNAPSHOT",
+    "weightsSource": "exact frozen HBT-0.4a browser snapshot",
+    "snapshotCreated": "2026-09-11T20:30:57.701Z",
+    "snapshotDataCutoff": "2026-09-07",
+    "sourceSnapshotSha256": "c9b53377b8733d63a50413d7a1d3b3287c49c686e24eb75f944861423c3e8eb8",
+    "compactPayloadSha256": "3921c17a6f496412ddfb4e1a22d66d102cf58ccae2e0204d796422d526ce0cdb",
+    "goldenForecastDate": "2026-09-15",
+    "goldenMaxAbsError": 1.1102230246251565e-16,
+    "targetStateAsOfExclusive": "2026-11-02",
+    "incrementalMatches": 146,
+    "sourceFailures": [
+      {
+        "source": "2026-27/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      }
+    ],
+    "duplicatesRemoved": 0,
+    "crossLeagueLinks": 0,
+    "newStates": 4,
+    "unresolvedUpdates": 0,
+    "excluded": [
+      {
+        "fixture": "Krylia Sovetov vs Zenit St Petersburg",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Sassuolo vs Fiorentina",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Lorient vs Brest",
+        "league": "fr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Atalanta vs Parma",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Deportivo vs Osasuna",
+        "league": "es.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Benfica vs Alverca",
+        "league": "pt.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Gil Vicente vs Vitória de Guimaraes",
+        "league": "pt.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Red Bull Bragantino vs Santos",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-11-02",
+        "time": "17:00",
+        "league": "tr.1",
+        "home": "Genclerbirligi",
+        "away": "Alanyaspor",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 366d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.720427797922583,
+      "probs": [
+        0.35681958631254324,
+        0.2734930446205402,
+        0.36968736906691657
+      ],
+      "pick": "Alanyaspor",
+      "pickProb": 0.36968736906691657,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.35681958631254324,
+          0.2734930446205402,
+          0.36968736906691657
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.30477196904497417,
+          0,
+          -0.16666666666666666,
+          0.08,
+          -0.2,
+          0.24,
+          -0.15999999999999998,
+          -0.1333333333333333,
+          -0.15999999999999998,
+          -0.13207475144223169,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.30477196904497417,
+          "form5": 0,
+          "form10": -0.16666666666666666,
+          "gd5": 0.08,
+          "gd10": -0.2,
+          "attack5": 0.24,
+          "defence5": -0.15999999999999998,
+          "venueForm": -0.1333333333333333,
+          "venueGD": -0.15999999999999998,
+          "sos5": -0.13207475144223169,
+          "restDiff": 0
+        },
+        "homeElo": 1397.2097882174169,
+        "awayElo": 1458.1641820264117,
+        "homeGames": 30,
+        "awayGames": 30,
+        "homeLeague": "tr.1",
+        "awayLeague": "tr.1",
+        "homeLastDate": "2025-11-01",
+        "awayLastDate": "2025-11-03"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-02",
+        "time": "20:00",
+        "league": "en.1",
+        "home": "Newcastle United",
+        "away": "Everton",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8835094049490103,
+      "probs": [
+        0.44580282511048314,
+        0.2764849088817225,
+        0.27771226600779436
+      ],
+      "pick": "Newcastle United",
+      "pickProb": 0.44580282511048314,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.44580282511048314,
+          0.2764849088817225,
+          0.27771226600779436
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          0.05011022749623294,
+          -0.06666666666666665,
+          0.1333333333333333,
+          -0.24,
+          0.08,
+          0.24000000000000005,
+          -0.4800000000000001,
+          0.5333333333333333,
+          0.5599999999999999,
+          0.08671646658874806,
+          0
+        ],
+        "raw": {
+          "eloDiff": 0.05011022749623294,
+          "form5": -0.06666666666666665,
+          "form10": 0.1333333333333333,
+          "gd5": -0.24,
+          "gd10": 0.08,
+          "attack5": 0.24000000000000005,
+          "defence5": -0.4800000000000001,
+          "venueForm": 0.5333333333333333,
+          "venueGD": 0.5599999999999999,
+          "sos5": 0.08671646658874806,
+          "restDiff": 0
+        },
+        "homeElo": 1552.9803099900266,
+        "awayElo": 1542.95826449078,
+        "homeGames": 32,
+        "awayGames": 32,
+        "homeLeague": "en.1",
+        "awayLeague": "en.1",
+        "homeLastDate": "2026-09-19",
+        "awayLastDate": "2026-09-19"
+      }
+    }
+  ]
+}

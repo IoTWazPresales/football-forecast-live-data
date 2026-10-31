@@ -1,0 +1,1382 @@
+{
+  "schemaVersion": "HBT-FROZEN-CONTROL-FORECAST-1",
+  "sourceFile": "exact HBT-0.4a frozen browser deployment snapshot",
+  "sourceExportedAt": "2026-10-31T11:10:50.948Z",
+  "sourceLabVersion": "HBT-1.1.2L-R1",
+  "sourceEngineVersion": "HBT-0.4a exact frozen L0 snapshot bridge",
+  "targetDate": "2026-11-01",
+  "policy": {
+    "prospectiveExport": true,
+    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "predictiveModelMutated": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "generalFutureLiveFeed": false,
+    "scope": "Date-scoped forecasts emitted only after exact HBT-0.4a frozen-state golden parity.",
+    "missingFixtureSemantics": "unknown/not forecast in this export; never infer a probability",
+    "goldenParityRequired": true,
+    "goldenParityTolerance": 1e-9,
+    "targetStateAsOfExclusive": "2026-11-01"
+  },
+  "bridge": {
+    "version": "HBT-FROZEN-FORECAST-BRIDGE-1.4-EXACT-SNAPSHOT",
+    "weightsSource": "exact frozen HBT-0.4a browser snapshot",
+    "snapshotCreated": "2026-09-11T20:30:57.701Z",
+    "snapshotDataCutoff": "2026-09-07",
+    "sourceSnapshotSha256": "c9b53377b8733d63a50413d7a1d3b3287c49c686e24eb75f944861423c3e8eb8",
+    "compactPayloadSha256": "3921c17a6f496412ddfb4e1a22d66d102cf58ccae2e0204d796422d526ce0cdb",
+    "goldenForecastDate": "2026-09-15",
+    "goldenMaxAbsError": 1.1102230246251565e-16,
+    "targetStateAsOfExclusive": "2026-11-01",
+    "incrementalMatches": 146,
+    "sourceFailures": [
+      {
+        "source": "2026-27/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      }
+    ],
+    "duplicatesRemoved": 0,
+    "crossLeagueLinks": 0,
+    "newStates": 4,
+    "unresolvedUpdates": 0,
+    "excluded": [
+      {
+        "fixture": "Gazovik Orenburg vs CSKA Moscow",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Amed SFK vs Eyupspor",
+        "league": "tr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Ajax Amsterdam vs FC Twente",
+        "league": "nl.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Como vs Venezia",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Dynamo Makhachkala vs Rostov",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Hannover 96 vs Dynamo Dresden",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "SpVgg Greuther Fürth vs Holstein Kiel",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "St. Pauli vs 1. FC Nürnberg",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Excelsior vs FC Twente",
+        "league": "nl.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Telstar vs FC Utrecht",
+        "league": "nl.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Strasbourg vs AJ Auxerre",
+        "league": "fr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Frosinone vs Torino",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Lazio vs Cagliari",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "FC Baltika Kaliningrad vs Akron Tolyatti",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "1. FC Union Berlin vs FC Cologne",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Racing Santander vs Real Madrid",
+        "league": "es.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Arouca vs C.D. Nacional",
+        "league": "pt.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "PSV Eindhoven vs Heerenveen",
+        "league": "nl.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Kasimpasa vs Besiktas",
+        "league": "tr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Lyon vs Angers",
+        "league": "fr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Eintracht Frankfurt vs Hamburg SV",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Lokomotiv Moscow vs Spartak Moscow",
+        "league": "en.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Lecce vs Genoa",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Maritimo vs Santa Clara",
+        "league": "pt.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Marseille vs Toulouse",
+        "league": "fr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Braga vs FC Famalicao",
+        "league": "pt.1",
+        "reason": "unresolved team identity"
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "11:15",
+        "league": "nl.1",
+        "home": "PEC Zwolle",
+        "away": "ADO Den Haag",
+        "provider": "ESPN:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8411027603071397,
+      "probs": [
+        0.4107681407014576,
+        0.2826343304759577,
+        0.3065975288225846
+      ],
+      "pick": "PEC Zwolle",
+      "pickProb": 0.4107681407014576,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4107681407014576,
+          0.2826343304759577,
+          0.3065975288225846
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          0.06085328319553355,
+          0.13333333333333333,
+          0.06666666666666665,
+          -0.4,
+          -0.12000000000000002,
+          -0.07999999999999999,
+          -0.31999999999999995,
+          0.13333333333333333,
+          -0.4,
+          -0.1252909498293036,
+          0
+        ],
+        "raw": {
+          "eloDiff": 0.06085328319553355,
+          "form5": 0.13333333333333333,
+          "form10": 0.06666666666666665,
+          "gd5": -0.4,
+          "gd10": -0.12000000000000002,
+          "attack5": -0.07999999999999999,
+          "defence5": -0.31999999999999995,
+          "venueForm": 0.13333333333333333,
+          "venueGD": -0.4,
+          "sos5": -0.1252909498293036,
+          "restDiff": 0
+        },
+        "homeElo": 1382.7828828990891,
+        "awayElo": 1370.6122262599824,
+        "homeGames": 32,
+        "awayGames": 32,
+        "homeLeague": "nl.1",
+        "awayLeague": "nl.1",
+        "homeLastDate": "2026-09-18",
+        "awayLastDate": "2026-09-19"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "13:00",
+        "league": "es.1",
+        "home": "Getafe",
+        "away": "Sevilla",
+        "provider": "ESPN:es.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8890565386338299,
+      "probs": [
+        0.43575922519576915,
+        0.27050425757069774,
+        0.2937365172335331
+      ],
+      "pick": "Getafe",
+      "pickProb": 0.43575922519576915,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.43575922519576915,
+          0.27050425757069774,
+          0.2937365172335331
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.023889483994316833,
+          -0.1333333333333333,
+          -0.06666666666666672,
+          0.08,
+          -0.04,
+          -0.16,
+          0.23999999999999994,
+          0.06666666666666672,
+          0,
+          -0.16734337761201573,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.023889483994316833,
+          "form5": -0.1333333333333333,
+          "form10": -0.06666666666666672,
+          "gd5": 0.08,
+          "gd10": -0.04,
+          "attack5": -0.16,
+          "defence5": 0.23999999999999994,
+          "venueForm": 0.06666666666666672,
+          "venueGD": 0,
+          "sos5": -0.16734337761201573,
+          "restDiff": 0
+        },
+        "homeElo": 1483.0486722725866,
+        "awayElo": 1487.82656907145,
+        "homeGames": 33,
+        "awayGames": 33,
+        "homeLeague": "es.1",
+        "awayLeague": "es.1",
+        "homeLastDate": "2026-09-20",
+        "awayLastDate": "2026-09-19"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "13:00",
+        "league": "sco.1",
+        "home": "Falkirk",
+        "away": "Celtic",
+        "provider": "ESPN:sco.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 368d",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.5515724163301586,
+      "probs": [
+        0.18286054754517925,
+        0.2510228432024068,
+        0.5661166092524139
+      ],
+      "pick": "Celtic",
+      "pickProb": 0.5661166092524139,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.18286054754517925,
+          0.2510228432024068,
+          0.5661166092524139
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.9461132702113957,
+          0.20000000000000004,
+          -0.20000000000000004,
+          -0.08,
+          -0.52,
+          0,
+          -0.08000000000000007,
+          0.06666666666666672,
+          0.24000000000000005,
+          0.11990859609587119,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.9461132702113957,
+          "form5": 0.20000000000000004,
+          "form10": -0.20000000000000004,
+          "gd5": -0.08,
+          "gd10": -0.52,
+          "attack5": 0,
+          "defence5": -0.08000000000000007,
+          "venueForm": 0.06666666666666672,
+          "venueGD": 0.24000000000000005,
+          "sos5": 0.11990859609587119,
+          "restDiff": 0
+        },
+        "homeElo": 1445.058567421631,
+        "awayElo": 1634.2812214639102,
+        "homeGames": 11,
+        "awayGames": 30,
+        "homeLeague": "sco.1",
+        "awayLeague": "sco.1",
+        "homeLastDate": "2025-11-01",
+        "awayLastDate": "2025-10-29"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "13:00",
+        "league": "tr.1",
+        "home": "Istanbul Basaksehir",
+        "away": "Samsunspor",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 366d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7243401541630247,
+      "probs": [
+        0.36853800689066635,
+        0.27789159649011924,
+        0.3535703966192144
+      ],
+      "pick": "Istanbul Basaksehir",
+      "pickProb": 0.36853800689066635,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.36853800689066635,
+          0.27789159649011924,
+          0.3535703966192144
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.24128816534023712,
+          -0.1333333333333334,
+          -0.16666666666666666,
+          -0.08000000000000003,
+          -0.08,
+          -0.24000000000000005,
+          0.16,
+          -0.3333333333333334,
+          -0.4,
+          0.0903458667422683,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.24128816534023712,
+          "form5": -0.1333333333333334,
+          "form10": -0.16666666666666666,
+          "gd5": -0.08000000000000003,
+          "gd10": -0.08,
+          "attack5": -0.24000000000000005,
+          "defence5": 0.16,
+          "venueForm": -0.3333333333333334,
+          "venueGD": -0.4,
+          "sos5": 0.0903458667422683,
+          "restDiff": 0
+        },
+        "homeElo": 1475.0464962893325,
+        "awayElo": 1523.30412935738,
+        "homeGames": 30,
+        "awayGames": 30,
+        "homeLeague": "tr.1",
+        "awayLeague": "tr.1",
+        "homeLastDate": "2025-10-31",
+        "awayLastDate": "2025-11-02"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "13:00",
+        "league": "tr.1",
+        "home": "Trabzonspor",
+        "away": "Gaziantep FK",
+        "provider": "ESPN:tr.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 365d",
+      "coveragePack": null,
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.6970429533637686,
+      "probs": [
+        0.5856314379335282,
+        0.2389432088251662,
+        0.17542535324130556
+      ],
+      "pick": "Trabzonspor",
+      "pickProb": 0.5856314379335282,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5856314379335282,
+          0.2389432088251662,
+          0.17542535324130556
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          0.42558738895704323,
+          0.3333333333333333,
+          0.10000000000000002,
+          0.72,
+          0.36,
+          0.4,
+          0.32,
+          0.20000000000000004,
+          0.5599999999999999,
+          0.030856634864801436,
+          0
+        ],
+        "raw": {
+          "eloDiff": 0.42558738895704323,
+          "form5": 0.3333333333333333,
+          "form10": 0.10000000000000002,
+          "gd5": 0.72,
+          "gd10": 0.36,
+          "attack5": 0.4,
+          "defence5": 0.32,
+          "venueForm": 0.20000000000000004,
+          "venueGD": 0.5599999999999999,
+          "sos5": 0.030856634864801436,
+          "restDiff": 0
+        },
+        "homeElo": 1549.6328484172861,
+        "awayElo": 1464.5153706258775,
+        "homeGames": 30,
+        "awayGames": 30,
+        "homeLeague": "tr.1",
+        "awayLeague": "tr.1",
+        "homeLastDate": "2025-11-01",
+        "awayLastDate": "2025-11-03"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "14:30",
+        "league": "nl.1",
+        "home": "SBV Excelsior",
+        "away": "FC Twente '65",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8778937187106928,
+      "probs": [
+        0.2557124186731779,
+        0.2680203727250606,
+        0.4762672086017616
+      ],
+      "pick": "FC Twente '65",
+      "pickProb": 0.4762672086017616,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.2557124186731779,
+          0.2680203727250606,
+          0.4762672086017616
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.7119261883534932,
+          -0.3333333333333333,
+          -0.06666666666666665,
+          -0.31999999999999995,
+          0,
+          -0.15999999999999998,
+          -0.15999999999999998,
+          0.1333333333333333,
+          0.4800000000000001,
+          0.060545935139585935,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.7119261883534932,
+          "form5": -0.3333333333333333,
+          "form10": -0.06666666666666665,
+          "gd5": -0.31999999999999995,
+          "gd10": 0,
+          "attack5": -0.15999999999999998,
+          "defence5": -0.15999999999999998,
+          "venueForm": 0.1333333333333333,
+          "venueGD": 0.4800000000000001,
+          "sos5": 0.060545935139585935,
+          "restDiff": 0
+        },
+        "homeElo": 1464.3204795204713,
+        "awayElo": 1606.70571719117,
+        "homeGames": 33,
+        "awayGames": 33,
+        "homeLeague": "nl.1",
+        "awayLeague": "nl.1",
+        "homeLastDate": "2026-09-19",
+        "awayLastDate": "2026-09-20"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "14:30",
+        "league": "nl.1",
+        "home": "Telstar 1963",
+        "away": "FC Utrecht",
+        "provider": "OPENFOOTBALL:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8728056444381491,
+      "probs": [
+        0.3502595110730712,
+        0.27444103126370006,
+        0.37529945766322886
+      ],
+      "pick": "FC Utrecht",
+      "pickProb": 0.37529945766322886,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.3502595110730712,
+          0.27444103126370006,
+          0.37529945766322886
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.3828385805277378,
+          -0.19999999999999998,
+          -0.06666666666666665,
+          0.24000000000000005,
+          0.2,
+          -0.5599999999999999,
+          0.8,
+          0,
+          0.32,
+          0.06803694633492113,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.3828385805277378,
+          "form5": -0.19999999999999998,
+          "form10": -0.06666666666666665,
+          "gd5": 0.24000000000000005,
+          "gd10": 0.2,
+          "attack5": -0.5599999999999999,
+          "defence5": 0.8,
+          "venueForm": 0,
+          "venueGD": 0.32,
+          "sos5": 0.06803694633492113,
+          "restDiff": 0
+        },
+        "homeElo": 1432.022368311982,
+        "awayElo": 1508.5900844175296,
+        "homeGames": 33,
+        "awayGames": 33,
+        "homeLeague": "nl.1",
+        "awayLeague": "nl.1",
+        "homeLastDate": "2026-09-20",
+        "awayLastDate": "2026-09-20"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "15:45",
+        "league": "nl.1",
+        "home": "ADO Den Haag",
+        "away": "Feyenoord Rotterdam",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.40890595763013166,
+      "probs": [
+        0.15322967241025257,
+        0.2747920705340251,
+        0.5719782570557223
+      ],
+      "pick": "Feyenoord Rotterdam",
+      "pickProb": 0.5719782570557223,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.15322967241025257,
+          0.2747920705340251,
+          0.5719782570557223
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.49258300311257697,
+          -0.8666666666666667,
+          -0.8333333333333334,
+          -2.8,
+          -2.92,
+          -1.92,
+          -0.8800000000000001,
+          -0.7333333333333334,
+          -3.28,
+          0.20660193152026182,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.49258300311257697,
+          "form5": -0.8666666666666667,
+          "form10": -0.8333333333333334,
+          "gd5": -2.8,
+          "gd10": -2.92,
+          "attack5": -1.92,
+          "defence5": -0.8800000000000001,
+          "venueForm": -0.7333333333333334,
+          "venueGD": -3.28,
+          "sos5": 0.20660193152026182,
+          "restDiff": 0
+        },
+        "homeElo": 1370.6122262599824,
+        "awayElo": 1469.1288268824978,
+        "homeGames": 32,
+        "awayGames": 2,
+        "homeLeague": "nl.1",
+        "awayLeague": "nl.1",
+        "homeLastDate": "2026-09-19",
+        "awayLastDate": "2026-09-20"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "15:45",
+        "league": "nl.1",
+        "home": "AZ Alkmaar",
+        "away": "PEC Zwolle",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 1253d",
+      "coveragePack": null,
+      "tier": "B",
+      "rawTier": "B",
+      "quality": 0.67055371385909,
+      "probs": [
+        0.7561777425170081,
+        0.1715276029584045,
+        0.0722946545245873
+      ],
+      "pick": "AZ Alkmaar",
+      "pickProb": 0.7561777425170081,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.7561777425170081,
+          0.1715276029584045,
+          0.0722946545245873
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          1.0373542259211639,
+          0.39999999999999997,
+          0.3333333333333333,
+          1.52,
+          1.08,
+          0.5599999999999999,
+          0.96,
+          0.19999999999999996,
+          0.72,
+          0.2259042474093792,
+          0
+        ],
+        "raw": {
+          "eloDiff": 1.0373542259211639,
+          "form5": 0.39999999999999997,
+          "form10": 0.3333333333333333,
+          "gd5": 1.52,
+          "gd10": 1.08,
+          "attack5": 0.5599999999999999,
+          "defence5": 0.96,
+          "venueForm": 0.19999999999999996,
+          "venueGD": 0.72,
+          "sos5": 0.2259042474093792,
+          "restDiff": 0
+        },
+        "homeElo": 1590.253728083322,
+        "awayElo": 1382.7828828990891,
+        "homeGames": 30,
+        "awayGames": 32,
+        "homeLeague": "nl.1",
+        "awayLeague": "nl.1",
+        "homeLastDate": "2023-05-28",
+        "awayLastDate": "2026-09-18"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "15:45",
+        "league": "nl.1",
+        "home": "FC Utrecht",
+        "away": "De Graafschap",
+        "provider": "ESPN_ALL",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 2727d",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.7083044581058705,
+      "probs": [
+        0.5741483123064538,
+        0.2496774955233768,
+        0.17617419217016927
+      ],
+      "pick": "FC Utrecht",
+      "pickProb": 0.5741483123064538,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5741483123064538,
+          0.2496774955233768,
+          0.17617419217016927
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          0.5138004915684382,
+          0.13333333333333333,
+          0.2333333333333333,
+          0.16000000000000006,
+          0.12000000000000002,
+          0.32,
+          -0.15999999999999998,
+          0.26666666666666666,
+          0.23999999999999994,
+          0.17560334396928623,
+          0
+        ],
+        "raw": {
+          "eloDiff": 0.5138004915684382,
+          "form5": 0.13333333333333333,
+          "form10": 0.2333333333333333,
+          "gd5": 0.16000000000000006,
+          "gd10": 0.12000000000000002,
+          "attack5": 0.32,
+          "defence5": -0.15999999999999998,
+          "venueForm": 0.26666666666666666,
+          "venueGD": 0.23999999999999994,
+          "sos5": 0.17560334396928623,
+          "restDiff": 0
+        },
+        "homeElo": 1508.5900844175296,
+        "awayElo": 1405.829986103842,
+        "homeGames": 33,
+        "awayGames": 30,
+        "homeLeague": "nl.1",
+        "awayLeague": "nl.1",
+        "homeLastDate": "2026-09-20",
+        "awayLastDate": "2019-05-15"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "15:45",
+        "league": "nl.1",
+        "home": "FC Groningen",
+        "away": "Sparta Rotterdam",
+        "provider": "ESPN:nl.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.8702174768175106,
+      "probs": [
+        0.5581575907630989,
+        0.2480266709512818,
+        0.19381573828561927
+      ],
+      "pick": "FC Groningen",
+      "pickProb": 0.5581575907630989,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5581575907630989,
+          0.2480266709512818,
+          0.19381573828561927
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          0.3474288185208775,
+          0.19999999999999998,
+          0.3666666666666667,
+          0.4800000000000001,
+          0.6,
+          0.16000000000000006,
+          0.31999999999999995,
+          0.4666666666666666,
+          1.04,
+          -0.023797336138507034,
+          0
+        ],
+        "raw": {
+          "eloDiff": 0.3474288185208775,
+          "form5": 0.19999999999999998,
+          "form10": 0.3666666666666667,
+          "gd5": 0.4800000000000001,
+          "gd10": 0.6,
+          "attack5": 0.16000000000000006,
+          "defence5": 0.31999999999999995,
+          "venueForm": 0.4666666666666666,
+          "venueGD": 1.04,
+          "sos5": -0.023797336138507034,
+          "restDiff": 0
+        },
+        "homeElo": 1484.771800684218,
+        "awayElo": 1415.2860369800426,
+        "homeGames": 32,
+        "awayGames": 32,
+        "homeLeague": "nl.1",
+        "awayLeague": "nl.1",
+        "homeLastDate": "2026-09-18",
+        "awayLastDate": "2026-09-19"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "16:15",
+        "league": "fr.1",
+        "home": "Paris FC",
+        "away": "AS Monaco",
+        "provider": "ESPN:fr.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8766240509247226,
+      "probs": [
+        0.34477472304659645,
+        0.27097090315875305,
+        0.3842543737946505
+      ],
+      "pick": "AS Monaco",
+      "pickProb": 0.3842543737946505,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.34477472304659645,
+          0.27097090315875305,
+          0.3842543737946505
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.38999535442755134,
+          -0.1333333333333333,
+          0.06666666666666665,
+          0,
+          0.24,
+          0,
+          0,
+          0.20000000000000004,
+          0.5599999999999999,
+          -0.2763050627921234,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.38999535442755134,
+          "form5": -0.1333333333333333,
+          "form10": 0.06666666666666665,
+          "gd5": 0,
+          "gd10": 0.24,
+          "attack5": 0,
+          "defence5": 0,
+          "venueForm": 0.20000000000000004,
+          "venueGD": 0.5599999999999999,
+          "sos5": -0.2763050627921234,
+          "restDiff": 0
+        },
+        "homeElo": 1533.6366495027432,
+        "awayElo": 1611.6357203882535,
+        "homeGames": 32,
+        "awayGames": 32,
+        "homeLeague": "fr.1",
+        "awayLeague": "fr.1",
+        "homeLastDate": "2026-09-19",
+        "awayLastDate": "2026-09-18"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "16:30",
+        "league": "en.1",
+        "home": "Liverpool",
+        "away": "Arsenal",
+        "provider": "ESPN:en.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.5511424123247745,
+      "probs": [
+        0.6650488755445022,
+        0.21469397733271936,
+        0.12025714712277846
+      ],
+      "pick": "Liverpool",
+      "pickProb": 0.6650488755445022,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.6650488755445022,
+          0.21469397733271936,
+          0.12025714712277846
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          0.7611814369525598,
+          -0.03333333333333336,
+          0.2333333333333334,
+          0.2,
+          0.5599999999999999,
+          -0.07999999999999999,
+          0.27999999999999997,
+          0.16666666666666666,
+          0.6799999999999999,
+          0.1614016355428646,
+          0
+        ],
+        "raw": {
+          "eloDiff": 0.7611814369525598,
+          "form5": -0.03333333333333336,
+          "form10": 0.2333333333333334,
+          "gd5": 0.2,
+          "gd10": 0.5599999999999999,
+          "attack5": -0.07999999999999999,
+          "defence5": 0.27999999999999997,
+          "venueForm": 0.16666666666666666,
+          "venueGD": 0.6799999999999999,
+          "sos5": 0.1614016355428646,
+          "restDiff": 0
+        },
+        "homeElo": 1594.2818338017412,
+        "awayElo": 1442.0455464112292,
+        "homeGames": 32,
+        "awayGames": 2,
+        "homeLeague": "en.1",
+        "awayLeague": "en.1",
+        "homeLastDate": "2026-09-20",
+        "awayLastDate": "2026-09-19"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "17:30",
+        "league": "es.1",
+        "home": "Elche",
+        "away": "Valencia",
+        "provider": "ESPN:es.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8716227780874863,
+      "probs": [
+        0.4077290250643606,
+        0.271298658190397,
+        0.3209723167452424
+      ],
+      "pick": "Elche",
+      "pickProb": 0.4077290250643606,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4077290250643606,
+          0.271298658190397,
+          0.3209723167452424
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.1688659206173611,
+          0.0666666666666667,
+          -0.0666666666666667,
+          0.56,
+          0,
+          0.48,
+          0.07999999999999989,
+          -0.3333333333333333,
+          -0.48,
+          -0.05222026309953094,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.1688659206173611,
+          "form5": 0.0666666666666667,
+          "form10": -0.0666666666666667,
+          "gd5": 0.56,
+          "gd10": 0,
+          "attack5": 0.48,
+          "defence5": 0.07999999999999989,
+          "venueForm": -0.3333333333333333,
+          "venueGD": -0.48,
+          "sos5": -0.05222026309953094,
+          "restDiff": 0
+        },
+        "homeElo": 1452.2229874317336,
+        "awayElo": 1485.9961715552058,
+        "homeGames": 33,
+        "awayGames": 33,
+        "homeLeague": "es.1",
+        "awayLeague": "es.1",
+        "homeLastDate": "2026-09-18",
+        "awayLastDate": "2026-09-20"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "18:00",
+        "league": "pt.1",
+        "home": "Académico de Viseu",
+        "away": "Rio Ave",
+        "provider": "ESPN:pt.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.6521688559445191,
+      "probs": [
+        0.5403201580123806,
+        0.2566915402907543,
+        0.20298830169686508
+      ],
+      "pick": "Académico de Viseu",
+      "pickProb": 0.5403201580123806,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5403201580123806,
+          0.2566915402907543,
+          0.20298830169686508
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          0.37682578516415105,
+          0.39999999999999997,
+          0.35714285714285715,
+          0.6399999999999999,
+          0.5599999999999999,
+          0.15999999999999998,
+          0.48,
+          0.13333333333333333,
+          0,
+          0.0034184222179715106,
+          0
+        ],
+        "raw": {
+          "eloDiff": 0.37682578516415105,
+          "form5": 0.39999999999999997,
+          "form10": 0.35714285714285715,
+          "gd5": 0.6399999999999999,
+          "gd10": 0.5599999999999999,
+          "attack5": 0.15999999999999998,
+          "defence5": 0.48,
+          "venueForm": 0.13333333333333333,
+          "venueGD": 0,
+          "sos5": 0.0034184222179715106,
+          "restDiff": 0
+        },
+        "homeElo": 1461.5572181194543,
+        "awayElo": 1386.192061086624,
+        "homeGames": 7,
+        "awayGames": 32,
+        "homeLeague": "pt.1",
+        "awayLeague": "pt.1",
+        "homeLastDate": "2026-09-20",
+        "awayLastDate": "2026-09-19"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "19:45",
+        "league": "it.1",
+        "home": "Juventus",
+        "away": "Napoli",
+        "provider": "ESPN:it.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.5643191629754992,
+      "probs": [
+        0.7002228658166911,
+        0.19954709872040532,
+        0.10023003546290346
+      ],
+      "pick": "Juventus",
+      "pickProb": 0.7002228658166911,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.7002228658166911,
+          0.19954709872040532,
+          0.10023003546290346
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          0.9547491154914212,
+          0,
+          -0.1333333333333333,
+          0.12000000000000002,
+          -0.08,
+          0.24000000000000005,
+          -0.12000000000000002,
+          0.20000000000000004,
+          0.16,
+          -0.004529261106579269,
+          0
+        ],
+        "raw": {
+          "eloDiff": 0.9547491154914212,
+          "form5": 0,
+          "form10": -0.1333333333333333,
+          "gd5": 0.12000000000000002,
+          "gd10": -0.08,
+          "attack5": 0.24000000000000005,
+          "defence5": -0.12000000000000002,
+          "venueForm": 0.20000000000000004,
+          "venueGD": 0.16,
+          "sos5": -0.004529261106579269,
+          "restDiff": 0
+        },
+        "homeElo": 1637.364391116175,
+        "awayElo": 1446.4145680178908,
+        "homeGames": 32,
+        "awayGames": 2,
+        "homeLeague": "it.1",
+        "awayLeague": "it.1",
+        "homeLastDate": "2026-09-20",
+        "awayLastDate": "2026-09-20"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-01",
+        "time": "20:00",
+        "league": "es.1",
+        "home": "Athletic Club",
+        "away": "Real Sociedad",
+        "provider": "ESPN:es.1",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 2296d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7170204040375229,
+      "probs": [
+        0.4315999709414097,
+        0.27233335772847167,
+        0.2960666713301186
+      ],
+      "pick": "Athletic Club",
+      "pickProb": 0.4315999709414097,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.4315999709414097,
+          0.27233335772847167,
+          0.2960666713301186
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.033201581710407026,
+          0.1333333333333334,
+          0,
+          0.24,
+          0,
+          0,
+          0.24,
+          0.06666666666666665,
+          0.24000000000000005,
+          0.007529617384877838,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.033201581710407026,
+          "form5": 0.1333333333333334,
+          "form10": 0,
+          "gd5": 0.24,
+          "gd10": 0,
+          "attack5": 0,
+          "defence5": 0.24,
+          "venueForm": 0.06666666666666665,
+          "venueGD": 0.24000000000000005,
+          "sos5": 0.007529617384877838,
+          "restDiff": 0
+        },
+        "homeElo": 1512.2007741206635,
+        "awayElo": 1518.841090462745,
+        "homeGames": 32,
+        "awayGames": 30,
+        "homeLeague": "es.1",
+        "awayLeague": "es.1",
+        "homeLastDate": "2026-09-19",
+        "awayLastDate": "2020-07-19"
+      }
+    }
+  ]
+}

@@ -1,0 +1,480 @@
+{
+  "schemaVersion": "HBT-EXECUTION-SURFACE-1",
+  "version": "HBT-EXECUTION-SURFACE-1.3.2-GOVERNED-RESEARCH",
+  "targetDate": "2026-11-02",
+  "generatedAt": "2026-10-31T11:10:58.513008Z",
+  "policy": {
+    "footballProbabilitiesImmutable": true,
+    "bookmakerPriceObservedOnlyAfterPredictionFreeze": true,
+    "r0Default": true,
+    "r1MinimumModelEV": 0.03,
+    "r2MinimumModelEV": 0.07,
+    "r2RequiresNativeCurrentQualityAtLeast": 0.9,
+    "c1MaximumFundedStakeRand": 1,
+    "executionRequiresTimezoneAwareVerifiedKickoff": true,
+    "genericDiscoveryIdentityMayNotAuthorizeExecution": true,
+    "startedFixtureAction": "R0_BLOCKED_IN_PLAY",
+    "chainLegMustIndependentlyPassValueGateForFunding": true,
+    "sameMatchCorrelatedLegsAllowed": false,
+    "unpromotedOrUnconfirmedProposalsAreResearchOnly": true,
+    "quotesRequireFreshSourceEventIdBookmakerAndTargetDate": true,
+    "stakingRequiresIndependentKickoffConfirmation": true,
+    "stakingRequiresLatestFrozenExportReconciliation": true,
+    "fundedChainsRequireValidatedDependenceModel": true
+  },
+  "sourceProspectiveCard": "captures/hbt_prospective_card_2026-11-02_20261031T111058069733Z.json",
+  "priceSource": "hbt_live_data/market_prices_2026-11-02.json",
+  "summary": {
+    "surfaces": 2,
+    "executionEligibleNow": 0,
+    "blockedIdentityOrTiming": 2,
+    "fundedSingles": 0,
+    "fundedStakeRand": 0,
+    "r0Singles": 2,
+    "chains": 0,
+    "fundedChains": 0
+  },
+  "rows": [
+    {
+      "fixture": {
+        "home": "Genclerbirligi",
+        "away": "Alanyaspor",
+        "date": "2026-11-02",
+        "league": "tr.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-31T11:10:58.069733Z",
+      "executionSurfaceGeneratedAt": "2026-10-31T11:10:58.513008Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-11-02T17:00:00Z",
+        "source": "ESPN:tr.1",
+        "fixtureSources": [
+          "ESPN:tr.1"
+        ],
+        "sourceFixtureId": "401888260",
+        "competition": "Süper Lig",
+        "competitionSlug": "tr.1",
+        "leagueHint": "tr.1",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Genclerbirligi",
+        "discoveryAway": "Alanyaspor",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
+      },
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+      "signal": {
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.720427797922583,
+        "coverage": "stale-ish 366d",
+        "coveragePack": null,
+        "market": "12",
+        "selection": "Genclerbirligi OR Alanyaspor — Either team wins, draw loses (12)",
+        "probability": 0.7265069553794599,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "AWAY_DNB",
+        "selection": "Alanyaspor — Draw No Bet (draw = refund)",
+        "fairOdds": 1.9651927984803719,
+        "conditionalP": 0.5088559253693947,
+        "winP": 0.36968736906691657,
+        "pushP": 0.2734930446205402,
+        "lossP": 0.35681958631254324
+      },
+      "value": {
+        "fairOdds": 1.3764493135206017,
+        "minimumOddsR1": 1.472800765467044,
+        "minimumOddsR2": 1.472800765467044,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": true,
+          "elevatedRisk": true,
+          "minimumEVForR1": 0.07,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY",
+          "STALE_TEAM_STATE",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "robustnessReview": {
+          "required": true,
+          "tier": "Avoid",
+          "matchIntelligenceCaptured": false
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "12",
+        "selectionFrozen": "Genclerbirligi OR Alanyaspor — Either team wins, draw loses (12)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "AWAY_WIN",
+          "probability": 0.36968736906691657,
+          "fairOdds": 2.7049882784039383,
+          "minimumOddsR1": 2.894337457892214,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "12",
+          "probability": 0.7265069553794599,
+          "fairOdds": 1.3764493135206017,
+          "minimumOddsR1": 1.472800765467044,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.35681958631254324,
+            "fairOdds": 2.8025367394605016,
+            "minimumOddsR1": 2.998714311222737,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED",
+              "STALE_TEAM_STATE",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.2734930446205402,
+            "fairOdds": 3.6564001157230774,
+            "minimumOddsR1": 3.9123481238236932,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED",
+              "STALE_TEAM_STATE",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.36968736906691657,
+            "fairOdds": 2.7049882784039383,
+            "minimumOddsR1": 2.894337457892214,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED",
+              "STALE_TEAM_STATE",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.6303126309330834,
+            "fairOdds": 1.5865142961194507,
+            "minimumOddsR1": 1.6975702968478124,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED",
+              "STALE_TEAM_STATE",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.6431804136874568,
+            "fairOdds": 1.5547737131279218,
+            "minimumOddsR1": 1.6636078730468764,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED",
+              "STALE_TEAM_STATE",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7265069553794599,
+            "fairOdds": 1.3764493135206017,
+            "minimumOddsR1": 1.472800765467044,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "MATCH_INTELLIGENCE_NOT_CAPTURED",
+              "STALE_TEAM_STATE",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false,
+        "fixtureExecutionEligibleNow": false,
+        "fixtureExecutionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS"
+      }
+    },
+    {
+      "fixture": {
+        "home": "Newcastle United",
+        "away": "Everton",
+        "date": "2026-11-02",
+        "league": "en.1"
+      },
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "predictionFrozenAt": "2026-10-31T11:10:58.069733Z",
+      "executionSurfaceGeneratedAt": "2026-10-31T11:10:58.513008Z",
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-11-02T20:00:00Z",
+        "source": "ESPN:en.1",
+        "fixtureSources": [
+          "ESPN:en.1"
+        ],
+        "sourceFixtureId": "401878762",
+        "competition": "Premier League",
+        "competitionSlug": "en.1",
+        "leagueHint": "en.1",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Newcastle United",
+        "discoveryAway": "Everton",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
+      },
+      "executionEligibleNow": false,
+      "executionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+      "signal": {
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.8835094049490103,
+        "coverage": "good",
+        "coveragePack": null,
+        "market": "12",
+        "selection": "Newcastle United OR Everton — Either team wins, draw loses (12)",
+        "probability": 0.7235150911182775,
+        "family": "DOUBLE_CHANCE"
+      },
+      "secondaryR0": {
+        "market": "HOME_DNB",
+        "selection": "Newcastle United — Draw No Bet (draw = refund)",
+        "fairOdds": 1.6229486453769535,
+        "conditionalP": 0.6161624416450562,
+        "winP": 0.44580282511048314,
+        "pushP": 0.2764849088817225,
+        "lossP": 0.27771226600779436
+      },
+      "value": {
+        "fairOdds": 1.3821411775314634,
+        "minimumOddsR1": 1.4236054128574072,
+        "minimumOddsR2": 1.4788910599586658,
+        "observedOdds": null,
+        "expectedValue": null,
+        "stakeRand": 0,
+        "executionClass": "R0_RESEARCH_READINESS_BLOCKED",
+        "nativeCleanForR2": false,
+        "riskAdjustedValueGate": {
+          "c1": false,
+          "stale": false,
+          "elevatedRisk": false,
+          "minimumEVForR1": 0.03,
+          "minimumEVForR2": null,
+          "probabilityChangedByRiskPolicy": false
+        },
+        "fundingBlockers": [
+          "UNPROMOTED_L0_FALLBACK",
+          "CONFIRMED_XI_NOT_READY"
+        ],
+        "robustnessReview": {
+          "required": true,
+          "tier": "Avoid",
+          "matchIntelligenceCaptured": true
+        }
+      },
+      "r0Tracking": {
+        "stakeRand": 0,
+        "marketFrozen": "12",
+        "selectionFrozen": "Newcastle United OR Everton — Either team wins, draw loses (12)"
+      },
+      "fullMarketDecisionAudit": {
+        "mostLikelyOutcome": {
+          "market": "HOME_WIN",
+          "probability": 0.44580282511048314,
+          "fairOdds": 2.2431441517943957,
+          "minimumOddsR1": 2.3104384763482275,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ]
+        },
+        "highestProbabilityChainRoleWatch": {
+          "market": "12",
+          "probability": 0.7235150911182775,
+          "fairOdds": 1.3821411775314634,
+          "minimumOddsR1": 1.4236054128574072,
+          "odds": null,
+          "rawEV": null,
+          "provisionalValueEligible": false,
+          "decision": "R0_RESEARCH_READINESS_BLOCKED",
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "UNPROMOTED_L0_FALLBACK"
+          ]
+        },
+        "allMarketAssessments": [
+          {
+            "market": "HOME_WIN",
+            "probability": 0.44580282511048314,
+            "fairOdds": 2.2431441517943957,
+            "minimumOddsR1": 2.3104384763482275,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          },
+          {
+            "market": "DRAW",
+            "probability": 0.2764849088817225,
+            "fairOdds": 3.616833931532191,
+            "minimumOddsR1": 3.725338949478157,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          },
+          {
+            "market": "AWAY_WIN",
+            "probability": 0.27771226600779436,
+            "fairOdds": 3.6008492328240687,
+            "minimumOddsR1": 3.7088747098087906,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          },
+          {
+            "market": "1X",
+            "probability": 0.7222877339922056,
+            "fairOdds": 1.3844897994776018,
+            "minimumOddsR1": 1.4260244934619297,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          },
+          {
+            "market": "X2",
+            "probability": 0.5541971748895169,
+            "fairOdds": 1.80441194092943,
+            "minimumOddsR1": 1.858544299157313,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          },
+          {
+            "market": "12",
+            "probability": 0.7235150911182775,
+            "fairOdds": 1.3821411775314634,
+            "minimumOddsR1": 1.4236054128574072,
+            "odds": null,
+            "rawEV": null,
+            "provisionalValueEligible": false,
+            "decision": "R0_RESEARCH_READINESS_BLOCKED",
+            "fundingBlockers": [
+              "CONFIRMED_XI_NOT_READY",
+              "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+              "UNPROMOTED_L0_FALLBACK"
+            ]
+          }
+        ],
+        "bestProvisionalValue": null,
+        "extremeValueDisagreementNeedsReview": false,
+        "fixtureExecutionEligibleNow": false,
+        "fixtureExecutionBlockReason": "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS"
+      }
+    }
+  ],
+  "chains": []
+}
