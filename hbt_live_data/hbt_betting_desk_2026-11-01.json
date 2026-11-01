@@ -2,7 +2,7 @@
   "schemaVersion": "HBT-BETTING-DESK-1",
   "version": "HBT-BETTING-DESK-1-RESEARCH",
   "targetDate": "2026-11-01",
-  "generatedAt": "2026-10-31T11:10:54.271453Z",
+  "generatedAt": "2026-11-01T15:30:57.900978Z",
   "readiness": "NO_EXECUTABLE_BETS",
   "policy": {
     "bookmakerOddsAreDecisionLayerOnly": true,
@@ -15,21 +15,21 @@
     "priority": "highest profit probability among independently eligible positive-value markets; separate highest EV view"
   },
   "sourceHashes": {
-    "forecast": "32ff37da0dd24c8bae2add3a92735e72432c0fb4f79f7c898f3f194574114c16",
-    "card": "e4c223694c428639195ea5ea071840e3d9021c6d63c7b685b457be9d1cc4f964",
-    "scanner": "f94de9e14aecb5ace3e3c9158bde828230c52bc0f5d963370827a3f6a8a97983",
-    "intel": "14baab27918559e6b6ef0b2caa31d45ba75057f93e17e22ca9d2680bf14fca1b",
+    "forecast": "a803112e50e0be0906093f22097e964ee25a71d26f1f9505c330fef971c3148d",
+    "card": "bd152633ced9739ea8ee59abe1da4642f2ee07438473edaf836c9fa3e593e890",
+    "scanner": "078ab9d652626577206bc3b384e200cdd4b1579e2fa88fa756b3424bbcf2facd",
+    "intel": "398a42c205713f6b4f8051049ee35ce3ec33f377cd089040bf7243e8bed4ba16",
     "events": "31aaa86f8ba989660dc8472d9e2ad6dfd0649cabfe01cf26226bf2170f690406",
     "registry": "cbe2a62e7d9987c8ec4745671b2e6a6366fd9fbba72bc9da856bbfac850191f4",
     "learning": "aa5875e038a477f65322074b1b390c420157b21c8d20428bfef32ea9bc3cc70d",
-    "prices": "a962f5df3cafc405fc76391ca43d6fcbf22ec6ae0b686a6c91efaafd3f731214",
-    "kickoffProof": "d427e3c36814af676dfc1c24f4f16ac14dbf76f6498ff4bf33048a114e6d3c96",
-    "capturePointer": "7603fc3cc65e417de0166531a10fbcc7e57f0daae73342b61051b11cc9a19058",
-    "recoveredFusion": "c3d94282363c78c09b466137581a795efb12e3bb72f4c5eea1cf63ab2941d4e2"
+    "prices": "890bde60b4975ab593b6b264a669fb63ed7117c841519da4b94f739eb35cd5e1",
+    "kickoffProof": "f19177762d3d165a3f573dc076417b901c58c7751438b74d9b52b7ea2ad6bcc6",
+    "capturePointer": "af44f65f0b10f9e1df45dff8474ab718eed2f5a28db2849a2109b8c11fdd4e43",
+    "recoveredFusion": "67b5e3882e493e6bff984ae45dc89e27906c5b4e50e700d0d021427398cccf63"
   },
   "sourceFiles": {
     "forecast": "frozen_control_forecast_2026-11-01.json",
-    "card": "captures/hbt_prospective_card_2026-11-01_20261031T111051238479Z.json",
+    "card": "captures/hbt_prospective_card_2026-11-01_20261101T153057426768Z.json",
     "scanner": "slate_scanner_2026-11-01.json",
     "intel": "hbt_1_4_match_intelligence.json",
     "events": "event_model_params.json",
@@ -47,29 +47,32 @@
   "globalBlockers": [],
   "summary": {
     "scoredFixtures": 17,
-    "marketsModelled": 256,
+    "marketsModelled": 232,
     "readySingles": 0,
-    "futureScoredFixtures": 17,
+    "futureScoredFixtures": 10,
     "independentlyVerifiedKickoffs": 0,
-    "currentCaptureFixtures": 17,
+    "currentCaptureFixtures": 10,
     "bookmakerPricedMarkets": 0,
-    "unscoredDiscoveredFixtures": 278,
+    "unscoredDiscoveredFixtures": 277,
     "previouslyScoredMissingNow": 0,
     "missingBTTSFixtures": 17,
     "modelModes": {
       "L0 FALLBACK": 17
     },
     "blockerCounts": {
-      "CONFIRMED_XI_NOT_READY": 256,
-      "CURRENT_BOOKMAKER_QUOTE_MISSING": 256,
-      "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY": 256,
-      "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS": 256,
-      "MATCH_INTELLIGENCE_NOT_CAPTURED": 88,
-      "UNPROMOTED_L0_FALLBACK": 256,
-      "EVENT_EXECUTION_VALIDATION_PENDING": 120,
+      "CONFIRMED_XI_NOT_READY": 232,
+      "CURRENT_BOOKMAKER_QUOTE_MISSING": 232,
+      "FORECAST_CAPTURE_NOT_PREMATCH": 56,
+      "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY": 232,
+      "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS": 232,
+      "KICKOFF_STARTED_OR_UNKNOWN": 56,
+      "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE": 56,
+      "MATCH_INTELLIGENCE_NOT_CAPTURED": 96,
+      "UNPROMOTED_L0_FALLBACK": 232,
       "STALE_TEAM_STATE": 48,
       "FORECAST_KICKOFF_DISAGREEMENT": 16,
-      "WOMENS_NAMESPACE": 24
+      "WOMENS_NAMESPACE": 24,
+      "EVENT_EXECUTION_VALIDATION_PENDING": 96
     }
   },
   "intelligence": {
@@ -237,12 +240,15 @@
         "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
         "independentKickoffVerified": false
       },
-      "started": false,
+      "started": true,
       "identityBlocked": false,
       "fundingBlockers": [
         "CONFIRMED_XI_NOT_READY",
+        "FORECAST_CAPTURE_NOT_PREMATCH",
         "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
         "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "KICKOFF_STARTED_OR_UNKNOWN",
+        "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
         "MATCH_INTELLIGENCE_NOT_CAPTURED",
         "UNPROMOTED_L0_FALLBACK"
       ],
@@ -278,8 +284,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -318,8 +327,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -358,8 +370,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -398,8 +413,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -438,8 +456,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -478,8 +499,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -518,8 +542,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -558,8 +585,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -599,8 +629,11 @@
         "fundingBlockers": [
           "CONFIRMED_XI_NOT_READY",
           "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FORECAST_CAPTURE_NOT_PREMATCH",
           "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
           "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "KICKOFF_STARTED_OR_UNKNOWN",
+          "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
           "MATCH_INTELLIGENCE_NOT_CAPTURED",
           "UNPROMOTED_L0_FALLBACK"
         ],
@@ -631,7 +664,7 @@
       "tier": "Avoid",
       "quality": 0.8890565386338299,
       "coverage": "good",
-      "readinessState": "PRE_XI_PROVISIONAL",
+      "readinessState": null,
       "kickoffVerification": {
         "verified": true,
         "kickoffUtc": "2026-11-01T13:00:00Z",
@@ -650,12 +683,16 @@
         "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
         "independentKickoffVerified": false
       },
-      "started": false,
+      "started": true,
       "identityBlocked": false,
       "fundingBlockers": [
         "CONFIRMED_XI_NOT_READY",
+        "FORECAST_CAPTURE_NOT_PREMATCH",
         "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
         "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "KICKOFF_STARTED_OR_UNKNOWN",
+        "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
         "UNPROMOTED_L0_FALLBACK"
       ],
       "markets": [
@@ -690,8 +727,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
           "stakeReady": false,
@@ -729,8 +770,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
           "stakeReady": false,
@@ -768,8 +813,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
           "stakeReady": false,
@@ -807,8 +856,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
           "stakeReady": false,
@@ -846,8 +899,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
           "stakeReady": false,
@@ -885,8 +942,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
           "stakeReady": false,
@@ -924,8 +985,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
           "stakeReady": false,
@@ -963,1064 +1028,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "CORNERS_OVER_8.5",
-          "family": "CORNERS",
-          "selection": "Over 8.5 corners",
-          "winProbability": 0.5703684006764538,
-          "pushProbability": 0.0,
-          "lossProbability": 0.4296315993235462,
-          "profitProbability": 0.5703684006764538,
-          "nonLossProbability": 0.5703684006764538,
-          "fairOdds": 1.7532528078589302,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6738072345147857,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 1.8759805044090556,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "CORNERS_UNDER_8.5",
-          "family": "CORNERS",
-          "selection": "Under 8.5 corners",
-          "winProbability": 0.4296315993235462,
-          "pushProbability": 0.0,
-          "lossProbability": 0.5703684006764538,
-          "profitProbability": 0.4296315993235462,
-          "nonLossProbability": 0.4296315993235462,
-          "fairOdds": 2.3275755358183554,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6738072345147857,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 2.4905058233256403,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "CORNERS_OVER_9.5",
-          "family": "CORNERS",
-          "selection": "Over 9.5 corners",
-          "winProbability": 0.43890046619834333,
-          "pushProbability": 0.0,
-          "lossProbability": 0.5610995338016567,
-          "profitProbability": 0.43890046619834333,
-          "nonLossProbability": 0.43890046619834333,
-          "fairOdds": 2.2784209109226383,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6909187745959469,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 2.437910374687223,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "CORNERS_UNDER_9.5",
-          "family": "CORNERS",
-          "selection": "Under 9.5 corners",
-          "winProbability": 0.5610995338016567,
-          "pushProbability": 0.0,
-          "lossProbability": 0.43890046619834333,
-          "profitProbability": 0.5610995338016567,
-          "nonLossProbability": 0.5610995338016567,
-          "fairOdds": 1.7822149899584312,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6909187745959469,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 1.9069700392555216,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "CORNERS_OVER_10.5",
-          "family": "CORNERS",
-          "selection": "Over 10.5 corners",
-          "winProbability": 0.3179522789670154,
-          "pushProbability": 0.0,
-          "lossProbability": 0.6820477210329846,
-          "profitProbability": 0.3179522789670154,
-          "nonLossProbability": 0.3179522789670154,
-          "fairOdds": 3.145126064983295,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6586741155289347,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 3.365284889532126,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "CORNERS_UNDER_10.5",
-          "family": "CORNERS",
-          "selection": "Under 10.5 corners",
-          "winProbability": 0.6820477210329846,
-          "pushProbability": 0.0,
-          "lossProbability": 0.3179522789670154,
-          "profitProbability": 0.6820477210329846,
-          "nonLossProbability": 0.6820477210329846,
-          "fairOdds": 1.466173068484806,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6586741155289347,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 1.5688051832787424,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "YELLOW_CARDS_OVER_3.5",
-          "family": "YELLOW_CARDS",
-          "selection": "Over 3.5 yellow cards",
-          "winProbability": 0.7123099369445347,
-          "pushProbability": 0.0,
-          "lossProbability": 0.2876900630554653,
-          "profitProbability": 0.7123099369445347,
-          "nonLossProbability": 0.7123099369445347,
-          "fairOdds": 1.4038832650426254,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6757638447337603,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 1.5021550935956092,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "YELLOW_CARDS_UNDER_3.5",
-          "family": "YELLOW_CARDS",
-          "selection": "Under 3.5 yellow cards",
-          "winProbability": 0.2876900630554653,
-          "pushProbability": 0.0,
-          "lossProbability": 0.7123099369445347,
-          "profitProbability": 0.2876900630554653,
-          "nonLossProbability": 0.2876900630554653,
-          "fairOdds": 3.4759629490824806,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6757638447337603,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 3.7192803555182548,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "YELLOW_CARDS_OVER_4.5",
-          "family": "YELLOW_CARDS",
-          "selection": "Over 4.5 yellow cards",
-          "winProbability": 0.5316245068687633,
-          "pushProbability": 0.0,
-          "lossProbability": 0.4683754931312367,
-          "profitProbability": 0.5316245068687633,
-          "nonLossProbability": 0.5316245068687633,
-          "fairOdds": 1.8810269035374996,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6339369597032496,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 2.012698786785125,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "YELLOW_CARDS_UNDER_4.5",
-          "family": "YELLOW_CARDS",
-          "selection": "Under 4.5 yellow cards",
-          "winProbability": 0.4683754931312367,
-          "pushProbability": 0.0,
-          "lossProbability": 0.5316245068687633,
-          "profitProbability": 0.4683754931312367,
-          "nonLossProbability": 0.4683754931312367,
-          "fairOdds": 2.1350391185386046,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6339369597032496,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 2.2844918568363073,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "YELLOW_CARDS_OVER_5.5",
-          "family": "YELLOW_CARDS",
-          "selection": "Over 5.5 yellow cards",
-          "winProbability": 0.35659571680961044,
-          "pushProbability": 0.0,
-          "lossProbability": 0.6434042831903896,
-          "profitProbability": 0.35659571680961044,
-          "nonLossProbability": 0.35659571680961044,
-          "fairOdds": 2.804296161902328,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.4807566602463999,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 3.000596893235491,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "YELLOW_CARDS_UNDER_5.5",
-          "family": "YELLOW_CARDS",
-          "selection": "Under 5.5 yellow cards",
-          "winProbability": 0.6434042831903896,
-          "pushProbability": 0.0,
-          "lossProbability": 0.35659571680961044,
-          "profitProbability": 0.6434042831903896,
-          "nonLossProbability": 0.6434042831903896,
-          "fairOdds": 1.5542327369059343,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.4807566602463999,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 1.6630290284893499,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SHOTS_OVER_20.5",
-          "family": "TOTAL_SHOTS",
-          "selection": "Over 20.5 total shots",
-          "winProbability": 0.6472769282474513,
-          "pushProbability": 0.0,
-          "lossProbability": 0.3527230717525487,
-          "profitProbability": 0.6472769282474513,
-          "nonLossProbability": 0.6472769282474513,
-          "fairOdds": 1.5449337931873637,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.5143294033324514,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 1.6530791587104792,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SHOTS_UNDER_20.5",
-          "family": "TOTAL_SHOTS",
-          "selection": "Under 20.5 total shots",
-          "winProbability": 0.3527230717525487,
-          "pushProbability": 0.0,
-          "lossProbability": 0.6472769282474513,
-          "profitProbability": 0.3527230717525487,
-          "nonLossProbability": 0.3527230717525487,
-          "fairOdds": 2.835085312200801,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.5143294033324514,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 3.033541284054857,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SHOTS_OVER_24.5",
-          "family": "TOTAL_SHOTS",
-          "selection": "Over 24.5 total shots",
-          "winProbability": 0.3209295233771864,
-          "pushProbability": 0.0,
-          "lossProbability": 0.6790704766228136,
-          "profitProbability": 0.3209295233771864,
-          "nonLossProbability": 0.3209295233771864,
-          "fairOdds": 3.115948914505776,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6773021622910069,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 3.3340653385211807,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SHOTS_UNDER_24.5",
-          "family": "TOTAL_SHOTS",
-          "selection": "Under 24.5 total shots",
-          "winProbability": 0.6790704766228136,
-          "pushProbability": 0.0,
-          "lossProbability": 0.3209295233771864,
-          "profitProbability": 0.6790704766228136,
-          "nonLossProbability": 0.6790704766228136,
-          "fairOdds": 1.4726012018270163,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6773021622910069,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 1.5756832859549075,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SHOTS_OVER_28.5",
-          "family": "TOTAL_SHOTS",
-          "selection": "Over 28.5 total shots",
-          "winProbability": 0.10327617985617421,
-          "pushProbability": 0.0,
-          "lossProbability": 0.8967238201438258,
-          "profitProbability": 0.10327617985617421,
-          "nonLossProbability": 0.10327617985617421,
-          "fairOdds": 9.682774879867097,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.5660975195258439,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 10.360569121457795,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SHOTS_UNDER_28.5",
-          "family": "TOTAL_SHOTS",
-          "selection": "Under 28.5 total shots",
-          "winProbability": 0.8967238201438258,
-          "pushProbability": 0.0,
-          "lossProbability": 0.10327617985617421,
-          "profitProbability": 0.8967238201438258,
-          "nonLossProbability": 0.8967238201438258,
-          "fairOdds": 1.1151705547864332,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.5660975195258439,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 1.1932324936214838,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SOT_OVER_7.5",
-          "family": "TOTAL_SOT",
-          "selection": "Over 7.5 total sot",
-          "winProbability": 0.5161300236748021,
-          "pushProbability": 0.0,
-          "lossProbability": 0.4838699763251979,
-          "profitProbability": 0.5161300236748021,
-          "nonLossProbability": 0.5161300236748021,
-          "fairOdds": 1.9374962783216614,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6484067378394434,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 2.0731210178041777,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SOT_UNDER_7.5",
-          "family": "TOTAL_SOT",
-          "selection": "Under 7.5 total sot",
-          "winProbability": 0.4838699763251979,
-          "pushProbability": 0.0,
-          "lossProbability": 0.5161300236748021,
-          "profitProbability": 0.4838699763251979,
-          "nonLossProbability": 0.4838699763251979,
-          "fairOdds": 2.066670901126386,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6484067378394434,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 2.2113378642052335,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SOT_OVER_8.5",
-          "family": "TOTAL_SOT",
-          "selection": "Over 8.5 total sot",
-          "winProbability": 0.3769675556888229,
-          "pushProbability": 0.0,
-          "lossProbability": 0.6230324443111771,
-          "profitProbability": 0.3769675556888229,
-          "nonLossProbability": 0.3769675556888229,
-          "fairOdds": 2.6527481872351757,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.683864283905212,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 2.838440560341638,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SOT_UNDER_8.5",
-          "family": "TOTAL_SOT",
-          "selection": "Under 8.5 total sot",
-          "winProbability": 0.6230324443111771,
-          "pushProbability": 0.0,
-          "lossProbability": 0.3769675556888229,
-          "profitProbability": 0.6230324443111771,
-          "nonLossProbability": 0.6230324443111771,
-          "fairOdds": 1.6050528493834653,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.683864283905212,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 1.717406548840308,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SOT_OVER_9.5",
-          "family": "TOTAL_SOT",
-          "selection": "Over 9.5 total sot",
-          "winProbability": 0.2566479368079231,
-          "pushProbability": 0.0,
-          "lossProbability": 0.7433520631920769,
-          "profitProbability": 0.2566479368079231,
-          "nonLossProbability": 0.2566479368079231,
-          "fairOdds": 3.896388229095355,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6444322795375642,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 4.16913540513203,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-            "UNPROMOTED_L0_FALLBACK"
-          ],
-          "stakeReady": false,
-          "decision": "BLOCKED",
-          "guaranteedProfit": false
-        },
-        {
-          "market": "TOTAL_SOT_UNDER_9.5",
-          "family": "TOTAL_SOT",
-          "selection": "Under 9.5 total sot",
-          "winProbability": 0.7433520631920769,
-          "pushProbability": 0.0,
-          "lossProbability": 0.2566479368079231,
-          "profitProbability": 0.7433520631920769,
-          "nonLossProbability": 0.7433520631920769,
-          "fairOdds": 1.345257583204699,
-          "source": "EXISTING_VALIDATED_EVENT_POISSON",
-          "mainMarket": false,
-          "modelArtifact": "HBT-1.3R-EVENT-CAL",
-          "lineHoldoutN": 1752,
-          "lineBinaryLogloss": 0.6444322795375642,
-          "validationScope": "family count model; this line has held-out scores, not a guaranteed win rate",
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "es.1",
-            "home": "Getafe",
-            "away": "Sevilla",
-            "provider": "ESPN:es.1",
-            "sourceStatus": "loaded"
-          },
-          "observedOdds": null,
-          "bookmaker": null,
-          "quotedAt": null,
-          "expectedProfitPerRand": null,
-          "minimumEVGate": 0.07,
-          "minimumOddsForValueGate": 1.4394256140290278,
-          "valuePositive": false,
-          "fundingBlockers": [
-            "CONFIRMED_XI_NOT_READY",
-            "CURRENT_BOOKMAKER_QUOTE_MISSING",
-            "EVENT_EXECUTION_VALIDATION_PENDING",
-            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
           "stakeReady": false,
@@ -2059,8 +1072,12 @@
         "fundingBlockers": [
           "CONFIRMED_XI_NOT_READY",
           "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FORECAST_CAPTURE_NOT_PREMATCH",
           "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
           "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "KICKOFF_STARTED_OR_UNKNOWN",
+          "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED",
           "UNPROMOTED_L0_FALLBACK"
         ],
         "stakeReady": false,
@@ -2109,12 +1126,15 @@
         "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
         "independentKickoffVerified": false
       },
-      "started": false,
+      "started": true,
       "identityBlocked": false,
       "fundingBlockers": [
         "CONFIRMED_XI_NOT_READY",
+        "FORECAST_CAPTURE_NOT_PREMATCH",
         "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
         "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "KICKOFF_STARTED_OR_UNKNOWN",
+        "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
         "MATCH_INTELLIGENCE_NOT_CAPTURED",
         "STALE_TEAM_STATE",
         "UNPROMOTED_L0_FALLBACK"
@@ -2151,8 +1171,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2192,8 +1215,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2233,8 +1259,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2274,8 +1303,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2315,8 +1347,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2356,8 +1391,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2397,8 +1435,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2438,8 +1479,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2480,8 +1524,11 @@
         "fundingBlockers": [
           "CONFIRMED_XI_NOT_READY",
           "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FORECAST_CAPTURE_NOT_PREMATCH",
           "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
           "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "KICKOFF_STARTED_OR_UNKNOWN",
+          "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
           "MATCH_INTELLIGENCE_NOT_CAPTURED",
           "STALE_TEAM_STATE",
           "UNPROMOTED_L0_FALLBACK"
@@ -2532,12 +1579,15 @@
         "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
         "independentKickoffVerified": false
       },
-      "started": false,
+      "started": true,
       "identityBlocked": false,
       "fundingBlockers": [
         "CONFIRMED_XI_NOT_READY",
+        "FORECAST_CAPTURE_NOT_PREMATCH",
         "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
         "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "KICKOFF_STARTED_OR_UNKNOWN",
+        "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
         "MATCH_INTELLIGENCE_NOT_CAPTURED",
         "STALE_TEAM_STATE",
         "UNPROMOTED_L0_FALLBACK"
@@ -2574,8 +1624,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2615,8 +1668,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2656,8 +1712,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2697,8 +1756,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2738,8 +1800,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2779,8 +1844,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2820,8 +1888,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2861,8 +1932,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -2903,8 +1977,11 @@
         "fundingBlockers": [
           "CONFIRMED_XI_NOT_READY",
           "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FORECAST_CAPTURE_NOT_PREMATCH",
           "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
           "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "KICKOFF_STARTED_OR_UNKNOWN",
+          "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
           "MATCH_INTELLIGENCE_NOT_CAPTURED",
           "STALE_TEAM_STATE",
           "UNPROMOTED_L0_FALLBACK"
@@ -2955,12 +2032,15 @@
         "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
         "independentKickoffVerified": false
       },
-      "started": false,
+      "started": true,
       "identityBlocked": false,
       "fundingBlockers": [
         "CONFIRMED_XI_NOT_READY",
+        "FORECAST_CAPTURE_NOT_PREMATCH",
         "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
         "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "KICKOFF_STARTED_OR_UNKNOWN",
+        "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
         "MATCH_INTELLIGENCE_NOT_CAPTURED",
         "STALE_TEAM_STATE",
         "UNPROMOTED_L0_FALLBACK"
@@ -2997,8 +2077,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -3038,8 +2121,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -3079,8 +2165,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -3120,8 +2209,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -3161,8 +2253,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -3202,8 +2297,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -3243,8 +2341,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -3284,8 +2385,11 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "STALE_TEAM_STATE",
             "UNPROMOTED_L0_FALLBACK"
@@ -3326,8 +2430,11 @@
         "fundingBlockers": [
           "CONFIRMED_XI_NOT_READY",
           "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FORECAST_CAPTURE_NOT_PREMATCH",
           "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
           "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "KICKOFF_STARTED_OR_UNKNOWN",
+          "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
           "MATCH_INTELLIGENCE_NOT_CAPTURED",
           "STALE_TEAM_STATE",
           "UNPROMOTED_L0_FALLBACK"
@@ -3378,13 +2485,16 @@
         "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
         "independentKickoffVerified": false
       },
-      "started": false,
+      "started": true,
       "identityBlocked": true,
       "fundingBlockers": [
         "CONFIRMED_XI_NOT_READY",
+        "FORECAST_CAPTURE_NOT_PREMATCH",
         "FORECAST_KICKOFF_DISAGREEMENT",
         "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
         "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "KICKOFF_STARTED_OR_UNKNOWN",
+        "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
         "MATCH_INTELLIGENCE_NOT_CAPTURED",
         "UNPROMOTED_L0_FALLBACK"
       ],
@@ -3420,9 +2530,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -3461,9 +2574,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -3502,9 +2618,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -3543,9 +2662,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -3584,9 +2706,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -3625,9 +2750,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -3666,9 +2794,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -3707,9 +2838,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -3749,9 +2883,12 @@
         "fundingBlockers": [
           "CONFIRMED_XI_NOT_READY",
           "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FORECAST_CAPTURE_NOT_PREMATCH",
           "FORECAST_KICKOFF_DISAGREEMENT",
           "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
           "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "KICKOFF_STARTED_OR_UNKNOWN",
+          "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
           "MATCH_INTELLIGENCE_NOT_CAPTURED",
           "UNPROMOTED_L0_FALLBACK"
         ],
@@ -3801,13 +2938,16 @@
         "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
         "independentKickoffVerified": false
       },
-      "started": false,
+      "started": true,
       "identityBlocked": true,
       "fundingBlockers": [
         "CONFIRMED_XI_NOT_READY",
+        "FORECAST_CAPTURE_NOT_PREMATCH",
         "FORECAST_KICKOFF_DISAGREEMENT",
         "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
         "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "KICKOFF_STARTED_OR_UNKNOWN",
+        "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
         "MATCH_INTELLIGENCE_NOT_CAPTURED",
         "UNPROMOTED_L0_FALLBACK"
       ],
@@ -3843,9 +2983,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -3884,9 +3027,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -3925,9 +3071,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -3966,9 +3115,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -4007,9 +3159,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -4048,9 +3203,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -4089,9 +3247,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -4130,9 +3291,12 @@
           "fundingBlockers": [
             "CONFIRMED_XI_NOT_READY",
             "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FORECAST_CAPTURE_NOT_PREMATCH",
             "FORECAST_KICKOFF_DISAGREEMENT",
             "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
             "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "KICKOFF_STARTED_OR_UNKNOWN",
+            "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
             "MATCH_INTELLIGENCE_NOT_CAPTURED",
             "UNPROMOTED_L0_FALLBACK"
           ],
@@ -4172,9 +3336,12 @@
         "fundingBlockers": [
           "CONFIRMED_XI_NOT_READY",
           "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FORECAST_CAPTURE_NOT_PREMATCH",
           "FORECAST_KICKOFF_DISAGREEMENT",
           "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
           "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "KICKOFF_STARTED_OR_UNKNOWN",
+          "LATEST_FORECAST_NOT_IN_IMMUTABLE_CAPTURE",
           "MATCH_INTELLIGENCE_NOT_CAPTURED",
           "UNPROMOTED_L0_FALLBACK"
         ],
@@ -12698,8 +11865,8 @@
       "kickoff": "2026-11-01T11:30:00Z",
       "competition": "Serie A",
       "leagueHint": "it.1",
-      "hbtSupportLevel": "NOT_YET_READY",
-      "classificationReason": "Live HBT-1.4 intelligence exists, but no date-matched frozen control probability output is available for ranking."
+      "hbtSupportLevel": "INSUFFICIENT_DATA",
+      "classificationReason": "Competition is in the full-model support contract, but the fixture lacks reconciled predictive output."
     },
     {
       "home": "Mumbai City FC",
@@ -12806,15 +11973,6 @@
       "kickoff": "2026-11-01T13:00:00Z",
       "competition": "Segunda División",
       "leagueHint": "es.2",
-      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
-      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
-    },
-    {
-      "home": "Lye Town",
-      "away": "Coton Green",
-      "kickoff": "2026-11-01T13:00:00Z",
-      "competition": "first-round",
-      "leagueHint": null,
       "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
       "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
     },
@@ -13845,6 +13003,15 @@
       "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
     },
     {
+      "home": "Western Michigan",
+      "away": "Akron",
+      "kickoff": "2026-11-01T18:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
       "home": "Cobresal",
       "away": "Everton CD",
       "kickoff": "2026-11-01T18:00:00Z",
@@ -14376,15 +13543,6 @@
       "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
     },
     {
-      "home": "Western Michigan",
-      "away": "Akron",
-      "kickoff": "2026-11-01T20:00:00Z",
-      "competition": "2026-ncaa-division-i-women",
-      "leagueHint": null,
-      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
-      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
-    },
-    {
       "home": "Wyoming",
       "away": "Air Force",
       "kickoff": "2026-11-01T20:00:00Z",
@@ -14583,15 +13741,6 @@
       "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
     },
     {
-      "home": "Houston Christian",
-      "away": "Lamar",
-      "kickoff": "2026-11-01T21:30:00Z",
-      "competition": "2026-ncaa-division-i-women",
-      "leagueHint": null,
-      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
-      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
-    },
-    {
       "home": "Atlanta United FC",
       "away": "Toronto FC",
       "kickoff": "2026-11-01T21:30:00Z",
@@ -14657,6 +13806,15 @@
     {
       "home": "Georgia State",
       "away": "Old Dominion",
+      "kickoff": "2026-11-01T22:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Houston Christian",
+      "away": "Lamar",
       "kickoff": "2026-11-01T22:00:00Z",
       "competition": "2026-ncaa-division-i-women",
       "leagueHint": null,
@@ -14952,6 +14110,15 @@
       "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
     },
     {
+      "home": "Hawai'i",
+      "away": "New Mexico",
+      "kickoff": "2026-11-02T00:30:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
       "home": "Athletic Club Boise",
       "away": "One Knoxville",
       "kickoff": "2026-11-02T01:00:00Z",
@@ -15033,15 +14200,6 @@
       "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
     },
     {
-      "home": "Hawai'i",
-      "away": "New Mexico",
-      "kickoff": "2026-11-02T02:30:00Z",
-      "competition": "2026-ncaa-division-i-women",
-      "leagueHint": null,
-      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
-      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
-    },
-    {
       "home": "Portland Timbers",
       "away": "Houston Dynamo FC",
       "kickoff": "2026-11-02T02:45:00Z",
@@ -15064,7 +14222,7 @@
   "recoveredFusionResearch": {
     "schemaVersion": "HBT-RECOVERED-FUSION-SHADOW-1",
     "targetDate": "2026-11-01",
-    "generatedAt": "2026-10-31T11:10:50.984Z",
+    "generatedAt": "2026-11-01T15:30:57.057Z",
     "policy": {
       "bookmakerOddsUsedAsFeature": false,
       "retrainingPerformed": false,
@@ -15080,9 +14238,9 @@
       "deployment": "runtime/hbt_frozen_fusion_deployment.json"
     },
     "sourceHashes": {
-      "control": "32ff37da0dd24c8bae2add3a92735e72432c0fb4f79f7c898f3f194574114c16",
-      "performance": "4f0cfaeed006e56e6b1b52dfd9803ef98be91df5019eee76ac0a13808451f4cb",
-      "players": "9c9c258e8e0bcad575bd1065f805a92ddacb9526d2aabab39d8169b3439b88c3",
+      "control": "a803112e50e0be0906093f22097e964ee25a71d26f1f9505c330fef971c3148d",
+      "performance": "2ec61575f267e792dd2da1c26df12d452726752ab430e47fbb139192f36e3d4e",
+      "players": "54c44c5f94e87e12595ebb21d2b15974944f6d8f1725d3903e2e38356d87ee80",
       "deployment": "c70c8bd40ad83c0f4942d7536ed6f7ff736a4a13319a993d06a132f3627ab286"
     },
     "deploymentCreated": "2026-09-12T11:15:44.195Z",
@@ -15164,9 +14322,9 @@
         "status": "RESEARCH_ONLY",
         "predictionMode": "PRE-XI FUSION",
         "probs": [
-          0.37736294251823127,
-          0.27613639430720216,
-          0.3465006631745667
+          0.3776327000324434,
+          0.2760835550932508,
+          0.34628374487430585
         ],
         "layerPredictions": {
           "L0": [
@@ -15180,41 +14338,41 @@
             0.3004178667076525
           ],
           "L4": [
-            0.3498548333603399,
-            0.27590017314721965,
-            0.37424499349244084
+            0.35021906877642445,
+            0.27584117861145224,
+            0.37393975261212425
           ],
           "Fusion": [
-            0.37736294251823127,
-            0.27613639430720216,
-            0.3465006631745667
+            0.3776327000324434,
+            0.2760835550932508,
+            0.34628374487430585
           ]
         },
         "scoreMarkets": {
           "hda": [
-            0.3498548333603399,
-            0.27590017314721965,
-            0.37424499349244084
+            0.35021906877642445,
+            0.27584117861145224,
+            0.37393975261212425
           ],
-          "oneX": 0.6257550065075596,
-          "x2": 0.6501451666396605,
-          "twelve": 0.7240998268527807,
-          "over15": 0.740290191217232,
-          "under15": 0.25970980878276795,
-          "over25": 0.4834087084488665,
-          "under25": 0.5165912915511335,
-          "over35": 0.26559369834889146,
-          "under35": 0.7344063016511085,
-          "bttsYes": 0.5367398949762839,
-          "bttsNo": 0.46326010502371606,
-          "homeOver05": 0.7212954711140452,
-          "awayOver05": 0.7354502517231886,
-          "homeOver15": 0.3652216703292141,
-          "awayOver15": 0.38367153816102195,
+          "oneX": 0.6260602473878767,
+          "x2": 0.6497809312235765,
+          "twelve": 0.7241588213885487,
+          "over15": 0.7404908571220764,
+          "under15": 0.2595091428779236,
+          "over25": 0.4836721850622365,
+          "under25": 0.5163278149377635,
+          "over35": 0.2658227343713785,
+          "under35": 0.7341772656286215,
+          "bttsYes": 0.53695645943194,
+          "bttsNo": 0.46304354056805996,
+          "homeOver05": 0.7216399486287078,
+          "awayOver05": 0.7354012195723413,
+          "homeOver15": 0.3656619885741846,
+          "awayOver15": 0.3836063434340439,
           "mostLikelyScore": {
             "h": 1,
             "a": 1,
-            "p": 0.13152214275194263
+            "p": 0.13149278348361187
           }
         },
         "inputFeatures": {
@@ -15248,7 +14406,7 @@
             0.45747256741922715,
             -0.0901912,
             0.2099623,
-            0.49482319548842846,
+            0.5134436537699052,
             -0.023889483994316833
           ],
           "awayScore": [
@@ -15256,16 +14414,16 @@
             0.6071519416725377,
             0.09971500000000003,
             -0.0175986,
-            0.23721829728899538,
+            0.23133488703839217,
             0.023889483994316833
           ]
         },
         "diagnostics": {
-          "performanceFeedAgeMinutes": 14.483066666666666,
+          "performanceFeedAgeMinutes": 5.85095,
           "performanceFeedCurrent": true,
           "confirmedXi": false,
           "xiReason": "outside confirmed-XI collection window",
-          "preKickoff": true
+          "preKickoff": false
         },
         "executionEligible": false,
         "blockers": [
@@ -15404,9 +14562,9 @@
         "status": "RESEARCH_ONLY",
         "predictionMode": "PRE-XI FUSION",
         "probs": [
-          0.39958949270673016,
-          0.28599378068377096,
-          0.31441672660949876
+          0.39965342532255543,
+          0.2859936609864685,
+          0.3143529136909761
         ],
         "layerPredictions": {
           "L0": [
@@ -15420,41 +14578,41 @@
             0.36607687328461364
           ],
           "L4": [
-            0.4173980303838963,
-            0.2905656206143126,
-            0.29203634900179126
+            0.41748622633048593,
+            0.2905624775011047,
+            0.2919512961684088
           ],
           "Fusion": [
-            0.39958949270673016,
-            0.28599378068377096,
-            0.31441672660949876
+            0.39965342532255543,
+            0.2859936609864685,
+            0.3143529136909761
           ]
         },
         "scoreMarkets": {
           "hda": [
-            0.4173980303838963,
-            0.2905656206143126,
-            0.29203634900179126
+            0.41748622633048593,
+            0.2905624775011047,
+            0.2919512961684088
           ],
-          "oneX": 0.7079636509982089,
-          "x2": 0.5826019696161039,
-          "twelve": 0.7094343793856875,
-          "over15": 0.6858007713704468,
-          "under15": 0.3141992286295532,
-          "over25": 0.4157405579880984,
-          "under25": 0.5842594420119016,
-          "over35": 0.20977113887455684,
-          "under35": 0.7902288611254431,
-          "bttsYes": 0.4779732019961851,
-          "bttsNo": 0.5220267980038149,
-          "homeOver05": 0.7276265526662311,
-          "awayOver05": 0.6479468999232014,
-          "homeOver15": 0.37338273394179783,
-          "awayOver15": 0.2804128710876459,
+          "oneX": 0.7080487038315906,
+          "x2": 0.5825137736695135,
+          "twelve": 0.7094375224988947,
+          "over15": 0.6857837613533151,
+          "under15": 0.3142162386466849,
+          "over25": 0.4157207945711302,
+          "under25": 0.5842792054288698,
+          "over35": 0.20975569361387847,
+          "under35": 0.7902443063861215,
+          "bttsYes": 0.4779427462709647,
+          "bttsNo": 0.5220572537290353,
+          "homeOver05": 0.7276644431933559,
+          "awayOver05": 0.6478715135241397,
+          "homeOver15": 0.3734320162499734,
+          "awayOver15": 0.28033417778356057,
           "mostLikelyScore": {
             "h": 1,
             "a": 1,
-            "p": 0.13670649078017758
+            "p": 0.13670332455327475
           }
         },
         "inputFeatures": {
@@ -15488,7 +14646,7 @@
             -0.13199200665874375,
             0.16072340000000002,
             0.16182599999999997,
-            0.47881874004898817,
+            0.4808772193696056,
             -0.38999535442755134
           ],
           "awayScore": [
@@ -15496,15 +14654,15 @@
             -0.6723724768635498,
             0.009868999999999994,
             0.444752,
-            0.26890135122219777,
+            0.2602432884790832,
             0.38999535442755134
           ]
         },
         "diagnostics": {
-          "performanceFeedAgeMinutes": 14.483066666666666,
+          "performanceFeedAgeMinutes": 5.85095,
           "performanceFeedCurrent": true,
           "confirmedXi": false,
-          "xiReason": "outside confirmed-XI collection window",
+          "xiReason": "confirmed XI not published by ESPN",
           "preKickoff": true
         },
         "executionEligible": false,
@@ -15527,9 +14685,9 @@
         "status": "RESEARCH_ONLY",
         "predictionMode": "PRE-XI FUSION",
         "probs": [
-          0.6286106129254899,
-          0.22105714926506317,
-          0.15033223780944688
+          0.6288684863528977,
+          0.22096874314090412,
+          0.15016277050619828
         ],
         "layerPredictions": {
           "L0": [
@@ -15543,41 +14701,41 @@
             0.1377162666668147
           ],
           "L4": [
-            0.5784400052159522,
-            0.23126532929613586,
-            0.1902946654879115
+            0.5788244027489202,
+            0.23115956763093212,
+            0.19001602962014777
           ],
           "Fusion": [
-            0.6286106129254899,
-            0.22105714926506317,
-            0.15033223780944688
+            0.6288684863528977,
+            0.22096874314090412,
+            0.15016277050619828
           ]
         },
         "scoreMarkets": {
           "hda": [
-            0.5784400052159522,
-            0.23126532929613586,
-            0.1902946654879115
+            0.5788244027489202,
+            0.23115956763093212,
+            0.19001602962014777
           ],
-          "oneX": 0.809705334512088,
-          "x2": 0.4215599947840474,
-          "twelve": 0.7687346707038637,
-          "over15": 0.7919402406709568,
-          "under15": 0.2080597593290432,
-          "over25": 0.5559413490501259,
-          "under25": 0.44405865094987407,
-          "over35": 0.3322190095722598,
-          "under35": 0.6677809904277402,
-          "bttsYes": 0.5446244456823884,
-          "bttsNo": 0.45537555431761156,
-          "homeOver05": 0.8509417610560611,
-          "awayOver05": 0.6338926772647391,
-          "homeOver15": 0.5672208145491079,
-          "awayOver15": 0.266017507352909,
+          "oneX": 0.8099839703798524,
+          "x2": 0.4211755972510799,
+          "twelve": 0.768840432369068,
+          "over15": 0.7919665306818597,
+          "under15": 0.20803346931814026,
+          "over25": 0.5559828733276538,
+          "under25": 0.44401712667234616,
+          "over35": 0.3322592595705952,
+          "under35": 0.6677407404294048,
+          "bttsYes": 0.5444778849051175,
+          "bttsNo": 0.4555221150948825,
+          "homeOver05": 0.8510791799832084,
+          "awayOver05": 0.6336207846134816,
+          "homeOver15": 0.5674824407913438,
+          "awayOver15": 0.26574440276061334,
           "mostLikelyScore": {
             "h": 1,
             "a": 1,
-            "p": 0.10959258597398035
+            "p": 0.10954496943513328
           }
         },
         "inputFeatures": {
@@ -15611,7 +14769,7 @@
             0.19706648080409014,
             -0.16797800000000004,
             -0.2089125,
-            0.41996585343117526,
+            0.4292892054822499,
             0.7611814369525598
           ],
           "awayScore": [
@@ -15619,15 +14777,15 @@
             0.11803935835846831,
             -0.09895499999999997,
             -0.1626442,
-            0.20620419219420963,
+            0.17500642736557784,
             -0.7611814369525598
           ]
         },
         "diagnostics": {
-          "performanceFeedAgeMinutes": 14.483066666666666,
+          "performanceFeedAgeMinutes": 5.85095,
           "performanceFeedCurrent": true,
           "confirmedXi": false,
-          "xiReason": "outside confirmed-XI collection window",
+          "xiReason": "confirmed XI not published by ESPN",
           "preKickoff": true
         },
         "executionEligible": false,
@@ -15650,9 +14808,9 @@
         "status": "RESEARCH_ONLY",
         "predictionMode": "PRE-XI FUSION",
         "probs": [
-          0.3902663659745349,
-          0.26901137904651146,
-          0.34072225497895375
+          0.39054837279065785,
+          0.2689534402137986,
+          0.34049818699554363
         ],
         "layerPredictions": {
           "L0": [
@@ -15666,41 +14824,41 @@
             0.3260868818539545
           ],
           "L4": [
-            0.3817666465778182,
-            0.2677480316732272,
-            0.35048532174895436
+            0.3821551327202429,
+            0.2676727178962127,
+            0.3501721493835448
           ],
           "Fusion": [
-            0.3902663659745349,
-            0.26901137904651146,
-            0.34072225497895375
+            0.39054837279065785,
+            0.2689534402137986,
+            0.34049818699554363
           ]
         },
         "scoreMarkets": {
           "hda": [
-            0.3817666465778182,
-            0.2677480316732272,
-            0.35048532174895436
+            0.3821551327202429,
+            0.2676727178962127,
+            0.3501721493835448
           ],
-          "oneX": 0.6495146782510455,
-          "x2": 0.6182333534221816,
-          "twelve": 0.7322519683267725,
-          "over15": 0.7651160551327496,
-          "under15": 0.2348839448672504,
-          "over25": 0.5168882254891883,
-          "under25": 0.48311177451081166,
-          "over35": 0.2954446207793969,
-          "under35": 0.7045553792206031,
-          "bttsYes": 0.5627092743011212,
-          "bttsNo": 0.43729072569887883,
-          "homeOver05": 0.7548196158275815,
-          "awayOver05": 0.7374723625982408,
-          "homeOver15": 0.41015450263642905,
-          "awayOver15": 0.3863681370944259,
+          "oneX": 0.6498278506164556,
+          "x2": 0.6178448672797575,
+          "twelve": 0.7323272821037876,
+          "over15": 0.7653212488861699,
+          "under15": 0.23467875111383008,
+          "over25": 0.5171725986089787,
+          "under25": 0.4828274013910213,
+          "over35": 0.29570470280650835,
+          "under35": 0.7042952971934917,
+          "bttsYes": 0.562916111396008,
+          "bttsNo": 0.43708388860399205,
+          "homeOver05": 0.7551530351404465,
+          "awayOver05": 0.7374234244368884,
+          "homeOver15": 0.4106234367560427,
+          "awayOver15": 0.38630269186738236,
           "mostLikelyScore": {
             "h": 1,
             "a": 1,
-            "p": 0.12706404650642233
+            "p": 0.12702005922544005
           }
         },
         "inputFeatures": {
@@ -15734,7 +14892,7 @@
             0.23430487139612452,
             0.3835362,
             0.06798510000000002,
-            0.49482319548842846,
+            0.5134436537699052,
             -0.1688659206173611
           ],
           "awayScore": [
@@ -15742,15 +14900,15 @@
             0.4381842187536888,
             -0.07900370000000004,
             -0.3749452,
-            0.23721829728899538,
+            0.23133488703839217,
             0.1688659206173611
           ]
         },
         "diagnostics": {
-          "performanceFeedAgeMinutes": 14.483066666666666,
+          "performanceFeedAgeMinutes": 5.85095,
           "performanceFeedCurrent": true,
           "confirmedXi": false,
-          "xiReason": "outside confirmed-XI collection window",
+          "xiReason": "confirmed XI not published by ESPN",
           "preKickoff": true
         },
         "executionEligible": false,
@@ -15786,9 +14944,9 @@
         "status": "RESEARCH_ONLY",
         "predictionMode": "PRE-XI FUSION",
         "probs": [
-          0.6691918668322476,
-          0.20706830116138128,
-          0.12373983200637093
+          0.6692961139882545,
+          0.20699600239701735,
+          0.12370788361472818
         ],
         "layerPredictions": {
           "L0": [
@@ -15802,41 +14960,41 @@
             0.10426802836902244
           ],
           "L4": [
-            0.6048369726506874,
-            0.2236222708925553,
-            0.1715407564567571
+            0.6049910071196304,
+            0.2235228773338824,
+            0.17148611554648685
           ],
           "Fusion": [
-            0.6691918668322476,
-            0.20706830116138128,
-            0.12373983200637093
+            0.6692961139882545,
+            0.20699600239701735,
+            0.12370788361472818
           ]
         },
         "scoreMarkets": {
           "hda": [
-            0.6048369726506874,
-            0.2236222708925553,
-            0.1715407564567571
+            0.6049910071196304,
+            0.2235228773338824,
+            0.17148611554648685
           ],
-          "oneX": 0.8284592435432426,
-          "x2": 0.3951630273493124,
-          "twelve": 0.7763777291074445,
-          "over15": 0.7938041497959899,
-          "under15": 0.2061958502040101,
-          "over25": 0.5588970296529844,
-          "under25": 0.4411029703470156,
-          "over35": 0.3350901733635227,
-          "under35": 0.6649098266364772,
-          "bttsYes": 0.5337917941706373,
-          "bttsNo": 0.46620820582936273,
-          "homeOver05": 0.8601790596104104,
-          "awayOver05": 0.6146830743131084,
-          "homeOver15": 0.5850953675336926,
-          "awayOver15": 0.24721051995014393,
+          "oneX": 0.8285138844535128,
+          "x2": 0.3950089928803693,
+          "twelve": 0.7764771226661172,
+          "over15": 0.7940210538175664,
+          "under15": 0.20597894618243362,
+          "over25": 0.5592176823025548,
+          "under25": 0.44078231769744525,
+          "over35": 0.335402457749888,
+          "under35": 0.664597542250112,
+          "bttsYes": 0.5339880255263391,
+          "bttsNo": 0.46601197447366094,
+          "homeOver05": 0.8603291199341971,
+          "awayOver05": 0.614806959315978,
+          "homeOver15": 0.585390671708426,
+          "awayOver15": 0.24732868763712287,
           "mostLikelyScore": {
             "h": 1,
             "a": 1,
-            "p": 0.10613999234057805
+            "p": 0.10608560106067644
           }
         },
         "inputFeatures": {
@@ -15870,7 +15028,7 @@
             0.08806673656841735,
             -0.1996302,
             0.053969500000000004,
-            0.4633911921573584,
+            0.4738924415046588,
             0.9547491154914212
           ],
           "awayScore": [
@@ -15878,12 +15036,12 @@
             -0.2742163436983246,
             -0.11636899999999999,
             0.21991619999999995,
-            0.355415281972894,
+            0.36964569970330374,
             -0.9547491154914212
           ]
         },
         "diagnostics": {
-          "performanceFeedAgeMinutes": 14.483066666666666,
+          "performanceFeedAgeMinutes": 5.85095,
           "performanceFeedCurrent": true,
           "confirmedXi": false,
           "xiReason": "outside confirmed-XI collection window",
@@ -15909,9 +15067,9 @@
         "status": "RESEARCH_ONLY",
         "predictionMode": "PRE-XI FUSION",
         "probs": [
-          0.4452991669786509,
-          0.26208845407979314,
-          0.2926123789415559
+          0.44559905214852813,
+          0.26200745297748224,
+          0.29239349487398963
         ],
         "layerPredictions": {
           "L0": [
@@ -15925,41 +15083,41 @@
             0.28237313866614855
           ],
           "L4": [
-            0.4300521402268348,
-            0.2607768978174152,
-            0.30917096195575
+            0.43046641656028056,
+            0.26067331347293826,
+            0.3088602699667817
           ],
           "Fusion": [
-            0.4452991669786509,
-            0.26208845407979314,
-            0.2926123789415559
+            0.44559905214852813,
+            0.26200745297748224,
+            0.29239349487398963
           ]
         },
         "scoreMarkets": {
           "hda": [
-            0.4300521402268348,
-            0.2607768978174152,
-            0.30917096195575
+            0.43046641656028056,
+            0.26067331347293826,
+            0.3088602699667817
           ],
-          "oneX": 0.69082903804425,
-          "x2": 0.5699478597731652,
-          "twelve": 0.7392231021825848,
-          "over15": 0.7787626530240517,
-          "under15": 0.22123734697594832,
-          "over25": 0.5361349092870056,
-          "under25": 0.4638650907129944,
-          "over35": 0.3133002601107403,
-          "under35": 0.6866997398892597,
-          "bttsYes": 0.5734426374946996,
-          "bttsNo": 0.4265573625053004,
-          "homeOver05": 0.7868823488740082,
-          "awayOver05": 0.7212984627233626,
-          "homeOver15": 0.45742128908428664,
-          "awayOver15": 0.3652254924322762,
+          "oneX": 0.6911397300332188,
+          "x2": 0.5695335834397199,
+          "twelve": 0.7393266865270622,
+          "over15": 0.7789807921487122,
+          "under15": 0.2210192078512878,
+          "over25": 0.5364470004712046,
+          "under25": 0.46355299952879536,
+          "over35": 0.31359405948648733,
+          "under35": 0.6864059405135127,
+          "bttsYes": 0.5736305632562362,
+          "bttsNo": 0.4263694367437638,
+          "homeOver05": 0.787201037787646,
+          "awayOver05": 0.7212488321858332,
+          "homeOver15": 0.4579141909219611,
+          "awayOver15": 0.36516208822840235,
           "mostLikelyScore": {
             "h": 1,
             "a": 1,
-            "p": 0.12317778706230423
+            "p": 0.12311741518483167
           }
         },
         "inputFeatures": {
@@ -15993,7 +15151,7 @@
             0.3206575554582081,
             -0.0035066999999999737,
             0.3109832,
-            0.49482319548842846,
+            0.5134436537699052,
             -0.033201581710407026
           ],
           "awayScore": [
@@ -16001,12 +15159,12 @@
             -0.09313411914262279,
             0.3976492000000001,
             -0.05553565000000003,
-            0.23721829728899538,
+            0.23133488703839217,
             0.033201581710407026
           ]
         },
         "diagnostics": {
-          "performanceFeedAgeMinutes": 14.483066666666666,
+          "performanceFeedAgeMinutes": 5.85095,
           "performanceFeedCurrent": true,
           "confirmedXi": false,
           "xiReason": "outside confirmed-XI collection window",
@@ -16023,7 +15181,7 @@
     "summary": {
       "fixtures": 17,
       "scoreDistributions": 6,
-      "futureScoreDistributions": 6,
+      "futureScoreDistributions": 5,
       "confirmedXiFusion": 0,
       "readyBets": 0
     }
@@ -16088,122 +15246,6 @@
     {
       "legCount": 2,
       "objective": "HIGH_PROBABILITY_WATCH",
-      "jointProbabilityIndependenceApprox": 0.7419275006722593,
-      "jointProbabilityBounds": {
-        "lower": 0.7243446112957908,
-        "upper": 0.8245746467586944
-      },
-      "lossProbabilityIndependenceApprox": 0.2580724993277407,
-      "combinedOdds": null,
-      "returnPerRandIfAllWin": null,
-      "expectedProfitPerRandIndependenceApprox": null,
-      "expectedProfitPerRandBounds": null,
-      "dependenceValidated": false,
-      "stakeReady": false,
-      "fundingBlockers": [
-        "CHAIN_DEPENDENCE_NOT_VALIDATED",
-        "CONFIRMED_XI_NOT_READY",
-        "CURRENT_BOOKMAKER_QUOTE_MISSING",
-        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-        "MATCH_INTELLIGENCE_NOT_CAPTURED",
-        "STALE_TEAM_STATE",
-        "UNPROMOTED_L0_FALLBACK"
-      ],
-      "legs": [
-        {
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "19:45",
-            "league": "it.1",
-            "home": "Juventus",
-            "away": "Napoli",
-            "provider": "ESPN:it.1",
-            "sourceStatus": "loaded"
-          },
-          "market": "1X",
-          "selection": "Juventus OR Draw — Double Chance (1X)",
-          "winProbability": 0.8997699645370965,
-          "observedOdds": null
-        },
-        {
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "tr.1",
-            "home": "Trabzonspor",
-            "away": "Gaziantep FK",
-            "provider": "ESPN:tr.1",
-            "sourceStatus": "loaded"
-          },
-          "market": "1X",
-          "selection": "Trabzonspor OR Draw — Double Chance (1X)",
-          "winProbability": 0.8245746467586944,
-          "observedOdds": null
-        }
-      ]
-    },
-    {
-      "legCount": 2,
-      "objective": "HIGH_PROBABILITY_WATCH",
-      "jointProbabilityIndependenceApprox": 0.7352375361571365,
-      "jointProbabilityBounds": {
-        "lower": 0.7169094169919172,
-        "upper": 0.8171394524548208
-      },
-      "lossProbabilityIndependenceApprox": 0.2647624638428635,
-      "combinedOdds": null,
-      "returnPerRandIfAllWin": null,
-      "expectedProfitPerRandIndependenceApprox": null,
-      "expectedProfitPerRandBounds": null,
-      "dependenceValidated": false,
-      "stakeReady": false,
-      "fundingBlockers": [
-        "CHAIN_DEPENDENCE_NOT_VALIDATED",
-        "CONFIRMED_XI_NOT_READY",
-        "CURRENT_BOOKMAKER_QUOTE_MISSING",
-        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-        "MATCH_INTELLIGENCE_NOT_CAPTURED",
-        "STALE_TEAM_STATE",
-        "UNPROMOTED_L0_FALLBACK"
-      ],
-      "legs": [
-        {
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "19:45",
-            "league": "it.1",
-            "home": "Juventus",
-            "away": "Napoli",
-            "provider": "ESPN:it.1",
-            "sourceStatus": "loaded"
-          },
-          "market": "1X",
-          "selection": "Juventus OR Draw — Double Chance (1X)",
-          "winProbability": 0.8997699645370965,
-          "observedOdds": null
-        },
-        {
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "sco.1",
-            "home": "Falkirk",
-            "away": "Celtic",
-            "provider": "ESPN:sco.1",
-            "sourceStatus": "loaded"
-          },
-          "market": "X2",
-          "selection": "Celtic OR Draw — Double Chance (X2)",
-          "winProbability": 0.8171394524548208,
-          "observedOdds": null
-        }
-      ]
-    },
-    {
-      "legCount": 2,
-      "objective": "HIGH_PROBABILITY_WATCH",
       "jointProbabilityIndependenceApprox": 0.7253803845731136,
       "jointProbabilityBounds": {
         "lower": 0.7059542262514773,
@@ -16254,122 +15296,6 @@
           "market": "1X",
           "selection": "FC Groningen OR Draw — Double Chance (1X)",
           "winProbability": 0.8061842617143807,
-          "observedOdds": null
-        }
-      ]
-    },
-    {
-      "legCount": 2,
-      "objective": "HIGH_PROBABILITY_WATCH",
-      "jointProbabilityIndependenceApprox": 0.725413652149721,
-      "jointProbabilityBounds": {
-        "lower": 0.7043174996359158,
-        "upper": 0.8245746467586944
-      },
-      "lossProbabilityIndependenceApprox": 0.274586347850279,
-      "combinedOdds": null,
-      "returnPerRandIfAllWin": null,
-      "expectedProfitPerRandIndependenceApprox": null,
-      "expectedProfitPerRandBounds": null,
-      "dependenceValidated": false,
-      "stakeReady": false,
-      "fundingBlockers": [
-        "CHAIN_DEPENDENCE_NOT_VALIDATED",
-        "CONFIRMED_XI_NOT_READY",
-        "CURRENT_BOOKMAKER_QUOTE_MISSING",
-        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-        "MATCH_INTELLIGENCE_NOT_CAPTURED",
-        "STALE_TEAM_STATE",
-        "UNPROMOTED_L0_FALLBACK"
-      ],
-      "legs": [
-        {
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "16:30",
-            "league": "en.1",
-            "home": "Liverpool",
-            "away": "Arsenal",
-            "provider": "ESPN:en.1",
-            "sourceStatus": "loaded"
-          },
-          "market": "1X",
-          "selection": "Liverpool OR Draw — Double Chance (1X)",
-          "winProbability": 0.8797428528772215,
-          "observedOdds": null
-        },
-        {
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "tr.1",
-            "home": "Trabzonspor",
-            "away": "Gaziantep FK",
-            "provider": "ESPN:tr.1",
-            "sourceStatus": "loaded"
-          },
-          "market": "1X",
-          "selection": "Trabzonspor OR Draw — Double Chance (1X)",
-          "winProbability": 0.8245746467586944,
-          "observedOdds": null
-        }
-      ]
-    },
-    {
-      "legCount": 2,
-      "objective": "HIGH_PROBABILITY_WATCH",
-      "jointProbabilityIndependenceApprox": 0.7188725931011347,
-      "jointProbabilityBounds": {
-        "lower": 0.6968823053320423,
-        "upper": 0.8171394524548208
-      },
-      "lossProbabilityIndependenceApprox": 0.2811274068988653,
-      "combinedOdds": null,
-      "returnPerRandIfAllWin": null,
-      "expectedProfitPerRandIndependenceApprox": null,
-      "expectedProfitPerRandBounds": null,
-      "dependenceValidated": false,
-      "stakeReady": false,
-      "fundingBlockers": [
-        "CHAIN_DEPENDENCE_NOT_VALIDATED",
-        "CONFIRMED_XI_NOT_READY",
-        "CURRENT_BOOKMAKER_QUOTE_MISSING",
-        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
-        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-        "MATCH_INTELLIGENCE_NOT_CAPTURED",
-        "STALE_TEAM_STATE",
-        "UNPROMOTED_L0_FALLBACK"
-      ],
-      "legs": [
-        {
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "16:30",
-            "league": "en.1",
-            "home": "Liverpool",
-            "away": "Arsenal",
-            "provider": "ESPN:en.1",
-            "sourceStatus": "loaded"
-          },
-          "market": "1X",
-          "selection": "Liverpool OR Draw — Double Chance (1X)",
-          "winProbability": 0.8797428528772215,
-          "observedOdds": null
-        },
-        {
-          "fixture": {
-            "date": "2026-11-01",
-            "time": "13:00",
-            "league": "sco.1",
-            "home": "Falkirk",
-            "away": "Celtic",
-            "provider": "ESPN:sco.1",
-            "sourceStatus": "loaded"
-          },
-          "market": "X2",
-          "selection": "Celtic OR Draw — Double Chance (X2)",
-          "winProbability": 0.8171394524548208,
           "observedOdds": null
         }
       ]
@@ -16548,12 +15474,12 @@
     {
       "legCount": 2,
       "objective": "HIGH_PROBABILITY_WATCH",
-      "jointProbabilityIndependenceApprox": 0.6737924753605268,
+      "jointProbabilityIndependenceApprox": 0.6559584846113602,
       "jointProbabilityBounds": {
-        "lower": 0.6417140992135151,
-        "upper": 0.8171394524548208
+        "lower": 0.6287990613783434,
+        "upper": 0.729029096841247
       },
-      "lossProbabilityIndependenceApprox": 0.3262075246394732,
+      "lossProbabilityIndependenceApprox": 0.3440415153886398,
       "combinedOdds": null,
       "returnPerRandIfAllWin": null,
       "expectedProfitPerRandIndependenceApprox": null,
@@ -16566,7 +15492,118 @@
         "CURRENT_BOOKMAKER_QUOTE_MISSING",
         "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
         "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
-        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-01",
+            "time": "19:45",
+            "league": "it.1",
+            "home": "Juventus",
+            "away": "Napoli",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Juventus OR Draw — Double Chance (1X)",
+          "winProbability": 0.8997699645370965,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-01",
+            "time": "16:15",
+            "league": "fr.1",
+            "home": "Paris FC",
+            "away": "AS Monaco",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Paris FC OR AS Monaco — Either team wins, draw loses (12)",
+          "winProbability": 0.729029096841247,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.6556635804781611,
+      "jointProbabilityBounds": {
+        "lower": 0.6284713063466993,
+        "upper": 0.728701341809603
+      },
+      "lossProbabilityIndependenceApprox": 0.3443364195218389,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-01",
+            "time": "19:45",
+            "league": "it.1",
+            "home": "Juventus",
+            "away": "Napoli",
+            "provider": "ESPN:it.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Juventus OR Draw — Double Chance (1X)",
+          "winProbability": 0.8997699645370965,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-01",
+            "time": "17:30",
+            "league": "es.1",
+            "home": "Elche",
+            "away": "Valencia",
+            "provider": "ESPN:es.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Elche OR Valencia — Either team wins, draw loses (12)",
+          "winProbability": 0.728701341809603,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.6547325889114811,
+      "jointProbabilityBounds": {
+        "lower": 0.6274366068086248,
+        "upper": 0.7276666422715283
+      },
+      "lossProbabilityIndependenceApprox": 0.3452674110885189,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
         "STALE_TEAM_STATE",
         "UNPROMOTED_L0_FALLBACK"
       ],
@@ -16574,31 +15611,143 @@
         {
           "fixture": {
             "date": "2026-11-01",
-            "time": "13:00",
-            "league": "tr.1",
-            "home": "Trabzonspor",
-            "away": "Gaziantep FK",
-            "provider": "ESPN:tr.1",
+            "time": "19:45",
+            "league": "it.1",
+            "home": "Juventus",
+            "away": "Napoli",
+            "provider": "ESPN:it.1",
             "sourceStatus": "loaded"
           },
           "market": "1X",
-          "selection": "Trabzonspor OR Draw — Double Chance (1X)",
-          "winProbability": 0.8245746467586944,
+          "selection": "Juventus OR Draw — Double Chance (1X)",
+          "winProbability": 0.8997699645370965,
           "observedOdds": null
         },
         {
           "fixture": {
             "date": "2026-11-01",
-            "time": "13:00",
-            "league": "sco.1",
-            "home": "Falkirk",
-            "away": "Celtic",
-            "provider": "ESPN:sco.1",
+            "time": "20:00",
+            "league": "es.1",
+            "home": "Athletic Club",
+            "away": "Real Sociedad",
+            "provider": "ESPN:es.1",
             "sourceStatus": "loaded"
           },
-          "market": "X2",
-          "selection": "Celtic OR Draw — Double Chance (X2)",
-          "winProbability": 0.8171394524548208,
+          "market": "12",
+          "selection": "Athletic Club OR Real Sociedad — Either team wins, draw loses (12)",
+          "winProbability": 0.7276666422715283,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.6413581374856228,
+      "jointProbabilityBounds": {
+        "lower": 0.6087719497184685,
+        "upper": 0.729029096841247
+      },
+      "lossProbabilityIndependenceApprox": 0.35864186251437724,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-01",
+            "time": "16:30",
+            "league": "en.1",
+            "home": "Liverpool",
+            "away": "Arsenal",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Liverpool OR Draw — Double Chance (1X)",
+          "winProbability": 0.8797428528772215,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-01",
+            "time": "16:15",
+            "league": "fr.1",
+            "home": "Paris FC",
+            "away": "AS Monaco",
+            "provider": "ESPN:fr.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Paris FC OR AS Monaco — Either team wins, draw loses (12)",
+          "winProbability": 0.729029096841247,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.6410697973390395,
+      "jointProbabilityBounds": {
+        "lower": 0.6084441946868244,
+        "upper": 0.728701341809603
+      },
+      "lossProbabilityIndependenceApprox": 0.35893020266096054,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-01",
+            "time": "16:30",
+            "league": "en.1",
+            "home": "Liverpool",
+            "away": "Arsenal",
+            "provider": "ESPN:en.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Liverpool OR Draw — Double Chance (1X)",
+          "winProbability": 0.8797428528772215,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-01",
+            "time": "17:30",
+            "league": "es.1",
+            "home": "Elche",
+            "away": "Valencia",
+            "provider": "ESPN:es.1",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Elche OR Valencia — Either team wins, draw loses (12)",
+          "winProbability": 0.728701341809603,
           "observedOdds": null
         }
       ]
