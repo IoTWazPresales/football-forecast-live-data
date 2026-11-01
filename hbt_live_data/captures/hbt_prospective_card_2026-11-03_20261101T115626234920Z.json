@@ -1,0 +1,385 @@
+{
+  "schemaVersion": "HBT-PROSPECTIVE-CARD-2",
+  "version": "HBT-PROSPECTIVE-FROZEN-BRIDGE-1",
+  "capturedAt": "2026-11-01T11:56:26.234920Z",
+  "targetDate": "2026-11-03",
+  "origin": "HBT_EXACT_FROZEN_BRIDGE",
+  "policy": {
+    "bookmakerOddsUsedAsPredictiveFeature": false,
+    "bookmakerPriceObservedBeforeCapture": false,
+    "modelRetuned": false,
+    "preMatchCaptureImmutable": true,
+    "postKickoffBackfillAllowed": false,
+    "preserveExistingIntelligence": true,
+    "allValidatedIntelligenceFamiliesRetained": true,
+    "unvalidatedOverlayDoesNotChangeProbability": true,
+    "forensicLearningCanCreateHypothesesButNotAutoPromote": true,
+    "competitionLabelIsEligibilityGate": true,
+    "unsupportedCompetitionsMayNotEnterHBT": true,
+    "exactFrozenRuntimeParityRequired": true,
+    "c1ATierPromotionAllowed": false
+  },
+  "parityDiagnostic": 1.1102230246251565e-16,
+  "intelligenceSources": {
+    "matchIntelligenceGeneratedAt": "2026-11-01T11:56:18Z",
+    "preXiGeneratedAt": "2026-11-01T11:52:42Z",
+    "marketIntelligenceGeneratedAt": "2026-11-01T11:55:21Z"
+  },
+  "candidates": [
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "17:45",
+        "league": "uefa.cl",
+        "home": "Galatasaray",
+        "away": "VfB Stuttgart",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "stale-ish 2519d",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.5065124449662817,
+      "resolution": null,
+      "probs": {
+        "H": 0.46192574426764194,
+        "D": 0.2751070779474325,
+        "A": 0.26296717778492545
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.46192574426764194,
+          "fairOdds": 2.1648501137026805,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2751070779474325,
+          "fairOdds": 3.6349482807239157,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.26296717778492545,
+          "fairOdds": 3.8027559500899994,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.7370328222150744,
+          "fairOdds": 1.3567916785504959,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.5380742557323579,
+          "fairOdds": 1.8584795487732968,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7248929220525674,
+          "fairOdds": 1.3795140903962124,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.6372330729339695,
+          "winP": 0.46192574426764194,
+          "pushP": 0.2751070779474325,
+          "lossP": 0.26296717778492545,
+          "fairOdds": 1.569284524727769,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.36276692706603053,
+          "winP": 0.26296717778492545,
+          "pushP": 0.2751070779474325,
+          "lossP": 0.46192574426764194,
+          "fairOdds": 2.756590872513527,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Barcelona",
+        "away": "Aston Villa",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.7634545476635207,
+      "resolution": null,
+      "probs": {
+        "H": 0.5635857978537633,
+        "D": 0.24232374248689112,
+        "A": 0.19409045965934557
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.5635857978537633,
+          "fairOdds": 1.7743527317547407,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.24232374248689112,
+          "fairOdds": 4.126710778470651,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.19409045965934557,
+          "fairOdds": 5.1522367547335,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.8059095403406544,
+          "fairOdds": 1.2408340513965181,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.4364142021462367,
+          "fairOdds": 2.2914011392894884,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7576762575131089,
+          "fairOdds": 1.3198249121363006,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.74383457613361,
+          "winP": 0.5635857978537633,
+          "pushP": 0.24232374248689112,
+          "lossP": 0.19409045965934557,
+          "fairOdds": 1.344384937304093,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.25616542386638996,
+          "winP": 0.19409045965934557,
+          "pushP": 0.24232374248689112,
+          "lossP": 0.5635857978537633,
+          "fairOdds": 3.903727462147964,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Manchester United",
+        "away": "AS Roma",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8076966959555462,
+      "resolution": null,
+      "probs": {
+        "H": 0.32028159765325936,
+        "D": 0.2767581128247381,
+        "A": 0.4029602895220024
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.32028159765325936,
+          "fairOdds": 3.12225244074938,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2767581128247381,
+          "fairOdds": 3.613263545532511,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.4029602895220024,
+          "fairOdds": 2.481634111356767,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.5970397104779974,
+          "fairOdds": 1.6749304651769101,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.6797184023467405,
+          "fairOdds": 1.4711974790552695,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7232418871752617,
+          "fairOdds": 1.38266328006203,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.44284160435476294,
+          "winP": 0.32028159765325936,
+          "pushP": 0.2767581128247381,
+          "lossP": 0.4029602895220024,
+          "fairOdds": 2.258143747485149,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.5571583956452371,
+          "winP": 0.4029602895220024,
+          "pushP": 0.2767581128247381,
+          "lossP": 0.32028159765325936,
+          "fairOdds": 1.7948217379761717,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Villarreal",
+        "away": "Paris Saint-Germain",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "statusAtCapture": "PRE_KICKOFF",
+      "origin": "HBT_EXACT_FROZEN_BRIDGE",
+      "coverage": "good",
+      "coveragePack": null,
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7940758477061364,
+      "resolution": null,
+      "probs": {
+        "H": 0.44568548224201393,
+        "D": 0.2571842345697081,
+        "A": 0.2971302831882779
+      },
+      "derivedMarkets": {
+        "HOME_WIN": {
+          "p": 0.44568548224201393,
+          "fairOdds": 2.243734740852485,
+          "family": "1X2"
+        },
+        "DRAW": {
+          "p": 0.2571842345697081,
+          "fairOdds": 3.8882632198396143,
+          "family": "1X2"
+        },
+        "AWAY_WIN": {
+          "p": 0.2971302831882779,
+          "fairOdds": 3.365527031677029,
+          "family": "1X2"
+        },
+        "1X": {
+          "p": 0.7028697168117221,
+          "fairOdds": 1.42273877516887,
+          "family": "DOUBLE_CHANCE"
+        },
+        "X2": {
+          "p": 0.554314517757986,
+          "fairOdds": 1.8040299648738416,
+          "family": "DOUBLE_CHANCE"
+        },
+        "12": {
+          "p": 0.7428157654302918,
+          "fairOdds": 1.3462288316144297,
+          "family": "DOUBLE_CHANCE"
+        },
+        "HOME_DNB": {
+          "conditionalP": 0.59999464602618,
+          "winP": 0.44568548224201393,
+          "pushP": 0.2571842345697081,
+          "lossP": 0.2971302831882779,
+          "fairOdds": 1.6666815389488763,
+          "family": "DNB"
+        },
+        "AWAY_DNB": {
+          "conditionalP": 0.40000535397382,
+          "winP": 0.2971302831882779,
+          "pushP": 0.2571842345697081,
+          "lossP": 0.44568548224201393,
+          "fairOdds": 2.4999665381115106,
+          "family": "DNB"
+        }
+      },
+      "intelligenceOverlay": {
+        "readinessState": null,
+        "officialXIConfirmed": false,
+        "intelligenceGaps": [
+          "MATCH_INTELLIGENCE_NOT_CAPTURED"
+        ],
+        "forensicFamiliesSurfaced": {}
+      },
+      "surfacingPolicy": {
+        "baseProbabilityChangedByOverlay": false,
+        "overlayCanChangeRiskLabelOrStakeOnlyAfterValidatedRule": false,
+        "overlayPurpose": "Expose knowable match state and gaps; do not alter exact frozen HBT probabilities."
+      }
+    }
+  ],
+  "excludedUnsupported": [],
+  "counts": {
+    "predictions": 4,
+    "excludedUnsupported": 0,
+    "preKickoff": 4,
+    "postKickoff": 0,
+    "c1": 0,
+    "withIntelligenceOverlay": 0
+  },
+  "sourceForecastSha256": "ae4519a4d9739655e57fd6711a54c42895afd333ea9546f309e539cb4903bc65",
+  "sourceForecastExportedAt": "2026-11-01T11:56:25.896Z"
+}

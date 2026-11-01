@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "HBT-RECOVERED-FUSION-SHADOW-1",
+  "targetDate": "2026-11-03",
+  "generatedAt": "2026-11-01T11:56:25.942Z",
+  "policy": {
+    "bookmakerOddsUsedAsFeature": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "modelPromotionAllowed": false,
+    "executionAllowed": false,
+    "controlForecastUnchanged": true
+  },
+  "sourceFiles": {
+    "control": "hbt_live_data/frozen_control_forecast_2026-11-03.json",
+    "performance": "hbt_live_data/performance.json",
+    "players": "hbt_live_data/player_features.json",
+    "deployment": "runtime/hbt_frozen_fusion_deployment.json"
+  },
+  "sourceHashes": {
+    "control": "ae4519a4d9739655e57fd6711a54c42895afd333ea9546f309e539cb4903bc65",
+    "performance": "dcabb0ad97094e538fab1ac43e9e99436399a81eab2d35732698875e5c8bfd47",
+    "players": "13e09dd7f3abb837c8b1722b0b6b2ecee490faaed596fe9091da2c89af482ac2",
+    "deployment": "c70c8bd40ad83c0f4942d7536ed6f7ff736a4a13319a993d06a132f3627ab286"
+  },
+  "deploymentCreated": "2026-09-12T11:15:44.195Z",
+  "validation": {
+    "full": {
+      "n": 477,
+      "metrics": {
+        "logloss": 0.9833605605510539,
+        "brier": 0.19491211336090997,
+        "accuracy": 0.5178197064989518,
+        "n": 477
+      },
+      "comparisonVsL1": {
+        "deltaLogloss": -0.0005511696769950868,
+        "deltaBrier": -0.000058669377025451214,
+        "loglossCI": [
+          -0.006791170497667031,
+          0.005929971910121035
+        ],
+        "brierCI": [
+          -0.0014543274989953676,
+          0.0014215803281917175
+        ],
+        "bootstrap": "date-block"
+      }
+    },
+    "preXi": {
+      "n": 477,
+      "metrics": {
+        "logloss": 0.9842363126507243,
+        "brier": 0.19507367109947807,
+        "accuracy": 0.5115303983228512,
+        "n": 477
+      },
+      "comparisonVsL1": {
+        "deltaLogloss": 0.00032458242267565036,
+        "deltaBrier": 0.00010288836154313641,
+        "loglossCI": [
+          -0.007220108989338226,
+          0.008517516766458415
+        ],
+        "brierCI": [
+          -0.0016581694468763037,
+          0.00177713311708228
+        ],
+        "bootstrap": "date-block"
+      }
+    }
+  },
+  "validationLimits": [
+    "2019 confirmation was reused; it is not a new untouched holdout",
+    "Historical raw model-versus-bookmaker EV failed its earlier value audit",
+    "Recovered inference is not current execution validation"
+  ],
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "17:45",
+        "league": "uefa.cl",
+        "home": "Galatasaray",
+        "away": "VfB Stuttgart",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Barcelona",
+        "away": "Aston Villa",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Manchester United",
+        "away": "AS Roma",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Villarreal",
+        "away": "Paris Saint-Germain",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "status": "UNAVAILABLE",
+      "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+    }
+  ],
+  "summary": {
+    "fixtures": 4,
+    "scoreDistributions": 0,
+    "futureScoreDistributions": 0,
+    "confirmedXiFusion": 0,
+    "readyBets": 0
+  }
+}

@@ -1,0 +1,372 @@
+{
+  "schemaVersion": "HBT-FROZEN-CONTROL-FORECAST-1",
+  "sourceFile": "exact HBT-0.4a frozen browser deployment snapshot",
+  "sourceExportedAt": "2026-11-01T11:56:25.896Z",
+  "sourceLabVersion": "HBT-1.1.2L-R1",
+  "sourceEngineVersion": "HBT-0.4a exact frozen L0 snapshot bridge",
+  "targetDate": "2026-11-03",
+  "policy": {
+    "prospectiveExport": true,
+    "bookmakerOddsUsed": false,
+    "bookmakerOddsUsedInSimulation": false,
+    "predictiveModelMutated": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "generalFutureLiveFeed": false,
+    "scope": "Date-scoped forecasts emitted only after exact HBT-0.4a frozen-state golden parity.",
+    "missingFixtureSemantics": "unknown/not forecast in this export; never infer a probability",
+    "goldenParityRequired": true,
+    "goldenParityTolerance": 1e-9,
+    "targetStateAsOfExclusive": "2026-11-03"
+  },
+  "bridge": {
+    "version": "HBT-FROZEN-FORECAST-BRIDGE-1.4-EXACT-SNAPSHOT",
+    "weightsSource": "exact frozen HBT-0.4a browser snapshot",
+    "snapshotCreated": "2026-09-11T20:30:57.701Z",
+    "snapshotDataCutoff": "2026-09-07",
+    "sourceSnapshotSha256": "c9b53377b8733d63a50413d7a1d3b3287c49c686e24eb75f944861423c3e8eb8",
+    "compactPayloadSha256": "3921c17a6f496412ddfb4e1a22d66d102cf58ccae2e0204d796422d526ce0cdb",
+    "goldenForecastDate": "2026-09-15",
+    "goldenMaxAbsError": 1.1102230246251565e-16,
+    "targetStateAsOfExclusive": "2026-11-03",
+    "incrementalMatches": 146,
+    "sourceFailures": [
+      {
+        "source": "2026-27/sco.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/tr.1",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      },
+      {
+        "source": "2026-27/uefa.cl",
+        "status": "failed",
+        "matches": 0,
+        "error": "404 Not Found"
+      }
+    ],
+    "duplicatesRemoved": 0,
+    "crossLeagueLinks": 0,
+    "newStates": 4,
+    "unresolvedUpdates": 0,
+    "excluded": [
+      {
+        "fixture": "Shakhtar Donetsk vs Sporting CP",
+        "league": "uefa.cl",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Atlético Madrid vs Bayern Munich",
+        "league": "uefa.cl",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Bodo/Glimt vs Lille",
+        "league": "uefa.cl",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Feyenoord Rotterdam vs Internazionale",
+        "league": "uefa.cl",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "LASK Linz vs Slovan Bratislava",
+        "league": "uefa.cl",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Chapecoense vs Mirassol",
+        "league": "it.1",
+        "reason": "unresolved team identity"
+      }
+    ]
+  },
+  "predictions": [
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "17:45",
+        "league": "uefa.cl",
+        "home": "Galatasaray",
+        "away": "VfB Stuttgart",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "stale-ish 2519d",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.5065124449662817,
+      "probs": [
+        0.46192574426764194,
+        0.2751070779474325,
+        0.26296717778492545
+      ],
+      "pick": "Galatasaray",
+      "pickProb": 0.46192574426764194,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.46192574426764194,
+          0.2751070779474325,
+          0.26296717778492545
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          0.18385461609939513,
+          -0.3333333333333333,
+          -0.2333333333333333,
+          -1.12,
+          -0.4800000000000001,
+          -0.72,
+          -0.3999999999999999,
+          -0.26666666666666666,
+          0.08000000000000003,
+          0.2611898229041947,
+          0
+        ],
+        "raw": {
+          "eloDiff": 0.18385461609939513,
+          "form5": -0.3333333333333333,
+          "form10": -0.2333333333333333,
+          "gd5": -1.12,
+          "gd10": -0.4800000000000001,
+          "attack5": -0.72,
+          "defence5": -0.3999999999999999,
+          "venueForm": -0.26666666666666666,
+          "venueGD": 0.08000000000000003,
+          "sos5": 0.2611898229041947,
+          "restDiff": 0
+        },
+        "homeElo": 1457.8642832298174,
+        "awayElo": 1421.0933600099384,
+        "homeGames": 18,
+        "awayGames": 10,
+        "homeLeague": null,
+        "awayLeague": "de.1",
+        "homeLastDate": "2019-12-11",
+        "awayLastDate": "2026-09-19"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Barcelona",
+        "away": "Aston Villa",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "C",
+      "rawTier": "C",
+      "quality": 0.7634545476635207,
+      "probs": [
+        0.5635857978537633,
+        0.24232374248689112,
+        0.19409045965934557
+      ],
+      "pick": "Barcelona",
+      "pickProb": 0.5635857978537633,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.5635857978537633,
+          0.24232374248689112,
+          0.19409045965934557
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          0.22627907240520018,
+          0.39999999999999997,
+          0.3,
+          1.04,
+          0.68,
+          1.28,
+          -0.23999999999999994,
+          0.20000000000000004,
+          1.04,
+          0.1596221939136285,
+          0
+        ],
+        "raw": {
+          "eloDiff": 0.22627907240520018,
+          "form5": 0.39999999999999997,
+          "form10": 0.3,
+          "gd5": 1.04,
+          "gd10": 0.68,
+          "attack5": 1.28,
+          "defence5": -0.23999999999999994,
+          "venueForm": 0.20000000000000004,
+          "venueGD": 1.04,
+          "sos5": 0.1596221939136285,
+          "restDiff": 0
+        },
+        "homeElo": 1631.6350983922293,
+        "awayElo": 1586.3792839111893,
+        "homeGames": 33,
+        "awayGames": 32,
+        "homeLeague": "es.1",
+        "awayLeague": "en.1",
+        "homeLastDate": "2026-09-19",
+        "awayLastDate": "2026-09-19"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Manchester United",
+        "away": "AS Roma",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.8076966959555462,
+      "probs": [
+        0.32028159765325936,
+        0.2767581128247381,
+        0.4029602895220024
+      ],
+      "pick": "AS Roma",
+      "pickProb": 0.4029602895220024,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.32028159765325936,
+          0.2767581128247381,
+          0.4029602895220024
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.33962832798104386,
+          -0.5333333333333333,
+          -0.33333333333333326,
+          -0.8800000000000001,
+          -0.64,
+          -0.47999999999999987,
+          -0.4,
+          -0.20000000000000004,
+          -0.4800000000000001,
+          -0.21280446636860234,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.33962832798104386,
+          "form5": -0.5333333333333333,
+          "form10": -0.33333333333333326,
+          "gd5": -0.8800000000000001,
+          "gd10": -0.64,
+          "attack5": -0.47999999999999987,
+          "defence5": -0.4,
+          "venueForm": -0.20000000000000004,
+          "venueGD": -0.4800000000000001,
+          "sos5": -0.21280446636860234,
+          "restDiff": 0
+        },
+        "homeElo": 1614.7150013359678,
+        "awayElo": 1682.6406669321766,
+        "homeGames": 32,
+        "awayGames": 32,
+        "homeLeague": "en.1",
+        "awayLeague": "it.1",
+        "homeLastDate": "2026-09-20",
+        "awayLastDate": "2026-09-19"
+      }
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Villarreal",
+        "away": "Paris Saint-Germain",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "coverage": "good",
+      "coveragePack": null,
+      "tier": "Avoid",
+      "rawTier": "Avoid",
+      "quality": 0.7940758477061364,
+      "probs": [
+        0.44568548224201393,
+        0.2571842345697081,
+        0.2971302831882779
+      ],
+      "pick": "Villarreal",
+      "pickProb": 0.44568548224201393,
+      "predictionMode": "L0 FALLBACK",
+      "fusionEligible": false,
+      "layerPredictions": {
+        "L0": [
+          0.44568548224201393,
+          0.2571842345697081,
+          0.2971302831882779
+        ]
+      },
+      "intelligenceStatus": null,
+      "scoreMarkets": null,
+      "structuralFeatures": {
+        "vec": [
+          -0.0905559719222822,
+          -0.39999999999999997,
+          -0.4333333333333333,
+          -0.15999999999999998,
+          -0.52,
+          0.07999999999999999,
+          -0.24000000000000005,
+          -0.39999999999999997,
+          0,
+          -0.4649658085314229,
+          0
+        ],
+        "raw": {
+          "eloDiff": -0.0905559719222822,
+          "form5": -0.39999999999999997,
+          "form10": -0.4333333333333333,
+          "gd5": -0.15999999999999998,
+          "gd10": -0.52,
+          "attack5": 0.07999999999999999,
+          "defence5": -0.24000000000000005,
+          "venueForm": -0.39999999999999997,
+          "venueGD": 0,
+          "sos5": -0.4649658085314229,
+          "restDiff": 0
+        },
+        "homeElo": 1595.4432889192024,
+        "awayElo": 1613.5544833036588,
+        "homeGames": 33,
+        "awayGames": 32,
+        "homeLeague": "es.1",
+        "awayLeague": "fr.1",
+        "homeLastDate": "2026-09-20",
+        "awayLastDate": "2026-09-20"
+      }
+    }
+  ]
+}

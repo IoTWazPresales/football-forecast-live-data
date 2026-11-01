@@ -1,0 +1,3456 @@
+{
+  "schemaVersion": "HBT-BETTING-DESK-1",
+  "version": "HBT-BETTING-DESK-1-RESEARCH",
+  "targetDate": "2026-11-03",
+  "generatedAt": "2026-11-01T11:56:26.605345Z",
+  "readiness": "NO_EXECUTABLE_BETS",
+  "policy": {
+    "bookmakerOddsAreDecisionLayerOnly": true,
+    "frozenModelMutated": false,
+    "historicalCapturesRewritten": false,
+    "guaranteedProfit": false,
+    "automaticBetsPlaced": false,
+    "goalProbabilitiesInferredFrom1X2": false,
+    "chainFundingAutomatic": false,
+    "priority": "highest profit probability among independently eligible positive-value markets; separate highest EV view"
+  },
+  "sourceHashes": {
+    "forecast": "ae4519a4d9739655e57fd6711a54c42895afd333ea9546f309e539cb4903bc65",
+    "card": "3f859b150341d5c1a5bbc8b3a6cacedb32b7bfd29c9b3d0f81b15427ebd9efbe",
+    "scanner": "a6920191ba58603cb38fd14a8d17d5c7b59ffc5c02e9e8409240418acbf69576",
+    "intel": "e1ff41a0f1a5649f789fe7caf691dc9a2f71f1415a9860ac82bf0f8fc2ee26ea",
+    "events": "31aaa86f8ba989660dc8472d9e2ad6dfd0649cabfe01cf26226bf2170f690406",
+    "registry": "cbe2a62e7d9987c8ec4745671b2e6a6366fd9fbba72bc9da856bbfac850191f4",
+    "learning": "aa5875e038a477f65322074b1b390c420157b21c8d20428bfef32ea9bc3cc70d",
+    "prices": "cff56883472acf95428c930212d9ef347765661bbde056dd6f25abb8a80c0d89",
+    "kickoffProof": "ec9132aff7106aa5ec5932a930d10122d9eb9c76082687c3a640a5cc378c73cf",
+    "capturePointer": "4a73f13fe71f54fefee04dffc0fd1af9bf5b67e788493ad60e6b76e4a7efdf40",
+    "recoveredFusion": "041a58a92f3685f7b5fa41a0de07d55ce5fdf3deb6fd6b7b1499e5a7887adf0e"
+  },
+  "sourceFiles": {
+    "forecast": "frozen_control_forecast_2026-11-03.json",
+    "card": "captures/hbt_prospective_card_2026-11-03_20261101T115626234920Z.json",
+    "scanner": "slate_scanner_2026-11-03.json",
+    "intel": "hbt_1_4_match_intelligence.json",
+    "events": "event_model_params.json",
+    "registry": "hbt_1_4_feature_registry.json",
+    "learning": "forensic/hbt_learning_assessment_v1.json",
+    "prices": "market_prices_2026-11-03.json",
+    "kickoffProof": "hbt_independent_kickoffs_2026-11-03.json",
+    "capturePointer": "hbt_current_capture_2026-11-03.json",
+    "recoveredFusion": "hbt_recovered_fusion_shadow_2026-11-03.json"
+  },
+  "quoteAudit": {
+    "sourceStatus": "PRICE_SOURCE_UNCONFIGURED",
+    "accepted": 0
+  },
+  "globalBlockers": [],
+  "summary": {
+    "scoredFixtures": 4,
+    "marketsModelled": 32,
+    "readySingles": 0,
+    "futureScoredFixtures": 4,
+    "independentlyVerifiedKickoffs": 0,
+    "currentCaptureFixtures": 4,
+    "bookmakerPricedMarkets": 0,
+    "unscoredDiscoveredFixtures": 90,
+    "previouslyScoredMissingNow": 0,
+    "missingBTTSFixtures": 4,
+    "modelModes": {
+      "L0 FALLBACK": 4
+    },
+    "blockerCounts": {
+      "CONFIRMED_XI_NOT_READY": 32,
+      "CURRENT_BOOKMAKER_QUOTE_MISSING": 32,
+      "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY": 32,
+      "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS": 32,
+      "MATCH_INTELLIGENCE_NOT_CAPTURED": 32,
+      "STALE_TEAM_STATE": 8,
+      "UNPROMOTED_L0_FALLBACK": 32
+    }
+  },
+  "intelligence": {
+    "researchOrIncompleteFamilies": [
+      {
+        "family": "availability",
+        "status": "preserved-research",
+        "role": "candidate"
+      },
+      {
+        "family": "continuity",
+        "status": "preserved-research",
+        "role": "candidate"
+      },
+      {
+        "family": "workloadRest",
+        "status": "preserved-research",
+        "role": "candidate"
+      },
+      {
+        "family": "formation",
+        "status": "retained-after-standalone-reject",
+        "role": "interaction-candidate/context"
+      },
+      {
+        "family": "travel",
+        "status": "retained-after-standalone-reject",
+        "role": "interaction-candidate/context"
+      },
+      {
+        "family": "manager",
+        "status": "collected-partial",
+        "role": "interaction-candidate/context"
+      },
+      {
+        "family": "tacticalMatchup",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "shotStoppingGoalkeeper",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "setPieces",
+        "status": "HBT-1.4-build",
+        "role": "interaction/market-candidate"
+      },
+      {
+        "family": "referee",
+        "status": "HBT-1.4-build",
+        "role": "cards/context-candidate"
+      },
+      {
+        "family": "weatherVenue",
+        "status": "HBT-1.4-build-live-context",
+        "role": "context until strict historical forecast archive validation"
+      },
+      {
+        "family": "fatigueCongestionInteractions",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "motivationCompetition",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "benchSubstitution",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "playerTeamImpact",
+        "status": "HBT-1.4-build",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "teamToScoreAttribution",
+        "status": "HBT-1.4-build",
+        "role": "explanation-and-calibration"
+      },
+      {
+        "family": "redCards",
+        "status": "retained-after-standalone-reject",
+        "role": "context/research only"
+      },
+      {
+        "family": "competitionDomain",
+        "status": "HBT-1.4-build-research",
+        "role": "domain/eligibility adapter"
+      },
+      {
+        "family": "internationalStructuralState",
+        "status": "HBT-1.4-build-research",
+        "role": "international structural challenger"
+      },
+      {
+        "family": "internationalRecentPerformance",
+        "status": "HBT-1.4-build-research",
+        "role": "international recent-performance challenger"
+      },
+      {
+        "family": "internationalCompetitionState",
+        "status": "HBT-1.4-planned",
+        "role": "interaction-candidate"
+      },
+      {
+        "family": "confederationNormalization",
+        "status": "HBT-1.4-planned",
+        "role": "domain-calibration candidate"
+      },
+      {
+        "family": "clubToCountryPlayerTransfer",
+        "status": "HBT-1.4-planned",
+        "role": "international player-impact candidate"
+      },
+      {
+        "family": "internationalSquadContinuity",
+        "status": "HBT-1.4-planned",
+        "role": "international continuity candidate"
+      }
+    ],
+    "learningEvidence": {
+      "legacyEligibleRows": 102,
+      "cleanGuardAwareRows": 0,
+      "guardBlockedRowsExcluded": 10,
+      "settledEligibleRows": 97
+    },
+    "promotionRule": "No hypothesis changes predictive weights until historical backtest plus unseen holdout improvement and clean prospective confirmation."
+  },
+  "fixtures": [
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "17:45",
+        "league": "uefa.cl",
+        "home": "Galatasaray",
+        "away": "VfB Stuttgart",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "quality": 0.5065124449662817,
+      "coverage": "stale-ish 2519d",
+      "readinessState": null,
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-11-03T17:45:00Z",
+        "source": "ESPN:uefa.cl",
+        "fixtureSources": [
+          "ESPN:uefa.cl"
+        ],
+        "sourceFixtureId": "401915311",
+        "competition": "UEFA Champions League",
+        "competitionSlug": "uefa.cl",
+        "leagueHint": "uefa.cl",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Galatasaray",
+        "discoveryAway": "VfB Stuttgart",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
+      },
+      "started": false,
+      "identityBlocked": false,
+      "fundingBlockers": [
+        "CONFIRMED_XI_NOT_READY",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "markets": [
+        {
+          "market": "HOME_WIN",
+          "family": "1X2",
+          "selection": "Galatasaray — Match Winner",
+          "winProbability": 0.46192574426764194,
+          "pushProbability": 0.0,
+          "lossProbability": 0.5380742557323581,
+          "profitProbability": 0.46192574426764194,
+          "nonLossProbability": 0.46192574426764194,
+          "fairOdds": 2.1648501137026805,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 2.3163896216618682,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "DRAW",
+          "family": "1X2",
+          "selection": "Galatasaray vs VfB Stuttgart — Draw",
+          "winProbability": 0.2751070779474325,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7248929220525675,
+          "profitProbability": 0.2751070779474325,
+          "nonLossProbability": 0.2751070779474325,
+          "fairOdds": 3.6349482807239157,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 3.88939466037459,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_WIN",
+          "family": "1X2",
+          "selection": "VfB Stuttgart — Match Winner",
+          "winProbability": 0.26296717778492545,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7370328222150746,
+          "profitProbability": 0.26296717778492545,
+          "nonLossProbability": 0.26296717778492545,
+          "fairOdds": 3.8027559500899994,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 4.068948866596299,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "1X",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Galatasaray OR Draw — Double Chance (1X)",
+          "winProbability": 0.7370328222150744,
+          "pushProbability": 0.0,
+          "lossProbability": 0.2629671777849256,
+          "profitProbability": 0.7370328222150744,
+          "nonLossProbability": 0.7370328222150744,
+          "fairOdds": 1.3567916785504959,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.4517670960490308,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "X2",
+          "family": "DOUBLE_CHANCE",
+          "selection": "VfB Stuttgart OR Draw — Double Chance (X2)",
+          "winProbability": 0.5380742557323579,
+          "pushProbability": 0.0,
+          "lossProbability": 0.4619257442676421,
+          "profitProbability": 0.5380742557323579,
+          "nonLossProbability": 0.5380742557323579,
+          "fairOdds": 1.8584795487732968,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.9885731171874277,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "12",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Galatasaray OR VfB Stuttgart — Either team wins, draw loses (12)",
+          "winProbability": 0.7248929220525674,
+          "pushProbability": 0.0,
+          "lossProbability": 0.2751070779474326,
+          "profitProbability": 0.7248929220525674,
+          "nonLossProbability": 0.7248929220525674,
+          "fairOdds": 1.3795140903962124,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.4760800767239473,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "HOME_DNB",
+          "family": "DNB",
+          "selection": "Galatasaray — Draw No Bet (draw = refund)",
+          "winProbability": 0.46192574426764194,
+          "pushProbability": 0.2751070779474325,
+          "lossProbability": 0.2629671777849256,
+          "profitProbability": 0.46192574426764194,
+          "nonLossProbability": 0.7370328222150744,
+          "fairOdds": 1.5692845247277691,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.7208240326869568,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_DNB",
+          "family": "DNB",
+          "selection": "VfB Stuttgart — Draw No Bet (draw = refund)",
+          "winProbability": 0.26296717778492545,
+          "pushProbability": 0.2751070779474325,
+          "lossProbability": 0.4619257442676421,
+          "profitProbability": 0.26296717778492545,
+          "nonLossProbability": 0.5380742557323579,
+          "fairOdds": 2.7565908725135273,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 3.0227837890198272,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "STALE_TEAM_STATE",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        }
+      ],
+      "mostLikelyOutcome": {
+        "market": "HOME_WIN",
+        "family": "1X2",
+        "selection": "Galatasaray — Match Winner",
+        "winProbability": 0.46192574426764194,
+        "pushProbability": 0.0,
+        "lossProbability": 0.5380742557323581,
+        "profitProbability": 0.46192574426764194,
+        "nonLossProbability": 0.46192574426764194,
+        "fairOdds": 2.1648501137026805,
+        "source": "EXACT_FROZEN_FORECAST",
+        "mainMarket": true,
+        "fixture": {
+          "date": "2026-11-03",
+          "time": "17:45",
+          "league": "uefa.cl",
+          "home": "Galatasaray",
+          "away": "VfB Stuttgart",
+          "provider": "ESPN:uefa.cl",
+          "sourceStatus": "loaded"
+        },
+        "observedOdds": null,
+        "bookmaker": null,
+        "quotedAt": null,
+        "expectedProfitPerRand": null,
+        "minimumEVGate": 0.07,
+        "minimumOddsForValueGate": 2.3163896216618682,
+        "valuePositive": false,
+        "fundingBlockers": [
+          "CONFIRMED_XI_NOT_READY",
+          "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+          "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED",
+          "STALE_TEAM_STATE",
+          "UNPROMOTED_L0_FALLBACK"
+        ],
+        "stakeReady": false,
+        "decision": "BLOCKED",
+        "guaranteedProfit": false
+      },
+      "strongestWinCandidate": null,
+      "bestStandaloneValue": null,
+      "missingMainFamilies": [
+        "BTTS",
+        "TOTAL_GOALS",
+        "TEAM_GOALS"
+      ],
+      "bookmakerAvailabilityConfirmed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Barcelona",
+        "away": "Aston Villa",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "predictionMode": "L0 FALLBACK",
+      "tier": "C",
+      "quality": 0.7634545476635207,
+      "coverage": "good",
+      "readinessState": null,
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-11-03T20:00:00Z",
+        "source": "ESPN:uefa.cl",
+        "fixtureSources": [
+          "ESPN:uefa.cl"
+        ],
+        "sourceFixtureId": "401915387",
+        "competition": "UEFA Champions League",
+        "competitionSlug": "uefa.cl",
+        "leagueHint": "uefa.cl",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Barcelona",
+        "discoveryAway": "Aston Villa",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
+      },
+      "started": false,
+      "identityBlocked": false,
+      "fundingBlockers": [
+        "CONFIRMED_XI_NOT_READY",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "markets": [
+        {
+          "market": "HOME_WIN",
+          "family": "1X2",
+          "selection": "Barcelona — Match Winner",
+          "winProbability": 0.5635857978537633,
+          "pushProbability": 0.0,
+          "lossProbability": 0.4364142021462367,
+          "profitProbability": 0.5635857978537633,
+          "nonLossProbability": 0.5635857978537633,
+          "fairOdds": 1.7743527317547407,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.8275833137073831,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "DRAW",
+          "family": "1X2",
+          "selection": "Barcelona vs Aston Villa — Draw",
+          "winProbability": 0.24232374248689112,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7576762575131089,
+          "profitProbability": 0.24232374248689112,
+          "nonLossProbability": 0.24232374248689112,
+          "fairOdds": 4.126710778470651,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 4.2505121018247705,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_WIN",
+          "family": "1X2",
+          "selection": "Aston Villa — Match Winner",
+          "winProbability": 0.19409045965934557,
+          "pushProbability": 0.0,
+          "lossProbability": 0.8059095403406544,
+          "profitProbability": 0.19409045965934557,
+          "nonLossProbability": 0.19409045965934557,
+          "fairOdds": 5.1522367547335,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 5.306803857375505,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "1X",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Barcelona OR Draw — Double Chance (1X)",
+          "winProbability": 0.8059095403406544,
+          "pushProbability": 0.0,
+          "lossProbability": 0.19409045965934557,
+          "profitProbability": 0.8059095403406544,
+          "nonLossProbability": 0.8059095403406544,
+          "fairOdds": 1.2408340513965181,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.2780590729384138,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "X2",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Aston Villa OR Draw — Double Chance (X2)",
+          "winProbability": 0.4364142021462367,
+          "pushProbability": 0.0,
+          "lossProbability": 0.5635857978537633,
+          "profitProbability": 0.4364142021462367,
+          "nonLossProbability": 0.4364142021462367,
+          "fairOdds": 2.2914011392894884,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 2.3601431734681735,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "12",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Barcelona OR Aston Villa — Either team wins, draw loses (12)",
+          "winProbability": 0.7576762575131089,
+          "pushProbability": 0.0,
+          "lossProbability": 0.24232374248689115,
+          "profitProbability": 0.7576762575131089,
+          "nonLossProbability": 0.7576762575131089,
+          "fairOdds": 1.3198249121363006,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.3594196595003898,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "HOME_DNB",
+          "family": "DNB",
+          "selection": "Barcelona — Draw No Bet (draw = refund)",
+          "winProbability": 0.5635857978537633,
+          "pushProbability": 0.24232374248689112,
+          "lossProbability": 0.1940904596593456,
+          "profitProbability": 0.5635857978537633,
+          "nonLossProbability": 0.8059095403406544,
+          "fairOdds": 1.344384937304093,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 1.3976155192567354,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_DNB",
+          "family": "DNB",
+          "selection": "Aston Villa — Draw No Bet (draw = refund)",
+          "winProbability": 0.19409045965934557,
+          "pushProbability": 0.24232374248689112,
+          "lossProbability": 0.5635857978537633,
+          "profitProbability": 0.19409045965934557,
+          "nonLossProbability": 0.4364142021462367,
+          "fairOdds": 3.903727462147964,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.03,
+          "minimumOddsForValueGate": 4.058294564789969,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        }
+      ],
+      "mostLikelyOutcome": {
+        "market": "HOME_WIN",
+        "family": "1X2",
+        "selection": "Barcelona — Match Winner",
+        "winProbability": 0.5635857978537633,
+        "pushProbability": 0.0,
+        "lossProbability": 0.4364142021462367,
+        "profitProbability": 0.5635857978537633,
+        "nonLossProbability": 0.5635857978537633,
+        "fairOdds": 1.7743527317547407,
+        "source": "EXACT_FROZEN_FORECAST",
+        "mainMarket": true,
+        "fixture": {
+          "date": "2026-11-03",
+          "time": "20:00",
+          "league": "uefa.cl",
+          "home": "Barcelona",
+          "away": "Aston Villa",
+          "provider": "ESPN:uefa.cl",
+          "sourceStatus": "loaded"
+        },
+        "observedOdds": null,
+        "bookmaker": null,
+        "quotedAt": null,
+        "expectedProfitPerRand": null,
+        "minimumEVGate": 0.03,
+        "minimumOddsForValueGate": 1.8275833137073831,
+        "valuePositive": false,
+        "fundingBlockers": [
+          "CONFIRMED_XI_NOT_READY",
+          "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+          "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED",
+          "UNPROMOTED_L0_FALLBACK"
+        ],
+        "stakeReady": false,
+        "decision": "BLOCKED",
+        "guaranteedProfit": false
+      },
+      "strongestWinCandidate": null,
+      "bestStandaloneValue": null,
+      "missingMainFamilies": [
+        "BTTS",
+        "TOTAL_GOALS",
+        "TEAM_GOALS"
+      ],
+      "bookmakerAvailabilityConfirmed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Manchester United",
+        "away": "AS Roma",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "quality": 0.8076966959555462,
+      "coverage": "good",
+      "readinessState": null,
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-11-03T20:00:00Z",
+        "source": "ESPN:uefa.cl",
+        "fixtureSources": [
+          "ESPN:uefa.cl"
+        ],
+        "sourceFixtureId": "401915308",
+        "competition": "UEFA Champions League",
+        "competitionSlug": "uefa.cl",
+        "leagueHint": "uefa.cl",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Manchester United",
+        "discoveryAway": "AS Roma",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
+      },
+      "started": false,
+      "identityBlocked": false,
+      "fundingBlockers": [
+        "CONFIRMED_XI_NOT_READY",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "markets": [
+        {
+          "market": "HOME_WIN",
+          "family": "1X2",
+          "selection": "Manchester United — Match Winner",
+          "winProbability": 0.32028159765325936,
+          "pushProbability": 0.0,
+          "lossProbability": 0.6797184023467406,
+          "profitProbability": 0.32028159765325936,
+          "nonLossProbability": 0.32028159765325936,
+          "fairOdds": 3.12225244074938,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 3.340810111601837,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "DRAW",
+          "family": "1X2",
+          "selection": "Manchester United vs AS Roma — Draw",
+          "winProbability": 0.2767581128247381,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7232418871752619,
+          "profitProbability": 0.2767581128247381,
+          "nonLossProbability": 0.2767581128247381,
+          "fairOdds": 3.613263545532511,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 3.866191993719787,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_WIN",
+          "family": "1X2",
+          "selection": "AS Roma — Match Winner",
+          "winProbability": 0.4029602895220024,
+          "pushProbability": 0.0,
+          "lossProbability": 0.5970397104779976,
+          "profitProbability": 0.4029602895220024,
+          "nonLossProbability": 0.4029602895220024,
+          "fairOdds": 2.481634111356767,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 2.655348499151741,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "1X",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Manchester United OR Draw — Double Chance (1X)",
+          "winProbability": 0.5970397104779974,
+          "pushProbability": 0.0,
+          "lossProbability": 0.4029602895220026,
+          "profitProbability": 0.5970397104779974,
+          "nonLossProbability": 0.5970397104779974,
+          "fairOdds": 1.6749304651769101,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.792175597739294,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "X2",
+          "family": "DOUBLE_CHANCE",
+          "selection": "AS Roma OR Draw — Double Chance (X2)",
+          "winProbability": 0.6797184023467405,
+          "pushProbability": 0.0,
+          "lossProbability": 0.3202815976532595,
+          "profitProbability": 0.6797184023467405,
+          "nonLossProbability": 0.6797184023467405,
+          "fairOdds": 1.4711974790552695,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.5741813025891385,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "12",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Manchester United OR AS Roma — Either team wins, draw loses (12)",
+          "winProbability": 0.7232418871752617,
+          "pushProbability": 0.0,
+          "lossProbability": 0.2767581128247383,
+          "profitProbability": 0.7232418871752617,
+          "nonLossProbability": 0.7232418871752617,
+          "fairOdds": 1.38266328006203,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.4794497096663721,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "HOME_DNB",
+          "family": "DNB",
+          "selection": "Manchester United — Draw No Bet (draw = refund)",
+          "winProbability": 0.32028159765325936,
+          "pushProbability": 0.2767581128247381,
+          "lossProbability": 0.4029602895220025,
+          "profitProbability": 0.32028159765325936,
+          "nonLossProbability": 0.5970397104779974,
+          "fairOdds": 2.2581437474851493,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 2.476701418337606,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_DNB",
+          "family": "DNB",
+          "selection": "AS Roma — Draw No Bet (draw = refund)",
+          "winProbability": 0.4029602895220024,
+          "pushProbability": 0.2767581128247381,
+          "lossProbability": 0.32028159765325953,
+          "profitProbability": 0.4029602895220024,
+          "nonLossProbability": 0.6797184023467405,
+          "fairOdds": 1.7948217379761724,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.9685361257711462,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        }
+      ],
+      "mostLikelyOutcome": {
+        "market": "AWAY_WIN",
+        "family": "1X2",
+        "selection": "AS Roma — Match Winner",
+        "winProbability": 0.4029602895220024,
+        "pushProbability": 0.0,
+        "lossProbability": 0.5970397104779976,
+        "profitProbability": 0.4029602895220024,
+        "nonLossProbability": 0.4029602895220024,
+        "fairOdds": 2.481634111356767,
+        "source": "EXACT_FROZEN_FORECAST",
+        "mainMarket": true,
+        "fixture": {
+          "date": "2026-11-03",
+          "time": "20:00",
+          "league": "uefa.cl",
+          "home": "Manchester United",
+          "away": "AS Roma",
+          "provider": "ESPN:uefa.cl",
+          "sourceStatus": "loaded"
+        },
+        "observedOdds": null,
+        "bookmaker": null,
+        "quotedAt": null,
+        "expectedProfitPerRand": null,
+        "minimumEVGate": 0.07,
+        "minimumOddsForValueGate": 2.655348499151741,
+        "valuePositive": false,
+        "fundingBlockers": [
+          "CONFIRMED_XI_NOT_READY",
+          "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+          "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED",
+          "UNPROMOTED_L0_FALLBACK"
+        ],
+        "stakeReady": false,
+        "decision": "BLOCKED",
+        "guaranteedProfit": false
+      },
+      "strongestWinCandidate": null,
+      "bestStandaloneValue": null,
+      "missingMainFamilies": [
+        "BTTS",
+        "TOTAL_GOALS",
+        "TEAM_GOALS"
+      ],
+      "bookmakerAvailabilityConfirmed": false
+    },
+    {
+      "fixture": {
+        "date": "2026-11-03",
+        "time": "20:00",
+        "league": "uefa.cl",
+        "home": "Villarreal",
+        "away": "Paris Saint-Germain",
+        "provider": "ESPN:uefa.cl",
+        "sourceStatus": "loaded"
+      },
+      "predictionMode": "L0 FALLBACK",
+      "tier": "Avoid",
+      "quality": 0.7940758477061364,
+      "coverage": "good",
+      "readinessState": null,
+      "kickoffVerification": {
+        "verified": true,
+        "kickoffUtc": "2026-11-03T20:00:00Z",
+        "source": "ESPN:uefa.cl",
+        "fixtureSources": [
+          "ESPN:uefa.cl"
+        ],
+        "sourceFixtureId": "401915309",
+        "competition": "UEFA Champions League",
+        "competitionSlug": "uefa.cl",
+        "leagueHint": "uefa.cl",
+        "hbtSupportLevel": "FALLBACK",
+        "discoveryHome": "Villarreal",
+        "discoveryAway": "Paris Saint-Germain",
+        "identityScore": 1.0,
+        "reason": "TIMEZONE_AWARE_DISCOVERY_MATCH",
+        "independentKickoffVerified": false
+      },
+      "started": false,
+      "identityBlocked": false,
+      "fundingBlockers": [
+        "CONFIRMED_XI_NOT_READY",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "markets": [
+        {
+          "market": "HOME_WIN",
+          "family": "1X2",
+          "selection": "Villarreal — Match Winner",
+          "winProbability": 0.44568548224201393,
+          "pushProbability": 0.0,
+          "lossProbability": 0.554314517757986,
+          "profitProbability": 0.44568548224201393,
+          "nonLossProbability": 0.44568548224201393,
+          "fairOdds": 2.243734740852485,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 2.4007961727121594,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "DRAW",
+          "family": "1X2",
+          "selection": "Villarreal vs Paris Saint-Germain — Draw",
+          "winProbability": 0.2571842345697081,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7428157654302918,
+          "profitProbability": 0.2571842345697081,
+          "nonLossProbability": 0.2571842345697081,
+          "fairOdds": 3.8882632198396143,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 4.160441645228388,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_WIN",
+          "family": "1X2",
+          "selection": "Paris Saint-Germain — Match Winner",
+          "winProbability": 0.2971302831882779,
+          "pushProbability": 0.0,
+          "lossProbability": 0.7028697168117222,
+          "profitProbability": 0.2971302831882779,
+          "nonLossProbability": 0.2971302831882779,
+          "fairOdds": 3.365527031677029,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 3.6011139238944216,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "1X",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Villarreal OR Draw — Double Chance (1X)",
+          "winProbability": 0.7028697168117221,
+          "pushProbability": 0.0,
+          "lossProbability": 0.29713028318827794,
+          "profitProbability": 0.7028697168117221,
+          "nonLossProbability": 0.7028697168117221,
+          "fairOdds": 1.42273877516887,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.522330489430691,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "X2",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Paris Saint-Germain OR Draw — Double Chance (X2)",
+          "winProbability": 0.554314517757986,
+          "pushProbability": 0.0,
+          "lossProbability": 0.445685482242014,
+          "profitProbability": 0.554314517757986,
+          "nonLossProbability": 0.554314517757986,
+          "fairOdds": 1.8040299648738416,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.9303120624150107,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "12",
+          "family": "DOUBLE_CHANCE",
+          "selection": "Villarreal OR Paris Saint-Germain — Either team wins, draw loses (12)",
+          "winProbability": 0.7428157654302918,
+          "pushProbability": 0.0,
+          "lossProbability": 0.2571842345697082,
+          "profitProbability": 0.7428157654302918,
+          "nonLossProbability": 0.7428157654302918,
+          "fairOdds": 1.3462288316144297,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.4404648498274397,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "HOME_DNB",
+          "family": "DNB",
+          "selection": "Villarreal — Draw No Bet (draw = refund)",
+          "winProbability": 0.44568548224201393,
+          "pushProbability": 0.2571842345697081,
+          "lossProbability": 0.2971302831882779,
+          "profitProbability": 0.44568548224201393,
+          "nonLossProbability": 0.7028697168117221,
+          "fairOdds": 1.6666815389488763,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 1.8237429708085504,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        },
+        {
+          "market": "AWAY_DNB",
+          "family": "DNB",
+          "selection": "Paris Saint-Germain — Draw No Bet (draw = refund)",
+          "winProbability": 0.2971302831882779,
+          "pushProbability": 0.2571842345697081,
+          "lossProbability": 0.44568548224201404,
+          "profitProbability": 0.2971302831882779,
+          "nonLossProbability": 0.554314517757986,
+          "fairOdds": 2.4999665381115106,
+          "source": "EXACT_FROZEN_FORECAST",
+          "mainMarket": true,
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "observedOdds": null,
+          "bookmaker": null,
+          "quotedAt": null,
+          "expectedProfitPerRand": null,
+          "minimumEVGate": 0.07,
+          "minimumOddsForValueGate": 2.7355534303289026,
+          "valuePositive": false,
+          "fundingBlockers": [
+            "CONFIRMED_XI_NOT_READY",
+            "CURRENT_BOOKMAKER_QUOTE_MISSING",
+            "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+            "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+            "MATCH_INTELLIGENCE_NOT_CAPTURED",
+            "UNPROMOTED_L0_FALLBACK"
+          ],
+          "stakeReady": false,
+          "decision": "BLOCKED",
+          "guaranteedProfit": false
+        }
+      ],
+      "mostLikelyOutcome": {
+        "market": "HOME_WIN",
+        "family": "1X2",
+        "selection": "Villarreal — Match Winner",
+        "winProbability": 0.44568548224201393,
+        "pushProbability": 0.0,
+        "lossProbability": 0.554314517757986,
+        "profitProbability": 0.44568548224201393,
+        "nonLossProbability": 0.44568548224201393,
+        "fairOdds": 2.243734740852485,
+        "source": "EXACT_FROZEN_FORECAST",
+        "mainMarket": true,
+        "fixture": {
+          "date": "2026-11-03",
+          "time": "20:00",
+          "league": "uefa.cl",
+          "home": "Villarreal",
+          "away": "Paris Saint-Germain",
+          "provider": "ESPN:uefa.cl",
+          "sourceStatus": "loaded"
+        },
+        "observedOdds": null,
+        "bookmaker": null,
+        "quotedAt": null,
+        "expectedProfitPerRand": null,
+        "minimumEVGate": 0.07,
+        "minimumOddsForValueGate": 2.4007961727121594,
+        "valuePositive": false,
+        "fundingBlockers": [
+          "CONFIRMED_XI_NOT_READY",
+          "CURRENT_BOOKMAKER_QUOTE_MISSING",
+          "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+          "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+          "MATCH_INTELLIGENCE_NOT_CAPTURED",
+          "UNPROMOTED_L0_FALLBACK"
+        ],
+        "stakeReady": false,
+        "decision": "BLOCKED",
+        "guaranteedProfit": false
+      },
+      "strongestWinCandidate": null,
+      "bestStandaloneValue": null,
+      "missingMainFamilies": [
+        "BTTS",
+        "TOTAL_GOALS",
+        "TEAM_GOALS"
+      ],
+      "bookmakerAvailabilityConfirmed": false
+    }
+  ],
+  "unscoredFixtures": [
+    {
+      "home": "Newcastle Jets",
+      "away": "Shanghai Port FC",
+      "kickoff": "2026-11-03T07:45:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Jeonbuk Hyundai Motors",
+      "away": "Johor Darul Ta'zim",
+      "kickoff": "2026-11-03T10:00:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Kashiwa Reysol",
+      "away": "Daejeon Hana Citizen FC",
+      "kickoff": "2026-11-03T10:00:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Vissel Kobe",
+      "away": "Ratchaburi FC",
+      "kickoff": "2026-11-03T10:00:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Cong An Ha Noi",
+      "away": "Kyoto Sanga",
+      "kickoff": "2026-11-03T12:15:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Port FC",
+      "away": "Beijing Guoan",
+      "kickoff": "2026-11-03T12:15:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "East Bengal FC",
+      "away": "Al-Seeb Club",
+      "kickoff": "2026-11-03T13:45:00Z",
+      "competition": "group-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Al-Hussein SC",
+      "away": "Al-Shorta SC",
+      "kickoff": "2026-11-03T16:00:00Z",
+      "competition": "group-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Esteghlal FC",
+      "away": "Al-Shamal",
+      "kickoff": "2026-11-03T16:00:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Celta Vigo",
+      "away": "Espanyol",
+      "kickoff": "2026-11-03T17:00:00Z",
+      "competition": "third-round",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "VMI",
+      "away": "Mercer",
+      "kickoff": "2026-11-03T17:30:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Shakhtar Donetsk",
+      "away": "Sporting CP",
+      "kickoff": "2026-11-03T17:45:00Z",
+      "competition": "UEFA Champions League",
+      "leagueHint": "uefa.cl",
+      "hbtSupportLevel": "NOT_YET_READY",
+      "classificationReason": "Competition has frozen fallback support, but this fixture has no reconciled forecast. Missing output is unknown, not unsupported."
+    },
+    {
+      "home": "IK Sirius",
+      "away": "Halmstads BK",
+      "kickoff": "2026-11-03T18:00:00Z",
+      "competition": "2026-allsvenskan",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Anaitasuna",
+      "away": "Alavés",
+      "kickoff": "2026-11-03T18:00:00Z",
+      "competition": "first-round",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "CD Pamplona",
+      "away": "Eibar",
+      "kickoff": "2026-11-03T18:00:00Z",
+      "competition": "first-round",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Al Hilal",
+      "away": "Shabab Al Ahli",
+      "kickoff": "2026-11-03T18:15:00Z",
+      "competition": "league-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "IU Indianapolis",
+      "away": "Detroit Mercy",
+      "kickoff": "2026-11-03T19:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Milwaukee",
+      "away": "Green Bay",
+      "kickoff": "2026-11-03T19:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Northern Kentucky",
+      "away": "Purdue Fort Wayne",
+      "kickoff": "2026-11-03T19:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Robert Morris",
+      "away": "Northern Illinois",
+      "kickoff": "2026-11-03T19:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Wright State",
+      "away": "Oakland",
+      "kickoff": "2026-11-03T19:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Cambridge United",
+      "away": "Brighton & Hove Albion U21",
+      "kickoff": "2026-11-03T19:00:00Z",
+      "competition": "group-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Newport County",
+      "away": "Crystal Palace U21",
+      "kickoff": "2026-11-03T19:00:00Z",
+      "competition": "group-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Rochdale",
+      "away": "Doncaster Rovers",
+      "kickoff": "2026-11-03T19:00:00Z",
+      "competition": "group-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Rotherham United",
+      "away": "Newcastle United U21",
+      "kickoff": "2026-11-03T19:00:00Z",
+      "competition": "group-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Blackburn Rovers",
+      "away": "Stoke City",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "Championship",
+      "leagueHint": "en.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Charlton Athletic",
+      "away": "Bolton Wanderers",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "Championship",
+      "leagueHint": "en.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Derby County",
+      "away": "Norwich City",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "Championship",
+      "leagueHint": "en.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Portsmouth",
+      "away": "Swansea City",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "Championship",
+      "leagueHint": "en.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Preston North End",
+      "away": "Sheffield United",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "Championship",
+      "leagueHint": "en.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Queens Park Rangers",
+      "away": "Burnley",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "Championship",
+      "leagueHint": "en.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Watford",
+      "away": "Lincoln City",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "Championship",
+      "leagueHint": "en.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Huddersfield Town",
+      "away": "Luton Town",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Northampton Town",
+      "away": "Oldham Athletic",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Wigan Athletic",
+      "away": "Mansfield Town",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "regular-season",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Aberdeen B",
+      "away": "Queen's Park",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Airdrieonians",
+      "away": "Elgin City",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Annan Athletic",
+      "away": "Ayr United",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Arbroath",
+      "away": "Queen of the South",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Bonnyrigg Rose",
+      "away": "Dunfermline Athletic",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Clydebank",
+      "away": "Alloa Athletic",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "East Kilbride",
+      "away": "Stirling Albion",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Edinburgh City",
+      "away": "Partick Thistle",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Formartine United",
+      "away": "Cove Rangers",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Greenock Morton",
+      "away": "Kelty Hearts",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Hamilton Academical",
+      "away": "Raith Rovers",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Inverness Caledonian Thistle",
+      "away": "Montrose",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Ross County",
+      "away": "Celtic B",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Spartans FC",
+      "away": "Livingston",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "St Mirren B",
+      "away": "Peterhead",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Stenhousemuir",
+      "away": "Berwick Rangers",
+      "kickoff": "2026-11-03T19:45:00Z",
+      "competition": "round-of-32",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Birmingham City",
+      "away": "Millwall",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "competition": "Championship",
+      "leagueHint": "en.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "West Bromwich Albion",
+      "away": "Southampton",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "competition": "Championship",
+      "leagueHint": "en.2",
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Atlético Madrid",
+      "away": "Bayern Munich",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "leagueHint": "uefa.cl",
+      "hbtSupportLevel": "NOT_YET_READY",
+      "classificationReason": "Competition has frozen fallback support, but this fixture has no reconciled forecast. Missing output is unknown, not unsupported."
+    },
+    {
+      "home": "Bodo/Glimt",
+      "away": "Lille",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "leagueHint": "uefa.cl",
+      "hbtSupportLevel": "NOT_YET_READY",
+      "classificationReason": "Competition has frozen fallback support, but this fixture has no reconciled forecast. Missing output is unknown, not unsupported."
+    },
+    {
+      "home": "Feyenoord Rotterdam",
+      "away": "Internazionale",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "leagueHint": "uefa.cl",
+      "hbtSupportLevel": "NOT_YET_READY",
+      "classificationReason": "Competition has frozen fallback support, but this fixture has no reconciled forecast. Missing output is unknown, not unsupported."
+    },
+    {
+      "home": "LASK Linz",
+      "away": "Slovan Bratislava",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "competition": "UEFA Champions League",
+      "leagueHint": "uefa.cl",
+      "hbtSupportLevel": "NOT_YET_READY",
+      "classificationReason": "Competition has frozen fallback support, but this fixture has no reconciled forecast. Missing output is unknown, not unsupported."
+    },
+    {
+      "home": "Comerciantes Unidos",
+      "away": "ADT",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "competition": "clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "2 de Mayo",
+      "away": "Sportivo Trinidense",
+      "kickoff": "2026-11-03T20:00:00Z",
+      "competition": "torneo-clausura-2026",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Deportivo Pereira",
+      "away": "Deportes Tolima",
+      "kickoff": "2026-11-03T20:30:00Z",
+      "competition": "clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Mushuc Runa",
+      "away": "Manta F.C.",
+      "kickoff": "2026-11-03T20:30:00Z",
+      "competition": "final-stage",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Xelajú MC",
+      "away": "Marquense",
+      "kickoff": "2026-11-03T21:00:00Z",
+      "competition": "torneo-apertura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Monagas SC",
+      "away": "Caracas FC",
+      "kickoff": "2026-11-03T21:30:00Z",
+      "competition": "clausura-quadrangular",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Chapecoense",
+      "away": "Mirassol",
+      "kickoff": "2026-11-03T22:30:00Z",
+      "competition": "2026-brasileiro-serie-a",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Nacional Asunción",
+      "away": "Sportivo San Lorenzo",
+      "kickoff": "2026-11-03T22:30:00Z",
+      "competition": "torneo-clausura-2026",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Coastal Carolina",
+      "away": "South Carolina",
+      "kickoff": "2026-11-03T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Colgate",
+      "away": "Army",
+      "kickoff": "2026-11-03T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Holy Cross",
+      "away": "Boston University",
+      "kickoff": "2026-11-03T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Lafayette",
+      "away": "Lehigh",
+      "kickoff": "2026-11-03T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Loyola Maryland",
+      "away": "Bucknell",
+      "kickoff": "2026-11-03T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "UMass Lowell",
+      "away": "Vermont",
+      "kickoff": "2026-11-03T23:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Deportivo Pasto",
+      "away": "Jaguares de Córdoba",
+      "kickoff": "2026-11-03T23:20:00Z",
+      "competition": "clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Deportivo Táchira",
+      "away": "Academia Puerto Cabello",
+      "kickoff": "2026-11-03T23:30:00Z",
+      "competition": "clausura-quadrangular",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Binghamton",
+      "away": "UAlbany",
+      "kickoff": "2026-11-04T00:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Bryant",
+      "away": "New Hampshire",
+      "kickoff": "2026-11-04T00:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Georgia Southern",
+      "away": "UCF",
+      "kickoff": "2026-11-04T00:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Georgia State",
+      "away": "Kentucky",
+      "kickoff": "2026-11-04T00:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "James Madison",
+      "away": "West Virginia",
+      "kickoff": "2026-11-04T00:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Navy",
+      "away": "American University",
+      "kickoff": "2026-11-04T00:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Providence",
+      "away": "Butler",
+      "kickoff": "2026-11-04T00:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "UMBC",
+      "away": "NJIT",
+      "kickoff": "2026-11-04T00:00:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Charlotte",
+      "away": "Temple",
+      "kickoff": "2026-11-04T00:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "East Carolina",
+      "away": "South Florida",
+      "kickoff": "2026-11-04T00:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Marshall",
+      "away": "Old Dominion",
+      "kickoff": "2026-11-04T00:15:00Z",
+      "competition": "2026-ncaa-division-i-men",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Internacional",
+      "away": "Coritiba",
+      "kickoff": "2026-11-04T00:30:00Z",
+      "competition": "2026-brasileiro-serie-a",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Tulsa",
+      "away": "North Texas",
+      "kickoff": "2026-11-04T01:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "UAB",
+      "away": "Memphis",
+      "kickoff": "2026-11-04T01:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "UTSA",
+      "away": "Florida Atlantic",
+      "kickoff": "2026-11-04T01:00:00Z",
+      "competition": "2026-ncaa-division-i-women",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Sporting San José",
+      "away": "Pérez Zeledón",
+      "kickoff": "2026-11-04T01:00:00Z",
+      "competition": "apertura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Alianza Lima",
+      "away": "Cienciano del Cusco",
+      "kickoff": "2026-11-04T01:00:00Z",
+      "competition": "clausura",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    }
+  ],
+  "previouslyScoredMissingNow": [],
+  "recoveredFusionResearch": {
+    "schemaVersion": "HBT-RECOVERED-FUSION-SHADOW-1",
+    "targetDate": "2026-11-03",
+    "generatedAt": "2026-11-01T11:56:25.942Z",
+    "policy": {
+      "bookmakerOddsUsedAsFeature": false,
+      "retrainingPerformed": false,
+      "retuningPerformed": false,
+      "modelPromotionAllowed": false,
+      "executionAllowed": false,
+      "controlForecastUnchanged": true
+    },
+    "sourceFiles": {
+      "control": "hbt_live_data/frozen_control_forecast_2026-11-03.json",
+      "performance": "hbt_live_data/performance.json",
+      "players": "hbt_live_data/player_features.json",
+      "deployment": "runtime/hbt_frozen_fusion_deployment.json"
+    },
+    "sourceHashes": {
+      "control": "ae4519a4d9739655e57fd6711a54c42895afd333ea9546f309e539cb4903bc65",
+      "performance": "dcabb0ad97094e538fab1ac43e9e99436399a81eab2d35732698875e5c8bfd47",
+      "players": "13e09dd7f3abb837c8b1722b0b6b2ecee490faaed596fe9091da2c89af482ac2",
+      "deployment": "c70c8bd40ad83c0f4942d7536ed6f7ff736a4a13319a993d06a132f3627ab286"
+    },
+    "deploymentCreated": "2026-09-12T11:15:44.195Z",
+    "validation": {
+      "full": {
+        "n": 477,
+        "metrics": {
+          "logloss": 0.9833605605510539,
+          "brier": 0.19491211336090997,
+          "accuracy": 0.5178197064989518,
+          "n": 477
+        },
+        "comparisonVsL1": {
+          "deltaLogloss": -0.0005511696769950868,
+          "deltaBrier": -5.8669377025451214e-05,
+          "loglossCI": [
+            -0.006791170497667031,
+            0.005929971910121035
+          ],
+          "brierCI": [
+            -0.0014543274989953676,
+            0.0014215803281917175
+          ],
+          "bootstrap": "date-block"
+        }
+      },
+      "preXi": {
+        "n": 477,
+        "metrics": {
+          "logloss": 0.9842363126507243,
+          "brier": 0.19507367109947807,
+          "accuracy": 0.5115303983228512,
+          "n": 477
+        },
+        "comparisonVsL1": {
+          "deltaLogloss": 0.00032458242267565036,
+          "deltaBrier": 0.00010288836154313641,
+          "loglossCI": [
+            -0.007220108989338226,
+            0.008517516766458415
+          ],
+          "brierCI": [
+            -0.0016581694468763037,
+            0.00177713311708228
+          ],
+          "bootstrap": "date-block"
+        }
+      }
+    },
+    "validationLimits": [
+      "2019 confirmation was reused; it is not a new untouched holdout",
+      "Historical raw model-versus-bookmaker EV failed its earlier value audit",
+      "Recovered inference is not current execution validation"
+    ],
+    "predictions": [
+      {
+        "fixture": {
+          "date": "2026-11-03",
+          "time": "17:45",
+          "league": "uefa.cl",
+          "home": "Galatasaray",
+          "away": "VfB Stuttgart",
+          "provider": "ESPN:uefa.cl",
+          "sourceStatus": "loaded"
+        },
+        "status": "UNAVAILABLE",
+        "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+      },
+      {
+        "fixture": {
+          "date": "2026-11-03",
+          "time": "20:00",
+          "league": "uefa.cl",
+          "home": "Barcelona",
+          "away": "Aston Villa",
+          "provider": "ESPN:uefa.cl",
+          "sourceStatus": "loaded"
+        },
+        "status": "UNAVAILABLE",
+        "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+      },
+      {
+        "fixture": {
+          "date": "2026-11-03",
+          "time": "20:00",
+          "league": "uefa.cl",
+          "home": "Manchester United",
+          "away": "AS Roma",
+          "provider": "ESPN:uefa.cl",
+          "sourceStatus": "loaded"
+        },
+        "status": "UNAVAILABLE",
+        "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+      },
+      {
+        "fixture": {
+          "date": "2026-11-03",
+          "time": "20:00",
+          "league": "uefa.cl",
+          "home": "Villarreal",
+          "away": "Paris Saint-Germain",
+          "provider": "ESPN:uefa.cl",
+          "sourceStatus": "loaded"
+        },
+        "status": "UNAVAILABLE",
+        "reason": "PERFORMANCE_LEAGUE_UNSUPPORTED"
+      }
+    ],
+    "summary": {
+      "fixtures": 4,
+      "scoreDistributions": 0,
+      "futureScoreDistributions": 0,
+      "confirmedXiFusion": 0,
+      "readyBets": 0
+    }
+  },
+  "chains": [
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.5986423120757178,
+      "jointProbabilityBounds": {
+        "lower": 0.5487253057709462,
+        "upper": 0.7428157654302918
+      },
+      "lossProbabilityIndependenceApprox": 0.40135768792428217,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Barcelona OR Draw — Double Chance (1X)",
+          "winProbability": 0.8059095403406544,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Villarreal OR Paris Saint-Germain — Either team wins, draw loses (12)",
+          "winProbability": 0.7428157654302918,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.5939817829673258,
+      "jointProbabilityBounds": {
+        "lower": 0.5429423625557288,
+        "upper": 0.7370328222150744
+      },
+      "lossProbabilityIndependenceApprox": 0.40601821703267416,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Barcelona OR Draw — Double Chance (1X)",
+          "winProbability": 0.8059095403406544,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Galatasaray OR Draw — Double Chance (1X)",
+          "winProbability": 0.7370328222150744,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.5828675368485227,
+      "jointProbabilityBounds": {
+        "lower": 0.5291514275159162,
+        "upper": 0.7232418871752617
+      },
+      "lossProbabilityIndependenceApprox": 0.41713246315147734,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Barcelona OR Draw — Double Chance (1X)",
+          "winProbability": 0.8059095403406544,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Manchester United OR AS Roma — Either team wins, draw loses (12)",
+          "winProbability": 0.7232418871752617,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.5474795999809386,
+      "jointProbabilityBounds": {
+        "lower": 0.4798485876453662,
+        "upper": 0.7370328222150744
+      },
+      "lossProbabilityIndependenceApprox": 0.45252040001906135,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Villarreal OR Paris Saint-Germain — Either team wins, draw loses (12)",
+          "winProbability": 0.7428157654302918,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Galatasaray OR Draw — Double Chance (1X)",
+          "winProbability": 0.7370328222150744,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.5372354760133408,
+      "jointProbabilityBounds": {
+        "lower": 0.46605765260555354,
+        "upper": 0.7232418871752617
+      },
+      "lossProbabilityIndependenceApprox": 0.46276452398665924,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Villarreal OR Paris Saint-Germain — Either team wins, draw loses (12)",
+          "winProbability": 0.7428157654302918,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Manchester United OR AS Roma — Either team wins, draw loses (12)",
+          "winProbability": 0.7232418871752617,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 2,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.5330530092489395,
+      "jointProbabilityBounds": {
+        "lower": 0.4602747093903361,
+        "upper": 0.7232418871752617
+      },
+      "lossProbabilityIndependenceApprox": 0.4669469907510605,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Galatasaray OR Draw — Double Chance (1X)",
+          "winProbability": 0.7370328222150744,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Manchester United OR AS Roma — Either team wins, draw loses (12)",
+          "winProbability": 0.7232418871752617,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 3,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.44121903276652363,
+      "jointProbabilityBounds": {
+        "lower": 0.2857581279860204,
+        "upper": 0.7370328222150744
+      },
+      "lossProbabilityIndependenceApprox": 0.5587809672334764,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Barcelona OR Draw — Double Chance (1X)",
+          "winProbability": 0.8059095403406544,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Villarreal OR Paris Saint-Germain — Either team wins, draw loses (12)",
+          "winProbability": 0.7428157654302918,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Galatasaray OR Draw — Double Chance (1X)",
+          "winProbability": 0.7370328222150744,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 3,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.43296319552860413,
+      "jointProbabilityBounds": {
+        "lower": 0.27196719294620797,
+        "upper": 0.7232418871752617
+      },
+      "lossProbabilityIndependenceApprox": 0.5670368044713958,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Barcelona OR Draw — Double Chance (1X)",
+          "winProbability": 0.8059095403406544,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Villarreal OR Paris Saint-Germain — Either team wins, draw loses (12)",
+          "winProbability": 0.7428157654302918,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Manchester United OR AS Roma — Either team wins, draw loses (12)",
+          "winProbability": 0.7232418871752617,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 3,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.4295925056610155,
+      "jointProbabilityBounds": {
+        "lower": 0.26618424973099053,
+        "upper": 0.7232418871752617
+      },
+      "lossProbabilityIndependenceApprox": 0.5704074943389845,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Barcelona",
+            "away": "Aston Villa",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Barcelona OR Draw — Double Chance (1X)",
+          "winProbability": 0.8059095403406544,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Galatasaray OR Draw — Double Chance (1X)",
+          "winProbability": 0.7370328222150744,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Manchester United OR AS Roma — Either team wins, draw loses (12)",
+          "winProbability": 0.7232418871752617,
+          "observedOdds": null
+        }
+      ]
+    },
+    {
+      "legCount": 3,
+      "objective": "HIGH_PROBABILITY_WATCH",
+      "jointProbabilityIndependenceApprox": 0.39596017908017145,
+      "jointProbabilityBounds": {
+        "lower": 0.2030904748206277,
+        "upper": 0.7232418871752617
+      },
+      "lossProbabilityIndependenceApprox": 0.6040398209198286,
+      "combinedOdds": null,
+      "returnPerRandIfAllWin": null,
+      "expectedProfitPerRandIndependenceApprox": null,
+      "expectedProfitPerRandBounds": null,
+      "dependenceValidated": false,
+      "stakeReady": false,
+      "fundingBlockers": [
+        "CHAIN_DEPENDENCE_NOT_VALIDATED",
+        "CONFIRMED_XI_NOT_READY",
+        "CURRENT_BOOKMAKER_QUOTE_MISSING",
+        "FROZEN_FORECAST_NOT_CONFIRMED_XI_READY",
+        "INDEPENDENT_KICKOFF_CONFIRMATION_MISSING_OR_AMBIGUOUS",
+        "MATCH_INTELLIGENCE_NOT_CAPTURED",
+        "STALE_TEAM_STATE",
+        "UNPROMOTED_L0_FALLBACK"
+      ],
+      "legs": [
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Villarreal",
+            "away": "Paris Saint-Germain",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Villarreal OR Paris Saint-Germain — Either team wins, draw loses (12)",
+          "winProbability": 0.7428157654302918,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "17:45",
+            "league": "uefa.cl",
+            "home": "Galatasaray",
+            "away": "VfB Stuttgart",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "1X",
+          "selection": "Galatasaray OR Draw — Double Chance (1X)",
+          "winProbability": 0.7370328222150744,
+          "observedOdds": null
+        },
+        {
+          "fixture": {
+            "date": "2026-11-03",
+            "time": "20:00",
+            "league": "uefa.cl",
+            "home": "Manchester United",
+            "away": "AS Roma",
+            "provider": "ESPN:uefa.cl",
+            "sourceStatus": "loaded"
+          },
+          "market": "12",
+          "selection": "Manchester United OR AS Roma — Either team wins, draw loses (12)",
+          "winProbability": 0.7232418871752617,
+          "observedOdds": null
+        }
+      ]
+    }
+  ]
+}

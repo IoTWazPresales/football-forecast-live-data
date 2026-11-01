@@ -2,7 +2,7 @@
   "schemaVersion": "HBT-BETTING-DESK-1",
   "version": "HBT-BETTING-DESK-1-RESEARCH",
   "targetDate": "2026-11-02",
-  "generatedAt": "2026-10-31T11:10:58.563987Z",
+  "generatedAt": "2026-11-01T11:56:24.197206Z",
   "readiness": "NO_EXECUTABLE_BETS",
   "policy": {
     "bookmakerOddsAreDecisionLayerOnly": true,
@@ -15,21 +15,21 @@
     "priority": "highest profit probability among independently eligible positive-value markets; separate highest EV view"
   },
   "sourceHashes": {
-    "forecast": "7c9fd2fe58536c270fbe851d893912d0e2561a857e408bb3fdacc905cce4dc64",
-    "card": "d80da624a5595c5e61dbf779584cadd9a27c1eaf6378950ac645a0c9c5d37a2f",
-    "scanner": "6a31b48a71f9fdd1bcaa1be23e1c49f34ccaf62af57b3f8644a22be6f4cb9e75",
-    "intel": "14baab27918559e6b6ef0b2caa31d45ba75057f93e17e22ca9d2680bf14fca1b",
+    "forecast": "caf2e432af9fa10c809985dafda1cedb74457c437cc62e8e417b22d004d1895a",
+    "card": "904a4635048ee51b51e9487f9a0e70cce328b10eca8bb9f26090fc2aebbee480",
+    "scanner": "fa9efa53f129d40c8903c2c3dcc2acdec1a87692c806125bf631d2abfa991e6d",
+    "intel": "e1ff41a0f1a5649f789fe7caf691dc9a2f71f1415a9860ac82bf0f8fc2ee26ea",
     "events": "31aaa86f8ba989660dc8472d9e2ad6dfd0649cabfe01cf26226bf2170f690406",
     "registry": "cbe2a62e7d9987c8ec4745671b2e6a6366fd9fbba72bc9da856bbfac850191f4",
     "learning": "aa5875e038a477f65322074b1b390c420157b21c8d20428bfef32ea9bc3cc70d",
-    "prices": "dca1d5501375ccf40728f3c0c567d10e1a960147dab666f6b36a26be590a52c1",
-    "kickoffProof": "ed088b9a2954011cda5776a487a63af18db5fe7508b15920a9638f178ba062c1",
-    "capturePointer": "3cae8e6518c869cc899c41343dd9106bf761841d7c5dafdf150507951dbac62c",
-    "recoveredFusion": "2e043b36b1a0738fa2fa7c2a8fe272294ed5587eca825eb05e4f8a594b6db7fe"
+    "prices": "fb40c1f9971ba0ee3af5921bc79c34bd39ea32a5e4a18111d62815df016bc5ce",
+    "kickoffProof": "1d690de2c19e6775dbbff425b183d95c639582ac5618b946c12dd9c5e8e39e0d",
+    "capturePointer": "0d0a5810a3ec9c049882af43167132a4e2c941d5217d8c7c3835f572a9634419",
+    "recoveredFusion": "01ceb3c4c7de4a493b06b8978b549a855549cbb41c1ca892bd1ab42ad5525d81"
   },
   "sourceFiles": {
     "forecast": "frozen_control_forecast_2026-11-02.json",
-    "card": "captures/hbt_prospective_card_2026-11-02_20261031T111058069733Z.json",
+    "card": "captures/hbt_prospective_card_2026-11-02_20261101T115621545783Z.json",
     "scanner": "slate_scanner_2026-11-02.json",
     "intel": "hbt_1_4_match_intelligence.json",
     "events": "event_model_params.json",
@@ -2519,15 +2519,6 @@
       "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
     },
     {
-      "home": "Aurora",
-      "away": "Independiente Petrolero",
-      "kickoff": "2026-11-02T21:15:00Z",
-      "competition": "quarterfinals",
-      "leagueHint": null,
-      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
-      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
-    },
-    {
       "home": "Colo Colo",
       "away": "Puerto Montt",
       "kickoff": "2026-11-02T22:00:00Z",
@@ -2634,13 +2625,22 @@
       "leagueHint": null,
       "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
       "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
+    },
+    {
+      "home": "Aurora",
+      "away": "Independiente Petrolero",
+      "kickoff": "2026-11-03T23:00:00Z",
+      "competition": "quarterfinals",
+      "leagueHint": null,
+      "hbtSupportLevel": "UNSUPPORTED_COMPETITION",
+      "classificationReason": "Fixture was discovered, but no validated full-model or date-matched explicit fallback forecast is available."
     }
   ],
   "previouslyScoredMissingNow": [],
   "recoveredFusionResearch": {
     "schemaVersion": "HBT-RECOVERED-FUSION-SHADOW-1",
     "targetDate": "2026-11-02",
-    "generatedAt": "2026-10-31T11:10:57.850Z",
+    "generatedAt": "2026-11-01T11:56:21.240Z",
     "policy": {
       "bookmakerOddsUsedAsFeature": false,
       "retrainingPerformed": false,
@@ -2656,9 +2656,9 @@
       "deployment": "runtime/hbt_frozen_fusion_deployment.json"
     },
     "sourceHashes": {
-      "control": "7c9fd2fe58536c270fbe851d893912d0e2561a857e408bb3fdacc905cce4dc64",
-      "performance": "4f0cfaeed006e56e6b1b52dfd9803ef98be91df5019eee76ac0a13808451f4cb",
-      "players": "9c9c258e8e0bcad575bd1065f805a92ddacb9526d2aabab39d8169b3439b88c3",
+      "control": "caf2e432af9fa10c809985dafda1cedb74457c437cc62e8e417b22d004d1895a",
+      "performance": "dcabb0ad97094e538fab1ac43e9e99436399a81eab2d35732698875e5c8bfd47",
+      "players": "13e09dd7f3abb837c8b1722b0b6b2ecee490faaed596fe9091da2c89af482ac2",
       "deployment": "c70c8bd40ad83c0f4942d7536ed6f7ff736a4a13319a993d06a132f3627ab286"
     },
     "deploymentCreated": "2026-09-12T11:15:44.195Z",
@@ -2740,9 +2740,9 @@
         "status": "RESEARCH_ONLY",
         "predictionMode": "PRE-XI FUSION",
         "probs": [
-          0.4654983728809436,
-          0.26161718900163455,
-          0.27288443811742175
+          0.46578155864833154,
+          0.26158376609307726,
+          0.2726346752585912
         ],
         "layerPredictions": {
           "L0": [
@@ -2756,41 +2756,41 @@
             0.26914171152349115
           ],
           "L4": [
-            0.45338514107064687,
-            0.2576455491332469,
-            0.2889693097961064
+            0.45378059701281637,
+            0.257607645153361,
+            0.28861175783382287
           ],
           "Fusion": [
-            0.4654983728809436,
-            0.26161718900163455,
-            0.27288443811742175
+            0.46578155864833154,
+            0.26158376609307726,
+            0.2726346752585912
           ]
         },
         "scoreMarkets": {
           "hda": [
-            0.45338514107064687,
-            0.2576455491332469,
-            0.2889693097961064
+            0.45378059701281637,
+            0.257607645153361,
+            0.28861175783382287
           ],
-          "oneX": 0.7110306902038938,
-          "x2": 0.5466148589293534,
-          "twelve": 0.7423544508667532,
-          "over15": 0.7813834850519069,
-          "under15": 0.2186165149480931,
-          "over25": 0.5399485336367726,
-          "under25": 0.46005146636322736,
-          "over35": 0.31689973459842624,
-          "under35": 0.6831002654015738,
-          "bttsYes": 0.5725771943131749,
-          "bttsNo": 0.4274228056868251,
-          "homeOver05": 0.7987521991087443,
-          "awayOver05": 0.7095872967430744,
-          "homeOver15": 0.47610783364139553,
-          "awayOver15": 0.35050583120284884,
+          "oneX": 0.7113882421661774,
+          "x2": 0.5462194029871839,
+          "twelve": 0.7423923548466392,
+          "over15": 0.7813601255678239,
+          "under15": 0.21863987443217614,
+          "over25": 0.5399163376516766,
+          "under25": 0.46008366234832343,
+          "over35": 0.3168692589405592,
+          "under35": 0.6831307410594408,
+          "bttsYes": 0.5724753661587403,
+          "bttsNo": 0.4275246338412597,
+          "homeOver05": 0.7989084848186797,
+          "awayOver05": 0.7093218808626093,
+          "homeOver15": 0.47635845363952833,
+          "awayOver15": 0.35017777854254495,
           "mostLikelyScore": {
             "h": 1,
             "a": 1,
-            "p": 0.12164839218032708
+            "p": 0.12163403847120216
           }
         },
         "inputFeatures": {
@@ -2824,7 +2824,7 @@
             0.37284080936308517,
             0.015640900000000003,
             -0.1259266,
-            0.41996585343117526,
+            0.4292892054822499,
             0.05011022749623294
           ],
           "awayScore": [
@@ -2832,12 +2832,12 @@
             0.5263099996441877,
             -0.5271854,
             0.15366260000000004,
-            0.20620419219420963,
+            0.17500642736557784,
             -0.05011022749623294
           ]
         },
         "diagnostics": {
-          "performanceFeedAgeMinutes": 14.5975,
+          "performanceFeedAgeMinutes": 4.737333333333333,
           "performanceFeedCurrent": true,
           "confirmedXi": false,
           "xiReason": "outside confirmed-XI collection window",
