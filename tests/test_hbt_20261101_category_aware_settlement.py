@@ -124,7 +124,7 @@ class HbtNovember1EvidenceTests(unittest.TestCase):
             pinned = r["fusionP1"]
             path = ROOT / pinned["path"]
             raw = path.read_bytes()
-            git_blob = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\\0" + raw).hexdigest()
+            git_blob = hashlib.sha1(b"blob " + str(len(raw)).encode() + b"\0" + raw).hexdigest()
             self.assertEqual(git_blob, pinned["gitBlobSha"])
             source = json.loads(raw)
             self.assertEqual(source["fixtureIdentityKey"].split("|")[0], "2026-11-01")
