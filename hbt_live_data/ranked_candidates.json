@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-11-04",
+  "targetDate": "2026-11-05",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,38 +22,35 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 109,
-    "classifiedRows": 109,
+    "fixturesDiscovered": 130,
+    "classifiedRows": 130,
     "FALLBACK": 0,
     "FULL_MODEL": 0,
     "INSUFFICIENT_DATA": 0,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 109,
+    "UNSUPPORTED_COMPETITION": 130,
     "forecastRowsAvailable": 0,
     "forecastRowsMatched": 0,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
-      "2026-27-south-african-premiership",
+      "2026-27-saudi-pro-league",
       "2026-brasileiro-serie-a",
+      "2026-brasileiro-serie-b",
       "2026-ncaa-division-i-men",
       "2026-ncaa-division-i-women",
-      "2026-womens-international-friendly",
       "apertura",
       "apertura---quarterfinals",
-      "clausura",
-      "clausura-quadrangular",
       "first-round",
       "group-stage",
       "league-phase",
-      "league-stage",
       "quarterfinals",
       "regular-season",
-      "semifinals",
-      "seventh-round",
       "third-round",
+      "torneo-apertura",
       "torneo-apertura-2026",
+      "torneo-clausura",
       "torneo-clausura-2026"
     ],
     "previousProspectiveScoredNowUnsupported": 0,
@@ -75,7 +72,7 @@
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-11-04T18:17:36Z",
+    "generatedAt": "2026-11-04T23:47:11Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -136,9 +133,9 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 109,
+      "count": 130,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 109
+        "UNSUPPORTED_COMPETITION": 130
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
