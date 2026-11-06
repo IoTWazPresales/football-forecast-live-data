@@ -48,7 +48,19 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
   const fx=pred.fixture,src=performance.leagues?.[fx.league];
   if(!src)return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_LEAGUE_UNSUPPORTED'};
   if(!vector(pred.structuralFeatures?.vec,11))return {fixture:fx,status:'UNAVAILABLE',reason:'CAUSAL_STRUCTURAL_VECTOR_MISSING'};
-  const pack={teams:src.teams||[],byKey:new Map((src.teams||[]).map(t=>[perfTeamKey(t.title),t])),sourceUrl:src.source||null,feedGeneratedAt:performance.generatedAt};
+  // A lossy Map silently chooses one club when normalized identities collide.
+  // Refuse that fixture rather than mixing performance from different clubs.
+  const teams=src.teams||[];
+  const homeKey=perfTeamKey(fx.home),awayKey=perfTeamKey(fx.away);
+  const matchingHome=teams.filter(t=>perfTeamKey(t.title)===homeKey);
+  const matchingAway=teams.filter(t=>perfTeamKey(t.title)===awayKey);
+  if(!homeKey||!awayKey||homeKey===awayKey||matchingHome.length!==1||matchingAway.length!==1)
+    return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_TEAM_IDENTITY_AMBIGUOUS',diagnostics:{homeMatches:matchingHome.length,awayMatches:matchingAway.length}};
+  const ko=Date.parse(`${fx.date}T${fx.time}:00Z`);
+  const feedTime=Date.parse(performance.generatedAt);
+  if(!aware(performance.generatedAt)||!Number.isFinite(ko)||feedTime>ko||feedTime>now.getTime())
+    return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_FEED_AS_OF_UNVERIFIABLE'};
+  const pack={teams,byKey:new Map(teams.map(t=>[perfTeamKey(t.title),t])),sourceUrl:src.source||null,feedGeneratedAt:performance.generatedAt};
   const perf=livePerformanceFeatures(pack,fx,pred.structuralFeatures);
   if(!perf.ok)return {fixture:fx,status:'UNAVAILABLE',reason:perf.reason};
   const baseVec=[...pred.structuralFeatures.vec,...perf.extra];
@@ -66,7 +78,6 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
   const probs=liveTempPred(liveBlendProb(core,sm.hda,setting.l4BlendWeight),setting.finalTemperature);
   if(!probability(probs)||!probability(sm.hda))throw Error('Invalid recovered probabilities');
   const age=aware(performance.generatedAt)?(now-Date.parse(performance.generatedAt))/60000:Infinity;
-  const ko=Date.parse(`${fx.date}T${fx.time}:00Z`);
   return {fixture:fx,status:'RESEARCH_ONLY',predictionMode:full?'CONFIRMED-XI FUSION':'PRE-XI FUSION',probs,layerPredictions:{L0:pred.probs,L1:l1,L4:sm.hda,Fusion:probs},scoreMarkets:sm,
     inputFeatures:{structural:pred.structuralFeatures.vec,performance:perf.extra,context:row.vec.slice(15),homeScore:perf.l4HomeVec,awayScore:perf.l4AwayVec},
     diagnostics:{performanceFeedAgeMinutes:Number.isFinite(age)?age:null,performanceFeedCurrent:age>=0&&age<=30,confirmedXi:full,xiReason:full?null:xi?.reason||'confirmed XI unavailable',preKickoff:Number.isFinite(ko)&&ko>now},
