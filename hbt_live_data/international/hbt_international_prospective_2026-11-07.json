@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "HBT-INTERNATIONAL-PROSPECTIVE-2",
+  "version": "HBT-1.4-INTERNATIONAL-CONTEXT-2.1-VENUE-IDENTITY",
+  "generatedAt": "2026-11-06T23:31:49.652789Z",
+  "targetDate": "2026-11-07",
+  "source": "hbt_international_challenger_2026-11-07.json",
+  "policy": {
+    "researchOnly": true,
+    "frozenHBT112Mutated": false,
+    "domesticForecastsMutated": false,
+    "bookmakerOddsRead": false,
+    "postKickoffRowsExcludedFromProspectiveEvidence": true,
+    "venueContextMustBeVerifiedForCleanProspectiveEvidence": true,
+    "thirdCountryVenueRemovesNominalHomeAdvantage": true,
+    "officialXIIsContextOnlyUntilValidated": true,
+    "automaticPromotion": false,
+    "automaticFunding": false
+  },
+  "validation": {
+    "selectionWindow": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "holdoutWindow": [
+      "2025-01-01",
+      "2026-11-07"
+    ],
+    "selectedParams": {
+      "eloSlope": 1.4,
+      "homeLogit": 0.15,
+      "drawIntercept": 0.0,
+      "drawMismatchPenalty": 0.4
+    },
+    "selection": {
+      "n": 2285,
+      "logLoss": 0.8842945020773297,
+      "brier": 0.5206899405328139,
+      "accuracy": 0.6026258205689278,
+      "topPickECE": 0.01644032866381879
+    },
+    "holdout": {
+      "n": 1772,
+      "logLoss": 0.8515940952916964,
+      "brier": 0.49911022395861776,
+      "accuracy": 0.6168171557562077,
+      "topPickECE": 0.030829219282465604
+    },
+    "holdoutBaseline": {
+      "n": 1772,
+      "logLoss": 1.049208390039876,
+      "brier": 0.6331402100952706,
+      "accuracy": 0.4751693002257336,
+      "topPickECE": 0.00687061108248016
+    },
+    "competitiveHoldout": {
+      "n": 1276,
+      "logLoss": 0.8338583324040652,
+      "brier": 0.486849451434554,
+      "accuracy": 0.6332288401253918,
+      "topPickECE": 0.04194362559839337
+    },
+    "friendlyHoldout": {
+      "n": 496,
+      "logLoss": 0.8972207756235806,
+      "brier": 0.5306520500487525,
+      "accuracy": 0.5745967741935484,
+      "topPickECE": 0.024917992218406165
+    },
+    "beatsFixedHistoricalBaseRateOnLogLossAndBrier": true,
+    "promotionAllowed": false,
+    "promotionBlock": "requires clean prospective confirmation plus broader HBT-1.4 interaction/ablation validation"
+  },
+  "historySource": {
+    "url": "https://raw.githubusercontent.com/martj42/international_results/394fe81893b062fbc2cf6257e988ac7cc4c039a1/results.csv",
+    "commit": "394fe81893b062fbc2cf6257e988ac7cc4c039a1",
+    "sha256": "df35268f8fc341ff7fb93d448b4e40356676ac35300a6b4461fd199a99ac1514",
+    "rows": 49547,
+    "firstDate": "1872-11-30",
+    "lastDate": "2026-08-26"
+  },
+  "summary": {
+    "v1InternationalRows": 0,
+    "preKickoffProspective": 0,
+    "postKickoffExcluded": 0,
+    "timingUnresolved": 0,
+    "cleanProspectiveEligible": 0,
+    "verifiedHomeCountry": 0,
+    "verifiedThirdCountryOrAway": 0,
+    "venueContextUnresolved": 0,
+    "xiProbeAttempted": 0,
+    "xiSummaryAvailable": 0,
+    "confirmedXI": 0
+  },
+  "prospectiveCandidates": [],
+  "postKickoffResearchRows": [],
+  "timingUnresolvedRows": []
+}
