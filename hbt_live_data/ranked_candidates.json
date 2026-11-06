@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-11-05",
+  "targetDate": "2026-11-06",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,36 +22,42 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 130,
-    "classifiedRows": 130,
-    "FALLBACK": 0,
+    "fixturesDiscovered": 104,
+    "classifiedRows": 104,
+    "FALLBACK": 2,
     "FULL_MODEL": 0,
-    "INSUFFICIENT_DATA": 0,
+    "INSUFFICIENT_DATA": 4,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 130,
-    "forecastRowsAvailable": 0,
-    "forecastRowsMatched": 0,
+    "UNSUPPORTED_COMPETITION": 98,
+    "forecastRowsAvailable": 2,
+    "forecastRowsMatched": 2,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
+      "2026-27-german-2-bundesliga",
+      "2026-27-keuken-kampioen-divisie",
+      "2026-27-ligue-2",
+      "2026-27-russian-premier-league",
       "2026-27-saudi-pro-league",
+      "2026-27-scottish-championship",
+      "2026-27-turkish-super-lig",
+      "2026-allsvenskan",
+      "2026-bolivian-liga-profesional",
       "2026-brasileiro-serie-a",
       "2026-brasileiro-serie-b",
       "2026-ncaa-division-i-men",
       "2026-ncaa-division-i-women",
-      "apertura",
-      "apertura---quarterfinals",
+      "Ekstraklasa",
+      "clausura",
+      "fall-season",
       "first-round",
-      "group-stage",
-      "league-phase",
-      "quarterfinals",
+      "playoffs---quarterfinals",
       "regular-season",
-      "third-round",
+      "seventh-round",
       "torneo-apertura",
       "torneo-apertura-2026",
-      "torneo-clausura",
-      "torneo-clausura-2026"
+      "torneo-clausura"
     ],
     "previousProspectiveScoredNowUnsupported": 0,
     "previousProspectiveCoverageRegressions": [],
@@ -63,16 +69,16 @@
     "knownForecastCoverageComplete": true,
     "discoveryComplete": true,
     "previousProspectiveCoverageConsistent": true,
-    "rankEligibleFixtures": 0,
+    "rankEligibleFixtures": 2,
     "fullModelRankEligible": 0,
-    "fallbackRankEligible": 0,
+    "fallbackRankEligible": 2,
     "note": "Discovery completeness means configured public sources reconciled all known date-scoped HBT forecasts; it is not a claim of universal world-football coverage."
   },
   "priceLayer": {
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-11-05T19:00:20Z",
+    "generatedAt": "2026-11-06T00:00:13Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -114,9 +120,187 @@
     "note": "Reference only. Ranking does not alter, remove, replace, or retrospectively optimise Test A."
   },
   "rankings": {
-    "highestRawDeployedPickProbability": [],
+    "highestRawDeployedPickProbability": [
+      {
+        "competition": "2026-27-english-premier-league",
+        "kickoff": "2026-11-06T20:00:00Z",
+        "home": "Everton",
+        "away": "Coventry City",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Everton",
+        "pickProbability": 0.6481465878308202,
+        "probabilityOutput": [
+          0.6481465878308202,
+          0.21385471171956122,
+          0.13799870044961857
+        ],
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.5760914810052903,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-06T00:00:11.153Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-portuguese-primeira-liga",
+        "kickoff": "2026-11-06T20:45:00Z",
+        "home": "FC Famalicao",
+        "away": "Arouca",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "FC Famalicao",
+        "pickProbability": 0.5169866935127536,
+        "probabilityOutput": [
+          0.5169866935127536,
+          0.25100586703447914,
+          0.23200743945276725
+        ],
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.8632085396894515,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-06T00:00:11.153Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      }
+    ],
     "strongestFullModelConfidence": [],
-    "fallbackOnly": [],
+    "fallbackOnly": [
+      {
+        "competition": "2026-27-english-premier-league",
+        "kickoff": "2026-11-06T20:00:00Z",
+        "home": "Everton",
+        "away": "Coventry City",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "Everton",
+        "pickProbability": 0.6481465878308202,
+        "probabilityOutput": [
+          0.6481465878308202,
+          0.21385471171956122,
+          0.13799870044961857
+        ],
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.5760914810052903,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-06T00:00:11.153Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-portuguese-primeira-liga",
+        "kickoff": "2026-11-06T20:45:00Z",
+        "home": "FC Famalicao",
+        "away": "Arouca",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "FC Famalicao",
+        "pickProbability": 0.5169866935127536,
+        "probabilityOutput": [
+          0.5169866935127536,
+          0.25100586703447914,
+          0.23200743945276725
+        ],
+        "tier": "C",
+        "rawTier": "C",
+        "quality": 0.8632085396894515,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-06T00:00:11.153Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      }
+    ],
     "validatedEventForecasts": [],
     "eventMarketExcluded": [],
     "experimentalValueVsPrice": {
@@ -133,9 +317,10 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 130,
+      "count": 102,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 130
+        "UNSUPPORTED_COMPETITION": 98,
+        "INSUFFICIENT_DATA": 4
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
