@@ -35,7 +35,7 @@ class PreviewTests(unittest.TestCase):
         html = preview.render_dashboard({"fixtures": [], "unscoredFixtures": []})
         self.assertIn("Missing means unavailable, not zero", html)
         self.assertIn("m.observedOdds!=null", html)
-        self.assertIn("nonnegative EV", html.lower() if "nonnegative EV" in html.lower() else html)
+        self.assertIn("Nonnegative EV only", html)
 
 
 if __name__ == "__main__":
