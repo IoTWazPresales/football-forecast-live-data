@@ -1,0 +1,48 @@
+name: HBT Recovered Fusion Input Preflight
+
+on:
+  pull_request:
+    branches: [research/hbt-1.4-match-intelligence]
+    paths:
+      - 'scripts/hbt_fusion_projection_preflight_v1.mjs'
+      - '.github/workflows/hbt_fusion_projection_preflight.yml'
+  workflow_dispatch:
+    inputs:
+      target_date:
+        required: false
+        type: string
+        description: "Date YYYY-MM-DD. Blank = current published HBT slate."
+
+permissions:
+  contents: read
+
+jobs:
+  recovered-fusion-preflight:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: node --check scripts/hbt_fusion_projection_preflight_v1.mjs
+      - name: Identify published fixture date
+        env:
+          REQUESTED: ${{ inputs.target_date }}
+        run: |
+          if [ -n "$REQUESTED" ]; then
+            echo "HBT_TARGET=$REQUESTED" >> "$GITHUB_ENV"
+          else
+            echo "HBT_TARGET=$(python -c 'import json; print(json.load(open("hbt_live_data/ranked_candidates.json"))["targetDate"])')" >> "$GITHUB_ENV"
+          fi
+      - name: Prove recovered full-model projection without changing L0 evidence
+        run: |
+          node scripts/hbt_fusion_projection_preflight_v1.mjs --date "$HBT_TARGET"
+      - name: Upload reversible projection audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hbt-recovered-fusion-projection-preflight
+          path: hbt_live_data/diagnostics/hbt_fusion_projection_preflight_*.json
+          if-no-files-found: warn
