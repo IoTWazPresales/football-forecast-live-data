@@ -1,0 +1,60 @@
+name: HBT Market-First Dashboard Preview
+
+on:
+  pull_request:
+    branches:
+      - research/hbt-1.4-match-intelligence
+    paths:
+      - 'scripts/hbt_build_market_first_preview_v1.py'
+      - 'scripts/hbt_build_betting_desk_v1.py'
+      - 'tests/test_hbt_market_first_preview.py'
+      - 'tests/test_hbt_market_first_board.py'
+      - '.github/workflows/hbt_market_first_preview.yml'
+  workflow_dispatch:
+    inputs:
+      target_date:
+        description: 'YYYY-MM-DD fixture date (Johannesburg); blank for today'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  dashboard:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Run HBT model desk and preview regression tests
+        run: python -m unittest discover -s tests -v
+      - name: Determine fixture date in South Africa
+        env:
+          REQUESTED_DATE: ${{ inputs.target_date }}
+        run: |
+          if [ -n "$REQUESTED_DATE" ]; then
+            if ! [[ "$REQUESTED_DATE" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}$ ]]; then
+              echo "Invalid YYYY-MM-DD date" >&2; exit 2
+            fi
+            echo "HBT_TARGET_DATE=$REQUESTED_DATE" >> "$GITHUB_ENV"
+          else
+            echo "HBT_TARGET_DATE=$(TZ=Africa/Johannesburg date +%Y-%m-%d)" >> "$GITHUB_ENV"
+          fi
+      - name: Generate read-only, interactive market-first dashboard
+        run: |
+          mkdir -p preview
+          python scripts/hbt_build_market_first_preview_v1.py --date "$HBT_TARGET_DATE" --output-dir preview
+          test -s "preview/hbt_market_first_preview_$HBT_TARGET_DATE.html"
+          test -s "preview/hbt_market_first_preview_$HBT_TARGET_DATE.json"
+      - name: Upload dashboard, data, and testable audit output
+        uses: actions/upload-artifact@v4
+        with:
+          name: hbt-market-first-dashboard
+          path: |
+            preview/hbt_market_first_preview_*.html
+            preview/hbt_market_first_preview_*.json
+          if-no-files-found: error
+          retention-days: 30
