@@ -11,7 +11,7 @@ import {buildShadow} from './hbt_recovered_fusion_shadow.mjs';
 
 const sha=(b)=>crypto.createHash('sha256').update(b).digest('hex');
 const date=process.argv[process.argv.indexOf('--date')+1];
-if(!date||!/^\\d{4}-\\d{2}-\\d{2}$/.test(date))throw Error('Usage: --date YYYY-MM-DD');
+if(!date||!/^\d{4}-\d{2}-\d{2}$/.test(date))throw Error('Usage: --date YYYY-MM-DD');
 const root=process.cwd(),file=path.join(root,'hbt_live_data','frozen_control_forecast_'+date+'.json');
 const original=fs.readFileSync(file);
 const old=JSON.parse(original);
@@ -45,6 +45,6 @@ try {
   const folder=path.join(root,'hbt_live_data','diagnostics');
   fs.mkdirSync(folder,{recursive:true});
   const output=path.join(folder,'hbt_fusion_projection_preflight_'+date+'.json');
-  fs.writeFileSync(output,JSON.stringify(report,null,2)+'\\n');
+  fs.writeFileSync(output,JSON.stringify(report,null,2)+'\n');
   console.log(JSON.stringify({output,error:report.error||null,projectedFixtures:report.projectedFixtures?.length||0,shadowSummary:report.shadowSummary||null,originalPreserved:report.originalPreserved},null,2));
 }
