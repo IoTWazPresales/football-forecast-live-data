@@ -44,6 +44,12 @@ export function verifyRecovery(root=ROOT){
   return {deployment,manifest};
 }
 
+export function confirmedXiCausal(fetchedAt,kickoffMs,nowMs){
+  if(!aware(fetchedAt)||!Number.isFinite(kickoffMs)||!Number.isFinite(nowMs))return false;
+  const asOf=Date.parse(fetchedAt);
+  return asOf<=kickoffMs&&asOf<=nowMs;
+}
+
 export function predictShadow(pred,performance,players,deployment,now=new Date()){
   const fx=pred.fixture,src=performance.leagues?.[fx.league];
   if(!src)return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_LEAGUE_UNSUPPORTED'};
@@ -72,10 +78,8 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
   const matching=Object.entries(players.features||{}).filter(([key,r])=>key.split('|')[0]===fx.date&&perfTeamKey(r.home)===perfTeamKey(fx.home)&&perfTeamKey(r.away)===perfTeamKey(fx.away));
   const xi=matching.length===1?matching[0][1]:null;
   const xiAge=aware(xi?.fetchedAt)?(now-Date.parse(xi.fetchedAt))/60000:Infinity;
-  const xiAsOf=aware(xi?.fetchedAt)?Date.parse(xi.fetchedAt):NaN;
-  // A lineup observed after kickoff cannot be used in a pre-match forecast,
-  // even when replaying a historical fixture with a recent observation clock.
-  const xiCausal=Number.isFinite(xiAsOf)&&xiAsOf<=ko&&xiAsOf<=now.getTime();
+  // Historical replays must not use lineups first observed after kickoff.
+  const xiCausal=confirmedXiCausal(xi?.fetchedAt,ko,now.getTime());
   const full=xi?.ok===true&&xiCausal&&xiAge>=0&&xiAge<=30&&[xi.continuityDiff,xi.replacementQualityAdv].every(Number.isFinite);
   const row={vec:[...baseVec,full?xi.continuityDiff:0,full?xi.replacementQualityAdv:0,0,perf.stakesDiff]};
   const setting=full?cfg.full:cfg.preXi,core=liveTempPred(serPredict(full?deployment.models.fullCore:deployment.models.preXiCore,row,1),setting.coreTemperature);
