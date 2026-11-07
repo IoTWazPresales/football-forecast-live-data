@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "HBT-INTERNATIONAL-PROSPECTIVE-2",
+  "version": "HBT-1.4-INTERNATIONAL-CONTEXT-2.1-VENUE-IDENTITY",
+  "generatedAt": "2026-11-07T23:59:42.525878Z",
+  "targetDate": "2026-11-08",
+  "source": "hbt_international_challenger_2026-11-08.json",
+  "policy": {
+    "researchOnly": true,
+    "frozenHBT112Mutated": false,
+    "domesticForecastsMutated": false,
+    "bookmakerOddsRead": false,
+    "postKickoffRowsExcludedFromProspectiveEvidence": true,
+    "venueContextMustBeVerifiedForCleanProspectiveEvidence": true,
+    "thirdCountryVenueRemovesNominalHomeAdvantage": true,
+    "officialXIIsContextOnlyUntilValidated": true,
+    "automaticPromotion": false,
+    "automaticFunding": false
+  },
+  "validation": {
+    "selectionWindow": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "holdoutWindow": [
+      "2025-01-01",
+      "2026-11-08"
+    ],
+    "selectedParams": {
+      "eloSlope": 1.4,
+      "homeLogit": 0.15,
+      "drawIntercept": 0.0,
+      "drawMismatchPenalty": 0.4
+    },
+    "selection": {
+      "n": 2285,
+      "logLoss": 0.8842945020773297,
+      "brier": 0.5206899405328139,
+      "accuracy": 0.6026258205689278,
+      "topPickECE": 0.01644032866381879
+    },
+    "holdout": {
+      "n": 1766,
+      "logLoss": 0.8514154997823967,
+      "brier": 0.4989845618216964,
+      "accuracy": 0.616647791619479,
+      "topPickECE": 0.030369031221509833
+    },
+    "holdoutBaseline": {
+      "n": 1766,
+      "logLoss": 1.0491671645970615,
+      "brier": 0.633129279189484,
+      "accuracy": 0.4750849377123443,
+      "topPickECE": 0.006954973595869496
+    },
+    "competitiveHoldout": {
+      "n": 1272,
+      "logLoss": 0.8339394845696781,
+      "brier": 0.48689518492129746,
+      "accuracy": 0.6328616352201258,
+      "topPickECE": 0.041494901154003096
+    },
+    "friendlyHoldout": {
+      "n": 494,
+      "logLoss": 0.8964144701276909,
+      "brier": 0.5301134837190826,
+      "accuracy": 0.5748987854251012,
+      "topPickECE": 0.02450420390962261
+    },
+    "beatsFixedHistoricalBaseRateOnLogLossAndBrier": true,
+    "promotionAllowed": false,
+    "promotionBlock": "requires clean prospective confirmation plus broader HBT-1.4 interaction/ablation validation"
+  },
+  "historySource": {
+    "url": "https://raw.githubusercontent.com/martj42/international_results/394fe81893b062fbc2cf6257e988ac7cc4c039a1/results.csv",
+    "commit": "394fe81893b062fbc2cf6257e988ac7cc4c039a1",
+    "sha256": "df35268f8fc341ff7fb93d448b4e40356676ac35300a6b4461fd199a99ac1514",
+    "rows": 49547,
+    "firstDate": "1872-11-30",
+    "lastDate": "2026-08-26"
+  },
+  "summary": {
+    "v1InternationalRows": 2,
+    "preKickoffProspective": 2,
+    "postKickoffExcluded": 0,
+    "timingUnresolved": 0,
+    "cleanProspectiveEligible": 2,
+    "verifiedHomeCountry": 0,
+    "verifiedThirdCountryOrAway": 2,
+    "venueContextUnresolved": 0,
+    "xiProbeAttempted": 2,
+    "xiSummaryAvailable": 2,
+    "confirmedXI": 0
+  },
+  "prospectiveCandidates": [
+    {
+      "fixture": {
+        "home": "Maldives",
+        "away": "Pakistan",
+        "kickoff": "2026-11-08T09:30:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.288279719161446,
+        "D": 0.3212689008104793,
+        "A": 0.3904513800280747
+      },
+      "pick": "A",
+      "pickProbability": 0.3904513800280747,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.6095486199719253,
+          "fairOdds": 1.6405582216658257
+        },
+        "X2": {
+          "p": 0.7117202808385541,
+          "fairOdds": 1.4050463741482715
+        },
+        "12": {
+          "p": 0.6787310991895208,
+          "fairOdds": 1.47333752821126
+        },
+        "HOME_DNB": {
+          "winP": 0.288279719161446,
+          "pushP": 0.3212689008104793,
+          "lossP": 0.3904513800280747,
+          "conditionalP": 0.42473332886276105,
+          "fairOdds": 2.354418483422378
+        },
+        "AWAY_DNB": {
+          "winP": 0.3904513800280747,
+          "pushP": 0.3212689008104793,
+          "lossP": 0.288279719161446,
+          "conditionalP": 0.5752666711372388,
+          "fairOdds": 1.7383242419087308
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1099.7594726174032,
+          "recentN": 8,
+          "goalsForMean": 0.125,
+          "goalsAgainstMean": 2.625,
+          "pointsShare": 0.041666666666666664,
+          "recentOpponentEloMean": 1336.692679935425,
+          "daysSinceMatch": 38
+        },
+        "away": {
+          "elo": 1143.0983581443634,
+          "recentN": 8,
+          "goalsForMean": 1.25,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1288.9943615841821,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 21.661114473039788
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
+      },
+      "venueContext": {
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
+        "neutralSite": null,
+        "venue": {
+          "name": "National Football Stadium Dhaka",
+          "city": "Dhaka",
+          "country": "Bangladesh"
+        },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
+        "homeContextProbability": {
+          "H": 0.39676509093050566,
+          "D": 0.3097821721250784,
+          "A": 0.29345273694441587
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.288279719161446,
+          "D": 0.3212689008104793,
+          "A": 0.3904513800280747
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401932724",
+      "capture": {
+        "capturedAt": "2026-11-07T23:59:42.525878Z",
+        "kickoffUtc": "2026-11-08T09:30:00Z",
+        "leadMinutes": 570.2912353666667,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401932724",
+        "home": "Maldives",
+        "away": "Pakistan",
+        "kickoff": "2026-11-08T09:30Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "National Football Stadium Dhaka",
+          "city": "Dhaka",
+          "country": "Bangladesh"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14632,
+          "slug": "group-stage"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "18914",
+          "name": "SAFF Championship",
+          "slug": "afc.saff.championship",
+          "abbreviation": "SAFF Championship"
+        },
+        "rosters": [
+          {
+            "teamId": "4390",
+            "team": "Maldives",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "5781",
+            "team": "Pakistan",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "18914",
+        "name": "SAFF Championship",
+        "slug": "afc.saff.championship",
+        "abbreviation": "SAFF Championship"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true
+    },
+    {
+      "fixture": {
+        "home": "Sri Lanka",
+        "away": "Bhutan",
+        "kickoff": "2026-11-08T14:00:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.5422670210772551,
+        "D": 0.27216365115173036,
+        "A": 0.18556932777101462
+      },
+      "pick": "H",
+      "pickProbability": 0.5422670210772551,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.8144306722289855,
+          "fairOdds": 1.2278515951064768
+        },
+        "X2": {
+          "p": 0.457732978922745,
+          "fairOdds": 2.1846798156284417
+        },
+        "12": {
+          "p": 0.7278363488482698,
+          "fairOdds": 1.3739352281352846
+        },
+        "HOME_DNB": {
+          "winP": 0.5422670210772551,
+          "pushP": 0.27216365115173036,
+          "lossP": 0.18556932777101462,
+          "conditionalP": 0.7450397633140197,
+          "fairOdds": 1.3422102406345253
+        },
+        "AWAY_DNB": {
+          "winP": 0.18556932777101462,
+          "pushP": 0.27216365115173036,
+          "lossP": 0.5422670210772551,
+          "conditionalP": 0.25496023668598033,
+          "fairOdds": 3.922180230918289
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1108.8508891259185,
+          "recentN": 8,
+          "goalsForMean": 1.375,
+          "goalsAgainstMean": 1.5,
+          "pointsShare": 0.5416666666666666,
+          "recentOpponentEloMean": 1265.5728110293035,
+          "daysSinceMatch": 34
+        },
+        "away": {
+          "elo": 955.6608902549868,
+          "recentN": 8,
+          "goalsForMean": 0.25,
+          "goalsAgainstMean": 2.75,
+          "pointsShare": 0.041666666666666664,
+          "recentOpponentEloMean": 1254.228680323994,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 218.18999887093162
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; bookmaker odds are not consumed here"
+      },
+      "venueContext": {
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
+        "neutralSite": null,
+        "venue": {
+          "name": "National Football Stadium Dhaka",
+          "city": "Dhaka",
+          "country": "Bangladesh"
+        },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
+        "homeContextProbability": {
+          "H": 0.6625557960518279,
+          "D": 0.21363090433792803,
+          "A": 0.12381329961024404
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.5422670210772551,
+          "D": 0.27216365115173036,
+          "A": 0.18556932777101462
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401932725",
+      "capture": {
+        "capturedAt": "2026-11-07T23:59:42.525878Z",
+        "kickoffUtc": "2026-11-08T14:00:00Z",
+        "leadMinutes": 840.2912353666667,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401932725",
+        "home": "Sri Lanka",
+        "away": "Bhutan",
+        "kickoff": "2026-11-08T14:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "National Football Stadium Dhaka",
+          "city": "Dhaka",
+          "country": "Bangladesh"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14632,
+          "slug": "group-stage"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "18914",
+          "name": "SAFF Championship",
+          "slug": "afc.saff.championship",
+          "abbreviation": "SAFF Championship"
+        },
+        "rosters": [
+          {
+            "teamId": "5782",
+            "team": "Sri Lanka",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "5784",
+            "team": "Bhutan",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "18914",
+        "name": "SAFF Championship",
+        "slug": "afc.saff.championship",
+        "abbreviation": "SAFF Championship"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true
+    }
+  ],
+  "postKickoffResearchRows": [],
+  "timingUnresolvedRows": []
+}
