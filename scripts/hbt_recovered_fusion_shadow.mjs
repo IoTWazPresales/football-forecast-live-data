@@ -50,6 +50,15 @@ export function confirmedXiCausal(fetchedAt,kickoffMs,nowMs){
   return asOf<=kickoffMs&&asOf<=nowMs;
 }
 
+export function performanceHistoryCausal(teams,generatedAt){
+  if(!aware(generatedAt)||!Array.isArray(teams))return false;
+  const asOfDay=generatedAt.slice(0,10);
+  return teams.every(team=>Array.isArray(team.history)&&team.history.every(row=>
+    typeof row.date==='string'&&/^\\d{4}-\\d{2}-\\d{2}/.test(row.date)&&
+    Number.isFinite(Date.parse(row.date.slice(0,10)+'T00:00:00Z'))&&
+    row.date.slice(0,10)<=asOfDay));
+}
+
 export function predictShadow(pred,performance,players,deployment,now=new Date()){
   const fx=pred.fixture,src=performance.leagues?.[fx.league];
   if(!src)return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_LEAGUE_UNSUPPORTED'};
@@ -66,6 +75,8 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
   const feedTime=Date.parse(performance.generatedAt);
   if(!aware(performance.generatedAt)||!Number.isFinite(ko)||feedTime>ko||feedTime>now.getTime())
     return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_FEED_AS_OF_UNVERIFIABLE'};
+  if(!performanceHistoryCausal(teams,performance.generatedAt))
+    return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_HISTORY_AFTER_FEED_AS_OF'};
   const pack={teams,byKey:new Map(teams.map(t=>[perfTeamKey(t.title),t])),sourceUrl:src.source||null,feedGeneratedAt:performance.generatedAt};
   const perf=livePerformanceFeatures(pack,fx,pred.structuralFeatures);
   if(!perf.ok)return {fixture:fx,status:'UNAVAILABLE',reason:perf.reason};
