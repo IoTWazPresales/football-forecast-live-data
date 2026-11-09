@@ -5,6 +5,9 @@ on:
     branches: [research/hbt-1.4-match-intelligence]
     paths:
       - 'scripts/hbt_fusion_projection_preflight_v1.mjs'
+      - 'scripts/hbt_recovered_fusion_shadow.mjs'
+      - 'tests/hbt_*.test.mjs'
+      - 'runtime/hbt_fusion_inference_exact.mjs'
       - '.github/workflows/hbt_fusion_projection_preflight.yml'
   workflow_dispatch:
     inputs:
@@ -27,6 +30,8 @@ jobs:
           node-version: '22'
       - name: Check JavaScript syntax
         run: node --check scripts/hbt_fusion_projection_preflight_v1.mjs
+      - name: Run recovered Fusion causality and identity regressions
+        run: node --test tests/hbt_*.test.mjs
       - name: Identify published fixture date
         env:
           REQUESTED: ${{ inputs.target_date }}
