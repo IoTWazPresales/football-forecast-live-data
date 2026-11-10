@@ -52,11 +52,11 @@ export function confirmedXiCausal(fetchedAt,kickoffMs,nowMs){
 
 export function performanceHistoryCausal(teams,generatedAt){
   if(!aware(generatedAt)||!Array.isArray(teams))return false;
-  const asOfDay=generatedAt.slice(0,10);
+  // Date-only match records have no final-whistle timestamp. Same-day results\n  // cannot be proven available when the feed was generated; fail closed.\n  const asOfDay=generatedAt.slice(0,10);
   return teams.every(team=>Array.isArray(team.history)&&team.history.every(row=>
     typeof row.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(row.date)&&
     Number.isFinite(Date.parse(row.date.slice(0,10)+'T00:00:00Z'))&&
-    row.date.slice(0,10)<=asOfDay));
+    row.date.slice(0,10)<asOfDay));
 }
 
 export function predictShadow(pred,performance,players,deployment,now=new Date()){
