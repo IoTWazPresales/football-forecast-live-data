@@ -57,7 +57,8 @@ export function performanceHistoryCausal(teams,generatedAt){
   const asOfDay=new Date(Date.parse(generatedAt)).toISOString().slice(0,10);
   return teams.every(team=>Array.isArray(team.history)&&team.history.every(row=>
     typeof row.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(row.date)&&
-    Number.isFinite(Date.parse(row.date.slice(0,10)+'T00:00:00Z'))&&
+    Number.isFinite(Date.parse(row.date+'T00:00:00Z'))&&
+    new Date(Date.parse(row.date+'T00:00:00Z')).toISOString().slice(0,10)===row.date&&
     row.date.slice(0,10)<asOfDay));
 }
 
