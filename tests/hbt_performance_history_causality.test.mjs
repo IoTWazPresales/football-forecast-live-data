@@ -3,8 +3,11 @@ import assert from 'node:assert/strict';
 import {performanceHistoryCausal} from '../scripts/hbt_recovered_fusion_shadow.mjs';
 
 const row=date=>({date});
-test('history through feed date is permitted',()=>{
-  assert.equal(performanceHistoryCausal([{history:[row('2026-11-01'),row('2026-11-07')]}],'2026-11-07T12:00:00Z'),true);
+test('completed history strictly before feed UTC day is permitted',()=>{
+  assert.equal(performanceHistoryCausal([{history:[row('2026-11-01'),row('2026-11-06')]}],'2026-11-07T12:00:00Z'),true);
+});
+test('same-day date-only history is rejected without final-whistle evidence',()=>{
+  assert.equal(performanceHistoryCausal([{history:[row('2026-11-07')]}],'2026-11-07T23:59:00Z'),false);
 });
 test('future match history cannot enter a past feed snapshot',()=>{
   assert.equal(performanceHistoryCausal([{history:[row('2026-11-08')]}],'2026-11-07T12:00:00Z'),false);
