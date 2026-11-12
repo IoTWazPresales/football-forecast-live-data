@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-INTERNATIONAL-SETTLEMENT-1",
   "version": "HBT-1.4-INTERNATIONAL-SETTLEMENT-1",
-  "generatedAt": "2026-11-12T01:02:21.084724Z",
+  "generatedAt": "2026-11-12T08:21:29.253169Z",
   "targetDate": "2026-11-12",
   "source": "hbt_international_intelligence_2026-11-12.json",
   "policy": {
@@ -16,8 +16,8 @@
   },
   "summary": {
     "cleanSettled": 0,
-    "pending": 27,
-    "blocked": 0
+    "pending": 25,
+    "blocked": 1
   },
   "metrics": {
     "structuralOnly": {
@@ -40,31 +40,11 @@
   "pending": [
     {
       "fixture": {
-        "home": "New Zealand",
-        "away": "India",
-        "kickoff": "2026-11-12T06:10:00Z",
-        "competition": "2026-international-friendly",
-        "competitionSlug": "2026-international-friendly"
-      },
-      "reason": "not completed"
-    },
-    {
-      "fixture": {
         "home": "Uzbekistan",
         "away": "Russia",
         "kickoff": "2026-11-12T15:00:00Z",
         "competition": "2026-international-friendly",
         "competitionSlug": "2026-international-friendly"
-      },
-      "reason": "not completed"
-    },
-    {
-      "fixture": {
-        "home": "Ghana",
-        "away": "Somalia",
-        "kickoff": "2026-11-12T15:00:00Z",
-        "competition": "group-stage",
-        "competitionSlug": "group-stage"
       },
       "reason": "not completed"
     },
@@ -309,5 +289,16 @@
       "reason": "not completed"
     }
   ],
-  "blocked": []
+  "blocked": [
+    {
+      "fixture": {
+        "home": "Ghana",
+        "away": "Somalia",
+        "kickoff": "2026-11-12T15:00:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "reason": "not cleanProspectiveEligible"
+    }
+  ]
 }
