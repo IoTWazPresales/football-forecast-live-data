@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-INTERNATIONAL-SETTLEMENT-1",
   "version": "HBT-1.4-INTERNATIONAL-SETTLEMENT-1",
-  "generatedAt": "2026-11-12T17:06:37.929557Z",
+  "generatedAt": "2026-11-12T22:46:03.745704Z",
   "targetDate": "2026-11-12",
   "source": "hbt_international_intelligence_2026-11-12.json",
   "policy": {
@@ -15,29 +15,28 @@
     "automaticFunding": false
   },
   "summary": {
-    "cleanSettled": 0,
-    "pending": 17,
+    "cleanSettled": 14,
+    "pending": 3,
     "blocked": 0
   },
   "metrics": {
     "structuralOnly": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 14,
+      "logLoss": 0.4706844183971371,
+      "brier": 0.23236039322279106,
+      "accuracy": 0.8571428571428571
     },
     "recentInteractionChallenger": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 14,
+      "logLoss": 0.4563151320801802,
+      "brier": 0.2275452787346279,
+      "accuracy": 0.8571428571428571
     },
-    "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": false,
+    "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": true,
     "promotionEvidenceSufficient": false,
     "note": "Small clean prospective samples are confirmatory/hypothesis evidence only; promotion still requires accumulated prospective confirmation and full interaction/ablation gates."
   },
-  "settled": [],
-  "pending": [
+  "settled": [
     {
       "fixture": {
         "home": "Malta",
@@ -46,7 +45,25 @@
         "competition": "2026-international-friendly",
         "competitionSlug": "2026-international-friendly"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401931296",
+      "domain": "NATIONAL_FRIENDLY",
+      "result": "D",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.4274324663691746,
+        "D": 0.3019710986672711,
+        "A": 0.2705964349635543
+      },
+      "challengerProbs": {
+        "H": 0.4271215558497792,
+        "D": 0.3020118835877628,
+        "A": 0.270866560562458
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.4271215558497792
     },
     {
       "fixture": {
@@ -56,7 +73,25 @@
         "competition": "group-stage",
         "competitionSlug": "group-stage"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401929778",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "A",
+      "score": {
+        "home": 0,
+        "away": 3
+      },
+      "structuralProbs": {
+        "H": 0.09838131898809795,
+        "D": 0.1985803791667305,
+        "A": 0.7030383018451715
+      },
+      "challengerProbs": {
+        "H": 0.08283056399165216,
+        "D": 0.1858412003725889,
+        "A": 0.731328235635759
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.731328235635759
     },
     {
       "fixture": {
@@ -66,7 +101,25 @@
         "competition": "group-stage",
         "competitionSlug": "group-stage"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401927209",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 4,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.563780101773416,
+        "D": 0.26351534643152713,
+        "A": 0.17270455179505687
+      },
+      "challengerProbs": {
+        "H": 0.577876228562116,
+        "D": 0.25915804726737046,
+        "A": 0.16296572417051364
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.577876228562116
     },
     {
       "fixture": {
@@ -76,7 +129,25 @@
         "competition": "group-stage",
         "competitionSlug": "group-stage"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401927207",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.7669829129654265,
+        "D": 0.16012394150761786,
+        "A": 0.07289314552695568
+      },
+      "challengerProbs": {
+        "H": 0.8108318017271468,
+        "D": 0.13797380872679513,
+        "A": 0.05119438954605813
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.8108318017271468
     },
     {
       "fixture": {
@@ -86,7 +157,25 @@
         "competition": "group-stage",
         "competitionSlug": "group-stage"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401929797",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "A",
+      "score": {
+        "home": 0,
+        "away": 6
+      },
+      "structuralProbs": {
+        "H": 0.06334291483524332,
+        "D": 0.15537465989906096,
+        "A": 0.7812824252656958
+      },
+      "challengerProbs": {
+        "H": 0.043103677195222984,
+        "D": 0.13172167379670469,
+        "A": 0.8251746490080724
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.8251746490080724
     },
     {
       "fixture": {
@@ -96,7 +185,25 @@
         "competition": "group-stage",
         "competitionSlug": "group-stage"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401927213",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.7477775105671918,
+        "D": 0.17062063065119812,
+        "A": 0.08160185878161007
+      },
+      "challengerProbs": {
+        "H": 0.7470212096581746,
+        "D": 0.17096461735294086,
+        "A": 0.0820141729888844
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.7470212096581746
     },
     {
       "fixture": {
@@ -106,7 +213,25 @@
         "competition": "group-stage",
         "competitionSlug": "group-stage"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401927202",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 4,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.8518974060056528,
+        "D": 0.10984341539713231,
+        "A": 0.03825917859721486
+      },
+      "challengerProbs": {
+        "H": 0.8741815675798086,
+        "D": 0.09683966984665121,
+        "A": 0.028978762573540144
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.8741815675798086
     },
     {
       "fixture": {
@@ -116,7 +241,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861147",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.4400899396909589,
+        "D": 0.29846224154561624,
+        "A": 0.2614478187634249
+      },
+      "challengerProbs": {
+        "H": 0.413174423426518,
+        "D": 0.30189794798024755,
+        "A": 0.2849276285932344
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.413174423426518
     },
     {
       "fixture": {
@@ -126,7 +269,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861148",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "A",
+      "score": {
+        "home": 0,
+        "away": 2
+      },
+      "structuralProbs": {
+        "H": 0.04093972205989531,
+        "D": 0.10979616370913305,
+        "A": 0.8492641142309717
+      },
+      "challengerProbs": {
+        "H": 0.029377768796306738,
+        "D": 0.09446971291178931,
+        "A": 0.8761525182919039
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.8761525182919039
     },
     {
       "fixture": {
@@ -136,7 +297,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861150",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.7961736530114557,
+        "D": 0.14357421136908666,
+        "A": 0.0602521356194577
+      },
+      "challengerProbs": {
+        "H": 0.8611269690265223,
+        "D": 0.10759022010344427,
+        "A": 0.03128281087003349
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.8611269690265223
     },
     {
       "fixture": {
@@ -146,7 +325,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861151",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 3,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.262649728799985,
+        "D": 0.28875327519353583,
+        "A": 0.44859699600647923
+      },
+      "challengerProbs": {
+        "H": 0.23725085877653934,
+        "D": 0.28362181254049335,
+        "A": 0.4791273286829673
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.4791273286829673
     },
     {
       "fixture": {
@@ -156,7 +353,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861152",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.7133351621919894,
+        "D": 0.18869407521265866,
+        "A": 0.09797076259535194
+      },
+      "challengerProbs": {
+        "H": 0.7263155172179363,
+        "D": 0.18309254044415527,
+        "A": 0.09059194233790845
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.7263155172179363
     },
     {
       "fixture": {
@@ -166,7 +381,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861149",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "A",
+      "score": {
+        "home": 0,
+        "away": 2
+      },
+      "structuralProbs": {
+        "H": 0.025362331618807018,
+        "D": 0.08214882547301451,
+        "A": 0.8924888429081784
+      },
+      "challengerProbs": {
+        "H": 0.01668307285903723,
+        "D": 0.0674915994672815,
+        "A": 0.9158253276736813
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.9158253276736813
     },
     {
       "fixture": {
@@ -176,8 +409,28 @@
         "competition": "group-stage",
         "competitionSlug": "group-stage"
       },
-      "reason": "not completed"
-    },
+      "sourceFixtureId": "401929777",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "A",
+      "score": {
+        "home": 1,
+        "away": 7
+      },
+      "structuralProbs": {
+        "H": 0.14930221564229534,
+        "D": 0.24604227745923912,
+        "A": 0.6046555068984655
+      },
+      "challengerProbs": {
+        "H": 0.1440424402331194,
+        "D": 0.24326944704013345,
+        "A": 0.6126881127267472
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.6126881127267472
+    }
+  ],
+  "pending": [
     {
       "fixture": {
         "home": "Aruba",
