@@ -78,7 +78,7 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
   const feedTime=Date.parse(performance.generatedAt);
   if(!aware(performance.generatedAt)||!Number.isFinite(ko)||feedTime>ko||feedTime>now.getTime())
     return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_FEED_AS_OF_UNVERIFIABLE'};
-  if(!performanceHistoryCausal(teams,performance.generatedAt))
+  if(!performanceHistoryCausal([matchingHome[0],matchingAway[0]],performance.generatedAt))
     return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_HISTORY_AFTER_FEED_AS_OF'};
   const pack={teams,byKey:new Map(teams.map(t=>[perfTeamKey(t.title),t])),sourceUrl:src.source||null,feedGeneratedAt:performance.generatedAt};
   const perf=livePerformanceFeatures(pack,fx,pred.structuralFeatures);
