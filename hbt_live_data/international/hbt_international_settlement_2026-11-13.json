@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-INTERNATIONAL-SETTLEMENT-1",
   "version": "HBT-1.4-INTERNATIONAL-SETTLEMENT-1",
-  "generatedAt": "2026-11-13T18:32:00.904108Z",
+  "generatedAt": "2026-11-13T23:54:40.612006Z",
   "targetDate": "2026-11-13",
   "source": "hbt_international_intelligence_2026-11-13.json",
   "policy": {
@@ -15,29 +15,28 @@
     "automaticFunding": false
   },
   "summary": {
-    "cleanSettled": 0,
-    "pending": 20,
+    "cleanSettled": 13,
+    "pending": 7,
     "blocked": 0
   },
   "metrics": {
     "structuralOnly": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 13,
+      "logLoss": 0.6954492388636418,
+      "brier": 0.3980243372999056,
+      "accuracy": 0.7692307692307693
     },
     "recentInteractionChallenger": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 13,
+      "logLoss": 0.6648323933661762,
+      "brier": 0.380628205370804,
+      "accuracy": 0.7692307692307693
     },
-    "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": false,
+    "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": true,
     "promotionEvidenceSufficient": false,
     "note": "Small clean prospective samples are confirmatory/hypothesis evidence only; promotion still requires accumulated prospective confirmation and full interaction/ablation gates."
   },
-  "settled": [],
-  "pending": [
+  "settled": [
     {
       "fixture": {
         "home": "Egypt",
@@ -46,7 +45,25 @@
         "competition": "group-stage",
         "competitionSlug": "group-stage"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401927190",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 5,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.8480969826696354,
+        "D": 0.11223941895090833,
+        "A": 0.0396635983794562
+      },
+      "challengerProbs": {
+        "H": 0.8773749596730197,
+        "D": 0.09510021495877045,
+        "A": 0.027524825368209948
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.8773749596730197
     },
     {
       "fixture": {
@@ -56,7 +73,25 @@
         "competition": "group-stage",
         "competitionSlug": "group-stage"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401927185",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 3,
+        "away": 2
+      },
+      "structuralProbs": {
+        "H": 0.7457557606072787,
+        "D": 0.17170796255621074,
+        "A": 0.08253627683651048
+      },
+      "challengerProbs": {
+        "H": 0.7611728458371628,
+        "D": 0.16455738368261108,
+        "A": 0.07426977048022612
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.7611728458371628
     },
     {
       "fixture": {
@@ -66,7 +101,25 @@
         "competition": "group-stage",
         "competitionSlug": "group-stage"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401929795",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 4,
+        "away": 2
+      },
+      "structuralProbs": {
+        "H": 0.5816686168537987,
+        "D": 0.25603431032032575,
+        "A": 0.1622970728258756
+      },
+      "challengerProbs": {
+        "H": 0.6281833602801007,
+        "D": 0.23989067350121465,
+        "A": 0.13192596621868463
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.6281833602801007
     },
     {
       "fixture": {
@@ -76,7 +129,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861155",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.40114119460529535,
+        "D": 0.30872938019443114,
+        "A": 0.29012942520027346
+      },
+      "challengerProbs": {
+        "H": 0.37505368575350406,
+        "D": 0.31068755391757436,
+        "A": 0.31425876032892164
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.37505368575350406
     },
     {
       "fixture": {
@@ -86,7 +157,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861157",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "A",
+      "score": {
+        "home": 0,
+        "away": 5
+      },
+      "structuralProbs": {
+        "H": 0.29078659232203347,
+        "D": 0.2986694088403797,
+        "A": 0.41054399883758685
+      },
+      "challengerProbs": {
+        "H": 0.25498572625090854,
+        "D": 0.2933517394328951,
+        "A": 0.45166253431619635
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.45166253431619635
     },
     {
       "fixture": {
@@ -96,7 +185,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861153",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "A",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.11561606780349737,
+        "D": 0.198306930935931,
+        "A": 0.6860770012605717
+      },
+      "challengerProbs": {
+        "H": 0.09239961445834712,
+        "D": 0.18228125542031232,
+        "A": 0.7253191301213405
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.7253191301213405
     },
     {
       "fixture": {
@@ -106,7 +213,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861154",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "A",
+      "score": {
+        "home": 0,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.424771170815117,
+        "D": 0.302688162925455,
+        "A": 0.272540666259428
+      },
+      "challengerProbs": {
+        "H": 0.42540192262335724,
+        "D": 0.3026071553372583,
+        "A": 0.2719909220393844
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.42540192262335724
     },
     {
       "fixture": {
@@ -116,7 +241,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861159",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 7,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.7613118836018326,
+        "D": 0.16325522185115354,
+        "A": 0.07543289454701385
+      },
+      "challengerProbs": {
+        "H": 0.8003854104567586,
+        "D": 0.1438824508591258,
+        "A": 0.05573213868411563
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.8003854104567586
     },
     {
       "fixture": {
@@ -126,7 +269,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861161",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.6868037715928855,
+        "D": 0.20197446429662255,
+        "A": 0.11122176411049198
+      },
+      "challengerProbs": {
+        "H": 0.7275140030538766,
+        "D": 0.18468997805657542,
+        "A": 0.08779601888954792
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.7275140030538766
     },
     {
       "fixture": {
@@ -136,7 +297,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861158",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "A",
+      "score": {
+        "home": 1,
+        "away": 3
+      },
+      "structuralProbs": {
+        "H": 0.20231650298835213,
+        "D": 0.2604010231141462,
+        "A": 0.5372824738975017
+      },
+      "challengerProbs": {
+        "H": 0.14395162743185305,
+        "D": 0.2359702206506156,
+        "A": 0.6200781519175314
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.6200781519175314
     },
     {
       "fixture": {
@@ -146,7 +325,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861160",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "D",
+      "score": {
+        "home": 2,
+        "away": 2
+      },
+      "structuralProbs": {
+        "H": 0.7829005535112314,
+        "D": 0.15119018268430276,
+        "A": 0.06590926380446574
+      },
+      "challengerProbs": {
+        "H": 0.796939474284189,
+        "D": 0.14417858944544173,
+        "A": 0.058881936270369285
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.796939474284189
     },
     {
       "fixture": {
@@ -156,17 +353,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
-    },
-    {
-      "fixture": {
-        "home": "Jordan",
-        "away": "Indonesia",
-        "kickoff": "2026-11-13T20:00:00Z",
-        "competition": "2026-international-friendly",
-        "competitionSlug": "2026-international-friendly"
+      "sourceFixtureId": "401861156",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "D",
+      "score": {
+        "home": 0,
+        "away": 0
       },
-      "reason": "not completed"
+      "structuralProbs": {
+        "H": 0.21886829902926067,
+        "D": 0.2692133281206084,
+        "A": 0.5119183728501309
+      },
+      "challengerProbs": {
+        "H": 0.19224665232498114,
+        "D": 0.26080083189789954,
+        "A": 0.5469525157771193
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.5469525157771193
     },
     {
       "fixture": {
@@ -175,6 +380,36 @@
         "kickoff": "2026-11-13T20:00:00Z",
         "competition": "group-stage",
         "competitionSlug": "group-stage"
+      },
+      "sourceFixtureId": "401927191",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 5,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.9145680252278576,
+        "D": 0.06799156130562235,
+        "A": 0.017440413466520092
+      },
+      "challengerProbs": {
+        "H": 0.9266757338838608,
+        "D": 0.059944816642747874,
+        "A": 0.013379449473391338
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.9266757338838608
+    }
+  ],
+  "pending": [
+    {
+      "fixture": {
+        "home": "Jordan",
+        "away": "Indonesia",
+        "kickoff": "2026-11-13T20:00:00Z",
+        "competition": "2026-international-friendly",
+        "competitionSlug": "2026-international-friendly"
       },
       "reason": "not completed"
     },
