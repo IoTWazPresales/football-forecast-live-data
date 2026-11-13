@@ -33,3 +33,17 @@ test('unambiguous pre-kickoff feed passes identity guard and reaches history gat
  assert.equal(result.status,'UNAVAILABLE');
  assert.match(result.reason,/prior current-season performance matches/);
 });
+
+test('unrelated league club with future history cannot suppress fixture participants',()=>{
+ const entries=[...teams,{title:'Gamma FC',history:[{date:'2026-11-08'}]}];
+ const result=predictShadow(prediction,performance(entries),{}, {},now);
+ assert.equal(result.status,'UNAVAILABLE');
+ assert.match(result.reason,/prior current-season performance matches/);
+});
+test('future history on either fixture participant is rejected',()=>{
+ for(const index of [0,1]){
+  const entries=teams.map((team,i)=>({...team,history:i===index?[{date:'2026-11-07'}]:[]}));
+  const result=predictShadow(prediction,performance(entries),{}, {},now);
+  assert.equal(result.reason,'PERFORMANCE_HISTORY_AFTER_FEED_AS_OF');
+ }
+});
