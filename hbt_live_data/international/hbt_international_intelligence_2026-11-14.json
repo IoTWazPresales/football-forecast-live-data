@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-INTERNATIONAL-INTELLIGENCE-3",
   "version": "HBT-1.4-INTERNATIONAL-INTELLIGENCE-3-RECENT-INTERACTION",
-  "generatedAt": "2026-11-13T23:54:26Z",
+  "generatedAt": "2026-11-14T06:24:49Z",
   "targetDate": "2026-11-14",
   "source": "hbt_international_prospective_2026-11-14.json",
   "policy": {
@@ -26,7 +26,7 @@
     "attemptedDays": 45,
     "loadedDays": 45,
     "failedDays": 0,
-    "addedMatches": 218,
+    "addedMatches": 224,
     "from": "2026-09-30",
     "through": "2026-11-13"
   },
@@ -59,467 +59,29 @@
       "topPickECE": 0.022516177614832395
     },
     "holdout": {
-      "n": 1670,
-      "logLoss": 0.8385007535024215,
-      "brier": 0.49184261571911175,
-      "accuracy": 0.6173652694610778,
-      "topPickECE": 0.01253699859711436
+      "n": 1676,
+      "logLoss": 0.8387952770341439,
+      "brier": 0.49177660456688255,
+      "accuracy": 0.6181384248210023,
+      "topPickECE": 0.013190732878360147
     },
     "structuralOnlyHoldout": {
-      "n": 1670,
-      "logLoss": 0.846576864611669,
-      "brier": 0.49594889866589503,
-      "accuracy": 0.6137724550898204,
-      "topPickECE": 0.026898888762559327
+      "n": 1676,
+      "logLoss": 0.8468778748386178,
+      "brier": 0.49594863410499684,
+      "accuracy": 0.6145584725536993,
+      "topPickECE": 0.027608803915383236
     },
     "improvesHoldoutLogLossAndBrier": true,
     "promotionAllowed": false,
     "promotionBlock": "requires clean prospective confirmation and broader HBT-1.4 interaction/ablation validation"
   },
   "summary": {
-    "prospectiveRows": 22,
-    "recentInteractionApplied": 22,
+    "prospectiveRows": 20,
+    "recentInteractionApplied": 20,
     "fundedRows": 0
   },
   "prospectiveCandidates": [
-    {
-      "fixture": {
-        "home": "Tahiti",
-        "away": "Cook Islands",
-        "kickoff": "2026-11-14T05:30:00Z",
-        "competition": "2026-international-friendly",
-        "competitionSlug": "2026-international-friendly"
-      },
-      "domain": "NATIONAL_FRIENDLY",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
-      "probs": {
-        "H": 0.8357251940402183,
-        "D": 0.12187243935641368,
-        "A": 0.04240236660336809
-      },
-      "pick": "H",
-      "pickProbability": 0.8357251940402183,
-      "derivedMarkets": {
-        "1X": {
-          "p": 0.957597633396632,
-          "fairOdds": 1.0442799408901684
-        },
-        "X2": {
-          "p": 0.16427480595978178,
-          "fairOdds": 6.087360713394012
-        },
-        "12": {
-          "p": 0.8781275606435863,
-          "fairOdds": 1.138786714844814
-        },
-        "HOME_DNB": {
-          "winP": 0.8357251940402183,
-          "pushP": 0.12187243935641368,
-          "lossP": 0.04240236660336809,
-          "conditionalP": 0.951712748234105,
-          "fairOdds": 1.0507372123106384
-        },
-        "AWAY_DNB": {
-          "winP": 0.04240236660336809,
-          "pushP": 0.12187243935641368,
-          "lossP": 0.8357251940402183,
-          "conditionalP": 0.048287251765895,
-          "fairOdds": 20.70939975727287
-        }
-      },
-      "quality": 0.95,
-      "state": {
-        "home": {
-          "elo": 1539.7170423018383,
-          "recentN": 8,
-          "goalsForMean": 0.875,
-          "goalsAgainstMean": 1.625,
-          "pointsShare": 0.4166666666666667,
-          "recentOpponentEloMean": 1535.1839062635236,
-          "daysSinceMatch": 45
-        },
-        "away": {
-          "elo": 1244.939950699953,
-          "recentN": 8,
-          "goalsForMean": 0.5,
-          "goalsAgainstMean": 2.375,
-          "pointsShare": 0.2916666666666667,
-          "recentOpponentEloMean": 1351.6425385668826,
-          "daysSinceMatch": 45
-        },
-        "eloDiffWithHomeAdvantage": 359.77709160188533
-      },
-      "intelligenceCoverage": {
-        "structuralInternationalState": true,
-        "recentInternationalPerformance": true,
-        "freshInternationalState": true,
-        "clubToCountryPlayerTransfer": false,
-        "confirmedXI": false,
-        "tacticalMatchup": false,
-        "shotStoppingGoalkeeper": false,
-        "setPieces": false,
-        "referee": false,
-        "weatherVenue": false,
-        "motivationCompetition": false,
-        "recentPerformanceInteractionTested": true
-      },
-      "execution": {
-        "class": "R0_SHADOW_RESEARCH",
-        "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; recent interaction is research-only"
-      },
-      "venueContext": {
-        "status": "VERIFIED_HOME_COUNTRY",
-        "neutralSite": null,
-        "venue": {
-          "name": "Stade Louis Ganivet",
-          "city": null,
-          "country": "Tahiti"
-        },
-        "venueCountryEvidence": "venue country matches nominal home national team",
-        "homeAdvantageApplied": true,
-        "homeContextProbability": {
-          "H": 0.8065398760317612,
-          "D": 0.13751822137907446,
-          "A": 0.05594190258916429
-        },
-        "noHomeAdvantageProbability": {
-          "H": 0.7181732372605726,
-          "D": 0.1906070359456165,
-          "A": 0.09121972679381093
-        },
-        "probabilityContextVerified": true
-      },
-      "sourceFixtureId": "401933864",
-      "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
-        "kickoffUtc": "2026-11-14T05:30:00Z",
-        "leadMinutes": 335.9208405666667,
-        "statusAtCapture": "PRE_KICKOFF"
-      },
-      "eventIdentity": {
-        "eventId": "401933864",
-        "home": "Tahiti",
-        "away": "Cook Islands",
-        "kickoff": "2026-11-14T05:30Z",
-        "neutralSite": null,
-        "neutralSiteRawPresent": false,
-        "venue": {
-          "name": "Stade Louis Ganivet",
-          "city": null,
-          "country": "Tahiti"
-        },
-        "eventSeason": {
-          "year": 2026,
-          "type": 13708,
-          "slug": "2026-international-friendly"
-        },
-        "competitionLeague": null,
-        "competitionType": null,
-        "status": {
-          "state": "pre",
-          "completed": false
-        }
-      },
-      "officialXI": {
-        "available": true,
-        "endpoint": "ESPN_ALL_SUMMARY",
-        "confirmedXI": false,
-        "rosterSides": 2,
-        "starterCounts": [
-          0,
-          0
-        ],
-        "leagueIdentity": {
-          "id": "3922",
-          "name": "International Friendly",
-          "slug": "fifa.friendly",
-          "abbreviation": "Men's International Friendly"
-        },
-        "rosters": [
-          {
-            "teamId": "4863",
-            "team": "Tahiti",
-            "starters": 0,
-            "players": []
-          },
-          {
-            "teamId": "4884",
-            "team": "Cook Islands",
-            "starters": 0,
-            "players": []
-          }
-        ]
-      },
-      "resolvedCompetition": {
-        "id": "3922",
-        "name": "International Friendly",
-        "slug": "fifa.friendly",
-        "abbreviation": "Men's International Friendly"
-      },
-      "resolvedNamespaceBlock": null,
-      "cleanProspectiveEligible": true,
-      "recentPerformanceInteraction": {
-        "selectedWeights": [
-          -0.2,
-          0.1,
-          0.15,
-          0.05
-        ],
-        "explanation": {
-          "pointsShareDiff": 0.125,
-          "recentGoalDiffDiff": 1.125,
-          "recentOpponentStrengthDiff": 0.4588534192416023,
-          "restDiffScaled": 0.0,
-          "availability": {
-            "pointsShare": true,
-            "goalsForMean": true,
-            "goalsAgainstMean": true,
-            "recentOpponentEloMean": true,
-            "daysSinceMatch": true
-          },
-          "weights": {
-            "pointsShare": -0.2,
-            "goalDifference": 0.1,
-            "opponentStrength": 0.15,
-            "rest": 0.05
-          },
-          "contributions": [
-            -0.025,
-            0.1125,
-            0.06882801288624034,
-            0.0
-          ],
-          "totalLogitAdjustment": 0.15632801288624035
-        },
-        "validatedHoldoutImprovement": true,
-        "predictiveInfluenceAllowedInResearchChallenger": true
-      },
-      "baseStructuralProbabilityBeforeRecentInteraction": {
-        "H": 0.8065398760317612,
-        "D": 0.13751822137907446,
-        "A": 0.05594190258916429
-      }
-    },
-    {
-      "fixture": {
-        "home": "Bahrain",
-        "away": "Yemen",
-        "kickoff": "2026-11-14T06:00:00Z",
-        "competition": "2026-international-friendly",
-        "competitionSlug": "2026-international-friendly"
-      },
-      "domain": "NATIONAL_FRIENDLY",
-      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
-      "probs": {
-        "H": 0.5135280007326358,
-        "D": 0.27515642430225706,
-        "A": 0.21131557496510717
-      },
-      "pick": "H",
-      "pickProbability": 0.5135280007326358,
-      "derivedMarkets": {
-        "1X": {
-          "p": 0.7886844250348929,
-          "fairOdds": 1.2679342564115654
-        },
-        "X2": {
-          "p": 0.48647199926736423,
-          "fairOdds": 2.055616770350644
-        },
-        "12": {
-          "p": 0.7248435756977429,
-          "fairOdds": 1.379608005820274
-        },
-        "HOME_DNB": {
-          "winP": 0.5135280007326358,
-          "pushP": 0.27515642430225706,
-          "lossP": 0.21131557496510717,
-          "conditionalP": 0.708467341023624,
-          "fairOdds": 1.4114976684107374
-        },
-        "AWAY_DNB": {
-          "winP": 0.21131557496510717,
-          "pushP": 0.27515642430225706,
-          "lossP": 0.5135280007326358,
-          "conditionalP": 0.29153265897637615,
-          "fairOdds": 3.4301474267451915
-        }
-      },
-      "quality": 0.95,
-      "state": {
-        "home": {
-          "elo": 1536.556751168596,
-          "recentN": 8,
-          "goalsForMean": 1.125,
-          "goalsAgainstMean": 2.25,
-          "pointsShare": 0.25,
-          "recentOpponentEloMean": 1502.0124508092938,
-          "daysSinceMatch": 45
-        },
-        "away": {
-          "elo": 1356.567908183313,
-          "recentN": 8,
-          "goalsForMean": 3.625,
-          "goalsAgainstMean": 1.0,
-          "pointsShare": 0.75,
-          "recentOpponentEloMean": 1264.6390853991275,
-          "daysSinceMatch": 45
-        },
-        "eloDiffWithHomeAdvantage": 244.9888429852831
-      },
-      "intelligenceCoverage": {
-        "structuralInternationalState": true,
-        "recentInternationalPerformance": true,
-        "freshInternationalState": true,
-        "clubToCountryPlayerTransfer": false,
-        "confirmedXI": false,
-        "tacticalMatchup": false,
-        "shotStoppingGoalkeeper": false,
-        "setPieces": false,
-        "referee": false,
-        "weatherVenue": false,
-        "motivationCompetition": false,
-        "recentPerformanceInteractionTested": true
-      },
-      "execution": {
-        "class": "R0_SHADOW_RESEARCH",
-        "fundingAllowed": false,
-        "reason": "international challenger remains unpromoted; recent interaction is research-only"
-      },
-      "venueContext": {
-        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
-        "neutralSite": null,
-        "venue": {
-          "name": "Tianhe Stadium",
-          "city": "Guangzhou",
-          "country": "China PR"
-        },
-        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
-        "homeAdvantageApplied": false,
-        "homeContextProbability": {
-          "H": 0.6941012085392595,
-          "D": 0.19837674793422683,
-          "A": 0.10752204352651369
-        },
-        "noHomeAdvantageProbability": {
-          "H": 0.5785173655135802,
-          "D": 0.25737103789044813,
-          "A": 0.16411159659597163
-        },
-        "probabilityContextVerified": true
-      },
-      "sourceFixtureId": "401930879",
-      "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
-        "kickoffUtc": "2026-11-14T06:00:00Z",
-        "leadMinutes": 365.9208405666667,
-        "statusAtCapture": "PRE_KICKOFF"
-      },
-      "eventIdentity": {
-        "eventId": "401930879",
-        "home": "Bahrain",
-        "away": "Yemen",
-        "kickoff": "2026-11-14T06:00Z",
-        "neutralSite": null,
-        "neutralSiteRawPresent": false,
-        "venue": {
-          "name": "Tianhe Stadium",
-          "city": "Guangzhou",
-          "country": "China PR"
-        },
-        "eventSeason": {
-          "year": 2026,
-          "type": 13708,
-          "slug": "2026-international-friendly"
-        },
-        "competitionLeague": null,
-        "competitionType": null,
-        "status": {
-          "state": "pre",
-          "completed": false
-        }
-      },
-      "officialXI": {
-        "available": true,
-        "endpoint": "ESPN_ALL_SUMMARY",
-        "confirmedXI": false,
-        "rosterSides": 2,
-        "starterCounts": [
-          0,
-          0
-        ],
-        "leagueIdentity": {
-          "id": "3922",
-          "name": "International Friendly",
-          "slug": "fifa.friendly",
-          "abbreviation": "Men's International Friendly"
-        },
-        "rosters": [
-          {
-            "teamId": "4381",
-            "team": "Bahrain",
-            "starters": 0,
-            "players": []
-          },
-          {
-            "teamId": "6014",
-            "team": "Yemen",
-            "starters": 0,
-            "players": []
-          }
-        ]
-      },
-      "resolvedCompetition": {
-        "id": "3922",
-        "name": "International Friendly",
-        "slug": "fifa.friendly",
-        "abbreviation": "Men's International Friendly"
-      },
-      "resolvedNamespaceBlock": null,
-      "cleanProspectiveEligible": true,
-      "recentPerformanceInteraction": {
-        "selectedWeights": [
-          -0.2,
-          0.1,
-          0.15,
-          0.05
-        ],
-        "explanation": {
-          "pointsShareDiff": -0.5,
-          "recentGoalDiffDiff": -3.75,
-          "recentOpponentStrengthDiff": 0.5934334135254159,
-          "restDiffScaled": 0.0,
-          "availability": {
-            "pointsShare": true,
-            "goalsForMean": true,
-            "goalsAgainstMean": true,
-            "recentOpponentEloMean": true,
-            "daysSinceMatch": true
-          },
-          "weights": {
-            "pointsShare": -0.2,
-            "goalDifference": 0.1,
-            "opponentStrength": 0.15,
-            "rest": 0.05
-          },
-          "contributions": [
-            0.1,
-            -0.375,
-            0.08901501202881239,
-            0.0
-          ],
-          "totalLogitAdjustment": -0.18598498797118762
-        },
-        "validatedHoldoutImprovement": true,
-        "predictiveInfluenceAllowedInResearchChallenger": true
-      },
-      "baseStructuralProbabilityBeforeRecentInteraction": {
-        "H": 0.5785173655135802,
-        "D": 0.25737103789044813,
-        "A": 0.16411159659597163
-      }
-    },
     {
       "fixture": {
         "home": "India",
@@ -630,9 +192,9 @@
       },
       "sourceFixtureId": "401934182",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T09:00:00Z",
-        "leadMinutes": 545.9208405666667,
+        "leadMinutes": 155.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -849,9 +411,9 @@
       },
       "sourceFixtureId": "401916337",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T10:15:00Z",
-        "leadMinutes": 620.9208405666667,
+        "leadMinutes": 230.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -1068,9 +630,9 @@
       },
       "sourceFixtureId": "401930236",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T12:00:00Z",
-        "leadMinutes": 725.9208405666667,
+        "leadMinutes": 335.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -1287,9 +849,9 @@
       },
       "sourceFixtureId": "401861163",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T14:00:00Z",
-        "leadMinutes": 845.9208405666667,
+        "leadMinutes": 455.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -1506,9 +1068,9 @@
       },
       "sourceFixtureId": "401934183",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T14:30:00Z",
-        "leadMinutes": 875.9208405666667,
+        "leadMinutes": 485.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -1725,9 +1287,9 @@
       },
       "sourceFixtureId": "401932237",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T15:00:00Z",
-        "leadMinutes": 905.9208405666667,
+        "leadMinutes": 515.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -1944,9 +1506,9 @@
       },
       "sourceFixtureId": "401927188",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T16:00:00Z",
-        "leadMinutes": 965.9208405666667,
+        "leadMinutes": 575.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -2163,9 +1725,9 @@
       },
       "sourceFixtureId": "401861164",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T17:00:00Z",
-        "leadMinutes": 1025.9208405666666,
+        "leadMinutes": 635.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -2382,9 +1944,9 @@
       },
       "sourceFixtureId": "401861165",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T17:00:00Z",
-        "leadMinutes": 1025.9208405666666,
+        "leadMinutes": 635.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -2601,9 +2163,9 @@
       },
       "sourceFixtureId": "401927204",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T19:00:00Z",
-        "leadMinutes": 1145.9208405666666,
+        "leadMinutes": 755.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -2820,9 +2382,9 @@
       },
       "sourceFixtureId": "401927215",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T19:00:00Z",
-        "leadMinutes": 1145.9208405666666,
+        "leadMinutes": 755.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -3039,9 +2601,9 @@
       },
       "sourceFixtureId": "401929774",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T19:00:00Z",
-        "leadMinutes": 1145.9208405666666,
+        "leadMinutes": 755.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -3258,9 +2820,9 @@
       },
       "sourceFixtureId": "401931125",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T19:00:00Z",
-        "leadMinutes": 1145.9208405666666,
+        "leadMinutes": 755.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -3477,9 +3039,9 @@
       },
       "sourceFixtureId": "401861170",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T19:45:00Z",
-        "leadMinutes": 1190.9208405666666,
+        "leadMinutes": 800.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -3696,9 +3258,9 @@
       },
       "sourceFixtureId": "401861169",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T19:45:00Z",
-        "leadMinutes": 1190.9208405666666,
+        "leadMinutes": 800.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -3915,9 +3477,9 @@
       },
       "sourceFixtureId": "401861167",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T19:45:00Z",
-        "leadMinutes": 1190.9208405666666,
+        "leadMinutes": 800.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -4134,9 +3696,9 @@
       },
       "sourceFixtureId": "401861168",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T19:45:00Z",
-        "leadMinutes": 1190.9208405666666,
+        "leadMinutes": 800.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -4353,9 +3915,9 @@
       },
       "sourceFixtureId": "401929710",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-14T21:30:00Z",
-        "leadMinutes": 1295.9208405666666,
+        "leadMinutes": 905.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -4572,9 +4134,9 @@
       },
       "sourceFixtureId": "401929772",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
         "kickoffUtc": "2026-11-15T01:00:00Z",
-        "leadMinutes": 1505.9208405666666,
+        "leadMinutes": 1115.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
@@ -4685,7 +4247,7 @@
       "fixture": {
         "home": "New Zealand",
         "away": "India",
-        "kickoff": "2026-11-15T03:00:00Z",
+        "kickoff": "2026-11-15T03:10:00Z",
         "competition": "2026-international-friendly",
         "competitionSlug": "2026-international-friendly"
       },
@@ -4791,16 +4353,16 @@
       },
       "sourceFixtureId": "401906463",
       "capture": {
-        "capturedAt": "2026-11-13T23:54:04.749566Z",
-        "kickoffUtc": "2026-11-15T03:00:00Z",
-        "leadMinutes": 1625.9208405666666,
+        "capturedAt": "2026-11-14T06:24:39.430989Z",
+        "kickoffUtc": "2026-11-15T03:10:00Z",
+        "leadMinutes": 1245.34281685,
         "statusAtCapture": "PRE_KICKOFF"
       },
       "eventIdentity": {
         "eventId": "401906463",
         "home": "New Zealand",
         "away": "India",
-        "kickoff": "2026-11-15T03:00Z",
+        "kickoff": "2026-11-15T03:10Z",
         "neutralSite": null,
         "neutralSiteRawPresent": false,
         "venue": {
