@@ -69,7 +69,7 @@ export function causalLeagueHistory(teams,generatedAt){
   if(!aware(generatedAt)||!Array.isArray(teams))return [];
   const cutoff=new Date(Date.parse(generatedAt)).toISOString().slice(0,10);
   return teams.map(team=>({...team,history:Array.isArray(team.history)?
-    team.history.filter(row=>typeof row?.date==='string'&&/^\\d{4}-\\d{2}-\\d{2}$/.test(row.date)&&
+    team.history.filter(row=>typeof row?.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(row.date)&&
       Number.isFinite(Date.parse(row.date+'T00:00:00Z'))&&
       new Date(Date.parse(row.date+'T00:00:00Z')).toISOString().slice(0,10)===row.date&&row.date<cutoff):[]}));
 }
