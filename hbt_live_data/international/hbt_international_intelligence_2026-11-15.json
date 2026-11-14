@@ -1,0 +1,2276 @@
+{
+  "schemaVersion": "HBT-INTERNATIONAL-INTELLIGENCE-3",
+  "version": "HBT-1.4-INTERNATIONAL-INTELLIGENCE-3-RECENT-INTERACTION",
+  "generatedAt": "2026-11-14T22:59:39Z",
+  "targetDate": "2026-11-15",
+  "source": "hbt_international_prospective_2026-11-15.json",
+  "policy": {
+    "researchOnly": true,
+    "frozenHBT112Mutated": false,
+    "domesticForecastsMutated": false,
+    "bookmakerOddsRead": false,
+    "missingIsZero": false,
+    "missingContributionNeutral": true,
+    "automaticPromotion": false,
+    "automaticFunding": false
+  },
+  "historySource": {
+    "url": "https://raw.githubusercontent.com/martj42/international_results/394fe81893b062fbc2cf6257e988ac7cc4c039a1/results.csv",
+    "commit": "394fe81893b062fbc2cf6257e988ac7cc4c039a1",
+    "sha256": "df35268f8fc341ff7fb93d448b4e40356676ac35300a6b4461fd199a99ac1514",
+    "rows": 49547,
+    "firstDate": "1872-11-30",
+    "lastDate": "2026-08-26"
+  },
+  "recentSupplement": {
+    "attemptedDays": 45,
+    "loadedDays": 45,
+    "failedDays": 0,
+    "addedMatches": 233,
+    "from": "2026-10-01",
+    "through": "2026-11-14"
+  },
+  "validation": {
+    "selectionWindow": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "holdoutWindow": [
+      "2025-01-01",
+      "2026-11-15"
+    ],
+    "baseParams": {
+      "eloSlope": 1.4,
+      "homeLogit": 0.15,
+      "drawIntercept": 0.0,
+      "drawMismatchPenalty": 0.4
+    },
+    "selectedRecentWeights": {
+      "pointsShare": -0.2,
+      "goalDifference": 0.1,
+      "opponentStrength": 0.15,
+      "rest": 0.05
+    },
+    "selection": {
+      "n": 2285,
+      "logLoss": 0.8803430424395654,
+      "brier": 0.5182725494244027,
+      "accuracy": 0.600875273522976,
+      "topPickECE": 0.022516177614832395
+    },
+    "holdout": {
+      "n": 1685,
+      "logLoss": 0.8373805342960073,
+      "brier": 0.4906401579271792,
+      "accuracy": 0.6201780415430267,
+      "topPickECE": 0.01468859648681589
+    },
+    "structuralOnlyHoldout": {
+      "n": 1685,
+      "logLoss": 0.8453297742036348,
+      "brier": 0.4948470553651887,
+      "accuracy": 0.6172106824925816,
+      "topPickECE": 0.027638307008737904
+    },
+    "improvesHoldoutLogLossAndBrier": true,
+    "promotionAllowed": false,
+    "promotionBlock": "requires clean prospective confirmation and broader HBT-1.4 interaction/ablation validation"
+  },
+  "summary": {
+    "prospectiveRows": 10,
+    "recentInteractionApplied": 10,
+    "fundedRows": 0
+  },
+  "prospectiveCandidates": [
+    {
+      "fixture": {
+        "home": "Cyprus",
+        "away": "Montenegro",
+        "kickoff": "2026-11-15T14:00:00Z",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.28989101288174374,
+        "D": 0.30118527800071304,
+        "A": 0.4089237091175433
+      },
+      "pick": "A",
+      "pickProbability": 0.4089237091175433,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.5910762908824567,
+          "fairOdds": 1.691828982866212
+        },
+        "X2": {
+          "p": 0.7101089871182563,
+          "fairOdds": 1.4082345360226618
+        },
+        "12": {
+          "p": 0.6988147219992871,
+          "fairOdds": 1.4309944660854186
+        },
+        "HOME_DNB": {
+          "winP": 0.28989101288174374,
+          "pushP": 0.30118527800071304,
+          "lossP": 0.4089237091175433,
+          "conditionalP": 0.41483243520167207,
+          "fairOdds": 2.410611888421519
+        },
+        "AWAY_DNB": {
+          "winP": 0.4089237091175433,
+          "pushP": 0.30118527800071304,
+          "lossP": 0.28989101288174374,
+          "conditionalP": 0.5851675647983279,
+          "fairOdds": 1.708912216186555
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1379.5513777791523,
+          "recentN": 8,
+          "goalsForMean": 1.625,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.5833333333333334,
+          "recentOpponentEloMean": 1385.7424474338093,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1503.342582399211,
+          "recentN": 8,
+          "goalsForMean": 1.625,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.5833333333333334,
+          "recentOpponentEloMean": 1495.72263587953,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": -58.79120462005881
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Alphamega Stadium",
+          "city": "Kolossi",
+          "country": "Cyprus"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.30340639506363076,
+          "D": 0.3024908884640538,
+          "A": 0.3941027164723155
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.21090922518081956,
+          "D": 0.28740887114032715,
+          "A": 0.5016819036788533
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401861172",
+      "capture": {
+        "capturedAt": "2026-11-14T22:59:29.154018Z",
+        "kickoffUtc": "2026-11-15T14:00:00Z",
+        "leadMinutes": 900.5140997,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401861172",
+        "home": "Cyprus",
+        "away": "Montenegro",
+        "kickoff": "2026-11-15T14:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Alphamega Stadium",
+          "city": "Kolossi",
+          "country": "Cyprus"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14105,
+          "slug": "league-phase"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "2395",
+          "name": "UEFA Nations League",
+          "slug": "uefa.nations",
+          "abbreviation": "UEFA Nations League"
+        },
+        "rosters": [
+          {
+            "teamId": "445",
+            "team": "Cyprus",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "6775",
+            "team": "Montenegro",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "2395",
+        "name": "UEFA Nations League",
+        "slug": "uefa.nations",
+        "abbreviation": "UEFA Nations League"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.0,
+          "recentGoalDiffDiff": 0.0,
+          "recentOpponentStrengthDiff": -0.27495047111430154,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.0,
+            0.0,
+            -0.04124257066714523,
+            0.0
+          ],
+          "totalLogitAdjustment": -0.04124257066714523
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.30340639506363076,
+        "D": 0.3024908884640538,
+        "A": 0.3941027164723155
+      }
+    },
+    {
+      "fixture": {
+        "home": "Latvia",
+        "away": "Armenia",
+        "kickoff": "2026-11-15T14:00:00Z",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.3390118842153535,
+        "D": 0.3077284471068974,
+        "A": 0.3532596686777491
+      },
+      "pick": "A",
+      "pickProbability": 0.3532596686777491,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.6467403313222508,
+          "fairOdds": 1.5462156163286045
+        },
+        "X2": {
+          "p": 0.6609881157846464,
+          "fairOdds": 1.5128865044917168
+        },
+        "12": {
+          "p": 0.6922715528931026,
+          "fairOdds": 1.4445198503692025
+        },
+        "HOME_DNB": {
+          "winP": 0.3390118842153535,
+          "pushP": 0.3077284471068974,
+          "lossP": 0.3532596686777491,
+          "conditionalP": 0.4897093962601438,
+          "fairOdds": 2.042027389380087
+        },
+        "AWAY_DNB": {
+          "winP": 0.3532596686777491,
+          "pushP": 0.3077284471068974,
+          "lossP": 0.3390118842153535,
+          "conditionalP": 0.5102906037398561,
+          "fairOdds": 1.9596676730300828
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1308.3683381110418,
+          "recentN": 8,
+          "goalsForMean": 0.625,
+          "goalsAgainstMean": 1.875,
+          "pointsShare": 0.08333333333333333,
+          "recentOpponentEloMean": 1552.3458072680494,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1415.769886908286,
+          "recentN": 8,
+          "goalsForMean": 0.625,
+          "goalsAgainstMean": 2.125,
+          "pointsShare": 0.16666666666666666,
+          "recentOpponentEloMean": 1522.6001007772513,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": -42.40154879724423
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Skonto Stadions",
+          "city": "Riga",
+          "country": "Latvia"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.32101775117056286,
+          "D": 0.30720039687728534,
+          "A": 0.3717818519521519
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.22579260119847627,
+          "D": 0.2953380865187045,
+          "A": 0.4788693122828191
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401861171",
+      "capture": {
+        "capturedAt": "2026-11-14T22:59:29.154018Z",
+        "kickoffUtc": "2026-11-15T14:00:00Z",
+        "leadMinutes": 900.5140997,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401861171",
+        "home": "Latvia",
+        "away": "Armenia",
+        "kickoff": "2026-11-15T14:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Skonto Stadions",
+          "city": "Riga",
+          "country": "Latvia"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14105,
+          "slug": "league-phase"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "2395",
+          "name": "UEFA Nations League",
+          "slug": "uefa.nations",
+          "abbreviation": "UEFA Nations League"
+        },
+        "rosters": [
+          {
+            "teamId": "456",
+            "team": "Latvia",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "579",
+            "team": "Armenia",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "2395",
+        "name": "UEFA Nations League",
+        "slug": "uefa.nations",
+        "abbreviation": "UEFA Nations League"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.08333333333333333,
+          "recentGoalDiffDiff": 0.25,
+          "recentOpponentStrengthDiff": 0.07436426622699514,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.016666666666666666,
+            0.025,
+            0.011154639934049271,
+            0.0
+          ],
+          "totalLogitAdjustment": 0.05282130660071594
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.32101775117056286,
+        "D": 0.30720039687728534,
+        "A": 0.3717818519521519
+      }
+    },
+    {
+      "fixture": {
+        "home": "Suriname",
+        "away": "Eswatini",
+        "kickoff": "2026-11-15T17:00:00Z",
+        "competition": "2026-international-friendly",
+        "competitionSlug": "2026-international-friendly"
+      },
+      "domain": "NATIONAL_FRIENDLY",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.695409035415463,
+        "D": 0.20685811019689374,
+        "A": 0.09773285438764327
+      },
+      "pick": "H",
+      "pickProbability": 0.695409035415463,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.9022671456123567,
+          "fairOdds": 1.1083191988790786
+        },
+        "X2": {
+          "p": 0.304590964584537,
+          "fairOdds": 3.283091477660879
+        },
+        "12": {
+          "p": 0.7931418898031062,
+          "fairOdds": 1.260808454144624
+        },
+        "HOME_DNB": {
+          "winP": 0.695409035415463,
+          "pushP": 0.20685811019689374,
+          "lossP": 0.09773285438764327,
+          "conditionalP": 0.8767775909403739,
+          "fairOdds": 1.1405400985755874
+        },
+        "AWAY_DNB": {
+          "winP": 0.09773285438764327,
+          "pushP": 0.20685811019689374,
+          "lossP": 0.695409035415463,
+          "conditionalP": 0.12322240905962614,
+          "fairOdds": 8.115406991565225
+        }
+      },
+      "quality": 0.95,
+      "state": {
+        "home": {
+          "elo": 1559.7668406357022,
+          "recentN": 8,
+          "goalsForMean": 1.0,
+          "goalsAgainstMean": 1.0,
+          "pointsShare": 0.2916666666666667,
+          "recentOpponentEloMean": 1591.9691936603658,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1328.4309441784385,
+          "recentN": 8,
+          "goalsForMean": 0.75,
+          "goalsAgainstMean": 2.5,
+          "pointsShare": 0.16666666666666666,
+          "recentOpponentEloMean": 1534.7543181782726,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 296.33589645726374
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": false,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
+        "neutralSite": null,
+        "venue": {
+          "name": "Stadion De Vliert",
+          "city": "Den Bosch",
+          "country": "Netherlands"
+        },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
+        "homeContextProbability": {
+          "H": 0.7490764186678427,
+          "D": 0.16992029460677202,
+          "A": 0.08100328672538522
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.6446935947316457,
+          "D": 0.22763958779098625,
+          "A": 0.1276668174773681
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401933837",
+      "capture": {
+        "capturedAt": "2026-11-14T22:59:29.154018Z",
+        "kickoffUtc": "2026-11-15T17:00:00Z",
+        "leadMinutes": 1080.5140997,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401933837",
+        "home": "Suriname",
+        "away": "Eswatini",
+        "kickoff": "2026-11-15T17:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Stadion De Vliert",
+          "city": "Den Bosch",
+          "country": "Netherlands"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 13708,
+          "slug": "2026-international-friendly"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "3922",
+          "name": "International Friendly",
+          "slug": "fifa.friendly",
+          "abbreviation": "Men's International Friendly"
+        },
+        "rosters": [
+          {
+            "teamId": "2664",
+            "team": "Suriname",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "6686",
+            "team": "Eswatini",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "3922",
+        "name": "International Friendly",
+        "slug": "fifa.friendly",
+        "abbreviation": "Men's International Friendly"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.12500000000000003,
+          "recentGoalDiffDiff": 1.75,
+          "recentOpponentStrengthDiff": 0.14303718870523313,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.02500000000000001,
+            0.17500000000000002,
+            0.02145557830578497,
+            0.0
+          ],
+          "totalLogitAdjustment": 0.17145557830578498
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.6446935947316457,
+        "D": 0.22763958779098625,
+        "A": 0.1276668174773681
+      }
+    },
+    {
+      "fixture": {
+        "home": "Belarus",
+        "away": "Albania",
+        "kickoff": "2026-11-15T17:00:00Z",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.2831294908064177,
+        "D": 0.3151230068387798,
+        "A": 0.40174750235480244
+      },
+      "pick": "A",
+      "pickProbability": 0.40174750235480244,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.5982524976451975,
+          "fairOdds": 1.6715350189696405
+        },
+        "X2": {
+          "p": 0.7168705091935823,
+          "fairOdds": 1.394952068993484
+        },
+        "12": {
+          "p": 0.6848769931612202,
+          "fairOdds": 1.4601162106267451
+        },
+        "HOME_DNB": {
+          "winP": 0.2831294908064177,
+          "pushP": 0.3151230068387798,
+          "lossP": 0.40174750235480244,
+          "conditionalP": 0.4134019592329464,
+          "fairOdds": 2.4189532189336176
+        },
+        "AWAY_DNB": {
+          "winP": 0.40174750235480244,
+          "pushP": 0.3151230068387798,
+          "lossP": 0.2831294908064177,
+          "conditionalP": 0.5865980407670535,
+          "fairOdds": 1.704744868721978
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1531.0337235794498,
+          "recentN": 8,
+          "goalsForMean": 2.0,
+          "goalsAgainstMean": 0.875,
+          "pointsShare": 0.7083333333333334,
+          "recentOpponentEloMean": 1487.803789048283,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1598.9347357592546,
+          "recentN": 8,
+          "goalsForMean": 0.625,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.25,
+          "recentOpponentEloMean": 1542.8424709321603,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": -2.901012179804866
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
+        "neutralSite": null,
+        "venue": {
+          "name": "Illovszky Rudolf Stadion",
+          "city": "Budapest",
+          "country": "Hungary"
+        },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
+        "homeContextProbability": {
+          "H": 0.3642538599167134,
+          "D": 0.3157982538000493,
+          "A": 0.3199478862832373
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.263607440354513,
+          "D": 0.31237786432069903,
+          "A": 0.42401469532478797
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401861173",
+      "capture": {
+        "capturedAt": "2026-11-14T22:59:29.154018Z",
+        "kickoffUtc": "2026-11-15T17:00:00Z",
+        "leadMinutes": 1080.5140997,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401861173",
+        "home": "Belarus",
+        "away": "Albania",
+        "kickoff": "2026-11-15T17:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Illovszky Rudolf Stadion",
+          "city": "Budapest",
+          "country": "Hungary"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14105,
+          "slug": "league-phase"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "2395",
+          "name": "UEFA Nations League",
+          "slug": "uefa.nations",
+          "abbreviation": "UEFA Nations League"
+        },
+        "rosters": [
+          {
+            "teamId": "583",
+            "team": "Belarus",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "585",
+            "team": "Albania",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "2395",
+        "name": "UEFA Nations League",
+        "slug": "uefa.nations",
+        "abbreviation": "UEFA Nations League"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.45833333333333337,
+          "recentGoalDiffDiff": 1.75,
+          "recentOpponentStrengthDiff": -0.13759670470969299,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.09166666666666667,
+            0.17500000000000002,
+            -0.020639505706453946,
+            0.0
+          ],
+          "totalLogitAdjustment": 0.06269382762687939
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.263607440354513,
+        "D": 0.31237786432069903,
+        "A": 0.42401469532478797
+      }
+    },
+    {
+      "fixture": {
+        "home": "Finland",
+        "away": "San Marino",
+        "kickoff": "2026-11-15T17:00:00Z",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.9691292155069718,
+        "D": 0.027139593196070098,
+        "A": 0.003731191296958119
+      },
+      "pick": "H",
+      "pickProbability": 0.9691292155069718,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.9962688087030419,
+          "fairOdds": 1.0037451652248508
+        },
+        "X2": {
+          "p": 0.030870784493028217,
+          "fairOdds": 32.39308674600859
+        },
+        "12": {
+          "p": 0.9728604068039299,
+          "fairOdds": 1.0278966982377562
+        },
+        "HOME_DNB": {
+          "winP": 0.9691292155069718,
+          "pushP": 0.027139593196070098,
+          "lossP": 0.003731191296958119,
+          "conditionalP": 0.9961647207853633,
+          "fairOdds": 1.0038500452130175
+        },
+        "AWAY_DNB": {
+          "winP": 0.003731191296958119,
+          "pushP": 0.027139593196070098,
+          "lossP": 0.9691292155069718,
+          "conditionalP": 0.0038352792146367025,
+          "fairOdds": 260.73720947973413
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1593.472907867527,
+          "recentN": 8,
+          "goalsForMean": 1.25,
+          "goalsAgainstMean": 1.625,
+          "pointsShare": 0.4166666666666667,
+          "recentOpponentEloMean": 1677.9932469435685,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 937.903814289205,
+          "recentN": 8,
+          "goalsForMean": 0.625,
+          "goalsAgainstMean": 2.625,
+          "pointsShare": 0.041666666666666664,
+          "recentOpponentEloMean": 1423.7442708606204,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 720.569093578322
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Bolt Arena",
+          "city": "Helsinki",
+          "country": "Finland"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.9623043113366864,
+          "D": 0.032355040216721934,
+          "A": 0.005340648446591782
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.9411767364401452,
+          "D": 0.04925791269302754,
+          "A": 0.009565350866827225
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401861174",
+      "capture": {
+        "capturedAt": "2026-11-14T22:59:29.154018Z",
+        "kickoffUtc": "2026-11-15T17:00:00Z",
+        "leadMinutes": 1080.5140997,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401861174",
+        "home": "Finland",
+        "away": "San Marino",
+        "kickoff": "2026-11-15T17:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Bolt Arena",
+          "city": "Helsinki",
+          "country": "Finland"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14105,
+          "slug": "league-phase"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "2395",
+          "name": "UEFA Nations League",
+          "slug": "uefa.nations",
+          "abbreviation": "UEFA Nations League"
+        },
+        "rosters": [
+          {
+            "teamId": "458",
+            "team": "Finland",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "588",
+            "team": "San Marino",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "2395",
+        "name": "UEFA Nations League",
+        "slug": "uefa.nations",
+        "abbreviation": "UEFA Nations League"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.375,
+          "recentGoalDiffDiff": 1.625,
+          "recentOpponentStrengthDiff": 0.6356224402073701,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.07500000000000001,
+            0.1625,
+            0.09534336603110552,
+            0.0
+          ],
+          "totalLogitAdjustment": 0.18284336603110551
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.9623043113366864,
+        "D": 0.032355040216721934,
+        "A": 0.005340648446591782
+      }
+    },
+    {
+      "fixture": {
+        "home": "Belgium",
+        "away": "Italy",
+        "kickoff": "2026-11-15T19:45:00Z",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.5187903937806887,
+        "D": 0.274579895597882,
+        "A": 0.20662971062142924
+      },
+      "pick": "H",
+      "pickProbability": 0.5187903937806887,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.7933702893785707,
+          "fairOdds": 1.260445486033108
+        },
+        "X2": {
+          "p": 0.4812096062193112,
+          "fairOdds": 2.078096503219535
+        },
+        "12": {
+          "p": 0.7254201044021179,
+          "fairOdds": 1.3785115603105422
+        },
+        "HOME_DNB": {
+          "winP": 0.5187903937806887,
+          "pushP": 0.274579895597882,
+          "lossP": 0.20662971062142924,
+          "conditionalP": 0.7151585552047378,
+          "fairOdds": 1.3982913197671485
+        },
+        "AWAY_DNB": {
+          "winP": 0.20662971062142924,
+          "pushP": 0.274579895597882,
+          "lossP": 0.5187903937806887,
+          "conditionalP": 0.28484144479526224,
+          "fairOdds": 3.510725065724821
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1929.951939830873,
+          "recentN": 8,
+          "goalsForMean": 2.125,
+          "goalsAgainstMean": 1.625,
+          "pointsShare": 0.625,
+          "recentOpponentEloMean": 1865.1223401239708,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1893.9800721506874,
+          "recentN": 8,
+          "goalsForMean": 1.625,
+          "goalsAgainstMean": 0.625,
+          "pointsShare": 0.75,
+          "recentOpponentEloMean": 1713.4309954920282,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 100.9718676801856
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "King Baudouin Stadium",
+          "city": "Brussels",
+          "country": "Belgium"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.5073737214986012,
+          "D": 0.2772374753836664,
+          "A": 0.21538880311773245
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.38052522343458256,
+          "D": 0.3236553000670916,
+          "A": 0.29581947649832574
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401861176",
+      "capture": {
+        "capturedAt": "2026-11-14T22:59:29.154018Z",
+        "kickoffUtc": "2026-11-15T19:45:00Z",
+        "leadMinutes": 1245.5140997,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401861176",
+        "home": "Belgium",
+        "away": "Italy",
+        "kickoff": "2026-11-15T19:45Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "King Baudouin Stadium",
+          "city": "Brussels",
+          "country": "Belgium"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14105,
+          "slug": "league-phase"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "2395",
+          "name": "UEFA Nations League",
+          "slug": "uefa.nations",
+          "abbreviation": "UEFA Nations League"
+        },
+        "rosters": [
+          {
+            "teamId": "459",
+            "team": "Belgium",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "162",
+            "team": "Italy",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "2395",
+        "name": "UEFA Nations League",
+        "slug": "uefa.nations",
+        "abbreviation": "UEFA Nations League"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.125,
+          "recentGoalDiffDiff": -0.5,
+          "recentOpponentStrengthDiff": 0.37922836157985673,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.025,
+            -0.05,
+            0.05688425423697851,
+            0.0
+          ],
+          "totalLogitAdjustment": 0.03188425423697851
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.5073737214986012,
+        "D": 0.2772374753836664,
+        "A": 0.21538880311773245
+      }
+    },
+    {
+      "fixture": {
+        "home": "Croatia",
+        "away": "Czechia",
+        "kickoff": "2026-11-15T19:45:00Z",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.6078008914932266,
+        "D": 0.23490475922267148,
+        "A": 0.15729434928410194
+      },
+      "pick": "H",
+      "pickProbability": 0.6078008914932266,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.8427056507158981,
+          "fairOdds": 1.1866539629234438
+        },
+        "X2": {
+          "p": 0.3921991085067734,
+          "fairOdds": 2.5497253265243707
+        },
+        "12": {
+          "p": 0.7650952407773285,
+          "fairOdds": 1.307026820587736
+        },
+        "HOME_DNB": {
+          "winP": 0.6078008914932266,
+          "pushP": 0.23490475922267148,
+          "lossP": 0.15729434928410194,
+          "conditionalP": 0.7944120667587835,
+          "fairOdds": 1.2587925609942197
+        },
+        "AWAY_DNB": {
+          "winP": 0.15729434928410194,
+          "pushP": 0.23490475922267148,
+          "lossP": 0.6078008914932266,
+          "conditionalP": 0.20558793324121657,
+          "fairOdds": 4.864098705767418
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1805.1997673152873,
+          "recentN": 8,
+          "goalsForMean": 0.75,
+          "goalsAgainstMean": 2.875,
+          "pointsShare": 0.25,
+          "recentOpponentEloMean": 1862.3796041656356,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1670.3968026694026,
+          "recentN": 8,
+          "goalsForMean": 0.625,
+          "goalsAgainstMean": 2.375,
+          "pointsShare": 0.041666666666666664,
+          "recentOpponentEloMean": 1913.7915484229568,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 199.80296464588469
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Opus Arena",
+          "city": "Osijek",
+          "country": "Croatia"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.6398816145388577,
+          "D": 0.22411735951366052,
+          "A": 0.13600102594748179
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.5169534472528228,
+          "D": 0.28183998633536933,
+          "A": 0.2012065664118079
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401861178",
+      "capture": {
+        "capturedAt": "2026-11-14T22:59:29.154018Z",
+        "kickoffUtc": "2026-11-15T19:45:00Z",
+        "leadMinutes": 1245.5140997,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401861178",
+        "home": "Croatia",
+        "away": "Czechia",
+        "kickoff": "2026-11-15T19:45Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Opus Arena",
+          "city": "Osijek",
+          "country": "Croatia"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14105,
+          "slug": "league-phase"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "2395",
+          "name": "UEFA Nations League",
+          "slug": "uefa.nations",
+          "abbreviation": "UEFA Nations League"
+        },
+        "rosters": [
+          {
+            "teamId": "477",
+            "team": "Croatia",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "450",
+            "team": "Czechia",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "2395",
+        "name": "UEFA Nations League",
+        "slug": "uefa.nations",
+        "abbreviation": "UEFA Nations League"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.20833333333333334,
+          "recentGoalDiffDiff": -0.375,
+          "recentOpponentStrengthDiff": -0.1285298606433031,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.04166666666666667,
+            -0.037500000000000006,
+            -0.019279479096495463,
+            0.0
+          ],
+          "totalLogitAdjustment": -0.09844614576316214
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.6398816145388577,
+        "D": 0.22411735951366052,
+        "A": 0.13600102594748179
+      }
+    },
+    {
+      "fixture": {
+        "home": "France",
+        "away": "Türkiye",
+        "kickoff": "2026-11-15T19:45:00Z",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.7874333110778181,
+        "D": 0.1506986503217626,
+        "A": 0.06186803860041937
+      },
+      "pick": "H",
+      "pickProbability": 0.7874333110778181,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.9381319613995807,
+          "fairOdds": 1.0659481193968914
+        },
+        "X2": {
+          "p": 0.21256668892218197,
+          "fairOdds": 4.704405968171653
+        },
+        "12": {
+          "p": 0.8493013496782374,
+          "fairOdds": 1.177438373763159
+        },
+        "HOME_DNB": {
+          "winP": 0.7874333110778181,
+          "pushP": 0.1506986503217626,
+          "lossP": 0.06186803860041937,
+          "conditionalP": 0.9271541972424059,
+          "fairOdds": 1.0785692422838145
+        },
+        "AWAY_DNB": {
+          "winP": 0.06186803860041937,
+          "pushP": 0.1506986503217626,
+          "lossP": 0.7874333110778181,
+          "conditionalP": 0.07284580275759413,
+          "fairOdds": 13.727626879583678
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 2031.0924485464186,
+          "recentN": 8,
+          "goalsForMean": 2.0,
+          "goalsAgainstMean": 1.625,
+          "pointsShare": 0.5416666666666666,
+          "recentOpponentEloMean": 1922.5586873412567,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1789.4834031489515,
+          "recentN": 8,
+          "goalsForMean": 1.0,
+          "goalsAgainstMean": 2.25,
+          "pointsShare": 0.16666666666666666,
+          "recentOpponentEloMean": 1825.8764768152232,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 306.60904539746707
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Stade Atlantique",
+          "city": "Bordeaux",
+          "country": "France"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.7591711665103089,
+          "D": 0.16443026568290056,
+          "A": 0.07639856780679047
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.657275488234359,
+          "D": 0.22159747018830417,
+          "A": 0.12112704157733678
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401861177",
+      "capture": {
+        "capturedAt": "2026-11-14T22:59:29.154018Z",
+        "kickoffUtc": "2026-11-15T19:45:00Z",
+        "leadMinutes": 1245.5140997,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401861177",
+        "home": "France",
+        "away": "Türkiye",
+        "kickoff": "2026-11-15T19:45Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Stade Atlantique",
+          "city": "Bordeaux",
+          "country": "France"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14105,
+          "slug": "league-phase"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "2395",
+          "name": "UEFA Nations League",
+          "slug": "uefa.nations",
+          "abbreviation": "UEFA Nations League"
+        },
+        "rosters": [
+          {
+            "teamId": "478",
+            "team": "France",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "465",
+            "team": "Türkiye",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "2395",
+        "name": "UEFA Nations League",
+        "slug": "uefa.nations",
+        "abbreviation": "UEFA Nations League"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.375,
+          "recentGoalDiffDiff": 1.625,
+          "recentOpponentStrengthDiff": 0.2417055263150837,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.07500000000000001,
+            0.1625,
+            0.03625582894726256,
+            0.0
+          ],
+          "totalLogitAdjustment": 0.12375582894726256
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.7591711665103089,
+        "D": 0.16443026568290056,
+        "A": 0.07639856780679047
+      }
+    },
+    {
+      "fixture": {
+        "home": "Spain",
+        "away": "England",
+        "kickoff": "2026-11-15T19:45:00Z",
+        "competition": "league-phase",
+        "competitionSlug": "league-phase"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.5592397410505726,
+        "D": 0.2542514855248283,
+        "A": 0.1865087734245991
+      },
+      "pick": "H",
+      "pickProbability": 0.5592397410505726,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.8134912265754008,
+          "fairOdds": 1.229269557349445
+        },
+        "X2": {
+          "p": 0.4407602589494274,
+          "fairOdds": 2.268807088877628
+        },
+        "12": {
+          "p": 0.7457485144751717,
+          "fairOdds": 1.3409346188289233
+        },
+        "HOME_DNB": {
+          "winP": 0.5592397410505726,
+          "pushP": 0.2542514855248283,
+          "lossP": 0.1865087734245991,
+          "conditionalP": 0.7499039289996353,
+          "fairOdds": 1.3335041481033316
+        },
+        "AWAY_DNB": {
+          "winP": 0.1865087734245991,
+          "pushP": 0.2542514855248283,
+          "lossP": 0.5592397410505726,
+          "conditionalP": 0.2500960710003648,
+          "fairOdds": 3.9984634544640305
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 2186.663186385522,
+          "recentN": 8,
+          "goalsForMean": 2.0,
+          "goalsAgainstMean": 0.375,
+          "pointsShare": 1.0,
+          "recentOpponentEloMean": 1902.6816485287013,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 2087.4587957943227,
+          "recentN": 8,
+          "goalsForMean": 3.625,
+          "goalsAgainstMean": 1.125,
+          "pointsShare": 0.875,
+          "recentOpponentEloMean": 1871.1226598960789,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 164.20439059119917
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Riyadh Air Metropolitano",
+          "city": "Madrid",
+          "country": "Spain"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.5938994951196391,
+          "D": 0.24415184498585601,
+          "A": 0.16194865989450488
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.46744835907806764,
+          "D": 0.2991272664408274,
+          "A": 0.23342437448110492
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401861175",
+      "capture": {
+        "capturedAt": "2026-11-14T22:59:29.154018Z",
+        "kickoffUtc": "2026-11-15T19:45:00Z",
+        "leadMinutes": 1245.5140997,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401861175",
+        "home": "Spain",
+        "away": "England",
+        "kickoff": "2026-11-15T19:45Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Riyadh Air Metropolitano",
+          "city": "Madrid",
+          "country": "Spain"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14105,
+          "slug": "league-phase"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "2395",
+          "name": "UEFA Nations League",
+          "slug": "uefa.nations",
+          "abbreviation": "UEFA Nations League"
+        },
+        "rosters": [
+          {
+            "teamId": "164",
+            "team": "Spain",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "448",
+            "team": "England",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "2395",
+        "name": "UEFA Nations League",
+        "slug": "uefa.nations",
+        "abbreviation": "UEFA Nations League"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": 0.125,
+          "recentGoalDiffDiff": -0.875,
+          "recentOpponentStrengthDiff": 0.07889747158155615,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            -0.025,
+            -0.08750000000000001,
+            0.011834620737233422,
+            0.0
+          ],
+          "totalLogitAdjustment": -0.10066537926276659
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.5938994951196391,
+        "D": 0.24415184498585601,
+        "A": 0.16194865989450488
+      }
+    },
+    {
+      "fixture": {
+        "home": "Panama",
+        "away": "Curaçao",
+        "kickoff": "2026-11-15T23:00:00Z",
+        "competition": "quarterfinals",
+        "competitionSlug": "quarterfinals"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_PLUS_RECENT_CHALLENGER_V3",
+      "probs": {
+        "H": 0.6555070580186247,
+        "D": 0.2180846060267344,
+        "A": 0.12640833595464093
+      },
+      "pick": "H",
+      "pickProbability": 0.6555070580186247,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.8735916640453592,
+          "fairOdds": 1.1446995674950458
+        },
+        "X2": {
+          "p": 0.34449294198137537,
+          "fairOdds": 2.9028170918348275
+        },
+        "12": {
+          "p": 0.7819153939732657,
+          "fairOdds": 1.2789107462363003
+        },
+        "HOME_DNB": {
+          "winP": 0.6555070580186247,
+          "pushP": 0.2180846060267344,
+          "lossP": 0.12640833595464093,
+          "conditionalP": 0.8383350207337612,
+          "fairOdds": 1.1928405413920797
+        },
+        "AWAY_DNB": {
+          "winP": 0.12640833595464093,
+          "pushP": 0.2180846060267344,
+          "lossP": 0.6555070580186247,
+          "conditionalP": 0.1616649792662388,
+          "fairOdds": 6.185631573014617
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1723.2587093739646,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 1.75,
+          "pointsShare": 0.3333333333333333,
+          "recentOpponentEloMean": 1720.8739464745383,
+          "daysSinceMatch": 3
+        },
+        "away": {
+          "elo": 1585.6785483744823,
+          "recentN": 8,
+          "goalsForMean": 1.0,
+          "goalsAgainstMean": 1.75,
+          "pointsShare": 0.375,
+          "recentOpponentEloMean": 1672.6554820507117,
+          "daysSinceMatch": 3
+        },
+        "eloDiffWithHomeAdvantage": 202.58016099948236
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true,
+        "recentPerformanceInteractionTested": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger remains unpromoted; recent interaction is research-only"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Estadio Rommel Fernández Gutiérrez",
+          "city": "Panama City",
+          "country": "Panama"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.6433569184352,
+          "D": 0.22253600947335897,
+          "A": 0.13410707209144104
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.5207938328791926,
+          "D": 0.2804073941154752,
+          "A": 0.19879877300533222
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401929709",
+      "capture": {
+        "capturedAt": "2026-11-14T22:59:29.154018Z",
+        "kickoffUtc": "2026-11-15T23:00:00Z",
+        "leadMinutes": 1440.5140997,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401929709",
+        "home": "Panama",
+        "away": "Curaçao",
+        "kickoff": "2026-11-15T23:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Estadio Rommel Fernández Gutiérrez",
+          "city": "Panama City",
+          "country": "Panama"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14448,
+          "slug": "quarterfinals"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "19267",
+          "name": "Concacaf Nations League",
+          "slug": "concacaf.nations.league",
+          "abbreviation": "Concacaf Nations League"
+        },
+        "rosters": [
+          {
+            "teamId": "2659",
+            "team": "Panama",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "11678",
+            "team": "Curaçao",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "19267",
+        "name": "Concacaf Nations League",
+        "slug": "concacaf.nations.league",
+        "abbreviation": "Concacaf Nations League"
+      },
+      "resolvedNamespaceBlock": null,
+      "cleanProspectiveEligible": true,
+      "recentPerformanceInteraction": {
+        "selectedWeights": [
+          -0.2,
+          0.1,
+          0.15,
+          0.05
+        ],
+        "explanation": {
+          "pointsShareDiff": -0.041666666666666685,
+          "recentGoalDiffDiff": 0.125,
+          "recentOpponentStrengthDiff": 0.12054616105956655,
+          "restDiffScaled": 0.0,
+          "availability": {
+            "pointsShare": true,
+            "goalsForMean": true,
+            "goalsAgainstMean": true,
+            "recentOpponentEloMean": true,
+            "daysSinceMatch": true
+          },
+          "weights": {
+            "pointsShare": -0.2,
+            "goalDifference": 0.1,
+            "opponentStrength": 0.15,
+            "rest": 0.05
+          },
+          "contributions": [
+            0.008333333333333337,
+            0.0125,
+            0.018081924158934982,
+            0.0
+          ],
+          "totalLogitAdjustment": 0.03891525749226832
+        },
+        "validatedHoldoutImprovement": true,
+        "predictiveInfluenceAllowedInResearchChallenger": true
+      },
+      "baseStructuralProbabilityBeforeRecentInteraction": {
+        "H": 0.6433569184352,
+        "D": 0.22253600947335897,
+        "A": 0.13410707209144104
+      }
+    }
+  ]
+}

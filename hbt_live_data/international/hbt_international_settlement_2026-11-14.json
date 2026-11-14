@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-INTERNATIONAL-SETTLEMENT-1",
   "version": "HBT-1.4-INTERNATIONAL-SETTLEMENT-1",
-  "generatedAt": "2026-11-14T19:12:03.077408Z",
+  "generatedAt": "2026-11-14T22:59:44.490124Z",
   "targetDate": "2026-11-14",
   "source": "hbt_international_intelligence_2026-11-14.json",
   "policy": {
@@ -15,29 +15,28 @@
     "automaticFunding": false
   },
   "summary": {
-    "cleanSettled": 0,
-    "pending": 7,
+    "cleanSettled": 4,
+    "pending": 3,
     "blocked": 0
   },
   "metrics": {
     "structuralOnly": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 4,
+      "logLoss": 1.2662187635771174,
+      "brier": 0.7535056787820569,
+      "accuracy": 0.25
     },
     "recentInteractionChallenger": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 4,
+      "logLoss": 1.3733538988060965,
+      "brier": 0.8125017339300827,
+      "accuracy": 0.25
     },
     "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": false,
     "promotionEvidenceSufficient": false,
     "note": "Small clean prospective samples are confirmatory/hypothesis evidence only; promotion still requires accumulated prospective confirmation and full interaction/ablation gates."
   },
-  "settled": [],
-  "pending": [
+  "settled": [
     {
       "fixture": {
         "home": "Austria",
@@ -46,7 +45,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861170",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.616644878525777,
+        "D": 0.2344488153351853,
+        "A": 0.1489063061390378
+      },
+      "challengerProbs": {
+        "H": 0.588368086540513,
+        "D": 0.24341044066225476,
+        "A": 0.16822147279723224
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.588368086540513
     },
     {
       "fixture": {
@@ -56,7 +73,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861169",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.2695953847865521,
+        "D": 0.29138474719440427,
+        "A": 0.4390198680190437
+      },
+      "challengerProbs": {
+        "H": 0.27565756240742767,
+        "D": 0.29229388687848656,
+        "A": 0.43204855071408577
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.43204855071408577
     },
     {
       "fixture": {
@@ -66,7 +101,25 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401861167",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "A",
+      "score": {
+        "home": 1,
+        "away": 4
+      },
+      "structuralProbs": {
+        "H": 0.6602625804391972,
+        "D": 0.21470963354763734,
+        "A": 0.12502778601316555
+      },
+      "challengerProbs": {
+        "H": 0.6966304559285043,
+        "D": 0.2002708471037864,
+        "A": 0.10309869696770936
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.6966304559285043
     },
     {
       "fixture": {
@@ -76,8 +129,28 @@
         "competition": "league-phase",
         "competitionSlug": "league-phase"
       },
-      "reason": "not completed"
-    },
+      "sourceFixtureId": "401861168",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.3038075689510912,
+        "D": 0.3026061895876566,
+        "A": 0.39358624146125215
+      },
+      "challengerProbs": {
+        "H": 0.24601847611019412,
+        "D": 0.29429008367776577,
+        "A": 0.45969144021204
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.45969144021204
+    }
+  ],
+  "pending": [
     {
       "fixture": {
         "home": "Haiti",
