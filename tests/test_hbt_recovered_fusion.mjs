@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import {verifyRecovery,predictShadow} from '../scripts/hbt_recovered_fusion_shadow.mjs';
+import {verifyRecovery,predictShadow,performanceHistoryCausal} from '../scripts/hbt_recovered_fusion_shadow.mjs';
 import {l4ScoreDistribution,l4Markets,serPredict,understatTeamHistory,perfTeamKey} from '../runtime/hbt_fusion_inference_exact.mjs';
 
 test('persisted deployment is the saved pre-existing model, with explicit research governance',()=>{
@@ -57,4 +57,14 @@ test('future XI clocks and adjacent-day lineups are never treated as confirmed',
     assert.equal(out.executionEligible,false);
     assert.equal(out.stakeRand,0);
   }
+});
+
+test('date-only performance history fails closed on feed day and after',()=>{
+  const team=dates=>[{history:dates.map(date=>({date}))}];
+  const asOf='2026-11-10T20:00:00Z';
+  assert.equal(performanceHistoryCausal(team(['2026-11-09']),asOf),true);
+  assert.equal(performanceHistoryCausal(team(['2026-11-10']),asOf),false);
+  assert.equal(performanceHistoryCausal(team(['2026-11-11']),asOf),false);
+  assert.equal(performanceHistoryCausal(team(['2026-11-09','2026-11-10']),asOf),false);
+  assert.equal(performanceHistoryCausal(team(['2026-11-09']),'2026-11-10'),false);
 });

@@ -199,7 +199,9 @@ def chain_candidates(fixtures, limit=10):
     for f in fixtures:
         if f.get("started") or f.get("identityBlocked") or not f.get("markets"):
             continue
-        ms = [m for m in f["markets"] if m.get("mainMarket") and m["pushProbability"] == 0]
+        # Rank every supported, modelled market, not only 1X2-family markets.
+        # Gating remains attached to each leg as explicit research blockers.
+        ms = [m for m in f["markets"] if m["pushProbability"] == 0]
         if ms:
             pool.append(max(ms, key=lambda m: m["winProbability"]))
     pool = sorted(pool, key=lambda m: -m["winProbability"])[:16]
@@ -323,6 +325,15 @@ def build(target, data_root=ROOT, now=None, price_path=None):
         event_blocks = blocks + ([] if context_at and ko and context_at < ko and context_at <= now else ["EVENT_INTELLIGENCE_NOT_PREMATCH"])
         markets += [assess_market(m, pred, timing, event_blocks, quotes, context_at) for m in event_markets(context, docs["events"])]
         most_likely = max([m for m in markets if m["market"] in ("HOME_WIN", "DRAW", "AWAY_WIN")], key=lambda m: m["winProbability"], default=None)
+        # Three independent views: chance-first regardless of price/readiness,
+        # quoted highest EV, and highest chance among quoted nonnegative-EV bets.
+        # Never turn an unavailable market/probability into a fabricated zero.
+        probability_leader = max(markets, key=lambda m: (m["profitProbability"], m["nonLossProbability"]), default=None)
+        quoted_markets = [m for m in markets if m["observedOdds"] is not None]
+        quoted_value_leader = max(quoted_markets, key=lambda m: m["expectedProfitPerRand"], default=None)
+        probability_value_leader = max(
+            [m for m in quoted_markets if m["expectedProfitPerRand"] >= 0],
+            key=lambda m: (m["profitProbability"], m["expectedProfitPerRand"]), default=None)
         ready = [m for m in markets if m["stakeReady"]]
         strongest = max(ready, key=lambda m: (m["profitProbability"], m["expectedProfitPerRand"]), default=None)
         best_value = max(ready, key=lambda m: m["expectedProfitPerRand"], default=None)
@@ -332,6 +343,9 @@ def build(target, data_root=ROOT, now=None, price_path=None):
             "kickoffVerification": timing, "started": bool(ko and ko <= now), "identityBlocked": bool(ident),
             "fundingBlockers": sorted(set(blocks)), "markets": markets,
             "mostLikelyOutcome": most_likely, "strongestWinCandidate": strongest, "bestStandaloneValue": best_value,
+            "highestProbabilityMarket": probability_leader,
+            "highestQuotedExpectedReturnMarket": quoted_value_leader,
+            "highestProbabilityNonnegativeEVMarket": probability_value_leader,
             "missingMainFamilies": [fam for fam in ("BTTS", "TOTAL_GOALS", "TEAM_GOALS") if fam not in families],
             "bookmakerAvailabilityConfirmed": any(m["observedOdds"] for m in markets)})
     # Every discovered fixture is accounted for, including unsupported/unscored.
@@ -352,10 +366,14 @@ def build(target, data_root=ROOT, now=None, price_path=None):
         recovered = {"status": "BLOCKED_SOURCE_MISMATCH", "predictions": [], "summary": {}}
     return {"schemaVersion": "HBT-BETTING-DESK-1", "version": VERSION, "targetDate": target,
         "generatedAt": base.iso(now), "readiness": "VALUE_CANDIDATES_REQUIRE_REVIEW" if actionable else "NO_EXECUTABLE_BETS",
-        "policy": {"bookmakerOddsAreDecisionLayerOnly": True, "frozenModelMutated": False,
+        "policy": {"bookmakerOddsAreDecisionLayerOnly": True, "marketFirstRankingIncludesBlockedAndNegativeEV": True,
+            "probabilityAndExpectedReturnRankingsSeparated": True,
+            "unsupportedMarketsAreUnavailableNotZero": True,
+            "probabilityRankDoesNotAuthorizeStaking": True,
+            "frozenModelMutated": False,
             "historicalCapturesRewritten": False, "guaranteedProfit": False, "automaticBetsPlaced": False,
             "goalProbabilitiesInferredFrom1X2": False, "chainFundingAutomatic": False,
-            "priority": "highest profit probability among independently eligible positive-value markets; separate highest EV view"},
+            "priority": "first show every modelled market ranked by estimated win probability, regardless of EV; separately show quoted maximum EV and highest chance among nonnegative-EV markets; execution gates remain advisory"},
         "sourceHashes": {k: hashlib.sha256(p.read_bytes()).hexdigest() for k, p in paths.items() if p.exists()},
         "sourceFiles": {k: str(p.relative_to(data_root)) if p.is_relative_to(data_root) else str(p.resolve()) for k, p in paths.items() if p.exists()},
         "quoteAudit": quote_audit, "globalBlockers": global_blocks,
@@ -370,7 +388,13 @@ def build(target, data_root=ROOT, now=None, price_path=None):
             "blockerCounts": dict(Counter(b for m in flat for b in m["fundingBlockers"]))},
         "intelligence": {"researchOrIncompleteFamilies": gaps, "learningEvidence": docs["learning"].get("evidenceQuality"),
             "promotionRule": docs["learning"].get("nextPromotionRule")},
-        "fixtures": fixtures, "unscoredFixtures": unscored, "previouslyScoredMissingNow": disappeared,
+        "fixtures": fixtures,
+        "dailyProbabilityLeaders": sorted(
+            [{"fixture": f["fixture"], "market": f["highestProbabilityMarket"],
+              "started": f["started"], "predictionMode": f["predictionMode"]}
+             for f in fixtures if f["highestProbabilityMarket"]],
+            key=lambda r: -r["market"]["profitProbability"]),
+        "unscoredFixtures": unscored, "previouslyScoredMissingNow": disappeared,
         "recoveredFusionResearch": recovered,
         "chains": chain_candidates(fixtures)}
 
@@ -391,19 +415,25 @@ def render(doc):
         ko = base.parse_aware(f["kickoffVerification"].get("kickoffUtc"))
         when = ko.astimezone(ZoneInfo("Africa/Johannesburg")).strftime("%H:%M SAST") if ko else "Kickoff unverified"
         body = []
-        for m in f["markets"]:
+        for m in sorted(f["markets"], key=lambda x: (-x["profitProbability"], x["market"])):
             fair_text = f'{m["fairOdds"]:.3f}' if m["fairOdds"] is not None else '—'
-            body.append(f'<tr data-main="{int(m["mainMarket"])}"><td>{e(m["selection"])}</td><td>{m["winProbability"]:.1%}</td><td>{m["pushProbability"]:.1%}</td><td>{m["lossProbability"]:.1%}</td><td>{fair_text}</td><td>{e(m["observedOdds"])}</td><td>{e(m["decision"])}</td><td class="small">{e(", ".join(m["fundingBlockers"]))}</td></tr>')
+            ev_text = f'{m["expectedProfitPerRand"]:+.1%}' if m["expectedProfitPerRand"] is not None else '—'
+            body.append(f'<tr data-main="{int(m["mainMarket"])}"><td>{e(m["selection"])}</td><td>{m["winProbability"]:.1%}</td><td>{m["pushProbability"]:.1%}</td><td>{m["lossProbability"]:.1%}</td><td>{fair_text}</td><td>{e(m["observedOdds"])}</td><td>{ev_text}</td><td>{e(m["decision"])}</td><td class="small">{e(", ".join(m["fundingBlockers"]))}</td></tr>')
         missing = ', '.join(f["missingMainFamilies"]) or 'None'
-        rows.append(f'<details class="fixture" open><summary>{e(fx["home"])} vs {e(fx["away"])} · {e(when)} · {e(f["predictionMode"])} · {"STARTED" if f["started"] else "WATCH"}</summary><p>Missing main probabilities: {e(missing)}. Bookmaker markets confirmed: {e(f["bookmakerAvailabilityConfirmed"])}</p><div class="scroll"><table><thead><tr><th>Selection</th><th>Profit chance</th><th>Refund</th><th>Loss</th><th>Fair odds</th><th>Current odds</th><th>Decision</th><th>Blockers</th></tr></thead><tbody>{"".join(body)}</tbody></table></div></details>')
+        lead = f["highestProbabilityMarket"]
+        quoted = f["highestQuotedExpectedReturnMarket"]
+        lead_text = f'Highest chance: {lead["selection"]} ({lead["profitProbability"]:.1%})' if lead else 'No supported forecast'
+        ev_text = f'Highest quoted EV: {quoted["selection"]} ({quoted["expectedProfitPerRand"]:+.1%})' if quoted else 'No verified odds for EV ranking'
+        rows.append(f'<details class="fixture" open><summary>{e(fx["home"])} vs {e(fx["away"])} · {e(when)} · {e(f["predictionMode"])} · {"STARTED" if f["started"] else "WATCH"}</summary><p>{e(lead_text)} · {e(ev_text)}. Missing main probabilities: {e(missing)}. Bookmaker markets confirmed: {e(f["bookmakerAvailabilityConfirmed"])}</p><div class="scroll"><table><thead><tr><th>Selection</th><th>Win chance</th><th>Refund</th><th>Loss</th><th>Fair odds</th><th>Current odds</th><th>Expected profit / R1</th><th>Decision</th><th>Blockers</th></tr></thead><tbody>{"".join(body)}</tbody></table></div></details>')
     chains = ''.join(f'<div class="chain"><b>{c["legCount"]} legs — research only</b><p>{e(" + ".join(x["selection"] for x in c["legs"]))}</p><p>Win probability range without assuming independence: {c["jointProbabilityBounds"]["lower"]:.1%}–{c["jointProbabilityBounds"]["upper"]:.1%}. Independence approximation: {c["jointProbabilityIndependenceApprox"]:.1%}. Odds: {e(c["combinedOdds"])}</p></div>' for c in doc["chains"])
     unscored = ''.join(f'<tr><td>{e(x["home"])} vs {e(x["away"])}</td><td>{e(x["competition"])}</td><td>{e(x["hbtSupportLevel"])}</td><td>{e(x["classificationReason"])}</td></tr>' for x in doc["unscoredFixtures"])
     return f'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HBT Betting Desk {e(doc['targetDate'])}</title>
 <style>body{{background:#10151e;color:#e8eef5;font:15px system-ui;margin:0}}main{{max-width:1500px;margin:auto;padding:28px}}h1{{font-size:30px}}.banner,.fixture,.chain{{background:#1b2432;border:1px solid #3a475a;border-radius:10px;padding:18px;margin:15px 0}}.banner{{border-left:5px solid #e0ae4a}}summary{{cursor:pointer;font-weight:700}}table{{width:100%;border-collapse:collapse}}th,td{{text-align:left;padding:10px;border-bottom:1px solid #354257;vertical-align:top}}th{{white-space:nowrap}}.small{{font-size:11px;max-width:400px}}.scroll{{overflow:auto}}input,button{{padding:10px;border-radius:6px}}input{{min-width:300px}}.hide-events [data-main="0"]{{display:none}}a{{color:#9ac9ff}}</style>
 <main><h1>HBT Betting Desk · {e(doc['targetDate'])}</h1><p>Generated {e(doc['generatedAt'])}. This snapshot expires as kickoffs and prices change.</p>
 <div class="banner"><b>{e(doc['readiness'])}</b><p>{doc['summary']['scoredFixtures']} scored fixtures · {doc['summary']['marketsModelled']} modelled markets · {doc['summary']['bookmakerPricedMarkets']} current priced markets · {doc['summary']['readySingles']} ready singles.</p><p>Model probabilities describe uncertainty. Every bet can lose. A high win probability does not make an overpriced bet profitable.</p><p>Global blockers: {e(', '.join(doc['globalBlockers']) or 'None')}. Price feed: {e(doc['quoteAudit']['sourceStatus'])}.</p></div>
-<input id="search" type="search" aria-label="Filter fixtures" placeholder="Search team or league"><button id="events">Show event markets</button>
-<section id="fixtures" class="hide-events">{''.join(rows)}</section><h2>Chains to inspect</h2><p>One fixture per leg. These are bounded research candidates, not funded recommendations or an exhaustive optimum. Short-price legs remain visible; chains do not remove their price disadvantage.</p>{chains or '<p>No current chain candidates.</p>'}
+<input id="search" type="search" aria-label="Filter fixtures" placeholder="Search team or league"><button id="events">Hide event markets</button>
+<p>All available modelled selections are sorted by estimated chance of winning. Odds and expected profit are separate; blocked/negative-value selections remain visible, not automatically recommended. Missing market probabilities are never invented.</p>
+<section id="fixtures">{''.join(rows)}</section><h2>Chains to inspect</h2><p>One fixture per leg. These are bounded research candidates, not funded recommendations or an exhaustive optimum. Short-price legs remain visible; chains do not remove their price disadvantage.</p>{chains or '<p>No current chain candidates.</p>'}
 <h2>Coverage gaps</h2><p>{doc['summary']['unscoredDiscoveredFixtures']} discovered fixtures have no governed 1X2 forecast. {doc['summary']['previouslyScoredMissingNow']} previously scored fixtures are absent from the latest export. BTTS probabilities missing for {doc['summary']['missingBTTSFixtures']} scored fixtures.</p><details><summary>All unscored fixtures</summary><div class="scroll"><table><tbody>{unscored}</tbody></table></div></details>
 {recovered_html}<h2>Learning and intelligence</h2><p>{e(doc['intelligence']['learningEvidence'])}</p><p>{e(doc['intelligence']['promotionRule'])}</p><p>{e(', '.join(x['family']+': '+str(x['status']) for x in doc['intelligence']['researchOrIncompleteFamilies']))}</p>
 </main><script>const fs=document.getElementById('fixtures');document.getElementById('events').onclick=function(){{fs.classList.toggle('hide-events');this.textContent=fs.classList.contains('hide-events')?'Show event markets':'Hide event markets'}};document.getElementById('search').oninput=function(){{const q=this.value.toLowerCase();document.querySelectorAll('.fixture').forEach(x=>x.hidden=!x.querySelector('summary').textContent.toLowerCase().includes(q))}};</script></html>'''
