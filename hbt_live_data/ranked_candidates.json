@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-11-13",
+  "targetDate": "2026-11-14",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,35 +22,50 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 90,
-    "classifiedRows": 90,
+    "fixturesDiscovered": 235,
+    "classifiedRows": 235,
     "FALLBACK": 0,
     "FULL_MODEL": 0,
     "INSUFFICIENT_DATA": 0,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 90,
+    "UNSUPPORTED_COMPETITION": 235,
     "forecastRowsAvailable": 0,
     "forecastRowsMatched": 0,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
+      "2026-27-english-womens-super-league",
+      "2026-27-keuken-kampioen-divisie",
+      "2026-27-scottish-championship",
+      "2026-27-spanish-liga-f",
+      "2026-brasileiro-serie-a",
+      "2026-brasileiro-serie-b",
       "2026-club-friendly",
       "2026-international-friendly",
       "2026-ncaa-division-i-men",
       "2026-ncaa-division-i-women",
-      "2026-u21-international-friendly",
+      "apertura---quarterfinals",
+      "apertura---semifinals",
       "clausura",
+      "eastern-conference-playoffs---final",
       "fall-season",
-      "first-round",
-      "gold-cup-prelims",
+      "final",
       "group-stage",
       "league-phase",
-      "playoffs",
+      "non-fifa-friendly",
+      "playoffs---final",
+      "playoffs---semifinals",
+      "promotion-playoffs---first-round",
       "quarterfinals",
       "regular-season",
+      "second-round",
+      "semifinals",
       "seventh-round",
-      "torneo-clausura"
+      "torneo-apertura",
+      "torneo-apertura-2026",
+      "torneo-clausura",
+      "torneo-reducido---first-round"
     ],
     "previousProspectiveScoredNowUnsupported": 0,
     "previousProspectiveCoverageRegressions": [],
@@ -71,7 +86,7 @@
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-11-13T21:27:09Z",
+    "generatedAt": "2026-11-14T01:35:50Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -132,9 +147,9 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 90,
+      "count": 235,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 90
+        "UNSUPPORTED_COMPETITION": 235
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
