@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {performanceHistoryCausal} from '../scripts/hbt_recovered_fusion_shadow.mjs';
+import {performanceHistoryCausal,causalLeagueHistory} from '../scripts/hbt_recovered_fusion_shadow.mjs';
 
 const row=date=>({date});
 test('completed history strictly before feed UTC day is permitted',()=>{
@@ -18,4 +18,17 @@ test('missing and malformed dates fail closed',()=>{
 test('missing history provenance fails closed',()=>{
   assert.equal(performanceHistoryCausal([{}],'2026-11-07T12:00:00Z'),false);
   assert.equal(performanceHistoryCausal([{history:[]}],'not-a-timestamp'),false);
+});
+
+test('league scoring environment excludes unrelated clubs results after feed generation',()=>{
+  const input=[{title:'Home',history:[row('2026-11-05')]},
+    {title:'Other',history:[row('2026-11-05'),row('2026-11-07'),row('2026-11-08')]}];
+  const filtered=causalLeagueHistory(input,'2026-11-07T12:00:00Z');
+  assert.deepEqual(filtered[1].history,[row('2026-11-05')]);
+  assert.deepEqual(input[1].history,[row('2026-11-05'),row('2026-11-07'),row('2026-11-08')]);
+});
+test('league history excludes invalid dates and fails closed on invalid feed timestamp',()=>{
+  const input=[{title:'Other',history:[row('2026-02-30'),row('invalid'),row('2026-11-01')]}];
+  assert.deepEqual(causalLeagueHistory(input,'2026-11-07T12:00:00+02:00')[0].history,[row('2026-11-01')]);
+  assert.deepEqual(causalLeagueHistory(input,'invalid'),[]);
 });
