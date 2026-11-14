@@ -62,6 +62,18 @@ export function performanceHistoryCausal(teams,generatedAt){
     row.date.slice(0,10)<asOfDay));
 }
 
+// Non-participant league rows inform L3 table pressure and L4 scoring environment.
+// They must obey the same feed-as-of cutoff even though only fixture participants
+// are subject to the strict missing-history gate.
+export function causalLeagueHistory(teams,generatedAt){
+  if(!aware(generatedAt)||!Array.isArray(teams))return [];
+  const cutoff=new Date(Date.parse(generatedAt)).toISOString().slice(0,10);
+  return teams.map(team=>({...team,history:Array.isArray(team.history)?
+    team.history.filter(row=>typeof row?.date==='string'&&/^\\d{4}-\\d{2}-\\d{2}$/.test(row.date)&&
+      Number.isFinite(Date.parse(row.date+'T00:00:00Z'))&&
+      new Date(Date.parse(row.date+'T00:00:00Z')).toISOString().slice(0,10)===row.date&&row.date<cutoff):[]}));
+}
+
 export function predictShadow(pred,performance,players,deployment,now=new Date()){
   const fx=pred.fixture,src=performance.leagues?.[fx.league];
   if(!src)return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_LEAGUE_UNSUPPORTED'};
@@ -80,7 +92,8 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
     return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_FEED_AS_OF_UNVERIFIABLE'};
   if(!performanceHistoryCausal([matchingHome[0],matchingAway[0]],performance.generatedAt))
     return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_HISTORY_AFTER_FEED_AS_OF'};
-  const pack={teams,byKey:new Map(teams.map(t=>[perfTeamKey(t.title),t])),sourceUrl:src.source||null,feedGeneratedAt:performance.generatedAt};
+  const causalTeams=causalLeagueHistory(teams,performance.generatedAt);
+  const pack={teams:causalTeams,byKey:new Map(causalTeams.map(t=>[perfTeamKey(t.title),t])),sourceUrl:src.source||null,feedGeneratedAt:performance.generatedAt};
   const perf=livePerformanceFeatures(pack,fx,pred.structuralFeatures);
   if(!perf.ok)return {fixture:fx,status:'UNAVAILABLE',reason:perf.reason};
   const baseVec=[...pred.structuralFeatures.vec,...perf.extra];
