@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-11-14",
+  "targetDate": "2026-11-15",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,40 +22,36 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 235,
-    "classifiedRows": 235,
-    "FALLBACK": 0,
+    "fixturesDiscovered": 133,
+    "classifiedRows": 133,
+    "FALLBACK": 3,
     "FULL_MODEL": 0,
     "INSUFFICIENT_DATA": 0,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 235,
-    "forecastRowsAvailable": 0,
-    "forecastRowsMatched": 0,
+    "UNSUPPORTED_COMPETITION": 130,
+    "forecastRowsAvailable": 3,
+    "forecastRowsMatched": 3,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
       "2026-27-english-womens-super-league",
       "2026-27-keuken-kampioen-divisie",
-      "2026-27-scottish-championship",
       "2026-27-spanish-liga-f",
-      "2026-brasileiro-serie-a",
-      "2026-brasileiro-serie-b",
+      "2026-27-vrouwen-eredivisie",
       "2026-club-friendly",
       "2026-international-friendly",
       "2026-ncaa-division-i-men",
       "2026-ncaa-division-i-women",
+      "2026-u21-international-friendly",
       "apertura---quarterfinals",
       "apertura---semifinals",
+      "championship-final",
       "clausura",
-      "eastern-conference-playoffs---final",
-      "final",
-      "group-stage",
+      "fall-season",
+      "first-round",
       "league-phase",
-      "non-fifa-friendly",
-      "playoffs---final",
       "playoffs---semifinals",
-      "promotion-playoffs---first-round",
       "quarterfinals",
       "regular-season",
       "second-round",
@@ -64,7 +60,8 @@
       "torneo-apertura",
       "torneo-apertura-2026",
       "torneo-clausura",
-      "torneo-reducido---first-round"
+      "torneo-reducido---first-round",
+      "western-conference-playoffs---final"
     ],
     "previousProspectiveScoredNowUnsupported": 0,
     "previousProspectiveCoverageRegressions": [],
@@ -76,16 +73,16 @@
     "knownForecastCoverageComplete": true,
     "discoveryComplete": true,
     "previousProspectiveCoverageConsistent": true,
-    "rankEligibleFixtures": 0,
+    "rankEligibleFixtures": 3,
     "fullModelRankEligible": 0,
-    "fallbackRankEligible": 0,
+    "fallbackRankEligible": 3,
     "note": "Discovery completeness means configured public sources reconciled all known date-scoped HBT forecasts; it is not a claim of universal world-football coverage."
   },
   "priceLayer": {
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-11-14T19:43:11Z",
+    "generatedAt": "2026-11-14T23:25:08Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -127,9 +124,275 @@
     "note": "Reference only. Ranking does not alter, remove, replace, or retrospectively optimise Test A."
   },
   "rankings": {
-    "highestRawDeployedPickProbability": [],
+    "highestRawDeployedPickProbability": [
+      {
+        "competition": "2026-27-vrouwen-eredivisie",
+        "kickoff": "2026-11-15T15:45:00Z",
+        "home": "PEC Zwolle",
+        "away": "FC Utrecht",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "FC Utrecht",
+        "pickProbability": 0.47976368356282684,
+        "probabilityOutput": [
+          0.2523985731235639,
+          0.2678377433136092,
+          0.47976368356282684
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.8518911560653181,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-14T23:25:07.607Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-vrouwen-eredivisie",
+        "kickoff": "2026-11-15T11:15:00Z",
+        "home": "ADO Den Haag",
+        "away": "De Graafschap",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "ADO Den Haag",
+        "pickProbability": 0.40465186002486553,
+        "probabilityOutput": [
+          0.40465186002486553,
+          0.27512468764834774,
+          0.3202234523267868
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.7011600624306883,
+        "forecastCoverage": "stale-ish 2741d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-14T23:25:07.607Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-vrouwen-eredivisie",
+        "kickoff": "2026-11-15T15:45:00Z",
+        "home": "FC Twente",
+        "away": "PSV Eindhoven",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "FC Twente",
+        "pickProbability": 0.38360252313858484,
+        "probabilityOutput": [
+          0.38360252313858484,
+          0.26426157140337686,
+          0.3521359054580384
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.6636235354951213,
+        "forecastCoverage": "stale-ish 1267d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-14T23:25:07.607Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      }
+    ],
     "strongestFullModelConfidence": [],
-    "fallbackOnly": [],
+    "fallbackOnly": [
+      {
+        "competition": "2026-27-vrouwen-eredivisie",
+        "kickoff": "2026-11-15T15:45:00Z",
+        "home": "PEC Zwolle",
+        "away": "FC Utrecht",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "FC Utrecht",
+        "pickProbability": 0.47976368356282684,
+        "probabilityOutput": [
+          0.2523985731235639,
+          0.2678377433136092,
+          0.47976368356282684
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.8518911560653181,
+        "forecastCoverage": "good",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-14T23:25:07.607Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-vrouwen-eredivisie",
+        "kickoff": "2026-11-15T11:15:00Z",
+        "home": "ADO Den Haag",
+        "away": "De Graafschap",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "ADO Den Haag",
+        "pickProbability": 0.40465186002486553,
+        "probabilityOutput": [
+          0.40465186002486553,
+          0.27512468764834774,
+          0.3202234523267868
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.7011600624306883,
+        "forecastCoverage": "stale-ish 2741d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-14T23:25:07.607Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      },
+      {
+        "competition": "2026-27-vrouwen-eredivisie",
+        "kickoff": "2026-11-15T15:45:00Z",
+        "home": "FC Twente",
+        "away": "PSV Eindhoven",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "FC Twente",
+        "pickProbability": 0.38360252313858484,
+        "probabilityOutput": [
+          0.38360252313858484,
+          0.26426157140337686,
+          0.3521359054580384
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.6636235354951213,
+        "forecastCoverage": "stale-ish 1267d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-14T23:25:07.607Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      }
+    ],
     "validatedEventForecasts": [],
     "eventMarketExcluded": [],
     "experimentalValueVsPrice": {
@@ -146,9 +409,9 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 235,
+      "count": 130,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 235
+        "UNSUPPORTED_COMPETITION": 130
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
