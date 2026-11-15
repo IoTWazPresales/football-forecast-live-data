@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-INTERNATIONAL-SETTLEMENT-1",
   "version": "HBT-1.4-INTERNATIONAL-SETTLEMENT-1",
-  "generatedAt": "2026-11-15T02:40:38.369351Z",
+  "generatedAt": "2026-11-15T09:57:14.357063Z",
   "targetDate": "2026-11-14",
   "source": "hbt_international_intelligence_2026-11-14.json",
   "policy": {
@@ -15,22 +15,22 @@
     "automaticFunding": false
   },
   "summary": {
-    "cleanSettled": 5,
-    "pending": 2,
+    "cleanSettled": 7,
+    "pending": 0,
     "blocked": 0
   },
   "metrics": {
     "structuralOnly": {
-      "n": 5,
-      "logLoss": 1.1258028358955245,
-      "brier": 0.6594124940942707,
-      "accuracy": 0.4
+      "n": 7,
+      "logLoss": 1.0606085456793086,
+      "brier": 0.6214884121651801,
+      "accuracy": 0.42857142857142855
     },
     "recentInteractionChallenger": {
-      "n": 5,
-      "logLoss": 1.203749317473097,
-      "brier": 0.7010939104761227,
-      "accuracy": 0.4
+      "n": 7,
+      "logLoss": 1.138271047161979,
+      "brier": 0.6639611515617971,
+      "accuracy": 0.42857142857142855
     },
     "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": false,
     "promotionEvidenceSufficient": false,
@@ -176,9 +176,7 @@
       },
       "challengerPick": "A",
       "challengerPickProbability": 0.5913595965907693
-    }
-  ],
-  "pending": [
+    },
     {
       "fixture": {
         "home": "Jamaica",
@@ -187,7 +185,25 @@
         "competition": "quarterfinals",
         "competitionSlug": "quarterfinals"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401929772",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 3,
+        "away": 2
+      },
+      "structuralProbs": {
+        "H": 0.1922454771600088,
+        "D": 0.2546223831091324,
+        "A": 0.5531321397308588
+      },
+      "challengerProbs": {
+        "H": 0.15994342994115396,
+        "D": 0.24157993890596796,
+        "A": 0.5984766311528781
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.5984766311528781
     },
     {
       "fixture": {
@@ -197,8 +213,27 @@
         "competition": "2026-international-friendly",
         "competitionSlug": "2026-international-friendly"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401906463",
+      "domain": "NATIONAL_FRIENDLY",
+      "result": "H",
+      "score": {
+        "home": 3,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.8639300763714685,
+        "D": 0.10215817501746692,
+        "A": 0.03391174861106462
+      },
+      "challengerProbs": {
+        "H": 0.8902832097843698,
+        "D": 0.08625633813115179,
+        "A": 0.023460452084478323
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.8902832097843698
     }
   ],
+  "pending": [],
   "blocked": []
 }
