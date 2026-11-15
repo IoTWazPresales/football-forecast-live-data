@@ -50,6 +50,15 @@ export function confirmedXiCausal(fetchedAt,kickoffMs,nowMs){
   return asOf<=kickoffMs&&asOf<=nowMs;
 }
 
+// A date/team match alone is insufficient: identical clubs can play in multiple competitions.
+// Only use an XI record with an explicitly matching competition, and event ID when supplied.
+export function confirmedXiIdentity(fixture,record){
+  if(!fixture||!record||typeof fixture.league!=='string'||!fixture.league||
+     typeof record.league!=='string'||record.league!==fixture.league)return false;
+  if(fixture.eventId!=null&&String(record.eventId||'')!==String(fixture.eventId))return false;
+  return true;
+}
+
 export function performanceHistoryCausal(teams,generatedAt){
   if(!aware(generatedAt)||!Array.isArray(teams))return false;
   // Date-only match records have no final-whistle timestamp. Same-day results
@@ -102,7 +111,7 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
   if(!probability(l1)||![lh,la].every(x=>Number.isFinite(x)&&x>0))throw Error('Nonfinite recovered inference');
   const cfg=deployment.modelParameters,sm=l4Markets(l4ScoreDistribution(lh*cfg.l4Lock.goalScale,la*cfg.l4Lock.goalScale,cfg.l4Lock.dixonColesRho));
   // Match only this date and both identities; never reuse an adjacent day's XI.
-  const matching=Object.entries(players.features||{}).filter(([key,r])=>key.split('|')[0]===fx.date&&perfTeamKey(r.home)===perfTeamKey(fx.home)&&perfTeamKey(r.away)===perfTeamKey(fx.away));
+  const matching=Object.entries(players.features||{}).filter(([key,r])=>key.split('|')[0]===fx.date&&perfTeamKey(r.home)===perfTeamKey(fx.home)&&perfTeamKey(r.away)===perfTeamKey(fx.away)&&confirmedXiIdentity(fx,r));
   const xi=matching.length===1?matching[0][1]:null;
   const xiAge=aware(xi?.fetchedAt)?(now-Date.parse(xi.fetchedAt))/60000:Infinity;
   // Historical replays must not use lineups first observed after kickoff.
