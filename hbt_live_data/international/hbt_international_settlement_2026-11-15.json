@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-INTERNATIONAL-SETTLEMENT-1",
   "version": "HBT-1.4-INTERNATIONAL-SETTLEMENT-1",
-  "generatedAt": "2026-11-15T21:51:59.950504Z",
+  "generatedAt": "2026-11-16T02:10:11.631579Z",
   "targetDate": "2026-11-15",
   "source": "hbt_international_intelligence_2026-11-15.json",
   "policy": {
@@ -15,29 +15,28 @@
     "automaticFunding": false
   },
   "summary": {
-    "cleanSettled": 0,
-    "pending": 1,
+    "cleanSettled": 1,
+    "pending": 0,
     "blocked": 0
   },
   "metrics": {
     "structuralOnly": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 1,
+      "logLoss": 0.4410556256432018,
+      "brier": 0.19470126992530243,
+      "accuracy": 1.0
     },
     "recentInteractionChallenger": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 1,
+      "logLoss": 0.4223462084547718,
+      "brier": 0.1822153498596405,
+      "accuracy": 1.0
     },
-    "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": false,
+    "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": true,
     "promotionEvidenceSufficient": false,
     "note": "Small clean prospective samples are confirmatory/hypothesis evidence only; promotion still requires accumulated prospective confirmation and full interaction/ablation gates."
   },
-  "settled": [],
-  "pending": [
+  "settled": [
     {
       "fixture": {
         "home": "Panama",
@@ -46,8 +45,27 @@
         "competition": "quarterfinals",
         "competitionSlug": "quarterfinals"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401929709",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.6433569184352,
+        "D": 0.22253600947335897,
+        "A": 0.13410707209144104
+      },
+      "challengerProbs": {
+        "H": 0.6555070580186247,
+        "D": 0.2180846060267344,
+        "A": 0.12640833595464093
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.6555070580186247
     }
   ],
+  "pending": [],
   "blocked": []
 }
