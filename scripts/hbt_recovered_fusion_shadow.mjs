@@ -55,7 +55,7 @@ export function confirmedXiCausal(fetchedAt,kickoffMs,nowMs){
 export function confirmedXiIdentity(fixture,record){
   if(!fixture||!record||typeof fixture.league!=='string'||!fixture.league||
      typeof record.league!=='string'||record.league!==fixture.league)return false;
-  if(fixture.eventId!=null&&String(record.eventId||'')!==String(fixture.eventId))return false;
+  // Require both provider event identifiers: competition and team names alone cannot attest a fixture.\n  if(fixture.eventId==null||record.eventId==null||!String(fixture.eventId).trim()||\n     !String(record.eventId).trim()||String(record.eventId)!==String(fixture.eventId))return false;
   return true;
 }
 
