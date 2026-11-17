@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-INTERNATIONAL-SETTLEMENT-1",
   "version": "HBT-1.4-INTERNATIONAL-SETTLEMENT-1",
-  "generatedAt": "2026-11-16T19:54:03.446495Z",
+  "generatedAt": "2026-11-17T02:56:53.926619Z",
   "targetDate": "2026-11-16",
   "source": "hbt_international_intelligence_2026-11-16.json",
   "policy": {
@@ -15,29 +15,28 @@
     "automaticFunding": false
   },
   "summary": {
-    "cleanSettled": 0,
-    "pending": 3,
+    "cleanSettled": 3,
+    "pending": 0,
     "blocked": 0
   },
   "metrics": {
     "structuralOnly": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 3,
+      "logLoss": 1.4326729277349373,
+      "brier": 0.9710069124401556,
+      "accuracy": 0.3333333333333333
     },
     "recentInteractionChallenger": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 3,
+      "logLoss": 1.4191554399019637,
+      "brier": 0.9644054266063801,
+      "accuracy": 0.3333333333333333
     },
-    "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": false,
+    "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": true,
     "promotionEvidenceSufficient": false,
     "note": "Small clean prospective samples are confirmatory/hypothesis evidence only; promotion still requires accumulated prospective confirmation and full interaction/ablation gates."
   },
-  "settled": [],
-  "pending": [
+  "settled": [
     {
       "fixture": {
         "home": "Martinique",
@@ -46,7 +45,25 @@
         "competition": "gold-cup-play-in-prelims",
         "competitionSlug": "gold-cup-play-in-prelims"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401929706",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "D",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.7796486063245271,
+        "D": 0.15303285770116787,
+        "A": 0.06731853597430491
+      },
+      "challengerProbs": {
+        "H": 0.7905299936465512,
+        "D": 0.14765900991578781,
+        "A": 0.06181099643766099
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.7905299936465512
     },
     {
       "fixture": {
@@ -56,7 +73,25 @@
         "competition": "gold-cup-play-in-prelims",
         "competitionSlug": "gold-cup-play-in-prelims"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401929705",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "D",
+      "score": {
+        "home": 1,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.8242352940496465,
+        "D": 0.12695494966831347,
+        "A": 0.04880975628204001
+      },
+      "challengerProbs": {
+        "H": 0.8217950280152015,
+        "D": 0.12824798984377261,
+        "A": 0.04995698214102594
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.8217950280152015
     },
     {
       "fixture": {
@@ -66,8 +101,27 @@
         "competition": "quarterfinals",
         "competitionSlug": "quarterfinals"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401929770",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 4,
+        "away": 1
+      },
+      "structuralProbs": {
+        "H": 0.6997772727885888,
+        "D": 0.19554957154601169,
+        "A": 0.10467315566539954
+      },
+      "challengerProbs": {
+        "H": 0.7476448596015279,
+        "D": 0.17441570672577072,
+        "A": 0.07793943367270142
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.7476448596015279
     }
   ],
+  "pending": [],
   "blocked": []
 }
