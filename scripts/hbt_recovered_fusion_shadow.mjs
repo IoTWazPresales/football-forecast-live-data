@@ -52,6 +52,16 @@ export function confirmedXiCausal(fetchedAt,kickoffMs,nowMs){
 
 // A date/team match alone is insufficient: identical clubs can play in multiple competitions.
 // Only use an XI record with an explicitly matching competition, and event ID when supplied.
+// A per-event timestamp cannot authenticate a player feed whose own snapshot
+// was generated later (or in the future). Reject inconsistent provenance.
+export function confirmedXiFeedCausal(players,record,kickoffMs,nowMs){
+  if(!aware(players?.generatedAt)||!aware(record?.fetchedAt)||
+     !Number.isFinite(kickoffMs)||!Number.isFinite(nowMs))return false;
+  const feedMs=Date.parse(players.generatedAt),recordMs=Date.parse(record.fetchedAt);
+  return recordMs<=feedMs&&feedMs<=kickoffMs&&feedMs<=nowMs&&
+    confirmedXiCausal(record.fetchedAt,kickoffMs,nowMs);
+}
+
 export function confirmedXiIdentity(fixture,record){
   if(!fixture||!record||typeof fixture.league!=='string'||!fixture.league||
      typeof record.league!=='string'||record.league!==fixture.league)return false;
@@ -117,7 +127,7 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
   const xi=matching.length===1?matching[0][1]:null;
   const xiAge=aware(xi?.fetchedAt)?(now-Date.parse(xi.fetchedAt))/60000:Infinity;
   // Historical replays must not use lineups first observed after kickoff.
-  const xiCausal=confirmedXiCausal(xi?.fetchedAt,ko,now.getTime());
+  const xiCausal=confirmedXiFeedCausal(players,xi,ko,now.getTime());
   const full=xi?.ok===true&&xiCausal&&xiAge>=0&&xiAge<=30&&[xi.continuityDiff,xi.replacementQualityAdv].every(Number.isFinite);
   const row={vec:[...baseVec,full?xi.continuityDiff:0,full?xi.replacementQualityAdv:0,0,perf.stakesDiff]};
   const setting=full?cfg.full:cfg.preXi,core=liveTempPred(serPredict(full?deployment.models.fullCore:deployment.models.preXiCore,row,1),setting.coreTemperature);
