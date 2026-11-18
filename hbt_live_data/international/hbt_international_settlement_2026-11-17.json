@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-INTERNATIONAL-SETTLEMENT-1",
   "version": "HBT-1.4-INTERNATIONAL-SETTLEMENT-1",
-  "generatedAt": "2026-11-17T20:56:54.142782Z",
+  "generatedAt": "2026-11-18T02:55:17.774390Z",
   "targetDate": "2026-11-17",
   "source": "hbt_international_intelligence_2026-11-17.json",
   "policy": {
@@ -15,29 +15,28 @@
     "automaticFunding": false
   },
   "summary": {
-    "cleanSettled": 0,
-    "pending": 7,
+    "cleanSettled": 5,
+    "pending": 2,
     "blocked": 0
   },
   "metrics": {
     "structuralOnly": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 5,
+      "logLoss": 0.456032740114115,
+      "brier": 0.23796628320640215,
+      "accuracy": 0.8
     },
     "recentInteractionChallenger": {
-      "n": 0,
-      "logLoss": null,
-      "brier": null,
-      "accuracy": null
+      "n": 5,
+      "logLoss": 0.4304620397905438,
+      "brier": 0.22677148811967376,
+      "accuracy": 0.8
     },
-    "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": false,
+    "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": true,
     "promotionEvidenceSufficient": false,
     "note": "Small clean prospective samples are confirmatory/hypothesis evidence only; promotion still requires accumulated prospective confirmation and full interaction/ablation gates."
   },
-  "settled": [],
-  "pending": [
+  "settled": [
     {
       "fixture": {
         "home": "Argentina",
@@ -46,7 +45,25 @@
         "competition": "2026-international-friendly",
         "competitionSlug": "2026-international-friendly"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401930895",
+      "domain": "NATIONAL_FRIENDLY",
+      "result": "H",
+      "score": {
+        "home": 7,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.873638656980012,
+        "D": 0.09584373787136742,
+        "A": 0.030517605148620706
+      },
+      "challengerProbs": {
+        "H": 0.8987566327092932,
+        "D": 0.08037923159610895,
+        "A": 0.020864135694598
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.8987566327092932
     },
     {
       "fixture": {
@@ -56,7 +73,25 @@
         "competition": "2026-international-friendly",
         "competitionSlug": "2026-international-friendly"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401921304",
+      "domain": "NATIONAL_FRIENDLY",
+      "result": "D",
+      "score": {
+        "home": 0,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.1843389280566438,
+        "D": 0.24985362846920545,
+        "A": 0.5658074434741507
+      },
+      "challengerProbs": {
+        "H": 0.17828824508556163,
+        "D": 0.24753047410382936,
+        "A": 0.5741812808106089
+      },
+      "challengerPick": "A",
+      "challengerPickProbability": 0.5741812808106089
     },
     {
       "fixture": {
@@ -66,7 +101,25 @@
         "competition": "2026-international-friendly",
         "competitionSlug": "2026-international-friendly"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401930899",
+      "domain": "NATIONAL_FRIENDLY",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.7471651725973308,
+        "D": 0.1709503086249325,
+        "A": 0.08188451877773659
+      },
+      "challengerProbs": {
+        "H": 0.7732453697818418,
+        "D": 0.15862765366931056,
+        "A": 0.0681269765488477
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.7732453697818418
     },
     {
       "fixture": {
@@ -76,7 +129,25 @@
         "competition": "2026-international-friendly",
         "competitionSlug": "2026-international-friendly"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401932215",
+      "domain": "NATIONAL_FRIENDLY",
+      "result": "H",
+      "score": {
+        "home": 5,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.864325294426481,
+        "D": 0.10190314039531245,
+        "A": 0.03377156517820658
+      },
+      "challengerProbs": {
+        "H": 0.8744589391660367,
+        "D": 0.09594817616470705,
+        "A": 0.029592884669256192
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.8744589391660367
     },
     {
       "fixture": {
@@ -86,8 +157,28 @@
         "competition": "quarterfinals",
         "competitionSlug": "quarterfinals"
       },
-      "reason": "not completed"
-    },
+      "sourceFixtureId": "401929766",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.7254811634489634,
+        "D": 0.1824290115698742,
+        "A": 0.09208982498116242
+      },
+      "challengerProbs": {
+        "H": 0.77256677216218,
+        "D": 0.1604981296802192,
+        "A": 0.06693509815760079
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.77256677216218
+    }
+  ],
+  "pending": [
     {
       "fixture": {
         "home": "Mexico",
