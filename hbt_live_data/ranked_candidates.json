@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-11-17",
+  "targetDate": "2026-11-18",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,28 +22,26 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 65,
-    "classifiedRows": 65,
+    "fixturesDiscovered": 28,
+    "classifiedRows": 28,
     "FALLBACK": 0,
     "FULL_MODEL": 0,
     "INSUFFICIENT_DATA": 0,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 65,
+    "UNSUPPORTED_COMPETITION": 28,
     "forecastRowsAvailable": 0,
     "forecastRowsMatched": 0,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
-      "2026-international-friendly",
-      "2026-u21-international-friendly",
-      "final",
-      "gold-cup-play-in-prelims",
-      "group-stage",
+      "2026-brasileiro-serie-a",
+      "clausura",
+      "finals",
+      "first-round",
       "league-phase",
-      "playoffs",
-      "quarterfinals",
-      "semifinals"
+      "regular-season",
+      "third-round"
     ],
     "previousProspectiveScoredNowUnsupported": 0,
     "previousProspectiveCoverageRegressions": [],
@@ -64,7 +62,7 @@
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-11-17T19:30:23Z",
+    "generatedAt": "2026-11-18T01:49:29Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -125,9 +123,9 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 65,
+      "count": 28,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 65
+        "UNSUPPORTED_COMPETITION": 28
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
