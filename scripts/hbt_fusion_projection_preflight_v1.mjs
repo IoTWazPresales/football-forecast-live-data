@@ -17,7 +17,13 @@ const original=fs.readFileSync(file);
 const old=JSON.parse(original);
 if(old.targetDate!==date||!Array.isArray(old.predictions))throw Error('Invalid original frozen control');
 const keyOf=p=>[p.fixture?.date,p.fixture?.league,p.fixture?.home,p.fixture?.away].join('|');
-const originalVectors=new Map(old.predictions.map(p=>[keyOf(p),p.probs]));
+const originalVectors=new Map();
+for(const p of old.predictions){
+  const key=keyOf(p);
+  if(!p.fixture?.date||!p.fixture?.league||!p.fixture?.home||!p.fixture?.away||originalVectors.has(key))
+    throw Error('Missing or duplicate frozen fixture identity: '+key);
+  originalVectors.set(key,p.probs);
+}
 const report={schemaVersion:'HBT-FUSION-PROJECTION-PREFLIGHT-1',date,originalSha256:sha(original)};
 try {
   const run=spawnSync(process.execPath,['scripts/hbt_frozen_forecast_bridge.mjs','--date',date,'--with-structural-features'],{cwd:root,encoding:'utf8',timeout:150000});
@@ -26,8 +32,11 @@ try {
   const projected=JSON.parse(fs.readFileSync(file,'utf8'));
   if(projected.targetDate!==date||projected.predictions.length!==old.predictions.length)throw Error('Projection altered target/count');
   const projections=[];
+  const projectedKeys=new Set();
   for(const p of projected.predictions) {
     const key=keyOf(p);
+    if(projectedKeys.has(key))throw Error('Duplicate projected fixture identity: '+key);
+    projectedKeys.add(key);
     if(!originalVectors.has(key)||JSON.stringify(originalVectors.get(key))!==JSON.stringify(p.probs))throw Error('L0 probability changed for '+key);
     const v=p.structuralFeatures?.vec;
     if(!Array.isArray(v)||v.length!==11||!v.every(Number.isFinite))throw Error('Causal structural vector unavailable: '+key);
