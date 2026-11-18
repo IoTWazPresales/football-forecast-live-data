@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-INTERNATIONAL-SETTLEMENT-1",
   "version": "HBT-1.4-INTERNATIONAL-SETTLEMENT-1",
-  "generatedAt": "2026-11-18T02:55:17.774390Z",
+  "generatedAt": "2026-11-18T11:44:04.287906Z",
   "targetDate": "2026-11-17",
   "source": "hbt_international_intelligence_2026-11-17.json",
   "policy": {
@@ -15,22 +15,22 @@
     "automaticFunding": false
   },
   "summary": {
-    "cleanSettled": 5,
-    "pending": 2,
+    "cleanSettled": 7,
+    "pending": 0,
     "blocked": 0
   },
   "metrics": {
     "structuralOnly": {
-      "n": 5,
-      "logLoss": 0.456032740114115,
-      "brier": 0.23796628320640215,
-      "accuracy": 0.8
+      "n": 7,
+      "logLoss": 0.41658761682605633,
+      "brier": 0.20294647420586892,
+      "accuracy": 0.8571428571428571
     },
     "recentInteractionChallenger": {
-      "n": 5,
-      "logLoss": 0.4304620397905438,
-      "brier": 0.22677148811967376,
-      "accuracy": 0.8
+      "n": 7,
+      "logLoss": 0.39235278109544447,
+      "brier": 0.19153627420358732,
+      "accuracy": 0.8571428571428571
     },
     "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": true,
     "promotionEvidenceSufficient": false,
@@ -176,9 +176,7 @@
       },
       "challengerPick": "H",
       "challengerPickProbability": 0.77256677216218
-    }
-  ],
-  "pending": [
+    },
     {
       "fixture": {
         "home": "Mexico",
@@ -187,7 +185,25 @@
         "competition": "quarterfinals",
         "competitionSlug": "quarterfinals"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401929763",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 1,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.7343939050680923,
+        "D": 0.17775682353326538,
+        "A": 0.08784927139864228
+      },
+      "challengerProbs": {
+        "H": 0.7556663191537039,
+        "D": 0.16803803175632698,
+        "A": 0.07629564908996911
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.7556663191537039
     },
     {
       "fixture": {
@@ -197,8 +213,27 @@
         "competition": "gold-cup-play-in-prelims",
         "competitionSlug": "gold-cup-play-in-prelims"
       },
-      "reason": "not completed"
+      "sourceFixtureId": "401929703",
+      "domain": "NATIONAL_COMPETITIVE",
+      "result": "H",
+      "score": {
+        "home": 2,
+        "away": 0
+      },
+      "structuralProbs": {
+        "H": 0.7209107914270083,
+        "D": 0.18480023064022685,
+        "A": 0.09428897793276482
+      },
+      "challengerProbs": {
+        "H": 0.7305161852065606,
+        "D": 0.18060820979186423,
+        "A": 0.08887560500157515
+      },
+      "challengerPick": "H",
+      "challengerPickProbability": 0.7305161852065606
     }
   ],
+  "pending": [],
   "blocked": []
 }
