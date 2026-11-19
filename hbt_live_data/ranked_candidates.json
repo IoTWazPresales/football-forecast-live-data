@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-11-19",
+  "targetDate": "2026-11-20",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,29 +22,39 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 42,
-    "classifiedRows": 42,
-    "FALLBACK": 0,
+    "fixturesDiscovered": 91,
+    "classifiedRows": 91,
+    "FALLBACK": 1,
     "FULL_MODEL": 0,
-    "INSUFFICIENT_DATA": 0,
+    "INSUFFICIENT_DATA": 3,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 42,
-    "forecastRowsAvailable": 0,
-    "forecastRowsMatched": 0,
+    "UNSUPPORTED_COMPETITION": 87,
+    "forecastRowsAvailable": 1,
+    "forecastRowsMatched": 1,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
-      "2026-brasileiro-serie-a",
-      "2026-club-friendly",
-      "2026-ncaa-division-i-men",
-      "eastern-conference-playoffs---wild-card",
+      "2026-27-german-2-bundesliga",
+      "2026-27-keuken-kampioen-divisie",
+      "2026-27-ligue-2",
+      "2026-27-russian-premier-league",
+      "2026-27-saudi-pro-league",
+      "2026-27-scottish-championship",
+      "2026-eliteserien",
+      "2026-ncaa-division-i-women",
+      "2026-primera-division-de-chile",
+      "4th-round",
+      "Ekstraklasa",
+      "apertura",
+      "clausura---round-of-16",
+      "final-stage",
       "group-stage",
-      "league-phase",
+      "playoffs---semifinals",
       "regular-season",
-      "third-round",
+      "torneo-apertura",
       "torneo-clausura",
-      "western-conference-playoffs---wild-card"
+      "torneo-clausura-2026"
     ],
     "previousProspectiveScoredNowUnsupported": 0,
     "previousProspectiveCoverageRegressions": [],
@@ -56,16 +66,16 @@
     "knownForecastCoverageComplete": true,
     "discoveryComplete": true,
     "previousProspectiveCoverageConsistent": true,
-    "rankEligibleFixtures": 0,
+    "rankEligibleFixtures": 1,
     "fullModelRankEligible": 0,
-    "fallbackRankEligible": 0,
+    "fallbackRankEligible": 1,
     "note": "Discovery completeness means configured public sources reconciled all known date-scoped HBT forecasts; it is not a claim of universal world-football coverage."
   },
   "priceLayer": {
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-11-19T16:49:46Z",
+    "generatedAt": "2026-11-19T23:17:59Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -107,9 +117,99 @@
     "note": "Reference only. Ranking does not alter, remove, replace, or retrospectively optimise Test A."
   },
   "rankings": {
-    "highestRawDeployedPickProbability": [],
+    "highestRawDeployedPickProbability": [
+      {
+        "competition": "2026-27-german-2-bundesliga",
+        "kickoff": "2026-11-20T17:30:00Z",
+        "home": "SV Darmstadt 98",
+        "away": "1. FC Heidenheim 1846",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "1. FC Heidenheim 1846",
+        "pickProbability": 0.41137118503685627,
+        "probabilityOutput": [
+          0.3035376004318205,
+          0.28509121453132324,
+          0.41137118503685627
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.6541242007711483,
+        "forecastCoverage": "stale-ish 916d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-19T23:17:58.141Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      }
+    ],
     "strongestFullModelConfidence": [],
-    "fallbackOnly": [],
+    "fallbackOnly": [
+      {
+        "competition": "2026-27-german-2-bundesliga",
+        "kickoff": "2026-11-20T17:30:00Z",
+        "home": "SV Darmstadt 98",
+        "away": "1. FC Heidenheim 1846",
+        "support": "FALLBACK",
+        "predictionMode": "L0 FALLBACK",
+        "pick": "1. FC Heidenheim 1846",
+        "pickProbability": 0.41137118503685627,
+        "probabilityOutput": [
+          0.3035376004318205,
+          0.28509121453132324,
+          0.41137118503685627
+        ],
+        "tier": "Avoid",
+        "rawTier": "Avoid",
+        "quality": 0.6541242007711483,
+        "forecastCoverage": "stale-ish 916d",
+        "coveragePack": null,
+        "fusionEligible": false,
+        "xiState": null,
+        "scoreMarketsExist": false,
+        "scoreMarkets": null,
+        "validatedEventMarketsExist": false,
+        "validatedEventFamilies": [],
+        "predictionSource": {
+          "type": "FROZEN_CONTROL_AUDIT",
+          "sourceExportedAt": "2026-11-19T23:17:58.141Z",
+          "sourceLabVersion": "HBT-1.1.2L-R1",
+          "prospectiveForTargetDate": true,
+          "generalFutureLiveFeed": false
+        },
+        "forecastDecision": "MODEL_SUPPORTED",
+        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
+        "priceAssessment": {
+          "status": "PRICE_UNAVAILABLE",
+          "bookmaker": "Betway",
+          "identityMatchScore": null,
+          "markets": [],
+          "advisoryOnly": true,
+          "gatesFootballForecast": false,
+          "gatesR1Experiment": false
+        }
+      }
+    ],
     "validatedEventForecasts": [],
     "eventMarketExcluded": [],
     "experimentalValueVsPrice": {
@@ -126,9 +226,10 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 42,
+      "count": 90,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 42
+        "UNSUPPORTED_COMPETITION": 87,
+        "INSUFFICIENT_DATA": 3
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."

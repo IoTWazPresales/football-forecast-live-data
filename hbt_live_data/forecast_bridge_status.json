@@ -1,8 +1,8 @@
 {
   "schemaVersion": "HBT-FORECAST-BRIDGE-STATUS-1",
   "version": "HBT-FROZEN-FORECAST-BRIDGE-1.4-EXACT-SNAPSHOT",
-  "generatedAt": "2026-11-19T16:49:39.693Z",
-  "targetDate": "2026-11-19",
+  "generatedAt": "2026-11-19T23:17:56.866Z",
+  "targetDate": "2026-11-20",
   "policy": {
     "predictiveModel": "HBT-1.1.2L-R1",
     "bookmakerOddsUsed": false,
@@ -16,7 +16,7 @@
     "targetStateUpdatedThroughPreviousCompletedDay": true
   },
   "status": "READY",
-  "output": "frozen_control_forecast_2026-11-19.json",
+  "output": "frozen_control_forecast_2026-11-20.json",
   "frozenSnapshot": {
     "created": "2026-09-11T20:30:57.701Z",
     "dataCutoff": "2026-09-07",
@@ -27,7 +27,7 @@
     "aliases": 37
   },
   "stateAdvance": {
-    "targetStateAsOfExclusive": "2026-11-19",
+    "targetStateAsOfExclusive": "2026-11-20",
     "incrementalMatches": 146,
     "sourceFailures": [
       {
@@ -264,20 +264,35 @@
     ]
   },
   "target": {
-    "discovered": 28,
-    "predictions": 0,
+    "discovered": 72,
+    "predictions": 1,
     "excluded": [
       {
-        "fixture": "Vasco da Gama vs Internacional",
-        "league": "it.1",
+        "fixture": "Rostov vs Krylia Sovetov",
+        "league": "en.1",
         "reason": "unresolved team identity"
       },
       {
-        "fixture": "Vitória vs Red Bull Bragantino",
-        "league": "it.1",
+        "fixture": "Arminia Bielefeld vs 1. FC Magdeburg",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Bayern Munich vs FC Cologne",
+        "league": "de.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Troyes vs Le Havre AC",
+        "league": "fr.1",
+        "reason": "unresolved team identity"
+      },
+      {
+        "fixture": "Athletic Club vs Espanyol",
+        "league": "es.1",
         "reason": "unresolved team identity"
       }
     ]
   },
-  "runtimeMs": 5631.613496
+  "runtimeMs": 1278.801955
 }
