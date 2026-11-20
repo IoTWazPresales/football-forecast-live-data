@@ -11,6 +11,10 @@ export function originalFixtureProbabilities(predictions) {
   for(const p of predictions){
     const key=fixtureKey(p);
     if(result.has(key))throw Error('Duplicate frozen fixture identity: '+key);
+    if(!Array.isArray(p.probs)||p.probs.length!==3||
+       !p.probs.every(x=>typeof x==='number'&&Number.isFinite(x)&&x>=0&&x<=1)||
+       Math.abs(p.probs.reduce((sum,x)=>sum+x,0)-1)>1e-9)
+      throw Error('Invalid frozen L0 probabilities: '+key);
     result.set(key,p.probs);
   }
   return result;
