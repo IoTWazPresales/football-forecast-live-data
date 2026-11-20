@@ -26,3 +26,9 @@ test('projection cannot alter frozen probabilities or invent missing structural 
   assert.throws(()=>validateProjectedFixtures(original,[fixture('Home',[0.4,0.4,0.2])]),/L0 probability changed/);
   assert.throws(()=>validateProjectedFixtures(original,[{...fixture('Home'),structuralFeatures:{vec:Array(10).fill(0)}}]),/Causal structural vector/);
 });
+
+test('invalid frozen L0 probabilities cannot pass unchanged through projection parity',()=>{
+  for(const probs of [undefined,[0.5,0.5],[0.5,0.3,NaN],[0.5,0.3,Infinity],[-0.1,0.6,0.5],[0.6,0.3,0.3],['0.5',0.3,0.2]]){
+    assert.throws(()=>originalFixtureProbabilities([fixture('Home',probs)]),/Invalid frozen L0 probabilities/);
+  }
+});
