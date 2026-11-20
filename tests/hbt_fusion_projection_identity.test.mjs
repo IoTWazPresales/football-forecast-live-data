@@ -28,7 +28,7 @@ test('projection cannot alter frozen probabilities or invent missing structural 
 });
 
 test('invalid frozen L0 probabilities cannot pass unchanged through projection parity',()=>{
-  for(const probs of [undefined,[0.5,0.5],[0.5,0.3,NaN],[0.5,0.3,Infinity],[-0.1,0.6,0.5],[0.6,0.3,0.3],['0.5',0.3,0.2]]){
+  for(const probs of [null,[0.5,0.5],[0.5,0.3,NaN],[0.5,0.3,Infinity],[-0.1,0.6,0.5],[0.6,0.3,0.3],['0.5',0.3,0.2]]){
     assert.throws(()=>originalFixtureProbabilities([fixture('Home',probs)]),/Invalid frozen L0 probabilities/);
   }
 });
