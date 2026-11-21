@@ -107,7 +107,11 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
   const matchingAway=teams.filter(t=>perfTeamKey(t.title)===awayKey);
   if(!homeKey||!awayKey||homeKey===awayKey||matchingHome.length!==1||matchingAway.length!==1)
     return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_TEAM_IDENTITY_AMBIGUOUS',diagnostics:{homeMatches:matchingHome.length,awayMatches:matchingAway.length}};
-  const ko=Date.parse(`${fx.date}T${fx.time}:00Z`);
+  // Reject calendar rollover, non-UTC offsets and malformed kickoff clocks before any inference.
+  const kickoffText=`${fx.date}T${fx.time}:00Z`;
+  const ko=/^\d{4}-\d{2}-\d{2}T(?:[01]\d|2[0-3]):[0-5]\d:00Z$/.test(kickoffText)?Date.parse(kickoffText):NaN;
+  if(!Number.isFinite(ko)||new Date(ko).toISOString()!==kickoffText)
+    return {fixture:fx,status:'UNAVAILABLE',reason:'FIXTURE_KICKOFF_UTC_UNVERIFIABLE'};
   const feedTime=Date.parse(performance.generatedAt);
   if(!aware(performance.generatedAt)||!Number.isFinite(ko)||feedTime>ko||feedTime>now.getTime())
     return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_FEED_AS_OF_UNVERIFIABLE'};
