@@ -1,7 +1,7 @@
 {
   "schemaVersion": "HBT-SLATE-RANKING-2",
   "version": "HBT-SLATE-RANKER-2.2",
-  "targetDate": "2026-11-23",
+  "targetDate": "2026-11-24",
   "status": "RANKING_READY",
   "policy": {
     "discoveryGateRequired": true,
@@ -22,35 +22,30 @@
     "intelligenceIntegrityMode": "UPSTREAM_GUARD_LATCH_VERIFIED"
   },
   "coverage": {
-    "fixturesDiscovered": 44,
-    "classifiedRows": 44,
-    "FALLBACK": 1,
+    "fixturesDiscovered": 81,
+    "classifiedRows": 81,
+    "FALLBACK": 0,
     "FULL_MODEL": 0,
-    "INSUFFICIENT_DATA": 2,
+    "INSUFFICIENT_DATA": 0,
     "NOT_YET_READY": 0,
     "SOURCE_FAILURE": 0,
-    "UNSUPPORTED_COMPETITION": 41,
-    "forecastRowsAvailable": 1,
-    "forecastRowsMatched": 1,
+    "UNSUPPORTED_COMPETITION": 81,
+    "forecastRowsAvailable": 0,
+    "forecastRowsMatched": 0,
     "knownForecastsMissedByDiscovery": 0,
     "knownForecastDiscoveryMisses": [],
     "unsupportedCompetitions": [
-      "2026-27-keuken-kampioen-divisie",
-      "2026-27-ligue-2",
-      "2026-27-spanish-liga-f",
-      "2026-27-turkish-super-lig",
-      "2026-allsvenskan",
-      "2026-bolivian-liga-profesional",
+      "2026-27-south-african-premiership",
       "2026-brasileiro-serie-a",
-      "Ekstraklasa",
-      "apertura",
-      "clausura---round-of-16",
+      "fall-season",
+      "first-phase",
       "group-stage",
+      "league-phase",
       "league-stage",
+      "playoffs---semifinals",
+      "quarterfinals",
       "regular-season",
-      "second-preliminary-round",
-      "torneo-clausura",
-      "torneo-clausura-2026",
+      "round-of-16",
       "western-conference-playoffs---round-one"
     ],
     "previousProspectiveScoredNowUnsupported": 0,
@@ -63,16 +58,16 @@
     "knownForecastCoverageComplete": true,
     "discoveryComplete": true,
     "previousProspectiveCoverageConsistent": true,
-    "rankEligibleFixtures": 1,
+    "rankEligibleFixtures": 0,
     "fullModelRankEligible": 0,
-    "fallbackRankEligible": 1,
+    "fallbackRankEligible": 0,
     "note": "Discovery completeness means configured public sources reconciled all known date-scoped HBT forecasts; it is not a claim of universal world-football coverage."
   },
   "priceLayer": {
     "status": "PRICE_SOURCE_UNCONFIGURED",
     "provider": "Odds-API.io",
     "primaryBookmaker": "Betway",
-    "generatedAt": "2026-11-23T12:09:09Z",
+    "generatedAt": "2026-11-23T23:51:48Z",
     "pricedFixtures": 0,
     "advisoryOnly": true,
     "note": "Prices annotate model calls after prediction. They do not alter HBT probabilities, simulation or R1 experiment eligibility."
@@ -114,99 +109,9 @@
     "note": "Reference only. Ranking does not alter, remove, replace, or retrospectively optimise Test A."
   },
   "rankings": {
-    "highestRawDeployedPickProbability": [
-      {
-        "competition": "2026-27-english-premier-league",
-        "kickoff": "2026-11-23T20:00:00Z",
-        "home": "Brentford",
-        "away": "Everton",
-        "support": "FALLBACK",
-        "predictionMode": "L0 FALLBACK",
-        "pick": "Brentford",
-        "pickProbability": 0.5127846651928818,
-        "probabilityOutput": [
-          0.5127846651928818,
-          0.2594895218595023,
-          0.22772581294761585
-        ],
-        "tier": "C",
-        "rawTier": "C",
-        "quality": 0.8301121113597048,
-        "forecastCoverage": "good",
-        "coveragePack": null,
-        "fusionEligible": false,
-        "xiState": null,
-        "scoreMarketsExist": false,
-        "scoreMarkets": null,
-        "validatedEventMarketsExist": false,
-        "validatedEventFamilies": [],
-        "predictionSource": {
-          "type": "FROZEN_CONTROL_AUDIT",
-          "sourceExportedAt": "2026-11-23T12:09:07.811Z",
-          "sourceLabVersion": "HBT-1.1.2L-R1",
-          "prospectiveForTargetDate": true,
-          "generalFutureLiveFeed": false
-        },
-        "forecastDecision": "MODEL_SUPPORTED",
-        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
-        "priceAssessment": {
-          "status": "PRICE_UNAVAILABLE",
-          "bookmaker": "Betway",
-          "identityMatchScore": null,
-          "markets": [],
-          "advisoryOnly": true,
-          "gatesFootballForecast": false,
-          "gatesR1Experiment": false
-        }
-      }
-    ],
+    "highestRawDeployedPickProbability": [],
     "strongestFullModelConfidence": [],
-    "fallbackOnly": [
-      {
-        "competition": "2026-27-english-premier-league",
-        "kickoff": "2026-11-23T20:00:00Z",
-        "home": "Brentford",
-        "away": "Everton",
-        "support": "FALLBACK",
-        "predictionMode": "L0 FALLBACK",
-        "pick": "Brentford",
-        "pickProbability": 0.5127846651928818,
-        "probabilityOutput": [
-          0.5127846651928818,
-          0.2594895218595023,
-          0.22772581294761585
-        ],
-        "tier": "C",
-        "rawTier": "C",
-        "quality": 0.8301121113597048,
-        "forecastCoverage": "good",
-        "coveragePack": null,
-        "fusionEligible": false,
-        "xiState": null,
-        "scoreMarketsExist": false,
-        "scoreMarkets": null,
-        "validatedEventMarketsExist": false,
-        "validatedEventFamilies": [],
-        "predictionSource": {
-          "type": "FROZEN_CONTROL_AUDIT",
-          "sourceExportedAt": "2026-11-23T12:09:07.811Z",
-          "sourceLabVersion": "HBT-1.1.2L-R1",
-          "prospectiveForTargetDate": true,
-          "generalFutureLiveFeed": false
-        },
-        "forecastDecision": "MODEL_SUPPORTED",
-        "r1ExperimentDecision": "ELIGIBLE_MODEL_ONLY",
-        "priceAssessment": {
-          "status": "PRICE_UNAVAILABLE",
-          "bookmaker": "Betway",
-          "identityMatchScore": null,
-          "markets": [],
-          "advisoryOnly": true,
-          "gatesFootballForecast": false,
-          "gatesR1Experiment": false
-        }
-      }
-    ],
+    "fallbackOnly": [],
     "validatedEventForecasts": [],
     "eventMarketExcluded": [],
     "experimentalValueVsPrice": {
@@ -223,10 +128,9 @@
       "reason": "Bookmaker price is reported downstream for money/value/CLV analysis. It does not decide what HBT thinks will happen or whether a model-supported R1 test is eligible."
     },
     "unsupportedOrIgnored": {
-      "count": 43,
+      "count": 81,
       "bySupportState": {
-        "UNSUPPORTED_COMPETITION": 41,
-        "INSUFFICIENT_DATA": 2
+        "UNSUPPORTED_COMPETITION": 81
       },
       "detailSource": "slate_scanner.json",
       "reason": "Not silently dropped; full discovered fixture rows and exclusion reasons remain in the scanner output."
