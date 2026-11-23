@@ -101,7 +101,11 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
   if(!vector(pred.structuralFeatures?.vec,11))return {fixture:fx,status:'UNAVAILABLE',reason:'CAUSAL_STRUCTURAL_VECTOR_MISSING'};
   // A lossy Map silently chooses one club when normalized identities collide.
   // Refuse that fixture rather than mixing performance from different clubs.
-  const teams=src.teams||[];
+  // A malformed league roster must not crash the entire slate or create a
+  // silently lossy identity join. Fail this fixture closed before inference.
+  if(!Array.isArray(src.teams)||src.teams.some(t=>!t||typeof t.title!=='string'))
+    return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_TEAM_ROSTER_UNVERIFIABLE'};
+  const teams=src.teams;
   const homeKey=perfTeamKey(fx.home),awayKey=perfTeamKey(fx.away);
   const matchingHome=teams.filter(t=>perfTeamKey(t.title)===homeKey);
   const matchingAway=teams.filter(t=>perfTeamKey(t.title)===awayKey);
