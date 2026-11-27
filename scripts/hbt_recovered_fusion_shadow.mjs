@@ -114,7 +114,7 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
   // Reject calendar rollover, non-UTC offsets and malformed kickoff clocks before any inference.
   const kickoffText=`${fx.date}T${fx.time}:00Z`;
   const ko=/^\d{4}-\d{2}-\d{2}T(?:[01]\d|2[0-3]):[0-5]\d:00Z$/.test(kickoffText)?Date.parse(kickoffText):NaN;
-  if(!Number.isFinite(ko)||new Date(ko).toISOString()!==kickoffText)
+  if(!Number.isFinite(ko)||new Date(ko).toISOString()!==kickoffText.replace(/Z$/,'.000Z'))
     return {fixture:fx,status:'UNAVAILABLE',reason:'FIXTURE_KICKOFF_UTC_UNVERIFIABLE'};
   const feedTime=Date.parse(performance.generatedAt);
   if(!aware(performance.generatedAt)||!Number.isFinite(ko)||feedTime>ko||feedTime>now.getTime())
