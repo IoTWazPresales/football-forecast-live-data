@@ -1,0 +1,806 @@
+{
+  "schemaVersion": "HBT-INTERNATIONAL-PROSPECTIVE-2",
+  "version": "HBT-1.4-INTERNATIONAL-CONTEXT-2.1-VENUE-IDENTITY",
+  "generatedAt": "2026-11-27T22:43:40.093025Z",
+  "targetDate": "2026-11-28",
+  "source": "hbt_international_challenger_2026-11-28.json",
+  "policy": {
+    "researchOnly": true,
+    "frozenHBT112Mutated": false,
+    "domesticForecastsMutated": false,
+    "bookmakerOddsRead": false,
+    "postKickoffRowsExcludedFromProspectiveEvidence": true,
+    "venueContextMustBeVerifiedForCleanProspectiveEvidence": true,
+    "thirdCountryVenueRemovesNominalHomeAdvantage": true,
+    "officialXIIsContextOnlyUntilValidated": true,
+    "automaticPromotion": false,
+    "automaticFunding": false
+  },
+  "validation": {
+    "selectionWindow": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "holdoutWindow": [
+      "2025-01-01",
+      "2026-11-28"
+    ],
+    "selectedParams": {
+      "eloSlope": 1.4,
+      "homeLogit": 0.15,
+      "drawIntercept": 0.0,
+      "drawMismatchPenalty": 0.4
+    },
+    "selection": {
+      "n": 2285,
+      "logLoss": 0.8842945020773297,
+      "brier": 0.5206899405328139,
+      "accuracy": 0.6026258205689278,
+      "topPickECE": 0.01644032866381879
+    },
+    "holdout": {
+      "n": 1623,
+      "logLoss": 0.8419023269188177,
+      "brier": 0.4932096599150722,
+      "accuracy": 0.6173752310536045,
+      "topPickECE": 0.0280674209697527
+    },
+    "holdoutBaseline": {
+      "n": 1623,
+      "logLoss": 1.0458447677390625,
+      "brier": 0.6304381960122412,
+      "accuracy": 0.48305606900800985,
+      "topPickECE": 0.0010161576997966826
+    },
+    "competitiveHoldout": {
+      "n": 1154,
+      "logLoss": 0.8259005320177122,
+      "brier": 0.4824686556708283,
+      "accuracy": 0.6299826689774697,
+      "topPickECE": 0.03587228575144277
+    },
+    "friendlyHoldout": {
+      "n": 469,
+      "logLoss": 0.8812756133066083,
+      "brier": 0.5196384848572009,
+      "accuracy": 0.5863539445628998,
+      "topPickECE": 0.02180709162946477
+    },
+    "beatsFixedHistoricalBaseRateOnLogLossAndBrier": true,
+    "promotionAllowed": false,
+    "promotionBlock": "requires clean prospective confirmation plus broader HBT-1.4 interaction/ablation validation"
+  },
+  "historySource": {
+    "url": "https://raw.githubusercontent.com/martj42/international_results/394fe81893b062fbc2cf6257e988ac7cc4c039a1/results.csv",
+    "commit": "394fe81893b062fbc2cf6257e988ac7cc4c039a1",
+    "sha256": "df35268f8fc341ff7fb93d448b4e40356676ac35300a6b4461fd199a99ac1514",
+    "rows": 49547,
+    "firstDate": "1872-11-30",
+    "lastDate": "2026-08-26"
+  },
+  "summary": {
+    "v1InternationalRows": 4,
+    "preKickoffProspective": 4,
+    "postKickoffExcluded": 0,
+    "timingUnresolved": 0,
+    "cleanProspectiveEligible": 0,
+    "verifiedHomeCountry": 0,
+    "verifiedThirdCountryOrAway": 4,
+    "venueContextUnresolved": 0,
+    "xiProbeAttempted": 4,
+    "xiSummaryAvailable": 4,
+    "confirmedXI": 0
+  },
+  "prospectiveCandidates": [
+    {
+      "fixture": {
+        "home": "Uzbekistan",
+        "away": "Papua New Guinea",
+        "kickoff": "2026-11-28T16:30:00Z",
+        "competition": "preliminary-phase",
+        "competitionSlug": "preliminary-phase"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.626549414237683,
+        "D": 0.2361351856139603,
+        "A": 0.1373154001483568
+      },
+      "pick": "H",
+      "pickProbability": 0.626549414237683,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.8626845998516433,
+          "fairOdds": 1.1591721936058335
+        },
+        "X2": {
+          "p": 0.3734505857623171,
+          "fairOdds": 2.6777304364343686
+        },
+        "12": {
+          "p": 0.7638648143860398,
+          "fairOdds": 1.3091321673243388
+        },
+        "HOME_DNB": {
+          "winP": 0.626549414237683,
+          "pushP": 0.2361351856139603,
+          "lossP": 0.1373154001483568,
+          "conditionalP": 0.8202359925967727,
+          "fairOdds": 1.2191613255523146
+        },
+        "AWAY_DNB": {
+          "winP": 0.1373154001483568,
+          "pushP": 0.2361351856139603,
+          "lossP": 0.626549414237683,
+          "conditionalP": 0.17976400740322715,
+          "fairOdds": 5.562848839684065
+        }
+      },
+      "quality": 0.85,
+      "state": {
+        "home": {
+          "elo": 1714.482096217489,
+          "recentN": 8,
+          "goalsForMean": 0.875,
+          "goalsAgainstMean": 2.375,
+          "pointsShare": 0.16666666666666666,
+          "recentOpponentEloMean": 1822.2935971170132,
+          "daysSinceMatch": 11
+        },
+        "away": {
+          "elo": 1497.6324999319475,
+          "recentN": 8,
+          "goalsForMean": 1.875,
+          "goalsAgainstMean": 1.375,
+          "pointsShare": 0.625,
+          "recentOpponentEloMean": 1530.5961225816916,
+          "daysSinceMatch": 370
+        },
+        "eloDiffWithHomeAdvantage": 281.84959628554157
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": false,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "RESOLVED_WOMENS_COMPETITION"
+      },
+      "venueContext": {
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
+        "neutralSite": null,
+        "venue": {
+          "name": "Mohammed VI Football Academy",
+          "city": "Sale",
+          "country": "Morocco"
+        },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
+        "homeContextProbability": {
+          "H": 0.7343232655107209,
+          "D": 0.17779410452038208,
+          "A": 0.08788262996889706
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.626549414237683,
+          "D": 0.2361351856139603,
+          "A": 0.1373154001483568
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401932296",
+      "capture": {
+        "capturedAt": "2026-11-27T22:43:40.093025Z",
+        "kickoffUtc": "2026-11-28T16:30:00Z",
+        "leadMinutes": 1066.3317829166667,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401932296",
+        "home": "Uzbekistan",
+        "away": "Papua New Guinea",
+        "kickoff": "2026-11-28T16:30Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Mohammed VI Football Academy",
+          "city": "Sale",
+          "country": "Morocco"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14611,
+          "slug": "preliminary-phase"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "21211",
+          "name": "FIFA Women's World Cup Qualifying - Playoff Tournament",
+          "slug": "fifa.wwcq.ply",
+          "abbreviation": "WWCQ - Playoff Tournament"
+        },
+        "rosters": [
+          {
+            "teamId": "20908",
+            "team": "Uzbekistan",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "21824",
+            "team": "Papua New Guinea",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "21211",
+        "name": "FIFA Women's World Cup Qualifying - Playoff Tournament",
+        "slug": "fifa.wwcq.ply",
+        "abbreviation": "WWCQ - Playoff Tournament"
+      },
+      "resolvedNamespaceBlock": "RESOLVED_WOMENS_COMPETITION",
+      "cleanProspectiveEligible": false
+    },
+    {
+      "fixture": {
+        "home": "Canada",
+        "away": "Panama",
+        "kickoff": "2026-11-28T18:00:00Z",
+        "competition": "quarterfinals",
+        "competitionSlug": "quarterfinals"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.43686721057425415,
+        "D": 0.30865413763239613,
+        "A": 0.2544786517933496
+      },
+      "pick": "H",
+      "pickProbability": 0.43686721057425415,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.7455213482066503,
+          "fairOdds": 1.3413432122440188
+        },
+        "X2": {
+          "p": 0.5631327894257457,
+          "fairOdds": 1.7757800980116063
+        },
+        "12": {
+          "p": 0.6913458623676038,
+          "fairOdds": 1.4464540173501148
+        },
+        "HOME_DNB": {
+          "winP": 0.43686721057425415,
+          "pushP": 0.30865413763239613,
+          "lossP": 0.2544786517933496,
+          "conditionalP": 0.6319083317836685,
+          "fairOdds": 1.5825080153276827
+        },
+        "AWAY_DNB": {
+          "winP": 0.2544786517933496,
+          "pushP": 0.30865413763239613,
+          "lossP": 0.43686721057425415,
+          "conditionalP": 0.36809166821633155,
+          "fairOdds": 2.71671457505604
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1805.888670843709,
+          "recentN": 8,
+          "goalsForMean": 2.125,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.5833333333333334,
+          "recentOpponentEloMean": 1701.7634231911964,
+          "daysSinceMatch": 12
+        },
+        "away": {
+          "elo": 1728.6869089268869,
+          "recentN": 8,
+          "goalsForMean": 1.125,
+          "goalsAgainstMean": 1.625,
+          "pointsShare": 0.3333333333333333,
+          "recentOpponentEloMean": 1711.7039967820856,
+          "daysSinceMatch": 13
+        },
+        "eloDiffWithHomeAdvantage": 142.20176191682208
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "RESOLVED_WOMENS_COMPETITION"
+      },
+      "venueContext": {
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
+        "neutralSite": null,
+        "venue": {
+          "name": "Texas Health Mansfield Stadium",
+          "city": "Mansfield",
+          "country": "USA"
+        },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
+        "homeContextProbability": {
+          "H": 0.5643406738500274,
+          "D": 0.2561466602823452,
+          "A": 0.17951266586762746
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.43686721057425415,
+          "D": 0.30865413763239613,
+          "A": 0.2544786517933496
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401870041",
+      "capture": {
+        "capturedAt": "2026-11-27T22:43:40.093025Z",
+        "kickoffUtc": "2026-11-28T18:00:00Z",
+        "leadMinutes": 1156.3317829166667,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401870041",
+        "home": "Canada",
+        "away": "Panama",
+        "kickoff": "2026-11-28T18:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Texas Health Mansfield Stadium",
+          "city": "Mansfield",
+          "country": "USA"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14139,
+          "slug": "quarterfinals"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "18969",
+          "name": "Concacaf W Championship",
+          "slug": "concacaf.womens.championship",
+          "abbreviation": "Concacaf W Championship"
+        },
+        "rosters": [
+          {
+            "teamId": "2753",
+            "team": "Canada",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "2895",
+            "team": "Panama",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "18969",
+        "name": "Concacaf W Championship",
+        "slug": "concacaf.womens.championship",
+        "abbreviation": "Concacaf W Championship"
+      },
+      "resolvedNamespaceBlock": "RESOLVED_WOMENS_COMPETITION",
+      "cleanProspectiveEligible": false
+    },
+    {
+      "fixture": {
+        "home": "Ghana",
+        "away": "Ecuador",
+        "kickoff": "2026-11-28T19:00:00Z",
+        "competition": "preliminary-phase",
+        "competitionSlug": "preliminary-phase"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.12932104283938853,
+        "D": 0.2291308164375466,
+        "A": 0.6415481407230648
+      },
+      "pick": "A",
+      "pickProbability": 0.6415481407230648,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.3584518592769351,
+          "fairOdds": 2.7897749003651096
+        },
+        "X2": {
+          "p": 0.8706789571606114,
+          "fairOdds": 1.1485289632600288
+        },
+        "12": {
+          "p": 0.7708691835624533,
+          "fairOdds": 1.2972369648747066
+        },
+        "HOME_DNB": {
+          "winP": 0.12932104283938853,
+          "pushP": 0.2291308164375466,
+          "lossP": 0.6415481407230648,
+          "conditionalP": 0.16776003710740028,
+          "fairOdds": 5.960895200325917
+        },
+        "AWAY_DNB": {
+          "winP": 0.6415481407230648,
+          "pushP": 0.2291308164375466,
+          "lossP": 0.12932104283938853,
+          "conditionalP": 0.8322399628925997,
+          "fairOdds": 1.201576521901592
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1651.6148223394603,
+          "recentN": 8,
+          "goalsForMean": 0.75,
+          "goalsAgainstMean": 0.75,
+          "pointsShare": 0.4583333333333333,
+          "recentOpponentEloMean": 1681.6149642761175,
+          "daysSinceMatch": 12
+        },
+        "away": {
+          "elo": 1880.4128521092098,
+          "recentN": 8,
+          "goalsForMean": 1.375,
+          "goalsAgainstMean": 0.625,
+          "pointsShare": 0.6666666666666666,
+          "recentOpponentEloMean": 1732.3550507414388,
+          "daysSinceMatch": 11
+        },
+        "eloDiffWithHomeAdvantage": -163.79802976974952
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "RESOLVED_WOMENS_COMPETITION"
+      },
+      "venueContext": {
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
+        "neutralSite": null,
+        "venue": {
+          "name": "Mohammed VI Football Academy",
+          "city": "Sale",
+          "country": "Morocco"
+        },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
+        "homeContextProbability": {
+          "H": 0.19978848788643933,
+          "D": 0.2589809018093345,
+          "A": 0.5412306103042261
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.12932104283938853,
+          "D": 0.2291308164375466,
+          "A": 0.6415481407230648
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401932282",
+      "capture": {
+        "capturedAt": "2026-11-27T22:43:40.093025Z",
+        "kickoffUtc": "2026-11-28T19:00:00Z",
+        "leadMinutes": 1216.3317829166667,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401932282",
+        "home": "Ghana",
+        "away": "Ecuador",
+        "kickoff": "2026-11-28T19:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Mohammed VI Football Academy",
+          "city": "Sale",
+          "country": "Morocco"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14611,
+          "slug": "preliminary-phase"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "21211",
+          "name": "FIFA Women's World Cup Qualifying - Playoff Tournament",
+          "slug": "fifa.wwcq.ply",
+          "abbreviation": "WWCQ - Playoff Tournament"
+        },
+        "rosters": [
+          {
+            "teamId": "2757",
+            "team": "Ghana",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "17637",
+            "team": "Ecuador",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "21211",
+        "name": "FIFA Women's World Cup Qualifying - Playoff Tournament",
+        "slug": "fifa.wwcq.ply",
+        "abbreviation": "WWCQ - Playoff Tournament"
+      },
+      "resolvedNamespaceBlock": "RESOLVED_WOMENS_COMPETITION",
+      "cleanProspectiveEligible": false
+    },
+    {
+      "fixture": {
+        "home": "Mexico",
+        "away": "Haiti",
+        "kickoff": "2026-11-28T21:30:00Z",
+        "competition": "quarterfinals",
+        "competitionSlug": "quarterfinals"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.7044256625210159,
+        "D": 0.19785700840721449,
+        "A": 0.09771732907176965
+      },
+      "pick": "H",
+      "pickProbability": 0.7044256625210159,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.9022826709282303,
+          "fairOdds": 1.1083001283525065
+        },
+        "X2": {
+          "p": 0.29557433747898415,
+          "fairOdds": 3.3832436487186635
+        },
+        "12": {
+          "p": 0.8021429915927856,
+          "fairOdds": 1.2466605212299333
+        },
+        "HOME_DNB": {
+          "winP": 0.7044256625210159,
+          "pushP": 0.19785700840721449,
+          "lossP": 0.09771732907176965,
+          "conditionalP": 0.8781796636061907,
+          "fairOdds": 1.1387191498987366
+        },
+        "AWAY_DNB": {
+          "winP": 0.09771732907176965,
+          "pushP": 0.19785700840721449,
+          "lossP": 0.7044256625210159,
+          "conditionalP": 0.12182033639380926,
+          "fairOdds": 8.208810036177331
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1901.9904409849237,
+          "recentN": 8,
+          "goalsForMean": 2.25,
+          "goalsAgainstMean": 0.875,
+          "pointsShare": 0.75,
+          "recentOpponentEloMean": 1769.0201095270752,
+          "daysSinceMatch": 11
+        },
+        "away": {
+          "elo": 1619.804170392117,
+          "recentN": 8,
+          "goalsForMean": 1.0,
+          "goalsAgainstMean": 2.375,
+          "pointsShare": 0.16666666666666666,
+          "recentOpponentEloMean": 1787.7086695220407,
+          "daysSinceMatch": 11
+        },
+        "eloDiffWithHomeAdvantage": 347.18627059280675
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "RESOLVED_WOMENS_COMPETITION"
+      },
+      "venueContext": {
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
+        "neutralSite": null,
+        "venue": {
+          "name": "Texas Health Mansfield Stadium",
+          "city": "Mansfield",
+          "country": "USA"
+        },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
+        "homeContextProbability": {
+          "H": 0.7960551561214448,
+          "D": 0.14364288547334844,
+          "A": 0.06030195840520676
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.7044256625210159,
+          "D": 0.19785700840721449,
+          "A": 0.09771732907176965
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401870042",
+      "capture": {
+        "capturedAt": "2026-11-27T22:43:40.093025Z",
+        "kickoffUtc": "2026-11-28T21:30:00Z",
+        "leadMinutes": 1366.3317829166667,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401870042",
+        "home": "Mexico",
+        "away": "Haiti",
+        "kickoff": "2026-11-28T21:30Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Texas Health Mansfield Stadium",
+          "city": "Mansfield",
+          "country": "USA"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14139,
+          "slug": "quarterfinals"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "18969",
+          "name": "Concacaf W Championship",
+          "slug": "concacaf.womens.championship",
+          "abbreviation": "Concacaf W Championship"
+        },
+        "rosters": [
+          {
+            "teamId": "2812",
+            "team": "Mexico",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "2891",
+            "team": "Haiti",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "18969",
+        "name": "Concacaf W Championship",
+        "slug": "concacaf.womens.championship",
+        "abbreviation": "Concacaf W Championship"
+      },
+      "resolvedNamespaceBlock": "RESOLVED_WOMENS_COMPETITION",
+      "cleanProspectiveEligible": false
+    }
+  ],
+  "postKickoffResearchRows": [],
+  "timingUnresolvedRows": []
+}
