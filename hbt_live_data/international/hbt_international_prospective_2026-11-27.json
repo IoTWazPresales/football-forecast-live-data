@@ -1,0 +1,452 @@
+{
+  "schemaVersion": "HBT-INTERNATIONAL-PROSPECTIVE-2",
+  "version": "HBT-1.4-INTERNATIONAL-CONTEXT-2.1-VENUE-IDENTITY",
+  "generatedAt": "2026-11-27T04:16:03.188841Z",
+  "targetDate": "2026-11-27",
+  "source": "hbt_international_challenger_2026-11-27.json",
+  "policy": {
+    "researchOnly": true,
+    "frozenHBT112Mutated": false,
+    "domesticForecastsMutated": false,
+    "bookmakerOddsRead": false,
+    "postKickoffRowsExcludedFromProspectiveEvidence": true,
+    "venueContextMustBeVerifiedForCleanProspectiveEvidence": true,
+    "thirdCountryVenueRemovesNominalHomeAdvantage": true,
+    "officialXIIsContextOnlyUntilValidated": true,
+    "automaticPromotion": false,
+    "automaticFunding": false
+  },
+  "validation": {
+    "selectionWindow": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "holdoutWindow": [
+      "2025-01-01",
+      "2026-11-27"
+    ],
+    "selectedParams": {
+      "eloSlope": 1.4,
+      "homeLogit": 0.15,
+      "drawIntercept": 0.0,
+      "drawMismatchPenalty": 0.4
+    },
+    "selection": {
+      "n": 2285,
+      "logLoss": 0.8842945020773297,
+      "brier": 0.5206899405328139,
+      "accuracy": 0.6026258205689278,
+      "topPickECE": 0.01644032866381879
+    },
+    "holdout": {
+      "n": 1639,
+      "logLoss": 0.8413658803843993,
+      "brier": 0.49272892752403613,
+      "accuracy": 0.6174496644295302,
+      "topPickECE": 0.028242863804869317
+    },
+    "holdoutBaseline": {
+      "n": 1639,
+      "logLoss": 1.0435240813395588,
+      "brier": 0.6287719293151509,
+      "accuracy": 0.48688224527150703,
+      "topPickECE": 0.0048423339632937545
+    },
+    "competitiveHoldout": {
+      "n": 1170,
+      "logLoss": 0.8253628142531494,
+      "brier": 0.4819372549183655,
+      "accuracy": 0.6299145299145299,
+      "topPickECE": 0.03601446936550374
+    },
+    "friendlyHoldout": {
+      "n": 469,
+      "logLoss": 0.8812882415220534,
+      "brier": 0.5196505841309343,
+      "accuracy": 0.5863539445628998,
+      "topPickECE": 0.021799241185536933
+    },
+    "beatsFixedHistoricalBaseRateOnLogLossAndBrier": true,
+    "promotionAllowed": false,
+    "promotionBlock": "requires clean prospective confirmation plus broader HBT-1.4 interaction/ablation validation"
+  },
+  "historySource": {
+    "url": "https://raw.githubusercontent.com/martj42/international_results/394fe81893b062fbc2cf6257e988ac7cc4c039a1/results.csv",
+    "commit": "394fe81893b062fbc2cf6257e988ac7cc4c039a1",
+    "sha256": "df35268f8fc341ff7fb93d448b4e40356676ac35300a6b4461fd199a99ac1514",
+    "rows": 49547,
+    "firstDate": "1872-11-30",
+    "lastDate": "2026-08-26"
+  },
+  "summary": {
+    "v1InternationalRows": 2,
+    "preKickoffProspective": 2,
+    "postKickoffExcluded": 0,
+    "timingUnresolved": 0,
+    "cleanProspectiveEligible": 0,
+    "verifiedHomeCountry": 1,
+    "verifiedThirdCountryOrAway": 1,
+    "venueContextUnresolved": 0,
+    "xiProbeAttempted": 2,
+    "xiSummaryAvailable": 2,
+    "confirmedXI": 0
+  },
+  "prospectiveCandidates": [
+    {
+      "fixture": {
+        "home": "Jamaica",
+        "away": "Costa Rica",
+        "kickoff": "2026-11-27T22:00:00Z",
+        "competition": "quarterfinals",
+        "competitionSlug": "quarterfinals"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.27243058830094824,
+        "D": 0.3157512171004048,
+        "A": 0.4118181945986469
+      },
+      "pick": "A",
+      "pickProbability": 0.4118181945986469,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.588181805401353,
+          "fairOdds": 1.7001545964476712
+        },
+        "X2": {
+          "p": 0.7275694116990516,
+          "fairOdds": 1.3744393097350762
+        },
+        "12": {
+          "p": 0.6842487828995951,
+          "fairOdds": 1.4614567464225032
+        },
+        "HOME_DNB": {
+          "winP": 0.27243058830094824,
+          "pushP": 0.3157512171004048,
+          "lossP": 0.4118181945986469,
+          "conditionalP": 0.39814552120427227,
+          "fairOdds": 2.5116444785697856
+        },
+        "AWAY_DNB": {
+          "winP": 0.4118181945986469,
+          "pushP": 0.3157512171004048,
+          "lossP": 0.27243058830094824,
+          "conditionalP": 0.6018544787957277,
+          "fairOdds": 1.6615312093397328
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1656.38335927516,
+          "recentN": 8,
+          "goalsForMean": 0.875,
+          "goalsAgainstMean": 1.0,
+          "pointsShare": 0.5,
+          "recentOpponentEloMean": 1646.7976293786003,
+          "daysSinceMatch": 10
+        },
+        "away": {
+          "elo": 1715.411661687753,
+          "recentN": 8,
+          "goalsForMean": 0.375,
+          "goalsAgainstMean": 2.875,
+          "pointsShare": 0.08333333333333333,
+          "recentOpponentEloMean": 1851.3887559899217,
+          "daysSinceMatch": 10
+        },
+        "eloDiffWithHomeAdvantage": 5.971697587407107
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "RESOLVED_WOMENS_COMPETITION"
+      },
+      "venueContext": {
+        "status": "VERIFIED_THIRD_COUNTRY_NEUTRAL_OR_DISPLACED",
+        "neutralSite": null,
+        "venue": {
+          "name": "Texas Health Mansfield Stadium",
+          "city": "Mansfield",
+          "country": "USA"
+        },
+        "venueCountryEvidence": "venue country matches neither national team; nominal home boost removed",
+        "homeAdvantageApplied": false,
+        "homeContextProbability": {
+          "H": 0.37546601665081797,
+          "D": 0.31459790343251165,
+          "A": 0.30993607991667044
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.27243058830094824,
+          "D": 0.3157512171004048,
+          "A": 0.4118181945986469
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401870039",
+      "capture": {
+        "capturedAt": "2026-11-27T04:16:03.188841Z",
+        "kickoffUtc": "2026-11-27T22:00:00Z",
+        "leadMinutes": 1063.94685265,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401870039",
+        "home": "Jamaica",
+        "away": "Costa Rica",
+        "kickoff": "2026-11-27T22:00Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Texas Health Mansfield Stadium",
+          "city": "Mansfield",
+          "country": "USA"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14139,
+          "slug": "quarterfinals"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "18969",
+          "name": "Concacaf W Championship",
+          "slug": "concacaf.womens.championship",
+          "abbreviation": "Concacaf W Championship"
+        },
+        "rosters": [
+          {
+            "teamId": "2893",
+            "team": "Jamaica",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "2894",
+            "team": "Costa Rica",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "18969",
+        "name": "Concacaf W Championship",
+        "slug": "concacaf.womens.championship",
+        "abbreviation": "Concacaf W Championship"
+      },
+      "resolvedNamespaceBlock": "RESOLVED_WOMENS_COMPETITION",
+      "cleanProspectiveEligible": false
+    },
+    {
+      "fixture": {
+        "home": "United States",
+        "away": "El Salvador",
+        "kickoff": "2026-11-28T01:30:00Z",
+        "competition": "quarterfinals",
+        "competitionSlug": "quarterfinals"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.8198314154629122,
+        "D": 0.1296109413197431,
+        "A": 0.050557643217344746
+      },
+      "pick": "H",
+      "pickProbability": 0.8198314154629122,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.9494423567826553,
+          "fairOdds": 1.0532498290772152
+        },
+        "X2": {
+          "p": 0.18016858453708784,
+          "fairOdds": 5.550357197784108
+        },
+        "12": {
+          "p": 0.870389058680257,
+          "fairOdds": 1.1489115011581923
+        },
+        "HOME_DNB": {
+          "winP": 0.8198314154629122,
+          "pushP": 0.1296109413197431,
+          "lossP": 0.050557643217344746,
+          "conditionalP": 0.9419137422361401,
+          "fairOdds": 1.061668340909817
+        },
+        "AWAY_DNB": {
+          "winP": 0.050557643217344746,
+          "pushP": 0.1296109413197431,
+          "lossP": 0.8198314154629122,
+          "conditionalP": 0.05808625776385985,
+          "fairOdds": 17.21577595970007
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1817.8476234321474,
+          "recentN": 8,
+          "goalsForMean": 2.5,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.625,
+          "recentOpponentEloMean": 1779.2138149210364,
+          "daysSinceMatch": 10
+        },
+        "away": {
+          "elo": 1506.2783958533548,
+          "recentN": 8,
+          "goalsForMean": 0.375,
+          "goalsAgainstMean": 1.5,
+          "pointsShare": 0.20833333333333334,
+          "recentOpponentEloMean": 1651.4291236133802,
+          "daysSinceMatch": 174
+        },
+        "eloDiffWithHomeAdvantage": 376.5692275787926
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "RESOLVED_WOMENS_COMPETITION"
+      },
+      "venueContext": {
+        "status": "VERIFIED_HOME_COUNTRY",
+        "neutralSite": null,
+        "venue": {
+          "name": "Texas Health Mansfield Stadium",
+          "city": "Mansfield",
+          "country": "USA"
+        },
+        "venueCountryEvidence": "venue country matches nominal home national team",
+        "homeAdvantageApplied": true,
+        "homeContextProbability": {
+          "H": 0.8198314154629122,
+          "D": 0.1296109413197431,
+          "A": 0.050557643217344746
+        },
+        "noHomeAdvantageProbability": {
+          "H": 0.7358246648091246,
+          "D": 0.18107844570910517,
+          "A": 0.08309688948177023
+        },
+        "probabilityContextVerified": true
+      },
+      "sourceFixtureId": "401870040",
+      "capture": {
+        "capturedAt": "2026-11-27T04:16:03.188841Z",
+        "kickoffUtc": "2026-11-28T01:30:00Z",
+        "leadMinutes": 1273.94685265,
+        "statusAtCapture": "PRE_KICKOFF"
+      },
+      "eventIdentity": {
+        "eventId": "401870040",
+        "home": "United States",
+        "away": "El Salvador",
+        "kickoff": "2026-11-28T01:30Z",
+        "neutralSite": null,
+        "neutralSiteRawPresent": false,
+        "venue": {
+          "name": "Texas Health Mansfield Stadium",
+          "city": "Mansfield",
+          "country": "USA"
+        },
+        "eventSeason": {
+          "year": 2026,
+          "type": 14139,
+          "slug": "quarterfinals"
+        },
+        "competitionLeague": null,
+        "competitionType": null,
+        "status": {
+          "state": "pre",
+          "completed": false
+        }
+      },
+      "officialXI": {
+        "available": true,
+        "endpoint": "ESPN_ALL_SUMMARY",
+        "confirmedXI": false,
+        "rosterSides": 2,
+        "starterCounts": [
+          0,
+          0
+        ],
+        "leagueIdentity": {
+          "id": "18969",
+          "name": "Concacaf W Championship",
+          "slug": "concacaf.womens.championship",
+          "abbreviation": "Concacaf W Championship"
+        },
+        "rosters": [
+          {
+            "teamId": "2765",
+            "team": "United States",
+            "starters": 0,
+            "players": []
+          },
+          {
+            "teamId": "21476",
+            "team": "El Salvador",
+            "starters": 0,
+            "players": []
+          }
+        ]
+      },
+      "resolvedCompetition": {
+        "id": "18969",
+        "name": "Concacaf W Championship",
+        "slug": "concacaf.womens.championship",
+        "abbreviation": "Concacaf W Championship"
+      },
+      "resolvedNamespaceBlock": "RESOLVED_WOMENS_COMPETITION",
+      "cleanProspectiveEligible": false
+    }
+  ],
+  "postKickoffResearchRows": [],
+  "timingUnresolvedRows": []
+}

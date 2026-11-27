@@ -1,0 +1,1462 @@
+{
+  "schemaVersion": "HBT-INTERNATIONAL-CHALLENGER-1",
+  "version": "HBT-1.4-INTERNATIONAL-CHALLENGER-1",
+  "generatedAt": "2026-11-27T04:16:03Z",
+  "targetDate": "2026-11-27",
+  "policy": {
+    "researchOnly": true,
+    "frozenHBT112Mutated": false,
+    "domesticForecastsMutated": false,
+    "bookmakerOddsRead": false,
+    "pointInTimeCausality": true,
+    "missingIsZero": false,
+    "unsupportedRelabelledAsSupportedWithoutEvidence": false,
+    "automaticPromotion": false,
+    "automaticFunding": false,
+    "cleanProspectiveConfirmationRequired": true
+  },
+  "historySource": {
+    "url": "https://raw.githubusercontent.com/martj42/international_results/394fe81893b062fbc2cf6257e988ac7cc4c039a1/results.csv",
+    "commit": "394fe81893b062fbc2cf6257e988ac7cc4c039a1",
+    "sha256": "df35268f8fc341ff7fb93d448b4e40356676ac35300a6b4461fd199a99ac1514",
+    "rows": 49547,
+    "firstDate": "1872-11-30",
+    "lastDate": "2026-08-26"
+  },
+  "recentSupplement": {
+    "attemptedDays": 45,
+    "loadedDays": 45,
+    "failedDays": 0,
+    "addedMatches": 187,
+    "from": "2026-10-13",
+    "through": "2026-11-26"
+  },
+  "validation": {
+    "selectionWindow": [
+      "2023-01-01",
+      "2024-12-31"
+    ],
+    "holdoutWindow": [
+      "2025-01-01",
+      "2026-11-27"
+    ],
+    "selectedParams": {
+      "eloSlope": 1.4,
+      "homeLogit": 0.15,
+      "drawIntercept": 0.0,
+      "drawMismatchPenalty": 0.4
+    },
+    "selection": {
+      "n": 2285,
+      "logLoss": 0.8842945020773297,
+      "brier": 0.5206899405328139,
+      "accuracy": 0.6026258205689278,
+      "topPickECE": 0.01644032866381879
+    },
+    "holdout": {
+      "n": 1639,
+      "logLoss": 0.8413658803843993,
+      "brier": 0.49272892752403613,
+      "accuracy": 0.6174496644295302,
+      "topPickECE": 0.028242863804869317
+    },
+    "holdoutBaseline": {
+      "n": 1639,
+      "logLoss": 1.0435240813395588,
+      "brier": 0.6287719293151509,
+      "accuracy": 0.48688224527150703,
+      "topPickECE": 0.0048423339632937545
+    },
+    "competitiveHoldout": {
+      "n": 1170,
+      "logLoss": 0.8253628142531494,
+      "brier": 0.4819372549183655,
+      "accuracy": 0.6299145299145299,
+      "topPickECE": 0.03601446936550374
+    },
+    "friendlyHoldout": {
+      "n": 469,
+      "logLoss": 0.8812882415220534,
+      "brier": 0.5196505841309343,
+      "accuracy": 0.5863539445628998,
+      "topPickECE": 0.021799241185536933
+    },
+    "beatsFixedHistoricalBaseRateOnLogLossAndBrier": true,
+    "promotionAllowed": false,
+    "promotionBlock": "requires clean prospective confirmation plus broader HBT-1.4 interaction/ablation validation"
+  },
+  "domainSummary": {
+    "CLUB_CUP": 9,
+    "CLUB_FRIENDLY": 5,
+    "CLUB_LEAGUE_OR_UNRESOLVED": 45,
+    "CLUB_WOMEN": 16,
+    "CLUB_YOUTH": 8,
+    "NATIONAL_COMPETITIVE": 2,
+    "NATIONAL_WOMEN": 6
+  },
+  "domainRows": [
+    {
+      "fixture": {
+        "home": "Macarthur FC",
+        "away": "Melbourne City FC",
+        "kickoff": "2026-11-27T08:40:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Cyprus",
+        "away": "Luxembourg",
+        "kickoff": "2026-11-27T09:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "FC Ilves",
+        "away": "TPS",
+        "kickoff": "2026-11-27T11:30:00Z",
+        "competition": "2026-club-friendly",
+        "competitionSlug": "2026-club-friendly"
+      },
+      "domain": "CLUB_FRIENDLY",
+      "seniorMens": false,
+      "reason": "club/non-national friendly",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Al Kholood",
+        "away": "Al Khaleej",
+        "kickoff": "2026-11-27T12:15:00Z",
+        "competition": "2026-27-saudi-pro-league",
+        "competitionSlug": "2026-27-saudi-pro-league"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "1. FC Tatran Presov",
+        "away": "FC LOKOMOTÍVA KOŠICE",
+        "kickoff": "2026-11-27T13:00:00Z",
+        "competition": "2026-club-friendly",
+        "competitionSlug": "2026-club-friendly"
+      },
+      "domain": "CLUB_FRIENDLY",
+      "seniorMens": false,
+      "reason": "club/non-national friendly",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "FC Basel II",
+        "away": "Servette II",
+        "kickoff": "2026-11-27T13:00:00Z",
+        "competition": "2026-club-friendly",
+        "competitionSlug": "2026-club-friendly"
+      },
+      "domain": "CLUB_FRIENDLY",
+      "seniorMens": false,
+      "reason": "club/non-national friendly",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Azam FC",
+        "away": "Al Ahli Tripoli",
+        "kickoff": "2026-11-27T13:00:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Colombia U17",
+        "away": "Serbia U17",
+        "kickoff": "2026-11-27T13:00:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "domain": "CLUB_YOUTH",
+      "seniorMens": false,
+      "reason": "youth namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Honduras U17",
+        "away": "Japan U17",
+        "kickoff": "2026-11-27T13:00:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "domain": "CLUB_YOUTH",
+      "seniorMens": false,
+      "reason": "youth namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Costa Rica U17",
+        "away": "Brazil U17",
+        "kickoff": "2026-11-27T14:00:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "domain": "CLUB_YOUTH",
+      "seniorMens": false,
+      "reason": "youth namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Republic of Ireland U17",
+        "away": "Tanzania U17",
+        "kickoff": "2026-11-27T14:00:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "domain": "CLUB_YOUTH",
+      "seniorMens": false,
+      "reason": "youth namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Inter Kashi",
+        "away": "Churchill Brothers",
+        "kickoff": "2026-11-27T14:00:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Al Qadsiah",
+        "away": "Al Fayha",
+        "kickoff": "2026-11-27T14:20:00Z",
+        "competition": "2026-27-saudi-pro-league",
+        "competitionSlug": "2026-27-saudi-pro-league"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Algeria U17",
+        "away": "Dominican Republic U17",
+        "kickoff": "2026-11-27T15:00:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "domain": "CLUB_YOUTH",
+      "seniorMens": false,
+      "reason": "youth namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Montenegro U17",
+        "away": "Chile U17",
+        "kickoff": "2026-11-27T15:00:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "domain": "CLUB_YOUTH",
+      "seniorMens": false,
+      "reason": "youth namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Ivory Coast",
+        "away": "Senegal",
+        "kickoff": "2026-11-27T16:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Romania U17",
+        "away": "Cameroon U17",
+        "kickoff": "2026-11-27T16:00:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "domain": "CLUB_YOUTH",
+      "seniorMens": false,
+      "reason": "youth namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Venezuela U17",
+        "away": "Mexico U17",
+        "kickoff": "2026-11-27T16:00:00Z",
+        "competition": "group-stage",
+        "competitionSlug": "group-stage"
+      },
+      "domain": "CLUB_YOUTH",
+      "seniorMens": false,
+      "reason": "youth namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Raków Częstochowa",
+        "away": "Piast Gliwice",
+        "kickoff": "2026-11-27T17:00:00",
+        "competition": "Ekstraklasa",
+        "competitionSlug": "pl.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Alanyaspor",
+        "away": "Konyaspor",
+        "kickoff": "2026-11-27T17:00:00Z",
+        "competition": "Süper Lig",
+        "competitionSlug": "tr.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "FALLBACK"
+    },
+    {
+      "fixture": {
+        "home": "Caykur Rizespor",
+        "away": "Kasimpasa",
+        "kickoff": "2026-11-27T17:00:00Z",
+        "competition": "Süper Lig",
+        "competitionSlug": "tr.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "NOT_YET_READY"
+    },
+    {
+      "fixture": {
+        "home": "1. FC Heidenheim 1846",
+        "away": "1. FC Nürnberg",
+        "kickoff": "2026-11-27T17:30:00Z",
+        "competition": "2026-27-german-2-bundesliga",
+        "competitionSlug": "2026-27-german-2-bundesliga"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "FALLBACK"
+    },
+    {
+      "fixture": {
+        "home": "VfL Bochum",
+        "away": "SV Darmstadt 98",
+        "kickoff": "2026-11-27T17:30:00Z",
+        "competition": "2026-27-german-2-bundesliga",
+        "competitionSlug": "2026-27-german-2-bundesliga"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Al Ittihad",
+        "away": "Neom SC",
+        "kickoff": "2026-11-27T17:30:00Z",
+        "competition": "2026-27-saudi-pro-league",
+        "competitionSlug": "2026-27-saudi-pro-league"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Stellenbosch",
+        "away": "TS Galaxy FC",
+        "kickoff": "2026-11-27T17:30:00Z",
+        "competition": "2026-27-south-african-premiership",
+        "competitionSlug": "2026-27-south-african-premiership"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Östers IF",
+        "away": "FK Karlskrona",
+        "kickoff": "2026-11-27T17:30:00Z",
+        "competition": "2026-club-friendly",
+        "competitionSlug": "2026-club-friendly"
+      },
+      "domain": "CLUB_FRIENDLY",
+      "seniorMens": false,
+      "reason": "club/non-national friendly",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "FSC Eggendorf",
+        "away": "Wolfsberger AC Amateure",
+        "kickoff": "2026-11-27T17:45:00Z",
+        "competition": "2026-club-friendly",
+        "competitionSlug": "2026-club-friendly"
+      },
+      "domain": "CLUB_FRIENDLY",
+      "seniorMens": false,
+      "reason": "club/non-national friendly",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "AS Cannes",
+        "away": "Le Puy",
+        "kickoff": "2026-11-27T18:00:00Z",
+        "competition": "eighth-round",
+        "competitionSlug": "eighth-round"
+      },
+      "domain": "CLUB_CUP",
+      "seniorMens": false,
+      "reason": "club/non-national cup or knockout context",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Sønderjyske Fodbold",
+        "away": "Brøndby IF",
+        "kickoff": "2026-11-27T18:00:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Grazer AK",
+        "away": "SC Rheindorf Altach",
+        "kickoff": "2026-11-27T18:30:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "FC Dordrecht",
+        "away": "Vitesse",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Jong AZ",
+        "away": "TOP Oss",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Jong Ajax",
+        "away": "Heracles Almelo",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Jong FC Utrecht",
+        "away": "Almere City",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "MVV Maastricht",
+        "away": "Jong PSV",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "NAC Breda",
+        "away": "FC Den Bosch",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "VVV-Venlo",
+        "away": "RKC Waalwijk",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "2026-27-keuken-kampioen-divisie",
+        "competitionSlug": "2026-27-keuken-kampioen-divisie"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "ABB",
+        "away": "Real Tomayapo",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "2026-bolivian-liga-profesional",
+        "competitionSlug": "2026-bolivian-liga-profesional"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Duke",
+        "away": "Michigan",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Texas Tech",
+        "away": "Villanova",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Northern Ireland",
+        "away": "Greece",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "FC Groningen",
+        "away": "Willem II",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "Eredivisie",
+        "competitionSlug": "nl.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "NOT_YET_READY"
+    },
+    {
+      "fixture": {
+        "home": "Le Pays Du Valois",
+        "away": "Valenciennes",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "eighth-round",
+        "competitionSlug": "eighth-round"
+      },
+      "domain": "CLUB_CUP",
+      "seniorMens": false,
+      "reason": "club/non-national cup or knockout context",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Pays de Saint-Omer",
+        "away": "Caen",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "eighth-round",
+        "competitionSlug": "eighth-round"
+      },
+      "domain": "CLUB_CUP",
+      "seniorMens": false,
+      "reason": "club/non-national cup or knockout context",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Delfín",
+        "away": "Orense",
+        "kickoff": "2026-11-27T19:00:00Z",
+        "competition": "final-stage",
+        "competitionSlug": "final-stage"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Górnik Zabrze",
+        "away": "Wisła Płock",
+        "kickoff": "2026-11-27T19:30:00",
+        "competition": "Ekstraklasa",
+        "competitionSlug": "pl.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Alabama",
+        "away": "Stanford",
+        "kickoff": "2026-11-27T19:30:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Werder Bremen",
+        "away": "Borussia Mönchengladbach",
+        "kickoff": "2026-11-27T19:30:00Z",
+        "competition": "Bundesliga",
+        "competitionSlug": "de.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "FALLBACK"
+    },
+    {
+      "fixture": {
+        "home": "Leganés",
+        "away": "CD Sabadell",
+        "kickoff": "2026-11-27T19:30:00Z",
+        "competition": "Segunda División",
+        "competitionSlug": "es.2"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Largs Thistle",
+        "away": "Ayr United",
+        "kickoff": "2026-11-27T19:30:00Z",
+        "competition": "third-round",
+        "competitionSlug": "third-round"
+      },
+      "domain": "CLUB_CUP",
+      "seniorMens": false,
+      "reason": "club/non-national cup or knockout context",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "OH Leuven",
+        "away": "KV Kortrijk",
+        "kickoff": "2026-11-27T19:45:00Z",
+        "competition": "Belgian Pro League",
+        "competitionSlug": "be.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Brest",
+        "away": "Paris FC",
+        "kickoff": "2026-11-27T19:45:00Z",
+        "competition": "Ligue 1",
+        "competitionSlug": "fr.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "INSUFFICIENT_DATA"
+    },
+    {
+      "fixture": {
+        "home": "Venezia",
+        "away": "Bologna",
+        "kickoff": "2026-11-27T19:45:00Z",
+        "competition": "Serie A",
+        "competitionSlug": "it.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "FALLBACK"
+    },
+    {
+      "fixture": {
+        "home": "Scunthorpe United",
+        "away": "Wealdstone",
+        "kickoff": "2026-11-27T19:45:00Z",
+        "competition": "regular-season",
+        "competitionSlug": "regular-season"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "BYU",
+        "away": "Utah State",
+        "kickoff": "2026-11-27T20:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Kansas",
+        "away": "UCLA",
+        "kickoff": "2026-11-27T20:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Purdue",
+        "away": "Houston",
+        "kickoff": "2026-11-27T20:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "South Carolina",
+        "away": "Florida State",
+        "kickoff": "2026-11-27T20:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "France",
+        "away": "Venezuela",
+        "kickoff": "2026-11-27T20:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Southampton",
+        "away": "Middlesbrough",
+        "kickoff": "2026-11-27T20:00:00Z",
+        "competition": "Championship",
+        "competitionSlug": "en.2"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Levante",
+        "away": "Racing Santander",
+        "kickoff": "2026-11-27T20:00:00Z",
+        "competition": "LaLiga",
+        "competitionSlug": "es.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "INSUFFICIENT_DATA"
+    },
+    {
+      "fixture": {
+        "home": "Nottingham Forest",
+        "away": "Chelsea",
+        "kickoff": "2026-11-27T20:00:00Z",
+        "competition": "Premier League",
+        "competitionSlug": "en.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "FALLBACK"
+    },
+    {
+      "fixture": {
+        "home": "Maritimo",
+        "away": "C.D. Nacional",
+        "kickoff": "2026-11-27T20:15:00Z",
+        "competition": "Primeira Liga",
+        "competitionSlug": "pt.1"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "NOT_YET_READY"
+    },
+    {
+      "fixture": {
+        "home": "Nacional Asunción",
+        "away": "Rubio Ñú",
+        "kickoff": "2026-11-27T20:30:00Z",
+        "competition": "torneo-clausura-2026",
+        "competitionSlug": "torneo-clausura-2026"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Peru",
+        "away": "Dominican Republic",
+        "kickoff": "2026-11-27T21:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Deportivo Cuenca",
+        "away": "Manta F.C.",
+        "kickoff": "2026-11-27T21:30:00Z",
+        "competition": "final-stage",
+        "competitionSlug": "final-stage"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Colorado",
+        "away": "Clemson",
+        "kickoff": "2026-11-27T22:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Jamaica",
+        "away": "Costa Rica",
+        "kickoff": "2026-11-27T22:00:00Z",
+        "competition": "quarterfinals",
+        "competitionSlug": "quarterfinals"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Atlanta",
+        "away": "Ciudad de Bolívar",
+        "kickoff": "2026-11-27T22:00:00Z",
+        "competition": "torneo-reducido---quarterfinals",
+        "competitionSlug": "torneo-reducido---quarterfinals"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Independiente Petrolero",
+        "away": "Real Oruro",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "2026-bolivian-liga-profesional",
+        "competitionSlug": "2026-bolivian-liga-profesional"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Fluminense",
+        "away": "Cruzeiro",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "2026-brasileiro-serie-a",
+        "competitionSlug": "2026-brasileiro-serie-a"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Vila Nova",
+        "away": "Atlético Goianiense",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "2026-brasileiro-serie-b",
+        "competitionSlug": "2026-brasileiro-serie-b"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Michigan State",
+        "away": "Xavier",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "North Carolina",
+        "away": "Washington",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Notre Dame",
+        "away": "Mississippi State",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Ohio State",
+        "away": "Tennessee",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Vanderbilt",
+        "away": "Wisconsin",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Virginia",
+        "away": "West Virginia",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Wake Forest",
+        "away": "Saint Louis",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Bolivia",
+        "away": "Uruguay",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "2026-womens-international-friendly",
+        "competitionSlug": "2026-womens-international-friendly"
+      },
+      "domain": "NATIONAL_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Sportivo Luqueño",
+        "away": "Club Olimpia",
+        "kickoff": "2026-11-27T23:00:00Z",
+        "competition": "torneo-clausura-2026",
+        "competitionSlug": "torneo-clausura-2026"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Liverpool",
+        "away": "Racing (Montevideo)",
+        "kickoff": "2026-11-27T23:30:00Z",
+        "competition": "championship-playoff-semifinal",
+        "competitionSlug": "championship-playoff-semifinal"
+      },
+      "domain": "CLUB_CUP",
+      "seniorMens": false,
+      "reason": "club/non-national cup or knockout context",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Deportivo Cali",
+        "away": "Atlético Bucaramanga",
+        "kickoff": "2026-11-27T23:35:00Z",
+        "competition": "playoffs---semifinals",
+        "competitionSlug": "playoffs---semifinals"
+      },
+      "domain": "CLUB_CUP",
+      "seniorMens": false,
+      "reason": "club/non-national cup or knockout context",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Deportivo Morón",
+        "away": "Colón (Santa Fe)",
+        "kickoff": "2026-11-28T00:00:00Z",
+        "competition": "torneo-reducido---quarterfinals",
+        "competitionSlug": "torneo-reducido---quarterfinals"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Tristán Suárez",
+        "away": "Gimnasia y Tiro (Salta)",
+        "kickoff": "2026-11-28T00:00:00Z",
+        "competition": "torneo-reducido---quarterfinals",
+        "competitionSlug": "torneo-reducido---quarterfinals"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Baylor",
+        "away": "Virginia Tech",
+        "kickoff": "2026-11-28T01:00:00Z",
+        "competition": "2026-ncaa-division-i-women",
+        "competitionSlug": "2026-ncaa-division-i-women"
+      },
+      "domain": "CLUB_WOMEN",
+      "seniorMens": false,
+      "reason": "women namespace",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Columbus Crew",
+        "away": "Inter Miami CF",
+        "kickoff": "2026-11-28T01:00:00Z",
+        "competition": "eastern-conference-playoffs---round-one",
+        "competitionSlug": "eastern-conference-playoffs---round-one"
+      },
+      "domain": "CLUB_CUP",
+      "seniorMens": false,
+      "reason": "club/non-national cup or knockout context",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "United States",
+        "away": "El Salvador",
+        "kickoff": "2026-11-28T01:30:00Z",
+        "competition": "quarterfinals",
+        "competitionSlug": "quarterfinals"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "seniorMens": true,
+      "reason": "both teams resolve to senior national-team history",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Millonarios",
+        "away": "América de Cali",
+        "kickoff": "2026-11-28T01:40:00Z",
+        "competition": "playoffs---semifinals",
+        "competitionSlug": "playoffs---semifinals"
+      },
+      "domain": "CLUB_CUP",
+      "seniorMens": false,
+      "reason": "club/non-national cup or knockout context",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Herediano",
+        "away": "Escorpiones Belén",
+        "kickoff": "2026-11-28T02:00:00Z",
+        "competition": "apertura",
+        "competitionSlug": "apertura"
+      },
+      "domain": "CLUB_LEAGUE_OR_UNRESOLVED",
+      "seniorMens": false,
+      "reason": "not both senior national teams",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    },
+    {
+      "fixture": {
+        "home": "Real Salt Lake",
+        "away": "Vancouver Whitecaps",
+        "kickoff": "2026-11-28T03:00:00Z",
+        "competition": "western-conference-playoffs---round-one",
+        "competitionSlug": "western-conference-playoffs---round-one"
+      },
+      "domain": "CLUB_CUP",
+      "seniorMens": false,
+      "reason": "club/non-national cup or knockout context",
+      "scannerSupportLevel": "UNSUPPORTED_COMPETITION"
+    }
+  ],
+  "internationalCandidates": [
+    {
+      "fixture": {
+        "home": "Jamaica",
+        "away": "Costa Rica",
+        "kickoff": "2026-11-27T22:00:00Z",
+        "competition": "quarterfinals",
+        "competitionSlug": "quarterfinals"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.37546601665081797,
+        "D": 0.31459790343251165,
+        "A": 0.30993607991667044
+      },
+      "pick": "H",
+      "pickProbability": 0.37546601665081797,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.6900639200833296,
+          "fairOdds": 1.449141117071073
+        },
+        "X2": {
+          "p": 0.6245339833491821,
+          "fairOdds": 1.6011938928243905
+        },
+        "12": {
+          "p": 0.6854020965674884,
+          "fairOdds": 1.4589975796806374
+        },
+        "HOME_DNB": {
+          "winP": 0.37546601665081797,
+          "pushP": 0.31459790343251165,
+          "lossP": 0.30993607991667044,
+          "conditionalP": 0.5478040095458733,
+          "fairOdds": 1.8254703919180784
+        },
+        "AWAY_DNB": {
+          "winP": 0.30993607991667044,
+          "pushP": 0.31459790343251165,
+          "lossP": 0.37546601665081797,
+          "conditionalP": 0.45219599045412673,
+          "fairOdds": 2.211430488350262
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1656.38335927516,
+          "recentN": 8,
+          "goalsForMean": 0.875,
+          "goalsAgainstMean": 1.0,
+          "pointsShare": 0.5,
+          "recentOpponentEloMean": 1646.7976293786003,
+          "daysSinceMatch": 10
+        },
+        "away": {
+          "elo": 1715.411661687753,
+          "recentN": 8,
+          "goalsForMean": 0.375,
+          "goalsAgainstMean": 2.875,
+          "pointsShare": 0.08333333333333333,
+          "recentOpponentEloMean": 1851.3887559899217,
+          "daysSinceMatch": 10
+        },
+        "eloDiffWithHomeAdvantage": 5.971697587407107
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    },
+    {
+      "fixture": {
+        "home": "United States",
+        "away": "El Salvador",
+        "kickoff": "2026-11-28T01:30:00Z",
+        "competition": "quarterfinals",
+        "competitionSlug": "quarterfinals"
+      },
+      "domain": "NATIONAL_COMPETITIVE",
+      "predictionMode": "INTERNATIONAL_STRUCTURAL_CHALLENGER_V1",
+      "probs": {
+        "H": 0.8198314154629122,
+        "D": 0.1296109413197431,
+        "A": 0.050557643217344746
+      },
+      "pick": "H",
+      "pickProbability": 0.8198314154629122,
+      "derivedMarkets": {
+        "1X": {
+          "p": 0.9494423567826553,
+          "fairOdds": 1.0532498290772152
+        },
+        "X2": {
+          "p": 0.18016858453708784,
+          "fairOdds": 5.550357197784108
+        },
+        "12": {
+          "p": 0.870389058680257,
+          "fairOdds": 1.1489115011581923
+        },
+        "HOME_DNB": {
+          "winP": 0.8198314154629122,
+          "pushP": 0.1296109413197431,
+          "lossP": 0.050557643217344746,
+          "conditionalP": 0.9419137422361401,
+          "fairOdds": 1.061668340909817
+        },
+        "AWAY_DNB": {
+          "winP": 0.050557643217344746,
+          "pushP": 0.1296109413197431,
+          "lossP": 0.8198314154629122,
+          "conditionalP": 0.05808625776385985,
+          "fairOdds": 17.21577595970007
+        }
+      },
+      "quality": 1.0,
+      "state": {
+        "home": {
+          "elo": 1817.8476234321474,
+          "recentN": 8,
+          "goalsForMean": 2.5,
+          "goalsAgainstMean": 1.25,
+          "pointsShare": 0.625,
+          "recentOpponentEloMean": 1779.2138149210364,
+          "daysSinceMatch": 10
+        },
+        "away": {
+          "elo": 1506.2783958533548,
+          "recentN": 8,
+          "goalsForMean": 0.375,
+          "goalsAgainstMean": 1.5,
+          "pointsShare": 0.20833333333333334,
+          "recentOpponentEloMean": 1651.4291236133802,
+          "daysSinceMatch": 174
+        },
+        "eloDiffWithHomeAdvantage": 376.5692275787926
+      },
+      "intelligenceCoverage": {
+        "structuralInternationalState": true,
+        "recentInternationalPerformance": true,
+        "freshInternationalState": true,
+        "clubToCountryPlayerTransfer": false,
+        "confirmedXI": false,
+        "tacticalMatchup": false,
+        "shotStoppingGoalkeeper": false,
+        "setPieces": false,
+        "referee": false,
+        "weatherVenue": false,
+        "motivationCompetition": true
+      },
+      "execution": {
+        "class": "R0_SHADOW_RESEARCH",
+        "fundingAllowed": false,
+        "reason": "international challenger requires clean prospective confirmation before promotion"
+      }
+    }
+  ],
+  "summary": {
+    "discoveredFixtures": 91,
+    "seniorMensInternationalCandidates": 2,
+    "pricedOrFunded": 0,
+    "r0Shadow": 2
+  }
+}

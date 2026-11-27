@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "HBT-INTERNATIONAL-SETTLEMENT-1",
+  "version": "HBT-1.4-INTERNATIONAL-SETTLEMENT-1",
+  "generatedAt": "2026-11-27T04:16:22.959293Z",
+  "targetDate": "2026-11-27",
+  "source": "hbt_international_intelligence_2026-11-27.json",
+  "policy": {
+    "prospectiveOnly": true,
+    "cleanRowsOnly": true,
+    "identityVerified": true,
+    "bookmakerOddsRead": false,
+    "retrainingPerformed": false,
+    "retuningPerformed": false,
+    "automaticPromotion": false,
+    "automaticFunding": false
+  },
+  "summary": {
+    "cleanSettled": 0,
+    "pending": 0,
+    "blocked": 2
+  },
+  "metrics": {
+    "structuralOnly": {
+      "n": 0,
+      "logLoss": null,
+      "brier": null,
+      "accuracy": null
+    },
+    "recentInteractionChallenger": {
+      "n": 0,
+      "logLoss": null,
+      "brier": null,
+      "accuracy": null
+    },
+    "recentInteractionImprovesLogLossAndBrierOnThisProspectiveSample": false,
+    "promotionEvidenceSufficient": false,
+    "note": "Small clean prospective samples are confirmatory/hypothesis evidence only; promotion still requires accumulated prospective confirmation and full interaction/ablation gates."
+  },
+  "settled": [],
+  "pending": [],
+  "blocked": [
+    {
+      "fixture": {
+        "home": "Jamaica",
+        "away": "Costa Rica",
+        "kickoff": "2026-11-27T22:00:00Z",
+        "competition": "quarterfinals",
+        "competitionSlug": "quarterfinals"
+      },
+      "reason": "not cleanProspectiveEligible"
+    },
+    {
+      "fixture": {
+        "home": "United States",
+        "away": "El Salvador",
+        "kickoff": "2026-11-28T01:30:00Z",
+        "competition": "quarterfinals",
+        "competitionSlug": "quarterfinals"
+      },
+      "reason": "not cleanProspectiveEligible"
+    }
+  ]
+}
