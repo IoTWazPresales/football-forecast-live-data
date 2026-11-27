@@ -44,11 +44,85 @@ export function verifyRecovery(root=ROOT){
   return {deployment,manifest};
 }
 
+export function confirmedXiCausal(fetchedAt,kickoffMs,nowMs){
+  if(!aware(fetchedAt)||!Number.isFinite(kickoffMs)||!Number.isFinite(nowMs))return false;
+  const asOf=Date.parse(fetchedAt);
+  return asOf<=kickoffMs&&asOf<=nowMs;
+}
+
+// A date/team match alone is insufficient: identical clubs can play in multiple competitions.
+// Only use an XI record with an explicitly matching competition, and event ID when supplied.
+// A per-event timestamp cannot authenticate a player feed whose own snapshot
+// was generated later (or in the future). Reject inconsistent provenance.
+export function confirmedXiFeedCausal(players,record,kickoffMs,nowMs){
+  if(!aware(players?.generatedAt)||!aware(record?.fetchedAt)||
+     !Number.isFinite(kickoffMs)||!Number.isFinite(nowMs))return false;
+  const feedMs=Date.parse(players.generatedAt),recordMs=Date.parse(record.fetchedAt);
+  return recordMs<=feedMs&&feedMs<=kickoffMs&&feedMs<=nowMs&&
+    confirmedXiCausal(record.fetchedAt,kickoffMs,nowMs);
+}
+
+export function confirmedXiIdentity(fixture,record){
+  if(!fixture||!record||typeof fixture.league!=='string'||!fixture.league||
+     typeof record.league!=='string'||record.league!==fixture.league)return false;
+  // Require both provider event identifiers: competition and team names alone cannot attest a fixture. 
+  if(fixture.eventId==null||record.eventId==null||!String(fixture.eventId).trim()||
+     !String(record.eventId).trim()||String(record.eventId)!==String(fixture.eventId))return false;
+  return true;
+}
+
+export function performanceHistoryCausal(teams,generatedAt){
+  if(!aware(generatedAt)||!Array.isArray(teams))return false;
+  // Date-only match records have no final-whistle timestamp. Same-day results
+  // cannot be proven available when the feed was generated; fail closed.
+  const asOfDay=new Date(Date.parse(generatedAt)).toISOString().slice(0,10);
+  return teams.every(team=>Array.isArray(team.history)&&team.history.every(row=>
+    typeof row.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(row.date)&&
+    Number.isFinite(Date.parse(row.date+'T00:00:00Z'))&&
+    new Date(Date.parse(row.date+'T00:00:00Z')).toISOString().slice(0,10)===row.date&&
+    row.date.slice(0,10)<asOfDay));
+}
+
+// Non-participant league rows inform L3 table pressure and L4 scoring environment.
+// They must obey the same feed-as-of cutoff even though only fixture participants
+// are subject to the strict missing-history gate.
+export function causalLeagueHistory(teams,generatedAt){
+  if(!aware(generatedAt)||!Array.isArray(teams))return [];
+  const cutoff=new Date(Date.parse(generatedAt)).toISOString().slice(0,10);
+  return teams.map(team=>({...team,history:Array.isArray(team.history)?
+    team.history.filter(row=>typeof row?.date==='string'&&/^\d{4}-\d{2}-\d{2}$/.test(row.date)&&
+      Number.isFinite(Date.parse(row.date+'T00:00:00Z'))&&
+      new Date(Date.parse(row.date+'T00:00:00Z')).toISOString().slice(0,10)===row.date&&row.date<cutoff):[]}));
+}
+
 export function predictShadow(pred,performance,players,deployment,now=new Date()){
   const fx=pred.fixture,src=performance.leagues?.[fx.league];
   if(!src)return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_LEAGUE_UNSUPPORTED'};
   if(!vector(pred.structuralFeatures?.vec,11))return {fixture:fx,status:'UNAVAILABLE',reason:'CAUSAL_STRUCTURAL_VECTOR_MISSING'};
-  const pack={teams:src.teams||[],byKey:new Map((src.teams||[]).map(t=>[perfTeamKey(t.title),t])),sourceUrl:src.source||null,feedGeneratedAt:performance.generatedAt};
+  // A lossy Map silently chooses one club when normalized identities collide.
+  // Refuse that fixture rather than mixing performance from different clubs.
+  // A malformed league roster must not crash the entire slate or create a
+  // silently lossy identity join. Fail this fixture closed before inference.
+  if(!Array.isArray(src.teams)||src.teams.some(t=>!t||typeof t.title!=='string'))
+    return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_TEAM_ROSTER_UNVERIFIABLE'};
+  const teams=src.teams;
+  const homeKey=perfTeamKey(fx.home),awayKey=perfTeamKey(fx.away);
+  const matchingHome=teams.filter(t=>perfTeamKey(t.title)===homeKey);
+  const matchingAway=teams.filter(t=>perfTeamKey(t.title)===awayKey);
+  if(!homeKey||!awayKey||homeKey===awayKey||matchingHome.length!==1||matchingAway.length!==1)
+    return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_TEAM_IDENTITY_AMBIGUOUS',diagnostics:{homeMatches:matchingHome.length,awayMatches:matchingAway.length}};
+  // Reject calendar rollover, non-UTC offsets and malformed kickoff clocks before any inference.
+  const kickoffText=`${fx.date}T${fx.time}:00Z`;
+  const ko=/^\d{4}-\d{2}-\d{2}T(?:[01]\d|2[0-3]):[0-5]\d:00Z$/.test(kickoffText)?Date.parse(kickoffText):NaN;
+  if(!Number.isFinite(ko)||new Date(ko).toISOString()!==kickoffText.replace(/Z$/,'.000Z'))
+    return {fixture:fx,status:'UNAVAILABLE',reason:'FIXTURE_KICKOFF_UTC_UNVERIFIABLE'};
+  const feedTime=Date.parse(performance.generatedAt);
+  if(!aware(performance.generatedAt)||!Number.isFinite(ko)||feedTime>ko||feedTime>now.getTime())
+    return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_FEED_AS_OF_UNVERIFIABLE'};
+  if(!performanceHistoryCausal([matchingHome[0],matchingAway[0]],performance.generatedAt))
+    return {fixture:fx,status:'UNAVAILABLE',reason:'PERFORMANCE_HISTORY_AFTER_FEED_AS_OF'};
+  const causalTeams=causalLeagueHistory(teams,performance.generatedAt);
+  const pack={teams:causalTeams,byKey:new Map(causalTeams.map(t=>[perfTeamKey(t.title),t])),sourceUrl:src.source||null,feedGeneratedAt:performance.generatedAt};
   const perf=livePerformanceFeatures(pack,fx,pred.structuralFeatures);
   if(!perf.ok)return {fixture:fx,status:'UNAVAILABLE',reason:perf.reason};
   const baseVec=[...pred.structuralFeatures.vec,...perf.extra];
@@ -57,16 +131,17 @@ export function predictShadow(pred,performance,players,deployment,now=new Date()
   if(!probability(l1)||![lh,la].every(x=>Number.isFinite(x)&&x>0))throw Error('Nonfinite recovered inference');
   const cfg=deployment.modelParameters,sm=l4Markets(l4ScoreDistribution(lh*cfg.l4Lock.goalScale,la*cfg.l4Lock.goalScale,cfg.l4Lock.dixonColesRho));
   // Match only this date and both identities; never reuse an adjacent day's XI.
-  const matching=Object.entries(players.features||{}).filter(([key,r])=>key.split('|')[0]===fx.date&&perfTeamKey(r.home)===perfTeamKey(fx.home)&&perfTeamKey(r.away)===perfTeamKey(fx.away));
+  const matching=Object.entries(players.features||{}).filter(([key,r])=>key.split('|')[0]===fx.date&&perfTeamKey(r.home)===perfTeamKey(fx.home)&&perfTeamKey(r.away)===perfTeamKey(fx.away)&&confirmedXiIdentity(fx,r));
   const xi=matching.length===1?matching[0][1]:null;
   const xiAge=aware(xi?.fetchedAt)?(now-Date.parse(xi.fetchedAt))/60000:Infinity;
-  const full=xi?.ok===true&&xiAge>=0&&xiAge<=30&&[xi.continuityDiff,xi.replacementQualityAdv].every(Number.isFinite);
+  // Historical replays must not use lineups first observed after kickoff.
+  const xiCausal=confirmedXiFeedCausal(players,xi,ko,now.getTime());
+  const full=xi?.ok===true&&xiCausal&&xiAge>=0&&xiAge<=30&&[xi.continuityDiff,xi.replacementQualityAdv].every(Number.isFinite);
   const row={vec:[...baseVec,full?xi.continuityDiff:0,full?xi.replacementQualityAdv:0,0,perf.stakesDiff]};
   const setting=full?cfg.full:cfg.preXi,core=liveTempPred(serPredict(full?deployment.models.fullCore:deployment.models.preXiCore,row,1),setting.coreTemperature);
   const probs=liveTempPred(liveBlendProb(core,sm.hda,setting.l4BlendWeight),setting.finalTemperature);
   if(!probability(probs)||!probability(sm.hda))throw Error('Invalid recovered probabilities');
   const age=aware(performance.generatedAt)?(now-Date.parse(performance.generatedAt))/60000:Infinity;
-  const ko=Date.parse(`${fx.date}T${fx.time}:00Z`);
   return {fixture:fx,status:'RESEARCH_ONLY',predictionMode:full?'CONFIRMED-XI FUSION':'PRE-XI FUSION',probs,layerPredictions:{L0:pred.probs,L1:l1,L4:sm.hda,Fusion:probs},scoreMarkets:sm,
     inputFeatures:{structural:pred.structuralFeatures.vec,performance:perf.extra,context:row.vec.slice(15),homeScore:perf.l4HomeVec,awayScore:perf.l4AwayVec},
     diagnostics:{performanceFeedAgeMinutes:Number.isFinite(age)?age:null,performanceFeedCurrent:age>=0&&age<=30,confirmedXi:full,xiReason:full?null:xi?.reason||'confirmed XI unavailable',preKickoff:Number.isFinite(ko)&&ko>now},
